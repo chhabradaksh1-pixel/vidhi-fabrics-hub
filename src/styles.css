@@ -19,6 +19,17 @@
  */
 
 @theme inline {
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-body: "Inter", "Noto Sans Devanagari", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-mute: var(--mute);
+  --color-clay: var(--clay);
+  --color-claydeep: var(--claydeep);
+  --color-sand: var(--sand);
+  --color-sage: var(--sage);
+  --color-line: var(--line);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -26,6 +37,7 @@
   --radius-2xl: calc(var(--radius) + 8px);
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -62,9 +74,21 @@
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
+  --radius: 0.25rem;
+
+  /* Vidhi Fabrics — Warehouse Ledger palette */
+  --paper: oklch(0.951 0.017 84.6);
+  --ink: oklch(0.267 0.019 66.9);
+  --mute: oklch(0.594 0.032 74.1);
+  --clay: oklch(0.558 0.131 40.5);
+  --claydeep: oklch(0.469 0.117 39.7);
+  --sand: oklch(0.898 0.032 82.8);
+  --sage: oklch(0.613 0.058 122);
+  --line: oklch(0.877 0.03 82.6);
+
+  --background: var(--paper);
+  --foreground: var(--ink);
+
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.129 0.042 264.695);
   --popover: oklch(1 0 0);
@@ -141,4 +165,26 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
   }
+}
+
+@layer base {
+  body {
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@keyframes vf-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@utility vf-rise {
+  animation: vf-rise 0.6s cubic-bezier(0.2, 0.8, 0, 1) both;
 }

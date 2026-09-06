@@ -98,13 +98,13 @@ function Index() {
                   onClick={() => setLang(l.code)}
                   aria-pressed={lang === l.code}
                   title={l.label}
-                  className={`px-2.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.12em] transition-colors ${
+                  className={`px-3 py-2 font-mono text-sm transition-colors ${
                     lang === l.code
                       ? "bg-ink text-paper"
                       : "text-mute hover:text-ink"
                   }`}
                 >
-                  {l.short}
+                  {l.code === "en" ? "EN" : l.code === "hi" ? "हिंदी" : "Hinglish"}
                 </button>
               ))}
             </div>
@@ -352,7 +352,7 @@ function Index() {
         </div>
 
         <footer className="border-t border-line">
-          <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-6 py-6 font-mono text-[11px] uppercase tracking-[0.12em] text-mute">
+          <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-6 py-6 font-mono text-[11px] uppercase tracking-[0.12em] text-mute">
             <span>{COPY.footer.left[lang]}</span>
             <span>{COPY.footer.right[lang]}</span>
           </div>

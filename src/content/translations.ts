@@ -56,9 +56,9 @@ export const COPY = {
       "hi-en": "Surat · Asia ka Textile Exchange",
     },
     heading: {
-      en: "The fabric behind Asia's largest textile trade.",
-      hi: "एशिया के सबसे बड़े कपड़ा व्यापार के पीछे का कपड़ा।",
-      "hi-en": "Asia ke sabse bade textile trade ke peeche ka fabric.",
+      en: "Now, from Asia's textile hub to your shop.",
+      hi: "अब एशिया के टेक्सटाइल हब से आपकी दुकान तक।",
+      "hi-en": "ab Asia ke textile hub se kappada aapki dukan tak",
     },
     body: {
       en: "Vidhi Fabrics moves woven, dyed and finished cloth from Surat's looms to 40+ countries. Wholesale volumes, contract compliance, and a catalogue that keeps unfolding.",
@@ -68,19 +68,19 @@ export const COPY = {
     },
     stats: [
       {
-        en: "— 2,400+ active SKUs",
-        hi: "— 2,400+ सक्रिय SKU",
-        "hi-en": "— 2,400+ active SKUs",
+        en: "2,400+ active SKUs",
+        hi: "2,400+ सक्रिय SKU",
+        "hi-en": "2,400+ active SKUs",
       },
       {
-        en: "— 40+ export markets",
-        hi: "— 40+ निर्यात बाज़ार",
-        "hi-en": "— 40+ export markets",
+        en: "40+ export markets",
+        hi: "40+ निर्यात बाज़ार",
+        "hi-en": "40+ export markets",
       },
       {
-        en: "— 30 yrs at the loom",
-        hi: "— 30 वर्ष करघे पर",
-        "hi-en": "— 30 saal loom par",
+        en: "30 yrs at the loom",
+        hi: "30 वर्ष करघे पर",
+        "hi-en": "30 saal loom par",
       },
     ],
   },
@@ -91,10 +91,10 @@ export const COPY = {
       "hi-en": "Wholesale Inquiry",
     },
     sub: {
-      en: "Tell us what you source. We reply within one working day.",
-      hi: "बताइए आप क्या खरीदते हैं। हम एक कार्यदिवस में जवाब देते हैं।",
+      en: "Tell us what you source. We reply within 12 hours.",
+      hi: "बताइए आप क्या खरीदते हैं। हम 12 घंटे में जवाब देते हैं।",
       "hi-en":
-        "Bataiye aap kya source karte hain. Hum ek working day mein reply karte hain.",
+        "Bataiye aap kya source karte hain. Hum 12 hours mein reply karte hain.",
     },
     company: {
       en: "Company / brand name",
@@ -109,9 +109,9 @@ export const COPY = {
     },
     buyerTypes: {
       retail: {
-        en: "Buyer type — Retail",
-        hi: "खरीदार प्रकार — रिटेल",
-        "hi-en": "Buyer type — Retail",
+        en: "Buyer type: Retail",
+        hi: "खरीदार प्रकार: रिटेल",
+        "hi-en": "Buyer type: Retail",
       },
       wholesaler: { en: "Wholesaler", hi: "थोक विक्रेता", "hi-en": "Wholesaler" },
       trader: {
@@ -132,14 +132,14 @@ export const COPY = {
       "hi-en": "Quotation maangein",
     },
     sent: {
-      en: "Thank you — our trade desk will reply within one working day.",
-      hi: "धन्यवाद — हमारा ट्रेड डेस्क एक कार्यदिवस में जवाब देगा।",
+      en: "Thank you, our trade desk will reply within 12 hours.",
+      hi: "धन्यवाद, हमारा ट्रेड डेस्क 12 घंटे में जवाब देगा।",
       "hi-en":
-        "Shukriya — hamara trade desk ek working day mein reply karega.",
+        "Shukriya, hamara trade desk 12 hours mein reply karega.",
     },
   },
   catalogue: {
-    marker: { en: "(a) — Catalogue", hi: "(अ) — कैटलॉग", "hi-en": "(a) — Catalogue" },
+    marker: { en: "(a) / Catalogue", hi: "(अ) / कैटलॉग", "hi-en": "(a) / Catalogue" },
     heading: {
       en: "Bolt by bolt, sorted for sourcing.",
       hi: "थान दर थान, सोर्सिंग के लिए व्यवस्थित।",
@@ -153,9 +153,9 @@ export const COPY = {
   },
   scale: {
     marker: {
-      en: "(b) — Scale & Trust",
-      hi: "(ब) — क्षमता और भरोसा",
-      "hi-en": "(b) — Scale & Bharosa",
+      en: "(b) / Scale & Trust",
+      hi: "(ब) / क्षमता और भरोसा",
+      "hi-en": "(b) / Scale & Bharosa",
     },
     heading: {
       en: "Tracked like inventory, built like a loom.",
@@ -186,29 +186,29 @@ export const COPY = {
       "hi-en": "Sirf sale nahi, contract ke liye certified.",
     },
     certBody: {
-      en: "OEKO-TEX and GOTS lines, in-house dyeing and finishing, and export documentation handled end to end. Surat's network means lead times that hold — and a floor that never runs out of next season.",
-      hi: "OEKO-TEX और GOTS लाइनें, इन-हाउस रंगाई और फिनिशिंग, और निर्यात दस्तावेज़ीकरण शुरू से अंत तक। सूरत का नेटवर्क यानी भरोसेमंद लीड टाइम — और ऐसा स्टॉक जो कभी खाली नहीं होता।",
+      en: "OEKO-TEX and GOTS lines, in-house dyeing and finishing, and export documentation handled end to end. Surat's network means lead times that hold, and a floor that never runs out of next season.",
+      hi: "OEKO-TEX और GOTS लाइनें, इन-हाउस रंगाई और फिनिशिंग, और निर्यात दस्तावेज़ीकरण शुरू से अंत तक। सूरत का नेटवर्क यानी भरोसेमंद लीड टाइम, और ऐसा स्टॉक जो कभी खाली नहीं होता।",
       "hi-en":
-        "OEKO-TEX aur GOTS lines, in-house dyeing aur finishing, aur export documentation end to end. Surat ka network matlab lead times jo tikte hain — aur stock jo kabhi khatam nahi hota.",
+        "OEKO-TEX aur GOTS lines, in-house dyeing aur finishing, aur export documentation end to end. Surat ka network matlab lead times jo tikte hain, aur stock jo kabhi khatam nahi hota.",
     },
     imageAlt: {
-      en: "Fabric bolts stacked on wooden racks in a Surat textile warehouse",
-      hi: "सूरत के कपड़ा गोदाम में लकड़ी के रैक पर रखे कपड़े के थान",
-      "hi-en": "Surat textile warehouse mein wooden racks par fabric bolts",
+      en: "Textile showroom filled with colorful garments and fabric displays",
+      hi: "रंगीन परिधानों और कपड़े के डिस्प्ले से भरा टेक्सटाइल शोरूम",
+      "hi-en": "Colorful garments aur fabric displays se bhara textile showroom",
     },
   },
   contact: {
-    marker: { en: "(c) — Wholesale", hi: "(स) — थोक", "hi-en": "(c) — Wholesale" },
+    marker: { en: "(c) / Wholesale", hi: "(स) / थोक", "hi-en": "(c) / Wholesale" },
     heading: {
       en: "Ready to source at scale?",
       hi: "बड़े पैमाने पर खरीदने के लिए तैयार?",
       "hi-en": "Bade scale par source karne ke liye taiyaar?",
     },
     body: {
-      en: "Tell us the fabric, the volume and the season. We'll send samples and a quotation within one working day.",
-      hi: "बताइए कपड़ा, मात्रा और सीज़न। हम एक कार्यदिवस में सैंपल और कोटेशन भेजेंगे।",
+      en: "Tell us the fabric, the volume and the season. We'll send samples and a quotation within 12 hours.",
+      hi: "बताइए कपड़ा, मात्रा और सीज़न। हम 12 घंटे में सैंपल और कोटेशन भेजेंगे।",
       "hi-en":
-        "Bataiye fabric, volume aur season. Hum ek working day mein samples aur quotation bhejenge.",
+        "Bataiye fabric, volume aur season. Hum 12 hours mein samples aur quotation bhejenge.",
     },
     cta: {
       en: "Start a wholesale inquiry",
@@ -217,16 +217,16 @@ export const COPY = {
     },
     hqLabel: { en: "Surat HQ", hi: "सूरत मुख्यालय", "hi-en": "Surat HQ" },
     hqValue: {
-      en: "Plot 42, Udhna GIDC Industrial Estate, Surat 394210, Gujarat",
-      hi: "प्लॉट 42, उधना GIDC औद्योगिक क्षेत्र, सूरत 394210, गुजरात",
-      "hi-en": "Plot 42, Udhna GIDC Industrial Estate, Surat 394210, Gujarat",
+      en: "542-543 Golden Point, Begampura Road, Surat, Gujarat",
+      hi: "542-543 गोल्डन पॉइंट, बेगमपुरा रोड, सूरत, गुजरात",
+      "hi-en": "542-543 Golden Point, Begampura Road, Surat, Gujarat",
     },
     deskLabel: { en: "Trade desk", hi: "ट्रेड डेस्क", "hi-en": "Trade desk" },
     hoursLabel: { en: "Hours", hi: "समय", "hi-en": "Timing" },
     hoursValue: {
-      en: "Mon–Sat · 09:30–18:30 IST",
-      hi: "सोम–शनि · 09:30–18:30 IST",
-      "hi-en": "Mon–Sat · 09:30–18:30 IST",
+      en: "Mon–Sat · 11:00 PM–9:00 PM",
+      hi: "सोम–शनि · 11:00 PM–9:00 PM",
+      "hi-en": "Mon–Sat · 11:00 PM–9:00 PM",
     },
   },
   footer: {

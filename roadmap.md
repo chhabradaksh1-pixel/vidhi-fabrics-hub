@@ -1,4 +1,4 @@
-# Vidhi Fabrics — Roadmap
+# Vidhi Fabrics: Roadmap
 
 ## Done
 - [x] B2B wholesale landing page (Warehouse Ledger direction)

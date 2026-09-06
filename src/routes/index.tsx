@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 
-import warehouseSurat from "@/assets/warehouse-surat.jpg";
+import warehouseShowroom from "@/assets/maxresdefault.jpg";
 import { FABRICS } from "@/content/fabrics";
 import {
   CATEGORY_LABELS,
@@ -15,7 +15,7 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       {
-        title: "Vidhi Fabrics — Wholesale Fabric Supplier in Surat",
+        title: "Vidhi Fabrics: Wholesale Fabric Supplier in Surat",
       },
       {
         name: "description",
@@ -24,12 +24,12 @@ export const Route = createFileRoute("/")({
       },
       {
         property: "og:title",
-        content: "Vidhi Fabrics — Wholesale Fabric Supplier in Surat",
+        content: "Vidhi Fabrics: Wholesale Fabric Supplier in Surat",
       },
       {
         property: "og:description",
         content:
-          "Woven, dyed and finished cloth from Surat's looms. 2,400+ active SKUs, 40+ export markets, wholesale quotations within one working day.",
+          "Woven, dyed and finished cloth from Surat's looms. 2,400+ active SKUs, 40+ export markets, wholesale quotations within 12 hours.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -291,7 +291,7 @@ function Index() {
 
           <div className="mt-12 grid grid-cols-1 items-center gap-8 lg:grid-cols-2">
             <img
-              src={warehouseSurat}
+              src={warehouseShowroom}
               alt={COPY.scale.imageAlt[lang]}
               loading="lazy"
               width={1440}
@@ -339,7 +339,7 @@ function Index() {
                 {COPY.contact.deskLabel[lang]}
               </p>
               <p className="mt-1 text-ink">
-                +91 261 000 0000 &nbsp;·&nbsp; trade@vidhifabrics.example
+                09825208413 &nbsp;·&nbsp; chhabradaksh1@gmail.com
               </p>
             </div>
             <div>

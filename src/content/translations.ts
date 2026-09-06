@@ -138,6 +138,42 @@ export const COPY = {
         "Shukriya, hamara trade desk 12 hours mein reply karega.",
     },
   },
+  leadPopup: {
+    heading: {
+      en: "Tell us what you need",
+      hi: "आपको क्या चाहिए, बताइए",
+      "hi-en": "Aapko kya chahiye, bataiye",
+    },
+    body: {
+      en: "Share your details and fabric requirement. Our team will get in touch.",
+      hi: "अपनी जानकारी और कपड़े की ज़रूरत साझा करें। हमारी टीम आपसे संपर्क करेगी।",
+      "hi-en": "Apni details aur fabric requirement share karein. Hamari team aapse contact karegi.",
+    },
+    name: { en: "Name", hi: "नाम", "hi-en": "Naam" },
+    phone: { en: "Phone number", hi: "फ़ोन नंबर", "hi-en": "Phone number" },
+    business: { en: "Business name", hi: "व्यवसाय का नाम", "hi-en": "Business name" },
+    requirement: { en: "Requirement", hi: "ज़रूरत", "hi-en": "Requirement" },
+    requirementPlaceholder: {
+      en: "Tell us which fabric you need, the quantity, or any other details.",
+      hi: "बताइए आपको कौन सा कपड़ा चाहिए, कितनी मात्रा चाहिए या कोई और जानकारी।",
+      "hi-en": "Batayein kaunsa fabric chahiye, kitni quantity chahiye, ya koi aur details.",
+    },
+    countryCode: { en: "+91", hi: "+91", "hi-en": "+91" },
+    submit: { en: "Send enquiry", hi: "पूछताछ भेजें", "hi-en": "Enquiry bhejein" },
+    close: { en: "Close", hi: "बंद करें", "hi-en": "Close" },
+    continue: { en: "Continue browsing", hi: "ब्राउज़ करना जारी रखें", "hi-en": "Browsing jaari rakhein" },
+    notice: {
+      en: "We'll use these details to respond to your enquiry.",
+      hi: "हम इन जानकारियों का उपयोग आपकी पूछताछ का जवाब देने के लिए करेंगे।",
+      "hi-en": "In details ka use aapki enquiry ka jawab dene ke liye hoga.",
+    },
+    required: { en: "Please complete this field.", hi: "कृपया यह फ़ील्ड भरें।", "hi-en": "Please yeh field bharein." },
+    invalidPhone: { en: "Enter a valid Indian phone number.", hi: "कृपया सही भारतीय फ़ोन नंबर डालें।", "hi-en": "Valid Indian phone number daalein." },
+    saving: { en: "Sending…", hi: "भेजा जा रहा है…", "hi-en": "Bhej rahe hain…" },
+    success: { en: "Thank you. Our team will get in touch.", hi: "धन्यवाद। हमारी टीम आपसे संपर्क करेगी।", "hi-en": "Shukriya. Hamari team aapse contact karegi." },
+    failure: { en: "We couldn't save your enquiry. Please try again.", hi: "आपकी पूछताछ सेव नहीं हो सकी। कृपया फिर कोशिश करें।", "hi-en": "Enquiry save nahi ho saki. Please phir try karein." },
+    unavailable: { en: "Enquiry service is not configured yet. Please contact us directly.", hi: "पूछताछ सेवा अभी सेट नहीं है। कृपया हमसे सीधे संपर्क करें।", "hi-en": "Enquiry service abhi configured nahi hai. Please directly contact karein." },
+  },
   catalogue: {
     marker: { en: "(a) / Catalogue", hi: "(अ) / कैटलॉग", "hi-en": "(a) / Catalogue" },
     heading: {

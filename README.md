@@ -27,3 +27,13 @@ cd <repository-name>
 npm i
 npm run dev
 ```
+
+### Lead popup storage
+
+The entry popup submits to `POST /api/leads`. Before deployment, configure the
+server-only `LEAD_WEBHOOK_URL` environment variable with the HTTPS endpoint of
+the CRM, database gateway, or private automation that will store the lead.
+The server sends `name`, `phone`, `business`, `requirement`, `submittedAt`, and
+`source: "Website entry pop-up"`. The endpoint must return a 2xx response for
+the visitor to see a success message. No lead data is stored in browser
+storage, and the application does not log submitted personal details.

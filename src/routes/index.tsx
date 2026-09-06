@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 import warehouseShowroom from "@/assets/maxresdefault.jpg";
 import { FABRICS } from "@/content/fabrics";
@@ -51,6 +51,14 @@ function Index() {
   const [lang, setLang] = useState<Lang>("en");
   const [category, setCategory] = useState<FabricCategory>("all");
   const [sent, setSent] = useState(false);
+  const [leadOpen, setLeadOpen] = useState(false);
+
+  useEffect(() => {
+    const sessionKey = "vidhi-lead-popup-seen";
+    if (window.sessionStorage.getItem(sessionKey) === "1") return;
+    window.sessionStorage.setItem(sessionKey, "1");
+    setLeadOpen(true);
+  }, []);
 
   const fabrics = useMemo(
     () =>
@@ -406,6 +414,177 @@ function Index() {
           </div>
         </footer>
       </section>
+
+      {leadOpen ? <LeadPopup lang={lang} onClose={() => setLeadOpen(false)} /> : null}
     </div>
+  );
+}
+
+type LeadPopupProps = {
+  lang: Lang;
+  onClose: () => void;
+};
+
+type LeadForm = {
+  name: string;
+  phone: string;
+  business: string;
+  requirement: string;
+};
+
+function LeadPopup({ lang, onClose }: LeadPopupProps) {
+  const copy = COPY.leadPopup;
+  const nameRef = useRef<HTMLInputElement>(null);
+  const [form, setForm] = useState<LeadForm>({
+    name: "",
+    phone: "",
+    business: "",
+    requirement: "",
+  });
+  const [errors, setErrors] = useState<Partial<Record<keyof LeadForm, string>>>({});
+  const [status, setStatus] = useState<"idle" | "saving" | "success" | "failure" | "unavailable">("idle");
+
+  useEffect(() => {
+    nameRef.current?.focus();
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape" && status !== "saving") onClose();
+      if (event.key !== "Tab") return;
+      const dialog = nameRef.current?.closest("[role=dialog]");
+      if (!dialog) return;
+      const focusable = Array.from(
+        dialog.querySelectorAll<HTMLElement>(
+          "button:not(:disabled), input:not(:disabled), textarea:not(:disabled)",
+        ),
+      );
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [onClose, status]);
+
+  function updateField(field: keyof LeadForm, value: string) {
+    setForm((current) => ({ ...current, [field]: value }));
+    setErrors((current) => ({ ...current, [field]: undefined }));
+  }
+
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const nextErrors: Partial<Record<keyof LeadForm, string>> = {};
+    if (!form.name.trim()) nextErrors.name = copy.required[lang];
+    if (!form.requirement.trim()) nextErrors.requirement = copy.required[lang];
+    if (!/^[6-9]\d{9}$/.test(form.phone.replace(/\D/g, ""))) {
+      nextErrors.phone = copy.invalidPhone[lang];
+    }
+    if (Object.keys(nextErrors).length > 0) {
+      setErrors(nextErrors);
+      return;
+    }
+
+    setStatus("saving");
+    try {
+      const response = await fetch("/api/leads", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          ...form,
+          phone: `+91${form.phone.replace(/\D/g, "")}`,
+          requestId: crypto.randomUUID(),
+        }),
+      });
+      if (response.status === 503) {
+        setStatus("unavailable");
+        return;
+      }
+      if (!response.ok) throw new Error("Lead submission failed");
+      setStatus("success");
+    } catch {
+      setStatus("failure");
+    }
+  }
+
+  return (
+    <div className="fixed inset-0 z-[60] flex items-center justify-center bg-ink/55 p-4" role="presentation">
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="lead-popup-heading"
+        className="max-h-[calc(100vh-2rem)] w-full max-w-lg overflow-y-auto rounded-md bg-paper p-6 shadow-2xl sm:p-8"
+      >
+        <div className="flex items-start justify-between gap-6">
+          <div>
+            <h2 id="lead-popup-heading" className="font-display text-3xl font-semibold tracking-tight">
+              {copy.heading[lang]}
+            </h2>
+            <p className="mt-2 text-sm text-mute">{copy.body[lang]}</p>
+          </div>
+          <button
+            type="button"
+            onClick={onClose}
+            disabled={status === "saving"}
+            aria-label={copy.close[lang]}
+            className="shrink-0 rounded-sm px-2 py-1 text-2xl leading-none text-mute hover:bg-sand hover:text-ink disabled:opacity-50"
+          >
+            ×
+          </button>
+        </div>
+
+        {status === "success" ? (
+          <div className="mt-7 space-y-5">
+            <p className="text-sage">{copy.success[lang]}</p>
+            <button type="button" onClick={onClose} className="rounded-sm bg-clay px-4 py-3 text-sm text-paper hover:bg-claydeep">
+              {copy.continue[lang]}
+            </button>
+          </div>
+        ) : (
+          <form className="mt-6 space-y-4" onSubmit={handleSubmit} noValidate>
+            <LeadField label={copy.name[lang]} error={errors.name}>
+              <input ref={nameRef} name="name" value={form.name} onChange={(event) => updateField("name", event.target.value)} required aria-invalid={Boolean(errors.name)} className="vf-lead-input" />
+            </LeadField>
+            <LeadField label={copy.phone[lang]} error={errors.phone}>
+              <div className="flex gap-2">
+                <span className="flex items-center rounded-sm border border-line bg-sand px-3 text-sm text-mute">{copy.countryCode[lang]}</span>
+                <input name="phone" type="tel" inputMode="numeric" value={form.phone} onChange={(event) => updateField("phone", event.target.value)} required aria-invalid={Boolean(errors.phone)} className="vf-lead-input" />
+              </div>
+            </LeadField>
+            <LeadField label={copy.business[lang]}>
+              <input name="business" value={form.business} onChange={(event) => updateField("business", event.target.value)} className="vf-lead-input" />
+            </LeadField>
+            <LeadField label={copy.requirement[lang]} error={errors.requirement}>
+              <textarea name="requirement" rows={3} placeholder={copy.requirementPlaceholder[lang]} value={form.requirement} onChange={(event) => updateField("requirement", event.target.value)} required aria-invalid={Boolean(errors.requirement)} className="vf-lead-input resize-none" />
+            </LeadField>
+            <p className="text-xs text-mute">{copy.notice[lang]}</p>
+            {status === "failure" ? <p role="alert" className="text-sm text-claydeep">{copy.failure[lang]}</p> : null}
+            {status === "unavailable" ? <p role="alert" className="text-sm text-claydeep">{copy.unavailable[lang]}</p> : null}
+            <div className="flex flex-wrap items-center justify-between gap-3 pt-1">
+              <button type="button" onClick={onClose} disabled={status === "saving"} className="text-sm text-mute underline-offset-4 hover:text-ink hover:underline disabled:opacity-50">
+                {copy.continue[lang]}
+              </button>
+              <button type="submit" disabled={status === "saving"} className="rounded-sm bg-clay px-5 py-3 text-sm text-paper hover:bg-claydeep disabled:cursor-wait disabled:opacity-60">
+                {status === "saving" ? copy.saving[lang] : copy.submit[lang]}
+              </button>
+            </div>
+          </form>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function LeadField({ label, error, children }: { label: string; error?: string; children: React.ReactNode }) {
+  return (
+    <label className="block text-sm">
+      <span className="mb-1 block font-medium">{label}</span>
+      {children}
+      {error ? <span className="mt-1 block text-xs text-claydeep">{error}</span> : null}
+    </label>
   );
 }

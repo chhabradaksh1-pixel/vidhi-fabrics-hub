@@ -202,6 +202,87 @@ export const COPY = {
       "hi-en": "Colorful garments aur fabric displays se bhara textile showroom",
     },
   },
+  testimonials: {
+    marker: {
+      en: "(c) / Testimonials",
+      hi: "(स) / प्रशंसापत्र",
+      "hi-en": "(c) / Testimonials",
+    },
+    heading: {
+      en: "Trusted across markets. Built on repeat business.",
+      hi: "अलग-अलग बाज़ारों में भरोसेमंद। दोबारा होने वाले व्यापार पर निर्मित।",
+      "hi-en": "Markets ke across trusted. Repeat business par built.",
+    },
+    body: {
+      en: "Relationships built with retailers, wholesalers, manufacturers and textile buyers across India and international markets.",
+      hi: "भारत और अंतरराष्ट्रीय बाज़ारों के रिटेलर्स, थोक विक्रेताओं, निर्माताओं और टेक्सटाइल खरीदारों के साथ बनाए गए संबंध।",
+      "hi-en":
+        "India aur international markets ke retailers, wholesalers, manufacturers aur textile buyers ke saath built relationships.",
+    },
+    ratingLabel: {
+      en: "Example five-star placeholder rating",
+      hi: "उदाहरण पाँच सितारा प्लेसहोल्डर रेटिंग",
+      "hi-en": "Example five-star placeholder rating",
+    },
+    cards: [
+      {
+        quote: {
+          en: "Finding the right fabric for each requirement used to be difficult. With Vidhi Fabrics, we can find many fabric options in one place, and their team also helps with sourcing.",
+          hi: "हमारी जरूरत के हिसाब से सही फैब्रिक ढूंढना पहले काफी मुश्किल होता था। Vidhi Fabrics में एक ही जगह पर कई तरह के फैब्रिक के options मिल जाते हैं और sourcing में भी अच्छी मदद मिलती है।",
+          "hi-en":
+            "Pehle har requirement ke liye right fabric dhoondhna mushkil hota tha. Vidhi Fabrics mein ek hi jagah par kaafi fabric options mil jaate hain aur sourcing mein bhi achhi help milti hai.",
+        },
+        customerLabel: {
+          en: "Fabric Trader",
+          hi: "कपड़ा व्यापारी",
+          "hi-en": "Fabric Trader",
+        },
+        location: "Meerut",
+      },
+      {
+        quote: {
+          en: "For us, the most important thing is that the material arrives on time. With Vidhi Fabrics, we do not have to follow up much about delivery. The material arrives according to the commitment.",
+          hi: "हमारे लिए सबसे जरूरी है कि माल समय पर पहुंच जाए। Vidhi Fabrics के साथ डिलीवरी को लेकर ज्यादा फॉलो-अप नहीं करना पड़ता, जो कमिटमेंट होता है उसके हिसाब से माल मिल जाता है।",
+          "hi-en":
+            "Humare liye sabse important hai ki maal time par pahunch jaye. Vidhi Fabrics ke saath delivery ko lekar zyada follow-up nahi karna padta, jo commitment hota hai uske hisaab se maal mil jaata hai.",
+        },
+        customerLabel: {
+          en: "Fabric Retailer",
+          hi: "फैब्रिक रिटेलर",
+          "hi-en": "Fabric Retailer",
+        },
+        location: "Kanpur",
+      },
+      {
+        quote: {
+          en: "The price is competitive for the market, and the variety is good too. That is why we place repeat orders.",
+          hi: "बाज़ार के हिसाब से कीमत प्रतिस्पर्धी मिलती है और वैरायटी भी अच्छी है। इसी वजह से हम दोबारा ऑर्डर करते हैं।",
+          "hi-en":
+            "Price market ke hisaab se competitive milta hai, aur variety bhi achhi hai. Isi wajah se hum repeat orders karte hain.",
+        },
+        customerLabel: {
+          en: "Fabric Wholesaler",
+          hi: "फैब्रिक थोक विक्रेता",
+          "hi-en": "Fabric Wholesaler",
+        },
+        location: "Jaipur",
+      },
+      {
+        quote: {
+          en: "When you're working on export orders, timelines are very important. Vidhi Fabrics has been reliable with sourcing and delivery, and their range makes it easier for us to manage different fabric requirements from one place.",
+          hi: "जब आप निर्यात ऑर्डर्स पर काम कर रहे हों, तो समयसीमा बहुत महत्वपूर्ण होती है। Vidhi Fabrics के साथ सोर्सिंग और डिलीवरी भरोसेमंद रही है, और उनकी रेंज से हमें एक ही जगह से अलग-अलग फैब्रिक जरूरतें संभालने में आसानी होती है।",
+          "hi-en":
+            "Export orders par kaam karte waqt timelines bahut important hoti hain. Vidhi Fabrics ke saath sourcing aur delivery reliable rahi hai, aur unki range ki wajah se hum ek hi jagah se alag fabric requirements manage kar paate hain.",
+        },
+        customerLabel: {
+          en: "Exporter",
+          hi: "निर्यातक",
+          "hi-en": "Exporter",
+        },
+        location: "Delhi",
+      },
+    ],
+  },
   contact: {
     marker: { en: "(c) / Wholesale", hi: "(स) / थोक", "hi-en": "(c) / Wholesale" },
     heading: {

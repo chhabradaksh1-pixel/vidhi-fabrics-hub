@@ -311,6 +311,51 @@ function Index() {
         </div>
       </section>
 
+      <section className="border-b border-line bg-paper">
+        <div className="mx-auto max-w-6xl px-6 py-20">
+          <div className="max-w-2xl">
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-clay">
+              {COPY.testimonials.marker[lang]}
+            </p>
+            <h2 className="mt-3 text-balance font-display text-4xl font-semibold tracking-tight lg:text-5xl">
+              {COPY.testimonials.heading[lang]}
+            </h2>
+            <p className="mt-5 max-w-[60ch] text-pretty text-mute">
+              {COPY.testimonials.body[lang]}
+            </p>
+          </div>
+
+          <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-2">
+            {COPY.testimonials.cards.map((testimonial, testimonialIndex) => (
+              <article
+                key={`${testimonial.customerLabel.en}-${testimonial.location}-${testimonialIndex}`}
+                className="flex min-h-64 flex-col justify-between rounded-md border border-line bg-sand/25 p-6"
+              >
+                <div>
+                  <p
+                    className="font-mono text-sm tracking-[0.18em] text-clay"
+                    aria-label={COPY.testimonials.ratingLabel[lang]}
+                  >
+                    <span aria-hidden="true">★★★★★</span>
+                  </p>
+                  <blockquote className="mt-6 text-lg leading-relaxed text-ink">
+                    {testimonial.quote[lang]}
+                  </blockquote>
+                </div>
+                <footer className="mt-8 border-t border-line pt-4">
+                  <p className="font-display text-lg font-semibold">
+                    {testimonial.customerLabel[lang]}
+                  </p>
+                  <p className="mt-1 font-mono text-xs text-mute">
+                    {testimonial.location}
+                  </p>
+                </footer>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section id="contact" className="bg-paper">
         <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-6 py-20 lg:grid-cols-2">
           <div>

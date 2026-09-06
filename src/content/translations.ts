@@ -61,10 +61,10 @@ export const COPY = {
       "hi-en": "ab Asia ke textile hub se kappada aapki dukan tak",
     },
     body: {
-      en: "Vidhi Fabrics moves woven, dyed and finished cloth from Surat's looms to 40+ countries. Wholesale volumes, contract compliance, and a catalogue that keeps unfolding.",
-      hi: "विधि फैब्रिक्स सूरत के करघों से बुना, रंगा और फिनिश किया हुआ कपड़ा 40+ देशों तक पहुँचाता है। थोक मात्रा, कॉन्ट्रैक्ट अनुपालन, और लगातार बढ़ता कैटलॉग।",
+      en: "Vidhi Fabrics is a wholesale fabric and textile sourcing business in Surat. We help retailers, brands, manufacturers and traders source cotton, silk, synthetic, blended, jacquard, printed, dyed, woven and other fabric varieties across 40+ markets.",
+      hi: "विधि फैब्रिक्स सूरत का थोक फैब्रिक और टेक्सटाइल सोर्सिंग व्यवसाय है। हम रिटेलर्स, ब्रांड्स, निर्माताओं और व्यापारियों के लिए कॉटन, सिल्क, सिंथेटिक, ब्लेंडेड, जैक्वार्ड, प्रिंटेड, रंगे, बुने और अन्य फैब्रिक वैरायटी सोर्स करते हैं।",
       "hi-en":
-        "Vidhi Fabrics Surat ke looms se woven, dyed aur finished cloth 40+ countries tak pahunchata hai. Wholesale volumes, contract compliance, aur ek catalogue jo kabhi khatam nahi hota.",
+        "Vidhi Fabrics Surat ka wholesale fabric aur textile sourcing business hai. Hum retailers, brands, manufacturers aur traders ke liye cotton, silk, synthetic, blended, jacquard, printed, dyed, woven aur other fabric varieties 40+ markets ke liye source karte hain.",
     },
     stats: [
       {
@@ -141,9 +141,14 @@ export const COPY = {
   catalogue: {
     marker: { en: "(a) / Catalogue", hi: "(अ) / कैटलॉग", "hi-en": "(a) / Catalogue" },
     heading: {
-      en: "Bolt by bolt, sorted for sourcing.",
-      hi: "थान दर थान, सोर्सिंग के लिए व्यवस्थित।",
-      "hi-en": "Than by than, sourcing ke liye sorted.",
+      en: "A broad range, ready for sourcing.",
+      hi: "विस्तृत रेंज, सोर्सिंग के लिए तैयार।",
+      "hi-en": "Broad range, sourcing ke liye ready.",
+    },
+    body: {
+      en: "These are selected examples from a broader wholesale range of fabrics, materials, constructions, patterns and finishes. Share your requirement and our Surat team can help source the right variety.",
+      hi: "यह व्यापक थोक रेंज के कुछ चुने हुए उदाहरण हैं, जिसमें अलग-अलग फैब्रिक, सामग्री, कंस्ट्रक्शन, पैटर्न और फिनिश शामिल हैं। अपनी आवश्यकता साझा करें, हमारी सूरत टीम सही वैरायटी सोर्स करने में मदद करेगी।",
+      "hi-en": "Yeh broad wholesale range ke selected examples hain, jismein alag fabrics, materials, constructions, patterns aur finishes shamil hain. Apni requirement share karein, Surat team right variety source karne mein help karegi.",
     },
     empty: {
       en: "No fabrics in this category yet.",

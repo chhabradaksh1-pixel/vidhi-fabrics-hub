@@ -15,21 +15,21 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       {
-        title: "Vidhi Fabrics: Wholesale Fabric Supplier in Surat",
+        title: "Wholesale Fabrics in Surat | Vidhi Fabrics",
       },
       {
         name: "description",
         content:
-          "Vidhi Fabrics supplies woven, dyed and finished cloth from Surat to retailers, wholesalers and traders across 40+ countries. Browse the catalogue and request a wholesale quote.",
+          "Vidhi Fabrics is a wholesale fabric and textile sourcing business in Surat, serving retailers, brands, manufacturers and traders with broad fabric requirements across 40+ markets.",
       },
       {
         property: "og:title",
-        content: "Vidhi Fabrics: Wholesale Fabric Supplier in Surat",
+        content: "Wholesale Fabrics in Surat | Vidhi Fabrics",
       },
       {
         property: "og:description",
         content:
-          "Woven, dyed and finished cloth from Surat's looms. 2,400+ active SKUs, 40+ export markets, wholesale quotations within 12 hours.",
+          "Wholesale fabric supply and sourcing from Surat for retailers, brands, manufacturers and textile buyers. Broad materials, constructions, patterns and finishes, with quotations within 12 hours.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -211,6 +211,9 @@ function Index() {
               <h2 className="mt-2 font-display text-4xl font-semibold tracking-tight">
                 {COPY.catalogue.heading[lang]}
               </h2>
+              <p className="mt-3 max-w-[55ch] text-sm text-mute">
+                {COPY.catalogue.body[lang]}
+              </p>
             </div>
             <div className="flex flex-wrap gap-2 font-mono text-xs">
               {CATEGORIES.map((c) => (

@@ -47,7 +47,7 @@ export const COPY = {
     catalogue: { en: "Catalogue", hi: "कैटलॉग", "hi-en": "Catalogue" },
     scale: { en: "Scale", hi: "क्षमता", "hi-en": "Scale" },
     contact: { en: "Contact", hi: "संपर्क", "hi-en": "Contact" },
-    cta: { en: "Send Inquiry", hi: "पूछताछ भेजें", "hi-en": "Inquiry Bhejein" },
+    cta: { en: "WhatsApp us", hi: "व्हाट्सएप पर बात करें", "hi-en": "WhatsApp par baat karein" },
   },
   hero: {
     eyebrow: {

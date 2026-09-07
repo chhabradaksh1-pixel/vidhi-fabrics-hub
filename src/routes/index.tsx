@@ -51,9 +51,9 @@ const FORMSPREE_ENDPOINT = "https://formspree.io/f/maeypydr";
 const WHATSAPP_NUMBER = "919825208413";
 
 const WHATSAPP_MESSAGES: Record<Lang, string> = {
-  en: "Hi Vidhi Fabrics",
-  hi: "नमस्ते Vidhi Fabrics",
-  "hi-en": "Hi Vidhi Fabrics",
+  en: "Hi Vidhi Fabrics, I am looking for a fabric.",
+  hi: "नमस्ते Vidhi Fabrics, मुझे एक कपड़ा चाहिए।",
+  "hi-en": "Hi Vidhi Fabrics, mujhe ek fabric chahiye.",
 };
 
 function getWhatsAppUrl(lang: Lang) {

@@ -476,7 +476,7 @@ function LeadPopup({ lang, onClose }: LeadPopupProps) {
     requirement: "",
   });
   const [errors, setErrors] = useState<Partial<Record<keyof LeadForm, string>>>({});
-  const [status, setStatus] = useState<"idle" | "saving" | "success" | "failure" | "unavailable">("idle");
+  const [status, setStatus] = useState<"idle" | "saving" | "success" | "failure">("idle");
 
   useEffect(() => {
     nameRef.current?.focus();
@@ -525,19 +525,19 @@ function LeadPopup({ lang, onClose }: LeadPopupProps) {
 
     setStatus("saving");
     try {
-      const response = await fetch("/api/leads", {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
         method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify({
-          ...form,
-          phone: `+91${form.phone.replace(/\D/g, "")}`,
-          requestId: crypto.randomUUID(),
-        }),
+        headers: { Accept: "application/json" },
+        body: (() => {
+          const formData = new FormData();
+          formData.set("name", form.name.trim());
+          formData.set("phone", `+91${form.phone.replace(/\D/g, "")}`);
+          formData.set("business", form.business.trim());
+          formData.set("requirement", form.requirement.trim());
+          formData.set("source", "Website entry pop-up");
+          return formData;
+        })(),
       });
-      if (response.status === 503) {
-        setStatus("unavailable");
-        return;
-      }
       if (!response.ok) throw new Error("Lead submission failed");
       setStatus("success");
     } catch {
@@ -597,7 +597,6 @@ function LeadPopup({ lang, onClose }: LeadPopupProps) {
             </LeadField>
             <p className="text-xs text-mute">{copy.notice[lang]}</p>
             {status === "failure" ? <p role="alert" className="text-sm text-claydeep">{copy.failure[lang]}</p> : null}
-            {status === "unavailable" ? <p role="alert" className="text-sm text-claydeep">{copy.unavailable[lang]}</p> : null}
             <div className="flex flex-wrap items-center justify-between gap-3 pt-1">
               <button type="button" onClick={onClose} disabled={status === "saving"} className="text-sm text-mute underline-offset-4 hover:text-ink hover:underline disabled:opacity-50">
                 {copy.continue[lang]}

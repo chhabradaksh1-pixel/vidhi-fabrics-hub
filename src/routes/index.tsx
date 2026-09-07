@@ -47,10 +47,13 @@ const CATEGORIES: FabricCategory[] = [
   "jacquard",
 ];
 
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/maeypydr";
+
 function Index() {
   const [lang, setLang] = useState<Lang>("en");
   const [category, setCategory] = useState<FabricCategory>("all");
   const [sent, setSent] = useState(false);
+  const [inquiryStatus, setInquiryStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [leadOpen, setLeadOpen] = useState(false);
 
   useEffect(() => {
@@ -155,13 +158,34 @@ function Index() {
             <p className="mt-1 text-sm text-mute">{COPY.inquiry.sub[lang]}</p>
             <form
               className="mt-5 space-y-3"
-              onSubmit={(e) => {
+              onSubmit={async (e) => {
                 e.preventDefault();
-                setSent(true);
+                if (inquiryStatus === "sending") return;
+
+                const form = e.currentTarget;
+                setInquiryStatus("sending");
+                setSent(false);
+
+                try {
+                  const response = await fetch(FORMSPREE_ENDPOINT, {
+                    method: "POST",
+                    body: new FormData(form),
+                    headers: { Accept: "application/json" },
+                  });
+
+                  if (!response.ok) throw new Error("Formspree submission failed");
+
+                  form.reset();
+                  setInquiryStatus("success");
+                  setSent(true);
+                } catch {
+                  setInquiryStatus("error");
+                }
               }}
             >
               <input
                 required
+                name="company"
                 className="w-full rounded-sm bg-paper px-3 py-2.5 text-sm outline-none ring-1 ring-line focus:ring-clay"
                 placeholder={COPY.inquiry.company[lang]}
                 aria-label={COPY.inquiry.company[lang]}
@@ -169,16 +193,19 @@ function Index() {
               <input
                 required
                 type="email"
+                name="email"
                 className="w-full rounded-sm bg-paper px-3 py-2.5 text-sm outline-none ring-1 ring-line focus:ring-clay"
                 placeholder={COPY.inquiry.email[lang]}
                 aria-label={COPY.inquiry.email[lang]}
               />
               <input
+                name="phone"
                 className="w-full rounded-sm bg-paper px-3 py-2.5 text-sm outline-none ring-1 ring-line focus:ring-clay"
                 placeholder={COPY.inquiry.phone[lang]}
                 aria-label={COPY.inquiry.phone[lang]}
               />
               <select
+                name="buyer_type"
                 className="w-full rounded-sm bg-paper px-3 py-2.5 text-sm text-mute outline-none ring-1 ring-line focus:ring-clay"
                 aria-label={COPY.inquiry.buyerTypes.retail[lang]}
               >
@@ -188,6 +215,7 @@ function Index() {
                 <option>{COPY.inquiry.buyerTypes.manufacturer[lang]}</option>
               </select>
               <textarea
+                name="message"
                 rows={3}
                 className="w-full resize-none rounded-sm bg-paper px-3 py-2.5 text-sm outline-none ring-1 ring-line focus:ring-clay"
                 placeholder={COPY.inquiry.message[lang]}
@@ -195,13 +223,19 @@ function Index() {
               />
               <button
                 type="submit"
+                disabled={inquiryStatus === "sending"}
                 className="w-full rounded-sm bg-clay py-3 font-mono text-xs uppercase tracking-[0.15em] text-paper transition-colors hover:bg-claydeep"
               >
-                {COPY.inquiry.submit[lang]}
+                {inquiryStatus === "sending" ? "Sending..." : COPY.inquiry.submit[lang]}
               </button>
-              {sent ? (
-                <p className="pt-1 text-sm text-sage">
-                  {COPY.inquiry.sent[lang]}
+              {inquiryStatus === "success" && sent ? (
+                <p role="status" aria-live="polite" className="pt-1 text-sm text-sage">
+                  Thanks! We’ve received your requirement. Our team will get in touch with you shortly.
+                </p>
+              ) : null}
+              {inquiryStatus === "error" ? (
+                <p role="alert" aria-live="assertive" className="pt-1 text-sm text-claydeep">
+                  Something went wrong. Please try again or contact us directly.
                 </p>
               ) : null}
             </form>

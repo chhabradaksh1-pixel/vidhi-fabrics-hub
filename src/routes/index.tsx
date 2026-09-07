@@ -48,6 +48,17 @@ const CATEGORIES: FabricCategory[] = [
 ];
 
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/maeypydr";
+const WHATSAPP_NUMBER = "919825208413";
+
+const WHATSAPP_MESSAGES: Record<Lang, string> = {
+  en: "Hi Vidhi Fabrics",
+  hi: "नमस्ते Vidhi Fabrics",
+  "hi-en": "Hi Vidhi Fabrics",
+};
+
+function getWhatsAppUrl(lang: Lang) {
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGES[lang])}`;
+}
 
 function Index() {
   const [lang, setLang] = useState<Lang>("en");
@@ -120,7 +131,9 @@ function Index() {
               ))}
             </div>
             <a
-              href="#inquiry"
+              href={getWhatsAppUrl(lang)}
+              target="_blank"
+              rel="noopener noreferrer"
               className="rounded-sm bg-clay px-4 py-2 font-mono text-xs uppercase tracking-[0.12em] text-paper transition-colors hover:bg-claydeep"
             >
               {COPY.nav.cta[lang]}

@@ -15,21 +15,21 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       {
-        title: "Wholesale Fabrics in Surat | Vidhi Fabrics",
+        title: "Surat Fabric Manufacturer & Wholesaler | Vidhi Fabrics",
       },
       {
         name: "description",
         content:
-          "Vidhi Fabrics is a wholesale fabric and textile sourcing business in Surat, serving retailers, brands, manufacturers and traders with broad fabric requirements across 40+ markets.",
+          "Vidhi Fabrics is a Surat-based manufacturer and wholesale fabric and textile sourcing business, supplying retailers, brands, manufacturers and traders with a wide range of fabrics across 40+ markets.",
       },
       {
         property: "og:title",
-        content: "Wholesale Fabrics in Surat | Vidhi Fabrics",
+        content: "Surat Fabric Manufacturer & Wholesaler | Vidhi Fabrics",
       },
       {
         property: "og:description",
         content:
-          "Wholesale fabric supply and sourcing from Surat for retailers, brands, manufacturers and textile buyers. Broad materials, constructions, patterns and finishes, with quotations within 12 hours.",
+          "Manufacturer and wholesale fabric supply from Surat for retailers, brands, manufacturers and textile buyers. Broad materials, constructions, patterns and finishes, with quotations within 12 hours.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

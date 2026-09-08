@@ -68,74 +68,146 @@ const FAQS: {
 }[] = [
   {
     question: {
-      en: "What types of fabrics does Vidhi Fabrics offer?",
-      hi: "Vidhi Fabrics किस तरह के फैब्रिक उपलब्ध कराता है?",
-      "hi-en": "Vidhi Fabrics kis type ke fabrics offer karta hai?",
+      en: "Is Vidhi Fabrics a fabric manufacturer?",
+      hi: "क्या Vidhi Fabrics एक फैब्रिक निर्माता है?",
+      "hi-en": "Kya Vidhi Fabrics ek fabric manufacturer hai?",
     },
     answer: {
-      en: "Vidhi Fabrics offers premium apparel fabrics for shirting, ethnic bottom wear, lining, infantwear and other garment applications.",
-      hi: "Vidhi Fabrics शर्टिंग, एथनिक बॉटम वियर, लाइनिंग, इन्फेंटवियर और अन्य गारमेंट उपयोगों के लिए प्रीमियम फैब्रिक उपलब्ध कराता है।",
-      "hi-en": "Vidhi Fabrics shirting, ethnic bottom wear, lining, infantwear aur other garment applications ke liye premium apparel fabrics offer karta hai.",
+      en: "Yes. Vidhi Fabrics is a fabric manufacturer and wholesale supplier based in Surat, India — established in 1994. Surat is Asia's largest textile hub, and operating from here gives us direct access to manufacturing, dyeing, finishing and the broader textile supply chain. Buyers can approach us directly for fabric requirements.",
+      hi: "हाँ। Vidhi Fabrics एक फैब्रिक निर्माता और थोक सप्लायर है, जो सूरत, भारत में स्थित है — 1994 में स्थापित। सूरत एशिया का सबसे बड़ा टेक्सटाइल हब है, और यहाँ से संचालित होने के कारण हमें मैन्युफैक्चरिंग, डाईंग, फिनिशिंग और व्यापक टेक्सटाइल सप्लाई चेन तक सीधी पहुँच मिलती है। खरीदार अपनी फैब्रिक आवश्यकताओं के लिए सीधे हमसे संपर्क कर सकते हैं।",
+      "hi-en": "Haan. Vidhi Fabrics ek fabric manufacturer aur wholesale supplier hai, jo Surat, India mein based hai — 1994 mein established. Surat Asia ka sabse bada textile hub hai, aur yahan se operate karne ki wajah se hume manufacturing, dyeing, finishing aur broader textile supply chain tak direct access milta hai. Buyers apni fabric requirements ke liye directly hamare paas aa sakte hain.",
     },
   },
   {
     question: {
-      en: "Does Vidhi Fabrics supply fabrics in bulk?",
-      hi: "क्या Vidhi Fabrics थोक में फैब्रिक सप्लाई करता है?",
-      "hi-en": "Kya Vidhi Fabrics bulk mein fabrics supply karta hai?",
+      en: "What types of fabrics does Vidhi Fabrics manufacture and supply?",
+      hi: "Vidhi Fabrics किस तरह के फैब्रिक बनाता और सप्लाई करता है?",
+      "hi-en": "Vidhi Fabrics kis type ke fabrics manufacture aur supply karta hai?",
     },
     answer: {
-      en: "Yes. We work with garment manufacturers, apparel brands, wholesalers and sourcing partners for bulk fabric requirements.",
-      hi: "हाँ। हम गारमेंट निर्माताओं, अपैरल ब्रांड्स, थोक विक्रेताओं और सोर्सिंग पार्टनर्स के साथ थोक फैब्रिक आवश्यकताओं के लिए काम करते हैं।",
-      "hi-en": "Haan. Hum garment manufacturers, apparel brands, wholesalers aur sourcing partners ke saath bulk fabric requirements ke liye kaam karte hain.",
+      en: "We manufacture and supply cotton, silk, linen, polyester, jacquard and blended fabrics — including woven, printed, dyed and finished varieties. Our range covers over 2,400 active SKUs across different constructions, patterns, weights and finishes. Share your requirement and our team will help you identify the right fabric.",
+      hi: "हम कॉटन, सिल्क, लिनन, पॉलिएस्टर, जैक्वार्ड और ब्लेंडेड फैब्रिक बनाते और सप्लाई करते हैं — जिसमें बुने, प्रिंटेड, रंगे और फिनिश्ड वैरायटी शामिल हैं। हमारी रेंज में विभिन्न कंस्ट्रक्शन, पैटर्न, वज़न और फिनिश में 2,400 से अधिक सक्रिय SKU हैं। अपनी आवश्यकता साझा करें और हमारी टीम आपको सही फैब्रिक पहचानने में मदद करेगी।",
+      "hi-en": "Hum cotton, silk, linen, polyester, jacquard aur blended fabrics manufacture aur supply karte hain — jisme woven, printed, dyed aur finished varieties shamil hain. Hamari range mein alag constructions, patterns, weights aur finishes mein 2,400 se zyada active SKUs hain. Apni requirement share karein aur hamari team aapko sahi fabric identify karne mein help karegi.",
     },
   },
   {
     question: {
-      en: "Can I request fabric samples or a shade card?",
-      hi: "क्या मैं फैब्रिक सैंपल या शेड कार्ड मांग सकता हूँ?",
-      "hi-en": "Kya main fabric samples ya shade card request kar sakta hoon?",
+      en: "Who can source fabrics directly from Vidhi Fabrics?",
+      hi: "Vidhi Fabrics से सीधे फैब्रिक कौन सोर्स कर सकता है?",
+      "hi-en": "Vidhi Fabrics se directly fabrics kaun source kar sakta hai?",
     },
     answer: {
-      en: "Yes. Share your fabric requirement with our team to request samples, shade cards and product specifications.",
-      hi: "हाँ। सैंपल, शेड कार्ड और प्रोडक्ट स्पेसिफिकेशन के लिए अपनी फैब्रिक आवश्यकता हमारी टीम के साथ साझा करें।",
-      "hi-en": "Haan. Samples, shade cards aur product specifications ke liye apni fabric requirement hamari team ke saath share karein.",
+      en: "Wholesalers, distributors, retailers, boutique owners, garment manufacturers, apparel brands and textile traders can all source fabrics directly from us. Whether you need fabrics for wholesale distribution, retail, a boutique, or garment production — get in touch and our team will discuss your requirement.",
+      hi: "थोक विक्रेता, वितरक, रिटेलर्स, बुटीक मालिक, गारमेंट निर्माता, अपैरल ब्रांड्स और टेक्सटाइल व्यापारी — सभी हमसे सीधे फैब्रिक सोर्स कर सकते हैं। चाहे आपको थोक वितरण, रिटेल, बुटीक या गारमेंट प्रोडक्शन के लिए फैब्रिक चाहिए — संपर्क करें और हमारी टीम आपकी आवश्यकता पर चर्चा करेगी।",
+      "hi-en": "Wholesalers, distributors, retailers, boutique owners, garment manufacturers, apparel brands aur textile traders — sab directly hamare paas se fabrics source kar sakte hain. Chahe aapko wholesale distribution, retail, boutique ya garment production ke liye fabrics chahiye — contact karein aur hamari team aapki requirement discuss karegi.",
     },
   },
   {
     question: {
-      en: "What is the minimum order quantity for fabrics?",
-      hi: "फैब्रिक के लिए न्यूनतम ऑर्डर मात्रा क्या है?",
-      "hi-en": "Fabrics ke liye minimum order quantity kya hai?",
+      en: "Do you manufacture fabrics for retailers and boutique owners?",
+      hi: "क्या आप रिटेलर्स और बुटीक मालिकों के लिए फैब्रिक बनाते हैं?",
+      "hi-en": "Kya aap retailers aur boutique owners ke liye fabrics manufacture karte hain?",
     },
     answer: {
-      en: "Minimum order quantities vary based on the fabric type, colour, finish and requirement. Contact our team for the relevant MOQ.",
-      hi: "न्यूनतम ऑर्डर मात्रा फैब्रिक के प्रकार, रंग, फिनिश और आवश्यकता के आधार पर अलग-अलग होती है। संबंधित MOQ के लिए हमारी टीम से संपर्क करें।",
-      "hi-en": "Minimum order quantity fabric type, colour, finish aur requirement ke hisaab se alag hoti hai. Relevant MOQ ke liye hamari team se contact karein.",
+      en: "Yes. Retailers and boutique businesses can source fabrics directly from Vidhi Fabrics as a manufacturer. If you run a fabric retail store, a boutique or a small fashion business and need a reliable supply of fabrics, reach out to our team with your requirement.",
+      hi: "हाँ। रिटेलर्स और बुटीक व्यवसाय Vidhi Fabrics से एक निर्माता के रूप में सीधे फैब्रिक सोर्स कर सकते हैं। यदि आप फैब्रिक रिटेल स्टोर, बुटीक या छोटा फैशन व्यवसाय चलाते हैं और फैब्रिक की विश्वसनीय आपूर्ति चाहते हैं, तो अपनी आवश्यकता के साथ हमारी टीम से संपर्क करें।",
+      "hi-en": "Haan. Retailers aur boutique businesses Vidhi Fabrics se directly ek manufacturer ke roop mein fabrics source kar sakte hain. Agar aap fabric retail store, boutique ya chhota fashion business chalate hain aur fabrics ki reliable supply chahte hain, toh apni requirement ke saath hamari team se contact karein.",
     },
   },
   {
     question: {
-      en: "Does Vidhi Fabrics supply fabrics across India?",
-      hi: "क्या Vidhi Fabrics पूरे भारत में फैब्रिक सप्लाई करता है?",
-      "hi-en": "Kya Vidhi Fabrics poore India mein fabrics supply karta hai?",
+      en: "Can international buyers source directly from Vidhi Fabrics?",
+      hi: "क्या अंतरराष्ट्रीय खरीदार Vidhi Fabrics से सीधे सोर्स कर सकते हैं?",
+      "hi-en": "Kya international buyers Vidhi Fabrics se directly source kar sakte hain?",
     },
     answer: {
-      en: "Yes. Vidhi Fabrics works with buyers and businesses across India. Contact us to discuss delivery for your location.",
-      hi: "हाँ। Vidhi Fabrics पूरे भारत में खरीदारों और व्यवसायों के साथ काम करता है। अपने स्थान पर डिलीवरी के बारे में चर्चा करने के लिए हमसे संपर्क करें।",
-      "hi-en": "Haan. Vidhi Fabrics poore India mein buyers aur businesses ke saath kaam karta hai. Apne location ki delivery discuss karne ke liye contact karein.",
+      en: "Yes. We supply fabrics across 40+ export markets. International buyers — including wholesalers, distributors, retailers and brands looking to source wholesale fabrics from India — are welcome to contact us directly. Our team handles export documentation end to end.",
+      hi: "हाँ। हम 40+ निर्यात बाज़ारों में फैब्रिक सप्लाई करते हैं। अंतरराष्ट्रीय खरीदार — जिसमें भारत से थोक फैब्रिक सोर्स करने के इच्छुक थोक विक्रेता, वितरक, रिटेलर्स और ब्रांड शामिल हैं — सीधे हमसे संपर्क करने के लिए स्वागत हैं। हमारी टीम निर्यात दस्तावेज़ीकरण शुरू से अंत तक संभालती है।",
+      "hi-en": "Haan. Hum 40+ export markets mein fabrics supply karte hain. International buyers — jisme India se wholesale fabrics source karne ke ichchuk wholesalers, distributors, retailers aur brands shamil hain — directly hamare se contact karne ke liye welcome hain. Hamari team export documentation end to end handle karti hai.",
     },
   },
   {
     question: {
-      en: "How can I enquire about fabric pricing and availability?",
-      hi: "फैब्रिक की कीमत और उपलब्धता के बारे में कैसे पूछताछ कर सकता हूँ?",
-      "hi-en": "Fabric pricing aur availability ke baare mein enquiry kaise kar sakta hoon?",
+      en: "Can you manufacture fabrics to a specific requirement?",
+      hi: "क्या आप किसी विशेष आवश्यकता के अनुसार फैब्रिक बना सकते हैं?",
+      "hi-en": "Kya aap specific requirement ke hisaab se fabrics manufacture kar sakte hain?",
     },
     answer: {
-      en: "You can contact the Vidhi Fabrics team through the enquiry form, WhatsApp or phone to check current availability, pricing and lead times.",
-      hi: "वर्तमान उपलब्धता, कीमत और लीड टाइम जानने के लिए आप पूछताछ फॉर्म, व्हाट्सएप या फोन के माध्यम से Vidhi Fabrics टीम से संपर्क कर सकते हैं।",
-      "hi-en": "Current availability, pricing aur lead times check karne ke liye enquiry form, WhatsApp ya phone se Vidhi Fabrics team ko contact kar sakte hain.",
+      en: "Yes. As a manufacturer based in Surat, we can work to specific requirements including particular constructions, compositions, finishes, patterns, colours and weights. We also have in-house dyeing and finishing capabilities. Share your specification with our team and we will advise on what we can produce for you.",
+      hi: "हाँ। सूरत में एक निर्माता के रूप में, हम विशेष कंस्ट्रक्शन, कम्पोज़िशन, फिनिश, पैटर्न, रंग और वज़न सहित विशेष आवश्यकताओं के अनुसार काम कर सकते हैं। हमारे पास इन-हाउस डाईंग और फिनिशिंग क्षमताएँ भी हैं। अपना स्पेसिफिकेशन हमारी टीम के साथ साझा करें और हम बताएँगे कि हम आपके लिए क्या बना सकते हैं।",
+      "hi-en": "Haan. Surat mein ek manufacturer ke roop mein, hum specific constructions, compositions, finishes, patterns, colours aur weights ke hisaab se kaam kar sakte hain. Hamare paas in-house dyeing aur finishing capabilities bhi hain. Apna specification hamari team ke saath share karein aur hum batayenge ki hum aapke liye kya produce kar sakte hain.",
+    },
+  },
+  {
+    question: {
+      en: "Can you support bulk and repeat production orders?",
+      hi: "क्या आप बल्क और रिपीट प्रोडक्शन ऑर्डर संभाल सकते हैं?",
+      "hi-en": "Kya aap bulk aur repeat production orders handle kar sakte hain?",
+    },
+    answer: {
+      en: "Yes. We work with buyers who need consistent fabric supply for ongoing and repeat orders. Our manufacturing base in Surat, along with 30 years of experience in the textile industry, means we are set up to support bulk requirements and maintain consistency across production runs. Contact us to discuss your volume and frequency.",
+      hi: "हाँ। हम उन खरीदारों के साथ काम करते हैं जिन्हें चल रहे और रिपीट ऑर्डर के लिए लगातार फैब्रिक सप्लाई की ज़रूरत है। सूरत में हमारा मैन्युफैक्चरिंग बेस, साथ ही टेक्सटाइल उद्योग में 30 साल का अनुभव, का अर्थ है कि हम बल्क आवश्यकताओं को सपोर्ट करने और प्रोडक्शन रन में निरंतरता बनाए रखने के लिए तैयार हैं। अपनी मात्रा और आवृत्ति पर चर्चा करने के लिए हमसे संपर्क करें।",
+      "hi-en": "Haan. Hum un buyers ke saath kaam karte hain jinhe ongoing aur repeat orders ke liye consistent fabric supply ki zaroorat hai. Surat mein hamara manufacturing base, saath hi textile industry mein 30 saal ka experience, ka matlab hai ki hum bulk requirements ko support karne aur production runs mein consistency maintain karne ke liye taiyaar hain. Apni volume aur frequency discuss karne ke liye hamare se contact karein.",
+    },
+  },
+  {
+    question: {
+      en: "Can I request fabric samples?",
+      hi: "क्या मैं फैब्रिक सैंपल माँग सकता हूँ?",
+      "hi-en": "Kya main fabric samples maang sakta hoon?",
+    },
+    answer: {
+      en: "Yes. You can request samples, shade cards and product specifications from our manufacturing range. Contact our team through the enquiry form or WhatsApp with your requirement to get started.",
+      hi: "हाँ। आप हमारी मैन्युफैक्चरिंग रेंज से सैंपल, शेड कार्ड और प्रोडक्ट स्पेसिफिकेशन माँग सकते हैं। शुरू करने के लिए अपनी आवश्यकता के साथ पूछताछ फॉर्म या व्हाट्सएप के माध्यम से हमारी टीम से संपर्क करें।",
+      "hi-en": "Haan. Aap hamare manufacturing range se samples, shade cards aur product specifications maang sakte hain. Shuru karne ke liye apni requirement ke saath enquiry form ya WhatsApp ke through hamari team se contact karein.",
+    },
+  },
+  {
+    question: {
+      en: "What is the minimum order quantity?",
+      hi: "न्यूनतम ऑर्डर मात्रा क्या है?",
+      "hi-en": "Minimum order quantity kya hai?",
+    },
+    answer: {
+      en: "Minimum order quantities vary depending on the fabric type, construction, colour, finish and specific requirement. Contact our team with your requirement and we will confirm the relevant MOQ.",
+      hi: "न्यूनतम ऑर्डर मात्रा फैब्रिक के प्रकार, कंस्ट्रक्शन, रंग, फिनिश और विशेष आवश्यकता के आधार पर अलग-अलग होती है। अपनी आवश्यकता के साथ हमारी टीम से संपर्क करें और हम संबंधित MOQ की पुष्टि करेंगे।",
+      "hi-en": "Minimum order quantity fabric type, construction, colour, finish aur specific requirement ke hisaab se alag hoti hai. Apni requirement ke saath hamari team se contact karein aur hum relevant MOQ confirm karenge.",
+    },
+  },
+  {
+    question: {
+      en: "How do I enquire or place an order?",
+      hi: "मैं पूछताछ कैसे करूँ या ऑर्डर कैसे दूँ?",
+      "hi-en": "Main enquiry kaise karun ya order kaise dun?",
+    },
+    answer: {
+      en: "You can reach us through the enquiry form on this page, via WhatsApp, or by phone. Share your fabric requirement — the type of fabric, approximate quantity and any specific construction, composition or finish — and our trade desk will respond within 12 hours.",
+      hi: "आप इस पेज पर पूछताछ फॉर्म के माध्यम से, व्हाट्सएप के जरिए, या फोन द्वारा हमसे संपर्क कर सकते हैं। अपनी फैब्रिक आवश्यकता साझा करें — फैब्रिक का प्रकार, अनुमानित मात्रा और कोई विशेष कंस्ट्रक्शन, कम्पोज़िशन या फिनिश — और हमारा ट्रेड डेस्क 12 घंटे के भीतर जवाब देगा।",
+      "hi-en": "Aap is page par enquiry form ke through, WhatsApp ke zariye, ya phone se hamare se contact kar sakte hain. Apni fabric requirement share karein — fabric ka type, approximate quantity aur koi specific construction, composition ya finish — aur hamara trade desk 12 hours ke andar respond karega.",
+    },
+  },
+  {
+    question: {
+      en: "What information should I provide for a manufacturing or custom fabric enquiry?",
+      hi: "मैन्युफैक्चरिंग या कस्टम फैब्रिक पूछताछ के लिए मुझे क्या जानकारी देनी चाहिए?",
+      "hi-en": "Manufacturing ya custom fabric enquiry ke liye mujhe kya information deni chahiye?",
+    },
+    answer: {
+      en: "Share the fabric type (e.g. cotton, silk, linen, jacquard), the intended use or garment application, approximate quantity, and any specific requirements around construction, composition, weight, colour, pattern or finish. For custom requirements, a reference sample, swatch or technical specification is always helpful. The more detail you can provide, the faster our team can respond.",
+      hi: "फैब्रिक का प्रकार (जैसे कॉटन, सिल्क, लिनन, जैक्वार्ड), इच्छित उपयोग या गारमेंट एप्लिकेशन, अनुमानित मात्रा, और कंस्ट्रक्शन, कम्पोज़िशन, वज़न, रंग, पैटर्न या फिनिश के बारे में कोई विशेष आवश्यकता साझा करें। कस्टम आवश्यकताओं के लिए, रेफरेंस सैंपल, स्वॉच या तकनीकी स्पेसिफिकेशन हमेशा सहायक होती है। आप जितनी अधिक जानकारी दे सकते हैं, हमारी टीम उतनी ही जल्दी जवाब दे सकती है।",
+      "hi-en": "Fabric ka type (jaise cotton, silk, linen, jacquard), intended use ya garment application, approximate quantity, aur construction, composition, weight, colour, pattern ya finish ke baare mein koi specific requirement share karein. Custom requirements ke liye, ek reference sample, swatch ya technical specification hamesha helpful hoti hai. Aap jitni zyada detail de sakte hain, hamari team utni jaldi respond kar sakti hai.",
+    },
+  },
+  {
+    question: {
+      en: "How can I contact Vidhi Fabrics?",
+      hi: "मैं Vidhi Fabrics से कैसे संपर्क कर सकता हूँ?",
+      "hi-en": "Main Vidhi Fabrics se kaise contact kar sakta hoon?",
+    },
+    answer: {
+      en: "You can reach us via the enquiry form on this page, by WhatsApp, or by phone. Our trade desk is available Monday to Saturday and responds within 12 hours. You can also visit us at 542-543 Golden Point, Begampura Road, Surat, Gujarat.",
+      hi: "आप इस पेज पर पूछताछ फॉर्म के माध्यम से, व्हाट्सएप द्वारा, या फोन पर हमसे संपर्क कर सकते हैं। हमारा ट्रेड डेस्क सोमवार से शनिवार तक उपलब्ध है और 12 घंटे के भीतर जवाब देता है। आप 542-543 गोल्डन पॉइंट, बेगमपुरा रोड, सूरत, गुजरात में भी हमसे मिल सकते हैं।",
+      "hi-en": "Aap is page par enquiry form ke through, WhatsApp se, ya phone par hamare se contact kar sakte hain. Hamara trade desk Monday se Saturday tak available hai aur 12 hours ke andar respond karta hai. Aap 542-543 Golden Point, Begampura Road, Surat, Gujarat mein bhi hamare paas aa sakte hain.",
     },
   },
 ];

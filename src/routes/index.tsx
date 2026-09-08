@@ -2,6 +2,12 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 import warehouseShowroom from "@/assets/maxresdefault.jpg";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { FABRICS } from "@/content/fabrics";
 import {
   CATEGORY_LABELS,
@@ -49,6 +55,90 @@ const CATEGORIES: FabricCategory[] = [
 
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/maeypydr";
 const WHATSAPP_NUMBER = "919825208413";
+
+const FAQ_SECTION_COPY: Record<Lang, { marker: string; heading: string }> = {
+  en: { marker: "FAQ / Sourcing", heading: "Common questions, answered." },
+  hi: { marker: "FAQ / सोर्सिंग", heading: "आम सवालों के जवाब।" },
+  "hi-en": { marker: "FAQ / Sourcing", heading: "Common questions ke answers." },
+};
+
+const FAQS: {
+  question: Record<Lang, string>;
+  answer: Record<Lang, string>;
+}[] = [
+  {
+    question: {
+      en: "What types of fabrics does Vidhi Fabrics offer?",
+      hi: "Vidhi Fabrics किस तरह के फैब्रिक उपलब्ध कराता है?",
+      "hi-en": "Vidhi Fabrics kis type ke fabrics offer karta hai?",
+    },
+    answer: {
+      en: "Vidhi Fabrics offers premium apparel fabrics for shirting, ethnic bottom wear, lining, infantwear and other garment applications.",
+      hi: "Vidhi Fabrics शर्टिंग, एथनिक बॉटम वियर, लाइनिंग, इन्फेंटवियर और अन्य गारमेंट उपयोगों के लिए प्रीमियम फैब्रिक उपलब्ध कराता है।",
+      "hi-en": "Vidhi Fabrics shirting, ethnic bottom wear, lining, infantwear aur other garment applications ke liye premium apparel fabrics offer karta hai.",
+    },
+  },
+  {
+    question: {
+      en: "Does Vidhi Fabrics supply fabrics in bulk?",
+      hi: "क्या Vidhi Fabrics थोक में फैब्रिक सप्लाई करता है?",
+      "hi-en": "Kya Vidhi Fabrics bulk mein fabrics supply karta hai?",
+    },
+    answer: {
+      en: "Yes. We work with garment manufacturers, apparel brands, wholesalers and sourcing partners for bulk fabric requirements.",
+      hi: "हाँ। हम गारमेंट निर्माताओं, अपैरल ब्रांड्स, थोक विक्रेताओं और सोर्सिंग पार्टनर्स के साथ थोक फैब्रिक आवश्यकताओं के लिए काम करते हैं।",
+      "hi-en": "Haan. Hum garment manufacturers, apparel brands, wholesalers aur sourcing partners ke saath bulk fabric requirements ke liye kaam karte hain.",
+    },
+  },
+  {
+    question: {
+      en: "Can I request fabric samples or a shade card?",
+      hi: "क्या मैं फैब्रिक सैंपल या शेड कार्ड मांग सकता हूँ?",
+      "hi-en": "Kya main fabric samples ya shade card request kar sakta hoon?",
+    },
+    answer: {
+      en: "Yes. Share your fabric requirement with our team to request samples, shade cards and product specifications.",
+      hi: "हाँ। सैंपल, शेड कार्ड और प्रोडक्ट स्पेसिफिकेशन के लिए अपनी फैब्रिक आवश्यकता हमारी टीम के साथ साझा करें।",
+      "hi-en": "Haan. Samples, shade cards aur product specifications ke liye apni fabric requirement hamari team ke saath share karein.",
+    },
+  },
+  {
+    question: {
+      en: "What is the minimum order quantity for fabrics?",
+      hi: "फैब्रिक के लिए न्यूनतम ऑर्डर मात्रा क्या है?",
+      "hi-en": "Fabrics ke liye minimum order quantity kya hai?",
+    },
+    answer: {
+      en: "Minimum order quantities vary based on the fabric type, colour, finish and requirement. Contact our team for the relevant MOQ.",
+      hi: "न्यूनतम ऑर्डर मात्रा फैब्रिक के प्रकार, रंग, फिनिश और आवश्यकता के आधार पर अलग-अलग होती है। संबंधित MOQ के लिए हमारी टीम से संपर्क करें।",
+      "hi-en": "Minimum order quantity fabric type, colour, finish aur requirement ke hisaab se alag hoti hai. Relevant MOQ ke liye hamari team se contact karein.",
+    },
+  },
+  {
+    question: {
+      en: "Does Vidhi Fabrics supply fabrics across India?",
+      hi: "क्या Vidhi Fabrics पूरे भारत में फैब्रिक सप्लाई करता है?",
+      "hi-en": "Kya Vidhi Fabrics poore India mein fabrics supply karta hai?",
+    },
+    answer: {
+      en: "Yes. Vidhi Fabrics works with buyers and businesses across India. Contact us to discuss delivery for your location.",
+      hi: "हाँ। Vidhi Fabrics पूरे भारत में खरीदारों और व्यवसायों के साथ काम करता है। अपने स्थान पर डिलीवरी के बारे में चर्चा करने के लिए हमसे संपर्क करें।",
+      "hi-en": "Haan. Vidhi Fabrics poore India mein buyers aur businesses ke saath kaam karta hai. Apne location ki delivery discuss karne ke liye contact karein.",
+    },
+  },
+  {
+    question: {
+      en: "How can I enquire about fabric pricing and availability?",
+      hi: "फैब्रिक की कीमत और उपलब्धता के बारे में कैसे पूछताछ कर सकता हूँ?",
+      "hi-en": "Fabric pricing aur availability ke baare mein enquiry kaise kar sakta hoon?",
+    },
+    answer: {
+      en: "You can contact the Vidhi Fabrics team through the enquiry form, WhatsApp or phone to check current availability, pricing and lead times.",
+      hi: "वर्तमान उपलब्धता, कीमत और लीड टाइम जानने के लिए आप पूछताछ फॉर्म, व्हाट्सएप या फोन के माध्यम से Vidhi Fabrics टीम से संपर्क कर सकते हैं।",
+      "hi-en": "Current availability, pricing aur lead times check karne ke liye enquiry form, WhatsApp ya phone se Vidhi Fabrics team ko contact kar sakte hain.",
+    },
+  },
+];
 
 const WHATSAPP_MESSAGES: Record<Lang, string> = {
   en: "Hi Vidhi Fabrics, I am looking for a fabric.",
@@ -408,6 +498,48 @@ function Index() {
               </article>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="border-b border-line bg-paper">
+        <div className="mx-auto max-w-3xl px-6 py-20">
+          <p className="font-mono text-xs uppercase tracking-[0.2em] text-clay">
+            {FAQ_SECTION_COPY[lang].marker}
+          </p>
+          <h2 className="mt-3 font-display text-4xl font-semibold tracking-tight lg:text-5xl">
+            {FAQ_SECTION_COPY[lang].heading}
+          </h2>
+
+          <Accordion type="single" collapsible className="mt-10">
+            {FAQS.map((faq, index) => (
+              <AccordionItem key={faq.question.en} value={`faq-${index}`} className="border-line">
+                <AccordionTrigger className="font-display text-lg font-semibold text-ink hover:no-underline">
+                  {faq.question[lang]}
+                </AccordionTrigger>
+                <AccordionContent className="max-w-2xl text-base leading-relaxed text-mute">
+                  {faq.answer[lang]}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                mainEntity: FAQS.map((faq) => ({
+                  "@type": "Question",
+                  name: faq.question.en,
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: faq.answer.en,
+                  },
+                })),
+              }),
+            }}
+          />
         </div>
       </section>
 

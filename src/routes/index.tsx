@@ -528,6 +528,21 @@ function Index() {
         </div>
       </section>
 
+      <section className="border-b border-line bg-ink">
+        <div className="mx-auto max-w-6xl px-6 py-20">
+          <video
+            className="w-full rounded-md"
+            autoPlay
+            loop
+            muted
+            playsInline
+          >
+            <source src="/weaving-blue-fabric-on-a-traditional-wooden-loom-2025-12-17-20-43-30-utc.mov" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </section>
+
       <section className="border-b border-line bg-paper">
         <div className="mx-auto max-w-6xl px-6 py-20">
           <div className="max-w-2xl">

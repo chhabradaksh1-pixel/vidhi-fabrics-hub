@@ -17,6 +17,9 @@ import {
   type Lang,
 } from "@/content/translations";
 
+const EN_URL = "https://vidhi-fabrics-hub.vercel.app/";
+const HI_URL = "https://vidhi-fabrics-hub.vercel.app/hi";
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -39,6 +42,12 @@ export const Route = createFileRoute("/")({
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [
+      { rel: "canonical", href: EN_URL },
+      { rel: "alternate", hreflang: "en", href: EN_URL },
+      { rel: "alternate", hreflang: "hi", href: HI_URL },
+      { rel: "alternate", hreflang: "x-default", href: EN_URL },
     ],
   }),
   component: Index,
@@ -275,22 +284,32 @@ function Index() {
               role="group"
               aria-label="Language"
             >
-              {LANGUAGES.map((l) => (
-                <button
-                  key={l.code}
-                  type="button"
-                  onClick={() => setLang(l.code)}
-                  aria-pressed={lang === l.code}
-                  title={l.label}
-                  className={`px-3 py-2 font-mono text-sm transition-colors ${
-                    lang === l.code
-                      ? "bg-ink text-paper"
-                      : "text-mute hover:text-ink"
-                  }`}
-                >
-                  {l.code === "en" ? "EN" : l.code === "hi" ? "हिंदी" : "Hinglish"}
-                </button>
-              ))}
+              <a
+                href="/"
+                aria-current="page"
+                className="px-3 py-2 font-mono text-sm transition-colors bg-ink text-paper"
+              >
+                EN
+              </a>
+              <a
+                href="/hi"
+                className="px-3 py-2 font-mono text-sm transition-colors text-mute hover:text-ink"
+              >
+                हिंदी
+              </a>
+              <button
+                type="button"
+                onClick={() => setLang("hi-en")}
+                aria-pressed={lang === "hi-en"}
+                title="Hinglish"
+                className={`px-3 py-2 font-mono text-sm transition-colors ${
+                  lang === "hi-en"
+                    ? "bg-ink text-paper"
+                    : "text-mute hover:text-ink"
+                }`}
+              >
+                Hinglish
+              </button>
             </div>
             <a
               href={getWhatsAppUrl(lang)}

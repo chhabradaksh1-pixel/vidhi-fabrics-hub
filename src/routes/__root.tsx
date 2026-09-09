@@ -113,8 +113,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: ReactNode }) {
+  const router = useRouter();
+  const isHindi = router.state.location.pathname.startsWith("/hi");
   return (
-    <html lang="en">
+    <html lang={isHindi ? "hi" : "en"}>
       <head>
         <HeadContent />
       </head>

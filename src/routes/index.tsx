@@ -673,6 +673,18 @@ function Index() {
           </div>
         </div>
 
+        <div className="border-t border-line">
+          <video
+            src="/weaving-loom.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            aria-hidden="true"
+            className="h-48 w-full object-cover sm:h-64 lg:h-80"
+          />
+        </div>
+
         <footer className="border-t border-line">
           <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-6 py-6 font-mono text-[11px] uppercase tracking-[0.12em] text-mute">
             <span>{COPY.footer.left[lang]}</span>

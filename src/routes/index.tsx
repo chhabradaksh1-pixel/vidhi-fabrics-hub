@@ -487,6 +487,17 @@ function Index() {
         </div>
       </section>
 
+      <section aria-hidden="true" className="border-b border-line">
+        <video
+          src="/weaving-loom.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="h-48 w-full object-cover sm:h-64 lg:h-80"
+        />
+      </section>
+
       <section id="scale" className="border-b border-line bg-ink text-paper">
         <div className="mx-auto max-w-6xl px-6 py-20">
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-clay">
@@ -656,18 +667,6 @@ function Index() {
               <p className="mt-1 text-ink">{COPY.contact.hoursValue[lang]}</p>
             </div>
           </div>
-        </div>
-
-        <div className="border-t border-line">
-          <video
-            src="/weaving-loom.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-            aria-hidden="true"
-            className="h-48 w-full object-cover sm:h-64 lg:h-80"
-          />
         </div>
 
         <footer className="border-t border-line">

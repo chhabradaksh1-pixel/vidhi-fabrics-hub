@@ -16,8 +16,8 @@ import {
   type Lang,
 } from "@/content/translations";
 
-const EN_URL = "https://vidhi-fabrics-hub.vercel.app/";
-const HI_URL = "https://vidhi-fabrics-hub.vercel.app/hi";
+const EN_URL = "https://www.vidhifabrics.com/";
+const HI_URL = "https://www.vidhifabrics.com/hi";
 
 export const Route = createFileRoute("/hi")({
   head: () => ({
@@ -39,6 +39,7 @@ export const Route = createFileRoute("/hi")({
         content:
           "विधि फैब्रिक्स से कॉटन, सिल्क, लिनन, पॉलिएस्टर और जैक्वार्ड कपड़ों की थोक जानकारी लें। अपनी ज़रूरत बताकर सैंपल, उपलब्धता और कोटेशन पूछें।",
       },
+      { property: "og:url", content: HI_URL },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

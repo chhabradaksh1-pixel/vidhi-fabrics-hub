@@ -3,17 +3,17 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>https://vidhi-fabrics-hub.vercel.app/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://vidhi-fabrics-hub.vercel.app/"/>
-    <xhtml:link rel="alternate" hreflang="hi" href="https://vidhi-fabrics-hub.vercel.app/hi"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidhi-fabrics-hub.vercel.app/"/>
+    <loc>https://www.vidhifabrics.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.vidhifabrics.com/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.vidhifabrics.com/hi"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vidhifabrics.com/"/>
   </url>
 
   <url>
-    <loc>https://vidhi-fabrics-hub.vercel.app/hi</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://vidhi-fabrics-hub.vercel.app/"/>
-    <xhtml:link rel="alternate" hreflang="hi" href="https://vidhi-fabrics-hub.vercel.app/hi"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://vidhi-fabrics-hub.vercel.app/"/>
+    <loc>https://www.vidhifabrics.com/hi</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.vidhifabrics.com/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.vidhifabrics.com/hi"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vidhifabrics.com/"/>
   </url>
 
 </urlset>

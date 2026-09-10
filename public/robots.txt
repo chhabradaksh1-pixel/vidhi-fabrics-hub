@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://vidhi-fabrics-hub.vercel.app/sitemap.xml
+Sitemap: https://www.vidhifabrics.com/sitemap.xml

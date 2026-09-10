@@ -17,8 +17,8 @@ import {
   type Lang,
 } from "@/content/translations";
 
-const EN_URL = "https://vidhi-fabrics-hub.vercel.app/";
-const HI_URL = "https://vidhi-fabrics-hub.vercel.app/hi";
+const EN_URL = "https://www.vidhifabrics.com/";
+const HI_URL = "https://www.vidhifabrics.com/hi";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -40,6 +40,7 @@ export const Route = createFileRoute("/")({
         content:
           "Manufacturer and wholesale fabric supply from Surat for retailers, brands, manufacturers and textile buyers. Broad materials, constructions, patterns and finishes, with quotations within 12 hours.",
       },
+      { property: "og:url", content: EN_URL },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

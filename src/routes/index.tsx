@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { Linkedin } from "lucide-react";
 
 import warehouseShowroom from "@/assets/maxresdefault.jpg";
 import {
@@ -692,6 +693,17 @@ function Index() {
         <footer className="border-t border-line">
           <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-6 py-6 font-mono text-[11px] uppercase tracking-[0.12em] text-mute">
             <span>{COPY.footer.left[lang]}</span>
+            <div className="flex items-center gap-6">
+              <a
+                href="https://www.linkedin.com/company/vidhi-fabricss/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit Vidhi Fabrics on LinkedIn"
+                className="inline-flex items-center justify-center transition-colors hover:text-ink"
+              >
+                <Linkedin size={20} />
+              </a>
+            </div>
             <span>{COPY.footer.right[lang]}</span>
           </div>
         </footer>

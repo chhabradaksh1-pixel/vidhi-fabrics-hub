@@ -510,7 +510,7 @@ function Index() {
 
       <section aria-hidden="true" className="border-b border-line">
         <video
-          src="/weaving-loom.mp4"
+          src="/weaving-loom.mp4?v=a787f8f"
           autoPlay
           loop
           muted

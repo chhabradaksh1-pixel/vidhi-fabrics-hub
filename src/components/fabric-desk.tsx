@@ -1,191 +1,267 @@
-import cottonLinen from "@/assets/fabric-cotton-linen.jpg";
-import katanJacquard from "@/assets/fabric-katan-jacquard.jpg";
-import { whatsAppUrl } from "@/lib/whatsapp";
-import { COPY, type Lang } from "@/content/translations";
-import { JOURNAL_COPY, SORTED_ARTICLES } from "@/content/journal";
+import { ArrowDown, ArrowRight, ArrowUpRight } from "lucide-react";
+import cotton from "@/assets/fabric-cotton-linen.jpg";
+import jacquard from "@/assets/fabric-katan-jacquard.jpg";
+import { JOURNAL, readingMinutes, type JournalArticle } from "@/content/journal";
+import type { Lang } from "@/content/translations";
 
-const DESK_MESSAGE: Record<Lang, string> = {
-  en: "Hello Vidhi Fabrics. I would like to use the Surat Fabric Desk for a requirement.",
-  hi: "नमस्ते विधि फैब्रिक्स। मैं एक ज़रूरत के लिए सूरत फैब्रिक डेस्क का उपयोग करना चाहता/चाहती हूँ।",
-  "hi-en":
-    "Hello Vidhi Fabrics. Main ek requirement ke liye Surat Fabric Desk use karna chahta/chahti hoon.",
+const SECTION_COPY = {
+  en: {
+    about: "About us",
+    desk: "Fabric Desk",
+    marker: "Our story / Surat, India",
+    title: "It started with our grandfather.",
+    titleEnd: "It grew through relationships.",
+    body: "Our family’s textile journey began in the 1960s, when our grandfather started the business. Passed down through generations, that experience lives on at Vidhi Fabrics through long-standing relationships with suppliers and buyers across Surat’s textile network.",
+    bodyEnd:
+      "Today, we’re bringing that experience online, making it easier to explore our range, share your requirements and connect with the people behind the business.",
+    cta: "Talk to our team",
+    detail: "Rooted in Surat. Connected through textiles.",
+    journal: "The journal / For textile buyers",
+    subtitle: "Practical guides to fabrics, sourcing and buying wholesale.",
+    browse: "Explore the desk",
+    read: "Read article",
+    language: "Articles in English",
+  },
+  hi: {
+    about: "हमारे बारे में",
+    desk: "फैब्रिक डेस्क",
+    marker: "हमारी कहानी / सूरत, भारत",
+    title: "शुरुआत दादाजी ने की।",
+    titleEnd: "रिश्तों ने इसे आगे बढ़ाया।",
+    body: "हमारे परिवार का कपड़ों का सफ़र 1960 के दशक में शुरू हुआ, जब हमारे दादाजी ने इस व्यवसाय की नींव रखी। पीढ़ियों से मिला यह अनुभव आज विधि फैब्रिक्स में सूरत के सप्लायर्स और खरीदारों के साथ लंबे समय से जुड़े रिश्तों में आगे बढ़ रहा है।",
+    bodyEnd:
+      "अब हम इस अनुभव को ऑनलाइन ला रहे हैं, ताकि आप हमारी रेंज देख सकें, अपनी ज़रूरत साझा कर सकें और व्यवसाय के पीछे के लोगों से आसानी से जुड़ सकें।",
+    cta: "हमारी टीम से बात करें",
+    detail: "सूरत से जुड़े। कपड़ों के रिश्तों से आगे बढ़ते।",
+    journal: "जानकारी / टेक्सटाइल खरीदारों के लिए",
+    subtitle: "कपड़ों, सोर्सिंग और थोक खरीदारी के लिए उपयोगी गाइड।",
+    browse: "सभी लेख देखें",
+    read: "लेख पढ़ें",
+    language: "लेख अंग्रेज़ी में हैं",
+  },
+  "hi-en": {
+    about: "Hamare baare mein",
+    desk: "Fabric Desk",
+    marker: "Hamari kahani / Surat, India",
+    title: "Shuruaat dadaji ne ki.",
+    titleEnd: "Rishton ne aage badhaya.",
+    body: "Hamare family ka textile safar 1960s mein shuru hua, jab hamare dadaji ne business ki shuruaat ki. Generations se mila yeh experience aaj Vidhi Fabrics mein Surat ke suppliers aur buyers ke saath purane rishton mein aage badh raha hai.",
+    bodyEnd:
+      "Ab hum is experience ko online la rahe hain, taaki aap hamari range explore kar sakein, apni requirements share karein aur business ke peeche ke logon se aasaani se jud sakein.",
+    cta: "Hamari team se baat karein",
+    detail: "Surat se jude. Textiles ke rishton se aage.",
+    journal: "The journal / Textile buyers ke liye",
+    subtitle: "Fabrics, sourcing aur wholesale buying ke practical guides.",
+    browse: "Saare articles dekhein",
+    read: "Article padhein",
+    language: "Articles English mein hain",
+  },
 };
 
-/** About Us — family story with a two-image fabric composition. */
-export function AboutSection({ lang }: { lang: Lang }) {
-  const copy = COPY.about;
-
+export function StoryLinks({ lang = "en" }: { lang?: Lang }) {
+  const copy = SECTION_COPY[lang];
   return (
-    <section id="about" className="border-b border-line bg-paper">
-      <div className="mx-auto max-w-6xl px-6 py-20">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
-          <div className="lg:col-span-7">
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-clay">
-              {copy.marker[lang]}
-            </p>
-            <h2 className="mt-3 text-balance font-display text-4xl font-semibold tracking-tight lg:text-5xl">
-              {copy.heading[lang]}
-            </h2>
-            <p className="mt-6 max-w-[52ch] text-pretty text-lg text-mute">{copy.lede[lang]}</p>
-
-            <h3 className="mt-10 font-mono text-[11px] uppercase tracking-[0.15em] text-clay">
-              {copy.storyTitle[lang]}
-            </h3>
-            <div className="mt-4 space-y-4 text-pretty text-mute">
-              {copy.story[lang].map((para) => (
-                <p key={para.slice(0, 32)} className="max-w-[62ch]">
-                  {para}
-                </p>
-              ))}
-            </div>
-          </div>
-
-          {/* Two-image fabric composition — textile detail photographs already in
-              the project, not depictions of the founder or the premises. */}
-          <div className="lg:col-span-5">
-            <div className="relative">
-              <img
-                src={cottonLinen}
-                alt={copy.imageAltOne[lang]}
-                loading="lazy"
-                width={1024}
-                height={1280}
-                className="aspect-[4/5] w-full rounded-md object-cover ring-1 ring-black/5"
-              />
-              <img
-                src={katanJacquard}
-                alt={copy.imageAltTwo[lang]}
-                loading="lazy"
-                width={512}
-                height={512}
-                className="absolute -bottom-8 -left-6 hidden aspect-square w-40 rounded-md object-cover ring-4 ring-paper sm:block lg:w-48"
-              />
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-20 border-t border-line pt-10">
-          <h3 className="font-mono text-[11px] uppercase tracking-[0.15em] text-clay">
-            {copy.valuesTitle[lang]}
-          </h3>
-          <div className="mt-6 grid grid-cols-1 gap-8 sm:grid-cols-3">
-            {copy.values.map((value) => (
-              <div key={value.title.en}>
-                <h4 className="font-display text-xl font-semibold">{value.title[lang]}</h4>
-                <p className="mt-2 text-sm text-mute">{value.body[lang]}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
+    <>
+      <a href="#about" className="transition-colors hover:text-clay">
+        {copy.about}
+      </a>
+      <a href="/blog" className="transition-colors hover:text-clay">
+        {copy.desk}
+      </a>
+    </>
   );
 }
 
-/** Surat Fabric Desk — how a buyer actually engages us. */
-export function FabricDeskSection({ lang }: { lang: Lang }) {
-  const copy = COPY.fabricDesk;
-
+export function AboutSection({ lang, whatsappUrl }: { lang: Lang; whatsappUrl: string }) {
+  const copy = SECTION_COPY[lang];
   return (
-    <section id="desk" className="border-b border-line bg-ink text-paper">
-      <div className="mx-auto max-w-6xl px-6 py-20">
-        <p className="font-mono text-xs uppercase tracking-[0.2em] text-clay">
-          {copy.marker[lang]}
-        </p>
-        <h2 className="mt-3 max-w-[22ch] text-balance font-display text-4xl font-semibold tracking-tight lg:text-5xl">
-          {copy.heading[lang]}
-        </h2>
-        <p className="mt-6 max-w-[58ch] text-pretty text-paper/70">{copy.body[lang]}</p>
-
-        <ol className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-3">
-          {copy.steps.map((step, i) => (
-            <li key={step.title.en} className="border-t border-paper/20 pt-5">
-              <span className="font-mono text-xs text-clay">{String(i + 1).padStart(2, "0")}</span>
-              <h3 className="mt-2 font-display text-xl font-semibold">{step.title[lang]}</h3>
-              <p className="mt-2 text-sm text-paper/70">{step.body[lang]}</p>
-            </li>
-          ))}
-        </ol>
-
-        <div className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-3">
+    <section
+      id="about"
+      aria-labelledby="about-heading"
+      className="scroll-mt-36 border-b border-line bg-sand"
+    >
+      <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-20 lg:grid-cols-2 lg:gap-20 lg:py-24">
+        <div className="relative pb-12 pr-10 sm:pr-16">
+          <img
+            src={jacquard}
+            alt="Rust-red fabric with intricate woven motifs"
+            width={1024}
+            height={768}
+            loading="lazy"
+            decoding="async"
+            className="aspect-[4/5] w-full object-cover"
+          />
+          <div className="absolute bottom-0 right-0 w-[48%] border-8 border-sand">
+            <img
+              src={cotton}
+              alt="Soft cream fabric with a visible weave"
+              width={1024}
+              height={768}
+              loading="lazy"
+              decoding="async"
+              className="aspect-square w-full object-cover"
+            />
+          </div>
+          <p className="absolute bottom-3 left-0 max-w-[45%] font-mono text-[10px] uppercase leading-relaxed tracking-widest text-mute">
+            {copy.detail}
+          </p>
+        </div>
+        <div>
+          <p className="font-mono text-xs uppercase tracking-[0.18em] text-clay">{copy.marker}</p>
+          <h2
+            id="about-heading"
+            className="mt-5 text-balance font-display text-4xl font-semibold leading-[1.12] tracking-tight lg:text-5xl"
+          >
+            {copy.title}
+            <span className="mt-2 block text-clay">{copy.titleEnd}</span>
+          </h2>
+          <p className="mt-7 leading-relaxed text-mute">{copy.body}</p>
+          <p className="mt-4 leading-relaxed text-mute">{copy.bodyEnd}</p>
           <a
-            href={whatsAppUrl(DESK_MESSAGE[lang])}
+            href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-sm bg-clay px-6 py-3.5 font-mono text-xs uppercase tracking-[0.15em] text-paper transition-colors hover:bg-claydeep"
+            className="mt-8 inline-flex items-center gap-4 bg-clay px-6 py-4 text-sm font-medium text-paper transition-colors hover:bg-claydeep"
           >
-            {copy.cta[lang]}
+            {copy.cta}
+            <ArrowUpRight size={18} aria-hidden="true" />
           </a>
-          <span className="font-mono text-[11px] uppercase tracking-[0.12em] text-paper/50">
-            {copy.note[lang]}
-          </span>
         </div>
       </div>
     </section>
   );
 }
 
-/** Homepage teaser for /blog — three most recent buyer guides. */
-export function JournalPreview({ lang }: { lang: Lang }) {
-  const englishBadge = JOURNAL_COPY.englishOnly[lang];
-
+export function JournalCard({
+  article,
+  number,
+  readLabel = "Read article",
+}: {
+  article: JournalArticle;
+  number: number;
+  readLabel?: string;
+}) {
   return (
-    <section id="insights" className="border-b border-line bg-paper">
-      <div className="mx-auto max-w-6xl px-6 py-20">
-        <div className="flex flex-wrap items-end justify-between gap-6">
+    <article className="group flex h-full flex-col overflow-hidden border border-line bg-paper">
+      <a
+        href={`/blog/${article.slug}`}
+        className="flex h-full flex-col"
+        aria-label={`${readLabel}: ${article.title}`}
+      >
+        <div className="relative overflow-hidden bg-sand">
+          <img
+            src={article.image}
+            alt={article.imageAlt}
+            width={1024}
+            height={768}
+            loading="lazy"
+            decoding="async"
+            className="aspect-[4/3] w-full object-cover transition-transform duration-300 group-hover:scale-[1.03] motion-reduce:transform-none"
+          />
+          <span className="absolute left-4 top-4 bg-paper px-3 py-2 font-mono text-xs text-clay">
+            {String(number).padStart(2, "0")}
+          </span>
+        </div>
+        <div className="flex flex-1 flex-col p-6" lang="en">
+          <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-clay">
+            {article.category} · {readingMinutes(article)} min read
+          </p>
+          <h3 className="mt-4 font-display text-2xl font-semibold leading-snug tracking-tight">
+            {article.title}
+          </h3>
+          <p className="mb-7 mt-3 text-sm leading-relaxed text-mute">{article.excerpt}</p>
+          <span className="mt-auto flex items-center justify-between border-t border-line pt-5 text-sm font-medium text-clay">
+            {readLabel}
+            <ArrowUpRight size={18} aria-hidden="true" />
+          </span>
+        </div>
+      </a>
+    </article>
+  );
+}
+
+export function FabricDeskSection({ lang = "en" }: { lang?: Lang }) {
+  const copy = SECTION_COPY[lang];
+  return (
+    <section
+      id="fabric-desk"
+      aria-labelledby="fabric-desk-heading"
+      className="scroll-mt-36 border-b border-line bg-paper"
+    >
+      <div className="mx-auto max-w-6xl px-6 py-20 lg:py-24">
+        <div className="mb-10 flex flex-wrap items-end justify-between gap-6">
           <div>
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-clay">
-              {JOURNAL_COPY.marker[lang]}
+            <p className="font-mono text-xs uppercase tracking-[0.18em] text-clay">
+              {copy.journal}
             </p>
-            <h2 className="mt-2 font-display text-4xl font-semibold tracking-tight">
-              {JOURNAL_COPY.heading[lang]}
+            <h2
+              id="fabric-desk-heading"
+              className="mt-4 font-display text-4xl font-semibold tracking-tight lg:text-5xl"
+            >
+              Surat Fabric Desk<span className="text-clay">.</span>
             </h2>
-            <p className="mt-3 max-w-[55ch] text-sm text-mute">{JOURNAL_COPY.body[lang]}</p>
+            <p className="mt-4 text-mute">{copy.subtitle}</p>
+            {lang !== "en" && <p className="mt-2 text-xs text-mute">{copy.language}</p>}
           </div>
           <a
             href="/blog"
-            className="font-mono text-xs uppercase tracking-[0.12em] text-clay underline-offset-4 transition-colors hover:text-claydeep hover:underline"
+            className="inline-flex items-center gap-3 border-b border-clay pb-2 text-sm font-medium text-clay"
           >
-            {JOURNAL_COPY.readAll[lang]} →
+            {copy.browse}
+            <ArrowRight size={17} aria-hidden="true" />
           </a>
         </div>
-
-        <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {SORTED_ARTICLES.map((article) => (
-            <a
+        <div className="grid gap-6 md:grid-cols-3">
+          {JOURNAL.map((article, index) => (
+            <JournalCard
               key={article.slug}
-              href={`/blog/${article.slug}`}
-              className="group overflow-hidden rounded-md bg-sand/40 ring-1 ring-black/5 transition-all duration-300 hover:-translate-y-1"
-            >
-              <img
-                src={article.image}
-                alt={article.imageAlt}
-                loading="lazy"
-                width={1024}
-                height={768}
-                className="aspect-[4/3] w-full object-cover"
-              />
-              <div className="p-5">
-                <div className="flex flex-wrap items-center gap-x-3 font-mono text-[11px] text-mute">
-                  <time dateTime={article.date}>{article.date}</time>
-                  <span>
-                    {article.readMinutes} {JOURNAL_COPY.readSuffix[lang]}
-                  </span>
-                  {englishBadge ? (
-                    <span className="rounded-sm bg-ink/5 px-1.5 py-0.5 text-ink/60">
-                      {englishBadge}
-                    </span>
-                  ) : null}
-                </div>
-                <h3 className="mt-2 font-display text-xl font-semibold group-hover:text-claydeep">
-                  {article.title}
-                </h3>
-                <p className="mt-1 text-sm text-mute">{article.excerpt}</p>
-              </div>
-            </a>
+              article={article}
+              number={index + 1}
+              readLabel={copy.read}
+            />
           ))}
         </div>
       </div>
     </section>
+  );
+}
+
+export function JournalHeader() {
+  return (
+    <header className="border-b border-line bg-paper">
+      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-5 px-6 py-5">
+        <a href="/" className="font-display text-2xl font-semibold tracking-tight">
+          Vidhi Fabrics
+        </a>
+        <nav aria-label="Main navigation" className="flex flex-wrap items-center gap-5 text-sm">
+          <a href="/#catalogue" className="hover:text-clay">
+            Catalogue
+          </a>
+          <a href="/#about" className="hover:text-clay">
+            About us
+          </a>
+          <a href="/blog" className="text-clay">
+            Fabric Desk
+          </a>
+          <a href="/#contact" className="hover:text-clay">
+            Contact
+          </a>
+        </nav>
+      </div>
+    </header>
+  );
+}
+
+export function JournalFooter() {
+  return (
+    <footer className="border-t border-line">
+      <div className="mx-auto flex max-w-6xl flex-wrap justify-between gap-5 px-6 py-8 text-sm text-mute">
+        <a href="/">Vidhi Fabrics · Surat, India</a>
+        <a href="/#catalogue" className="inline-flex items-center gap-2 text-clay">
+          Explore our fabrics
+          <ArrowDown className="-rotate-90" size={16} aria-hidden="true" />
+        </a>
+      </div>
+    </footer>
   );
 }

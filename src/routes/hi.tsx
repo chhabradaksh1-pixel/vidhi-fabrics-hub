@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Linkedin } from "lucide-react";
+import { AboutSection, FabricDeskSection, StoryLinks } from "@/components/fabric-desk";
 
 import warehouseShowroom from "@/assets/maxresdefault.jpg";
 import {
@@ -9,18 +10,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import {
-  AboutSection,
-  FabricDeskSection,
-  JournalPreview,
-} from "@/components/fabric-desk";
 import { FABRICS } from "@/content/fabrics";
-import {
-  CATEGORY_LABELS,
-  COPY,
-  type FabricCategory,
-  type Lang,
-} from "@/content/translations";
+import { CATEGORY_LABELS, COPY, type FabricCategory, type Lang } from "@/content/translations";
 
 const EN_URL = "https://www.vidhifabrics.com/";
 const HI_URL = "https://www.vidhifabrics.com/hi";
@@ -59,14 +50,7 @@ export const Route = createFileRoute("/hi")({
   component: HiIndex,
 });
 
-const CATEGORIES: FabricCategory[] = [
-  "all",
-  "cotton",
-  "silk",
-  "linen",
-  "polyester",
-  "jacquard",
-];
+const CATEGORIES: FabricCategory[] = ["all", "cotton", "silk", "linen", "polyester", "jacquard"];
 
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/maeypydr";
 const WHATSAPP_NUMBER = "919825208413";
@@ -88,9 +72,10 @@ const FAQS: {
       "hi-en": "Kya Vidhi Fabrics ek fabric manufacturer hai?",
     },
     answer: {
-      en: "Yes. Vidhi Fabrics is a fabric manufacturer and wholesale supplier based in Surat, India — a family business that began when our grandfather started trading cloth here in the 1960s.",
-      hi: "हाँ। विधि फैब्रिक्स एक कपड़ा निर्माता और थोक सप्लायर है, जो सूरत, भारत में स्थित है — एक पारिवारिक कारोबार, जिसकी शुरुआत 1960 के दशक में हमारे दादाजी के कपड़ा व्यापार से हुई। सूरत एशिया का सबसे बड़ा टेक्सटाइल हब है, और यहाँ से संचालित होने के कारण हमें उत्पादन, रंगाई, फिनिशिंग और व्यापक टेक्सटाइल सप्लाई चेन तक सीधी पहुँच मिलती है। खरीदार अपनी ज़रूरत के लिए सीधे हमसे संपर्क कर सकते हैं।",
-      "hi-en": "Haan. Vidhi Fabrics ek fabric manufacturer aur wholesale supplier hai, jo Surat, India mein based hai — ek family business, jiski shuruaat 1960s mein hamare dadaji ke kapda vyapar se hui.",
+      en: "Yes. Vidhi Fabrics is a fabric manufacturer and wholesale supplier based in Surat, India — with family roots dating back to the 1960s.",
+      hi: "हाँ। विधि फैब्रिक्स एक कपड़ा निर्माता और थोक सप्लायर है, जो सूरत, भारत में स्थित है — जिसकी पारिवारिक शुरुआत 1960 के दशक में हुई। सूरत एशिया का सबसे बड़ा टेक्सटाइल हब है, और यहाँ से संचालित होने के कारण हमें उत्पादन, रंगाई, फिनिशिंग और व्यापक टेक्सटाइल सप्लाई चेन तक सीधी पहुँच मिलती है। खरीदार अपनी ज़रूरत के लिए सीधे हमसे संपर्क कर सकते हैं।",
+      "hi-en":
+        "Haan. Vidhi Fabrics ek fabric manufacturer aur wholesale supplier hai, jo Surat, India mein based hai — jiski family journey 1960s mein shuru hui.",
     },
   },
   {
@@ -102,7 +87,8 @@ const FAQS: {
     answer: {
       en: "We manufacture and supply cotton, silk, linen, polyester, jacquard and blended fabrics.",
       hi: "हम कॉटन, सिल्क, लिनन, पॉलिएस्टर, जैक्वार्ड और ब्लेंडेड कपड़े बनाते और सप्लाई करते हैं — जिसमें बुने, प्रिंटेड, रंगे और फिनिश्ड वैरायटी शामिल हैं। हमारी रेंज में 2,400 से अधिक सक्रिय SKU हैं। अपनी ज़रूरत बताएँ और हमारी टीम सही कपड़ा पहचानने में मदद करेगी।",
-      "hi-en": "Hum cotton, silk, linen, polyester, jacquard aur blended fabrics manufacture aur supply karte hain.",
+      "hi-en":
+        "Hum cotton, silk, linen, polyester, jacquard aur blended fabrics manufacture aur supply karte hain.",
     },
   },
   {
@@ -114,7 +100,8 @@ const FAQS: {
     answer: {
       en: "Wholesalers, distributors, retailers, boutique owners, garment manufacturers and textile traders can all source fabrics directly from us.",
       hi: "थोक विक्रेता, वितरक, रिटेलर्स, बुटीक मालिक, गारमेंट निर्माता और कपड़ा व्यापारी — सभी सीधे हमसे कपड़ा ले सकते हैं। चाहे आपको थोक, रिटेल, बुटीक या गारमेंट प्रोडक्शन के लिए कपड़ा चाहिए — संपर्क करें।",
-      "hi-en": "Wholesalers, retailers, boutique owners, garment manufacturers aur textile traders — sab directly hamare paas se fabrics le sakte hain.",
+      "hi-en":
+        "Wholesalers, retailers, boutique owners, garment manufacturers aur textile traders — sab directly hamare paas se fabrics le sakte hain.",
     },
   },
   {
@@ -126,7 +113,8 @@ const FAQS: {
     answer: {
       en: "Yes. Retailers and boutique businesses can source fabrics directly from Vidhi Fabrics as a manufacturer.",
       hi: "हाँ। रिटेलर्स और बुटीक व्यवसाय सीधे विधि फैब्रिक्स से कपड़ा ले सकते हैं। अगर आप कपड़ा रिटेल स्टोर, बुटीक या छोटा फैशन व्यवसाय चलाते हैं, तो अपनी ज़रूरत के साथ हमसे संपर्क करें।",
-      "hi-en": "Haan. Retailers aur boutique businesses Vidhi Fabrics se directly fabrics source kar sakte hain.",
+      "hi-en":
+        "Haan. Retailers aur boutique businesses Vidhi Fabrics se directly fabrics source kar sakte hain.",
     },
   },
   {
@@ -138,7 +126,8 @@ const FAQS: {
     answer: {
       en: "Yes. We supply fabrics across 40+ export markets. Our team handles export documentation end to end.",
       hi: "हाँ। हम 40 से अधिक निर्यात बाज़ारों में कपड़ा सप्लाई करते हैं। विदेशी खरीदार सीधे हमसे संपर्क कर सकते हैं। हमारी टीम निर्यात दस्तावेज़ीकरण शुरू से अंत तक संभालती है।",
-      "hi-en": "Haan. Hum 40+ export markets mein fabrics supply karte hain. Hamari team export documentation end to end handle karti hai.",
+      "hi-en":
+        "Haan. Hum 40+ export markets mein fabrics supply karte hain. Hamari team export documentation end to end handle karti hai.",
     },
   },
   {
@@ -150,7 +139,8 @@ const FAQS: {
     answer: {
       en: "Yes. As a manufacturer based in Surat, we can work to specific requirements including constructions, compositions, finishes, patterns, colours and weights.",
       hi: "हाँ। सूरत में एक निर्माता के रूप में, हम विशेष कंस्ट्रक्शन, कम्पोज़िशन, फिनिश, पैटर्न, रंग और वज़न के हिसाब से कपड़ा बना सकते हैं। हमारे पास इन-हाउस रंगाई और फिनिशिंग की सुविधा भी है। अपनी ज़रूरत बताएँ।",
-      "hi-en": "Haan. Surat mein manufacturer ke roop mein hum specific constructions, finishes, patterns, colours aur weights ke hisaab se kaam kar sakte hain.",
+      "hi-en":
+        "Haan. Surat mein manufacturer ke roop mein hum specific constructions, finishes, patterns, colours aur weights ke hisaab se kaam kar sakte hain.",
     },
   },
   {
@@ -161,8 +151,9 @@ const FAQS: {
     },
     answer: {
       en: "Yes. We work with buyers who need consistent fabric supply for ongoing and repeat orders.",
-      hi: "हाँ। हम उन खरीदारों के साथ काम करते हैं जिन्हें नियमित और बड़े ऑर्डर के लिए लगातार कपड़ा चाहिए। सूरत में हमारा उत्पादन आधार और तीन पीढ़ियों का अनुभव इसे संभव बनाता है। अपनी मात्रा और आवृत्ति पर चर्चा के लिए संपर्क करें।",
-      "hi-en": "Haan. Hum un buyers ke saath kaam karte hain jinhe regular aur bulk orders ke liye consistent fabric supply ki zaroorat hai.",
+      hi: "हाँ। हम उन खरीदारों के साथ काम करते हैं जिन्हें नियमित और बड़े ऑर्डर के लिए लगातार कपड़ा चाहिए। सूरत में हमारा उत्पादन आधार और पीढ़ियों का अनुभव इसे संभव बनाता है। अपनी मात्रा और आवृत्ति पर चर्चा के लिए संपर्क करें।",
+      "hi-en":
+        "Haan. Hum un buyers ke saath kaam karte hain jinhe regular aur bulk orders ke liye consistent fabric supply ki zaroorat hai.",
     },
   },
   {
@@ -174,7 +165,8 @@ const FAQS: {
     answer: {
       en: "Yes. You can request samples, shade cards and product specifications from our range.",
       hi: "हाँ। आप हमारी रेंज से सैंपल, शेड कार्ड और प्रोडक्ट स्पेसिफिकेशन माँग सकते हैं। शुरू करने के लिए पूछताछ फॉर्म या व्हाट्सएप के ज़रिए हमसे संपर्क करें।",
-      "hi-en": "Haan. Aap hamare range se samples, shade cards aur product specifications maang sakte hain.",
+      "hi-en":
+        "Haan. Aap hamare range se samples, shade cards aur product specifications maang sakte hain.",
     },
   },
   {
@@ -186,7 +178,8 @@ const FAQS: {
     answer: {
       en: "Minimum order quantities vary depending on the fabric type, construction, colour, finish and specific requirement. Contact our team for the relevant MOQ.",
       hi: "न्यूनतम ऑर्डर मात्रा कपड़े के प्रकार, कंस्ट्रक्शन, रंग, फिनिश और आवश्यकता के आधार पर अलग-अलग होती है। सही जानकारी के लिए हमारी टीम से संपर्क करें।",
-      "hi-en": "Minimum order quantity fabric type, construction, colour aur requirement ke hisaab se alag hoti hai. Relevant MOQ ke liye hamse contact karein.",
+      "hi-en":
+        "Minimum order quantity fabric type, construction, colour aur requirement ke hisaab se alag hoti hai. Relevant MOQ ke liye hamse contact karein.",
     },
   },
   {
@@ -198,7 +191,8 @@ const FAQS: {
     answer: {
       en: "You can reach us through the enquiry form on this page, via WhatsApp, or by phone. Our trade desk responds within 12 hours.",
       hi: "आप इस पेज पर पूछताछ फॉर्म के ज़रिए, व्हाट्सएप से, या फोन पर हमसे संपर्क कर सकते हैं। कपड़े का प्रकार, अनुमानित मात्रा और कोई विशेष ज़रूरत बताएँ — हमारा ट्रेड डेस्क 12 घंटे के भीतर जवाब देगा।",
-      "hi-en": "Aap enquiry form, WhatsApp ya phone se hamare se contact kar sakte hain. Hamara trade desk 12 hours mein respond karta hai.",
+      "hi-en":
+        "Aap enquiry form, WhatsApp ya phone se hamare se contact kar sakte hain. Hamara trade desk 12 hours mein respond karta hai.",
     },
   },
   {
@@ -210,7 +204,8 @@ const FAQS: {
     answer: {
       en: "Share the fabric type, intended use, approximate quantity, and any specific requirements around construction, composition, weight, colour, pattern or finish.",
       hi: "कपड़े का प्रकार (जैसे कॉटन, सिल्क, लिनन, जैक्वार्ड), उपयोग, अनुमानित मात्रा, और कंस्ट्रक्शन, रंग, पैटर्न या फिनिश से जुड़ी विशेष ज़रूरत बताएँ। कस्टम ऑर्डर के लिए रेफरेंस सैंपल या तकनीकी स्पेसिफिकेशन भी सहायक होती है।",
-      "hi-en": "Fabric ka type, intended use, approximate quantity, aur koi specific construction, colour, pattern ya finish requirement share karein.",
+      "hi-en":
+        "Fabric ka type, intended use, approximate quantity, aur koi specific construction, colour, pattern ya finish requirement share karein.",
     },
   },
   {
@@ -222,7 +217,8 @@ const FAQS: {
     answer: {
       en: "You can reach us via the enquiry form, by WhatsApp, or by phone. Our trade desk is available Monday to Saturday and responds within 12 hours.",
       hi: "आप पूछताछ फॉर्म, व्हाट्सएप या फोन के ज़रिए हमसे संपर्क कर सकते हैं। हमारा ट्रेड डेस्क सोमवार से शनिवार तक उपलब्ध है और 12 घंटे के भीतर जवाब देता है। आप 542-543 गोल्डन पॉइंट, बेगमपुरा रोड, सूरत, गुजरात भी आ सकते हैं।",
-      "hi-en": "Enquiry form, WhatsApp ya phone se contact karein. Trade desk Monday to Saturday available hai aur 12 hours mein respond karta hai.",
+      "hi-en":
+        "Enquiry form, WhatsApp ya phone se contact karein. Trade desk Monday to Saturday available hai aur 12 hours mein respond karta hai.",
     },
   },
 ];
@@ -241,7 +237,9 @@ function HiIndex() {
   const [lang, setLang] = useState<Lang>("hi");
   const [category, setCategory] = useState<FabricCategory>("all");
   const [sent, setSent] = useState(false);
-  const [inquiryStatus, setInquiryStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [inquiryStatus, setInquiryStatus] = useState<"idle" | "sending" | "success" | "error">(
+    "idle",
+  );
   const [leadOpen, setLeadOpen] = useState(false);
 
   useEffect(() => {
@@ -252,48 +250,37 @@ function HiIndex() {
   }, []);
 
   const fabrics = useMemo(
-    () =>
-      category === "all"
-        ? FABRICS
-        : FABRICS.filter((f) => f.category === category),
+    () => (category === "all" ? FABRICS : FABRICS.filter((f) => f.category === category)),
     [category],
   );
 
   return (
     <div className="min-h-screen bg-paper font-body text-ink antialiased selection:bg-clay/20">
       <header className="sticky top-0 z-50 border-b border-line bg-paper/90 backdrop-blur">
-        <div className="mx-auto flex min-h-16 max-w-6xl flex-wrap items-center justify-between gap-x-2 gap-y-2 px-4 py-2 sm:gap-x-4 sm:px-6">
-          <div className="flex shrink-0 items-baseline gap-2">
-            <span className="font-display text-2xl font-semibold tracking-tight sm:whitespace-nowrap">
+        <div className="mx-auto flex min-h-16 max-w-6xl flex-wrap items-center justify-between gap-3 px-6 py-3">
+          <div className="flex items-baseline gap-2">
+            <span className="font-display text-2xl font-semibold tracking-tight">
               {COPY.brand[lang]}
             </span>
-            <span className="hidden whitespace-nowrap font-mono text-[10px] uppercase tracking-[0.15em] text-mute xl:block">
+            <span className="hidden font-mono text-[10px] uppercase tracking-[0.15em] text-mute sm:block">
               {COPY.established[lang]}
             </span>
           </div>
 
-          <nav className="hidden items-center gap-x-5 whitespace-nowrap font-mono text-xs uppercase tracking-[0.12em] text-mute lg:flex xl:gap-x-7">
-            <a href="#about" className="transition-colors hover:text-ink">
-              {COPY.nav.about[lang]}
-            </a>
+          <nav className="hidden items-center gap-4 font-mono text-[11px] uppercase tracking-[0.08em] text-mute xl:flex">
             <a href="#catalogue" className="transition-colors hover:text-ink">
               {COPY.nav.catalogue[lang]}
             </a>
             <a href="#scale" className="transition-colors hover:text-ink">
               {COPY.nav.scale[lang]}
             </a>
-            <a href="#desk" className="transition-colors hover:text-ink">
-              {COPY.nav.desk[lang]}
-            </a>
-            <a href="/blog" className="transition-colors hover:text-ink">
-              {COPY.nav.journal[lang]}
-            </a>
             <a href="#contact" className="transition-colors hover:text-ink">
               {COPY.nav.contact[lang]}
             </a>
+            <StoryLinks lang={lang} />
           </nav>
 
-          <div className="flex shrink-0 items-center gap-2 sm:gap-3">
+          <div className="flex max-w-full flex-wrap items-center gap-3">
             <div
               className="flex overflow-hidden rounded-sm ring-1 ring-line"
               role="group"
@@ -301,14 +288,14 @@ function HiIndex() {
             >
               <a
                 href="/"
-                className="px-2 py-2 font-mono text-xs text-mute transition-colors hover:text-ink sm:px-3 sm:text-sm"
+                className="px-3 py-2 font-mono text-sm transition-colors text-mute hover:text-ink"
               >
                 EN
               </a>
               <a
                 href="/hi"
                 aria-current="page"
-                className="bg-ink px-2 py-2 font-mono text-xs text-paper transition-colors sm:px-3 sm:text-sm"
+                className="px-3 py-2 font-mono text-sm transition-colors bg-ink text-paper"
               >
                 हिंदी
               </a>
@@ -317,10 +304,8 @@ function HiIndex() {
                 onClick={() => setLang(lang === "hi-en" ? "hi" : "hi-en")}
                 aria-pressed={lang === "hi-en"}
                 title="Hinglish"
-                className={`px-2 py-2 font-mono text-xs transition-colors sm:px-3 sm:text-sm ${
-                  lang === "hi-en"
-                    ? "bg-ink text-paper"
-                    : "text-mute hover:text-ink"
+                className={`px-3 py-2 font-mono text-sm transition-colors ${
+                  lang === "hi-en" ? "bg-ink text-paper" : "text-mute hover:text-ink"
                 }`}
               >
                 Hinglish
@@ -330,12 +315,20 @@ function HiIndex() {
               href={getWhatsAppUrl(lang)}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-sm bg-clay px-3 py-2 font-mono text-[11px] uppercase tracking-[0.08em] text-paper transition-colors hover:bg-claydeep sm:px-4 sm:text-xs sm:tracking-[0.12em]"
+              className="rounded-sm bg-clay px-4 py-2 font-mono text-xs uppercase tracking-[0.12em] text-paper transition-colors hover:bg-claydeep"
             >
               {COPY.nav.cta[lang]}
             </a>
           </div>
         </div>
+        <nav
+          aria-label="Section navigation"
+          className="flex flex-wrap justify-center gap-x-6 gap-y-3 border-t border-line px-6 py-3 text-xs xl:hidden"
+        >
+          <a href="#catalogue">{COPY.nav.catalogue[lang]}</a>
+          <StoryLinks lang={lang} />
+          <a href="#contact">{COPY.nav.contact[lang]}</a>
+        </nav>
       </header>
 
       <section className="vf-rise border-b border-line">
@@ -345,9 +338,7 @@ function HiIndex() {
               {COPY.hero.eyebrow[lang]}
             </p>
             <h1 className="mt-5 text-balance font-display text-5xl font-semibold leading-[1.03] tracking-tight lg:text-6xl">
-              {lang === "hi"
-                ? "सूरत से आपकी दुकान तक, थोक कपड़े"
-                : COPY.hero.heading[lang]}
+              {lang === "hi" ? "सूरत से आपकी दुकान तक, थोक कपड़े" : COPY.hero.heading[lang]}
             </h1>
             <p className="mt-6 max-w-[46ch] text-pretty text-lg text-mute">
               {COPY.hero.body[lang]}
@@ -359,10 +350,7 @@ function HiIndex() {
             </div>
           </div>
 
-          <div
-            id="inquiry"
-            className="rounded-md bg-sand/50 p-6 ring-1 ring-black/5 lg:col-span-5"
-          >
+          <div id="inquiry" className="rounded-md bg-sand/50 p-6 ring-1 ring-black/5 lg:col-span-5">
             <p className="font-mono text-xs uppercase tracking-[0.15em] text-clay">
               {COPY.inquiry.label[lang]}
             </p>
@@ -454,8 +442,6 @@ function HiIndex() {
         </div>
       </section>
 
-      <AboutSection lang={lang} />
-
       <section id="catalogue" className="border-b border-line">
         <div className="mx-auto max-w-6xl px-6 py-16">
           <div className="flex flex-wrap items-end justify-between gap-6">
@@ -466,9 +452,7 @@ function HiIndex() {
               <h2 className="mt-2 font-display text-4xl font-semibold tracking-tight">
                 {COPY.catalogue.heading[lang]}
               </h2>
-              <p className="mt-3 max-w-[55ch] text-sm text-mute">
-                {COPY.catalogue.body[lang]}
-              </p>
+              <p className="mt-3 max-w-[55ch] text-sm text-mute">{COPY.catalogue.body[lang]}</p>
             </div>
             <div className="flex flex-wrap gap-2 font-mono text-xs">
               {CATEGORIES.map((c) => (
@@ -490,9 +474,7 @@ function HiIndex() {
           </div>
 
           {fabrics.length === 0 ? (
-            <p className="mt-10 text-sm text-mute">
-              {COPY.catalogue.empty[lang]}
-            </p>
+            <p className="mt-10 text-sm text-mute">{COPY.catalogue.empty[lang]}</p>
           ) : (
             <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {fabrics.map((f) => (
@@ -513,9 +495,7 @@ function HiIndex() {
                       <span>{f.sku}</span>
                       <span>{f.tag[lang]}</span>
                     </div>
-                    <h3 className="mt-2 font-display text-xl font-semibold">
-                      {f.name[lang]}
-                    </h3>
+                    <h3 className="mt-2 font-display text-xl font-semibold">{f.name[lang]}</h3>
                     <p className="mt-1 text-sm text-mute">{f.spec[lang]}</p>
                   </div>
                 </article>
@@ -524,6 +504,8 @@ function HiIndex() {
           )}
         </div>
       </section>
+
+      <AboutSection lang={lang} whatsappUrl={getWhatsAppUrl(lang)} />
 
       <section aria-hidden="true" className="border-b border-line">
         <video
@@ -548,9 +530,7 @@ function HiIndex() {
           <div className="mt-12 grid grid-cols-2 gap-px bg-paper/15 lg:grid-cols-4">
             {COPY.scale.stats.map((s) => (
               <div key={s.value} className="bg-ink p-6">
-                <p className="font-display text-4xl font-semibold break-words text-clay sm:text-5xl">
-                  {s.value}
-                </p>
+                <p className="font-display text-5xl font-semibold text-clay">{s.value}</p>
                 <p className="mt-2 font-mono text-xs uppercase tracking-[0.12em] text-paper/60">
                   {s.label[lang]}
                 </p>
@@ -612,19 +592,13 @@ function HiIndex() {
                   <p className="font-display text-lg font-semibold">
                     {testimonial.customerLabel[lang]}
                   </p>
-                  <p className="mt-1 font-mono text-xs text-mute">
-                    {testimonial.location}
-                  </p>
+                  <p className="mt-1 font-mono text-xs text-mute">{testimonial.location}</p>
                 </footer>
               </article>
             ))}
           </div>
         </div>
       </section>
-
-      <FabricDeskSection lang={lang} />
-
-      <JournalPreview lang={lang} />
 
       <section className="border-b border-line bg-paper">
         <div className="mx-auto max-w-3xl px-6 py-20">
@@ -668,6 +642,8 @@ function HiIndex() {
         </div>
       </section>
 
+      <FabricDeskSection lang={lang} />
+
       <section id="contact" className="bg-paper">
         <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-6 py-20 lg:grid-cols-2">
           <div>
@@ -677,9 +653,7 @@ function HiIndex() {
             <h2 className="mt-3 text-balance font-display text-4xl font-semibold tracking-tight lg:text-5xl">
               {COPY.contact.heading[lang]}
             </h2>
-            <p className="mt-5 max-w-[40ch] text-pretty text-mute">
-              {COPY.contact.body[lang]}
-            </p>
+            <p className="mt-5 max-w-[40ch] text-pretty text-mute">{COPY.contact.body[lang]}</p>
             <a
               href="#inquiry"
               className="mt-7 inline-block rounded-sm bg-clay px-6 py-3.5 font-mono text-xs uppercase tracking-[0.15em] text-paper transition-colors hover:bg-claydeep"
@@ -698,9 +672,7 @@ function HiIndex() {
               <p className="text-[11px] uppercase tracking-[0.15em] text-clay">
                 {COPY.contact.deskLabel[lang]}
               </p>
-              <p className="mt-1 text-ink">
-                09825208413 &nbsp;·&nbsp; chhabradaksh1@gmail.com
-              </p>
+              <p className="mt-1 text-ink">09825208413 &nbsp;·&nbsp; chhabradaksh1@gmail.com</p>
             </div>
             <div>
               <p className="text-[11px] uppercase tracking-[0.15em] text-clay">
@@ -714,10 +686,8 @@ function HiIndex() {
         <footer className="border-t border-line">
           <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-6 py-6 font-mono text-[11px] uppercase tracking-[0.12em] text-mute">
             <span>{COPY.footer.left[lang]}</span>
-            <div className="flex items-center gap-6">
-              <a href="/blog" className="transition-colors hover:text-ink">
-                {COPY.nav.journal[lang]}
-              </a>
+            <div className="flex flex-wrap items-center gap-6">
+              <StoryLinks lang={lang} />
               <a
                 href="https://www.linkedin.com/company/vidhi-fabricss/"
                 target="_blank"
@@ -831,7 +801,10 @@ function LeadPopup({ lang, onClose }: LeadPopupProps) {
   }
 
   return (
-    <div className="fixed inset-0 z-[60] flex items-center justify-center bg-ink/55 p-4" role="presentation">
+    <div
+      className="fixed inset-0 z-[60] flex items-center justify-center bg-ink/55 p-4"
+      role="presentation"
+    >
       <div
         role="dialog"
         aria-modal="true"
@@ -840,7 +813,10 @@ function LeadPopup({ lang, onClose }: LeadPopupProps) {
       >
         <div className="flex items-start justify-between gap-6">
           <div>
-            <h2 id="lead-popup-heading" className="font-display text-3xl font-semibold tracking-tight">
+            <h2
+              id="lead-popup-heading"
+              className="font-display text-3xl font-semibold tracking-tight"
+            >
               {copy.heading[lang]}
             </h2>
             <p className="mt-2 text-sm text-mute">{copy.body[lang]}</p>
@@ -859,34 +835,84 @@ function LeadPopup({ lang, onClose }: LeadPopupProps) {
         {status === "success" ? (
           <div className="mt-7 space-y-5">
             <p className="text-sage">{copy.success[lang]}</p>
-            <button type="button" onClick={onClose} className="rounded-sm bg-clay px-4 py-3 text-sm text-paper hover:bg-claydeep">
+            <button
+              type="button"
+              onClick={onClose}
+              className="rounded-sm bg-clay px-4 py-3 text-sm text-paper hover:bg-claydeep"
+            >
               {copy.continue[lang]}
             </button>
           </div>
         ) : (
           <form className="mt-6 space-y-4" onSubmit={handleSubmit} noValidate>
             <LeadField label={copy.name[lang]} error={errors.name}>
-              <input ref={nameRef} name="name" value={form.name} onChange={(event) => updateField("name", event.target.value)} required aria-invalid={Boolean(errors.name)} className="vf-lead-input" />
+              <input
+                ref={nameRef}
+                name="name"
+                value={form.name}
+                onChange={(event) => updateField("name", event.target.value)}
+                required
+                aria-invalid={Boolean(errors.name)}
+                className="vf-lead-input"
+              />
             </LeadField>
             <LeadField label={copy.phone[lang]} error={errors.phone}>
               <div className="flex gap-2">
-                <span className="flex items-center rounded-sm border border-line bg-sand px-3 text-sm text-mute">{copy.countryCode[lang]}</span>
-                <input name="phone" type="tel" inputMode="numeric" value={form.phone} onChange={(event) => updateField("phone", event.target.value)} required aria-invalid={Boolean(errors.phone)} className="vf-lead-input" />
+                <span className="flex items-center rounded-sm border border-line bg-sand px-3 text-sm text-mute">
+                  {copy.countryCode[lang]}
+                </span>
+                <input
+                  name="phone"
+                  type="tel"
+                  inputMode="numeric"
+                  value={form.phone}
+                  onChange={(event) => updateField("phone", event.target.value)}
+                  required
+                  aria-invalid={Boolean(errors.phone)}
+                  className="vf-lead-input"
+                />
               </div>
             </LeadField>
             <LeadField label={copy.business[lang]}>
-              <input name="business" value={form.business} onChange={(event) => updateField("business", event.target.value)} className="vf-lead-input" />
+              <input
+                name="business"
+                value={form.business}
+                onChange={(event) => updateField("business", event.target.value)}
+                className="vf-lead-input"
+              />
             </LeadField>
             <LeadField label={copy.requirement[lang]} error={errors.requirement}>
-              <textarea name="requirement" rows={3} placeholder={copy.requirementPlaceholder[lang]} value={form.requirement} onChange={(event) => updateField("requirement", event.target.value)} required aria-invalid={Boolean(errors.requirement)} className="vf-lead-input resize-none" />
+              <textarea
+                name="requirement"
+                rows={3}
+                placeholder={copy.requirementPlaceholder[lang]}
+                value={form.requirement}
+                onChange={(event) => updateField("requirement", event.target.value)}
+                required
+                aria-invalid={Boolean(errors.requirement)}
+                className="vf-lead-input resize-none"
+              />
             </LeadField>
             <p className="text-xs text-mute">{copy.notice[lang]}</p>
-            {status === "failure" ? <p role="alert" className="text-sm text-claydeep">{copy.failure[lang]}</p> : null}
+            {status === "failure" ? (
+              <p role="alert" className="text-sm text-claydeep">
+                {copy.failure[lang]}
+              </p>
+            ) : null}
             <div className="flex flex-wrap items-center justify-between gap-3 pt-1">
-              <button type="button" onClick={onClose} disabled={status === "saving"} className="text-sm text-mute underline-offset-4 hover:text-ink hover:underline disabled:opacity-50">
+              <button
+                type="button"
+                onClick={onClose}
+                disabled={status === "saving"}
+                className="text-sm text-mute underline-offset-4 hover:text-ink hover:underline disabled:opacity-50"
+              >
                 {copy.continue[lang]}
               </button>
-              <button type="submit" disabled={status === "saving"} className="rounded-sm bg-clay px-5 py-3 text-sm text-paper hover:bg-claydeep disabled:cursor-wait disabled:opacity-60">
+              <button
+                type="submit"
+                disabled={status === "saving"}
+                className="rounded-sm bg-clay px-5 py-3 text-sm text-paper hover:bg-claydeep disabled:cursor-wait disabled:opacity-60"
+              >
                 {status === "saving" ? copy.saving[lang] : copy.submit[lang]}
               </button>
             </div>
@@ -897,7 +923,15 @@ function LeadPopup({ lang, onClose }: LeadPopupProps) {
   );
 }
 
-function LeadField({ label, error, children }: { label: string; error?: string | undefined; children: React.ReactNode }) {
+function LeadField({
+  label,
+  error,
+  children,
+}: {
+  label: string;
+  error?: string | undefined;
+  children: React.ReactNode;
+}) {
   return (
     <label className="block text-sm">
       <span className="mb-1 block font-medium">{label}</span>

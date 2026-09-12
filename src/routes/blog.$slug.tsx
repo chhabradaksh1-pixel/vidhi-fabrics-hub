@@ -1,135 +1,153 @@
-import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { useState } from "react";
-
-import { whatsAppUrl } from "@/lib/whatsapp";
-import { LangSwitch, SiteFooter, SiteHeader } from "@/components/site-chrome";
-import { getArticle, JOURNAL_COPY, SORTED_ARTICLES } from "@/content/journal";
-import { type Lang } from "@/content/translations";
-
-const SITE = "https://www.vidhifabrics.com";
+import { createFileRoute, notFound } from "@tanstack/react-router";
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
+import { JOURNAL, articleWhatsAppUrl, readingMinutes } from "@/content/journal";
+import { JournalHeader, JournalFooter } from "@/components/fabric-desk";
 
 export const Route = createFileRoute("/blog/$slug")({
   loader: ({ params }) => {
-    const article = getArticle(params.slug);
+    const article = JOURNAL.find((item) => item.slug === params.slug);
     if (!article) throw notFound();
-    return { article };
+    return article;
   },
-  head: ({ loaderData }) => {
-    const article = loaderData?.article;
-    if (!article) return {};
-    const url = `${SITE}/blog/${article.slug}`;
-    return {
-      meta: [
-        { title: `${article.title} | Vidhi Fabrics` },
-        { name: "description", content: article.description },
-        { property: "og:title", content: `${article.title} | Vidhi Fabrics` },
-        { property: "og:description", content: article.description },
-        { property: "og:url", content: url },
-        { property: "og:type", content: "article" },
-        { property: "article:published_time", content: article.date },
-        { name: "twitter:card", content: "summary_large_image" },
-      ],
-      links: [{ rel: "canonical", href: url }],
-    };
-  },
-  component: ArticlePage,
+  head: ({ loaderData: article }) =>
+    article
+      ? {
+          meta: [
+            { title: `${article.title} | Vidhi Fabrics` },
+            { name: "description", content: article.excerpt },
+            { property: "og:title", content: article.title },
+            { property: "og:description", content: article.excerpt },
+            { property: "og:type", content: "article" },
+            { property: "og:url", content: `https://www.vidhifabrics.com/blog/${article.slug}` },
+            {
+              property: "og:image",
+              content: new URL(article.image, "https://www.vidhifabrics.com").href,
+            },
+          ],
+          links: [{ rel: "canonical", href: `https://www.vidhifabrics.com/blog/${article.slug}` }],
+        }
+      : {
+          meta: [
+            { title: "Article not found | Vidhi Fabrics" },
+            { name: "robots", content: "noindex" },
+          ],
+        },
+  notFoundComponent: () => (
+    <div className="min-h-screen bg-paper">
+      <JournalHeader />
+      <main className="mx-auto max-w-3xl px-6 py-24">
+        <h1 className="font-display text-4xl">Article not found</h1>
+        <a href="/blog" className="mt-8 inline-block text-clay underline">
+          Return to Surat Fabric Desk
+        </a>
+      </main>
+      <JournalFooter />
+    </div>
+  ),
+  component: JournalArticlePage,
 });
 
-function ArticlePage() {
-  const { article } = Route.useLoaderData();
-  const [lang, setLang] = useState<Lang>("en");
-
-  const related = SORTED_ARTICLES.filter((a) => a.slug !== article.slug).slice(0, 2);
-
+function JournalArticlePage() {
+  const article = Route.useLoaderData();
   return (
-    <div className="min-h-screen bg-paper font-body text-ink antialiased selection:bg-clay/20">
-      <SiteHeader lang={lang}>
-        <LangSwitch lang={lang} setLang={setLang} />
-      </SiteHeader>
-
-      <article className="border-b border-line">
-        <div className="mx-auto max-w-3xl px-6 py-14 lg:py-20">
-          <Link
-            to="/blog"
-            className="font-mono text-xs uppercase tracking-[0.12em] text-clay underline-offset-4 transition-colors hover:text-claydeep hover:underline"
-          >
-            ← {JOURNAL_COPY.backToIndex[lang]}
-          </Link>
-
-          <h1 className="mt-6 text-balance font-display text-4xl font-semibold leading-[1.08] tracking-tight lg:text-5xl">
+    <div className="min-h-screen bg-paper text-ink">
+      <JournalHeader />
+      <main>
+        <article className="mx-auto max-w-4xl px-6 py-12 sm:py-16">
+          <a href="/blog" className="inline-flex items-center gap-2 text-sm text-clay">
+            <ArrowLeft size={16} aria-hidden="true" />
+            Surat Fabric Desk
+          </a>
+          <p className="mt-10 font-mono text-xs uppercase tracking-[0.15em] text-clay">
+            {article.category} · {readingMinutes(article)} min read
+          </p>
+          <h1 className="mt-5 text-balance font-display text-4xl font-semibold leading-[1.12] tracking-tight sm:text-5xl lg:text-6xl">
             {article.title}
           </h1>
-
-          <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-[11px] uppercase tracking-[0.12em] text-mute">
-            <time dateTime={article.date}>{article.date}</time>
-            <span>
-              {article.readMinutes} {JOURNAL_COPY.readSuffix[lang]}
-            </span>
-            {JOURNAL_COPY.englishOnly[lang] ? (
-              <span className="rounded-sm bg-ink/5 px-1.5 py-0.5 text-ink/60">
-                {JOURNAL_COPY.englishOnly[lang]}
-              </span>
-            ) : null}
-          </div>
-
+          <p className="mt-6 text-sm text-mute">By Vidhi Fabrics · Buyer guides</p>
           <img
             src={article.image}
             alt={article.imageAlt}
-            width={1280}
-            height={720}
-            className="mt-10 aspect-[16/9] w-full rounded-md object-cover ring-1 ring-black/5"
+            width={1024}
+            height={768}
+            fetchPriority="high"
+            className="mt-10 aspect-[16/9] w-full object-cover"
           />
-
-          <div className="mt-10 space-y-5">
-            {article.body.map((block) =>
-              block.startsWith("## ") ? (
-                <h2 key={block} className="pt-4 font-display text-2xl font-semibold tracking-tight">
-                  {block.slice(3)}
-                </h2>
-              ) : (
-                <p key={block.slice(0, 40)} className="text-pretty text-mute">
-                  {block}
-                </p>
-              ),
-            )}
-          </div>
-
-          <div className="mt-14 rounded-md bg-sand/50 p-8 ring-1 ring-black/5">
-            <h2 className="font-display text-2xl font-semibold tracking-tight">
-              {JOURNAL_COPY.ctaHeading[lang]}
-            </h2>
-            <p className="mt-2 max-w-[48ch] text-sm text-mute">{JOURNAL_COPY.ctaBody[lang]}</p>
-            <a
-              href={whatsAppUrl(article.whatsappMessage)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-6 inline-block rounded-sm bg-clay px-6 py-3.5 font-mono text-xs uppercase tracking-[0.15em] text-paper transition-colors hover:bg-claydeep"
-            >
-              {JOURNAL_COPY.ctaButton[lang]}
-            </a>
-          </div>
-
-          {related.length > 0 ? (
-            <div className="mt-16 border-t border-line pt-10">
-              <h2 className="font-mono text-[11px] uppercase tracking-[0.15em] text-clay">
-                {JOURNAL_COPY.relatedTitle[lang]}
-              </h2>
-              <div className="mt-5 grid grid-cols-1 gap-6 sm:grid-cols-2">
-                {related.map((a) => (
-                  <Link key={a.slug} to="/blog/$slug" params={{ slug: a.slug }} className="group">
-                    <h3 className="font-display text-lg font-semibold group-hover:text-claydeep">
-                      {a.title}
-                    </h3>
-                    <p className="mt-1 text-sm text-mute">{a.excerpt}</p>
-                  </Link>
+          <div className="mx-auto max-w-[65ch]">
+            <p className="mt-10 text-lg leading-relaxed text-mute">{article.introduction}</p>
+            <nav aria-label="In this article" className="my-10 border-y border-line py-6">
+              <p className="mb-4 font-mono text-xs uppercase tracking-widest text-clay">
+                In this guide
+              </p>
+              <ol className="list-inside list-decimal space-y-3 text-sm">
+                {article.sections.map((section, i) => (
+                  <li key={section.heading}>
+                    <a
+                      href={`#step-${i + 1}`}
+                      className="underline decoration-line underline-offset-4 hover:text-clay"
+                    >
+                      {section.heading}
+                    </a>
+                  </li>
                 ))}
-              </div>
+              </ol>
+            </nav>
+            {article.sections.map((section, i) => (
+              <section key={section.heading} id={`step-${i + 1}`} className="mt-10 scroll-mt-8">
+                <h2 className="font-display text-2xl font-semibold sm:text-3xl">
+                  {section.heading}
+                </h2>
+                {section.paragraphs.map((paragraph) => (
+                  <p key={paragraph} className="mt-5 leading-[1.85] text-mute">
+                    {paragraph}
+                  </p>
+                ))}
+                {section.checklist && (
+                  <ul className="mt-6 list-disc space-y-3 border-l-2 border-clay bg-sand py-5 pl-9 pr-5 text-sm leading-relaxed">
+                    {section.checklist.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                )}
+              </section>
+            ))}
+            <aside className="my-12 bg-ink p-7 text-paper sm:p-10">
+              <p className="font-mono text-xs uppercase tracking-widest">Your next order</p>
+              <h2 className="mt-4 font-display text-3xl font-semibold">
+                Let’s talk about what you need.
+              </h2>
+              <p className="mt-4 leading-relaxed text-paper/80">
+                Share the product you’re looking for, your quantity and delivery city with our team.
+              </p>
+              <a
+                href={articleWhatsAppUrl(article)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-7 inline-flex items-center gap-3 bg-paper px-5 py-3 text-sm font-medium text-ink"
+              >
+                Discuss your requirements on WhatsApp
+                <ArrowUpRight className="shrink-0" size={18} aria-hidden="true" />
+              </a>
+            </aside>
+            <div className="border-t border-line pt-8">
+              <h2 className="font-display text-2xl">Keep reading</h2>
+              <ul className="mt-5 space-y-4">
+                {JOURNAL.filter((item) => item.slug !== article.slug).map((item) => (
+                  <li key={item.slug}>
+                    <a
+                      href={`/blog/${item.slug}`}
+                      className="text-clay underline underline-offset-4"
+                    >
+                      {item.title}
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </div>
-          ) : null}
-        </div>
-      </article>
-
-      <SiteFooter lang={lang} />
+          </div>
+        </article>
+      </main>
+      <JournalFooter />
     </div>
   );
 }

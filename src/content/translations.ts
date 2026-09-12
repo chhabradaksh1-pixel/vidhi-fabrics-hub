@@ -72,9 +72,9 @@ export const COPY = {
         "hi-en": "40+ export markets",
       },
       {
-        en: "Family roots since the 1960s",
-        hi: "1960 के दशक से पारिवारिक विरासत",
-        "hi-en": "1960s se family legacy",
+        en: "60+ years in textiles",
+        hi: "टेक्सटाइल में 60+ वर्ष",
+        "hi-en": "Textiles mein 60+ saal",
       },
     ],
   },
@@ -225,9 +225,9 @@ export const COPY = {
       {
         value: "1960s",
         label: {
-          en: "Our family beginnings",
-          hi: "हमारी पारिवारिक शुरुआत",
-          "hi-en": "Hamari family ki shuruaat",
+          en: "In the trade since",
+          hi: "तब से व्यापार में",
+          "hi-en": "Tab se trade mein",
         },
       },
       {

@@ -78,10 +78,10 @@ const FAQS: {
       "hi-en": "Kya Vidhi Fabrics ek fabric manufacturer hai?",
     },
     answer: {
-      en: "Yes. Vidhi Fabrics is a fabric manufacturer and wholesale supplier based in Surat, India — with family roots dating back to the 1960s. Surat is Asia's largest textile hub, and operating from here gives us direct access to manufacturing, dyeing, finishing and the broader textile supply chain. Buyers can approach us directly for fabric requirements.",
-      hi: "हाँ। Vidhi Fabrics एक फैब्रिक निर्माता और थोक सप्लायर है, जो सूरत, भारत में स्थित है — जिसकी पारिवारिक शुरुआत 1960 के दशक में हुई। सूरत एशिया का सबसे बड़ा टेक्सटाइल हब है, और यहाँ से संचालित होने के कारण हमें मैन्युफैक्चरिंग, डाईंग, फिनिशिंग और व्यापक टेक्सटाइल सप्लाई चेन तक सीधी पहुँच मिलती है। खरीदार अपनी फैब्रिक आवश्यकताओं के लिए सीधे हमसे संपर्क कर सकते हैं।",
+      en: "Yes. Vidhi Fabrics is a fabric manufacturer and wholesale supplier based in Surat, India — trading in Surat since the 1960s, with more than sixty years in the industry. Surat is Asia's largest textile hub, and operating from here gives us direct access to manufacturing, dyeing, finishing and the broader textile supply chain. Buyers can approach us directly for fabric requirements.",
+      hi: "हाँ। Vidhi Fabrics एक फैब्रिक निर्माता और थोक सप्लायर है, जो सूरत, भारत में स्थित है — जो 1960 के दशक से सूरत में कपड़ा व्यापार कर रहा है, यानी उद्योग में साठ साल से ज़्यादा। सूरत एशिया का सबसे बड़ा टेक्सटाइल हब है, और यहाँ से संचालित होने के कारण हमें मैन्युफैक्चरिंग, डाईंग, फिनिशिंग और व्यापक टेक्सटाइल सप्लाई चेन तक सीधी पहुँच मिलती है। खरीदार अपनी फैब्रिक आवश्यकताओं के लिए सीधे हमसे संपर्क कर सकते हैं।",
       "hi-en":
-        "Haan. Vidhi Fabrics ek fabric manufacturer aur wholesale supplier hai, jo Surat, India mein based hai — jiski family journey 1960s mein shuru hui. Surat Asia ka sabse bada textile hub hai, aur yahan se operate karne ki wajah se hume manufacturing, dyeing, finishing aur broader textile supply chain tak direct access milta hai. Buyers apni fabric requirements ke liye directly hamare paas aa sakte hain.",
+        "Haan. Vidhi Fabrics ek fabric manufacturer aur wholesale supplier hai, jo Surat, India mein based hai — jo 1960s se Surat mein kapda trade kar raha hai, yaani industry mein saath saal se zyada. Surat Asia ka sabse bada textile hub hai, aur yahan se operate karne ki wajah se hume manufacturing, dyeing, finishing aur broader textile supply chain tak direct access milta hai. Buyers apni fabric requirements ke liye directly hamare paas aa sakte hain.",
     },
   },
   {
@@ -156,10 +156,10 @@ const FAQS: {
       "hi-en": "Kya aap bulk aur repeat production orders handle kar sakte hain?",
     },
     answer: {
-      en: "Yes. We work with buyers who need consistent fabric supply for ongoing and repeat orders. Our manufacturing base in Surat, along with decades of family experience in the textile industry, means we are set up to support bulk requirements and maintain consistency across production runs. Contact us to discuss your volume and frequency.",
-      hi: "हाँ। हम उन खरीदारों के साथ काम करते हैं जिन्हें चल रहे और रिपीट ऑर्डर के लिए लगातार फैब्रिक सप्लाई की ज़रूरत है। सूरत में हमारा मैन्युफैक्चरिंग बेस, साथ ही टेक्सटाइल उद्योग में पीढ़ियों का अनुभव, का अर्थ है कि हम बल्क आवश्यकताओं को सपोर्ट करने और प्रोडक्शन रन में निरंतरता बनाए रखने के लिए तैयार हैं। अपनी मात्रा और आवृत्ति पर चर्चा करने के लिए हमसे संपर्क करें।",
+      en: "Yes. We work with buyers who need consistent fabric supply for ongoing and repeat orders. Our manufacturing base in Surat, along with more than sixty years in the textile industry, means we are set up to support bulk requirements and maintain consistency across production runs. Contact us to discuss your volume and frequency.",
+      hi: "हाँ। हम उन खरीदारों के साथ काम करते हैं जिन्हें चल रहे और रिपीट ऑर्डर के लिए लगातार फैब्रिक सप्लाई की ज़रूरत है। सूरत में हमारा मैन्युफैक्चरिंग बेस, साथ ही टेक्सटाइल उद्योग में साठ साल से ज़्यादा का अनुभव, का अर्थ है कि हम बल्क आवश्यकताओं को सपोर्ट करने और प्रोडक्शन रन में निरंतरता बनाए रखने के लिए तैयार हैं। अपनी मात्रा और आवृत्ति पर चर्चा करने के लिए हमसे संपर्क करें।",
       "hi-en":
-        "Haan. Hum un buyers ke saath kaam karte hain jinhe ongoing aur repeat orders ke liye consistent fabric supply ki zaroorat hai. Surat mein hamara manufacturing base, saath hi textile industry mein generations ka experience, ka matlab hai ki hum bulk requirements ko support karne aur production runs mein consistency maintain karne ke liye taiyaar hain. Apni volume aur frequency discuss karne ke liye hamare se contact karein.",
+        "Haan. Hum un buyers ke saath kaam karte hain jinhe ongoing aur repeat orders ke liye consistent fabric supply ki zaroorat hai. Surat mein hamara manufacturing base, saath hi textile industry mein saath saal se zyada ka experience, ka matlab hai ki hum bulk requirements ko support karne aur production runs mein consistency maintain karne ke liye taiyaar hain. Apni volume aur frequency discuss karne ke liye hamare se contact karein.",
     },
   },
   {
@@ -265,9 +265,13 @@ function Index() {
       <header className="sticky top-0 z-50 border-b border-line bg-paper/90 backdrop-blur">
         <div className="mx-auto flex min-h-16 max-w-6xl flex-wrap items-center justify-between gap-3 px-6 py-3">
           <div className="flex items-baseline gap-2">
-            <span className="font-display text-2xl font-semibold tracking-tight">
+            <a
+              href="/"
+              aria-label="Vidhi Fabrics — go to the homepage"
+              className="font-display text-2xl font-semibold tracking-tight transition-colors hover:text-clay"
+            >
               {COPY.brand[lang]}
-            </span>
+            </a>
             <span className="hidden font-mono text-[10px] uppercase tracking-[0.15em] text-mute sm:block">
               {COPY.established[lang]}
             </span>

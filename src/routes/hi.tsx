@@ -72,10 +72,10 @@ const FAQS: {
       "hi-en": "Kya Vidhi Fabrics ek fabric manufacturer hai?",
     },
     answer: {
-      en: "Yes. Vidhi Fabrics is a fabric manufacturer and wholesale supplier based in Surat, India — with family roots dating back to the 1960s.",
-      hi: "हाँ। विधि फैब्रिक्स एक कपड़ा निर्माता और थोक सप्लायर है, जो सूरत, भारत में स्थित है — जिसकी पारिवारिक शुरुआत 1960 के दशक में हुई। सूरत एशिया का सबसे बड़ा टेक्सटाइल हब है, और यहाँ से संचालित होने के कारण हमें उत्पादन, रंगाई, फिनिशिंग और व्यापक टेक्सटाइल सप्लाई चेन तक सीधी पहुँच मिलती है। खरीदार अपनी ज़रूरत के लिए सीधे हमसे संपर्क कर सकते हैं।",
+      en: "Yes. Vidhi Fabrics is a fabric manufacturer and wholesale supplier based in Surat, India — trading in Surat since the 1960s, with more than sixty years in the industry.",
+      hi: "हाँ। विधि फैब्रिक्स एक कपड़ा निर्माता और थोक सप्लायर है, जो सूरत, भारत में स्थित है — जो 1960 के दशक से सूरत में कपड़ा व्यापार कर रहा है, यानी उद्योग में साठ साल से ज़्यादा। सूरत एशिया का सबसे बड़ा टेक्सटाइल हब है, और यहाँ से संचालित होने के कारण हमें उत्पादन, रंगाई, फिनिशिंग और व्यापक टेक्सटाइल सप्लाई चेन तक सीधी पहुँच मिलती है। खरीदार अपनी ज़रूरत के लिए सीधे हमसे संपर्क कर सकते हैं।",
       "hi-en":
-        "Haan. Vidhi Fabrics ek fabric manufacturer aur wholesale supplier hai, jo Surat, India mein based hai — jiski family journey 1960s mein shuru hui.",
+        "Haan. Vidhi Fabrics ek fabric manufacturer aur wholesale supplier hai, jo Surat, India mein based hai — jo 1960s se Surat mein kapda trade kar raha hai, yaani industry mein saath saal se zyada.",
     },
   },
   {
@@ -151,7 +151,7 @@ const FAQS: {
     },
     answer: {
       en: "Yes. We work with buyers who need consistent fabric supply for ongoing and repeat orders.",
-      hi: "हाँ। हम उन खरीदारों के साथ काम करते हैं जिन्हें नियमित और बड़े ऑर्डर के लिए लगातार कपड़ा चाहिए। सूरत में हमारा उत्पादन आधार और पीढ़ियों का अनुभव इसे संभव बनाता है। अपनी मात्रा और आवृत्ति पर चर्चा के लिए संपर्क करें।",
+      hi: "हाँ। हम उन खरीदारों के साथ काम करते हैं जिन्हें नियमित और बड़े ऑर्डर के लिए लगातार कपड़ा चाहिए। सूरत में हमारा उत्पादन आधार और साठ साल से ज़्यादा का अनुभव इसे संभव बनाता है। अपनी मात्रा और आवृत्ति पर चर्चा के लिए संपर्क करें।",
       "hi-en":
         "Haan. Hum un buyers ke saath kaam karte hain jinhe regular aur bulk orders ke liye consistent fabric supply ki zaroorat hai.",
     },
@@ -259,9 +259,13 @@ function HiIndex() {
       <header className="sticky top-0 z-50 border-b border-line bg-paper/90 backdrop-blur">
         <div className="mx-auto flex min-h-16 max-w-6xl flex-wrap items-center justify-between gap-3 px-6 py-3">
           <div className="flex items-baseline gap-2">
-            <span className="font-display text-2xl font-semibold tracking-tight">
+            <a
+              href="/hi"
+              aria-label="Vidhi Fabrics — go to the homepage"
+              className="font-display text-2xl font-semibold tracking-tight transition-colors hover:text-clay"
+            >
               {COPY.brand[lang]}
-            </span>
+            </a>
             <span className="hidden font-mono text-[10px] uppercase tracking-[0.15em] text-mute sm:block">
               {COPY.established[lang]}
             </span>

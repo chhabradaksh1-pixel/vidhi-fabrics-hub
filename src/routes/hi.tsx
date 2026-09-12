@@ -9,6 +9,11 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import {
+  AboutSection,
+  FabricDeskSection,
+  JournalPreview,
+} from "@/components/fabric-desk";
 import { FABRICS } from "@/content/fabrics";
 import {
   CATEGORY_LABELS,
@@ -83,9 +88,9 @@ const FAQS: {
       "hi-en": "Kya Vidhi Fabrics ek fabric manufacturer hai?",
     },
     answer: {
-      en: "Yes. Vidhi Fabrics is a fabric manufacturer and wholesale supplier based in Surat, India — established in 1994.",
-      hi: "हाँ। विधि फैब्रिक्स एक कपड़ा निर्माता और थोक सप्लायर है, जो सूरत, भारत में स्थित है — 1994 में स्थापित। सूरत एशिया का सबसे बड़ा टेक्सटाइल हब है, और यहाँ से संचालित होने के कारण हमें उत्पादन, रंगाई, फिनिशिंग और व्यापक टेक्सटाइल सप्लाई चेन तक सीधी पहुँच मिलती है। खरीदार अपनी ज़रूरत के लिए सीधे हमसे संपर्क कर सकते हैं।",
-      "hi-en": "Haan. Vidhi Fabrics ek fabric manufacturer aur wholesale supplier hai, jo Surat, India mein based hai — 1994 mein established.",
+      en: "Yes. Vidhi Fabrics is a fabric manufacturer and wholesale supplier based in Surat, India — a family business that began when our grandfather started trading cloth here in the 1960s.",
+      hi: "हाँ। विधि फैब्रिक्स एक कपड़ा निर्माता और थोक सप्लायर है, जो सूरत, भारत में स्थित है — एक पारिवारिक कारोबार, जिसकी शुरुआत 1960 के दशक में हमारे दादाजी के कपड़ा व्यापार से हुई। सूरत एशिया का सबसे बड़ा टेक्सटाइल हब है, और यहाँ से संचालित होने के कारण हमें उत्पादन, रंगाई, फिनिशिंग और व्यापक टेक्सटाइल सप्लाई चेन तक सीधी पहुँच मिलती है। खरीदार अपनी ज़रूरत के लिए सीधे हमसे संपर्क कर सकते हैं।",
+      "hi-en": "Haan. Vidhi Fabrics ek fabric manufacturer aur wholesale supplier hai, jo Surat, India mein based hai — ek family business, jiski shuruaat 1960s mein hamare dadaji ke kapda vyapar se hui.",
     },
   },
   {
@@ -156,7 +161,7 @@ const FAQS: {
     },
     answer: {
       en: "Yes. We work with buyers who need consistent fabric supply for ongoing and repeat orders.",
-      hi: "हाँ। हम उन खरीदारों के साथ काम करते हैं जिन्हें नियमित और बड़े ऑर्डर के लिए लगातार कपड़ा चाहिए। सूरत में हमारा उत्पादन आधार और 30 साल का अनुभव इसे संभव बनाता है। अपनी मात्रा और आवृत्ति पर चर्चा के लिए संपर्क करें।",
+      hi: "हाँ। हम उन खरीदारों के साथ काम करते हैं जिन्हें नियमित और बड़े ऑर्डर के लिए लगातार कपड़ा चाहिए। सूरत में हमारा उत्पादन आधार और तीन पीढ़ियों का अनुभव इसे संभव बनाता है। अपनी मात्रा और आवृत्ति पर चर्चा के लिए संपर्क करें।",
       "hi-en": "Haan. Hum un buyers ke saath kaam karte hain jinhe regular aur bulk orders ke liye consistent fabric supply ki zaroorat hai.",
     },
   },
@@ -257,29 +262,38 @@ function HiIndex() {
   return (
     <div className="min-h-screen bg-paper font-body text-ink antialiased selection:bg-clay/20">
       <header className="sticky top-0 z-50 border-b border-line bg-paper/90 backdrop-blur">
-        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-          <div className="flex items-baseline gap-2">
-            <span className="font-display text-2xl font-semibold tracking-tight">
+        <div className="mx-auto flex min-h-16 max-w-6xl flex-wrap items-center justify-between gap-x-2 gap-y-2 px-4 py-2 sm:gap-x-4 sm:px-6">
+          <div className="flex shrink-0 items-baseline gap-2">
+            <span className="font-display text-2xl font-semibold tracking-tight sm:whitespace-nowrap">
               {COPY.brand[lang]}
             </span>
-            <span className="hidden font-mono text-[10px] uppercase tracking-[0.15em] text-mute sm:block">
+            <span className="hidden whitespace-nowrap font-mono text-[10px] uppercase tracking-[0.15em] text-mute xl:block">
               {COPY.established[lang]}
             </span>
           </div>
 
-          <nav className="hidden items-center gap-8 font-mono text-xs uppercase tracking-[0.12em] text-mute md:flex">
+          <nav className="hidden items-center gap-x-5 whitespace-nowrap font-mono text-xs uppercase tracking-[0.12em] text-mute lg:flex xl:gap-x-7">
+            <a href="#about" className="transition-colors hover:text-ink">
+              {COPY.nav.about[lang]}
+            </a>
             <a href="#catalogue" className="transition-colors hover:text-ink">
               {COPY.nav.catalogue[lang]}
             </a>
             <a href="#scale" className="transition-colors hover:text-ink">
               {COPY.nav.scale[lang]}
             </a>
+            <a href="#desk" className="transition-colors hover:text-ink">
+              {COPY.nav.desk[lang]}
+            </a>
+            <a href="/blog" className="transition-colors hover:text-ink">
+              {COPY.nav.journal[lang]}
+            </a>
             <a href="#contact" className="transition-colors hover:text-ink">
               {COPY.nav.contact[lang]}
             </a>
           </nav>
 
-          <div className="flex items-center gap-3">
+          <div className="flex shrink-0 items-center gap-2 sm:gap-3">
             <div
               className="flex overflow-hidden rounded-sm ring-1 ring-line"
               role="group"
@@ -287,14 +301,14 @@ function HiIndex() {
             >
               <a
                 href="/"
-                className="px-3 py-2 font-mono text-sm transition-colors text-mute hover:text-ink"
+                className="px-2 py-2 font-mono text-xs text-mute transition-colors hover:text-ink sm:px-3 sm:text-sm"
               >
                 EN
               </a>
               <a
                 href="/hi"
                 aria-current="page"
-                className="px-3 py-2 font-mono text-sm transition-colors bg-ink text-paper"
+                className="bg-ink px-2 py-2 font-mono text-xs text-paper transition-colors sm:px-3 sm:text-sm"
               >
                 हिंदी
               </a>
@@ -303,7 +317,7 @@ function HiIndex() {
                 onClick={() => setLang(lang === "hi-en" ? "hi" : "hi-en")}
                 aria-pressed={lang === "hi-en"}
                 title="Hinglish"
-                className={`px-3 py-2 font-mono text-sm transition-colors ${
+                className={`px-2 py-2 font-mono text-xs transition-colors sm:px-3 sm:text-sm ${
                   lang === "hi-en"
                     ? "bg-ink text-paper"
                     : "text-mute hover:text-ink"
@@ -316,7 +330,7 @@ function HiIndex() {
               href={getWhatsAppUrl(lang)}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-sm bg-clay px-4 py-2 font-mono text-xs uppercase tracking-[0.12em] text-paper transition-colors hover:bg-claydeep"
+              className="rounded-sm bg-clay px-3 py-2 font-mono text-[11px] uppercase tracking-[0.08em] text-paper transition-colors hover:bg-claydeep sm:px-4 sm:text-xs sm:tracking-[0.12em]"
             >
               {COPY.nav.cta[lang]}
             </a>
@@ -439,6 +453,8 @@ function HiIndex() {
           </div>
         </div>
       </section>
+
+      <AboutSection lang={lang} />
 
       <section id="catalogue" className="border-b border-line">
         <div className="mx-auto max-w-6xl px-6 py-16">
@@ -606,6 +622,10 @@ function HiIndex() {
         </div>
       </section>
 
+      <FabricDeskSection lang={lang} />
+
+      <JournalPreview lang={lang} />
+
       <section className="border-b border-line bg-paper">
         <div className="mx-auto max-w-3xl px-6 py-20">
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-clay">
@@ -695,6 +715,9 @@ function HiIndex() {
           <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-6 py-6 font-mono text-[11px] uppercase tracking-[0.12em] text-mute">
             <span>{COPY.footer.left[lang]}</span>
             <div className="flex items-center gap-6">
+              <a href="/blog" className="transition-colors hover:text-ink">
+                {COPY.nav.journal[lang]}
+              </a>
               <a
                 href="https://www.linkedin.com/company/vidhi-fabricss/"
                 target="_blank"
@@ -754,6 +777,7 @@ function LeadPopup({ lang, onClose }: LeadPopupProps) {
       if (focusable.length === 0) return;
       const first = focusable[0];
       const last = focusable[focusable.length - 1];
+      if (!first || !last) return;
       if (event.shiftKey && document.activeElement === first) {
         event.preventDefault();
         last.focus();
@@ -873,7 +897,7 @@ function LeadPopup({ lang, onClose }: LeadPopupProps) {
   );
 }
 
-function LeadField({ label, error, children }: { label: string; error?: string; children: React.ReactNode }) {
+function LeadField({ label, error, children }: { label: string; error?: string | undefined; children: React.ReactNode }) {
   return (
     <label className="block text-sm">
       <span className="mb-1 block font-medium">{label}</span>

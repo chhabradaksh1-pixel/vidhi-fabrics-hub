@@ -84,7 +84,8 @@ async function handleLeadRequest(request: Request, env: unknown): Promise<Respon
   }
 
   const bindings = (env ?? {}) as Record<string, unknown>;
-  const webhookUrl = typeof bindings.LEAD_WEBHOOK_URL === "string" ? bindings.LEAD_WEBHOOK_URL : "";
+  const webhookUrl =
+    typeof bindings["LEAD_WEBHOOK_URL"] === "string" ? bindings["LEAD_WEBHOOK_URL"] : "";
   if (!webhookUrl) {
     return jsonResponse({ error: "Lead storage is not configured" }, 503);
   }

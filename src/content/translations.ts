@@ -208,8 +208,8 @@ export const COPY = {
     },
     stats: [
       {
-        value: "30",
-        label: { en: "Years in Surat", hi: "सूरत में वर्ष", "hi-en": "Saal Surat mein" },
+        value: "1960s",
+        label: { en: "Trading since", hi: "व्यापार शुरू", "hi-en": "Trading since" },
       },
       {
         value: "2,400+",

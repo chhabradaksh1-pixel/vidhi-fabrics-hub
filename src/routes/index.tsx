@@ -547,7 +547,7 @@ function Index() {
           <div className="mt-12 grid grid-cols-2 gap-px bg-paper/15 lg:grid-cols-4">
             {COPY.scale.stats.map((s) => (
               <div key={s.value} className="bg-ink p-6">
-                <p className="font-display text-5xl font-semibold text-clay">
+                <p className="font-display text-4xl font-semibold break-words text-clay sm:text-5xl">
                   {s.value}
                 </p>
                 <p className="mt-2 font-mono text-xs uppercase tracking-[0.12em] text-paper/60">

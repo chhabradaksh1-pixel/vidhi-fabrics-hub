@@ -3,60 +3,7 @@ import cotton from "@/assets/fabric-cotton-linen.jpg";
 import jacquard from "@/assets/fabric-katan-jacquard.jpg";
 import { JOURNAL, readingMinutes, type JournalArticle } from "@/content/journal";
 import type { Lang } from "@/content/translations";
-
-const SECTION_COPY = {
-  en: {
-    about: "About us",
-    desk: "Fabric Desk",
-    marker: "Our story / Surat, India",
-    title: "Sixty years in the textile trade.",
-    titleEnd: "All of it from Surat.",
-    body: "Vidhi Fabrics has been trading cloth in Surat since the 1960s — more than sixty years in the same city and the same industry. The mills, dyers and finishers we work with are ones we have known for decades, not names off a list.",
-    bodyEnd:
-      "That network is what you get access to. Send a swatch, a photograph or a rough idea, and we will tell you what it is, what it costs and how soon it can reach you — and say so plainly when a fabric or a deadline will not work.",
-    cta: "Talk to our team",
-    detail: "Rooted in Surat. Connected through textiles.",
-    journal: "The journal / For textile buyers",
-    subtitle: "Practical guides to fabrics, sourcing and buying wholesale.",
-    browse: "Explore the desk",
-    read: "Read article",
-    language: "Articles in English",
-  },
-  hi: {
-    about: "हमारे बारे में",
-    desk: "फैब्रिक डेस्क",
-    marker: "हमारी कहानी / सूरत, भारत",
-    title: "साठ साल से कपड़ा व्यापार में।",
-    titleEnd: "और यह सब सूरत से।",
-    body: "विधि फैब्रिक्स 1960 के दशक से सूरत में कपड़े का व्यापार कर रहा है — उसी शहर और उसी उद्योग में साठ साल से ज़्यादा। जिन मिलों, रंगाई और फ़िनिशिंग वालों के साथ हम काम करते हैं, उन्हें हम दशकों से जानते हैं, किसी सूची से चुने नाम नहीं।",
-    bodyEnd:
-      "यही नेटवर्क आपके लिए खुलता है। एक स्वैच, एक तस्वीर या मोटा-मोटा ख़याल भेजिए — हम बताएँगे कि वह क्या है, कीमत क्या होगी और कितनी जल्दी पहुँचेगा। और अगर कोई कपड़ा या समय-सीमा मुमकिन नहीं, तो साफ़ कह देंगे।",
-    cta: "हमारी टीम से बात करें",
-    detail: "सूरत से जुड़े। कपड़ों के रिश्तों से आगे बढ़ते।",
-    journal: "जानकारी / टेक्सटाइल खरीदारों के लिए",
-    subtitle: "कपड़ों, सोर्सिंग और थोक खरीदारी के लिए उपयोगी गाइड।",
-    browse: "सभी लेख देखें",
-    read: "लेख पढ़ें",
-    language: "लेख अंग्रेज़ी में हैं",
-  },
-  "hi-en": {
-    about: "Hamare baare mein",
-    desk: "Fabric Desk",
-    marker: "Hamari kahani / Surat, India",
-    title: "Saath saal se textile trade mein.",
-    titleEnd: "Aur yeh sab Surat se.",
-    body: "Vidhi Fabrics 1960s se Surat mein kapde ka vyapar kar raha hai — usi sheher aur usi industry mein saath saal se zyada. Jin mills, dyers aur finishers ke saath hum kaam karte hain, unhe hum decades se jaante hain, kisi list se chune naam nahi.",
-    bodyEnd:
-      "Yahi network aapke liye khulta hai. Ek swatch, ek photo ya mota-mota idea bhejiye — hum batayenge ki wo kya hai, price kya hogi aur kitni jaldi pahunchega. Aur agar koi fabric ya deadline mumkin nahi, to saaf keh denge.",
-    cta: "Hamari team se baat karein",
-    detail: "Surat se jude. Textiles ke rishton se aage.",
-    journal: "The journal / Textile buyers ke liye",
-    subtitle: "Fabrics, sourcing aur wholesale buying ke practical guides.",
-    browse: "Saare articles dekhein",
-    read: "Article padhein",
-    language: "Articles English mein hain",
-  },
-};
+import { MINUTES_LABEL, SECTION_COPY } from "@/content/section-copy";
 
 export function StoryLinks({ lang = "en" }: { lang?: Lang }) {
   const copy = SECTION_COPY[lang];
@@ -135,10 +82,12 @@ export function AboutSection({ lang, whatsappUrl }: { lang: Lang; whatsappUrl: s
 export function JournalCard({
   article,
   number,
+  lang = "en",
   readLabel = "Read article",
 }: {
   article: JournalArticle;
   number: number;
+  lang?: Lang;
   readLabel?: string;
 }) {
   return (
@@ -146,12 +95,12 @@ export function JournalCard({
       <a
         href={`/blog/${article.slug}`}
         className="flex h-full flex-col"
-        aria-label={`${readLabel}: ${article.title}`}
+        aria-label={`${readLabel}: ${article.title[lang]}`}
       >
         <div className="relative overflow-hidden bg-sand">
           <img
             src={article.image}
-            alt={article.imageAlt}
+            alt={article.imageAlt[lang]}
             width={1024}
             height={768}
             loading="lazy"
@@ -162,14 +111,14 @@ export function JournalCard({
             {String(number).padStart(2, "0")}
           </span>
         </div>
-        <div className="flex flex-1 flex-col p-6" lang="en">
+        <div className="flex flex-1 flex-col p-6">
           <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-clay">
-            {article.category} · {readingMinutes(article)} min read
+            {article.category[lang]} · {readingMinutes(article, lang)} {MINUTES_LABEL[lang]}
           </p>
           <h3 className="mt-4 font-display text-2xl font-semibold leading-snug tracking-tight">
-            {article.title}
+            {article.title[lang]}
           </h3>
-          <p className="mb-7 mt-3 text-sm leading-relaxed text-mute">{article.excerpt}</p>
+          <p className="mb-7 mt-3 text-sm leading-relaxed text-mute">{article.excerpt[lang]}</p>
           <span className="mt-auto flex items-center justify-between border-t border-line pt-5 text-sm font-medium text-clay">
             {readLabel}
             <ArrowUpRight size={18} aria-hidden="true" />
@@ -201,7 +150,6 @@ export function FabricDeskSection({ lang = "en" }: { lang?: Lang }) {
               Surat Fabric Desk<span className="text-clay">.</span>
             </h2>
             <p className="mt-4 text-mute">{copy.subtitle}</p>
-            {lang !== "en" && <p className="mt-2 text-xs text-mute">{copy.language}</p>}
           </div>
           <a
             href="/blog"
@@ -217,6 +165,7 @@ export function FabricDeskSection({ lang = "en" }: { lang?: Lang }) {
               key={article.slug}
               article={article}
               number={index + 1}
+              lang={lang}
               readLabel={copy.read}
             />
           ))}
@@ -226,39 +175,86 @@ export function FabricDeskSection({ lang = "en" }: { lang?: Lang }) {
   );
 }
 
-export function JournalHeader() {
+export function JournalLangSwitch({ lang, setLang }: { lang: Lang; setLang: (l: Lang) => void }) {
+  const options: { code: Lang; label: string }[] = [
+    { code: "en", label: "EN" },
+    { code: "hi", label: "हिंदी" },
+    { code: "hi-en", label: "Hinglish" },
+  ];
+  return (
+    <div
+      className="flex overflow-hidden rounded-sm ring-1 ring-line"
+      role="group"
+      aria-label="Language"
+    >
+      {options.map((o) => (
+        <button
+          key={o.code}
+          type="button"
+          onClick={() => setLang(o.code)}
+          aria-pressed={lang === o.code}
+          className={`px-2 py-2 font-mono text-xs transition-colors sm:px-3 ${
+            lang === o.code ? "bg-ink text-paper" : "text-mute hover:text-ink"
+          }`}
+        >
+          {o.label}
+        </button>
+      ))}
+    </div>
+  );
+}
+
+export function JournalHeader({
+  lang = "en",
+  setLang,
+}: {
+  lang?: Lang;
+  setLang?: (l: Lang) => void;
+}) {
+  const copy = SECTION_COPY[lang];
+  const home = lang === "hi" ? "/hi" : "/";
   return (
     <header className="border-b border-line bg-paper">
-      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-5 px-6 py-5">
-        <a href="/" className="font-display text-2xl font-semibold tracking-tight">
+      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-3 gap-y-3 px-6 py-5">
+        <a
+          href={home}
+          aria-label="Vidhi Fabrics — go to the homepage"
+          className="font-display text-2xl font-semibold tracking-tight transition-colors hover:text-clay sm:whitespace-nowrap"
+        >
           Vidhi Fabrics
         </a>
-        <nav aria-label="Main navigation" className="flex flex-wrap items-center gap-5 text-sm">
-          <a href="/#catalogue" className="hover:text-clay">
-            Catalogue
+        <nav
+          aria-label="Main navigation"
+          className="flex flex-wrap items-center gap-4 text-sm sm:gap-5"
+        >
+          <a href={`${home}#catalogue`} className="hover:text-clay">
+            {copy.navCatalogue}
           </a>
-          <a href="/#about" className="hover:text-clay">
-            About us
+          <a href={`${home}#about`} className="hover:text-clay">
+            {copy.navAbout}
           </a>
           <a href="/blog" className="text-clay">
-            Fabric Desk
+            {copy.navDesk}
           </a>
-          <a href="/#contact" className="hover:text-clay">
-            Contact
+          <a href={`${home}#contact`} className="hover:text-clay">
+            {copy.navContact}
           </a>
         </nav>
+        {setLang ? <JournalLangSwitch lang={lang} setLang={setLang} /> : null}
       </div>
     </header>
   );
 }
 
-export function JournalFooter() {
+export function JournalFooter({ lang = "en" }: { lang?: Lang }) {
+  const copy = SECTION_COPY[lang];
+  const home = lang === "hi" ? "/hi" : "/";
   return (
     <footer className="border-t border-line">
       <div className="mx-auto flex max-w-6xl flex-wrap justify-between gap-5 px-6 py-8 text-sm text-mute">
-        <a href="/">Vidhi Fabrics · Surat, India</a>
-        <a href="/#catalogue" className="inline-flex items-center gap-2 text-clay">
-          Explore our fabrics
+        <a href={home}>{copy.footerHome}</a>
+        <a href={`${home}#catalogue`} className="inline-flex items-center gap-2 text-clay">
+          {copy.footerCta}
           <ArrowDown className="-rotate-90" size={16} aria-hidden="true" />
         </a>
       </div>

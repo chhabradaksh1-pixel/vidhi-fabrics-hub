@@ -1,6 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
 import { JOURNAL } from "@/content/journal";
 import { JournalCard, JournalHeader, JournalFooter } from "@/components/fabric-desk";
+import { SECTION_COPY } from "@/content/section-copy";
+import type { Lang } from "@/content/translations";
 
 export const Route = createFileRoute("/blog/")({
   head: () => ({
@@ -25,27 +28,33 @@ export const Route = createFileRoute("/blog/")({
 });
 
 function JournalIndex() {
+  const [lang, setLang] = useState<Lang>("en");
+  const copy = SECTION_COPY[lang];
+  const htmlLang = lang === "hi" ? "hi" : "en";
+
   return (
     <div className="min-h-screen bg-paper text-ink">
-      <JournalHeader />
-      <main className="mx-auto max-w-6xl px-6 py-16 lg:py-24">
-        <p className="font-mono text-xs uppercase tracking-[0.18em] text-clay">
-          The journal / For textile buyers
-        </p>
+      <JournalHeader lang={lang} setLang={setLang} />
+      <main className="mx-auto max-w-6xl px-6 py-16 lg:py-24" lang={htmlLang}>
+        <p className="font-mono text-xs uppercase tracking-[0.18em] text-clay">{copy.journal}</p>
         <h1 className="mt-5 font-display text-5xl font-semibold tracking-tight sm:text-6xl">
-          Surat Fabric Desk<span className="text-clay">.</span>
+          {copy.journalTitle}
+          <span className="text-clay">.</span>
         </h1>
-        <p className="mt-6 max-w-xl text-lg leading-relaxed text-mute">
-          Practical guides to fabrics, sourcing and buying wholesale. Start with the questions that
-          make your next order clearer.
-        </p>
+        <p className="mt-6 max-w-xl text-lg leading-relaxed text-mute">{copy.journalLede}</p>
         <div className="mt-14 grid gap-6 md:grid-cols-3">
           {JOURNAL.map((article, index) => (
-            <JournalCard key={article.slug} article={article} number={index + 1} />
+            <JournalCard
+              key={article.slug}
+              article={article}
+              number={index + 1}
+              lang={lang}
+              readLabel={copy.read}
+            />
           ))}
         </div>
       </main>
-      <JournalFooter />
+      <JournalFooter lang={lang} />
     </div>
   );
 }

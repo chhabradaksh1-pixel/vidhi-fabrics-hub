@@ -368,9 +368,9 @@ export const COPY = {
     deskLabel: { en: "Trade desk", hi: "ट्रेड डेस्क", "hi-en": "Trade desk" },
     hoursLabel: { en: "Hours", hi: "समय", "hi-en": "Timing" },
     hoursValue: {
-      en: "Mon–Sat · 11:00 PM–9:00 PM",
-      hi: "सोम–शनि · 11:00 PM–9:00 PM",
-      "hi-en": "Mon–Sat · 11:00 PM–9:00 PM",
+      en: "Mon–Sat · 11:00 AM–9:00 PM",
+      hi: "सोम–शनि · सुबह 11:00–रात 9:00",
+      "hi-en": "Mon–Sat · 11:00 AM–9:00 PM",
     },
   },
   footer: {

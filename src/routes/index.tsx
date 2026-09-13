@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Linkedin } from "lucide-react";
 import { AboutSection, FabricDeskSection, StoryLinks } from "@/components/fabric-desk";
+import { ReachMapSection } from "@/components/reach-map";
 
 import warehouseShowroom from "@/assets/maxresdefault.jpg";
 import {
@@ -654,6 +655,8 @@ function Index() {
           />
         </div>
       </section>
+
+      <ReachMapSection lang={lang} />
 
       <FabricDeskSection lang={lang} />
 

@@ -3,6 +3,8 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { Linkedin } from "lucide-react";
 import { AboutSection, FabricDeskSection, StoryLinks } from "@/components/fabric-desk";
 import { ReachMapSection } from "@/components/reach-map";
+import { TalkToUs } from "@/components/talk-to-us";
+import { WHATSAPP_NUMBER } from "@/content/whatsapp";
 
 import warehouseShowroom from "@/assets/maxresdefault.jpg";
 import {
@@ -60,7 +62,6 @@ export const Route = createFileRoute("/")({
 const CATEGORIES: FabricCategory[] = ["all", "cotton", "silk", "linen", "polyester", "jacquard"];
 
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/maeypydr";
-const WHATSAPP_NUMBER = "919825208413";
 
 const FAQ_SECTION_COPY: Record<Lang, { marker: string; heading: string }> = {
   en: { marker: "FAQ / Sourcing", heading: "Common questions, answered." },
@@ -718,6 +719,8 @@ function Index() {
           </div>
         </footer>
       </section>
+
+      <TalkToUs lang={lang} />
 
       {leadOpen ? <LeadPopup lang={lang} onClose={() => setLeadOpen(false)} /> : null}
     </div>

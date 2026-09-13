@@ -2,6 +2,7 @@ import cotton from "@/assets/fabric-cotton-linen.jpg";
 import jacquard from "@/assets/fabric-katan-jacquard.jpg";
 import organza from "@/assets/fabric-beaded-organza.jpg";
 import type { Lang } from "@/content/translations";
+import { whatsAppUrl } from "@/content/whatsapp";
 
 /** A string carried in all three site languages. */
 export type Localized = Record<Lang, string>;
@@ -533,7 +534,7 @@ const WHATSAPP_INTRO: Record<Lang, (title: string) => string> = {
 };
 
 export function articleWhatsAppUrl(article: JournalArticle, lang: Lang) {
-  return `https://wa.me/919825208413?text=${encodeURIComponent(WHATSAPP_INTRO[lang](article.title[lang]))}`;
+  return whatsAppUrl(WHATSAPP_INTRO[lang](article.title[lang]));
 }
 
 export function readingMinutes(article: JournalArticle, lang: Lang) {

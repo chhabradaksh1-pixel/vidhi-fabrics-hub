@@ -13,6 +13,8 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as HiRouteImport } from './routes/hi'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
+import { Route as HiBlogIndexRouteImport } from './routes/hi_.blog.index'
+import { Route as HiBlogSlugRouteImport } from './routes/hi_.blog.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -34,18 +36,32 @@ const BlogSlugRoute = BlogSlugRouteImport.update({
   path: '/blog/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const HiBlogIndexRoute = HiBlogIndexRouteImport.update({
+  id: '/hi_/blog/',
+  path: '/hi/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HiBlogSlugRoute = HiBlogSlugRouteImport.update({
+  id: '/hi_/blog/$slug',
+  path: '/hi/blog/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/hi': typeof HiRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/blog/': typeof BlogIndexRoute
+  '/hi/blog/$slug': typeof HiBlogSlugRoute
+  '/hi/blog/': typeof HiBlogIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/hi': typeof HiRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/blog': typeof BlogIndexRoute
+  '/hi/blog/$slug': typeof HiBlogSlugRoute
+  '/hi/blog': typeof HiBlogIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -53,13 +69,23 @@ export interface FileRoutesById {
   '/hi': typeof HiRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/blog/': typeof BlogIndexRoute
+  '/hi_/blog/$slug': typeof HiBlogSlugRoute
+  '/hi_/blog/': typeof HiBlogIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/hi' | '/blog/$slug' | '/blog/'
+  fullPaths:
+    '/' | '/hi' | '/blog/$slug' | '/blog/' | '/hi/blog/$slug' | '/hi/blog/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/hi' | '/blog/$slug' | '/blog'
-  id: '__root__' | '/' | '/hi' | '/blog/$slug' | '/blog/'
+  to: '/' | '/hi' | '/blog/$slug' | '/blog' | '/hi/blog/$slug' | '/hi/blog'
+  id:
+    | '__root__'
+    | '/'
+    | '/hi'
+    | '/blog/$slug'
+    | '/blog/'
+    | '/hi_/blog/$slug'
+    | '/hi_/blog/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -67,6 +93,8 @@ export interface RootRouteChildren {
   HiRoute: typeof HiRoute
   BlogSlugRoute: typeof BlogSlugRoute
   BlogIndexRoute: typeof BlogIndexRoute
+  HiBlogSlugRoute: typeof HiBlogSlugRoute
+  HiBlogIndexRoute: typeof HiBlogIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -99,6 +127,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/hi_/blog/': {
+      id: '/hi_/blog/'
+      path: '/hi/blog'
+      fullPath: '/hi/blog/'
+      preLoaderRoute: typeof HiBlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hi_/blog/$slug': {
+      id: '/hi_/blog/$slug'
+      path: '/hi/blog/$slug'
+      fullPath: '/hi/blog/$slug'
+      preLoaderRoute: typeof HiBlogSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -107,6 +149,8 @@ const rootRouteChildren: RootRouteChildren = {
   HiRoute: HiRoute,
   BlogSlugRoute: BlogSlugRoute,
   BlogIndexRoute: BlogIndexRoute,
+  HiBlogSlugRoute: HiBlogSlugRoute,
+  HiBlogIndexRoute: HiBlogIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

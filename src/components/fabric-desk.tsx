@@ -12,7 +12,7 @@ export function StoryLinks({ lang = "en" }: { lang?: Lang }) {
       <a href="#about" className="transition-colors hover:text-clay">
         {copy.about}
       </a>
-      <a href="/blog" className="transition-colors hover:text-clay">
+      <a href={lang === "hi" ? "/hi/blog" : "/blog"} className="transition-colors hover:text-clay">
         {copy.desk}
       </a>
     </>
@@ -84,16 +84,18 @@ export function JournalCard({
   number,
   lang = "en",
   readLabel = "Read article",
+  href,
 }: {
   article: JournalArticle;
   number: number;
   lang?: Lang;
   readLabel?: string;
+  href?: string;
 }) {
   return (
     <article className="group flex h-full flex-col overflow-hidden border border-line bg-paper">
       <a
-        href={`/blog/${article.slug}`}
+        href={href ?? `/blog/${article.slug}`}
         className="flex h-full flex-col"
         aria-label={`${readLabel}: ${article.title[lang]}`}
       >
@@ -152,7 +154,7 @@ export function FabricDeskSection({ lang = "en" }: { lang?: Lang }) {
             <p className="mt-4 text-mute">{copy.subtitle}</p>
           </div>
           <a
-            href="/blog"
+            href={lang === "hi" ? "/hi/blog" : "/blog"}
             className="inline-flex items-center gap-3 border-b border-clay pb-2 text-sm font-medium text-clay"
           >
             {copy.browse}
@@ -167,6 +169,7 @@ export function FabricDeskSection({ lang = "en" }: { lang?: Lang }) {
               number={index + 1}
               lang={lang}
               readLabel={copy.read}
+              href={`${lang === "hi" ? "/hi/blog" : "/blog"}/${article.slug}`}
             />
           ))}
         </div>
@@ -175,31 +178,72 @@ export function FabricDeskSection({ lang = "en" }: { lang?: Lang }) {
   );
 }
 
-export function JournalLangSwitch({ lang, setLang }: { lang: Lang; setLang: (l: Lang) => void }) {
-  const options: { code: Lang; label: string }[] = [
-    { code: "en", label: "EN" },
-    { code: "hi", label: "हिंदी" },
-    { code: "hi-en", label: "Hinglish" },
-  ];
+export function JournalLangSwitch({
+  lang,
+  setLang,
+  paths,
+}: {
+  lang: Lang;
+  setLang: (l: Lang) => void;
+  paths?: { en: string; hi: string };
+}) {
+  const base =
+    "px-2 py-2 font-mono text-xs transition-colors sm:px-3 " +
+    "aria-[current=page]:bg-ink aria-[current=page]:text-paper";
+  const active = "bg-ink text-paper";
+  const idle = "text-mute hover:text-ink";
+
   return (
     <div
       className="flex overflow-hidden rounded-sm ring-1 ring-line"
       role="group"
       aria-label="Language"
     >
-      {options.map((o) => (
-        <button
-          key={o.code}
-          type="button"
-          onClick={() => setLang(o.code)}
-          aria-pressed={lang === o.code}
-          className={`px-2 py-2 font-mono text-xs transition-colors sm:px-3 ${
-            lang === o.code ? "bg-ink text-paper" : "text-mute hover:text-ink"
-          }`}
-        >
-          {o.label}
-        </button>
-      ))}
+      {paths ? (
+        <>
+          <a
+            href={paths.en}
+            {...(lang === "en" ? { "aria-current": "page" as const } : {})}
+            className={`${base} ${lang === "en" ? active : idle}`}
+          >
+            EN
+          </a>
+          <a
+            href={paths.hi}
+            {...(lang === "hi" ? { "aria-current": "page" as const } : {})}
+            className={`${base} ${lang === "hi" ? active : idle}`}
+          >
+            हिंदी
+          </a>
+        </>
+      ) : (
+        <>
+          <button
+            type="button"
+            onClick={() => setLang("en")}
+            aria-pressed={lang === "en"}
+            className={`${base} ${lang === "en" ? active : idle}`}
+          >
+            EN
+          </button>
+          <button
+            type="button"
+            onClick={() => setLang("hi")}
+            aria-pressed={lang === "hi"}
+            className={`${base} ${lang === "hi" ? active : idle}`}
+          >
+            हिंदी
+          </button>
+        </>
+      )}
+      <button
+        type="button"
+        onClick={() => setLang("hi-en")}
+        aria-pressed={lang === "hi-en"}
+        className={`${base} ${lang === "hi-en" ? active : idle}`}
+      >
+        Hinglish
+      </button>
     </div>
   );
 }
@@ -207,9 +251,11 @@ export function JournalLangSwitch({ lang, setLang }: { lang: Lang; setLang: (l: 
 export function JournalHeader({
   lang = "en",
   setLang,
+  paths,
 }: {
   lang?: Lang;
   setLang?: (l: Lang) => void;
+  paths?: { en: string; hi: string };
 }) {
   const copy = SECTION_COPY[lang];
   const home = lang === "hi" ? "/hi" : "/";
@@ -233,14 +279,16 @@ export function JournalHeader({
           <a href={`${home}#about`} className="hover:text-clay">
             {copy.navAbout}
           </a>
-          <a href="/blog" className="text-clay">
+          <a href={lang === "hi" ? "/hi/blog" : "/blog"} className="text-clay">
             {copy.navDesk}
           </a>
           <a href={`${home}#contact`} className="hover:text-clay">
             {copy.navContact}
           </a>
         </nav>
-        {setLang ? <JournalLangSwitch lang={lang} setLang={setLang} /> : null}
+        {setLang ? (
+          <JournalLangSwitch lang={lang} setLang={setLang} {...(paths ? { paths } : {})} />
+        ) : null}
       </div>
     </header>
   );

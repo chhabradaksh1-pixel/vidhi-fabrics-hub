@@ -18,15 +18,58 @@
 
   <url>
     <loc>https://www.vidhifabrics.com/blog</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.vidhifabrics.com/blog"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.vidhifabrics.com/hi/blog"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vidhifabrics.com/blog"/>
   </url>
+
+  <url>
+    <loc>https://www.vidhifabrics.com/hi/blog</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.vidhifabrics.com/blog"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.vidhifabrics.com/hi/blog"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vidhifabrics.com/blog"/>
+  </url>
+
   <url>
     <loc>https://www.vidhifabrics.com/blog/buying-dress-material-wholesale</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.vidhifabrics.com/blog/buying-dress-material-wholesale"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.vidhifabrics.com/hi/blog/buying-dress-material-wholesale"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vidhifabrics.com/blog/buying-dress-material-wholesale"/>
   </url>
+
+  <url>
+    <loc>https://www.vidhifabrics.com/hi/blog/buying-dress-material-wholesale</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.vidhifabrics.com/blog/buying-dress-material-wholesale"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.vidhifabrics.com/hi/blog/buying-dress-material-wholesale"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vidhifabrics.com/blog/buying-dress-material-wholesale"/>
+  </url>
+
   <url>
     <loc>https://www.vidhifabrics.com/blog/why-similar-sarees-have-different-prices</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.vidhifabrics.com/blog/why-similar-sarees-have-different-prices"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.vidhifabrics.com/hi/blog/why-similar-sarees-have-different-prices"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vidhifabrics.com/blog/why-similar-sarees-have-different-prices"/>
   </url>
+
+  <url>
+    <loc>https://www.vidhifabrics.com/hi/blog/why-similar-sarees-have-different-prices</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.vidhifabrics.com/blog/why-similar-sarees-have-different-prices"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.vidhifabrics.com/hi/blog/why-similar-sarees-have-different-prices"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vidhifabrics.com/blog/why-similar-sarees-have-different-prices"/>
+  </url>
+
   <url>
     <loc>https://www.vidhifabrics.com/blog/sample-to-bulk-order-checklist</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.vidhifabrics.com/blog/sample-to-bulk-order-checklist"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.vidhifabrics.com/hi/blog/sample-to-bulk-order-checklist"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vidhifabrics.com/blog/sample-to-bulk-order-checklist"/>
+  </url>
+
+  <url>
+    <loc>https://www.vidhifabrics.com/hi/blog/sample-to-bulk-order-checklist</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.vidhifabrics.com/blog/sample-to-bulk-order-checklist"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.vidhifabrics.com/hi/blog/sample-to-bulk-order-checklist"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vidhifabrics.com/blog/sample-to-bulk-order-checklist"/>
   </url>
 
 </urlset>

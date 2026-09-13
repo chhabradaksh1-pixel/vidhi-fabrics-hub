@@ -46,10 +46,10 @@ export function ReachMapSection({ lang = "en" }: { lang?: Lang }) {
             <path
               d={LAND_DOTS}
               className="stroke-ink"
-              strokeWidth={2.1}
+              strokeWidth={2.5}
               strokeLinecap="round"
               fill="none"
-              opacity={0.28}
+              opacity={0.7}
             />
             {DESTINATIONS.map((m) => (
               <path

@@ -8,9 +8,9 @@ import type { Lang } from "@/content/translations";
  * contradict each other. Edit this array to correct or extend it; the map,
  * the arcs and the written list all read from here.
  *
- * `confirmed: false` marks a market added as a plausible fit for a Surat
- * fabric wholesaler rather than one supplied by the business. Confirm or
- * replace those before treating this as a factual claim.
+ * `confirmed` records that the business has verified it ships to a market.
+ * Every entry below is confirmed. Anything added later should go in as
+ * false until it has been checked, since these render as public claims.
  */
 export type Market = {
   id: string;
@@ -56,7 +56,7 @@ export const MARKETS: Market[] = [
     id: "nigeria",
     lat: 6.52,
     lon: 3.38,
-    confirmed: false,
+    confirmed: true,
     name: { en: "Nigeria", hi: "नाइजीरिया", "hi-en": "Nigeria" },
   },
   {
@@ -77,14 +77,14 @@ export const MARKETS: Market[] = [
     id: "nepal",
     lat: 27.72,
     lon: 85.32,
-    confirmed: false,
+    confirmed: true,
     name: { en: "Nepal", hi: "नेपाल", "hi-en": "Nepal" },
   },
   {
     id: "malaysia",
     lat: 3.14,
     lon: 101.69,
-    confirmed: false,
+    confirmed: true,
     name: { en: "Malaysia", hi: "मलेशिया", "hi-en": "Malaysia" },
   },
 ];

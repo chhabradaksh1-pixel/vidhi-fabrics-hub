@@ -189,6 +189,67 @@
   animation: vf-rise 0.4s ease-out both;
 }
 
+/* Talk-to-us launcher: a soft pulsing ring so the button is noticed. */
+@keyframes vf-pulse-ring {
+  0% {
+    transform: scale(0.92);
+    opacity: 0.55;
+  }
+  70% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+}
+
+@utility vf-pulse-ring {
+  animation: vf-pulse-ring 2.4s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+/* The teaser bubble arrives with a small bounce rather than a plain fade. */
+@keyframes vf-pop-in {
+  0% {
+    opacity: 0;
+    transform: translateY(12px) scale(0.94);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-3px) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@utility vf-pop-in {
+  animation: vf-pop-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* One nudge on the launcher itself when the teaser appears. */
+@keyframes vf-nudge {
+  0%,
+  100% {
+    transform: none;
+  }
+  30% {
+    transform: translateY(-5px);
+  }
+  55% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(-2px);
+  }
+}
+
+@utility vf-nudge {
+  animation: vf-nudge 0.8s ease-out 1;
+}
+
 @layer base {
   ::selection {
     background: oklch(0.465 0.105 35 / 18%);

@@ -16,6 +16,12 @@ type Answers = {
 
 const EMPTY: Answers = { category: "", requirement: "", quantity: "", city: "", country: "" };
 const STORE_KEY = "vidhi-talk-to-us";
+const TEASER_KEY = "vidhi-talk-to-us-teaser";
+
+/** First nudge, then one more if it was waved away. Two at most per session. */
+const TEASER_FIRST_MS = 4000;
+const TEASER_REPEAT_MS = 75000;
+const TEASER_MAX_SHOWS = 2;
 
 function loadSaved(): { step: TalkStep; answers: Answers } | null {
   try {
@@ -69,6 +75,8 @@ export function TalkToUs({ lang = "en" }: { lang?: Lang }) {
   const [step, setStep] = useState<TalkStep>("category");
   const [answers, setAnswers] = useState<Answers>(EMPTY);
   const [draft, setDraft] = useState("");
+  const [teaser, setTeaser] = useState(false);
+  const [nudge, setNudge] = useState(false);
   const [city, setCity] = useState("");
   const [country, setCountry] = useState("");
 
@@ -86,6 +94,46 @@ export function TalkToUs({ lang = "en" }: { lang?: Lang }) {
     setCity(saved.answers.city);
     setCountry(saved.answers.country);
   }, []);
+
+  // Nudge the visitor twice at most, and never once they have engaged.
+  useEffect(() => {
+    let shows = 0;
+    try {
+      shows = Number(window.sessionStorage.getItem(TEASER_KEY) ?? "0");
+    } catch {
+      /* private mode */
+    }
+    if (shows >= TEASER_MAX_SHOWS) return;
+
+    const timers: number[] = [];
+    const fire = () => {
+      setTeaser(true);
+      setNudge(true);
+      window.setTimeout(() => setNudge(false), 900);
+      try {
+        window.sessionStorage.setItem(TEASER_KEY, String(shows + 1));
+      } catch {
+        /* private mode */
+      }
+    };
+    timers.push(window.setTimeout(fire, TEASER_FIRST_MS));
+    if (shows + 1 < TEASER_MAX_SHOWS) {
+      timers.push(window.setTimeout(fire, TEASER_FIRST_MS + TEASER_REPEAT_MS));
+    }
+    return () => timers.forEach((t) => window.clearTimeout(t));
+  }, []);
+
+  // Once the panel is open the nudge has done its job.
+  useEffect(() => {
+    if (open) {
+      setTeaser(false);
+      try {
+        window.sessionStorage.setItem(TEASER_KEY, String(TEASER_MAX_SHOWS));
+      } catch {
+        /* private mode */
+      }
+    }
+  }, [open]);
 
   const advance = useCallback((next: TalkStep, patch: Partial<Answers>) => {
     setAnswers((prev) => {
@@ -169,19 +217,53 @@ export function TalkToUs({ lang = "en" }: { lang?: Lang }) {
 
   return (
     <>
-      <button
-        ref={launcherRef}
-        type="button"
-        onClick={openPanel}
-        aria-haspopup="dialog"
-        aria-expanded={open}
-        className={`fixed bottom-5 right-5 z-[70] inline-flex items-center gap-2 rounded-full bg-clay px-5 py-3.5 font-mono text-xs uppercase tracking-[0.12em] text-paper shadow-lg transition-colors hover:bg-claydeep focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink ${
+      {/* Teaser + launcher share a corner stack so they move together. */}
+      <div
+        className={`fixed bottom-5 right-5 z-[70] flex flex-col items-end gap-3 ${
           open ? "pointer-events-none opacity-0" : "opacity-100"
-        }`}
+        } transition-opacity`}
       >
-        <MessageCircle size={17} aria-hidden="true" />
-        {copy.launcher}
-      </button>
+        {teaser ? (
+          <div className="vf-pop-in flex max-w-[16rem] items-start gap-2 rounded-md rounded-br-sm border border-line bg-paper px-4 py-3 shadow-xl">
+            <button
+              type="button"
+              onClick={openPanel}
+              className="text-left text-sm leading-snug text-ink"
+            >
+              {copy.teaser}
+            </button>
+            <button
+              type="button"
+              onClick={() => setTeaser(false)}
+              aria-label={copy.teaserClose}
+              className="-mr-1 -mt-1 shrink-0 rounded-sm p-1 text-mute transition-colors hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-clay"
+            >
+              <X size={14} aria-hidden="true" />
+            </button>
+          </div>
+        ) : null}
+
+        <div className="relative">
+          {/* Pulsing ring — decorative, sits behind the button. */}
+          <span
+            aria-hidden="true"
+            className="vf-pulse-ring absolute inset-0 rounded-full bg-clay"
+          />
+          <button
+            ref={launcherRef}
+            type="button"
+            onClick={openPanel}
+            aria-haspopup="dialog"
+            aria-expanded={open}
+            className={`relative inline-flex items-center gap-2.5 rounded-full bg-clay px-6 py-4 font-mono text-sm uppercase tracking-[0.12em] text-paper shadow-xl ring-2 ring-paper transition-colors hover:bg-claydeep focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink ${
+              nudge ? "vf-nudge" : ""
+            }`}
+          >
+            <MessageCircle size={19} aria-hidden="true" />
+            {copy.launcher}
+          </button>
+        </div>
+      </div>
 
       {open ? (
         <div

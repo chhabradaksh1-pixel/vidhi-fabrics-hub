@@ -6,6 +6,8 @@ export const TALK_COPY: Record<
   Lang,
   {
     launcher: string;
+    teaser: string;
+    teaserClose: string;
     title: string;
     subtitle: string;
     close: string;
@@ -29,6 +31,8 @@ export const TALK_COPY: Record<
 > = {
   en: {
     launcher: "Talk to us",
+    teaser: "Looking for a specific fabric? Tell us what you need 👇",
+    teaserClose: "Dismiss",
     title: "Vidhi Fabrics",
     subtitle: "Surat · Replies on WhatsApp",
     close: "Close",
@@ -51,6 +55,8 @@ export const TALK_COPY: Record<
   },
   hi: {
     launcher: "हमसे बात करें",
+    teaser: "कोई ख़ास कपड़ा चाहिए? बताइए क्या चाहिए 👇",
+    teaserClose: "हटाएँ",
     title: "विधि फैब्रिक्स",
     subtitle: "सूरत · व्हाट्सएप पर जवाब",
     close: "बंद करें",
@@ -73,6 +79,8 @@ export const TALK_COPY: Record<
   },
   "hi-en": {
     launcher: "Humse baat karein",
+    teaser: "Koi khaas fabric chahiye? Bataiye kya chahiye 👇",
+    teaserClose: "Hatayein",
     title: "Vidhi Fabrics",
     subtitle: "Surat · WhatsApp par reply",
     close: "Band karein",

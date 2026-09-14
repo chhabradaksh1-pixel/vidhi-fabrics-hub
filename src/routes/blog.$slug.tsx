@@ -45,7 +45,7 @@ export const Route = createFileRoute("/blog/$slug")({
     <div className="min-h-screen bg-paper">
       <JournalHeader />
       <main className="mx-auto max-w-3xl px-6 py-24">
-        <h1 className="font-display text-4xl">Article not found</h1>
+        <h1 className="font-display text-4xl font-semibold">Article not found</h1>
         <a href="/blog" className="mt-8 inline-block text-clay underline">
           Return to Surat Fabric Desk
         </a>

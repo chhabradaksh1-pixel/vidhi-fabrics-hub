@@ -45,7 +45,7 @@ export const Route = createFileRoute("/hi_/blog/$slug")({
     <div className="min-h-screen bg-paper">
       <JournalHeader lang="hi" />
       <main className="mx-auto max-w-3xl px-6 py-24" lang="hi">
-        <h1 className="font-display text-4xl">लेख नहीं मिला</h1>
+        <h1 className="font-display text-4xl font-semibold">लेख नहीं मिला</h1>
         <a href="/hi/blog" className="mt-8 inline-block text-clay underline">
           सूरत फैब्रिक डेस्क पर लौटिए
         </a>

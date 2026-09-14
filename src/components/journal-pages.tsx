@@ -142,7 +142,7 @@ export function JournalArticlePage({
               </a>
             </aside>
             <div className="border-t border-line pt-8">
-              <h2 className="font-display text-2xl">{copy.related}</h2>
+              <h2 className="font-display text-2xl font-semibold">{copy.related}</h2>
               <ul className="mt-5 space-y-4">
                 {JOURNAL.filter((item) => item.slug !== article.slug).map((item) => (
                   <li key={item.slug}>

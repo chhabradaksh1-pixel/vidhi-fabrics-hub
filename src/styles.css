@@ -19,9 +19,11 @@
  */
 
 @theme inline {
-  --font-display: "Noto Sans Devanagari", "Avenir Next", sans-serif;
-  --font-body: "Noto Sans Devanagari", "Avenir Next", system-ui, sans-serif;
-  --font-mono: "SFMono-Regular", Consolas, monospace;
+  /* Latin faces lead; Noto Sans Devanagari follows so Hindi copy keeps its
+     own script face while Latin headlines get the display serif. */
+  --font-display: "Playfair Display", "Noto Sans Devanagari", Georgia, serif;
+  --font-body: "Inter", "Noto Sans Devanagari", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
   --color-paper: var(--paper);
   --color-ink: var(--ink);
   --color-mute: var(--mute);

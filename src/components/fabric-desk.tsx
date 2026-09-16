@@ -1,4 +1,5 @@
-import { ArrowDown, ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowDown, ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import cotton from "@/assets/fabric-cotton-linen.jpg";
 import jacquard from "@/assets/fabric-katan-jacquard.jpg";
 import { JOURNAL, readingMinutes, type JournalArticle } from "@/content/journal";
@@ -131,8 +132,91 @@ export function JournalCard({
   );
 }
 
-/** The home page shows the newest guides only; the rest stay on /blog. */
-const HOMEPAGE_ARTICLES = 3;
+/**
+ * Horizontal, snap-scrolling rail of guide cards with arrow controls.
+ *
+ * Three cards sit in view on desktop, as the grid did, with the next one
+ * peeking past the edge so it is visible that the row continues. Scrolling is
+ * native CSS scroll-snap, so touch swiping and trackpad gestures work without
+ * a carousel library; the arrows drive the same scroll container.
+ */
+function JournalRail({ lang, copy }: { lang: Lang; copy: (typeof SECTION_COPY)["en"] }) {
+  const rail = useRef<HTMLDivElement>(null);
+  const [atStart, setAtStart] = useState(true);
+  const [atEnd, setAtEnd] = useState(false);
+  const base = lang === "hi" ? "/hi/blog" : "/blog";
+
+  const measure = useCallback(() => {
+    const el = rail.current;
+    if (!el) return;
+    // A one-pixel tolerance: fractional scroll widths never land exactly.
+    setAtStart(el.scrollLeft <= 1);
+    setAtEnd(el.scrollLeft + el.clientWidth >= el.scrollWidth - 1);
+  }, []);
+
+  useEffect(() => {
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, [measure]);
+
+  function scrollByCard(direction: -1 | 1) {
+    const el = rail.current;
+    if (!el) return;
+    const card = el.querySelector("article");
+    const step = card ? card.getBoundingClientRect().width + 24 : el.clientWidth;
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    el.scrollBy({ left: direction * step, behavior: reduced ? "auto" : "smooth" });
+  }
+
+  const arrow =
+    "grid size-11 place-items-center rounded-full border border-line bg-paper text-ink " +
+    "transition-colors hover:border-clay hover:text-clay disabled:pointer-events-none " +
+    "disabled:opacity-0 motion-reduce:transition-none";
+
+  return (
+    <div className="relative">
+      <div
+        ref={rail}
+        onScroll={measure}
+        className="flex snap-x snap-mandatory gap-6 overflow-x-auto overscroll-x-contain [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+      >
+        {JOURNAL.map((article, index) => (
+          <div
+            key={article.slug}
+            className="min-w-0 shrink-0 basis-[85%] snap-start sm:basis-[48%] lg:basis-[31%]"
+          >
+            <JournalCard
+              article={article}
+              number={index + 1}
+              lang={lang}
+              readLabel={copy.read}
+              href={`${base}/${article.slug}`}
+            />
+          </div>
+        ))}
+      </div>
+      <button
+        type="button"
+        onClick={() => scrollByCard(-1)}
+        disabled={atStart}
+        aria-label={copy.scrollPrev}
+        className={`${arrow} absolute left-2 top-1/2 -translate-y-1/2`}
+      >
+        <ArrowLeft size={18} aria-hidden="true" />
+      </button>
+      <button
+        type="button"
+        onClick={() => scrollByCard(1)}
+        disabled={atEnd}
+        aria-label={copy.scrollNext}
+        className={`${arrow} absolute right-2 top-1/2 -translate-y-1/2`}
+      >
+        <ArrowRight size={18} aria-hidden="true" />
+      </button>
+    </div>
+  );
+}
 
 export function FabricDeskSection({ lang = "en" }: { lang?: Lang }) {
   const copy = SECTION_COPY[lang];
@@ -164,18 +248,7 @@ export function FabricDeskSection({ lang = "en" }: { lang?: Lang }) {
             <ArrowRight size={17} aria-hidden="true" />
           </a>
         </div>
-        <div className="grid gap-6 md:grid-cols-3">
-          {JOURNAL.slice(0, HOMEPAGE_ARTICLES).map((article, index) => (
-            <JournalCard
-              key={article.slug}
-              article={article}
-              number={index + 1}
-              lang={lang}
-              readLabel={copy.read}
-              href={`${lang === "hi" ? "/hi/blog" : "/blog"}/${article.slug}`}
-            />
-          ))}
-        </div>
+        <JournalRail lang={lang} copy={copy} />
       </div>
     </section>
   );

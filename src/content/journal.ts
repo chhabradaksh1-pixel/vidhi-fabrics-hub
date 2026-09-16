@@ -1,5 +1,6 @@
 import cotton from "@/assets/fabric-cotton-linen.jpg";
 import jacquard from "@/assets/fabric-katan-jacquard.jpg";
+import linen from "@/assets/fabric-linen-shirting.jpg";
 import organza from "@/assets/fabric-beaded-organza.jpg";
 import type { Lang } from "@/content/translations";
 import { whatsAppUrl } from "@/content/whatsapp";
@@ -15,6 +16,32 @@ export type JournalSection = {
   checklist?: LocalizedList;
 };
 
+/** A question and answer rendered after the numbered sections. */
+export type JournalFaq = {
+  question: Localized;
+  answer: Localized;
+};
+
+/**
+ * A closing checklist that sits after the numbered sections, so it stays out
+ * of the table of contents.
+ */
+export type JournalClosing = {
+  heading: Localized;
+  intro: Localized;
+  checklist: LocalizedList;
+};
+
+/**
+ * A phrase inside the article body that should become a link. The phrase is
+ * matched literally against the rendered paragraph text, first occurrence only,
+ * so a phrase that does not appear in a given language simply stays plain.
+ */
+export type JournalInlineLink = {
+  phrase: Localized;
+  href: string;
+};
+
 export type JournalArticle = {
   slug: string;
   image: string;
@@ -24,11 +51,641 @@ export type JournalArticle = {
   excerpt: Localized;
   introduction: Localized;
   sections: JournalSection[];
+  /** ISO date. Only set on articles whose publication date is known. */
+  published?: string;
+  /**
+   * Search-facing title, when it should differ from the on-page H1. Falls back
+   * to the article title.
+   */
+  metaTitle?: Localized;
+  /**
+   * Search-facing description, when it should differ from the listing-card
+   * excerpt. Falls back to the excerpt.
+   */
+  metaDescription?: Localized;
+  closing?: JournalClosing;
+  faq?: JournalFaq[];
+  inlineLinks?: JournalInlineLink[];
+  /** Overrides the shared closing CTA copy for this article only. */
+  cta?: {
+    kicker: Localized;
+    heading: Localized;
+    body: Localized;
+    label: Localized;
+  };
+  /** Overrides the prefilled WhatsApp message for this article only. */
+  whatsAppMessage?: Localized;
+  /**
+   * Slugs to show in "Keep reading", most relevant first. Omitted falls back to
+   * the other articles in publication order.
+   */
+  related?: string[];
 };
+
+/** The guides to show in "Keep reading" for one article, in display order. */
+export function relatedArticles(article: JournalArticle, count: number) {
+  const available = JOURNAL.filter((item) => item.slug !== article.slug);
+  if (!article.related) return available.slice(0, count);
+  const preferred = article.related
+    .map((slug) => available.find((item) => item.slug === slug))
+    .filter((item): item is JournalArticle => Boolean(item));
+  const rest = available.filter((item) => !preferred.includes(item));
+  return [...preferred, ...rest].slice(0, count);
+}
 
 export const JOURNAL: JournalArticle[] = [
   {
+    slug: "source-fabric-from-surat",
+    image: linen,
+    published: "2026-09-16",
+    metaTitle: {
+      en: "How to Source Fabric from Surat Remotely",
+      hi: "दूर बैठे सूरत से कपड़ा कैसे मंगवाएँ",
+      "hi-en": "Remote rehkar Surat se fabric kaise mangwayein",
+    },
+    metaDescription: {
+      en: "A wholesale buyer’s guide to sourcing fabric from Surat remotely, covering requirements, samples, quotations, bulk approval, dispatch and delivery.",
+      hi: "दूर बैठे सूरत से कपड़ा मंगवाने की थोक खरीदार गाइड — ज़रूरत, सैंपल, कोटेशन, बल्क मंज़ूरी, डिस्पैच और डिलीवरी तक।",
+      "hi-en":
+        "Remote rehkar Surat se fabric mangwane ki wholesale buyer guide — requirement, sample, quotation, bulk approval, dispatch aur delivery tak.",
+    },
+    imageAlt: {
+      en: "Folded fabric samples prepared for remote wholesale sourcing from Surat",
+      hi: "सूरत से दूर बैठे थोक सोर्सिंग के लिए तैयार किए गए, तह किए हुए कपड़े के सैंपल",
+      "hi-en": "Surat se remote wholesale sourcing ke liye taiyar kiye gaye, folded fabric samples",
+    },
+    category: {
+      en: "Sourcing guide",
+      hi: "सोर्सिंग गाइड",
+      "hi-en": "Sourcing guide",
+    },
+    title: {
+      en: "How to Source Fabric from Surat Without Visiting the Market",
+      hi: "बाज़ार जाए बिना सूरत से कपड़ा कैसे मंगवाएँ",
+      "hi-en": "Market jaaye bina Surat se fabric kaise mangwayein",
+    },
+    excerpt: {
+      en: "A practical remote-sourcing process for comparing fabric options, approving samples and placing a wholesale order with clearer terms.",
+      hi: "दूर बैठे सोर्सिंग का एक काम आने वाला तरीक़ा — कपड़े के विकल्प परखने, सैंपल मंज़ूर करने और साफ़ शर्तों पर थोक ऑर्डर देने के लिए।",
+      "hi-en":
+        "Remote sourcing ka ek practical tareeka — fabric options compare karne, sample approve karne aur clear terms par wholesale order dene ke liye.",
+    },
+    introduction: {
+      en: "Surat is one of India’s major textile centres, but sourcing from the city does not always require visiting every market, mill or processing unit in person. Many wholesale requirements can be handled remotely when the buyer provides a clear brief, compares equivalent options and approves the right sample before placing a bulk order. The difficult part is not finding fabric photographs. It is making sure that the fabric shown, the quotation received and the material eventually supplied all refer to the same requirement. The following process can help retailers, brands, garment manufacturers and wholesalers source fabric from Surat with greater clarity — even when they are buying from another city or country.",
+      hi: "सूरत भारत के बड़े टेक्सटाइल केंद्रों में से एक है, लेकिन यहाँ से कपड़ा मंगवाने के लिए हर बाज़ार, मिल या प्रोसेसिंग यूनिट में ख़ुद जाना ज़रूरी नहीं। कई थोक ज़रूरतें दूर बैठे ही पूरी हो सकती हैं — बशर्ते खरीदार साफ़ ब्रीफ़ दे, बराबरी के विकल्पों की तुलना करे और बल्क ऑर्डर देने से पहले सही सैंपल मंज़ूर करे। मुश्किल काम कपड़े की तस्वीरें ढूँढना नहीं है। मुश्किल यह पक्का करना है कि जो कपड़ा दिखाया गया, जो कोटेशन मिला और आख़िर में जो माल आया — तीनों एक ही ज़रूरत की बात कर रहे हों। नीचे दिया तरीक़ा रिटेलरों, ब्रांडों, गारमेंट निर्माताओं और थोक व्यापारियों को सूरत से ज़्यादा साफ़-साफ़ कपड़ा मंगवाने में मदद कर सकता है — तब भी, जब वे दूसरे शहर या देश से खरीद रहे हों।",
+      "hi-en":
+        "Surat India ke bade textile centres mein se ek hai, lekin yahan se fabric mangwane ke liye har market, mill ya processing unit mein khud jaana zaroori nahi. Kai wholesale requirements remote hi poori ho sakti hain — bashart khareedar clear brief de, barabari ke options compare kare aur bulk order dene se pehle sahi sample approve kare. Mushkil kaam fabric ki photographs dhoondhna nahi hai. Mushkil yeh pakka karna hai ki jo fabric dikhaya gaya, jo quotation mila aur aakhir mein jo maal aaya — teeno ek hi requirement ki baat kar rahe hon. Neeche diya tareeka retailers, brands, garment manufacturers aur wholesalers ko Surat se zyada clear tareeke se fabric mangwane mein madad kar sakta hai — tab bhi, jab wo doosre shahar ya desh se khareed rahe hon.",
+    },
+    inlineLinks: [
+      {
+        phrase: {
+          en: "from sample to bulk order",
+          hi: "सैंपल से बल्क ऑर्डर तक",
+          "hi-en": "sample se bulk order tak",
+        },
+        href: "/blog/sample-to-bulk-order-checklist",
+      },
+      {
+        phrase: {
+          en: "buying dress material wholesale",
+          hi: "ड्रेस मटेरियल थोक में खरीदने",
+          "hi-en": "dress material wholesale mein khareedne",
+        },
+        href: "/blog/buying-dress-material-wholesale",
+      },
+      {
+        phrase: {
+          en: "our fabric range",
+          hi: "हमारी फैब्रिक रेंज",
+          "hi-en": "hamari fabric range",
+        },
+        href: "/#catalogue",
+      },
+    ],
+    related: ["sample-to-bulk-order-checklist", "buying-dress-material-wholesale"],
+    sections: [
+      {
+        heading: {
+          en: "Start with a buying brief, not a catalogue request",
+          hi: "कैटलॉग माँगने से पहले खरीद की ब्रीफ़ बनाइए",
+          "hi-en": "Catalogue maangne se pehle buying brief banaiye",
+        },
+        paragraphs: {
+          en: [
+            "A message asking for “cotton fabric,” “something premium” or “the latest collection” leaves too much open to interpretation. Surat’s textile ecosystem covers a wide range of fibres, constructions, finishes, widths and price levels. The same broad fabric name may describe several materially different products.",
+            "Before contacting a supplier, prepare a short buying brief containing the information you already know.",
+            "You do not need to know every technical term. Explain the intended use and identify which characteristics are essential. A supplier can make a better recommendation when they understand whether the fabric is intended for sarees, dress materials, kurtis, shirts, occasionwear, uniforms or another application.",
+            "A useful enquiry might say: “We need a soft printed fabric for an everyday women’s garment range. The material should have good drape and should not be highly transparent. Our first requirement is approximately 500 metres across four designs, for delivery to Jaipur. Please suggest suitable options and provide the available width, GSM, MOQ and dispatch estimate.” That brief gives the supplier something specific to work with.",
+          ],
+          hi: [
+            "“कॉटन फैब्रिक”, “कुछ प्रीमियम” या “नई कलेक्शन” माँगने वाला मैसेज बहुत कुछ अंदाज़े पर छोड़ देता है। सूरत के टेक्सटाइल कारोबार में रेशों, बुनावट, फ़िनिश, चौड़ाई और कीमत के कई स्तर हैं। एक ही आम नाम से कई ऐसे प्रोडक्ट बताए जा सकते हैं जो असल में एक-दूसरे से काफ़ी अलग हों।",
+            "सप्लायर से बात करने से पहले एक छोटी खरीद-ब्रीफ़ तैयार कीजिए, जिसमें वह जानकारी हो जो आपको पहले से पता है।",
+            "हर तकनीकी शब्द जानना ज़रूरी नहीं। यह बताइए कि कपड़ा किस काम के लिए है और कौन-सी बातें ज़रूरी हैं। जब सप्लायर को पता हो कि कपड़ा साड़ियों, ड्रेस मटेरियल, कुर्तियों, शर्ट, ओकेज़नवियर, यूनिफ़ॉर्म या किसी और काम के लिए है, तो वह बेहतर सुझाव दे सकता है।",
+            "एक काम की पूछताछ ऐसी हो सकती है: “हमें रोज़ पहनने वाली महिलाओं की रेंज के लिए मुलायम प्रिंटेड कपड़ा चाहिए। उसका ड्रेप अच्छा हो और वह बहुत पारदर्शी न हो। पहली ज़रूरत चार डिज़ाइनों में करीब 500 मीटर है, डिलीवरी जयपुर। कृपया सही विकल्प सुझाइए और उपलब्ध चौड़ाई, GSM, MOQ और डिस्पैच का अनुमान बताइए।” इतनी ब्रीफ़ से सप्लायर को ठोस बात मिल जाती है।",
+          ],
+          "hi-en": [
+            "“Cotton fabric”, “kuch premium” ya “nayi collection” maangne wala message bahut kuch andaaze par chhod deta hai. Surat ke textile karobar mein fibres, construction, finish, width aur price ke kai levels hain. Ek hi aam naam se kai aise products bataye ja sakte hain jo asal mein ek doosre se kaafi alag hon.",
+            "Supplier se baat karne se pehle ek chhoti buying brief taiyar kijiye, jisme wo information ho jo aapko pehle se pata hai.",
+            "Har technical term jaanna zaroori nahi. Yeh bataiye ki fabric kis kaam ke liye hai aur kaun si baatein zaroori hain. Jab supplier ko pata ho ki fabric sarees, dress material, kurtis, shirts, occasionwear, uniforms ya kisi aur kaam ke liye hai, to wo behtar suggestion de sakta hai.",
+            "Ek kaam ki enquiry aisi ho sakti hai: “Humein roz pehanne wali women’s range ke liye mulayam printed fabric chahiye. Uska drape achha ho aur wo bahut transparent na ho. Pehli requirement chaar designs mein kareeb 500 metre hai, delivery Jaipur. Kripya sahi options suggest kijiye aur available width, GSM, MOQ aur dispatch ka estimate bataiye.” Itni brief se supplier ko thos baat mil jaati hai.",
+          ],
+        },
+        checklist: {
+          en: [
+            "The finished product you intend to make or sell",
+            "Your preferred fibre or fabric category",
+            "The feel, drape, weight or appearance you require",
+            "Whether the material should be plain, printed, dyed, woven or embellished",
+            "Preferred colours, patterns or reference designs",
+            "Required width or GSM, where applicable",
+            "Approximate order quantity",
+            "Delivery city or country",
+            "Required arrival date",
+            "Your workable buying range, if you have one",
+          ],
+          hi: [
+            "जो तैयार प्रोडक्ट आप बनाना या बेचना चाहते हैं",
+            "आपका पसंदीदा रेशा या कपड़े की श्रेणी",
+            "आपको कैसा फ़ील, ड्रेप, वज़न या रूप चाहिए",
+            "कपड़ा प्लेन, प्रिंटेड, रंगा हुआ, बुना हुआ या कढ़ाई वाला हो",
+            "पसंदीदा रंग, पैटर्न या रेफ़रेंस डिज़ाइन",
+            "ज़रूरी चौड़ाई या GSM, जहाँ लागू हो",
+            "ऑर्डर की अनुमानित मात्रा",
+            "डिलीवरी का शहर या देश",
+            "माल पहुँचने की ज़रूरी तारीख़",
+            "आपकी चल सकने वाली खरीद रेंज, अगर तय है",
+          ],
+          "hi-en": [
+            "Jo finished product aap banana ya bechna chahte hain",
+            "Aapka pasandeeda fibre ya fabric category",
+            "Aapko kaisa feel, drape, weight ya look chahiye",
+            "Fabric plain, printed, dyed, woven ya embellished ho",
+            "Pasandeeda colours, patterns ya reference designs",
+            "Zaroori width ya GSM, jahan lagu ho",
+            "Order ki approximate quantity",
+            "Delivery ka city ya country",
+            "Maal pahunchne ki zaroori date",
+            "Aapki chal sakne wali buying range, agar tay hai",
+          ],
+        },
+      },
+      {
+        heading: {
+          en: "Use photographs as references, not specifications",
+          hi: "तस्वीरों को रेफ़रेंस मानिए, स्पेसिफ़िकेशन नहीं",
+          "hi-en": "Photographs ko reference maaniye, specification nahi",
+        },
+        paragraphs: {
+          en: [
+            "A reference photograph is useful for communicating colour, texture, print scale or the overall look you want. It is not a complete fabric specification.",
+            "Lighting, photography, editing and screen settings can change the way a fabric appears. Two materials may look similar in a photograph while differing in composition, weight, construction, finish or performance.",
+            "When sending a photograph, explain what you want the supplier to match. For example: “We like the colour family, but the exact print can change.” “The drape and transparency are more important than the colour.” “We need a similar woven texture in a lighter weight.” “The motif must be approximately this size.” “The fabric will be used for a washable everyday garment.”",
+            "If you already have a physical swatch, ask whether you can send it for evaluation. Record any code attached to the swatch so that later quotations and samples can be connected to the correct reference.",
+          ],
+          hi: [
+            "रेफ़रेंस तस्वीर रंग, बनावट, प्रिंट के आकार या पूरे लुक को समझाने के लिए काम की है। वह कपड़े का पूरा स्पेसिफ़िकेशन नहीं होती।",
+            "रोशनी, फ़ोटोग्राफ़ी, एडिटिंग और स्क्रीन की सेटिंग कपड़े के दिखने का तरीक़ा बदल देती हैं। दो कपड़े तस्वीर में एक जैसे लग सकते हैं, पर सामग्री, वज़न, बुनावट, फ़िनिश या टिकाऊपन में अलग हो सकते हैं।",
+            "तस्वीर भेजते समय बताइए कि सप्लायर को किस बात से मिलाना है। जैसे: “रंग का परिवार पसंद है, पर प्रिंट बदल सकता है।” “रंग से ज़्यादा ज़रूरी ड्रेप और पारदर्शिता है।” “ऐसी ही बुनावट, पर हल्के वज़न में चाहिए।” “मोटिफ़ का आकार करीब इतना ही हो।” “कपड़ा रोज़ पहनने और धोने वाले कपड़े के लिए है।”",
+            "अगर आपके पास असली स्वैच है, तो पूछिए कि उसे जाँच के लिए भेज सकते हैं या नहीं। स्वैच पर लगा कोड लिख लीजिए, ताकि आगे के कोटेशन और सैंपल सही रेफ़रेंस से जुड़े रहें।",
+          ],
+          "hi-en": [
+            "Reference photograph colour, texture, print ke size ya poore look ko samjhane ke liye kaam ki hai. Wo fabric ka poora specification nahi hoti.",
+            "Lighting, photography, editing aur screen ki settings fabric ke dikhne ka tareeka badal deti hain. Do fabric photograph mein ek jaise lag sakte hain, par composition, weight, construction, finish ya performance mein alag ho sakte hain.",
+            "Photograph bhejte samay bataiye ki supplier ko kis baat se match karna hai. Jaise: “Colour family pasand hai, par print badal sakta hai.” “Colour se zyada zaroori drape aur transparency hai.” “Aisi hi woven texture, par halke weight mein chahiye.” “Motif ka size kareeb itna hi ho.” “Fabric roz pehanne aur dhone wale garment ke liye hai.”",
+            "Agar aapke paas asli swatch hai, to poochiye ki use evaluation ke liye bhej sakte hain ya nahi. Swatch par laga code likh lijiye, taaki aage ke quotations aur samples sahi reference se jude rahein.",
+          ],
+        },
+      },
+      {
+        heading: {
+          en: "Ask for fabric options that can be compared properly",
+          hi: "ऐसे विकल्प माँगिए जिनकी ठीक से तुलना हो सके",
+          "hi-en": "Aise options maangiye jinki theek se comparison ho sake",
+        },
+        paragraphs: {
+          en: [
+            "Once the requirement is clear, the supplier should be able to shortlist relevant alternatives instead of sending an unfiltered collection of photographs. Ask for the same basic information for every shortlisted option.",
+            "Put the options side by side. A lower quote may refer to a different width, weight, finish, quantity or delivery term. Comparing only the price per metre can therefore produce the wrong conclusion.",
+            "Mark missing information as unknown and ask for clarification. Do not fill the gaps with assumptions based on a photograph or product name.",
+          ],
+          hi: [
+            "ज़रूरत साफ़ हो जाने पर सप्लायर को बिना छाने तस्वीरों का ढेर भेजने के बजाय काम के विकल्प छाँटकर देने चाहिए। हर छँटे हुए विकल्प के लिए एक जैसी बुनियादी जानकारी माँगिए।",
+            "विकल्पों को आमने-सामने रखकर देखिए। कम कीमत वाला कोटेशन किसी दूसरी चौड़ाई, वज़न, फ़िनिश, मात्रा या डिलीवरी शर्त का हो सकता है। इसलिए सिर्फ़ प्रति मीटर कीमत देखकर तुलना करने से ग़लत नतीजा निकल सकता है।",
+            "जो जानकारी न मिले, उसे “पता नहीं” लिखकर साफ़ कीजिए और पूछिए। तस्वीर या प्रोडक्ट के नाम के आधार पर अंदाज़े से खाली जगह न भरिए।",
+          ],
+          "hi-en": [
+            "Requirement clear ho jaane par supplier ko bina chhane photographs ka dher bhejne ke bajaye kaam ke options shortlist karke dene chahiye. Har shortlisted option ke liye ek jaisi basic information maangiye.",
+            "Options ko aamne saamne rakhkar dekhiye. Kam price wala quotation kisi doosri width, weight, finish, quantity ya delivery term ka ho sakta hai. Isliye sirf per metre price dekhkar comparison karne se galat nateeja nikal sakta hai.",
+            "Jo information na mile, use “pata nahi” likhkar clear kijiye aur poochiye. Photograph ya product ke naam ke aadhar par andaaze se khaali jagah na bhariye.",
+          ],
+        },
+        checklist: {
+          en: [
+            "Product or sample code",
+            "Stated fibre composition",
+            "Fabric construction",
+            "GSM or approximate weight",
+            "Full width and usable width",
+            "Available colours or designs",
+            "Finish or surface treatment",
+            "Whether it is ready stock or requires production",
+            "MOQ and how the MOQ is calculated",
+            "Unit of sale, such as metres, pieces, sets or rolls",
+            "Price basis",
+            "Sample availability",
+            "Estimated dispatch timeline",
+          ],
+          hi: [
+            "प्रोडक्ट या सैंपल कोड",
+            "बताई गई रेशे की सामग्री",
+            "कपड़े की बुनावट",
+            "GSM या अनुमानित वज़न",
+            "पूरी चौड़ाई और इस्तेमाल लायक चौड़ाई",
+            "उपलब्ध रंग या डिज़ाइन",
+            "फ़िनिश या सतह का उपचार",
+            "माल तैयार स्टॉक में है या बनवाना पड़ेगा",
+            "MOQ, और MOQ किस तरह गिना जाता है",
+            "बिक्री की इकाई — मीटर, पीस, सेट या रोल",
+            "कीमत किस आधार पर है",
+            "सैंपल मिल सकता है या नहीं",
+            "डिस्पैच का अनुमानित समय",
+          ],
+          "hi-en": [
+            "Product ya sample code",
+            "Batayi gayi fibre composition",
+            "Fabric construction",
+            "GSM ya approximate weight",
+            "Poori width aur usable width",
+            "Available colours ya designs",
+            "Finish ya surface treatment",
+            "Maal ready stock mein hai ya banwana padega",
+            "MOQ, aur MOQ kis tarah gina jaata hai",
+            "Bikri ki unit — metre, piece, set ya roll",
+            "Price kis aadhar par hai",
+            "Sample mil sakta hai ya nahi",
+            "Dispatch ka approximate time",
+          ],
+        },
+      },
+      {
+        heading: {
+          en: "Approve a physical sample before the bulk order",
+          hi: "बल्क ऑर्डर से पहले असली सैंपल मंज़ूर कीजिए",
+          "hi-en": "Bulk order se pehle asli sample approve kijiye",
+        },
+        paragraphs: {
+          en: [
+            "A physical sample helps answer questions that photographs cannot. Depending on the application, examine the feel and drape, weight and thickness, transparency, colour under ordinary lighting, print or motif scale, surface texture, usable width, stretch and recovery, and the finishing and edge quality.",
+            "If shrinkage, colourfastness or another performance characteristic is important, communicate the requirement before ordering. Ask what testing or supporting information is available. Appearance alone cannot establish how a material will perform during cutting, stitching, washing or regular use.",
+            "A sample approved with a change in colour, width or finish is not an unconditional approval. Confirm how the revised version will be checked before bulk production or dispatch. For additional checks, work through our guide from sample to bulk order.",
+          ],
+          hi: [
+            "असली सैंपल उन सवालों के जवाब देता है जो तस्वीर नहीं दे सकती। काम के हिसाब से देखिए — फ़ील और ड्रेप, वज़न और मोटाई, पारदर्शिता, आम रोशनी में रंग, प्रिंट या मोटिफ़ का आकार, सतह की बनावट, इस्तेमाल लायक चौड़ाई, खिंचाव और वापस लौटना, और फ़िनिशिंग व किनारों की सफ़ाई।",
+            "अगर सिकुड़न, रंग की पक्कापन या कोई और गुण ज़रूरी है, तो ऑर्डर से पहले यह बात कह दीजिए। पूछिए कि कौन-सी जाँच या सहायक जानकारी उपलब्ध है। सिर्फ़ देखने से यह तय नहीं होता कि कटाई, सिलाई, धुलाई और रोज़ इस्तेमाल में कपड़ा कैसा निकलेगा।",
+            "रंग, चौड़ाई या फ़िनिश में बदलाव की शर्त पर मंज़ूर किया गया सैंपल बिना शर्त मंज़ूरी नहीं है। पक्का कीजिए कि बल्क बनने या डिस्पैच से पहले बदला हुआ रूप कैसे जाँचा जाएगा। आगे की जाँच के लिए हमारी गाइड सैंपल से बल्क ऑर्डर तक देखिए।",
+          ],
+          "hi-en": [
+            "Asli sample un sawaalon ke jawab deta hai jo photograph nahi de sakti. Kaam ke hisaab se dekhiye — feel aur drape, weight aur thickness, transparency, aam roshni mein colour, print ya motif ka size, surface texture, usable width, stretch aur recovery, aur finishing va edges ki safai.",
+            "Agar shrinkage, colourfastness ya koi aur performance zaroori hai, to order se pehle yeh baat keh deejiye. Poochiye ki kaun si testing ya supporting information available hai. Sirf dekhne se yeh tay nahi hota ki cutting, stitching, dhulai aur roz istemal mein fabric kaisa niklega.",
+            "Colour, width ya finish mein badlav ki shart par approve kiya gaya sample bina shart approval nahi hai. Pakka kijiye ki bulk banne ya dispatch se pehle badla hua roop kaise jaancha jayega. Aage ki checks ke liye hamari guide sample se bulk order tak dekhiye.",
+          ],
+        },
+        checklist: {
+          en: [
+            "The sample code",
+            "Photographs of the approved sample",
+            "The approval date",
+            "The agreed specification",
+            "Any requested changes",
+            "The name or code used in the supplier’s quotation",
+          ],
+          hi: [
+            "सैंपल कोड",
+            "मंज़ूर सैंपल की तस्वीरें",
+            "मंज़ूरी की तारीख़",
+            "तय स्पेसिफ़िकेशन",
+            "माँगे गए कोई भी बदलाव",
+            "सप्लायर के कोटेशन में लिखा नाम या कोड",
+          ],
+          "hi-en": [
+            "Sample code",
+            "Approved sample ki photographs",
+            "Approval ki date",
+            "Tay specification",
+            "Maange gaye koi bhi changes",
+            "Supplier ke quotation mein likha naam ya code",
+          ],
+        },
+      },
+      {
+        heading: {
+          en: "Confirm the complete commercial quotation",
+          hi: "पूरा व्यापारिक कोटेशन पक्का कीजिए",
+          "hi-en": "Poora commercial quotation pakka kijiye",
+        },
+        paragraphs: {
+          en: [
+            "The fabric price is only one part of the buying decision. Before paying, ask for a written quotation or order summary containing the full commercial terms.",
+            "Check whether the MOQ applies per colour, per design, per roll or across the full order. Also confirm whether the quoted price depends on purchasing the entire assortment.",
+            "Vidhi Fabrics is the supplier responsible for helping you understand the available options, the quotation and the order. Our network of Surat mills, manufacturers and processors supports the supply behind the scenes; you should not have to coordinate separately with every participant.",
+            "When sourcing dress materials, you can also use our guide to buying dress material wholesale, or start from our fabric range.",
+          ],
+          hi: [
+            "कपड़े की कीमत खरीद के फ़ैसले का एक हिस्सा भर है। पैसे देने से पहले लिखित कोटेशन या ऑर्डर का सारांश माँगिए, जिसमें पूरी व्यापारिक शर्तें हों।",
+            "देखिए कि MOQ हर रंग पर, हर डिज़ाइन पर, हर रोल पर या पूरे ऑर्डर पर लागू है। यह भी पक्का कीजिए कि बताई गई कीमत पूरी रेंज खरीदने पर टिकी है या नहीं।",
+            "विधि फैब्रिक्स वह सप्लायर है जिसकी ज़िम्मेदारी आपको उपलब्ध विकल्प, कोटेशन और ऑर्डर समझाने की है। सूरत की मिलों, निर्माताओं और प्रोसेसरों का हमारा नेटवर्क पीछे रहकर सप्लाई सँभालता है; आपको हर एक से अलग-अलग तालमेल नहीं बिठाना पड़ता।",
+            "ड्रेस मटेरियल मंगवाते समय आप ड्रेस मटेरियल थोक में खरीदने की हमारी गाइड भी देख सकते हैं, या हमारी फैब्रिक रेंज से शुरू कर सकते हैं।",
+          ],
+          "hi-en": [
+            "Fabric ki price khareed ke faisle ka ek hissa bhar hai. Paise dene se pehle likhit quotation ya order ka summary maangiye, jisme poori commercial terms hon.",
+            "Dekhiye ki MOQ har colour par, har design par, har roll par ya poore order par lagu hai. Yeh bhi pakka kijiye ki batayi gayi price poori range khareedne par tiki hai ya nahi.",
+            "Vidhi Fabrics wo supplier hai jiski zimmedari aapko available options, quotation aur order samjhane ki hai. Surat ki mills, manufacturers aur processors ka hamara network peeche rehkar supply sambhalta hai; aapko har ek se alag alag taalmel nahi bithana padta.",
+            "Dress material mangwate samay aap dress material wholesale mein khareedne ki hamari guide bhi dekh sakte hain, ya hamari fabric range se shuru kar sakte hain.",
+          ],
+        },
+        checklist: {
+          en: [
+            "Product and sample codes",
+            "Quantities by colour, design or variant",
+            "Unit of sale",
+            "Price and applicable taxes",
+            "Packing charges",
+            "Freight or delivery responsibility",
+            "Payment stages",
+            "Stock or production status",
+            "Estimated dispatch date",
+            "Rules for substitutions or quantity changes",
+            "Process for reporting shortages, damage or incorrect material",
+          ],
+          hi: [
+            "प्रोडक्ट और सैंपल कोड",
+            "रंग, डिज़ाइन या वैरिएंट के हिसाब से मात्रा",
+            "बिक्री की इकाई",
+            "कीमत और लागू कर",
+            "पैकिंग का ख़र्च",
+            "भाड़ा या डिलीवरी की ज़िम्मेदारी",
+            "भुगतान के चरण",
+            "स्टॉक या उत्पादन की स्थिति",
+            "डिस्पैच की अनुमानित तारीख़",
+            "बदलाव या मात्रा में फेरबदल के नियम",
+            "कम माल, नुक़सान या ग़लत माल की शिकायत का तरीक़ा",
+          ],
+          "hi-en": [
+            "Product aur sample codes",
+            "Colour, design ya variant ke hisaab se quantity",
+            "Bikri ki unit",
+            "Price aur lagu taxes",
+            "Packing ka kharch",
+            "Freight ya delivery ki zimmedari",
+            "Payment ke stages",
+            "Stock ya production ki sthiti",
+            "Dispatch ki approximate date",
+            "Substitution ya quantity mein farebadal ke rules",
+            "Kam maal, damage ya galat maal ki complaint ka tareeka",
+          ],
+        },
+      },
+      {
+        heading: {
+          en: "Separate the dispatch date from the arrival date",
+          hi: "डिस्पैच की तारीख़ और पहुँचने की तारीख़ अलग रखिए",
+          "hi-en": "Dispatch ki date aur pahunchne ki date alag rakhiye",
+        },
+        paragraphs: {
+          en: [
+            "“Ready in ten days” can refer to production completion, dispatch or delivery. These are not the same milestone. Tell the supplier the date by which the material must arrive — not only when you expect it to leave Surat.",
+            "Transport time can vary by destination and shipment type. If the fabric is needed for a launch, festive season or customer order, include reasonable time for receiving, inspecting and resolving any concern before cutting begins.",
+          ],
+          hi: [
+            "“दस दिन में तैयार” का मतलब उत्पादन पूरा होना, डिस्पैच या डिलीवरी — कुछ भी हो सकता है। ये एक ही पड़ाव नहीं हैं। सप्लायर को वह तारीख़ बताइए जिस तक माल पहुँच जाना चाहिए, सिर्फ़ यह नहीं कि वह सूरत से कब निकलेगा।",
+            "गंतव्य और भेजने के तरीक़े से ट्रांसपोर्ट का समय बदलता है। अगर कपड़ा किसी लॉन्च, त्योहारी सीज़न या ग्राहक के ऑर्डर के लिए है, तो कटाई शुरू होने से पहले माल लेने, जाँचने और किसी दिक़्क़त को सुलझाने का वाजिब समय भी जोड़िए।",
+          ],
+          "hi-en": [
+            "“Das din mein taiyar” ka matlab production poora hona, dispatch ya delivery — kuch bhi ho sakta hai. Ye ek hi milestone nahi hain. Supplier ko wo date bataiye jis tak maal pahunch jaana chahiye, sirf yeh nahi ki wo Surat se kab niklega.",
+            "Destination aur bhejne ke tareeke se transport ka time badalta hai. Agar fabric kisi launch, festive season ya customer ke order ke liye hai, to cutting shuru hone se pehle maal lene, jaanchne aur kisi dikkat ko suljhane ka waajib time bhi jodiye.",
+          ],
+        },
+        checklist: {
+          en: [
+            "Expected production or preparation completion",
+            "Estimated dispatch date",
+            "Transport method",
+            "Delivery destination and receiving contact",
+            "Shipment or tracking information",
+            "Whether partial shipments are possible",
+            "How delays or stock changes will be communicated",
+          ],
+          hi: [
+            "उत्पादन या तैयारी पूरी होने का अनुमान",
+            "डिस्पैच की अनुमानित तारीख़",
+            "भेजने का तरीक़ा",
+            "डिलीवरी की जगह और माल लेने वाले का संपर्क",
+            "शिपमेंट या ट्रैकिंग की जानकारी",
+            "माल किश्तों में भेजा जा सकता है या नहीं",
+            "देरी या स्टॉक में बदलाव की सूचना कैसे मिलेगी",
+          ],
+          "hi-en": [
+            "Production ya taiyari poori hone ka anumaan",
+            "Dispatch ki approximate date",
+            "Bhejne ka tareeka",
+            "Delivery ki jagah aur maal lene wale ka contact",
+            "Shipment ya tracking ki information",
+            "Maal kishton mein bheja ja sakta hai ya nahi",
+            "Deri ya stock mein badlav ki soochna kaise milegi",
+          ],
+        },
+      },
+      {
+        heading: {
+          en: "Create a record for repeat orders",
+          hi: "दोबारा ऑर्डर के लिए रिकॉर्ड बनाइए",
+          "hi-en": "Dobara order ke liye record banaiye",
+        },
+        paragraphs: {
+          en: [
+            "The first order should also create the information needed for the second order. Keep the approved sample, quotation, invoice and delivery observations together.",
+            "Record what was ordered, what was received, customer or production feedback, whether the colour and finish met expectations, whether the material was easy to cut or sell, which designs moved quickly, which products remained unsold, and whether the item should be reordered.",
+            "For a repeat order, provide the original code and ask whether the material is from the same stock or a new production batch. Where shade or finish consistency matters, discuss how the new supply will be compared with the earlier reference.",
+            "A clear commercial history makes future sourcing faster and reduces dependence on scattered photographs and chat messages.",
+          ],
+          hi: [
+            "पहला ऑर्डर दूसरे ऑर्डर के लिए ज़रूरी जानकारी भी बना देना चाहिए। मंज़ूर सैंपल, कोटेशन, बिल और डिलीवरी के दौरान की बातें एक जगह रखिए।",
+            "लिखिए कि क्या ऑर्डर किया, क्या मिला, ग्राहक या उत्पादन से क्या फ़ीडबैक आया, रंग और फ़िनिश उम्मीद पर उतरे या नहीं, कपड़ा काटने या बेचने में आसान रहा या नहीं, कौन-से डिज़ाइन जल्दी बिके, कौन-से प्रोडक्ट बचे रह गए, और यह माल दोबारा मंगवाना चाहिए या नहीं।",
+            "दोबारा ऑर्डर करते समय पुराना कोड दीजिए और पूछिए कि माल उसी स्टॉक का है या नए बैच का। जहाँ शेड या फ़िनिश एक जैसा रहना ज़रूरी है, वहाँ बात कीजिए कि नया माल पुराने रेफ़रेंस से कैसे मिलाया जाएगा।",
+            "साफ़ व्यापारिक रिकॉर्ड आगे की सोर्सिंग तेज़ करता है और बिखरी तस्वीरों और चैट मैसेजों पर निर्भरता घटाता है।",
+          ],
+          "hi-en": [
+            "Pehla order doosre order ke liye zaroori information bhi bana dena chahiye. Approved sample, quotation, bill aur delivery ke dauran ki baatein ek jagah rakhiye.",
+            "Likhiye ki kya order kiya, kya mila, customer ya production se kya feedback aaya, colour aur finish ummeed par utre ya nahi, fabric kaatne ya bechne mein aasan raha ya nahi, kaun se designs jaldi bike, kaun se products bache reh gaye, aur yeh maal dobara mangwana chahiye ya nahi.",
+            "Dobara order karte samay purana code deejiye aur poochiye ki maal usi stock ka hai ya naye batch ka. Jahan shade ya finish ek jaisa rehna zaroori hai, wahan baat kijiye ki naya maal purane reference se kaise milaya jayega.",
+            "Saaf commercial record aage ki sourcing tez karta hai aur bikhri photographs aur chat messages par nirbharta ghatata hai.",
+          ],
+        },
+      },
+    ],
+    closing: {
+      heading: {
+        en: "Remote fabric-sourcing checklist",
+        hi: "दूर बैठे कपड़ा मंगवाने की चेकलिस्ट",
+        "hi-en": "Remote fabric sourcing ki checklist",
+      },
+      intro: {
+        en: "Before confirming an order from Surat, make sure you have covered each of the following. Remote sourcing works best when each decision is recorded. The objective is not simply to receive more options. It is to move from requirement to sample, quotation, bulk order and delivery without losing the details approved along the way.",
+        hi: "सूरत से ऑर्डर पक्का करने से पहले देख लीजिए कि नीचे की हर बात हो चुकी है। दूर बैठे सोर्सिंग तब सबसे अच्छी चलती है जब हर फ़ैसला लिखा जाए। मक़सद ज़्यादा विकल्प पाना नहीं है। मक़सद यह है कि ज़रूरत से सैंपल, कोटेशन, बल्क ऑर्डर और डिलीवरी तक पहुँचते हुए रास्ते में मंज़ूर की गई बातें छूट न जाएँ।",
+        "hi-en":
+          "Surat se order pakka karne se pehle dekh lijiye ki neeche ki har baat ho chuki hai. Remote sourcing tab sabse achhi chalti hai jab har faisla likha jaye. Maqsad zyada options paana nahi hai. Maqsad yeh hai ki requirement se sample, quotation, bulk order aur delivery tak pahunchte hue raaste mein approve ki gayi baatein chhoot na jayein.",
+      },
+      checklist: {
+        en: [
+          "Defined the fabric’s intended use",
+          "Shared the quantity and delivery location",
+          "Explained what matters in any reference photograph",
+          "Received comparable product specifications",
+          "Confirmed the MOQ basis",
+          "Reviewed or approved a sample",
+          "Saved the approved product code",
+          "Confirmed taxes, packing and freight",
+          "Distinguished dispatch from delivery",
+          "Agreed how changes and problems will be reported",
+          "Prepared a receiving and inspection process",
+        ],
+        hi: [
+          "कपड़ा किस काम के लिए है, यह तय किया",
+          "मात्रा और डिलीवरी की जगह बताई",
+          "रेफ़रेंस तस्वीर में क्या ज़रूरी है, यह समझाया",
+          "तुलना लायक प्रोडक्ट स्पेसिफ़िकेशन मिले",
+          "MOQ किस आधार पर है, यह पक्का किया",
+          "सैंपल देखा या मंज़ूर किया",
+          "मंज़ूर प्रोडक्ट कोड सँभालकर रखा",
+          "कर, पैकिंग और भाड़ा पक्का किया",
+          "डिस्पैच और डिलीवरी में फ़र्क़ साफ़ किया",
+          "बदलाव और दिक़्क़तों की शिकायत का तरीक़ा तय किया",
+          "माल लेने और जाँचने की तैयारी की",
+        ],
+        "hi-en": [
+          "Fabric kis kaam ke liye hai, yeh tay kiya",
+          "Quantity aur delivery ki jagah batayi",
+          "Reference photograph mein kya zaroori hai, yeh samjhaya",
+          "Comparison layak product specifications mile",
+          "MOQ kis aadhar par hai, yeh pakka kiya",
+          "Sample dekha ya approve kiya",
+          "Approved product code sambhaal kar rakha",
+          "Taxes, packing aur freight pakka kiya",
+          "Dispatch aur delivery mein farq saaf kiya",
+          "Changes aur dikkaton ki complaint ka tareeka tay kiya",
+          "Maal lene aur jaanchne ki taiyari ki",
+        ],
+      },
+    },
+    faq: [
+      {
+        question: {
+          en: "Can I source fabric from Surat without visiting in person?",
+          hi: "क्या मैं ख़ुद जाए बिना सूरत से कपड़ा मंगवा सकता/सकती हूँ?",
+          "hi-en": "Kya main khud jaaye bina Surat se fabric mangwa sakta/sakti hoon?",
+        },
+        answer: {
+          en: "Many wholesale fabric requirements can be managed remotely when the buyer provides a clear requirement, reviews comparable specifications, approves a representative sample and confirms the commercial terms in writing. A visit may still be useful for complex development work or when physical comparison of many options is essential.",
+          hi: "कई थोक ज़रूरतें दूर बैठे सँभाली जा सकती हैं — बशर्ते खरीदार साफ़ ज़रूरत बताए, तुलना लायक स्पेसिफ़िकेशन देखे, प्रतिनिधि सैंपल मंज़ूर करे और व्यापारिक शर्तें लिखित में पक्की करे। जटिल डेवलपमेंट के काम में, या जब बहुत सारे विकल्प हाथ में लेकर देखना ज़रूरी हो, तब जाना फिर भी काम आ सकता है।",
+          "hi-en":
+            "Kai wholesale requirements remote sambhali ja sakti hain — bashart khareedar saaf requirement bataye, comparison layak specifications dekhe, representative sample approve kare aur commercial terms likhit mein pakki kare. Complex development ke kaam mein, ya jab bahut saare options haath mein lekar dekhna zaroori ho, tab jaana phir bhi kaam aa sakta hai.",
+        },
+      },
+      {
+        question: {
+          en: "What information should I send to a Surat fabric supplier?",
+          hi: "सूरत के कपड़ा सप्लायर को कौन-सी जानकारी भेजनी चाहिए?",
+          "hi-en": "Surat ke fabric supplier ko kaun si information bhejni chahiye?",
+        },
+        answer: {
+          en: "Send the intended application, preferred fabric or fibre, required feel or appearance, colour or design references, width or GSM requirements, approximate quantity, delivery location and required arrival date.",
+          hi: "कपड़ा किस काम के लिए है, पसंदीदा कपड़ा या रेशा, कैसा फ़ील या रूप चाहिए, रंग या डिज़ाइन के रेफ़रेंस, चौड़ाई या GSM की ज़रूरत, अनुमानित मात्रा, डिलीवरी की जगह और पहुँचने की ज़रूरी तारीख़ भेजिए।",
+          "hi-en":
+            "Fabric kis kaam ke liye hai, pasandeeda fabric ya fibre, kaisa feel ya look chahiye, colour ya design ke references, width ya GSM ki zaroorat, approximate quantity, delivery ki jagah aur pahunchne ki zaroori date bhejiye.",
+        },
+      },
+      {
+        question: {
+          en: "Should I request a sample before placing a wholesale order?",
+          hi: "थोक ऑर्डर देने से पहले सैंपल माँगना चाहिए?",
+          "hi-en": "Wholesale order dene se pehle sample maangna chahiye?",
+        },
+        answer: {
+          en: "A sample is advisable when fabric feel, drape, transparency, colour, construction or performance affects the buying decision. Confirm whether the sample represents ready stock or proposed bulk production.",
+          hi: "जब कपड़े का फ़ील, ड्रेप, पारदर्शिता, रंग, बुनावट या टिकाऊपन खरीद के फ़ैसले पर असर डालता हो, तब सैंपल लेना ठीक रहता है। यह पक्का कीजिए कि सैंपल तैयार स्टॉक का है या आगे बनने वाले बल्क का।",
+          "hi-en":
+            "Jab fabric ka feel, drape, transparency, colour, construction ya performance khareed ke faisle par asar daalta ho, tab sample lena theek rehta hai. Yeh pakka kijiye ki sample ready stock ka hai ya aage banne wale bulk ka.",
+        },
+      },
+      {
+        question: {
+          en: "How does fabric MOQ work?",
+          hi: "कपड़े का MOQ कैसे चलता है?",
+          "hi-en": "Fabric ka MOQ kaise chalta hai?",
+        },
+        answer: {
+          en: "MOQ may apply per colour, design, roll, product or total order. Buyers should ask the supplier to explain exactly how the minimum quantity is calculated before comparing quotations.",
+          hi: "MOQ हर रंग, डिज़ाइन, रोल, प्रोडक्ट या पूरे ऑर्डर पर लागू हो सकता है। कोटेशन की तुलना करने से पहले खरीदार को सप्लायर से पूछ लेना चाहिए कि न्यूनतम मात्रा ठीक किस तरह गिनी जाती है।",
+          "hi-en":
+            "MOQ har colour, design, roll, product ya poore order par lagu ho sakta hai. Quotations compare karne se pehle khareedar ko supplier se pooch lena chahiye ki minimum quantity theek kis tarah gini jaati hai.",
+        },
+      },
+      {
+        question: {
+          en: "What should I compare besides the fabric price?",
+          hi: "कपड़े की कीमत के अलावा किन बातों की तुलना करनी चाहिए?",
+          "hi-en": "Fabric ki price ke alawa kin baaton ki comparison karni chahiye?",
+        },
+        answer: {
+          en: "Compare composition, construction, GSM, width, finish, MOQ, availability, taxes, packing, freight, payment terms, dispatch timing and the process for reporting an incorrect or defective supply.",
+          hi: "सामग्री, बुनावट, GSM, चौड़ाई, फ़िनिश, MOQ, उपलब्धता, कर, पैकिंग, भाड़ा, भुगतान की शर्तें, डिस्पैच का समय और ग़लत या ख़राब माल की शिकायत के तरीक़े — इन सबकी तुलना कीजिए।",
+          "hi-en":
+            "Composition, construction, GSM, width, finish, MOQ, availability, taxes, packing, freight, payment terms, dispatch timing aur galat ya kharab maal ki complaint ke tareeke — in sabki comparison kijiye.",
+        },
+      },
+    ],
+    cta: {
+      kicker: {
+        en: "Your fabric requirement",
+        hi: "आपकी कपड़े की ज़रूरत",
+        "hi-en": "Aapki fabric requirement",
+      },
+      heading: {
+        en: "Tell us what you need to source from Surat.",
+        hi: "बताइए, सूरत से आपको क्या मंगवाना है।",
+        "hi-en": "Bataiye, Surat se aapko kya mangwana hai.",
+      },
+      body: {
+        en: "Share the fabric or finished product you are looking for, your approximate quantity and your delivery city. Our team will review the requirement and discuss suitable sourcing options.",
+        hi: "आप जो कपड़ा या तैयार प्रोडक्ट ढूँढ रहे हैं, अनुमानित मात्रा और डिलीवरी का शहर बताइए। हमारी टीम ज़रूरत देखकर सही सोर्सिंग विकल्पों पर बात करेगी।",
+        "hi-en":
+          "Aap jo fabric ya finished product dhoondh rahe hain, approximate quantity aur delivery ka city bataiye. Hamari team requirement dekhkar sahi sourcing options par baat karegi.",
+      },
+      label: {
+        en: "Send your requirement on WhatsApp",
+        hi: "व्हाट्सएप पर अपनी ज़रूरत भेजिए",
+        "hi-en": "WhatsApp par apni requirement bhejiye",
+      },
+    },
+    whatsAppMessage: {
+      en: "Hi Vidhi Fabrics, I read “How to Source Fabric from Surat Without Visiting the Market”. I am looking for [fabric or product], approximately [quantity], for delivery to [city or country].",
+      hi: "नमस्ते विधि फैब्रिक्स, मैंने “बाज़ार जाए बिना सूरत से कपड़ा कैसे मंगवाएँ” पढ़ा। मुझे [कपड़ा या प्रोडक्ट] चाहिए, करीब [मात्रा], डिलीवरी [शहर या देश] में।",
+      "hi-en":
+        "Hi Vidhi Fabrics, maine “Market jaaye bina Surat se fabric kaise mangwayein” padha. Mujhe [fabric ya product] chahiye, kareeb [quantity], delivery [city ya country] mein.",
+    },
+  },
+  {
     slug: "buying-dress-material-wholesale",
+    inlineLinks: [
+      {
+        phrase: {
+          en: "source fabric from Surat remotely",
+          hi: "दूर बैठे सूरत से कपड़ा मंगवा",
+          "hi-en": "remote rehkar Surat se fabric mangwa",
+        },
+        href: "/blog/source-fabric-from-surat",
+      },
+    ],
     image: cotton,
     imageAlt: {
       en: "Cream fabric folded to show its weave and texture",
@@ -68,14 +725,17 @@ export const JOURNAL: JournalArticle[] = [
           en: [
             "Decide whether you need everyday dress material, a festive selection, or something for a particular customer request. Include your delivery city, approximate quantity and required arrival date. If you have a reference image, explain what you like about it: the colour, print, texture or overall look. A reference alone does not tell a supplier which details are essential.",
             "Separate your preferred buying price from your intended selling price. Ask what is included in the quotation before comparing it with another offer. A short written brief is easier to revisit than a long series of disconnected messages.",
+            "If you are buying from another city or country, the same brief is what lets you source fabric from Surat remotely, without travelling to the market to see each option in person.",
           ],
           hi: [
             "तय कीजिए कि आपको रोज़मर्रा का ड्रेस मटेरियल चाहिए, त्योहारी सिलेक्शन, या किसी ख़ास ग्राहक की माँग के लिए कुछ। अपना डिलीवरी शहर, अनुमानित मात्रा और पहुँचने की ज़रूरी तारीख़ शामिल कीजिए। अगर कोई रेफ़रेंस तस्वीर है, तो बताइए कि उसमें आपको क्या पसंद है — रंग, प्रिंट, बनावट या पूरा लुक। अकेली तस्वीर सप्लायर को यह नहीं बताती कि कौन-सी बात ज़रूरी है।",
             "अपनी खरीद कीमत और बिक्री कीमत अलग-अलग रखिए। किसी दूसरे ऑफ़र से तुलना करने से पहले पूछिए कि कोटेशन में क्या-क्या शामिल है। लिखी हुई छोटी ब्रीफ़ को दोबारा देखना, बिखरे हुए लंबे मैसेज पढ़ने से कहीं आसान है।",
+            "अगर आप दूसरे शहर या देश से खरीद रहे हैं, तो यही ब्रीफ़ आपको दूर बैठे सूरत से कपड़ा मंगवाने देती है — हर विकल्प देखने के लिए बाज़ार जाने की ज़रूरत नहीं पड़ती।",
           ],
           "hi-en": [
             "Tay kijiye ki aapko rozmarra ka dress material chahiye, festive selection, ya kisi khaas customer ki demand ke liye kuch. Apna delivery city, approximate quantity aur arrival ki zaroori date shamil kijiye. Agar koi reference image hai, to bataiye ki usme aapko kya pasand hai — colour, print, texture ya overall look. Akeli image supplier ko yeh nahi batati ki kaun si detail zaroori hai.",
             "Apni buying price aur selling price alag-alag rakhiye. Kisi doosre offer se compare karne se pehle poochiye ki quotation mein kya kya shamil hai. Likhi hui chhoti brief ko dobara dekhna, bikhre hue lambe messages padhne se kahin aasan hai.",
+            "Agar aap doosre shahar ya desh se khareed rahe hain, to yahi brief aapko remote rehkar Surat se fabric mangwane deti hai — har option dekhne ke liye market jaane ki zaroorat nahi padti.",
           ],
         },
       },
@@ -353,6 +1013,16 @@ export const JOURNAL: JournalArticle[] = [
   },
   {
     slug: "sample-to-bulk-order-checklist",
+    inlineLinks: [
+      {
+        phrase: {
+          en: "source fabric from Surat remotely",
+          hi: "दूर बैठे सूरत से कपड़ा मंगवा",
+          "hi-en": "remote rehkar Surat se fabric mangwa",
+        },
+        href: "/blog/source-fabric-from-surat",
+      },
+    ],
     image: organza,
     imageAlt: {
       en: "Pale embellished fabric showing beadwork and surface detail",
@@ -392,14 +1062,17 @@ export const JOURNAL: JournalArticle[] = [
           en: [
             "Create a simple approval record with the sample code, supplier, date, photographs and agreed specification. Include the composition, dimensions, colour reference, finish and components relevant to your purchase. If the supplier uses a different code, record both so that the sample and the quotation can be matched.",
             "List any requested changes separately. A sample approved subject to a different colour or finish is not the same as unconditional approval. Ask how those changes will be confirmed and whether you need to review a revised sample before the order proceeds.",
+            "This record is also what makes it practical to source fabric from Surat remotely: the approved sample, not a photograph, becomes the reference the bulk supply is checked against.",
           ],
           hi: [
             "एक सादा मंज़ूरी-रिकॉर्ड बनाइए जिसमें सैंपल कोड, सप्लायर, तारीख़, तस्वीरें और तय स्पेसिफ़िकेशन हों। उसमें सामग्री, नाप, रंग का रेफ़रेंस, फ़िनिश और आपकी खरीद से जुड़े हिस्से शामिल कीजिए। अगर सप्लायर का कोड अलग है, तो दोनों कोड लिखिए ताकि सैंपल और कोटेशन आपस में मिलाए जा सकें।",
             "माँगे गए बदलाव अलग से लिखिए। किसी दूसरे रंग या फ़िनिश की शर्त पर मंज़ूर किया गया सैंपल, बिना शर्त मंज़ूरी नहीं होता। पूछिए कि वे बदलाव कैसे पक्के होंगे और क्या ऑर्डर आगे बढ़ने से पहले आपको नया सैंपल देखना होगा।",
+            "यही रिकॉर्ड दूर बैठे सूरत से कपड़ा मंगवाना व्यावहारिक बनाता है: बल्क माल की जाँच तस्वीर से नहीं, मंज़ूर सैंपल से होती है।",
           ],
           "hi-en": [
             "Ek simple approval record banaiye jisme sample code, supplier, date, photographs aur tay specification hon. Usme composition, dimensions, colour reference, finish aur aapki purchase se jude components shamil kijiye. Agar supplier ka code alag hai, to dono code likhiye taaki sample aur quotation aapas mein match ho sakein.",
             "Maange gaye changes alag se likhiye. Kisi doosre colour ya finish ki shart par approve kiya gaya sample, bina shart approval nahi hota. Poochiye ki wo changes kaise confirm honge aur kya order aage badhne se pehle aapko revised sample dekhna hoga.",
+            "Yahi record remote rehkar Surat se fabric mangwana practical banata hai: bulk maal ki jaanch photograph se nahi, approved sample se hoti hai.",
           ],
         },
         checklist: {
@@ -534,10 +1207,12 @@ const WHATSAPP_INTRO: Record<Lang, (title: string) => string> = {
 };
 
 export function articleWhatsAppUrl(article: JournalArticle, lang: Lang) {
-  return whatsAppUrl(WHATSAPP_INTRO[lang](article.title[lang]));
+  const message = article.whatsAppMessage?.[lang] ?? WHATSAPP_INTRO[lang](article.title[lang]);
+  return whatsAppUrl(message);
 }
 
 export function readingMinutes(article: JournalArticle, lang: Lang) {
+  const closing = article.closing;
   const text = [
     article.introduction[lang],
     ...article.sections.flatMap((s) => [
@@ -545,6 +1220,8 @@ export function readingMinutes(article: JournalArticle, lang: Lang) {
       ...s.paragraphs[lang],
       ...(s.checklist?.[lang] ?? []),
     ]),
+    ...(closing ? [closing.heading[lang], closing.intro[lang], ...closing.checklist[lang]] : []),
+    ...(article.faq?.flatMap((f) => [f.question[lang], f.answer[lang]]) ?? []),
   ].join(" ");
   return Math.max(1, Math.ceil(text.split(/\s+/).length / 200));
 }

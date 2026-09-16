@@ -1,9 +1,39 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
-import { JOURNAL } from "@/content/journal";
+import { JOURNAL, type JournalArticle } from "@/content/journal";
 import { JournalArticlePage } from "@/components/journal-pages";
 import { JournalHeader, JournalFooter } from "@/components/fabric-desk";
 
 const SITE = "https://www.vidhifabrics.com";
+
+/**
+ * BlogPosting structured data for the Hindi article URL. Only properties the
+ * content source actually carries are emitted.
+ */
+function blogPosting(article: JournalArticle) {
+  const url = `${SITE}/hi/blog/${article.slug}`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: article.title.hi,
+    description: article.excerpt.hi,
+    inLanguage: "hi",
+    mainEntityOfPage: url,
+    url,
+    image: new URL(article.image, SITE).href,
+    author: { "@type": "Organization", name: "Vidhi Fabrics" },
+    publisher: { "@type": "Organization", name: "Vidhi Fabrics" },
+    ...(article.published ? { datePublished: article.published } : {}),
+    ...(article.faq
+      ? {
+          mainEntity: article.faq.map((entry) => ({
+            "@type": "Question",
+            name: entry.question.hi,
+            acceptedAnswer: { "@type": "Answer", text: entry.answer.hi },
+          })),
+        }
+      : {}),
+  };
+}
 
 export const Route = createFileRoute("/hi_/blog/$slug")({
   loader: ({ params }) => {
@@ -15,8 +45,11 @@ export const Route = createFileRoute("/hi_/blog/$slug")({
     article
       ? {
           meta: [
-            { title: `${article.title.hi} | विधि फैब्रिक्स` },
-            { name: "description", content: article.excerpt.hi },
+            { title: `${article.metaTitle?.hi ?? article.title.hi} | विधि फैब्रिक्स` },
+            {
+              name: "description",
+              content: article.metaDescription?.hi ?? article.excerpt.hi,
+            },
             { property: "og:title", content: article.title.hi },
             { property: "og:description", content: article.excerpt.hi },
             { property: "og:type", content: "article" },
@@ -33,6 +66,12 @@ export const Route = createFileRoute("/hi_/blog/$slug")({
             { rel: "alternate", hrefLang: "en", href: `${SITE}/blog/${article.slug}` },
             { rel: "alternate", hrefLang: "hi", href: `${SITE}/hi/blog/${article.slug}` },
             { rel: "alternate", hrefLang: "x-default", href: `${SITE}/blog/${article.slug}` },
+          ],
+          scripts: [
+            {
+              type: "application/ld+json",
+              children: JSON.stringify(blogPosting(article)),
+            },
           ],
         }
       : {

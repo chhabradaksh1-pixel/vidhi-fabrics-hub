@@ -131,6 +131,9 @@ export function JournalCard({
   );
 }
 
+/** The home page shows the newest guides only; the rest stay on /blog. */
+const HOMEPAGE_ARTICLES = 3;
+
 export function FabricDeskSection({ lang = "en" }: { lang?: Lang }) {
   const copy = SECTION_COPY[lang];
   return (
@@ -162,7 +165,7 @@ export function FabricDeskSection({ lang = "en" }: { lang?: Lang }) {
           </a>
         </div>
         <div className="grid gap-6 md:grid-cols-3">
-          {JOURNAL.map((article, index) => (
+          {JOURNAL.slice(0, HOMEPAGE_ARTICLES).map((article, index) => (
             <JournalCard
               key={article.slug}
               article={article}

@@ -7,10 +7,67 @@ import {
   JOURNAL,
   articleWhatsAppUrl,
   readingMinutes,
+  relatedArticles,
   type JournalArticle,
+  type JournalInlineLink,
 } from "@/content/journal";
 import type { Lang } from "@/content/translations";
 import { blogPaths } from "@/content/blog-paths";
+
+/** How many other guides the "Keep reading" list shows. */
+const RELATED_COUNT = 2;
+
+/**
+ * Rewrites an in-site href for the Hindi URL tree, so a Hindi reader stays on
+ * Hindi pages. Matches how the rest of the article derives its links.
+ */
+function localiseHref(href: string, lang: Lang) {
+  if (lang !== "hi") return href;
+  if (href.startsWith("/blog/")) return `/hi${href}`;
+  if (href.startsWith("/#")) return `/hi${href.slice(1)}`;
+  return href;
+}
+
+/**
+ * Splits a paragraph on the first occurrence of each configured phrase and
+ * renders that phrase as a link. A phrase that is absent from this language's
+ * text leaves the paragraph untouched.
+ */
+function withInlineLinks(text: string, links: JournalInlineLink[], lang: Lang) {
+  type Part = string | { href: string; label: string };
+  const parts: Part[] = [text];
+  for (const link of links) {
+    const label = link.phrase[lang];
+    for (let i = 0; i < parts.length; i += 1) {
+      const part = parts[i];
+      if (typeof part !== "string") continue;
+      const at = part.indexOf(label);
+      if (at === -1) continue;
+      parts.splice(
+        i,
+        1,
+        part.slice(0, at),
+        { href: localiseHref(link.href, lang), label },
+        part.slice(at + label.length),
+      );
+      break;
+    }
+  }
+  if (parts.length === 1) return text;
+  return parts.map((part, i) =>
+    typeof part === "string" ? (
+      part
+    ) : (
+      <a
+        key={`${part.href}-${i}`}
+        href={part.href}
+        className="text-clay underline underline-offset-4"
+      >
+        {part.label}
+      </a>
+    ),
+  );
+}
 
 function useJournalLang(initial: Lang) {
   const [lang, setLang] = useState<Lang>(initial);
@@ -115,7 +172,9 @@ export function JournalArticlePage({
                 </h2>
                 {section.paragraphs[lang].map((paragraph) => (
                   <p key={paragraph} className="mt-5 leading-[1.85] text-mute">
-                    {paragraph}
+                    {article.inlineLinks
+                      ? withInlineLinks(paragraph, article.inlineLinks, lang)
+                      : paragraph}
                   </p>
                 ))}
                 {section.checklist && (
@@ -127,24 +186,58 @@ export function JournalArticlePage({
                 )}
               </section>
             ))}
+            {article.closing && (
+              <section className="mt-12 border-t border-line pt-8">
+                <h2 className="font-display text-2xl font-semibold sm:text-3xl">
+                  {article.closing.heading[lang]}
+                </h2>
+                <p className="mt-5 leading-[1.85] text-mute">{article.closing.intro[lang]}</p>
+                <ul className="mt-6 list-disc space-y-3 border-l-2 border-clay bg-sand py-5 pl-9 pr-5 text-sm leading-relaxed">
+                  {article.closing.checklist[lang].map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </section>
+            )}
+            {article.faq && (
+              <section className="mt-12 border-t border-line pt-8">
+                <h2 className="font-display text-2xl font-semibold sm:text-3xl">{copy.faq}</h2>
+                <dl>
+                  {article.faq.map((entry) => (
+                    <div key={entry.question.en} className="mt-7">
+                      <dt className="font-display text-lg font-semibold leading-snug">
+                        {entry.question[lang]}
+                      </dt>
+                      <dd className="mt-3 leading-[1.85] text-mute">{entry.answer[lang]}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </section>
+            )}
             <aside className="my-12 bg-ink p-7 text-paper sm:p-10">
-              <p className="font-mono text-xs uppercase tracking-widest">{copy.ctaKicker}</p>
-              <h2 className="mt-4 font-display text-3xl font-semibold">{copy.ctaHeading}</h2>
-              <p className="mt-4 leading-relaxed text-paper/80">{copy.ctaBody}</p>
+              <p className="font-mono text-xs uppercase tracking-widest">
+                {article.cta?.kicker[lang] ?? copy.ctaKicker}
+              </p>
+              <h2 className="mt-4 font-display text-3xl font-semibold">
+                {article.cta?.heading[lang] ?? copy.ctaHeading}
+              </h2>
+              <p className="mt-4 leading-relaxed text-paper/80">
+                {article.cta?.body[lang] ?? copy.ctaBody}
+              </p>
               <a
                 href={articleWhatsAppUrl(article, lang)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-7 inline-flex items-center gap-3 bg-paper px-5 py-3 text-sm font-medium text-ink"
               >
-                {copy.talk}
+                {article.cta?.label[lang] ?? copy.talk}
                 <ArrowUpRight className="shrink-0" size={18} aria-hidden="true" />
               </a>
             </aside>
             <div className="border-t border-line pt-8">
               <h2 className="font-display text-2xl font-semibold">{copy.related}</h2>
               <ul className="mt-5 space-y-4">
-                {JOURNAL.filter((item) => item.slug !== article.slug).map((item) => (
+                {relatedArticles(article, RELATED_COUNT).map((item) => (
                   <li key={item.slug}>
                     <a
                       href={`${base}/${item.slug}`}

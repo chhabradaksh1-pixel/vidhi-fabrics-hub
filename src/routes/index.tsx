@@ -34,7 +34,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Vidhi Fabrics is a Surat-based manufacturer and wholesale fabric and textile sourcing business, supplying retailers, brands, manufacturers and traders with a wide range of fabrics across 40+ markets.",
+          "Vidhi Fabrics is a Surat-based manufacturer and wholesale fabric and textile sourcing business, supplying retailers, brands, manufacturers and traders with a wide range of fabrics across 10+ markets.",
       },
       {
         property: "og:title",
@@ -132,10 +132,10 @@ const FAQS: {
       "hi-en": "Kya international buyers Vidhi Fabrics se directly source kar sakte hain?",
     },
     answer: {
-      en: "Yes. We supply fabrics across 40+ export markets. International buyers — including wholesalers, distributors, retailers and brands looking to source wholesale fabrics from India — are welcome to contact us directly. Our team handles export documentation end to end.",
-      hi: "हाँ। हम 40+ निर्यात बाज़ारों में फैब्रिक सप्लाई करते हैं। अंतरराष्ट्रीय खरीदार — जिसमें भारत से थोक फैब्रिक सोर्स करने के इच्छुक थोक विक्रेता, वितरक, रिटेलर्स और ब्रांड शामिल हैं — सीधे हमसे संपर्क करने के लिए स्वागत हैं। हमारी टीम निर्यात दस्तावेज़ीकरण शुरू से अंत तक संभालती है।",
+      en: "Yes. We supply fabrics across 10+ export markets. International buyers — including wholesalers, distributors, retailers and brands looking to source wholesale fabrics from India — are welcome to contact us directly. Our team handles export documentation end to end.",
+      hi: "हाँ। हम 10+ निर्यात बाज़ारों में फैब्रिक सप्लाई करते हैं। अंतरराष्ट्रीय खरीदार — जिसमें भारत से थोक फैब्रिक सोर्स करने के इच्छुक थोक विक्रेता, वितरक, रिटेलर्स और ब्रांड शामिल हैं — सीधे हमसे संपर्क करने के लिए स्वागत हैं। हमारी टीम निर्यात दस्तावेज़ीकरण शुरू से अंत तक संभालती है।",
       "hi-en":
-        "Haan. Hum 40+ export markets mein fabrics supply karte hain. International buyers — jisme India se wholesale fabrics source karne ke ichchuk wholesalers, distributors, retailers aur brands shamil hain — directly hamare se contact karne ke liye welcome hain. Hamari team export documentation end to end handle karti hai.",
+        "Haan. Hum 10+ export markets mein fabrics supply karte hain. International buyers — jisme India se wholesale fabrics source karne ke ichchuk wholesalers, distributors, retailers aur brands shamil hain — directly hamare se contact karne ke liye welcome hain. Hamari team export documentation end to end handle karti hai.",
     },
   },
   {
@@ -586,6 +586,18 @@ function Index() {
             </p>
           </div>
 
+          <dl className="mt-12 grid grid-cols-1 gap-8 border-y border-line py-10 sm:grid-cols-3 sm:gap-6">
+            {COPY.testimonials.proof.map((stat) => (
+              <div key={stat.label.en} className="sm:text-center">
+                <dd className="font-display text-4xl font-semibold tracking-tight text-clay sm:text-5xl">
+                  {stat.value[lang]}
+                </dd>
+                <dt className="mx-auto mt-3 max-w-[22ch] text-sm leading-relaxed text-mute">
+                  {stat.label[lang]}
+                </dt>
+              </div>
+            ))}
+          </dl>
           <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-2">
             {COPY.testimonials.cards.map((testimonial, testimonialIndex) => (
               <article

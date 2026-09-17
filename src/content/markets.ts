@@ -3,7 +3,7 @@ import type { Lang } from "@/content/translations";
 /**
  * Markets shown on the reach map.
  *
- * This is a SELECTION, not the full list — the site separately claims 40+
+ * This is a SELECTION, not the full list — the site separately claims 10+
  * export markets, and the section copy says "a selection" so the two do not
  * contradict each other. Edit this array to correct or extend it; the map,
  * the arcs and the written list all read from here.

@@ -67,9 +67,9 @@ export const COPY = {
         "hi-en": "2,400+ active SKUs",
       },
       {
-        en: "40+ export markets",
-        hi: "40+ निर्यात बाज़ार",
-        "hi-en": "40+ export markets",
+        en: "10+ export markets",
+        hi: "10+ निर्यात बाज़ार",
+        "hi-en": "10+ export markets",
       },
       {
         en: "60+ years in textiles",
@@ -235,7 +235,7 @@ export const COPY = {
         label: { en: "Active SKUs", hi: "सक्रिय SKU", "hi-en": "Active SKUs" },
       },
       {
-        value: "40+",
+        value: "10+",
         label: { en: "Export markets", hi: "निर्यात बाज़ार", "hi-en": "Export markets" },
       },
       {
@@ -277,6 +277,32 @@ export const COPY = {
       "hi-en":
         "India aur international markets ke retailers, wholesalers, manufacturers aur textile buyers ke saath built relationships.",
     },
+    proof: [
+      {
+        value: { en: "Within 12 hours", hi: "12 घंटे में", "hi-en": "12 ghante mein" },
+        label: {
+          en: "Typical reply to a wholesale enquiry",
+          hi: "थोक पूछताछ का आम जवाब",
+          "hi-en": "Wholesale enquiry ka typical reply",
+        },
+      },
+      {
+        value: { en: "60+ years", hi: "60+ साल", "hi-en": "60+ saal" },
+        label: {
+          en: "In the Surat textile trade",
+          hi: "सूरत के कपड़ा व्यापार में",
+          "hi-en": "Surat ke textile trade mein",
+        },
+      },
+      {
+        value: { en: "10+", hi: "10+", "hi-en": "10+" },
+        label: {
+          en: "Export markets served",
+          hi: "निर्यात बाज़ार",
+          "hi-en": "Export markets served",
+        },
+      },
+    ],
     ratingLabel: {
       en: "Example five-star placeholder rating",
       hi: "उदाहरण पाँच सितारा प्लेसहोल्डर रेटिंग",

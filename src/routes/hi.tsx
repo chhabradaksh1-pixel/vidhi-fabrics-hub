@@ -126,10 +126,10 @@ const FAQS: {
       "hi-en": "Kya international buyers Vidhi Fabrics se directly source kar sakte hain?",
     },
     answer: {
-      en: "Yes. We supply fabrics across 40+ export markets. Our team handles export documentation end to end.",
-      hi: "हाँ। हम 40 से अधिक निर्यात बाज़ारों में कपड़ा सप्लाई करते हैं। विदेशी खरीदार सीधे हमसे संपर्क कर सकते हैं। हमारी टीम निर्यात दस्तावेज़ीकरण शुरू से अंत तक संभालती है।",
+      en: "Yes. We supply fabrics across 10+ export markets. Our team handles export documentation end to end.",
+      hi: "हाँ। हम 10 से अधिक निर्यात बाज़ारों में कपड़ा सप्लाई करते हैं। विदेशी खरीदार सीधे हमसे संपर्क कर सकते हैं। हमारी टीम निर्यात दस्तावेज़ीकरण शुरू से अंत तक संभालती है।",
       "hi-en":
-        "Haan. Hum 40+ export markets mein fabrics supply karte hain. Hamari team export documentation end to end handle karti hai.",
+        "Haan. Hum 10+ export markets mein fabrics supply karte hain. Hamari team export documentation end to end handle karti hai.",
     },
   },
   {
@@ -579,6 +579,18 @@ function HiIndex() {
             </p>
           </div>
 
+          <dl className="mt-12 grid grid-cols-1 gap-8 border-y border-line py-10 sm:grid-cols-3 sm:gap-6">
+            {COPY.testimonials.proof.map((stat) => (
+              <div key={stat.label.en} className="sm:text-center">
+                <dd className="font-display text-4xl font-semibold tracking-tight text-clay sm:text-5xl">
+                  {stat.value[lang]}
+                </dd>
+                <dt className="mx-auto mt-3 max-w-[22ch] text-sm leading-relaxed text-mute">
+                  {stat.label[lang]}
+                </dt>
+              </div>
+            ))}
+          </dl>
           <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-2">
             {COPY.testimonials.cards.map((testimonial, testimonialIndex) => (
               <article

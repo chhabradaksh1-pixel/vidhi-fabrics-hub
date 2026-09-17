@@ -281,9 +281,9 @@ export const COPY = {
       {
         value: { en: "Within 12 hours", hi: "12 घंटे में", "hi-en": "12 ghante mein" },
         label: {
-          en: "Typical reply to a wholesale enquiry",
-          hi: "थोक पूछताछ का आम जवाब",
-          "hi-en": "Wholesale enquiry ka typical reply",
+          en: "Typical reply to any enquiry",
+          hi: "किसी भी पूछताछ का आम जवाब",
+          "hi-en": "Kisi bhi enquiry ka typical reply",
         },
       },
       {

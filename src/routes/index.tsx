@@ -3,6 +3,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { Linkedin } from "lucide-react";
 import { AboutSection, FabricDeskSection, StoryLinks } from "@/components/fabric-desk";
 import { ReachMapSection } from "@/components/reach-map";
+import { SiteFooter } from "@/components/site-footer";
 import { TalkToUs } from "@/components/talk-to-us";
 import { WHATSAPP_NUMBER } from "@/content/whatsapp";
 
@@ -679,7 +680,7 @@ function Index() {
         </div>
       </section>
 
-      <section className="border-b border-line bg-paper">
+      <section id="faq" className="border-b border-line bg-paper">
         <div className="mx-auto max-w-3xl px-6 py-20">
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-clay">
             {FAQ_SECTION_COPY[lang].marker}
@@ -764,24 +765,7 @@ function Index() {
           </div>
         </div>
 
-        <footer className="border-t border-line">
-          <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-6 py-6 font-mono text-[11px] uppercase tracking-[0.12em] text-mute">
-            <span>{COPY.footer.left[lang]}</span>
-            <div className="flex flex-wrap items-center gap-6">
-              <StoryLinks lang={lang} />
-              <a
-                href="https://www.linkedin.com/company/vidhi-fabricss/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Visit Vidhi Fabrics on LinkedIn"
-                className="inline-flex items-center justify-center transition-colors hover:text-ink"
-              >
-                <Linkedin size={20} />
-              </a>
-            </div>
-            <span>{COPY.footer.right[lang]}</span>
-          </div>
-        </footer>
+        <SiteFooter lang={lang} />
       </section>
 
       <TalkToUs lang={lang} />

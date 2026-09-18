@@ -32,6 +32,9 @@
   --color-sand: var(--sand);
   --color-sage: var(--sage);
   --color-line: var(--line);
+  --color-navy: var(--navy);
+  --color-gold: var(--gold);
+  --color-ivory: var(--ivory);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -87,6 +90,12 @@
   --sand: oklch(0.948 0.012 88);
   --sage: oklch(0.52 0.05 145);
   --line: oklch(0.88 0.012 82);
+
+  /* Footer only: a cooler, deeper register than the warm `ink` used by the
+     Scale section, so the foot of the page reads as its own surface. */
+  --navy: #101a2c;
+  --gold: #c6a15b;
+  --ivory: #f7f1e8;
 
   --background: var(--paper);
   --foreground: var(--ink);
@@ -174,6 +183,31 @@
     font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
   }
+}
+
+/*
+ * Footer surface. The weave is two hairline gradient grids at right angles,
+ * a few percent opacity each, which reads as cloth rather than as a pattern.
+ * The flowing lines are wide ellipses showing only their top arc, so the curve
+ * is drawn by border-radius instead of an image.
+ */
+@utility vf-weave {
+  background-color: var(--navy);
+  background-image:
+    repeating-linear-gradient(90deg, rgb(247 241 232 / 3.5%) 0 1px, transparent 1px 7px),
+    repeating-linear-gradient(0deg, rgb(247 241 232 / 2.5%) 0 1px, transparent 1px 7px),
+    radial-gradient(120% 80% at 50% 0%, rgb(198 161 91 / 7%) 0%, transparent 60%);
+}
+
+@utility vf-wave {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  /* Kept inside the footer box so nothing overflows, even clipped: the arc
+     comes from the radius, not from being wider than its parent. */
+  border-top: 1px solid var(--gold);
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  pointer-events: none;
 }
 
 @keyframes vf-rise {

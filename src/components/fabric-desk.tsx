@@ -3,6 +3,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import cotton from "@/assets/fabric-cotton-linen.jpg";
 import jacquard from "@/assets/fabric-katan-jacquard.jpg";
 import { JOURNAL, readingMinutes, type JournalArticle } from "@/content/journal";
+import { SiteFooter } from "@/components/site-footer";
 import type { Lang } from "@/content/translations";
 import { MINUTES_LABEL, SECTION_COPY } from "@/content/section-copy";
 
@@ -371,17 +372,5 @@ export function JournalHeader({
 }
 
 export function JournalFooter({ lang = "en" }: { lang?: Lang }) {
-  const copy = SECTION_COPY[lang];
-  const home = lang === "hi" ? "/hi" : "/";
-  return (
-    <footer className="border-t border-line">
-      <div className="mx-auto flex max-w-6xl flex-wrap justify-between gap-5 px-6 py-8 text-sm text-mute">
-        <a href={home}>{copy.footerHome}</a>
-        <a href={`${home}#catalogue`} className="inline-flex items-center gap-2 text-clay">
-          {copy.footerCta}
-          <ArrowDown className="-rotate-90" size={16} aria-hidden="true" />
-        </a>
-      </div>
-    </footer>
-  );
+  return <SiteFooter lang={lang} />;
 }

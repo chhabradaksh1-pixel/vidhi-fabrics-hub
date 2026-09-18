@@ -71,10 +71,23 @@ export function SiteFooter({ lang = "en" }: { lang?: Lang }) {
           >
             {FOOTER_COLUMNS.map((column) => (
               <div key={column.heading.en}>
-                <h2 className="font-mono text-[11px] uppercase tracking-[0.16em] text-gold">
+                {/*
+                  Deliberately not a heading. These are navigation labels, and
+                  as <h2> they took over the document outline on pages whose
+                  own content sits at h3 — /blog had nothing but footer labels
+                  at the h2 level. The list is associated with its label for
+                  assistive technology instead.
+                */}
+                <p
+                  id={`footer-${column.heading.en.toLowerCase()}`}
+                  className="font-mono text-[11px] uppercase tracking-[0.16em] text-gold"
+                >
                   {column.heading[lang]}
-                </h2>
-                <ul className="mt-5 space-y-3">
+                </p>
+                <ul
+                  aria-labelledby={`footer-${column.heading.en.toLowerCase()}`}
+                  className="mt-5 space-y-3"
+                >
                   {column.links.map((link) => (
                     <li key={link.label.en}>
                       <a
@@ -93,10 +106,16 @@ export function SiteFooter({ lang = "en" }: { lang?: Lang }) {
 
           {/* Contact */}
           <div>
-            <h2 className="font-mono text-[11px] uppercase tracking-[0.16em] text-gold">
+            <p
+              id="footer-contact"
+              className="font-mono text-[11px] uppercase tracking-[0.16em] text-gold"
+            >
               {contact.heading}
-            </h2>
-            <address className="mt-5 space-y-3 text-sm not-italic leading-relaxed text-ivory/75">
+            </p>
+            <address
+              aria-labelledby="footer-contact"
+              className="mt-5 space-y-3 text-sm not-italic leading-relaxed text-ivory/75"
+            >
               <p>{contact.place}</p>
               <p>{contact.hours}</p>
               <a

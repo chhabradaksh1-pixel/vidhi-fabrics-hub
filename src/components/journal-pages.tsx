@@ -98,6 +98,7 @@ export function JournalIndexPage({ initialLang }: { initialLang: Lang }) {
               number={index + 1}
               lang={lang}
               readLabel={copy.read}
+              headingLevel={2}
               href={`${lang === "hi" ? "/hi/blog" : "/blog"}/${article.slug}`}
             />
           ))}

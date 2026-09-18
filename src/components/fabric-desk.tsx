@@ -87,13 +87,21 @@ export function JournalCard({
   lang = "en",
   readLabel = "Read article",
   href,
+  /**
+   * The card title's heading level. Cards sit under a section heading on the
+   * home page, so h3 is right there; on the journal index the page heading is
+   * the h1 and the cards are the next level down, so that route passes 2.
+   */
+  headingLevel = 3,
 }: {
   article: JournalArticle;
   number: number;
   lang?: Lang;
   readLabel?: string;
   href?: string;
+  headingLevel?: 2 | 3;
 }) {
+  const Heading = `h${headingLevel}` as "h2" | "h3";
   return (
     <article className="group flex h-full flex-col overflow-hidden">
       <a
@@ -119,9 +127,9 @@ export function JournalCard({
           <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-clay">
             {article.category[lang]} · {readingMinutes(article, lang)} {MINUTES_LABEL[lang]}
           </p>
-          <h3 className="mt-4 font-display text-2xl font-semibold leading-snug tracking-tight">
+          <Heading className="mt-4 font-display text-2xl font-semibold leading-snug tracking-tight">
             {article.title[lang]}
-          </h3>
+          </Heading>
           <p className="mb-7 mt-3 text-sm leading-relaxed text-mute">{article.excerpt[lang]}</p>
           <span className="mt-auto flex items-center justify-between border-t border-line pt-5 text-sm font-medium text-clay">
             {readLabel}

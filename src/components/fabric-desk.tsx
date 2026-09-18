@@ -94,7 +94,7 @@ export function JournalCard({
   href?: string;
 }) {
   return (
-    <article className="group flex h-full flex-col overflow-hidden border border-line bg-paper">
+    <article className="group flex h-full flex-col overflow-hidden">
       <a
         href={href ?? `/blog/${article.slug}`}
         className="flex h-full flex-col"
@@ -114,7 +114,7 @@ export function JournalCard({
             {String(number).padStart(2, "0")}
           </span>
         </div>
-        <div className="flex flex-1 flex-col p-6">
+        <div className="flex flex-1 flex-col pt-5">
           <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-clay">
             {article.category[lang]} · {readingMinutes(article, lang)} {MINUTES_LABEL[lang]}
           </p>

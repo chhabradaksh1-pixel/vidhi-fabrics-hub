@@ -261,6 +261,13 @@ function Index() {
     () => (category === "all" ? FABRICS : FABRICS.filter((f) => f.category === category)),
     [category],
   );
+  // The catalogue leads with one fabric shown large; the remainder follow in a
+  // quieter grid. noUncheckedIndexedAccess makes the first entry optional.
+  const feature = fabrics[0];
+  const rest = fabrics.slice(1);
+  // One customer voice leads the testimonials at display size.
+  const leadVoice = COPY.testimonials.cards[0];
+  const otherVoices = COPY.testimonials.cards.slice(1);
 
   return (
     <div className="min-h-screen bg-paper font-body text-ink antialiased selection:bg-clay/20">
@@ -489,31 +496,59 @@ function Index() {
           {fabrics.length === 0 ? (
             <p className="mt-10 text-sm text-mute">{COPY.catalogue.empty[lang]}</p>
           ) : (
-            <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {fabrics.map((f) => (
-                <article
-                  key={f.sku}
-                  className="overflow-hidden rounded-md bg-sand/40 ring-1 ring-black/5 transition-all duration-300 hover:-translate-y-1"
-                >
+            <>
+              {/*
+                The first fabric runs as a full-width feature and the rest as a
+                quieter grid, so the row reads as one thing shown properly
+                rather than six equal tiles. Filtering can leave a single
+                result, in which case the feature stands alone.
+              */}
+              {feature && (
+                <article className="mt-12 grid grid-cols-1 items-end gap-8 lg:grid-cols-5 lg:gap-12">
                   <img
-                    src={f.image}
-                    alt={f.name.en}
+                    src={feature.image}
+                    alt={feature.name.en}
                     loading="lazy"
                     width={1024}
                     height={768}
-                    className="aspect-[4/3] w-full object-cover"
+                    className="aspect-[4/3] w-full object-cover lg:col-span-3 lg:aspect-[3/2]"
                   />
-                  <div className="p-5">
-                    <div className="flex items-center justify-between font-mono text-[11px] text-mute">
-                      <span>{f.sku}</span>
-                      <span>{f.tag[lang]}</span>
-                    </div>
-                    <h3 className="mt-2 font-display text-xl font-semibold">{f.name[lang]}</h3>
-                    <p className="mt-1 text-sm text-mute">{f.spec[lang]}</p>
+                  <div className="lg:col-span-2 lg:pb-2">
+                    <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-clay">
+                      {feature.sku} · {feature.tag[lang]}
+                    </p>
+                    <h3 className="mt-4 font-display text-3xl font-semibold leading-tight tracking-tight lg:text-4xl">
+                      {feature.name[lang]}
+                    </h3>
+                    <p className="mt-4 text-base leading-relaxed text-mute">{feature.spec[lang]}</p>
                   </div>
                 </article>
-              ))}
-            </div>
+              )}
+              {rest.length > 0 && (
+                <div className="mt-16 grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+                  {rest.map((f) => (
+                    <article key={f.sku} className="group">
+                      <img
+                        src={f.image}
+                        alt={f.name.en}
+                        loading="lazy"
+                        width={1024}
+                        height={768}
+                        className="aspect-[4/3] w-full object-cover"
+                      />
+                      <div className="mt-4 flex items-baseline justify-between gap-3 font-mono text-[11px] text-mute">
+                        <span>{f.sku}</span>
+                        <span>{f.tag[lang]}</span>
+                      </div>
+                      <h3 className="mt-2 font-display text-xl font-semibold tracking-tight">
+                        {f.name[lang]}
+                      </h3>
+                      <p className="mt-1 text-sm text-mute">{f.spec[lang]}</p>
+                    </article>
+                  ))}
+                </div>
+              )}
+            </>
           )}
         </div>
       </section>
@@ -598,32 +633,49 @@ function Index() {
               </div>
             ))}
           </dl>
-          <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-2">
-            {COPY.testimonials.cards.map((testimonial, testimonialIndex) => (
-              <article
-                key={`${testimonial.customerLabel.en}-${testimonial.location}-${testimonialIndex}`}
-                className="flex min-h-64 flex-col justify-between rounded-md border border-line bg-sand/25 p-6"
+          {/*
+            One quote carries the section at display size and the rest sit
+            quieter beneath it, so the block reads as a statement rather than a
+            row of equal boxes.
+          */}
+          {leadVoice && (
+            <figure className="mt-14 max-w-4xl">
+              <p
+                className="font-mono text-sm tracking-[0.18em] text-clay"
+                aria-label={COPY.testimonials.ratingLabel[lang]}
               >
-                <div>
+                <span aria-hidden="true">★★★★★</span>
+              </p>
+              <blockquote className="mt-6 text-balance font-display text-2xl font-semibold leading-snug tracking-tight text-ink sm:text-3xl lg:text-4xl">
+                {leadVoice.quote[lang]}
+              </blockquote>
+              <figcaption className="mt-7 font-mono text-xs uppercase tracking-[0.16em] text-mute">
+                {leadVoice.customerLabel[lang]} · {leadVoice.location}
+              </figcaption>
+            </figure>
+          )}
+          {otherVoices.length > 0 && (
+            <div className="mt-16 grid grid-cols-1 gap-x-10 gap-y-12 border-t border-line pt-12 md:grid-cols-3">
+              {otherVoices.map((testimonial, testimonialIndex) => (
+                <figure
+                  key={`${testimonial.customerLabel.en}-${testimonial.location}-${testimonialIndex}`}
+                >
                   <p
-                    className="font-mono text-sm tracking-[0.18em] text-clay"
+                    className="font-mono text-xs tracking-[0.18em] text-clay"
                     aria-label={COPY.testimonials.ratingLabel[lang]}
                   >
                     <span aria-hidden="true">★★★★★</span>
                   </p>
-                  <blockquote className="mt-6 text-lg leading-relaxed text-ink">
+                  <blockquote className="mt-4 leading-relaxed text-mute">
                     {testimonial.quote[lang]}
                   </blockquote>
-                </div>
-                <footer className="mt-8 border-t border-line pt-4">
-                  <p className="font-display text-lg font-semibold">
-                    {testimonial.customerLabel[lang]}
-                  </p>
-                  <p className="mt-1 font-mono text-xs text-mute">{testimonial.location}</p>
-                </footer>
-              </article>
-            ))}
-          </div>
+                  <figcaption className="mt-5 font-mono text-[11px] uppercase tracking-[0.16em] text-mute">
+                    {testimonial.customerLabel[lang]} · {testimonial.location}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 

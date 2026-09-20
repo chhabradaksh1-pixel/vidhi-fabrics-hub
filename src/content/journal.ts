@@ -2,6 +2,7 @@ import cotton from "@/assets/fabric-cotton-linen.jpg";
 import jacquard from "@/assets/fabric-katan-jacquard.jpg";
 import linen from "@/assets/fabric-linen-shirting.jpg";
 import swatchOnCard from "@/assets/swatch-on-card.jpg";
+import wovenDetail from "@/assets/woven-detail.jpg";
 import swatchStack from "@/assets/swatch-stack.jpg";
 import organza from "@/assets/fabric-beaded-organza.jpg";
 import type { Lang } from "@/content/translations";
@@ -860,11 +861,12 @@ export const JOURNAL: JournalArticle[] = [
   },
   {
     slug: "why-similar-sarees-have-different-prices",
-    image: jacquard,
+    image: wovenDetail,
     imageAlt: {
-      en: "Rust-red jacquard fabric with intricate woven motifs",
-      hi: "जंग-लाल जैक्वार्ड कपड़ा, जिस पर बारीक बुने हुए मोटिफ़ हैं",
-      "hi-en": "Rust-red jacquard fabric jis par bareek bune hue motifs hain",
+      en: "A woven cloth seen up close, the interlacing of warp and weft visible thread by thread",
+      hi: "पास से दिखा बुना हुआ कपड़ा, जिसमें ताने-बाने की बुनावट धागे-धागे दिख रही है",
+      "hi-en":
+        "Paas se dikha woven cloth, jisme warp aur weft ki bunavat dhaage dhaage dikh rahi hai",
     },
     category: {
       en: "Product knowledge",

@@ -9,6 +9,7 @@ import { TalkToUs } from "@/components/talk-to-us";
 import { WHATSAPP_NUMBER } from "@/content/whatsapp";
 
 import swatchBook from "@/assets/swatch-book.jpg";
+import weaveGround from "@/assets/weave-ground.jpg";
 import {
   Accordion,
   AccordionContent,
@@ -552,9 +553,28 @@ function HiIndex() {
         />
       </section>
 
-      <section id="scale" className="border-b border-line bg-ink text-paper">
-        <div className="mx-auto max-w-6xl px-6 py-20">
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-clay">
+      <section
+        id="scale"
+        className="relative overflow-hidden border-b border-line bg-ink text-paper"
+      >
+        {/*
+          The weave sits behind the dark ground as a texture, not a picture.
+          weave-ground.jpg is a desaturated, softened derivative of the woven
+          close-up: the photograph's threads are teal and mustard while every
+          brand hue is warm (clay 12deg, sand 40deg, ink 30deg), so in colour the
+          cast fought the palette. Greyscale and blur are baked into the file
+          rather than applied in CSS, which drops it from 474 KB to 81 KB and
+          costs nothing visible at 10%. At this opacity the brightest thread
+          cannot lift the background past the contrast ceiling, so paper text
+          stays above AA.
+        */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-[0.1]"
+          style={{ backgroundImage: `url(${weaveGround})` }}
+        />
+        <div className="relative mx-auto max-w-6xl px-6 py-20">
+          <p className="font-mono text-xs uppercase tracking-[0.2em] text-claylight">
             {COPY.scale.marker[lang]}
           </p>
           <h2 className="mt-3 max-w-[20ch] text-balance font-display text-4xl font-semibold tracking-tight lg:text-5xl">
@@ -564,7 +584,7 @@ function HiIndex() {
           <div className="mt-12 grid grid-cols-2 gap-px bg-paper/15 lg:grid-cols-4">
             {COPY.scale.stats.map((s) => (
               <div key={s.value} className="bg-ink p-6">
-                <p className="font-display text-4xl font-semibold break-words text-clay sm:text-5xl">
+                <p className="font-display text-4xl font-semibold break-words text-claylight sm:text-5xl">
                   {s.value}
                 </p>
                 <p className="mt-2 font-mono text-xs uppercase tracking-[0.12em] text-paper/60">

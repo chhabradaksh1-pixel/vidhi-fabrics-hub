@@ -29,6 +29,7 @@
   --color-mute: var(--mute);
   --color-clay: var(--clay);
   --color-claydeep: var(--claydeep);
+  --color-claylight: var(--claylight);
   --color-sand: var(--sand);
   --color-sage: var(--sage);
   --color-line: var(--line);
@@ -87,6 +88,9 @@
   --mute: oklch(0.52 0.018 70);
   --clay: oklch(0.465 0.105 35);
   --claydeep: oklch(0.37 0.09 35);
+  /* Clay is only 2.3:1 on ink, under the 3:1 that large text needs. This
+     lighter step is for clay-coloured text on the dark surfaces. */
+  --claylight: #c98a6b;
   --sand: oklch(0.948 0.012 88);
   --sage: oklch(0.52 0.05 145);
   --line: oklch(0.88 0.012 82);

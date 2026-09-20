@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Linkedin } from "lucide-react";
 import { AboutSection, FabricDeskSection, StoryLinks } from "@/components/fabric-desk";
+import { ADDRESS_LINES, BUSINESS } from "@/content/business";
 import { ReachMapSection } from "@/components/reach-map";
 import { SiteFooter } from "@/components/site-footer";
 import { TalkToUs } from "@/components/talk-to-us";
@@ -727,13 +728,27 @@ function HiIndex() {
               <p className="text-[11px] uppercase tracking-[0.15em] text-clay">
                 {COPY.contact.hqLabel[lang]}
               </p>
-              <p className="mt-1 text-ink">{COPY.contact.hqValue[lang]}</p>
+              <p className="mt-1 text-ink">
+                {ADDRESS_LINES[lang].map((line) => (
+                  <span key={line} className="block">
+                    {line}
+                  </span>
+                ))}
+              </p>
             </div>
             <div>
               <p className="text-[11px] uppercase tracking-[0.15em] text-clay">
                 {COPY.contact.deskLabel[lang]}
               </p>
-              <p className="mt-1 text-ink">09825208413 &nbsp;·&nbsp; chhabradaksh1@gmail.com</p>
+              <p className="mt-1 text-ink">
+                <a href={`tel:${BUSINESS.phone}`} className="hover:text-clay">
+                  {BUSINESS.phoneDisplay}
+                </a>
+                <span className="mx-2 text-mute">·</span>
+                <a href={`mailto:${BUSINESS.email}`} className="break-all hover:text-clay">
+                  {BUSINESS.email}
+                </a>
+              </p>
             </div>
             <div>
               <p className="text-[11px] uppercase tracking-[0.15em] text-clay">

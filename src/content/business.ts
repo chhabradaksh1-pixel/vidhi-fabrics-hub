@@ -5,19 +5,20 @@ import type { Lang } from "@/content/translations";
  *
  * One source for the footer and for the LocalBusiness structured data, so the
  * name, address and phone a crawler reads always match what the page shows.
- * Nothing here is inferred: the postal code and an exact founding year were
- * not supplied, so neither is emitted.
+ * Nothing here is inferred: no exact founding year was supplied, so none is
+ * emitted.
  */
 export const BUSINESS = {
   name: "Vidhi Fabrics",
   streetAddress: "542-543 Golden Point, Begumpura Road",
   locality: "Surat",
   region: "Gujarat",
+  postalCode: "395002",
   country: "IN",
   /** E.164, the form tel: links and structured data want. */
   phone: "+919825208413",
   phoneDisplay: "+91 98252 08413",
-  email: "Chhabradaksh1@gmail.com",
+  email: "sales@vidhifabrics.com",
   opens: "11:00",
   closes: "21:00",
   days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
@@ -25,9 +26,15 @@ export const BUSINESS = {
 
 /** The address as shown on the page, one line per row. */
 export const ADDRESS_LINES: Record<Lang, string[]> = {
-  en: [BUSINESS.streetAddress, `${BUSINESS.locality}, ${BUSINESS.region}, India`],
-  hi: ["542-543 गोल्डन पॉइंट, बेगमपुरा रोड", "सूरत, गुजरात, भारत"],
-  "hi-en": [BUSINESS.streetAddress, `${BUSINESS.locality}, ${BUSINESS.region}, India`],
+  en: [
+    BUSINESS.streetAddress,
+    `${BUSINESS.locality}, ${BUSINESS.region} ${BUSINESS.postalCode}, India`,
+  ],
+  hi: ["542-543 गोल्डन पॉइंट, बेगमपुरा रोड", `सूरत, गुजरात ${BUSINESS.postalCode}, भारत`],
+  "hi-en": [
+    BUSINESS.streetAddress,
+    `${BUSINESS.locality}, ${BUSINESS.region} ${BUSINESS.postalCode}, India`,
+  ],
 };
 
 /**
@@ -49,6 +56,7 @@ export function localBusinessSchema(site: string) {
       streetAddress: BUSINESS.streetAddress,
       addressLocality: BUSINESS.locality,
       addressRegion: BUSINESS.region,
+      postalCode: BUSINESS.postalCode,
       addressCountry: BUSINESS.country,
     },
     openingHoursSpecification: [

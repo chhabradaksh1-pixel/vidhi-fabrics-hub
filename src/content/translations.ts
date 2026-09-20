@@ -386,11 +386,6 @@ export const COPY = {
       "hi-en": "Wholesale inquiry shuru karein",
     },
     hqLabel: { en: "Surat HQ", hi: "सूरत मुख्यालय", "hi-en": "Surat HQ" },
-    hqValue: {
-      en: "542-543 Golden Point, Begampura Road, Surat, Gujarat",
-      hi: "542-543 गोल्डन पॉइंट, बेगमपुरा रोड, सूरत, गुजरात",
-      "hi-en": "542-543 Golden Point, Begampura Road, Surat, Gujarat",
-    },
     deskLabel: { en: "Trade desk", hi: "ट्रेड डेस्क", "hi-en": "Trade desk" },
     hoursLabel: { en: "Hours", hi: "समय", "hi-en": "Timing" },
     hoursValue: {

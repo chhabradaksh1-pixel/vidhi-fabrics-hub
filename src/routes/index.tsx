@@ -8,7 +8,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { TalkToUs } from "@/components/talk-to-us";
 import { WHATSAPP_NUMBER } from "@/content/whatsapp";
 
-import warehouseShowroom from "@/assets/maxresdefault.jpg";
+import swatchBook from "@/assets/swatch-book.jpg";
 import {
   Accordion,
   AccordionContent,
@@ -592,7 +592,7 @@ function Index() {
 
           <div className="mt-12 grid grid-cols-1 items-center gap-8 lg:grid-cols-2">
             <img
-              src={warehouseShowroom}
+              src={swatchBook}
               alt={COPY.scale.imageAlt[lang]}
               loading="lazy"
               width={1440}

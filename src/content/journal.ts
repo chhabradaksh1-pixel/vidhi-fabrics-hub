@@ -1,6 +1,8 @@
 import cotton from "@/assets/fabric-cotton-linen.jpg";
 import jacquard from "@/assets/fabric-katan-jacquard.jpg";
 import linen from "@/assets/fabric-linen-shirting.jpg";
+import swatchOnCard from "@/assets/swatch-on-card.jpg";
+import swatchStack from "@/assets/swatch-stack.jpg";
 import organza from "@/assets/fabric-beaded-organza.jpg";
 import type { Lang } from "@/content/translations";
 import { whatsAppUrl } from "@/content/whatsapp";
@@ -96,7 +98,7 @@ export function relatedArticles(article: JournalArticle, count: number) {
 export const JOURNAL: JournalArticle[] = [
   {
     slug: "source-fabric-from-surat",
-    image: linen,
+    image: swatchStack,
     published: "2026-09-16",
     metaTitle: {
       en: "How to Source Fabric from Surat Remotely",
@@ -110,9 +112,9 @@ export const JOURNAL: JournalArticle[] = [
         "Remote rehkar Surat se fabric mangwane ki wholesale buyer guide — requirement, sample, quotation, bulk approval, dispatch aur delivery tak.",
     },
     imageAlt: {
-      en: "Folded fabric samples prepared for remote wholesale sourcing from Surat",
-      hi: "सूरत से दूर बैठे थोक सोर्सिंग के लिए तैयार किए गए, तह किए हुए कपड़े के सैंपल",
-      "hi-en": "Surat se remote wholesale sourcing ke liye taiyar kiye gaye, folded fabric samples",
+      en: "Folded fabric samples laid out in a colour run, ready to be compared",
+      hi: "रंगों के क्रम में रखे तह किए हुए कपड़े के सैंपल, तुलना के लिए तैयार",
+      "hi-en": "Rangon ke kram mein rakhe folded fabric samples, comparison ke liye taiyar",
     },
     category: {
       en: "Sourcing guide",
@@ -1023,11 +1025,11 @@ export const JOURNAL: JournalArticle[] = [
         href: "/blog/source-fabric-from-surat",
       },
     ],
-    image: organza,
+    image: swatchOnCard,
     imageAlt: {
-      en: "Pale embellished fabric showing beadwork and surface detail",
-      hi: "हल्के रंग का सजावटी कपड़ा, जिस पर मोती का काम और बारीकी दिख रही है",
-      "hi-en": "Halke rang ka embellished fabric jis par beadwork aur detail dikh rahi hai",
+      en: "A woven swatch held on its reference card, the form a sample approval takes",
+      hi: "अपने रेफ़रेंस कार्ड पर लगा बुना हुआ स्वैच — सैंपल मंज़ूरी इसी रूप में होती है",
+      "hi-en": "Apne reference card par laga woven swatch — sample approval isi roop mein hoti hai",
     },
     category: {
       en: "Sourcing guide",

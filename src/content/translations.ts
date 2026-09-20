@@ -255,9 +255,9 @@ export const COPY = {
         "OEKO-TEX aur GOTS lines, in-house dyeing aur finishing, aur export documentation end to end. Surat ka network matlab lead times jo tikte hain, aur stock jo kabhi khatam nahi hota.",
     },
     imageAlt: {
-      en: "Textile showroom filled with colorful garments and fabric displays",
-      hi: "रंगीन परिधानों और कपड़े के डिस्प्ले से भरा टेक्सटाइल शोरूम",
-      "hi-en": "Colorful garments aur fabric displays se bhara textile showroom",
+      en: "An open swatch book of fabric samples, each shade carrying its own reference code",
+      hi: "कपड़े के सैंपलों की खुली स्वैच बुक, हर शेड पर अपना रेफ़रेंस कोड",
+      "hi-en": "Fabric samples ki khuli swatch book, har shade par apna reference code",
     },
   },
   testimonials: {

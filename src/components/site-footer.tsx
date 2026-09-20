@@ -10,8 +10,9 @@ import {
   LINKEDIN_URL,
   type FooterLink,
 } from "@/content/footer-copy";
+import { ADDRESS_LINES, BUSINESS } from "@/content/business";
 import type { Lang } from "@/content/translations";
-import { WHATSAPP_NUMBER, whatsAppUrl } from "@/content/whatsapp";
+import { whatsAppUrl } from "@/content/whatsapp";
 
 /**
  * Resolves a footer link for the language being shown. In-page anchors are
@@ -116,16 +117,38 @@ export function SiteFooter({ lang = "en" }: { lang?: Lang }) {
               aria-labelledby="footer-contact"
               className="mt-5 space-y-3 text-sm not-italic leading-relaxed text-ivory/75"
             >
-              <p>{contact.place}</p>
+              <p>
+                {ADDRESS_LINES[lang].map((line) => (
+                  <span key={line} className="block">
+                    {line}
+                  </span>
+                ))}
+              </p>
               <p>{contact.hours}</p>
-              <a
-                href={whatsAppUrl(FOOTER_CTA_MESSAGE[lang])}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={linkClass}
-              >
-                +{WHATSAPP_NUMBER.slice(0, 2)} {WHATSAPP_NUMBER.slice(2)}
-              </a>
+              {/*
+                Each link sits in its own block so the rows never depend on
+                the column being too narrow to fit them side by side.
+              */}
+              <p>
+                <a href={`tel:${BUSINESS.phone}`} className={linkClass}>
+                  {BUSINESS.phoneDisplay}
+                </a>
+              </p>
+              <p>
+                <a href={`mailto:${BUSINESS.email}`} className={`${linkClass} break-all`}>
+                  {BUSINESS.email}
+                </a>
+              </p>
+              <p>
+                <a
+                  href={whatsAppUrl(FOOTER_CTA_MESSAGE[lang])}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={linkClass}
+                >
+                  {lang === "hi" ? "व्हाट्सएप" : "WhatsApp"}
+                </a>
+              </p>
             </address>
           </div>
         </div>

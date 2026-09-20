@@ -104,20 +104,17 @@ export const FOOTER_COLUMNS: FooterColumn[] = [
   },
 ];
 
-export const FOOTER_CONTACT: Record<Lang, { heading: string; place: string; hours: string }> = {
+export const FOOTER_CONTACT: Record<Lang, { heading: string; hours: string }> = {
   en: {
     heading: "Get in touch",
-    place: "Surat, Gujarat, India",
     hours: "Mon–Sat · 11:00 AM–9:00 PM IST",
   },
   hi: {
     heading: "संपर्क कीजिए",
-    place: "सूरत, गुजरात, भारत",
     hours: "सोम–शनि · सुबह 11:00–रात 9:00",
   },
   "hi-en": {
     heading: "Contact kijiye",
-    place: "Surat, Gujarat, India",
     hours: "Mon–Sat · 11:00 AM–9:00 PM IST",
   },
 };

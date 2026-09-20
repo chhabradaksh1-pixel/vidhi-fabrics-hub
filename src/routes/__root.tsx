@@ -1,4 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { localBusinessSchema } from "@/content/business";
 import {
   Outlet,
   Link,
@@ -119,6 +120,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
       { rel: "icon", href: "/favicon.ico", sizes: "48x48" },
       { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
+    ],
+    // One LocalBusiness record for the whole site, so the name, address and
+    // phone a crawler reads are the same strings the footer renders.
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(localBusinessSchema("https://www.vidhifabrics.com")),
+      },
     ],
   }),
 

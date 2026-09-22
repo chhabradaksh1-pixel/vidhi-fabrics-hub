@@ -141,9 +141,26 @@ function RootShell({ children }: { children: ReactNode }) {
   const router = useRouter();
   const isHindi = router.state.location.pathname.startsWith("/hi");
   return (
-    <html lang={isHindi ? "hi" : "en"}>
+    <html lang={isHindi ? "hi" : "en"} className="vf-js">
       <head>
         <HeadContent />
+        {/*
+          `vf-js` arms the scroll-reveal staging in styles.css.
+
+          It is server-rendered rather than added by an inline script. Adding
+          it to <html> before hydration makes the client tree differ from the
+          server one, and React responds by discarding the render — that blanks
+          the whole page, which is exactly what happened when this was a
+          script.
+
+          The cost of server-rendering it is that the class is present even
+          when JS is unavailable, so the <noscript> below releases every staged
+          element: the observer that would have revealed them is never going to
+          run, and half-visible content is worse than unanimated content.
+        */}
+        <noscript>
+          <style>{`[data-reveal]{opacity:1!important;transform:none!important}[data-reveal-img] img{transform:none!important}`}</style>
+        </noscript>
       </head>
       <body>
         {children}

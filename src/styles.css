@@ -82,24 +82,36 @@
 :root {
   --radius: 0.2rem;
 
-  /* Vidhi Fabrics: Warehouse Ledger palette */
-  --paper: oklch(0.987 0.004 95);
-  --ink: oklch(0.235 0.012 70);
-  --mute: oklch(0.52 0.018 70);
-  --clay: oklch(0.465 0.105 35);
-  --claydeep: oklch(0.37 0.09 35);
-  /* Clay is only 2.3:1 on ink, under the 3:1 that large text needs. This
-     lighter step is for clay-coloured text on the dark surfaces. */
-  --claylight: #c98a6b;
-  --sand: oklch(0.948 0.012 88);
-  --sage: oklch(0.52 0.05 145);
-  --line: oklch(0.88 0.012 82);
+  /* Vidhi Fabrics: monochrome palette.
+   *
+   * Every token is a true neutral (chroma 0) so the fabric photography is the
+   * only colour on the page. A warm UI competed with the swatches; the mill
+   * cloth should be the thing that has hue.
+   *
+   * The ramp follows Inditex's monochrome system — pure white ground, near
+   * black text, secondary greys — rather than a tinted grey like Medusa's
+   * zinc, which carries a cool cast that fights the warm swatch photography.
+   *
+   * Ratios below are measured, not estimated. All 13 foreground/background
+   * pairs the site actually uses clear WCAG AA. See BRAND.md for the table. */
+  --paper: oklch(1 0 0); /* #FFFFFF  page ground */
+  --ink: oklch(0.1822 0 0); /* #121212  body text; dark section grounds */
+  --mute: oklch(0.5278 0 0); /* #6B6B6B  secondary text, 5.33:1 on paper */
+  --clay: oklch(0.2178 0 0); /* #1A1A1A  accent, labels, links — light grounds */
+  --claydeep: oklch(0 0 0); /* #000000  deeper accent, hover/pressed */
+  /* `clay` is 1.08:1 on `ink` — invisible. The rule that shipped as a live
+     bug in the warm palette still applies verbatim in the monochrome one:
+     clay on light grounds, claylight on dark. */
+  --claylight: oklch(0.8699 0 0); /* #D4D4D4  the clay step for dark grounds */
+  --sand: oklch(0.9702 0 0); /* #F5F5F5  alternate section ground */
+  --sage: oklch(0.5278 0 0); /* #6B6B6B  retired hue, folded into mute */
+  --line: oklch(0.9219 0 0); /* #E5E5E5  hairlines and dividers */
 
-  /* Footer only: a cooler, deeper register than the warm `ink` used by the
-     Scale section, so the foot of the page reads as its own surface. */
-  --navy: #101a2c;
-  --gold: #c6a15b;
-  --ivory: #f7f1e8;
+  /* Footer. Previously navy and gold; now the darkest step in the same single
+     ramp, so the foot of the page reads as weight rather than as a hue. */
+  --navy: oklch(0 0 0); /* #000000  footer ground */
+  --gold: oklch(0.6993 0 0); /* #9E9E9E  footer accent, the single wave line */
+  --ivory: oklch(0.9702 0 0); /* #F5F5F5  footer text, 19.26:1 on navy */
 
   --background: var(--paper);
   --foreground: var(--ink);
@@ -292,7 +304,7 @@
 
 @layer base {
   ::selection {
-    background: oklch(0.465 0.105 35 / 18%);
+    background: oklch(0.2178 0 0 / 16%);
   }
 
   button,
@@ -309,7 +321,7 @@
 @layer components {
   header.sticky {
     background-color: color-mix(in oklch, var(--paper) 94%, transparent);
-    box-shadow: 0 1px 0 oklch(0.235 0.012 70 / 5%);
+    box-shadow: 0 1px 0 oklch(0 0 0 / 7%);
   }
 
   header.sticky nav a {
@@ -339,7 +351,7 @@
   header.sticky [role="group"] {
     border-radius: var(--radius-sm);
     background: var(--paper);
-    box-shadow: 0 1px 2px oklch(0.235 0.012 70 / 4%);
+    box-shadow: 0 1px 2px oklch(0 0 0 / 6%);
   }
 
   header.sticky [role="group"] button {
@@ -379,7 +391,7 @@
 
   #inquiry {
     background: color-mix(in oklch, var(--sand) 64%, var(--paper));
-    box-shadow: 0 10px 30px oklch(0.235 0.012 70 / 5%);
+    box-shadow: 0 10px 30px oklch(0 0 0 / 7%);
   }
 
   #inquiry input,
@@ -396,12 +408,16 @@
   #inquiry select:focus,
   #inquiry textarea:focus {
     border-color: var(--color-clay);
-    box-shadow: 0 0 0 3px oklch(0.465 0.105 35 / 12%);
+    box-shadow: 0 0 0 3px oklch(0.2178 0 0 / 14%);
   }
 
+  /* The UI is monochrome, so the cloth is the only colour on the page. The
+     swatches used to be pulled back to saturate(0.94) to stop them fighting
+     the warm ground; there is nothing left to fight, so they run at full
+     strength and carry the hue on their own. */
   #catalogue article img,
   #scale img {
-    filter: saturate(0.94) contrast(1.02);
+    filter: contrast(1.02);
   }
 
   #catalogue [aria-pressed="true"] {
@@ -434,7 +450,7 @@
 
   .vf-lead-input:focus {
     border-color: var(--color-clay);
-    box-shadow: 0 0 0 3px oklch(0.465 0.105 35 / 12%);
+    box-shadow: 0 0 0 3px oklch(0.2178 0 0 / 14%);
   }
 
   .vf-lead-input[aria-invalid="true"] {
@@ -445,5 +461,83 @@
     .vf-lead-input {
       font-size: 1rem;
     }
+  }
+}
+
+/*
+ * Scroll-reveal motion.
+ *
+ * Modelled on the Inditex corporate site, which does all of this with plain
+ * CSS transitions and an IntersectionObserver — no GSAP, no Lenis, no scroll
+ * library. Measured from their pages: 0.3s ease-in-out for interaction, 0.5s
+ * for reveals, and cubic-bezier(0.17, 0.17, 0.5, 1) as the settle curve. That
+ * curve moves most of its distance early and then eases out for a long time,
+ * which is what reads as "landing" rather than "sliding".
+ *
+ * Progressive enhancement: the staged state is scoped to `.vf-js`, a class an
+ * inline script in __root.tsx puts on <html> before first paint. With JS off
+ * the class never lands, nothing is ever staged hidden, and the page renders
+ * exactly as it would have. Nothing here is required to read the site.
+ */
+@layer components {
+  .vf-js [data-reveal] {
+    opacity: 0;
+    transform: translateY(18px);
+    transition:
+      opacity 0.6s cubic-bezier(0.17, 0.17, 0.5, 1),
+      transform 0.6s cubic-bezier(0.17, 0.17, 0.5, 1);
+    transition-delay: var(--vf-delay, 0ms);
+  }
+
+  .vf-js [data-reveal].is-in {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Images settle from slightly overscaled, so a photograph arrives rather
+     than simply being present. Longer than the text so the two don't land on
+     the same beat. */
+
+  /* The overscale has to be clipped by the card, or a 4% bleed pushes past the
+     grid track and can add horizontal scroll on small screens. */
+  .vf-js [data-reveal-img] {
+    overflow: hidden;
+  }
+
+  .vf-js [data-reveal-img] img {
+    transform: scale(1.04);
+    transition: transform 0.9s cubic-bezier(0.17, 0.17, 0.5, 1);
+    transition-delay: var(--vf-delay, 0ms);
+  }
+
+  .vf-js [data-reveal-img].is-in img {
+    transform: none;
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/*
+ * Reduced motion: the global rule near the top of this file already collapses
+ * every duration to 0.01ms, which would leave a staged element stuck at
+ * opacity 0 if the observer never fired. These force the resting state
+ * directly, so the content is correct even if no JS runs at all.
+ */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .vf-js [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .vf-js [data-reveal-img] img {
+    transform: none !important;
   }
 }

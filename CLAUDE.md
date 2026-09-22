@@ -79,9 +79,16 @@ always belongs in the other. Check both before calling a change done.
 
 **Design tokens and font stacks** are defined in `src/styles.css`, and the
 values, roles and contrast rules are documented in `BRAND.md`. One rule is
-worth carrying here because it has already shipped as a live bug: `clay` is
-only 2.29:1 on `ink` and fails AA on any dark ground — use `claylight` there.
-`BRAND.md` has the full measured table.
+worth carrying here because it has already shipped as a live bug: `clay` fails
+AA on any dark ground — use `claylight` there. `BRAND.md` has the full measured
+table.
+
+**The palette is monochrome.** Every colour token is a true neutral so the
+fabric photography is the only colour on the page. The token names are
+historical — `clay`, `navy`, `gold` are steps on one grey ramp, not hues. The
+clay-on-ink rule above got *more* dangerous in the process: that pair now
+measures 1.08:1 rather than 2.29:1, so the same mistake renders as invisible
+text rather than merely poor text.
 
 ## Conventions
 
@@ -93,6 +100,23 @@ only 2.29:1 on `ink` and fails AA on any dark ground — use `claylight` there.
 - Scroll rails are native CSS scroll-snap with arrow buttons — no carousel
   library. `JournalRail` in `fabric-desk.tsx` is the reference implementation;
   it honours `prefers-reduced-motion`.
+- **Scroll reveals** are `useReveal` (`src/hooks/use-reveal.ts`) plus the
+  `.vf-js [data-reveal]` rules in `styles.css` — an IntersectionObserver
+  toggling a class, no motion library. Mark a single element `data-reveal`; put
+  `data-reveal-stagger` on a container to make its `data-reveal` children fire
+  80ms apart; add `data-reveal-img` to settle an image from `scale(1.04)`.
+  Three things to know before touching it:
+  - **Don't nest a `data-reveal` inside another `data-reveal`.** The child
+    animates while the parent is still at opacity 0, so the stagger happens
+    unseen and the group appears all at once. The catalogue section is
+    deliberately *not* marked; its cards are.
+  - The staged state is scoped to `.vf-js`, which is **server-rendered** on
+    `<html>` in `__root.tsx`. Adding that class from an inline script instead
+    desynchronises hydration and React discards the render — the page goes
+    blank. A `<noscript>` block releases the staging when JS is unavailable.
+  - `data-reveal-img` sets `overflow: hidden` on its element, because a 4%
+    overscale otherwise bleeds past the grid track and adds horizontal scroll
+    on small screens.
 - Footer column labels are `<p>` with `aria-labelledby`, **not** `<h2>`. Using
   headings there once left `/blog` with nothing but footer nav at h2 level.
   `JournalCard` takes a `headingLevel` prop for the same reason.

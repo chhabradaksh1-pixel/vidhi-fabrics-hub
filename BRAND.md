@@ -90,41 +90,71 @@ now." A trader talking to a trader about cloth.
 
 ## Colour
 
-Tokens live in `src/styles.css`. Warm neutrals for the site, navy and gold for
-the footer only.
+Tokens live in `src/styles.css`. **The palette is monochrome.** Every token is
+a true neutral — chroma 0 in oklch — so the fabric photography is the only
+colour anywhere on the page.
+
+That is the whole argument for it. The product is cloth, and the swatches are
+vivid: coral, sage, teal, cream. The previous warm palette put clay and sand
+next to them and the two competed, which is why the catalogue images were
+being held back at `saturate(0.94)` to stop them shouting. With a neutral UI
+there is nothing to compete with, so the images now run at full saturation and
+the cloth carries the hue on its own.
+
+The reference is the Inditex corporate site — pure white ground, near-black
+text, greys in between — rather than a tinted grey system like Medusa's zinc,
+whose cool cast fights the warm swatch photography.
 
 | Token       | Hex       | Role                                           |
 | ----------- | --------- | ---------------------------------------------- |
-| `paper`     | `#FBFBF8` | page ground                                    |
-| `ink`       | `#221D18` | body text; dark section grounds                |
-| `mute`      | `#70675E` | secondary text                                 |
-| `clay`      | `#8A412E` | accent, labels, links — **light grounds only** |
-| `claydeep`  | `#672B1C` | deeper accent for light grounds                |
-| `claylight` | `#C98A6B` | the clay step for **dark** grounds             |
-| `sand`      | `#F1EEE5` | alternate section ground                       |
-| `line`      | `#DBD7CF` | hairlines and dividers                         |
-| `navy`      | `#101A2C` | footer ground                                  |
-| `gold`      | `#C6A15B` | footer accent, the single wave line            |
-| `ivory`     | `#F7F1E8` | footer text                                    |
+| `paper`     | `#FFFFFF` | page ground                                    |
+| `ink`       | `#121212` | body text; dark section grounds                |
+| `mute`      | `#6B6B6B` | secondary text                                 |
+| `clay`      | `#1A1A1A` | accent, labels, links — **light grounds only** |
+| `claydeep`  | `#000000` | deeper accent, hover and pressed               |
+| `claylight` | `#D4D4D4` | the clay step for **dark** grounds             |
+| `sand`      | `#F5F5F5` | alternate section ground                       |
+| `line`      | `#E5E5E5` | hairlines and dividers                         |
+| `navy`      | `#000000` | footer ground                                  |
+| `gold`      | `#9E9E9E` | footer accent, the single wave line            |
+| `ivory`     | `#F5F5F5` | footer text                                    |
 
-**The one rule that matters.** `clay` fails WCAG AA on dark grounds. Measured:
+`navy` and `gold` keep their names but are no longer a hue — they are the
+darkest and a mid step of the same single ramp, so the foot of the page reads
+as weight rather than as a second colour scheme. Renaming them would touch
+every component that references them; the names are historical, the values are
+not.
+
+**The one rule that matters, and it survived the change.** `clay` still fails
+WCAG AA on dark grounds — worse than before, because both ends moved toward
+each other. Measured:
 
 | Pair                  | Ratio   | Body 4.5:1 | Large 3:1 |
 | --------------------- | ------- | ---------- | --------- |
-| `ink` on `paper`      | 16.12:1 | yes        | yes       |
-| `clay` on `paper`     | 7.04:1  | yes        | yes       |
-| `claydeep` on `paper` | 10.45:1 | yes        | yes       |
-| `clay` on `sand`      | 6.29:1  | yes        | yes       |
-| `paper` on `ink`      | 16.12:1 | yes        | yes       |
-| `clay` on `ink`       | 2.29:1  | **no**     | **no**    |
-| `claylight` on `ink`  | 5.83:1  | yes        | yes       |
-| `ivory` on `navy`     | 15.51:1 | yes        | yes       |
-| `gold` on `navy`      | 7.17:1  | yes        | yes       |
-| `claylight` on `navy` | 6.08:1  | yes        | yes       |
+| `ink` on `paper`      | 18.73:1 | yes        | yes       |
+| `ink` on `sand`       | 17.18:1 | yes        | yes       |
+| `mute` on `paper`     | 5.33:1  | yes        | yes       |
+| `mute` on `sand`      | 4.89:1  | yes        | yes       |
+| `clay` on `paper`     | 17.40:1 | yes        | yes       |
+| `clay` on `sand`      | 15.96:1 | yes        | yes       |
+| `claydeep` on `paper` | 21.00:1 | yes        | yes       |
+| `paper` on `ink`      | 18.73:1 | yes        | yes       |
+| `clay` on `ink`       | 1.08:1  | **no**     | **no**    |
+| `claylight` on `ink`  | 12.64:1 | yes        | yes       |
+| `ivory` on `navy`     | 19.26:1 | yes        | yes       |
+| `gold` on `navy`      | 7.84:1  | yes        | yes       |
+| `claylight` on `navy` | 14.17:1 | yes        | yes       |
 
-So: `clay` on paper and sand, `claylight` on ink and navy. This already shipped
-as a live accessibility bug in the Scale section — the stat figures and the
-section label were both `clay` on `ink` at 2.29:1.
+So the rule is unchanged: `clay` on paper and sand, `claylight` on ink and
+navy. It previously shipped as a live accessibility bug in the Scale section,
+where the stat figures and the section label were `clay` on `ink` at 2.29:1.
+In the monochrome palette that same mistake would render at 1.08:1 — text
+effectively invisible rather than merely hard to read, so the rule matters more
+now, not less.
+
+`mute` is the tightest pair in the set at 4.89:1 on `sand`. It was chosen by
+searching down the neutral ramp for the lightest grey clearing 4.5:1 on *both*
+grounds; a step lighter fails on `sand`. Do not lighten it.
 
 Over a texture or photograph, check the **brightest pixel**, not the average.
 A mean that passes hides a worst case that doesn't.
@@ -174,9 +204,17 @@ Current set and where each earns its place:
 | `weave-ground.jpg`   | Scale section background texture, greyscale at 10%           |
 | `woven-detail.jpg`   | the sarees-prices guide, where thread detail is the argument |
 
-**The palette is warm, and photographs must be too.** Token hues: `clay` 12°,
-`ink` 30°, `gold` 39°, `sand` 45°. Every photograph in the set matches that
-band except one — median hue and warm share across the coloured pixels of each:
+**Photographs must be warm, and must agree with each other.** This rule used
+to be about matching the UI: the tokens were warm (`clay` 12°, `ink` 30°,
+`gold` 39°, `sand` 45°) and a cool photo fought them. The tokens are now
+neutral and have no hue to match, so nothing in the interface pulls against a
+photograph any more.
+
+The rule stands anyway, for a different reason. The images are the only colour
+left on the page, so they are now read as a set rather than one at a time. One
+cool photograph among warm ones is more conspicuous on a neutral ground than it
+ever was on a warm one — there is no surrounding hue to absorb it. Measured,
+median hue and warm share across the coloured pixels of each:
 
 | Asset                   | Median hue | Warm pixels |
 | ----------------------- | ---------- | ----------- |

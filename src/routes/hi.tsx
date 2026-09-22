@@ -7,6 +7,7 @@ import { ReachMapSection } from "@/components/reach-map";
 import { SiteFooter } from "@/components/site-footer";
 import { TalkToUs } from "@/components/talk-to-us";
 import { WHATSAPP_NUMBER } from "@/content/whatsapp";
+import { useReveal } from "@/hooks/use-reveal";
 
 import swatchBook from "@/assets/swatch-book.jpg";
 import weaveGround from "@/assets/weave-ground.jpg";
@@ -239,6 +240,7 @@ function getWhatsAppUrl(lang: Lang) {
 }
 
 function HiIndex() {
+  useReveal();
   const [lang, setLang] = useState<Lang>("hi");
   const [category, setCategory] = useState<FabricCategory>("all");
   const [sent, setSent] = useState(false);
@@ -491,7 +493,11 @@ function HiIndex() {
           ) : (
             <>
               {feature && (
-                <article className="mt-12 grid grid-cols-1 items-end gap-8 lg:grid-cols-5 lg:gap-12">
+                <article
+                  data-reveal
+                  data-reveal-img
+                  className="mt-12 grid grid-cols-1 items-end gap-8 lg:grid-cols-5 lg:gap-12"
+                >
                   <img
                     src={feature.image}
                     alt={feature.name[lang]}
@@ -512,9 +518,12 @@ function HiIndex() {
                 </article>
               )}
               {rest.length > 0 && (
-                <div className="mt-16 grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+                <div
+                  data-reveal-stagger
+                  className="mt-16 grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3"
+                >
                   {rest.map((f) => (
-                    <article key={f.sku} className="group">
+                    <article key={f.sku} data-reveal data-reveal-img className="group">
                       <img
                         src={f.image}
                         alt={f.name[lang]}
@@ -542,7 +551,7 @@ function HiIndex() {
 
       <AboutSection lang={lang} whatsappUrl={getWhatsAppUrl(lang)} />
 
-      <section aria-hidden="true" className="border-b border-line">
+      <section data-reveal aria-hidden="true" className="border-b border-line">
         <video
           src="/weaving-loom.mp4?v=a787f8f"
           autoPlay
@@ -554,6 +563,7 @@ function HiIndex() {
       </section>
 
       <section
+        data-reveal
         id="scale"
         className="relative overflow-hidden border-b border-line bg-ink text-paper"
       >
@@ -613,7 +623,7 @@ function HiIndex() {
         </div>
       </section>
 
-      <section className="border-b border-line bg-paper">
+      <section data-reveal className="border-b border-line bg-paper">
         <div className="mx-auto max-w-6xl px-6 py-20">
           <div className="max-w-2xl">
             <p className="font-mono text-xs uppercase tracking-[0.2em] text-clay">
@@ -680,7 +690,7 @@ function HiIndex() {
         </div>
       </section>
 
-      <section id="faq" className="border-b border-line bg-paper">
+      <section data-reveal id="faq" className="border-b border-line bg-paper">
         <div className="mx-auto max-w-3xl px-6 py-20">
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-clay">
             {FAQ_SECTION_COPY[lang].marker}
@@ -726,7 +736,7 @@ function HiIndex() {
 
       <FabricDeskSection lang={lang} />
 
-      <section id="contact" className="bg-paper">
+      <section data-reveal id="contact" className="bg-paper">
         <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-6 py-20 lg:grid-cols-2">
           <div>
             <p className="font-mono text-xs uppercase tracking-[0.2em] text-clay">

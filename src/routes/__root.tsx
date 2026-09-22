@@ -108,7 +108,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+Devanagari:wght@400;500;600&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&family=Noto+Sans+Devanagari:wght@200;300;400;500&display=swap",
       },
       {
         rel: "stylesheet",
@@ -159,7 +159,7 @@ function RootShell({ children }: { children: ReactNode }) {
           run, and half-visible content is worse than unanimated content.
         */}
         <noscript>
-          <style>{`[data-reveal]{opacity:1!important;transform:none!important}[data-reveal-img] img,[data-reveal-block] img,[data-reveal-block]>*{transform:none!important}`}</style>
+          <style>{`[data-reveal]{opacity:1!important;transform:none!important}[data-reveal-img] img,[data-reveal-block] [data-reveal-panel],[data-reveal-block] [data-reveal-panel] img{transform:none!important}`}</style>
         </noscript>
       </head>
       <body>

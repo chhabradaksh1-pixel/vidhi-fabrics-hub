@@ -19,11 +19,24 @@
  */
 
 @theme inline {
-  /* Latin faces lead; Noto Sans Devanagari follows so Hindi copy keeps its
-     own script face while Latin headlines get the display serif. */
-  --font-display: "Playfair Display", "Noto Sans Devanagari", Georgia, serif;
+  /* One grotesque, four weights, both scripts — the Inditex model, where a
+     single family carries display, body and labels and there is no serif and
+     no mono anywhere.
+     *
+     * The three tokens are kept rather than collapsed so no component has to
+     * change: `font-display`, `font-body` and `font-mono` all now resolve to
+     * the same family, and the distinction between them is carried by weight,
+     * size and letter-spacing instead of by typeface. `font-mono` in
+     * particular is now a misnomer — it marks the uppercase letterspaced
+     * labels, which are no longer monospaced.
+     *
+     * Noto Sans Devanagari is loaded at the same four weights, so the Hindi
+     * route gets genuine light cuts rather than a synthesised one. Verified
+     * against the Google Fonts API before committing to the light display
+     * weights: it serves 200/300/400/500. */
+  --font-display: "Inter", "Noto Sans Devanagari", system-ui, sans-serif;
   --font-body: "Inter", "Noto Sans Devanagari", system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+  --font-mono: "Inter", "Noto Sans Devanagari", system-ui, sans-serif;
   --color-paper: var(--paper);
   --color-ink: var(--ink);
   --color-mute: var(--mute);
@@ -549,8 +562,13 @@
   }
 
   /* The sliding panel. Starts fully below the frame, so the frame is empty,
-     and travels up to fill it. */
-  .vf-js [data-reveal-block] > * {
+     and travels up to fill it.
+     *
+     * The panel is marked explicitly rather than selected as `> *`. Several
+     * frames carry a sibling alongside the image — a number badge on a journal
+     * card, a caption on the story block — and a child selector would slide
+     * those too, which drags a badge up from below the card. */
+  .vf-js [data-reveal-block] [data-reveal-panel] {
     transform: translate3d(0, 100%, 0);
     transition: transform 0.95s cubic-bezier(0.17, 0.17, 0.5, 1);
     transition-delay: var(--vf-delay, 0ms);
@@ -560,17 +578,21 @@
      counter-moving inside a panel that is itself moving, the image barely
      travels in page space while the frame's edge sweeps across it — so it
      reads as being uncovered, not as sliding in. Dropping this counter-move
-     turns the whole thing into a plain slide and the block feeling goes. */
-  .vf-js [data-reveal-block] img {
+     turns the whole thing into a plain slide and the block feeling goes.
+     *
+     * Scoped to the panel so it cannot fight an image's own transform — the
+     * journal card image carries a `group-hover:scale` that must still work
+     * once the reveal has settled. */
+  .vf-js [data-reveal-block] [data-reveal-panel] img {
     transform: translate3d(0, -42%, 0) scale(1.04);
     transition: transform 0.95s cubic-bezier(0.17, 0.17, 0.5, 1);
     transition-delay: var(--vf-delay, 0ms);
   }
 
-  .vf-js [data-reveal-block].is-in > *,
-  .vf-js [data-reveal].is-in [data-reveal-block] > *,
-  .vf-js [data-reveal-block].is-in img,
-  .vf-js [data-reveal].is-in [data-reveal-block] img {
+  .vf-js [data-reveal-block].is-in [data-reveal-panel],
+  .vf-js [data-reveal].is-in [data-reveal-block] [data-reveal-panel],
+  .vf-js [data-reveal-block].is-in [data-reveal-panel] img,
+  .vf-js [data-reveal].is-in [data-reveal-block] [data-reveal-panel] img {
     transform: none;
   }
 }
@@ -601,8 +623,8 @@
      stays parked at translateY(100%), the frame renders empty and the image
      is simply gone — a content bug rather than a missing animation. */
   .vf-js [data-reveal-img] img,
-  .vf-js [data-reveal-block] img,
-  .vf-js [data-reveal-block] > * {
+  .vf-js [data-reveal-block] [data-reveal-panel],
+  .vf-js [data-reveal-block] [data-reveal-panel] img {
     transform: none !important;
   }
 }

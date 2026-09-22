@@ -47,7 +47,7 @@ export function SiteFooter({ lang = "en" }: { lang?: Lang }) {
           <div>
             <a
               href={home}
-              className="font-display text-2xl font-semibold tracking-tight text-ivory transition-colors hover:text-gold"
+              className="font-display text-2xl font-light tracking-tight text-ivory transition-colors hover:text-gold"
             >
               Vidhi Fabrics
             </a>

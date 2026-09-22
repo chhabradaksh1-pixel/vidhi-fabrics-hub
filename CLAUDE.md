@@ -120,10 +120,14 @@ text rather than merely poor text.
     that contains an `absolute inset-0` click target — the clip would cut off
     that button's focus ring.
   - `data-reveal-block` is the heavier variant: markup must be
-    `<div data-reveal-block><div><img/></div></div>`. The inner panel rises a
-    full frame height while the image counter-moves, so the frame's edge sweeps
-    across a near-stationary image. **The inner element is required** — without
-    it there is nothing to slide and the frame renders empty.
+    `<div data-reveal-block><div data-reveal-panel><img/></div></div>`. The
+    panel rises a full frame height while the image counter-moves, so the
+    frame's edge sweeps across a near-stationary image. **Both the panel
+    element and its attribute are required** — without them there is nothing to
+    slide and the frame renders empty. The panel is marked explicitly rather
+    than matched as `> *` because several frames carry a sibling next to the
+    image — a number badge on a journal card, a caption on the story block —
+    and a child selector drags those up from below too.
   - **Don't build the block reveal out of `clip-path`.** It was written that way
     first and silently did nothing: the base computes with mixed units
     (`inset(0px 0px 100%)`), the minifier normalises the target to `inset(0)`,

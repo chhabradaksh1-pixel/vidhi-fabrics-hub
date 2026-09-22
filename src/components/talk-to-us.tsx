@@ -275,7 +275,7 @@ export function TalkToUs({ lang = "en" }: { lang?: Lang }) {
         >
           <header className="flex shrink-0 items-center justify-between gap-3 border-b border-line bg-ink px-5 py-4 text-paper">
             <div className="min-w-0">
-              <p className="font-display text-lg font-semibold leading-tight">{copy.title}</p>
+              <p className="font-display text-lg font-light leading-tight">{copy.title}</p>
               <p className="truncate font-mono text-[10px] uppercase tracking-[0.14em] text-paper/60">
                 {copy.subtitle}
               </p>

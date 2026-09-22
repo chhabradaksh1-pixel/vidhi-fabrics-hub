@@ -85,7 +85,7 @@ export function JournalIndexPage({ initialLang }: { initialLang: Lang }) {
       <JournalHeader lang={lang} setLang={setLang} paths={paths} />
       <main className="mx-auto max-w-6xl px-6 py-16 lg:py-24" lang={lang === "hi" ? "hi" : "en"}>
         <p className="font-mono text-xs uppercase tracking-[0.18em] text-clay">{copy.journal}</p>
-        <h1 className="mt-5 font-display text-5xl font-semibold tracking-tight sm:text-6xl">
+        <h1 className="mt-5 font-display text-5xl font-light tracking-tight sm:text-6xl">
           {copy.journalTitle}
           <span className="text-clay">.</span>
         </h1>
@@ -135,18 +135,22 @@ export function JournalArticlePage({
           <p className="mt-10 font-mono text-xs uppercase tracking-[0.15em] text-clay">
             {article.category[lang]} · {readingMinutes(article, lang)} {copy.minutes}
           </p>
-          <h1 className="mt-5 text-balance font-display text-4xl font-semibold leading-[1.12] tracking-tight sm:text-5xl lg:text-6xl">
+          <h1 className="mt-5 text-balance font-display text-4xl font-light leading-[1.12] tracking-tight sm:text-5xl lg:text-6xl">
             {article.title[lang]}
           </h1>
           <p className="mt-6 text-sm text-mute">{copy.byline}</p>
-          <img
-            src={article.image}
-            alt={article.imageAlt[lang]}
-            width={1024}
-            height={768}
-            fetchPriority="high"
-            className="mt-10 aspect-[16/9] w-full object-cover"
-          />
+          <div data-reveal data-reveal-block className="mt-10">
+            <div data-reveal-panel>
+              <img
+                src={article.image}
+                alt={article.imageAlt[lang]}
+                width={1024}
+                height={768}
+                fetchPriority="high"
+                className="aspect-[16/9] w-full object-cover"
+              />
+            </div>
+          </div>
           <div className="mx-auto max-w-[65ch]">
             <p className="mt-10 text-lg leading-relaxed text-mute">{article.introduction[lang]}</p>
             <nav aria-label={copy.toc} className="my-10 border-y border-line py-6">
@@ -168,7 +172,7 @@ export function JournalArticlePage({
             </nav>
             {article.sections.map((section, i) => (
               <section key={section.heading.en} id={`step-${i + 1}`} className="mt-10 scroll-mt-8">
-                <h2 className="font-display text-2xl font-semibold sm:text-3xl">
+                <h2 className="font-display text-2xl font-light sm:text-3xl">
                   {section.heading[lang]}
                 </h2>
                 {section.paragraphs[lang].map((paragraph) => (
@@ -189,7 +193,7 @@ export function JournalArticlePage({
             ))}
             {article.closing && (
               <section className="mt-12 border-t border-line pt-8">
-                <h2 className="font-display text-2xl font-semibold sm:text-3xl">
+                <h2 className="font-display text-2xl font-light sm:text-3xl">
                   {article.closing.heading[lang]}
                 </h2>
                 <p className="mt-5 leading-[1.85] text-mute">{article.closing.intro[lang]}</p>
@@ -202,11 +206,11 @@ export function JournalArticlePage({
             )}
             {article.faq && (
               <section className="mt-12 border-t border-line pt-8">
-                <h2 className="font-display text-2xl font-semibold sm:text-3xl">{copy.faq}</h2>
+                <h2 className="font-display text-2xl font-light sm:text-3xl">{copy.faq}</h2>
                 <dl>
                   {article.faq.map((entry) => (
                     <div key={entry.question.en} className="mt-7">
-                      <dt className="font-display text-lg font-semibold leading-snug">
+                      <dt className="font-display text-lg font-light leading-snug">
                         {entry.question[lang]}
                       </dt>
                       <dd className="mt-3 leading-[1.85] text-mute">{entry.answer[lang]}</dd>
@@ -219,7 +223,7 @@ export function JournalArticlePage({
               <p className="font-mono text-xs uppercase tracking-widest">
                 {article.cta?.kicker[lang] ?? copy.ctaKicker}
               </p>
-              <h2 className="mt-4 font-display text-3xl font-semibold">
+              <h2 className="mt-4 font-display text-3xl font-light">
                 {article.cta?.heading[lang] ?? copy.ctaHeading}
               </h2>
               <p className="mt-4 leading-relaxed text-paper/80">
@@ -236,7 +240,7 @@ export function JournalArticlePage({
               </a>
             </aside>
             <div className="border-t border-line pt-8">
-              <h2 className="font-display text-2xl font-semibold">{copy.related}</h2>
+              <h2 className="font-display text-2xl font-light">{copy.related}</h2>
               <ul className="mt-5 space-y-4">
                 {relatedArticles(article, RELATED_COUNT).map((item) => (
                   <li key={item.slug}>

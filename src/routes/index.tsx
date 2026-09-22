@@ -265,7 +265,7 @@ function Index() {
             <a
               href="/"
               aria-label="Vidhi Fabrics — go to the homepage"
-              className="font-display text-2xl font-semibold tracking-tight transition-colors hover:text-clay"
+              className="font-display text-2xl font-light tracking-tight transition-colors hover:text-clay"
             >
               {COPY.brand[lang]}
             </a>
@@ -344,7 +344,7 @@ function Index() {
             <p className="font-mono text-xs uppercase tracking-[0.2em] text-clay">
               {COPY.hero.eyebrow[lang]}
             </p>
-            <h1 className="mt-5 text-balance font-display text-5xl font-semibold leading-[1.03] tracking-tight lg:text-6xl">
+            <h1 className="mt-5 text-balance font-display text-5xl font-extralight leading-[1.03] tracking-tight lg:text-6xl">
               {COPY.hero.heading[lang]}
             </h1>
             <p className="mt-6 max-w-[46ch] text-pretty text-lg text-mute">
@@ -490,14 +490,14 @@ function Index() {
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-claylight">
             {COPY.scale.marker[lang]}
           </p>
-          <h2 className="mt-3 max-w-[20ch] text-balance font-display text-4xl font-semibold tracking-tight lg:text-5xl">
+          <h2 className="mt-3 max-w-[20ch] text-balance font-display text-4xl font-light tracking-tight lg:text-5xl">
             {COPY.scale.heading[lang]}
           </h2>
 
           <div className="mt-12 grid grid-cols-2 gap-px bg-paper/15 lg:grid-cols-4">
             {COPY.scale.stats.map((s) => (
               <div key={s.value} className="bg-ink p-6">
-                <p className="font-display text-4xl font-semibold break-words text-claylight sm:text-5xl">
+                <p className="font-display text-4xl font-light break-words text-claylight sm:text-5xl">
                   {s.value}
                 </p>
                 <p className="mt-2 font-mono text-xs uppercase tracking-[0.12em] text-paper/60">
@@ -509,7 +509,7 @@ function Index() {
 
           <div className="mt-12 grid grid-cols-1 items-center gap-8 lg:grid-cols-2">
             <div data-reveal-block className="rounded-md">
-              <div>
+              <div data-reveal-panel>
                 <img
                   src={swatchBook}
                   alt={COPY.scale.imageAlt[lang]}
@@ -521,7 +521,7 @@ function Index() {
               </div>
             </div>
             <div className="max-w-[40ch] text-pretty text-base text-paper/80">
-              <p className="font-display text-2xl font-semibold text-paper">
+              <p className="font-display text-2xl font-light text-paper">
                 {COPY.scale.certTitle[lang]}
               </p>
               <p className="mt-4">{COPY.scale.certBody[lang]}</p>
@@ -536,7 +536,7 @@ function Index() {
             <p className="font-mono text-xs uppercase tracking-[0.2em] text-clay">
               {COPY.testimonials.marker[lang]}
             </p>
-            <h2 className="mt-3 text-balance font-display text-4xl font-semibold tracking-tight lg:text-5xl">
+            <h2 className="mt-3 text-balance font-display text-4xl font-light tracking-tight lg:text-5xl">
               {COPY.testimonials.heading[lang]}
             </h2>
             <p className="mt-5 max-w-[60ch] text-pretty text-mute">
@@ -547,7 +547,7 @@ function Index() {
           <dl className="mt-12 grid grid-cols-1 gap-8 border-y border-line py-10 sm:grid-cols-3 sm:gap-6">
             {COPY.testimonials.proof.map((stat) => (
               <div key={stat.label.en} className="sm:text-center">
-                <dd className="font-display text-4xl font-semibold tracking-tight text-clay sm:text-5xl">
+                <dd className="font-display text-4xl font-light tracking-tight text-clay sm:text-5xl">
                   {stat.value[lang]}
                 </dd>
                 <dt className="mx-auto mt-3 max-w-[22ch] text-sm leading-relaxed text-mute">
@@ -569,7 +569,7 @@ function Index() {
               >
                 <span aria-hidden="true">★★★★★</span>
               </p>
-              <blockquote className="mt-6 text-balance font-display text-2xl font-semibold leading-snug tracking-tight text-ink sm:text-3xl lg:text-4xl">
+              <blockquote className="mt-6 text-balance font-display text-2xl font-light leading-snug tracking-tight text-ink sm:text-3xl lg:text-4xl">
                 {leadVoice.quote[lang]}
               </blockquote>
               <figcaption className="mt-7 font-mono text-xs uppercase tracking-[0.16em] text-mute">
@@ -607,14 +607,14 @@ function Index() {
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-clay">
             {FAQ_SECTION_COPY[lang].marker}
           </p>
-          <h2 className="mt-3 font-display text-4xl font-semibold tracking-tight lg:text-5xl">
+          <h2 className="mt-3 font-display text-4xl font-light tracking-tight lg:text-5xl">
             {FAQ_SECTION_COPY[lang].heading}
           </h2>
 
           <Accordion type="single" collapsible className="mt-10">
             {FAQS.map((faq, index) => (
               <AccordionItem key={faq.question.en} value={`faq-${index}`} className="border-line">
-                <AccordionTrigger className="font-display text-lg font-semibold text-ink hover:no-underline">
+                <AccordionTrigger className="font-display text-lg font-light text-ink hover:no-underline">
                   {faq.question[lang]}
                 </AccordionTrigger>
                 <AccordionContent className="max-w-2xl text-base leading-relaxed text-mute">
@@ -654,7 +654,7 @@ function Index() {
             <p className="font-mono text-xs uppercase tracking-[0.2em] text-clay">
               {COPY.contact.marker[lang]}
             </p>
-            <h2 className="mt-3 text-balance font-display text-4xl font-semibold tracking-tight lg:text-5xl">
+            <h2 className="mt-3 text-balance font-display text-4xl font-light tracking-tight lg:text-5xl">
               {COPY.contact.heading[lang]}
             </h2>
             <p className="mt-5 max-w-[40ch] text-pretty text-mute">{COPY.contact.body[lang]}</p>
@@ -816,10 +816,7 @@ function LeadPopup({ lang, onClose }: LeadPopupProps) {
       >
         <div className="flex items-start justify-between gap-6">
           <div>
-            <h2
-              id="lead-popup-heading"
-              className="font-display text-3xl font-semibold tracking-tight"
-            >
+            <h2 id="lead-popup-heading" className="font-display text-3xl font-light tracking-tight">
               {copy.heading[lang]}
             </h2>
             <p className="mt-2 text-sm text-mute">{copy.body[lang]}</p>

@@ -99,7 +99,7 @@ export function FabricCatalogueSection({ lang }: { lang: Lang }) {
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-clay">
             {COPY.catalogue.marker[lang]}
           </p>
-          <h2 className="mt-2 font-display text-4xl font-semibold tracking-tight">
+          <h2 className="mt-2 font-display text-4xl font-light tracking-tight">
             {COPY.catalogue.heading[lang]}
           </h2>
           <p className="mt-3 max-w-[55ch] text-sm text-mute">{COPY.catalogue.body[lang]}</p>
@@ -283,7 +283,7 @@ function SpecTable({
                 <button
                   type="button"
                   onClick={() => onOpen(f.sku)}
-                  className="text-left font-display text-lg font-semibold tracking-tight underline-offset-4 hover:underline"
+                  className="text-left font-display text-lg font-light tracking-tight underline-offset-4 hover:underline"
                 >
                   {f.name[lang]}
                   <span className="sr-only"> — {COPY.catalogue.detailOpen[lang]}</span>
@@ -330,7 +330,7 @@ function FabricGrid({
           className="relative mt-12 grid grid-cols-1 items-end gap-8 lg:grid-cols-5 lg:gap-12"
         >
           <div data-reveal-block className="lg:col-span-3">
-            <div>
+            <div data-reveal-panel>
               <img
                 src={feature.image}
                 alt={feature.name[lang]}
@@ -345,7 +345,7 @@ function FabricGrid({
             <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-clay">
               {feature.sku} · {feature.tag[lang]}
             </p>
-            <h3 className="mt-4 font-display text-3xl font-semibold leading-tight tracking-tight lg:text-4xl">
+            <h3 className="mt-4 font-display text-3xl font-light leading-tight tracking-tight lg:text-4xl">
               {feature.name[lang]}
             </h3>
             <p className="mt-4 text-base leading-relaxed text-mute">{feature.spec[lang]}</p>
@@ -368,21 +368,23 @@ function FabricGrid({
         >
           {rest.map((f) => (
             <article key={f.sku} data-reveal className="group relative">
-              <div data-reveal-img>
-                <img
-                  src={f.image}
-                  alt={f.name[lang]}
-                  loading="lazy"
-                  width={1024}
-                  height={768}
-                  className="aspect-[4/3] w-full object-cover"
-                />
+              <div data-reveal-block>
+                <div data-reveal-panel>
+                  <img
+                    src={f.image}
+                    alt={f.name[lang]}
+                    loading="lazy"
+                    width={1024}
+                    height={768}
+                    className="aspect-[4/3] w-full object-cover"
+                  />
+                </div>
               </div>
               <div className="mt-4 flex items-baseline justify-between gap-3 font-mono text-[11px] text-mute">
                 <span>{f.sku}</span>
                 <span>{f.tag[lang]}</span>
               </div>
-              <h3 className="mt-2 font-display text-xl font-semibold tracking-tight">
+              <h3 className="mt-2 font-display text-xl font-light tracking-tight">
                 {f.name[lang]}
               </h3>
               <p className="mt-1 text-sm text-mute">{f.spec[lang]}</p>
@@ -489,7 +491,7 @@ function FabricDetail({
             </p>
             <h3
               id="fabric-detail-heading"
-              className="mt-2 font-display text-2xl font-semibold tracking-tight"
+              className="mt-2 font-display text-2xl font-light tracking-tight"
             >
               {fabric.name[lang]}
             </h3>

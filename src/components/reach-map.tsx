@@ -28,7 +28,7 @@ export function ReachMapSection({ lang = "en" }: { lang?: Lang }) {
         <p className="font-mono text-xs uppercase tracking-[0.18em] text-clay">{copy.marker}</p>
         <h2
           id="reach-heading"
-          className="mt-4 font-display text-4xl font-semibold tracking-tight lg:text-5xl"
+          className="mt-4 font-display text-4xl font-light tracking-tight lg:text-5xl"
         >
           {copy.heading}
         </h2>

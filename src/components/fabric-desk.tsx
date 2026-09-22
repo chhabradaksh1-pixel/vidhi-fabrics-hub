@@ -26,30 +26,39 @@ export function AboutSection({ lang, whatsappUrl }: { lang: Lang; whatsappUrl: s
   return (
     <section
       id="about"
+      data-reveal
       aria-labelledby="about-heading"
       className="scroll-mt-36 border-b border-line bg-sand"
     >
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-20 lg:grid-cols-2 lg:gap-20 lg:py-24">
         <div className="relative pb-12 pr-10 sm:pr-16">
-          <img
-            src={jacquard}
-            alt="Rust-red fabric with intricate woven motifs"
-            width={1024}
-            height={768}
-            loading="lazy"
-            decoding="async"
-            className="aspect-[4/5] w-full object-cover"
-          />
+          <div data-reveal-block>
+            <div data-reveal-panel>
+              <img
+                src={jacquard}
+                alt="Rust-red fabric with intricate woven motifs"
+                width={1024}
+                height={768}
+                loading="lazy"
+                decoding="async"
+                className="aspect-[4/5] w-full object-cover"
+              />
+            </div>
+          </div>
           <div className="absolute bottom-0 right-0 w-[48%] border-8 border-sand">
-            <img
-              src={cotton}
-              alt="Soft cream fabric with a visible weave"
-              width={1024}
-              height={768}
-              loading="lazy"
-              decoding="async"
-              className="aspect-square w-full object-cover"
-            />
+            <div data-reveal-block>
+              <div data-reveal-panel>
+                <img
+                  src={cotton}
+                  alt="Soft cream fabric with a visible weave"
+                  width={1024}
+                  height={768}
+                  loading="lazy"
+                  decoding="async"
+                  className="aspect-square w-full object-cover"
+                />
+              </div>
+            </div>
           </div>
           <p className="absolute bottom-3 left-0 max-w-[45%] font-mono text-[10px] uppercase leading-relaxed tracking-widest text-mute">
             {copy.detail}
@@ -59,7 +68,7 @@ export function AboutSection({ lang, whatsappUrl }: { lang: Lang; whatsappUrl: s
           <p className="font-mono text-xs uppercase tracking-[0.18em] text-clay">{copy.marker}</p>
           <h2
             id="about-heading"
-            className="mt-5 text-balance font-display text-4xl font-semibold leading-[1.12] tracking-tight lg:text-5xl"
+            className="mt-5 text-balance font-display text-4xl font-light leading-[1.12] tracking-tight lg:text-5xl"
           >
             {copy.title}
             <span className="mt-2 block text-clay">{copy.titleEnd}</span>
@@ -109,16 +118,18 @@ export function JournalCard({
         className="flex h-full flex-col"
         aria-label={`${readLabel}: ${article.title[lang]}`}
       >
-        <div className="relative overflow-hidden bg-sand">
-          <img
-            src={article.image}
-            alt={article.imageAlt[lang]}
-            width={1024}
-            height={768}
-            loading="lazy"
-            decoding="async"
-            className="aspect-[4/3] w-full object-cover transition-transform duration-300 group-hover:scale-[1.03] motion-reduce:transform-none"
-          />
+        <div data-reveal-block className="relative overflow-hidden bg-sand">
+          <div data-reveal-panel>
+            <img
+              src={article.image}
+              alt={article.imageAlt[lang]}
+              width={1024}
+              height={768}
+              loading="lazy"
+              decoding="async"
+              className="aspect-[4/3] w-full object-cover transition-transform duration-300 group-hover:scale-[1.03] motion-reduce:transform-none"
+            />
+          </div>
           <span className="absolute left-4 top-4 bg-paper px-3 py-2 font-mono text-xs text-clay">
             {String(number).padStart(2, "0")}
           </span>
@@ -127,7 +138,7 @@ export function JournalCard({
           <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-clay">
             {article.category[lang]} · {readingMinutes(article, lang)} {MINUTES_LABEL[lang]}
           </p>
-          <Heading className="mt-4 font-display text-2xl font-semibold leading-snug tracking-tight">
+          <Heading className="mt-4 font-display text-2xl font-light leading-snug tracking-tight">
             {article.title[lang]}
           </Heading>
           <p className="mb-7 mt-3 text-sm leading-relaxed text-mute">{article.excerpt[lang]}</p>
@@ -188,11 +199,13 @@ function JournalRail({ lang, copy }: { lang: Lang; copy: (typeof SECTION_COPY)["
       <div
         ref={rail}
         onScroll={measure}
+        data-reveal-stagger
         className="flex snap-x snap-mandatory gap-6 overflow-x-auto overscroll-x-contain [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
         {JOURNAL.map((article, index) => (
           <div
             key={article.slug}
+            data-reveal
             className="min-w-0 shrink-0 basis-[85%] snap-start sm:basis-[48%] lg:basis-[31%]"
           >
             <JournalCard
@@ -243,7 +256,7 @@ export function FabricDeskSection({ lang = "en" }: { lang?: Lang }) {
             </p>
             <h2
               id="fabric-desk-heading"
-              className="mt-4 font-display text-4xl font-semibold tracking-tight lg:text-5xl"
+              className="mt-4 font-display text-4xl font-light tracking-tight lg:text-5xl"
             >
               Surat Fabric Desk<span className="text-clay">.</span>
             </h2>
@@ -350,7 +363,7 @@ export function JournalHeader({
         <a
           href={home}
           aria-label="Vidhi Fabrics — go to the homepage"
-          className="font-display text-2xl font-semibold tracking-tight transition-colors hover:text-clay sm:whitespace-nowrap"
+          className="font-display text-2xl font-light tracking-tight transition-colors hover:text-clay sm:whitespace-nowrap"
         >
           Vidhi Fabrics
         </a>

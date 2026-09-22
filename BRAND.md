@@ -82,8 +82,8 @@ because the larger claim isn't provable. "Built on repeat business" rather than
 "trusted by thousands" — a shape of evidence instead of a number nobody
 audited. That restraint is the voice, not a limitation on it.
 
-**Sentence case for headings.** Mono labels are the only uppercase, and they
-are labels, not sentences.
+**Sentence case for headings.** The letterspaced labels are the only
+uppercase, and they are labels, not sentences.
 
 **The reader is a peer.** Not "we are delighted to offer" and not "grab yours
 now." A trader talking to a trader about cloth.
@@ -161,25 +161,49 @@ A mean that passes hides a worst case that doesn't.
 
 ## Type
 
-| Role    | Stack                                                  |
-| ------- | ------------------------------------------------------ |
-| Display | Playfair Display, Noto Sans Devanagari, Georgia, serif |
-| Body    | Inter, Noto Sans Devanagari, system-ui, sans-serif     |
-| Mono    | JetBrains Mono, SF Mono, Consolas, monospace           |
+**One grotesque, four weights, no serif and no mono.** This is the Inditex
+model: a single family carries display, body and labels, and the difference
+between them is weight, size and letter-spacing rather than typeface.
 
-Playfair carries headings and the wordmark; Inter carries everything readable
-at length; JetBrains Mono carries labels, section markers, stat captions and
-the established line — always uppercase, always letterspaced (`0.12em`–`0.2em`).
+| Role    | Stack                                              | Weight  |
+| ------- | -------------------------------------------------- | ------- |
+| Display | Inter, Noto Sans Devanagari, system-ui, sans-serif | 200–300 |
+| Body    | Inter, Noto Sans Devanagari, system-ui, sans-serif | 400     |
+| Label   | Inter, Noto Sans Devanagari, system-ui, sans-serif | 400     |
+
+The hero runs at 200, every other heading at 300, body at 400. Labels, section
+markers and stat captions stay uppercase and letterspaced (`0.12em`–`0.2em`) —
+that treatment is what still distinguishes them now that they are no longer
+monospaced.
+
+The three tokens in `styles.css` are kept — `--font-display`, `--font-body`,
+`--font-mono` — but all three resolve to the same family, so no component had
+to change. **`--font-mono` is now a misnomer**: it marks the letterspaced
+labels and is not monospaced. Renaming it would touch every component that
+reads it; the name is historical, the value is not. One consequence worth
+knowing: the stat figures are no longer tabular, so columns of numbers will not
+align on the decimal the way they did.
+
+Previously Playfair Display carried headings and the wordmark and JetBrains
+Mono carried labels. Four families are now two, which is less to load, not
+more, despite adding two weights.
 
 The Devanagari fallback sits in every stack because the Hindi route uses the
-same styles. Check Hindi rendering when touching type — Devanagari needs more
-line height than Latin at the same size, and headline wraps differ.
+same styles. **Noto Sans Devanagari is loaded at the same four weights**, so
+Hindi gets genuine light cuts instead of a synthesised one — this was verified
+against the Google Fonts API before the light display weights were committed
+to, because a missing light cut would have left the Hindi headings faking a
+weight the font does not have. Check Hindi rendering when touching type:
+Devanagari needs more line height than Latin at the same size, headline wraps
+differ, and light weights thin its conjuncts faster than they thin Latin.
 
 ## Logo and icons
 
-There is no drawn logotype. The brand mark is **"Vidhi Fabrics" set in Playfair
-Display semibold**, tight tracking, beside a mono established line in `mute`
-that hides below the `sm` breakpoint. The string is stored sentence case
+There is no drawn logotype. The brand mark is **"Vidhi Fabrics" set in the
+site grotesque**, tight tracking, beside a letterspaced established line in
+`mute` that hides below the `sm` breakpoint. It was Playfair Display semibold
+until the type system went to a single family; the wordmark follows the
+type system rather than keeping a serif of its own. The string is stored sentence case
 ("Surat · Since the 1960s") and rendered uppercase by the label style.
 
 The icon is a clay tile with a paper **V** (`public/favicon.svg`): a `#8A412E`

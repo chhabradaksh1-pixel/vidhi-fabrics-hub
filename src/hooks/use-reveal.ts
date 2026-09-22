@@ -86,6 +86,31 @@ export function useReveal(): void {
       }
     }
 
-    return () => observer.disconnect();
+    // Elements that appear LATER must never stay staged.
+    //
+    // The catalogue re-renders its cards on every search keystroke, facet and
+    // sort change. Those cards mount carrying `data-reveal`, so without this
+    // they would sit at opacity 0 permanently — the observer only ever saw the
+    // nodes that existed at mount, and a filtered result that renders
+    // invisible is a far worse bug than a missing animation.
+    //
+    // They are revealed immediately rather than animated: a card arriving in
+    // response to typing should already be there, and replaying a rise on
+    // every keystroke would be unreadable.
+    const mutations = new MutationObserver((records) => {
+      for (const record of records) {
+        for (const added of record.addedNodes) {
+          if (!(added instanceof HTMLElement)) continue;
+          if (added.matches("[data-reveal]")) show(added);
+          added.querySelectorAll<HTMLElement>("[data-reveal]").forEach(show);
+        }
+      }
+    });
+    mutations.observe(document.body, { childList: true, subtree: true });
+
+    return () => {
+      observer.disconnect();
+      mutations.disconnect();
+    };
   }, []);
 }

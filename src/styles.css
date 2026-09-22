@@ -498,8 +498,15 @@
      than simply being present. Longer than the text so the two don't land on
      the same beat. */
 
-  /* The overscale has to be clipped by the card, or a 4% bleed pushes past the
-     grid track and can add horizontal scroll on small screens. */
+  /* The overscale has to be clipped, or a 4% bleed pushes past the grid track
+     and can add horizontal scroll on small screens.
+
+     Put `data-reveal-img` on a wrapper around the image, NOT on the card
+     itself. Catalogue cards carry a full-bleed `absolute inset-0` button as
+     their click target, and the focus ring sits 3px outside that box
+     (`outline-offset`), so `overflow: hidden` on the card would clip the focus
+     indicator and leave keyboard users with no visible focus. Clipping a
+     wrapper that contains only the image avoids that entirely. */
   .vf-js [data-reveal-img] {
     overflow: hidden;
   }
@@ -510,7 +517,11 @@
     transition-delay: var(--vf-delay, 0ms);
   }
 
-  .vf-js [data-reveal-img].is-in img {
+  /* Settles either when the marker is on the revealing element itself, or when
+     it is on a wrapper inside one. The second form is what lets a card animate
+     without the card having to be the thing that clips. */
+  .vf-js [data-reveal-img].is-in img,
+  .vf-js [data-reveal].is-in [data-reveal-img] img {
     transform: none;
   }
 }

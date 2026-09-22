@@ -8,29 +8,22 @@ Claude Code loads this file at the start of every session. Keep it current —
 when a rule below stops being true, edit it here rather than relying on a chat
 nobody can read any more.
 
-## The business, and what the site may claim
+**Read `BRAND.md` as well, before writing any copy or choosing any colour.** It
+is the other half of the brief and it is not auto-loaded: positioning, voice,
+the claims that are off limits, the measured palette and contrast rules, and
+the photography direction all live there. It is the authority on all of that;
+this file does not repeat it.
+
+## The business
 
 Vidhi Fabrics is a textile supplier and wholesaler in Surat, in the trade since
-the 1960s. Positioning, in the owner's words:
+the 1960s.
 
 > One textile supplier. Access to Surat's entire manufacturing ecosystem.
 
-A **supplier** — not a broker, marketplace, agent or directory. Copy should
-never imply the business is a middleman passing enquiries along.
-
-**Never claim any of these.** The owner listed them explicitly as off-limits
-because they cannot be substantiated:
-
-- Best price / lowest price / direct-from-manufacturer pricing
-- Guaranteed quality / guaranteed delivery
-- A fixed MOQ or a fixed lead time
-- Any unverified certification, production capacity or export statistic
-
-Figures the owner has confirmed and that may be used: in the trade since the
-1960s, 2,400+ active SKUs, 10+ export markets, 12k m²/month, typical enquiry
-reply within 12 hours. Note the owner rejected surfacing the reply-time figure
-as "we reply to wholesale enquiries" — it reads as though small boutiques are
-not welcome, and they are.
+A **supplier** — not a broker, marketplace, agent or directory. What may and
+may not be claimed on the site is set out in `BRAND.md`; some claims the owner
+has ruled out explicitly, so check there before writing copy.
 
 Contact details live in one place: `src/content/business.ts`. The WhatsApp
 number lives in `src/content/whatsapp.ts`. Never hardcode a second copy of
@@ -84,17 +77,11 @@ Romanised Hindi, not English.
 **`index.tsx` and `hi.tsx` are near-duplicates.** Any change to one almost
 always belongs in the other. Check both before calling a change done.
 
-**Design tokens** (`src/styles.css`). Warm palette: `paper #FBFBF8`,
-`ink`, `mute`, `clay`, `claydeep`, `claylight #c98a6b`, `sand`, `line`. The
-footer adds `navy #101A2C`, `gold #C6A15B`, `ivory #F7F1E8`.
-
-`clay` is **only 2.29:1 on ink** — it fails WCAG AA on dark surfaces. On
-`bg-ink` or `bg-navy`, use `claylight` (5.83:1). On paper and sand, `clay` is
-fine. This bit real text in the Scale section; check it whenever putting a
-brand colour on a dark ground.
-
-Fonts: Playfair Display (display), Inter (body), JetBrains Mono (labels), each
-with a Noto Sans Devanagari fallback for Hindi.
+**Design tokens and font stacks** are defined in `src/styles.css`, and the
+values, roles and contrast rules are documented in `BRAND.md`. One rule is
+worth carrying here because it has already shipped as a live bug: `clay` is
+only 2.29:1 on `ink` and fails AA on any dark ground — use `claylight` there.
+`BRAND.md` has the full measured table.
 
 ## Conventions
 

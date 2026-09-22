@@ -10,6 +10,7 @@ import type { Fabric } from "./translations";
 export const FABRICS: Fabric[] = [
   {
     sku: "VF-C-014",
+    widthIn: 58,
     category: "cotton",
     image: cottonLinen,
     name: {
@@ -26,6 +27,7 @@ export const FABRICS: Fabric[] = [
   },
   {
     sku: "VF-S-208",
+    widthIn: 44,
     category: "jacquard",
     image: katanJacquard,
     name: {
@@ -46,6 +48,7 @@ export const FABRICS: Fabric[] = [
   },
   {
     sku: "VF-L-077",
+    widthIn: 54,
     category: "linen",
     image: linenShirting,
     name: {
@@ -66,6 +69,7 @@ export const FABRICS: Fabric[] = [
   },
   {
     sku: "VF-P-331",
+    widthIn: 59,
     category: "polyester",
     image: performanceTwill,
     name: {
@@ -86,6 +90,7 @@ export const FABRICS: Fabric[] = [
   },
   {
     sku: "VF-S-152",
+    widthIn: 42,
     category: "silk",
     image: beadedOrganza,
     name: {
@@ -102,6 +107,7 @@ export const FABRICS: Fabric[] = [
   },
   {
     sku: "VF-C-090",
+    widthIn: 58,
     category: "cotton",
     image: denimCanvas,
     name: {

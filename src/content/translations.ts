@@ -15,6 +15,12 @@ export type Fabric = {
   name: Record<Lang, string>;
   tag: Record<Lang, string>;
   spec: Record<Lang, string>;
+  /**
+   * Width in inches, used to sort the catalogue. It duplicates the width
+   * already written into `spec`, because that string is localised prose and
+   * not safe to parse. Keep the two in step when editing a fabric.
+   */
+  widthIn: number;
 };
 
 export const CATEGORY_LABELS: Record<FabricCategory, Record<Lang, string>> = {
@@ -208,6 +214,66 @@ export const COPY = {
       en: "No fabrics in this category yet.",
       hi: "इस श्रेणी में अभी कोई कपड़ा नहीं है।",
       "hi-en": "Is category mein abhi koi fabric nahi hai.",
+    },
+    noResults: {
+      en: "Nothing matches that search.",
+      hi: "इस खोज से कुछ मेल नहीं खाता।",
+      "hi-en": "Is search se kuch match nahi hua.",
+    },
+    searchLabel: {
+      en: "Search the catalogue",
+      hi: "कैटलॉग में खोजें",
+      "hi-en": "Catalogue mein search karein",
+    },
+    searchPlaceholder: {
+      en: "Fabric, SKU or specification",
+      hi: "फैब्रिक, SKU या स्पेसिफिकेशन",
+      "hi-en": "Fabric, SKU ya specification",
+    },
+    filterLabel: {
+      en: "Filter by material",
+      hi: "सामग्री से छाँटें",
+      "hi-en": "Material se filter karein",
+    },
+    sortLabel: { en: "Sort", hi: "क्रम", "hi-en": "Sort" },
+    sortName: { en: "Name", hi: "नाम से", "hi-en": "Naam se" },
+    sortSku: { en: "SKU", hi: "SKU", "hi-en": "SKU" },
+    sortWidth: {
+      en: "Width, narrow first",
+      hi: "चौड़ाई, कम से ज़्यादा",
+      "hi-en": "Width, kam se zyada",
+    },
+    viewLabel: { en: "View", hi: "दृश्य", "hi-en": "View" },
+    viewGrid: { en: "Grid", hi: "ग्रिड", "hi-en": "Grid" },
+    viewTable: { en: "Specifications", hi: "स्पेसिफिकेशन", "hi-en": "Specifications" },
+    clear: { en: "Clear", hi: "हटाएँ", "hi-en": "Hataayein" },
+    /* {shown} and {total} are replaced at render time. */
+    count: {
+      en: "Showing {shown} of {total}",
+      hi: "{total} में से {shown} दिखाए जा रहे हैं",
+      "hi-en": "{total} mein se {shown} dikhaye ja rahe hain",
+    },
+    colSku: { en: "SKU", hi: "SKU", "hi-en": "SKU" },
+    colName: { en: "Fabric", hi: "फैब्रिक", "hi-en": "Fabric" },
+    colComposition: { en: "Composition", hi: "संरचना", "hi-en": "Composition" },
+    colWidth: { en: "Width", hi: "चौड़ाई", "hi-en": "Width" },
+    colSpec: { en: "Specification", hi: "स्पेसिफिकेशन", "hi-en": "Specification" },
+    detailOpen: {
+      en: "View specifications",
+      hi: "स्पेसिफिकेशन देखें",
+      "hi-en": "Specifications dekhein",
+    },
+    detailClose: { en: "Close", hi: "बंद करें", "hi-en": "Band karein" },
+    detailEnquire: {
+      en: "Ask about this fabric",
+      hi: "इस फैब्रिक के बारे में पूछें",
+      "hi-en": "Is fabric ke baare mein poochein",
+    },
+    /* {name} and {sku} are replaced at render time. */
+    enquiryMessage: {
+      en: "Hello Vidhi Fabrics, I would like details on {name} ({sku}).",
+      hi: "नमस्ते विधि फैब्रिक्स, मुझे {name} ({sku}) की जानकारी चाहिए।",
+      "hi-en": "Namaste Vidhi Fabrics, mujhe {name} ({sku}) ki details chahiye.",
     },
   },
   scale: {

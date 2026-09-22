@@ -3,6 +3,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { Linkedin } from "lucide-react";
 import { AboutSection, FabricDeskSection, StoryLinks } from "@/components/fabric-desk";
 import { ADDRESS_LINES, BUSINESS } from "@/content/business";
+import { FabricCatalogueSection } from "@/components/fabric-catalogue";
 import { ReachMapSection } from "@/components/reach-map";
 import { SiteFooter } from "@/components/site-footer";
 import { TalkToUs } from "@/components/talk-to-us";
@@ -16,8 +17,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { FABRICS } from "@/content/fabrics";
-import { CATEGORY_LABELS, COPY, type FabricCategory, type Lang } from "@/content/translations";
+import { COPY, type Lang } from "@/content/translations";
 
 const EN_URL = "https://www.vidhifabrics.com/";
 const HI_URL = "https://www.vidhifabrics.com/hi";
@@ -55,8 +55,6 @@ export const Route = createFileRoute("/hi")({
   }),
   component: HiIndex,
 });
-
-const CATEGORIES: FabricCategory[] = ["all", "cotton", "silk", "linen", "polyester", "jacquard"];
 
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/maeypydr";
 
@@ -240,7 +238,6 @@ function getWhatsAppUrl(lang: Lang) {
 
 function HiIndex() {
   const [lang, setLang] = useState<Lang>("hi");
-  const [category, setCategory] = useState<FabricCategory>("all");
   const [sent, setSent] = useState(false);
   const [inquiryStatus, setInquiryStatus] = useState<"idle" | "sending" | "success" | "error">(
     "idle",
@@ -254,12 +251,6 @@ function HiIndex() {
     setLeadOpen(true);
   }, []);
 
-  const fabrics = useMemo(
-    () => (category === "all" ? FABRICS : FABRICS.filter((f) => f.category === category)),
-    [category],
-  );
-  const feature = fabrics[0];
-  const rest = fabrics.slice(1);
   const leadVoice = COPY.testimonials.cards[0];
   const otherVoices = COPY.testimonials.cards.slice(1);
 
@@ -455,90 +446,7 @@ function HiIndex() {
         </div>
       </section>
 
-      <section id="catalogue" className="border-b border-line">
-        <div className="mx-auto max-w-6xl px-6 py-16">
-          <div className="flex flex-wrap items-end justify-between gap-6">
-            <div>
-              <p className="font-mono text-xs uppercase tracking-[0.2em] text-clay">
-                {COPY.catalogue.marker[lang]}
-              </p>
-              <h2 className="mt-2 font-display text-4xl font-semibold tracking-tight">
-                {COPY.catalogue.heading[lang]}
-              </h2>
-              <p className="mt-3 max-w-[55ch] text-sm text-mute">{COPY.catalogue.body[lang]}</p>
-            </div>
-            <div className="flex flex-wrap gap-2 font-mono text-xs">
-              {CATEGORIES.map((c) => (
-                <button
-                  key={c}
-                  type="button"
-                  onClick={() => setCategory(c)}
-                  aria-pressed={category === c}
-                  className={`rounded-sm px-3 py-2 transition-colors ${
-                    category === c
-                      ? "bg-ink text-paper"
-                      : "text-mute ring-1 ring-line hover:text-ink"
-                  }`}
-                >
-                  {CATEGORY_LABELS[c][lang]}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {fabrics.length === 0 ? (
-            <p className="mt-10 text-sm text-mute">{COPY.catalogue.empty[lang]}</p>
-          ) : (
-            <>
-              {feature && (
-                <article className="mt-12 grid grid-cols-1 items-end gap-8 lg:grid-cols-5 lg:gap-12">
-                  <img
-                    src={feature.image}
-                    alt={feature.name[lang]}
-                    loading="lazy"
-                    width={1024}
-                    height={768}
-                    className="aspect-[4/3] w-full object-cover lg:col-span-3 lg:aspect-[3/2]"
-                  />
-                  <div className="lg:col-span-2 lg:pb-2">
-                    <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-clay">
-                      {feature.sku} · {feature.tag[lang]}
-                    </p>
-                    <h3 className="mt-4 font-display text-3xl font-semibold leading-tight tracking-tight lg:text-4xl">
-                      {feature.name[lang]}
-                    </h3>
-                    <p className="mt-4 text-base leading-relaxed text-mute">{feature.spec[lang]}</p>
-                  </div>
-                </article>
-              )}
-              {rest.length > 0 && (
-                <div className="mt-16 grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
-                  {rest.map((f) => (
-                    <article key={f.sku} className="group">
-                      <img
-                        src={f.image}
-                        alt={f.name[lang]}
-                        loading="lazy"
-                        width={1024}
-                        height={768}
-                        className="aspect-[4/3] w-full object-cover"
-                      />
-                      <div className="mt-4 flex items-baseline justify-between gap-3 font-mono text-[11px] text-mute">
-                        <span>{f.sku}</span>
-                        <span>{f.tag[lang]}</span>
-                      </div>
-                      <h3 className="mt-2 font-display text-xl font-semibold tracking-tight">
-                        {f.name[lang]}
-                      </h3>
-                      <p className="mt-1 text-sm text-mute">{f.spec[lang]}</p>
-                    </article>
-                  ))}
-                </div>
-              )}
-            </>
-          )}
-        </div>
-      </section>
+      <FabricCatalogueSection lang={lang} />
 
       <AboutSection lang={lang} whatsappUrl={getWhatsAppUrl(lang)} />
 

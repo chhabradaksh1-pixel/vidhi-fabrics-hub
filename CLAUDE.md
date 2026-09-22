@@ -1,0 +1,192 @@
+# Working on the Vidhi Fabrics site
+
+Read this before touching anything. It is the standing brief: constraints the
+owner has set, conventions the code already follows, traps in this environment,
+and the list of things known to be unfinished.
+
+Claude Code loads this file at the start of every session. Keep it current —
+when a rule below stops being true, edit it here rather than relying on a chat
+nobody can read any more.
+
+## The business, and what the site may claim
+
+Vidhi Fabrics is a textile supplier and wholesaler in Surat, in the trade since
+the 1960s. Positioning, in the owner's words:
+
+> One textile supplier. Access to Surat's entire manufacturing ecosystem.
+
+A **supplier** — not a broker, marketplace, agent or directory. Copy should
+never imply the business is a middleman passing enquiries along.
+
+**Never claim any of these.** The owner listed them explicitly as off-limits
+because they cannot be substantiated:
+
+- Best price / lowest price / direct-from-manufacturer pricing
+- Guaranteed quality / guaranteed delivery
+- A fixed MOQ or a fixed lead time
+- Any unverified certification, production capacity or export statistic
+
+Figures the owner has confirmed and that may be used: in the trade since the
+1960s, 2,400+ active SKUs, 10+ export markets, 12k m²/month, typical enquiry
+reply within 12 hours. Note the owner rejected surfacing the reply-time figure
+as "we reply to wholesale enquiries" — it reads as though small boutiques are
+not welcome, and they are.
+
+Contact details live in one place: `src/content/business.ts`. The WhatsApp
+number lives in `src/content/whatsapp.ts`. Never hardcode a second copy of
+either; build links from the helpers.
+
+## How work gets approved and shipped
+
+1. **Show the owner on localhost before committing.** This is a standing
+   instruction, not a courtesy. Screenshot the change (both languages, desktop
+   and mobile) and wait.
+2. Commit to the working branch.
+3. Deploy = fast-forward `main` and push it. Lovable rebuilds; live in about a
+   minute at www.vidhifabrics.com. **Pushing a feature branch is not
+   deploying** — say so plainly, the distinction has caused confusion before.
+4. Verify against the live site, not the build. `curl` the page, then `cmp` the
+   served asset against the tested one. Do not report a deploy as done off the
+   push alone.
+
+`AGENTS.md` forbids rewriting published history — no force-push, rebase, amend
+or squash on anything already pushed. Lovable syncs from `main`, so a rewrite
+costs the owner their project history. `git branch -f` to fast-forward a local
+branch is fine; anything that changes a pushed commit is not.
+
+Two mistakes worth not repeating: commits have twice landed on `main` instead
+of the working branch (check `git branch --show-current` before committing),
+and an unverified deploy claim was made before checking the live site.
+
+## Architecture
+
+TanStack Start + TanStack Router (flat file routing), React, Vite (rolldown),
+Tailwind v4, TypeScript with `strict`, `exactOptionalPropertyTypes` and
+`noUncheckedIndexedAccess`.
+
+```
+src/routes/     index.tsx  hi.tsx          the two home routes, kept in parity
+                blog.$slug.tsx  blog.index.tsx
+                hi_.blog.$slug.tsx  hi_.blog.index.tsx
+                __root.tsx      icons, site-wide LocalBusiness JSON-LD
+src/content/    all copy and data, trilingual; no strings in components
+src/components/ fabric-desk.tsx  journal-pages.tsx  site-footer.tsx
+                talk-to-us.tsx   reach-map.tsx
+src/styles.css  design tokens and @utility definitions
+```
+
+**Trilingual.** `Lang = "en" | "hi" | "hi-en"`. `/` and `/hi` are real routes;
+Hinglish is client state on top of them. The `hi_.` prefix opts a route out of
+the parent layout. Every string is a `Localized` record with all three keys, so
+adding copy means adding it three times — including the Hinglish, which is
+Romanised Hindi, not English.
+
+**`index.tsx` and `hi.tsx` are near-duplicates.** Any change to one almost
+always belongs in the other. Check both before calling a change done.
+
+**Design tokens** (`src/styles.css`). Warm palette: `paper #FBFBF8`,
+`ink`, `mute`, `clay`, `claydeep`, `claylight #c98a6b`, `sand`, `line`. The
+footer adds `navy #101A2C`, `gold #C6A15B`, `ivory #F7F1E8`.
+
+`clay` is **only 2.29:1 on ink** — it fails WCAG AA on dark surfaces. On
+`bg-ink` or `bg-navy`, use `claylight` (5.83:1). On paper and sand, `clay` is
+fine. This bit real text in the Scale section; check it whenever putting a
+brand colour on a dark ground.
+
+Fonts: Playfair Display (display), Inter (body), JetBrains Mono (labels), each
+with a Noto Sans Devanagari fallback for Hindi.
+
+## Conventions
+
+- **Measure, don't assert.** Contrast ratios, rendered sizes, payload weights,
+  heading outlines — compute them. Several confident claims in this project
+  turned out wrong on measurement.
+- **WCAG AA is the bar**: 4.5:1 body text, 3:1 large text. Check the _worst_
+  pixel under a texture, not the mean.
+- Scroll rails are native CSS scroll-snap with arrow buttons — no carousel
+  library. `JournalRail` in `fabric-desk.tsx` is the reference implementation;
+  it honours `prefers-reduced-motion`.
+- Footer column labels are `<p>` with `aria-labelledby`, **not** `<h2>`. Using
+  headings there once left `/blog` with nothing but footer nav at h2 level.
+  `JournalCard` takes a `headingLevel` prop for the same reason.
+- No new analytics provider. No AI/chatbot API. No large dependencies.
+- Images: always ship a sized derivative, never an original. Card thumbnails
+  render around 342×257; a 1600px file there is waste.
+
+## This environment
+
+- Dev server: `npm run dev -- --host 127.0.0.1`. **IPv6 is unsupported**, so
+  bind `127.0.0.1` explicitly, not `localhost`.
+- `npm run preview` is broken — it looks for `dist/server/` while the build
+  writes `.output/`. Use `npm run build` and inspect `.output/public/`.
+- Playwright is at `/opt/node22/lib/node_modules/playwright` (CommonJS — import
+  the default export, not named). Chromium at
+  `/opt/pw-browsers/chromium-1194/chrome-linux/chrome`.
+- Playwright screenshots of an element **include the sticky header** painted
+  over it. Sampling the top of a section measures the header, not the section.
+  This has produced nonsense contrast numbers twice.
+- Before any click-based test, `addInitScript` setting `sessionStorage` keys
+  `vidhi-lead-popup-seen` and `vidhi-talk-to-us-teaser`, or overlays intercept
+  the clicks.
+- Pillow is available. **No ffmpeg, ffprobe, OpenCV, ImageMagick, sharp or
+  cwebp, and no HEIC decoder.** No video transcoding, cropping or poster-frame
+  extraction is possible here.
+- Playwright cannot reach external HTTPS (cert authority). Verify the live site
+  with `curl` instead, and use `grep -a` — gzipped responses make grep suppress
+  matches as "binary file matches".
+- Vite does not bundle unimported files in `src/assets/` (verified; there is no
+  `import.meta.glob`). Unused originals cost repo weight but not page weight.
+
+## Open items
+
+Nothing here is blocked on code. Most need a decision or data from the owner.
+
+**Live and wrong — fix when the owner supplies the data**
+
+- **Placeholder star ratings.** All four testimonial cards on both home routes
+  carry `ratingLabel: "Example five-star placeholder rating"` as their
+  `aria-label` (`src/content/translations.ts`). Screen readers announce that
+  verbatim, in all three languages, right now. Oldest open item; raised
+  repeatedly, never resolved. Either get real ratings or drop the stars.
+- **`sales@vidhifabrics.com`** is published in five places per page plus the
+  structured data. Confirm the mailbox actually exists.
+- **Oversized card images.** The sarees-guide card pulls a 474 KB / 1600×1067
+  file to render at 342×257 — about +324 KB on the homepage versus the 150 KB
+  image it replaced. A ~95 KB 700px derivative fixes it. The other three cards
+  are oversized too (1024×768 for ~347×260), pre-existing.
+- **`weaving-loom.mp4`** (6 MB) is served `cache-control: max-age=0,
+must-revalidate` — it revalidates on every visit.
+- **Junk file in `public/`**: a broken Git LFS pointer from a Pinterest
+  download, unreferenced, served publicly as 131 bytes of text.
+
+**Owner-side**
+
+- Submit `public/sitemap.xml` (12 URLs) in Google Search Console.
+- Certificate or licence numbers for the OEKO-TEX and GOTS claim in
+  `certBody`. The owner confirmed the claim is accurate; the numbers would let
+  it be substantiated on the page.
+- Video testimonials (the "export champions" rail idea): needs filmed buyers
+  with written consent. Shoot vertical 1080×1920, subject's eyes around 60%
+  height so the name overlay doesn't land on their face, lapel mic, speaking
+  Hindi or Gujarati with a transcript per clip for caption tracks. Recommended
+  build: poster image plus click-to-play, videos hosted off-repo.
+
+**Ideas offered, not built**
+
+- A thin woven "selvedge" band across the top of the page.
+- Privacy and terms pages — need the business's actual data practices first.
+- De-templateising the dark Scale four-box grid, the last section still on the
+  generic skeleton.
+
+## Standing caveats
+
+State these when they become relevant rather than letting them pass as
+verified:
+
+- The three buyer guides in `src/content/journal.ts` are the owner's copy. They
+  have never been fact-checked.
+- All Hindi and Hinglish translations were written by Claude. **No native
+  speaker has reviewed them.**
+- Five blobs over 5 MB — 65.6 MB in total, four unreduced image originals plus
+  the loom video — are permanently in this repo's git history. They cannot be
+  removed without the history rewrite `AGENTS.md` forbids.

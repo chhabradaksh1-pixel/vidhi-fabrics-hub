@@ -159,7 +159,7 @@ function RootShell({ children }: { children: ReactNode }) {
           run, and half-visible content is worse than unanimated content.
         */}
         <noscript>
-          <style>{`[data-reveal]{opacity:1!important;transform:none!important}[data-reveal-img] img{transform:none!important}`}</style>
+          <style>{`[data-reveal]{opacity:1!important;transform:none!important}[data-reveal-img] img,[data-reveal-block] img,[data-reveal-block]>*{transform:none!important}`}</style>
         </noscript>
       </head>
       <body>

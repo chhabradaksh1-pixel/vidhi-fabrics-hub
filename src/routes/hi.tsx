@@ -506,14 +506,18 @@ function HiIndex() {
           </div>
 
           <div className="mt-12 grid grid-cols-1 items-center gap-8 lg:grid-cols-2">
-            <img
-              src={swatchBook}
-              alt={COPY.scale.imageAlt[lang]}
-              loading="lazy"
-              width={1440}
-              height={900}
-              className="aspect-[16/10] w-full rounded-md object-cover ring-1 ring-white/10"
-            />
+            <div data-reveal-block className="rounded-md">
+              <div>
+                <img
+                  src={swatchBook}
+                  alt={COPY.scale.imageAlt[lang]}
+                  loading="lazy"
+                  width={1440}
+                  height={900}
+                  className="aspect-[16/10] w-full rounded-md object-cover ring-1 ring-white/10"
+                />
+              </div>
+            </div>
             <div className="max-w-[40ch] text-pretty text-base text-paper/80">
               <p className="font-display text-2xl font-semibold text-paper">
                 {COPY.scale.certTitle[lang]}

@@ -329,15 +329,17 @@ function FabricGrid({
           data-reveal
           className="relative mt-12 grid grid-cols-1 items-end gap-8 lg:grid-cols-5 lg:gap-12"
         >
-          <div data-reveal-img className="lg:col-span-3">
-            <img
-              src={feature.image}
-              alt={feature.name[lang]}
-              loading="lazy"
-              width={1024}
-              height={768}
-              className="aspect-[4/3] w-full object-cover lg:aspect-[3/2]"
-            />
+          <div data-reveal-block className="lg:col-span-3">
+            <div>
+              <img
+                src={feature.image}
+                alt={feature.name[lang]}
+                loading="lazy"
+                width={1024}
+                height={768}
+                className="aspect-[4/3] w-full object-cover lg:aspect-[3/2]"
+              />
+            </div>
           </div>
           <div className="lg:col-span-2 lg:pb-2">
             <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-clay">

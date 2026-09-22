@@ -116,7 +116,24 @@ text rather than merely poor text.
     blank. A `<noscript>` block releases the staging when JS is unavailable.
   - `data-reveal-img` sets `overflow: hidden` on its element, because a 4%
     overscale otherwise bleeds past the grid track and adds horizontal scroll
-    on small screens.
+    on small screens. Put it on a wrapper around the image, never on a card
+    that contains an `absolute inset-0` click target — the clip would cut off
+    that button's focus ring.
+  - `data-reveal-block` is the heavier variant: markup must be
+    `<div data-reveal-block><div><img/></div></div>`. The inner panel rises a
+    full frame height while the image counter-moves, so the frame's edge sweeps
+    across a near-stationary image. **The inner element is required** — without
+    it there is nothing to slide and the frame renders empty.
+  - **Don't build the block reveal out of `clip-path`.** It was written that way
+    first and silently did nothing: the base computes with mixed units
+    (`inset(0px 0px 100%)`), the minifier normalises the target to `inset(0)`,
+    and the two forms will not interpolate, so the transition never progresses
+    and the image stays hidden. Transforms always interpolate; use those.
+  - `useReveal` must install its MutationObserver **unconditionally**. An early
+    `if (nodes.length === 0) return` once bailed out before either observer was
+    created on a route whose content was not yet in the DOM, which left the
+    whole Hindi page staged at opacity 0 — blank. Content that mounts later is
+    normal here, not an edge case.
 - Footer column labels are `<p>` with `aria-labelledby`, **not** `<h2>`. Using
   headings there once left `/blog` with nothing but footer nav at h2 level.
   `JournalCard` takes a `headingLevel` prop for the same reason.

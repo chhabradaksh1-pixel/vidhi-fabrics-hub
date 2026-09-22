@@ -13,6 +13,9 @@ import { useEffect } from "react";
  *     <article data-reveal />
  *   </div>
  *   <figure data-reveal data-reveal-img>   also settles its <img> from 1.04
+ *   <div data-reveal-block><div><img/></div></div>
+ *                                          block reveal: the inner panel
+ *                                          rises while the image counter-moves
  *
  * The staged (hidden) state lives under `.vf-js` in styles.css, which an
  * inline script sets on <html> before first paint. So if JS fails, or this
@@ -30,10 +33,21 @@ const MAX_STAGGER_STEPS = 8;
 
 export function useReveal(): void {
   useEffect(() => {
-    const nodes = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]:not(.is-in)"));
-    if (nodes.length === 0) return;
-
     const show = (el: HTMLElement) => el.classList.add("is-in");
+
+    /** Reveal without playing the transition — for content that appears in
+     *  response to the user, where replaying the animation would be noise. */
+    const showAtOnce = (el: HTMLElement) => {
+      const previous = el.style.transitionDuration;
+      el.style.transitionDuration = "0s";
+      show(el);
+      requestAnimationFrame(() => {
+        el.style.transitionDuration = previous;
+      });
+    };
+
+    const query = (root: ParentNode) =>
+      Array.from(root.querySelectorAll<HTMLElement>("[data-reveal]:not(.is-in)"));
 
     // Honour the OS setting, and degrade cleanly on anything without an
     // observer: reveal everything immediately rather than leaving it staged.
@@ -42,20 +56,12 @@ export function useReveal(): void {
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     if (reduced || typeof IntersectionObserver === "undefined") {
-      nodes.forEach(show);
-      return;
-    }
-
-    // Assign stagger delays per group, so each container counts from zero
-    // rather than continuing a page-wide tally.
-    const counters = new Map<Element, number>();
-    for (const el of nodes) {
-      const group = el.parentElement?.closest("[data-reveal-stagger]");
-      if (!group) continue;
-      const index = counters.get(group) ?? 0;
-      counters.set(group, index + 1);
-      const steps = Math.min(index, MAX_STAGGER_STEPS);
-      el.style.setProperty("--vf-delay", `${steps * STAGGER_MS}ms`);
+      const revealEverything = () => query(document).forEach(show);
+      revealEverything();
+      // Still watched, because content that mounts later must not stay staged.
+      const watcher = new MutationObserver(revealEverything);
+      watcher.observe(document.body, { childList: true, subtree: true });
+      return () => watcher.disconnect();
     }
 
     const observer = new IntersectionObserver(
@@ -76,41 +82,69 @@ export function useReveal(): void {
       },
     );
 
-    // Anything already on screen at mount reveals right away — otherwise the
-    // hero would sit staged until the first scroll.
-    for (const el of nodes) {
+    // Delays are assigned per group and per pass, so each container counts
+    // from zero rather than continuing a page-wide tally.
+    const assignDelays = (nodes: HTMLElement[]) => {
+      const counters = new Map<Element, number>();
+      for (const el of nodes) {
+        const group = el.parentElement?.closest("[data-reveal-stagger]");
+        if (!group) continue;
+        const index = counters.get(group) ?? 0;
+        counters.set(group, index + 1);
+        const steps = Math.min(index, MAX_STAGGER_STEPS);
+        el.style.setProperty("--vf-delay", `${steps * STAGGER_MS}ms`);
+      }
+    };
+
+    /** Already on screen reveals now — otherwise the hero would sit staged
+     *  until the first scroll. Anything lower waits for the observer. */
+    const take = (el: HTMLElement, immediate: boolean) => {
+      if (el.classList.contains("is-in")) return;
       if (el.getBoundingClientRect().top < window.innerHeight) {
-        show(el);
+        if (immediate) showAtOnce(el);
+        else show(el);
       } else {
         observer.observe(el);
       }
-    }
+    };
 
-    // Elements that appear LATER must never stay staged.
+    const scan = (root: ParentNode, immediate: boolean) => {
+      const nodes = query(root);
+      if (nodes.length === 0) return;
+      assignDelays(nodes);
+      for (const el of nodes) take(el, immediate);
+    };
+
+    scan(document, false);
+
+    // Everything that appears LATER also has to be handled, and this must be
+    // installed unconditionally.
     //
-    // The catalogue re-renders its cards on every search keystroke, facet and
-    // sort change. Those cards mount carrying `data-reveal`, so without this
-    // they would sit at opacity 0 permanently — the observer only ever saw the
-    // nodes that existed at mount, and a filtered result that renders
-    // invisible is a far worse bug than a missing animation.
+    // Two separate cases depend on it. The catalogue re-renders its cards on
+    // every search keystroke, facet and sort change; those cards mount
+    // carrying data-reveal and would otherwise sit at opacity 0 permanently,
+    // which renders a search result invisible. And on a route whose content is
+    // not in the DOM when this effect first runs, the initial scan finds
+    // nothing at all — an earlier version returned early in that case, never
+    // installed either observer, and left the entire Hindi route blank.
     //
-    // They are revealed immediately rather than animated: a card arriving in
-    // response to typing should already be there, and replaying a rise on
-    // every keystroke would be unreadable.
-    const mutations = new MutationObserver((records) => {
+    // Nodes arriving in view are revealed without replaying the transition,
+    // since they are a response to the user rather than to scrolling. Nodes
+    // arriving below the fold are observed as normal and still animate.
+    const watcher = new MutationObserver((records) => {
       for (const record of records) {
         for (const added of record.addedNodes) {
           if (!(added instanceof HTMLElement)) continue;
-          if (added.matches("[data-reveal]")) show(added);
-          added.querySelectorAll<HTMLElement>("[data-reveal]").forEach(show);
+          if (added.matches("[data-reveal]")) take(added, true);
+          scan(added, true);
         }
       }
     });
-    mutations.observe(document.body, { childList: true, subtree: true });
+    watcher.observe(document.body, { childList: true, subtree: true });
 
     return () => {
       observer.disconnect();
-      mutations.disconnect();
+      watcher.disconnect();
     };
   }, []);
 }

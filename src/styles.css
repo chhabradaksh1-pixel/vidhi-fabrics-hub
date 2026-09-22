@@ -495,10 +495,15 @@
 @layer components {
   .vf-js [data-reveal] {
     opacity: 0;
-    transform: translateY(18px);
+    /* 40px, not the 18px this started at. Eighteen was measurable but not
+       perceptible — the element had finished moving before a reader's eye
+       reached it, which reads as no animation at all rather than as a subtle
+       one. The travel has to be large enough to register in peripheral vision
+       while you are still scrolling toward it. */
+    transform: translateY(40px);
     transition:
-      opacity 0.6s cubic-bezier(0.17, 0.17, 0.5, 1),
-      transform 0.6s cubic-bezier(0.17, 0.17, 0.5, 1);
+      opacity 0.7s cubic-bezier(0.17, 0.17, 0.5, 1),
+      transform 0.7s cubic-bezier(0.17, 0.17, 0.5, 1);
     transition-delay: var(--vf-delay, 0ms);
   }
 

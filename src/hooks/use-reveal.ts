@@ -26,7 +26,7 @@ import { useEffect } from "react";
 /** Gap between siblings in a staggered group. Long enough to read as a
  *  sequence, short enough that a row of four is done in under a third of a
  *  second. */
-const STAGGER_MS = 80;
+const STAGGER_MS = 110;
 
 /** Cap so a long grid doesn't leave the last card waiting seconds. */
 const MAX_STAGGER_STEPS = 8;
@@ -75,10 +75,18 @@ export function useReveal(): void {
         }
       },
       {
-        // Fire a little before the element reaches the bottom edge, so it is
-        // already settling by the time it is properly in view.
-        rootMargin: "0px 0px -12% 0px",
-        threshold: 0.08,
+        // Hold off until the element is properly inside the viewport rather
+        // than just touching its bottom edge. At -12% and a 0.08 threshold an
+        // element began animating when a sliver of it had appeared, so it was
+        // fully settled by the time it reached the middle of the screen and
+        // the motion was never actually witnessed. Firing later means the
+        // reader is looking at the element while it moves.
+        rootMargin: "0px 0px -20% 0px",
+        // Deliberately low. The rootMargin is what delays the trigger; a high
+        // threshold on top of it is the thing that strands tall sections,
+        // because a section taller than the viewport can never expose a large
+        // fraction of itself at once.
+        threshold: 0.04,
       },
     );
 

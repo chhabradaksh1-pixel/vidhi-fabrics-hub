@@ -70,7 +70,13 @@ authority rather than expertise:
 3. Anything that cannot be verified here. The preview pane is often hidden,
    which also stops IntersectionObserver firing in that tab, so rendered
    appearance and scroll behaviour sometimes need the owner's eyes.
-4. Deploying. Lovable syncs from `main` and a bad deploy is slow to unwind.
+4. Deploying something whose effect cannot be verified from here, or that
+   could be expensive to unwind. Routine deploys of verified changes are
+   Claude's to make — the owner broadened this on 23 September ("seo would be
+   handled by u and other technical aspect for the website as well") because
+   they need to be unblocked, not consulted. Still say plainly what went live
+   and how it was checked, and still stop before anything that changes
+   positioning, claims or appearance nobody has seen rendered.
 
 **Why this is safe, and what it depends on.** Reviewing every step was never
 what protected this project. On 23 September an early return in `useReveal`

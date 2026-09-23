@@ -369,11 +369,6 @@ export const COPY = {
         },
       },
     ],
-    ratingLabel: {
-      en: "Example five-star placeholder rating",
-      hi: "उदाहरण पाँच सितारा प्लेसहोल्डर रेटिंग",
-      "hi-en": "Example five-star placeholder rating",
-    },
     cards: [
       {
         quote: {

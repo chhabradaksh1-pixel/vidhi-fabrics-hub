@@ -569,13 +569,7 @@ function Index() {
           */}
           {leadVoice && (
             <figure className="mt-14 max-w-4xl">
-              <p
-                className="font-mono text-sm tracking-[0.18em] text-clay"
-                aria-label={COPY.testimonials.ratingLabel[lang]}
-              >
-                <span aria-hidden="true">★★★★★</span>
-              </p>
-              <blockquote className="mt-6 text-balance font-display text-2xl font-light leading-snug tracking-tight text-ink sm:text-3xl lg:text-4xl">
+              <blockquote className="text-balance font-display text-2xl font-light leading-snug tracking-tight text-ink sm:text-3xl lg:text-4xl">
                 {leadVoice.quote[lang]}
               </blockquote>
               <figcaption className="mt-7 font-mono text-xs uppercase tracking-[0.16em] text-mute">
@@ -589,13 +583,7 @@ function Index() {
                 <figure
                   key={`${testimonial.customerLabel.en}-${testimonial.location}-${testimonialIndex}`}
                 >
-                  <p
-                    className="font-mono text-xs tracking-[0.18em] text-clay"
-                    aria-label={COPY.testimonials.ratingLabel[lang]}
-                  >
-                    <span aria-hidden="true">★★★★★</span>
-                  </p>
-                  <blockquote className="mt-4 leading-relaxed text-mute">
+                  <blockquote className="leading-relaxed text-mute">
                     {testimonial.quote[lang]}
                   </blockquote>
                   <figcaption className="mt-5 font-mono text-[11px] uppercase tracking-[0.16em] text-mute">

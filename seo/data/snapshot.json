@@ -1,13 +1,13 @@
 {
-  "crawledAt": "2026-09-23T11:04:34.991Z",
+  "crawledAt": "2026-09-23T12:09:12.164Z",
   "site": "https://www.vidhifabrics.com",
   "pages": [
     {
       "url": "https://www.vidhifabrics.com/",
       "status": 200,
-      "bytes": 107979,
+      "bytes": 107921,
       "title": "Surat Fabric Manufacturer &amp; Wholesaler | Vidhi Fabrics",
-      "description": "Vidhi Fabrics is a Surat-based manufacturer and wholesale fabric and textile sourcing business, supplying retailers, brands, manufacturers and traders with a wide range of fabrics across 10+ markets.",
+      "description": "Wholesale fabric supplier and manufacturer in Surat. Cotton, silk, jacquard and blends for retailers, brands and traders. 10+ export markets.",
       "canonical": "https://www.vidhifabrics.com/",
       "robots": null,
       "ogTitle": "Surat Fabric Manufacturer &amp; Wholesaler | Vidhi Fabrics",
@@ -30,7 +30,10 @@
       "jsonLd": [
         "FAQPage",
         "LocalBusiness"
-      ]
+      ],
+      "impressions": 149,
+      "clicks": 24,
+      "position": 9.67
     },
     {
       "url": "https://www.vidhifabrics.com/hi",
@@ -60,7 +63,10 @@
       "jsonLd": [
         "FAQPage",
         "LocalBusiness"
-      ]
+      ],
+      "impressions": 5,
+      "clicks": 0,
+      "position": 26
     },
     {
       "url": "https://www.vidhifabrics.com/blog",
@@ -89,7 +95,10 @@
       "internalLinks": 20,
       "jsonLd": [
         "LocalBusiness"
-      ]
+      ],
+      "impressions": null,
+      "clicks": null,
+      "position": null
     },
     {
       "url": "https://www.vidhifabrics.com/hi/blog",
@@ -118,13 +127,16 @@
       "internalLinks": 20,
       "jsonLd": [
         "LocalBusiness"
-      ]
+      ],
+      "impressions": null,
+      "clicks": null,
+      "position": null
     },
     {
       "url": "https://www.vidhifabrics.com/blog/buying-dress-material-wholesale",
       "status": 200,
-      "bytes": 36997,
-      "title": "Buying dress material wholesale? Here’s what to check first. | Vidhi Fabrics",
+      "bytes": 37136,
+      "title": "Dress material wholesale: what to check | Vidhi Fabrics",
       "description": "From fabric details to minimum quantities, know what to ask before placing your first order.",
       "canonical": "https://www.vidhifabrics.com/blog/buying-dress-material-wholesale",
       "robots": null,
@@ -140,7 +152,7 @@
       ],
       "h2Count": 7,
       "h3Count": 0,
-      "words": 780,
+      "words": 777,
       "images": 1,
       "imagesNoAlt": 0,
       "imagesEmptyAlt": 0,
@@ -148,13 +160,16 @@
       "jsonLd": [
         "BlogPosting",
         "LocalBusiness"
-      ]
+      ],
+      "impressions": null,
+      "clicks": null,
+      "position": null
     },
     {
       "url": "https://www.vidhifabrics.com/hi/blog/buying-dress-material-wholesale",
       "status": 200,
-      "bytes": 39429,
-      "title": "ड्रेस मटेरियल थोक में खरीद रहे हैं? पहले यह जाँच लीजिए। | विधि फैब्रिक्स",
+      "bytes": 39571,
+      "title": "ड्रेस मटेरियल थोक: पहले यह जाँच लीजिए | विधि फैब्रिक्स",
       "description": "कपड़े की जानकारी से लेकर न्यूनतम मात्रा तक — पहला ऑर्डर देने से पहले क्या पूछना चाहिए।",
       "canonical": "https://www.vidhifabrics.com/hi/blog/buying-dress-material-wholesale",
       "robots": null,
@@ -170,7 +185,7 @@
       ],
       "h2Count": 7,
       "h3Count": 0,
-      "words": 872,
+      "words": 868,
       "images": 1,
       "imagesNoAlt": 0,
       "imagesEmptyAlt": 0,
@@ -178,13 +193,16 @@
       "jsonLd": [
         "BlogPosting",
         "LocalBusiness"
-      ]
+      ],
+      "impressions": 1,
+      "clicks": 0,
+      "position": 39
     },
     {
       "url": "https://www.vidhifabrics.com/blog/why-similar-sarees-have-different-prices",
       "status": 200,
-      "bytes": 35984,
-      "title": "Why two similar-looking sarees can have different prices | Vidhi Fabrics",
+      "bytes": 36135,
+      "title": "Why similar sarees have different prices | Vidhi Fabrics",
       "description": "A closer look at how fabric, finishing and workmanship can influence a quote.",
       "canonical": "https://www.vidhifabrics.com/blog/why-similar-sarees-have-different-prices",
       "robots": null,
@@ -200,7 +218,7 @@
       ],
       "h2Count": 7,
       "h3Count": 0,
-      "words": 769,
+      "words": 767,
       "images": 1,
       "imagesNoAlt": 0,
       "imagesEmptyAlt": 0,
@@ -208,13 +226,16 @@
       "jsonLd": [
         "BlogPosting",
         "LocalBusiness"
-      ]
+      ],
+      "impressions": 2,
+      "clicks": 0,
+      "position": 41.5
     },
     {
       "url": "https://www.vidhifabrics.com/hi/blog/why-similar-sarees-have-different-prices",
       "status": 200,
-      "bytes": 38385,
-      "title": "एक जैसी दिखने वाली दो साड़ियों की कीमत अलग क्यों होती है | विधि फैब्रिक्स",
+      "bytes": 38538,
+      "title": "एक जैसी साड़ियों की कीमत अलग क्यों होती है | विधि फैब्रिक्स",
       "description": "कपड़ा, फ़िनिशिंग और कारीगरी कोटेशन को कैसे बदलते हैं — क़रीब से एक नज़र।",
       "canonical": "https://www.vidhifabrics.com/hi/blog/why-similar-sarees-have-different-prices",
       "robots": null,
@@ -230,7 +251,7 @@
       ],
       "h2Count": 7,
       "h3Count": 0,
-      "words": 839,
+      "words": 836,
       "images": 1,
       "imagesNoAlt": 0,
       "imagesEmptyAlt": 0,
@@ -238,13 +259,16 @@
       "jsonLd": [
         "BlogPosting",
         "LocalBusiness"
-      ]
+      ],
+      "impressions": 2,
+      "clicks": 0,
+      "position": 28
     },
     {
       "url": "https://www.vidhifabrics.com/blog/sample-to-bulk-order-checklist",
       "status": 200,
-      "bytes": 37840,
-      "title": "From sample to bulk order: a buyer’s checklist | Vidhi Fabrics",
+      "bytes": 48070,
+      "title": "Sample to bulk order: a buyer’s checklist | Vidhi Fabrics",
       "description": "The details to confirm before moving from a sample you like to a larger order.",
       "canonical": "https://www.vidhifabrics.com/blog/sample-to-bulk-order-checklist",
       "robots": null,
@@ -258,9 +282,9 @@
       "h1": [
         "From sample to bulk order: a buyer’s checklist"
       ],
-      "h2Count": 7,
+      "h2Count": 8,
       "h3Count": 0,
-      "words": 799,
+      "words": 1116,
       "images": 1,
       "imagesNoAlt": 0,
       "imagesEmptyAlt": 0,
@@ -268,12 +292,15 @@
       "jsonLd": [
         "BlogPosting",
         "LocalBusiness"
-      ]
+      ],
+      "impressions": 6,
+      "clicks": 0,
+      "position": 10.5
     },
     {
       "url": "https://www.vidhifabrics.com/hi/blog/sample-to-bulk-order-checklist",
       "status": 200,
-      "bytes": 40224,
+      "bytes": 50060,
       "title": "सैंपल से बल्क ऑर्डर तक: खरीदार की चेकलिस्ट | विधि फैब्रिक्स",
       "description": "पसंद आए सैंपल से बड़े ऑर्डर तक जाने से पहले कौन-सी बातें पक्की कर लेनी चाहिए।",
       "canonical": "https://www.vidhifabrics.com/hi/blog/sample-to-bulk-order-checklist",
@@ -288,9 +315,9 @@
       "h1": [
         "सैंपल से बल्क ऑर्डर तक: खरीदार की चेकलिस्ट"
       ],
-      "h2Count": 7,
+      "h2Count": 8,
       "h3Count": 0,
-      "words": 912,
+      "words": 1242,
       "images": 1,
       "imagesNoAlt": 0,
       "imagesEmptyAlt": 0,
@@ -298,7 +325,10 @@
       "jsonLd": [
         "BlogPosting",
         "LocalBusiness"
-      ]
+      ],
+      "impressions": 2,
+      "clicks": 0,
+      "position": 50
     },
     {
       "url": "https://www.vidhifabrics.com/blog/source-fabric-from-surat",
@@ -328,7 +358,10 @@
       "jsonLd": [
         "BlogPosting",
         "LocalBusiness"
-      ]
+      ],
+      "impressions": 1,
+      "clicks": 0,
+      "position": 67
     },
     {
       "url": "https://www.vidhifabrics.com/hi/blog/source-fabric-from-surat",
@@ -358,7 +391,10 @@
       "jsonLd": [
         "BlogPosting",
         "LocalBusiness"
-      ]
+      ],
+      "impressions": 2,
+      "clicks": 0,
+      "position": 8.5
     }
   ]
 }

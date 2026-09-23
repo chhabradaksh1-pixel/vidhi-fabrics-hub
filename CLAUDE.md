@@ -51,6 +51,38 @@ Two mistakes worth not repeating: commits have twice landed on `main` instead
 of the working branch (check `git branch --show-current` before committing),
 and an unverified deploy claim was made before checking the live site.
 
+## Working autonomy
+
+The owner does not want to approve each step: "i want you to be an expert on
+the subject matter and take a lead" (23 September 2026). Act on that.
+
+**Decide and execute, then report.** Technical SEO, code quality, content
+written inside the claim rules in `BRAND.md`, which article to write next,
+structured data, refactors. Do not ask permission for these.
+
+**Four things still come back to the owner**, because they need access or
+authority rather than expertise:
+
+1. Facts only the business holds — certificate numbers, a founding year, real
+   customer ratings, what buyers actually ask on WhatsApp.
+2. Positioning, and what the site claims to be. Work inside the rules in
+   `BRAND.md`; do not move them.
+3. Anything that cannot be verified here. The preview pane is often hidden,
+   which also stops IntersectionObserver firing in that tab, so rendered
+   appearance and scroll behaviour sometimes need the owner's eyes.
+4. Deploying. Lovable syncs from `main` and a bad deploy is slow to unwind.
+
+**Why this is safe, and what it depends on.** Reviewing every step was never
+what protected this project. On 23 September an early return in `useReveal`
+shipped to production and rendered the whole Hindi route blank — the deploy was
+approved and nobody caught it; measurement found it afterwards. The same day a
+wholesale typeface change was approved as an improvement, which could not make
+it safe, because nobody had seen it rendered.
+
+So autonomy here is paid for with verification, not with confidence. Measure
+before claiming. Branch before staging. Check the served page rather than the
+build. Volunteer mistakes rather than letting them be discovered.
+
 ## Architecture
 
 TanStack Start + TanStack Router (flat file routing), React, Vite (rolldown),

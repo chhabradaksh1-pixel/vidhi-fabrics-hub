@@ -31,8 +31,14 @@ export const Route = createFileRoute("/")({
       },
       {
         name: "description",
+        // 199 characters truncated at roughly 160, so the last third — which
+        // carried the audiences and the export reach — was never shown. This
+        // leads with the phrasing the site actually appears for ("fabric
+        // wholesale in surat", "fabric manufacturers in surat") and keeps the
+        // one substantiated number, 10+ export markets. See BRAND.md for what
+        // may and may not be claimed here.
         content:
-          "Vidhi Fabrics is a Surat-based manufacturer and wholesale fabric and textile sourcing business, supplying retailers, brands, manufacturers and traders with a wide range of fabrics across 10+ markets.",
+          "Wholesale fabric supplier and manufacturer in Surat. Cotton, silk, jacquard and blends for retailers, brands and traders. 10+ export markets.",
       },
       {
         property: "og:title",

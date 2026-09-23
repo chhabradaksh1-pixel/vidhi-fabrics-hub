@@ -700,6 +700,15 @@ export const JOURNAL: JournalArticle[] = [
       hi: "थोक खरीद",
       "hi-en": "Wholesale buying",
     },
+    /* Shortened for search: the visible title above ~60 characters is
+       truncated in results, and the cut falls on the specific term.
+       Derived by trimming the display title rather than rewritten, so the
+       Hindi is the reviewed-pending wording already on the page. */
+    metaTitle: {
+      en: "Dress material wholesale: what to check",
+      hi: "ड्रेस मटेरियल थोक: पहले यह जाँच लीजिए",
+      "hi-en": "Dress material wholesale: kya check karein",
+    },
     title: {
       en: "Buying dress material wholesale? Here’s what to check first.",
       hi: "ड्रेस मटेरियल थोक में खरीद रहे हैं? पहले यह जाँच लीजिए।",
@@ -873,6 +882,15 @@ export const JOURNAL: JournalArticle[] = [
       hi: "प्रोडक्ट की जानकारी",
       "hi-en": "Product knowledge",
     },
+    /* Shortened for search: the visible title above ~60 characters is
+       truncated in results, and the cut falls on the specific term.
+       Derived by trimming the display title rather than rewritten, so the
+       Hindi is the reviewed-pending wording already on the page. */
+    metaTitle: {
+      en: "Why similar sarees have different prices",
+      hi: "एक जैसी साड़ियों की कीमत अलग क्यों होती है",
+      "hi-en": "Ek jaisi sarees ki price alag kyun hoti hai",
+    },
     title: {
       en: "Why two similar-looking sarees can have different prices",
       hi: "एक जैसी दिखने वाली दो साड़ियों की कीमत अलग क्यों होती है",
@@ -1037,6 +1055,15 @@ export const JOURNAL: JournalArticle[] = [
       en: "Sourcing guide",
       hi: "सोर्सिंग गाइड",
       "hi-en": "Sourcing guide",
+    },
+    /* Shortened for search: the visible title above ~60 characters is
+       truncated in results, and the cut falls on the specific term.
+       Derived by trimming the display title rather than rewritten, so the
+       Hindi is the reviewed-pending wording already on the page. */
+    metaTitle: {
+      en: "Sample to bulk order: a buyer’s checklist",
+      hi: "सैंपल से बल्क ऑर्डर तक: खरीदार की चेकलिस्ट",
+      "hi-en": "Sample se bulk order: buyer ki checklist",
     },
     title: {
       en: "From sample to bulk order: a buyer’s checklist",

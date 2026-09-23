@@ -37,7 +37,7 @@ is urgent whatever day it appears.
 | Day | Lens | Looking for |
 | --- | ---- | ----------- |
 | Mon | **Technical health** | Crawl diff, status codes, canonical and hreflang integrity, sitemap accuracy against the routes that actually exist |
-| Tue | **Content gaps** | Questions a sourcing buyer asks that no page answers; existing pages that half-answer one and could be extended |
+| Tue | **Content gaps** | Work the backlog in `content-strategy.md`: what is written, what is next, whether the SERP for a target topic has changed |
 | Wed | **Structured data** | Rich-result eligibility the site is leaving on the table — FAQPage, Article, Breadcrumb, ItemList for the catalogue |
 | Thu | **Internal linking** | Orphan pages, pages more than two clicks from home, anchor text that says "read more" instead of the target's subject |
 | Fri | **Competitor delta** | What Surat suppliers and directories rank for that this site does not address at all |
@@ -83,6 +83,14 @@ Stated plainly so its reports are not read as more authoritative than they are.
   outranks a better page.
 - **No rank tracking.** It can tell you a page improved structurally. It cannot
   tell you the improvement moved anything.
+
+## Content
+
+`content-strategy.md` holds the content plan: the competitive evidence for why
+head commercial terms are unwinnable, the specification-literacy gap that is
+winnable, the five clusters and the sequence. The Tuesday lens works against
+it, and the agent updates its sequence when a crawl or a SERP check changes the
+picture — but it does not write articles.
 
 ## Current priorities
 

@@ -41,3 +41,9 @@ structurally weak; it cannot tell you whether that page gets traffic, or which
 query it ranks for. Read its prioritisation as informed inference, not
 measurement. A GSC export in `data/` fixes this for as long as the export is
 fresh.
+
+## Content
+
+`content-strategy.md` is the content plan — what to write, in what order, and
+the SERP evidence for why. `strategy.md` covers technical SEO; the two are
+deliberately separate because they move on different timescales.

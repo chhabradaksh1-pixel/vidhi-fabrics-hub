@@ -37,6 +37,43 @@ const LIMITS = {
   thinWords: 300,
 };
 
+/**
+ * Search Console performance, if the owner has dropped an export into
+ * `seo/data/`. Without it every finding is weighted equally, which is how a
+ * truncated title on a page with six impressions ended up ahead of everything
+ * else in the first report. With it, findings are ordered by the traffic the
+ * page actually gets.
+ *
+ * Deliberately tolerant: a missing or malformed export degrades to "no
+ * performance data" rather than failing the crawl. The CSVs are gitignored, so
+ * on a fresh checkout they will simply be absent.
+ */
+function loadPerformance() {
+  const file = join(HERE, "data", "Pages.csv");
+  if (!existsSync(file)) return { available: false, byUrl: new Map() };
+  try {
+    const rows = readFileSync(file, "utf8").trim().split(/\r?\n/).slice(1);
+    const byUrl = new Map();
+    for (const row of rows) {
+      // GSC writes a plain 5-column CSV; URLs contain no commas.
+      const [url, clicks, impressions, , position] = row.split(",");
+      if (!url) continue;
+      // Fold the http/non-www variants Google still reports onto the canonical
+      // host, or the homepage's traffic appears split three ways.
+      const key = url.replace(/^https?:\/\/(www\.)?/, "https://www.");
+      const prev = byUrl.get(key) ?? { clicks: 0, impressions: 0, position: null };
+      byUrl.set(key, {
+        clicks: prev.clicks + Number(clicks || 0),
+        impressions: prev.impressions + Number(impressions || 0),
+        position: prev.position ?? (position ? Number(position) : null),
+      });
+    }
+    return { available: true, byUrl };
+  } catch {
+    return { available: false, byUrl: new Map() };
+  }
+}
+
 const text = (html) =>
   html
     .replace(/<script[\s\S]*?<\/script>/gi, " ")
@@ -79,7 +116,8 @@ function extract(url, html, status, bytes) {
     bytes,
     title: html.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1]?.trim() ?? null,
     description: meta("description"),
-    canonical: html.match(/<link[^>]+rel=["']canonical["'][^>]+href=["']([^"']+)["']/i)?.[1] ?? null,
+    canonical:
+      html.match(/<link[^>]+rel=["']canonical["'][^>]+href=["']([^"']+)["']/i)?.[1] ?? null,
     robots: meta("robots"),
     ogTitle: meta("og:title", "property"),
     ogImage: meta("og:image", "property"),
@@ -115,17 +153,27 @@ function check(page) {
   if (page.title && page.title.length < LIMITS.titleMin)
     add("warn", "title-short", `${page.title.length} chars`);
 
-  if (!page.description) add("warn", "no-description", "no meta description — Google will invent one");
+  if (!page.description)
+    add("warn", "no-description", "no meta description — Google will invent one");
   else {
     if (page.description.length > LIMITS.descMax)
-      add("warn", "description-long", `${page.description.length} chars, truncates past ${LIMITS.descMax}`);
+      add(
+        "warn",
+        "description-long",
+        `${page.description.length} chars, truncates past ${LIMITS.descMax}`,
+      );
     if (page.description.length < LIMITS.descMin)
       add("note", "description-short", `${page.description.length} chars, room for more`);
   }
 
-  if (page.hreflang.length === 0) add("warn", "no-hreflang", "trilingual site with no hreflang on this page");
+  if (page.hreflang.length === 0)
+    add("warn", "no-hreflang", "trilingual site with no hreflang on this page");
   if (page.imagesNoAlt > 0)
-    add("warn", "images-no-alt", `${page.imagesNoAlt} of ${page.images} images have no alt attribute`);
+    add(
+      "warn",
+      "images-no-alt",
+      `${page.imagesNoAlt} of ${page.images} images have no alt attribute`,
+    );
   if (page.words < LIMITS.thinWords)
     add("note", "thin", `${page.words} words — thin for a page expected to answer a query`);
   if (page.internalLinks < 5)
@@ -157,7 +205,8 @@ function diff(previous, current) {
   }
   const now = new Set(current.pages.map((p) => p.url));
   for (const url of before.keys()) {
-    if (!now.has(url)) changes.push({ url, field: "page", from: "(present)", to: "(dropped from sitemap)" });
+    if (!now.has(url))
+      changes.push({ url, field: "page", from: "(present)", to: "(dropped from sitemap)" });
   }
   return changes;
 }
@@ -175,22 +224,47 @@ async function main() {
       const html = await res.text();
       pages.push(extract(url, html, res.status, html.length));
     } catch (err) {
-      pages.push({ url, status: 0, error: String(err).slice(0, 120), h1: [], hreflang: [], jsonLd: [] });
+      pages.push({
+        url,
+        status: 0,
+        error: String(err).slice(0, 120),
+        h1: [],
+        hreflang: [],
+        jsonLd: [],
+      });
     }
   }
 
   const current = { crawledAt: new Date().toISOString(), site: SITE, pages };
   const previous = existsSync(SNAPSHOT) ? JSON.parse(readFileSync(SNAPSHOT, "utf8")) : null;
 
-  const findings = pages.flatMap(check);
+  // Attach performance, so findings can be ranked by pages that get seen.
+  const perf = loadPerformance();
+  for (const page of pages) {
+    const p = perf.byUrl.get(page.url.replace(/\/$/, "")) ?? perf.byUrl.get(page.url);
+    page.impressions = p?.impressions ?? null;
+    page.clicks = p?.clicks ?? null;
+    page.position = p?.position ?? null;
+  }
+
+  const findings = pages.flatMap(check).map((f) => {
+    const page = pages.find((p) => p.url === f.url);
+    return { ...f, impressions: page?.impressions ?? null };
+  });
   const changes = diff(previous, current);
   const rank = { error: 0, warn: 1, note: 2 };
-  findings.sort((a, b) => rank[a.severity] - rank[b.severity]);
+
+  // Severity first, then impressions. A warning on a page with sixty
+  // impressions matters; the same warning on a page with none does not yet.
+  findings.sort(
+    (a, b) => rank[a.severity] - rank[b.severity] || (b.impressions ?? -1) - (a.impressions ?? -1),
+  );
 
   const result = {
     crawledAt: current.crawledAt,
     pagesCrawled: pages.length,
     previousCrawl: previous?.crawledAt ?? null,
+    performanceData: perf.available,
     counts: {
       error: findings.filter((f) => f.severity === "error").length,
       warn: findings.filter((f) => f.severity === "warn").length,
@@ -208,10 +282,20 @@ async function main() {
     console.log(
       `  ${result.counts.error} error  ${result.counts.warn} warn  ${result.counts.note} note`,
     );
-    if (previous) console.log(`  ${changes.length} change(s) since ${previous.crawledAt.slice(0, 10)}`);
+    if (previous)
+      console.log(`  ${changes.length} change(s) since ${previous.crawledAt.slice(0, 10)}`);
+    console.log();
+    console.log(
+      perf.available
+        ? "  performance data: yes (findings ranked by impressions)"
+        : "  performance data: none — drop a Search Console export in seo/data/",
+    );
     console.log();
     for (const f of findings) {
-      console.log(`  [${f.severity}] ${f.code.padEnd(20)} ${f.url.replace(SITE, "") || "/"}  ${f.detail}`);
+      const seen = f.impressions === null ? "   ?" : String(f.impressions).padStart(4);
+      console.log(
+        `  [${f.severity}] ${seen} imp  ${f.code.padEnd(20)} ${f.url.replace(SITE, "") || "/"}  ${f.detail}`,
+      );
     }
     if (changes.length) {
       console.log("\nChanged since last crawl:");

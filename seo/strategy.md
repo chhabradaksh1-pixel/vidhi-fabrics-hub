@@ -8,7 +8,7 @@ crawls actually showed, and leaves the rest alone unless the owner changes it.
 
 Vidhi Fabrics is a **supplier**, not a shop. Nobody is going to buy a metre of
 cloth from a search result. The searches worth winning are the ones a buyer
-makes while deciding *who to send an enquiry to*:
+makes while deciding _who to send an enquiry to_:
 
 - sourcing intent — "wholesale fabric supplier Surat", "dress material
   wholesale", "fabric manufacturer Surat export"
@@ -34,15 +34,15 @@ One lens per day, so the agent looks somewhere new instead of re-reporting the
 same checklist. Every day begins with the crawl diff regardless — a regression
 is urgent whatever day it appears.
 
-| Day | Lens | Looking for |
-| --- | ---- | ----------- |
-| Mon | **Technical health** | Crawl diff, status codes, canonical and hreflang integrity, sitemap accuracy against the routes that actually exist |
-| Tue | **Content gaps** | Work the backlog in `content-strategy.md`: what is written, what is next, whether the SERP for a target topic has changed |
-| Wed | **Structured data** | Rich-result eligibility the site is leaving on the table — FAQPage, Article, Breadcrumb, ItemList for the catalogue |
-| Thu | **Internal linking** | Orphan pages, pages more than two clicks from home, anchor text that says "read more" instead of the target's subject |
-| Fri | **Competitor delta** | What Surat suppliers and directories rank for that this site does not address at all |
-| Sat | **Performance** | Payload, oversized images, render-blocking resources — a slow page loses the click it earned |
-| Sun | **Consolidation** | Re-rank the backlog from the week's findings and rewrite *Current priorities* below |
+| Day | Lens                 | Looking for                                                                                                               |
+| --- | -------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| Mon | **Technical health** | Crawl diff, status codes, canonical and hreflang integrity, sitemap accuracy against the routes that actually exist       |
+| Tue | **Content gaps**     | Work the backlog in `content-strategy.md`: what is written, what is next, whether the SERP for a target topic has changed |
+| Wed | **Structured data**  | Rich-result eligibility the site is leaving on the table — FAQPage, Article, Breadcrumb, ItemList for the catalogue       |
+| Thu | **Internal linking** | Orphan pages, pages more than two clicks from home, anchor text that says "read more" instead of the target's subject     |
+| Fri | **Competitor delta** | What Surat suppliers and directories rank for that this site does not address at all                                      |
+| Sat | **Performance**      | Payload, oversized images, render-blocking resources — a slow page loses the click it earned                              |
+| Sun | **Consolidation**    | Re-rank the backlog from the week's findings and rewrite _Current priorities_ below                                       |
 
 ## Rules the agent does not break
 
@@ -94,30 +94,32 @@ picture — but it does not write articles.
 
 ## Current priorities
 
-Seeded from the first crawl on 2026-09-23. The agent rewrites this section each
-Sunday.
+Rewritten 23 September 2026 from the first Search Console export, replacing a
+list inferred from the markup. Full reasoning in
+`reports/2026-09-23-search-console.md`.
 
-1. **Five article titles truncate in results.** Four blog titles run 62–76
-   characters against a ~60 character display limit, so the end of each is cut
-   off in the result — including the part carrying the specific term.
-   Highest-value fix on the list because it costs nothing and affects the
-   pages most likely to be found.
-2. **The home meta description is 199 characters**, truncating at ~160. The
-   last third is never seen.
-3. **Both blog index pages are thin** — 244 and 270 words. They are the hub for
-   the journal and currently say almost nothing; a short framing paragraph per
-   article would make them rank for the category rather than only the articles.
-4. **Only four articles exist, across two languages.** The journal is the whole
-   organic strategy and it is four pieces deep. Content depth is the single
-   biggest lever here and it is the one that needs the owner's knowledge, not
-   the agent's.
-5. **No BreadcrumbList anywhere.** Articles sit two levels deep and the
-   sitemap reflects that, but nothing tells Google the hierarchy, so results
-   show a bare URL instead of a breadcrumb trail. The blog index pages also
-   carry only `LocalBusiness` — no `Blog` or `ItemList` describing what they
-   list.
+**Context that governs all of it: the site is two weeks old in Search.** Twelve
+days of data, 130 impressions. This is a discovery phase, not an
+underperformance problem.
 
-   (An earlier draft of this list claimed FAQPage markup was missing. It is
-   not — `/` and `/hi` both emit `FAQPage` alongside `LocalBusiness`. The claim
-   was written from memory of the page rather than from the crawl, which is
-   exactly the failure the "measure, don't assert" rule exists to prevent.)
+1. **Get the existing Hindi reviewed by a native speaker.** The export shows
+   `/hi/blog/source-fabric-from-surat` at position 8.5 against 67 for the same
+   article in English. Hindi is the one advantage the data demonstrates, and
+   every further Hindi page is blocked behind this review. Owner-side task.
+2. **Deepen `/blog/sample-to-bulk-order-checklist`** — position 10.5, the only
+   page within reach of page one, and one of the shortest at 799 words.
+3. **Diagnose English `source-fabric-from-surat` at position 67** while its
+   Hindi twin sits at 8.5. The site's longest and best article ranking worst is
+   an anomaly worth understanding before writing anything new.
+4. **Check the hero's weight-200 type on a real mid-range Android.** Mobile is
+   80 of 130 impressions at position 7.86 against desktop's 16.48. The audience
+   is on phones.
+5. **The five truncated titles and the 199-character home description.**
+   Demoted from first to fifth: those pages have 1–6 impressions each, and
+   click-through work on ~0 impressions buys nothing. Still correct, just not a
+   lever yet.
+
+Two earlier items are struck off. The FAQPage gap did not exist — both home
+routes already emit it. The apparent `http`/`https`/`www` duplication in the
+export is not a fault either: all variants 308 to `https://www` and every one
+declares the right canonical, so Google is simply still consolidating.

@@ -20,8 +20,8 @@ supplier site will not out-inventory IndiaMART.
 
 **"what GSM fabric for dress material shirting"** returns SewGuide, Silver
 Bobbin, Senszio, Selvane, MFG Merch. Western consumer sewing blogs, every one.
-No Indian result. No supplier. No B2B voice at all. They answer *"what weight
-should my wardrobe be"* — a home sewist's question.
+No Indian result. No supplier. No B2B voice at all. They answer _"what weight
+should my wardrobe be"_ — a home sewist's question.
 
 Nobody is answering the trade buyer's version: **what do I write on the
 purchase order, and what will the mill actually deliver against it?**
@@ -51,12 +51,12 @@ rather than changing direction.
 
 ## What exists now
 
-| Article | Words | Cluster |
-| ------- | ----- | ------- |
+| Article                                                     | Words | Cluster         |
+| ----------------------------------------------------------- | ----- | --------------- |
 | How to Source Fabric from Surat Without Visiting the Market | 1,784 | Market literacy |
-| From sample to bulk order: a buyer's checklist | 799 | Process |
-| Buying dress material wholesale? Here's what to check first | 780 | Process |
-| Why two similar-looking sarees can have different prices | 769 | Specification |
+| From sample to bulk order: a buyer's checklist              | 799   | Process         |
+| Buying dress material wholesale? Here's what to check first | 780   | Process         |
+| Why two similar-looking sarees can have different prices    | 769   | Specification   |
 
 Four pieces, one strong. The Surat sourcing piece is more than twice the length
 of the others and is the only one with real depth — it should be treated as the
@@ -73,7 +73,7 @@ assets are sitting unbuilt.
 
 The highest-value cluster, because the SERP evidence shows nobody credible is
 in it. Every piece answers a question a buyer asks before placing an order, and
-answers it *from the supply side*.
+answers it _from the supply side_.
 
 - **What GSM actually means when you are ordering in bulk** — and why the
   number you specify and the number you receive can differ, what tolerance is
@@ -90,7 +90,7 @@ answers it *from the supply side*.
 
 ### B. Sourcing process — extend what works
 
-Two articles already live here. The gap is what happens *between* first contact
+Two articles already live here. The gap is what happens _between_ first contact
 and bulk.
 
 - **What to send a supplier when you do not know the fabric's name** — a photo,
@@ -156,7 +156,7 @@ already demonstrate, if traffic data ever becomes available to prove it.
 From `BRAND.md`, and they are not negotiable:
 
 - **No price, MOQ, lead-time or delivery claims.** This cuts off the obvious
-  angle for half the topics above. Write the *method* the buyer should use, not
+  angle for half the topics above. Write the _method_ the buyer should use, not
   a promise about what this business offers.
 - **Usable facts**: since the 1960s, 2,400+ active SKUs, 10+ export markets,
   12k m²/month, enquiry response typically within 12 hours. Nothing else is
@@ -188,16 +188,32 @@ reviewed by a native speaker first** — `BRAND.md` already calls this the
 highest-value outstanding brand task — and then treat Hindi as a first-class
 content track rather than a translation step.
 
-## How anyone will know if this works
+## Measured, 23 September 2026
 
-Honestly: right now, nobody will.
+A Search Console export now exists (`seo/reports/2026-09-23-search-console.md`
+holds the full read). Three things in it change this document.
 
-There is no Search Console access from the agent, no rank tracking and no
-backlink data. The site can be made structurally better and nobody will be able
-to say whether it moved. That is a tolerable state for a week and a bad one for
-a quarter.
+**The site is two weeks old in Search.** Twelve days of data, 9–20 September,
+22 clicks and 130 impressions. The sequence above was written as though this
+were an underperforming site needing optimisation. It is a new site in its
+discovery phase, and the right posture is indexing hygiene and patience rather
+than a campaign of tweaks.
 
-Before much more is written, connect Search Console properly — a service
-account, or a regular performance export dropped into `seo/data/`. Then the
-second article can be chosen from what the first one actually attracted, which
-is worth more than any amount of inference in this document.
+**Hindi measurably outranks English on identical content.**
+`/hi/blog/source-fabric-from-surat` sits at position 8.5; the English version of
+the same article sits at 67. The Hindi hypothesis in this document was
+reasoning; it is now evidence. Hindi moves from "someday" to the clearest
+advantage the site has — and stays blocked on a native review of the existing
+copy, which is no longer a nicety.
+
+**Head commercial terms are confirmed unwinnable.** `dress material surat` at
+14, `fabric wholesale in surat` at 21, `fabric manufacturers in surat` at 44.
+Present, nowhere near competitive, exactly as the SERP inspection predicted.
+The decision not to chase them stands.
+
+The specification-literacy wedge remains **unproven either way**. No query in
+the export touches it, because nothing has been written yet. The
+best-performing article is a process-and-spec piece at position 10.5, which is
+weak support and not evidence.
+
+Re-export in a month. Twelve days at this volume is direction, not proof.

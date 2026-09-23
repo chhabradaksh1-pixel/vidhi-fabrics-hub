@@ -30,3 +30,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Search Console exports: business performance data. Kept out of git history
+# deliberately — AGENTS.md forbids rewriting pushed history, so anything
+# committed here could never be removed. The scheduled agent runs locally and
+# reads these from disk regardless.
+seo/data/*.csv

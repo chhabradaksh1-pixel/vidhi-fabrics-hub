@@ -2,7 +2,7 @@
 
 This is what the scheduled run executes. It is deliberately a brief rather than
 a script: the crawl is mechanical and lives in `audit.mjs`, but deciding what
-the numbers *mean* is the part worth a model.
+the numbers _mean_ is the part worth a model.
 
 Read `seo/strategy.md` first. It holds the rotation, the rules and the current
 priority list, and it is the file that changes — this brief should not need to.

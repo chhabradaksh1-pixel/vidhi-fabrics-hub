@@ -5,14 +5,14 @@ and proposes fixes. It never publishes anything.
 
 ## Files
 
-| Path | What it is |
-| ---- | ---------- |
-| `strategy.md` | The plan: what the site targets, the daily rotation, the rules, the current priority list. **Start here.** |
-| `AGENT.md` | The standing brief the scheduled run executes. |
-| `audit.mjs` | Dependency-free crawler and differ. |
-| `data/snapshot.json` | Last crawl, used to diff the next one. |
-| `reports/` | One dated report per run. |
-| `data/*.csv` | Optional Search Console exports; picked up automatically if present. |
+| Path                 | What it is                                                                                                 |
+| -------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `strategy.md`        | The plan: what the site targets, the daily rotation, the rules, the current priority list. **Start here.** |
+| `AGENT.md`           | The standing brief the scheduled run executes.                                                             |
+| `audit.mjs`          | Dependency-free crawler and differ.                                                                        |
+| `data/snapshot.json` | Last crawl, used to diff the next one.                                                                     |
+| `reports/`           | One dated report per run.                                                                                  |
+| `data/*.csv`         | Optional Search Console exports; picked up automatically if present.                                       |
 
 ## Running it by hand
 

@@ -34,15 +34,15 @@ One lens per day, so the agent looks somewhere new instead of re-reporting the
 same checklist. Every day begins with the crawl diff regardless — a regression
 is urgent whatever day it appears.
 
-| Day | Lens                 | Looking for                                                                                                               |
-| --- | -------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| Mon | **Technical health** | Crawl diff, status codes, canonical and hreflang integrity, sitemap accuracy against the routes that actually exist       |
-| Tue | **Content gaps**     | Work the backlog in `content-strategy.md`: what is written, what is next, whether the SERP for a target topic has changed |
-| Wed | **Structured data**  | Rich-result eligibility the site is leaving on the table — FAQPage, Article, Breadcrumb, ItemList for the catalogue       |
-| Thu | **Internal linking** | Orphan pages, pages more than two clicks from home, anchor text that says "read more" instead of the target's subject     |
-| Fri | **Competitor delta** | What Surat suppliers and directories rank for that this site does not address at all                                      |
-| Sat | **Performance**      | Payload, oversized images, render-blocking resources — a slow page loses the click it earned                              |
-| Sun | **Consolidation**    | Re-rank the backlog from the week's findings and rewrite _Current priorities_ below                                       |
+| Day | Lens                 | Looking for                                                                                                                                                         |
+| --- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Mon | **Technical health** | Crawl diff, status codes, canonical and hreflang integrity, sitemap accuracy against the routes that actually exist                                                 |
+| Tue | **Content gaps**     | Work the backlog in `content-strategy.md`: what is written, what is next, whether the SERP for a target topic has changed                                           |
+| Wed | **Structured data**  | Validity first, then the rich results that still exist — Breadcrumb, Article, ItemList. **Not FAQ:** FAQ rich results were retired from Google Search on 7 May 2026 |
+| Thu | **Internal linking** | Orphan pages, pages more than two clicks from home, anchor text that says "read more" instead of the target's subject                                               |
+| Fri | **Competitor delta** | What Surat suppliers and directories rank for that this site does not address at all                                                                                |
+| Sat | **Performance**      | Payload, oversized images, render-blocking resources — a slow page loses the click it earned                                                                        |
+| Sun | **Consolidation**    | Re-rank the backlog from the week's findings and rewrite _Current priorities_ below                                                                                 |
 
 ## Rules the agent does not break
 
@@ -67,6 +67,26 @@ These exist because SEO automation fails in predictable ways.
    quietly generate more of the same unreviewed copy.
 5. **Measure, don't assert.** Same rule as the rest of the repo. A claim that a
    page is slow, thin or duplicated comes with the number that shows it.
+
+## FAQ structured data earns nothing in Google
+
+Recorded because it is a standing trap, and it caught me once already.
+
+FAQ rich results were restricted to government and health sites in August 2023
+and **retired from Google Search entirely on 7 May 2026**. Google is dropping
+the FAQ search appearance and Rich Results Test support in June 2026, and the
+Search Console API support in August 2026. There is no FAQ rich result left to
+earn.
+
+So never propose FAQ markup on the promise of a rich result, and do not read an
+empty `Search appearance` report as a fault. The existing `FAQPage` markup on
+the home routes should **stay** — unused structured data is harmless, `FAQPage`
+is still valid schema.org, and Bing and the RAG crawlers still read it — but it
+earns nothing in Google and must not be presented as though it does.
+
+FAQ _content_ is still worth writing. Answering a real buyer question in the
+body of a page is valuable because of the answer, not the markup. That is the
+only reason to add one.
 
 ## What the agent cannot see
 

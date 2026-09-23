@@ -1226,6 +1226,61 @@ export const JOURNAL: JournalArticle[] = [
         },
       },
     ],
+    faq: [
+      {
+        question: {
+          en: "How closely should the bulk match the approved sample?",
+          hi: "बल्क माल को मंज़ूर सैंपल से कितना मिलता-जुलता होना चाहिए?",
+          "hi-en": "Bulk maal ko approved sample se kitna milta-julta hona chahiye?",
+        },
+        answer: {
+          en: "Some variation between a sample and a production lot is normal, particularly in shade, and it is usually wider across dye lots than within one. What matters is agreeing in writing, before the order runs, which properties are being held to the sample and how much variation is acceptable on each. A tolerance recorded in advance is a shared expectation; the same conversation after delivery is a dispute.",
+          hi: "सैंपल और प्रोडक्शन लॉट के बीच थोड़ा फ़र्क़ आना सामान्य है, ख़ासकर शेड में, और यह फ़र्क़ एक ही डाई लॉट के भीतर से ज़्यादा अलग-अलग डाई लॉट के बीच होता है। अहम बात यह है कि ऑर्डर चलने से पहले लिखित में तय हो कि कौन-सी बातें सैंपल के मुताबिक़ रखी जाएँगी और हर एक में कितना फ़र्क़ चलेगा। पहले से दर्ज की गई छूट साझा समझ होती है; वही बातचीत डिलीवरी के बाद विवाद बन जाती है।",
+          "hi-en":
+            "Sample aur production lot ke beech thoda farak aana normal hai, khaaskar shade mein, aur yeh farak ek hi dye lot ke bheetar se zyada alag-alag dye lots ke beech hota hai. Ahem baat yeh hai ki order chalne se pehle likhit mein tay ho ki kaun si baatein sample ke mutabik rakhi jaayengi aur har ek mein kitna farak chalega. Pehle se record ki gayi tolerance saajha samajh hoti hai; wahi baatcheet delivery ke baad vivaad ban jaati hai.",
+        },
+      },
+      {
+        question: {
+          en: "I approved a sample but asked for a different colour. Is that full approval?",
+          hi: "मैंने सैंपल मंज़ूर किया पर रंग बदलने को कहा — क्या वह पूरी मंज़ूरी है?",
+          "hi-en":
+            "Maine sample approve kiya par colour badalne ko kaha — kya wo poori approval hai?",
+        },
+        answer: {
+          en: "No. A sample approved subject to a change is a conditional approval, and the change itself still has to be confirmed. Ask how it will be evidenced — a revised swatch, a lab dip, a strike-off — and whether you will see it before the bulk runs. Recording the condition next to the approval keeps the two from drifting apart later.",
+          hi: "नहीं। किसी बदलाव की शर्त पर मंज़ूर किया गया सैंपल सशर्त मंज़ूरी है, और वह बदलाव ख़ुद अब भी पक्का होना बाक़ी है। पूछिए कि वह कैसे दिखाया जाएगा — नया स्वैच, लैब डिप या स्ट्राइक-ऑफ़ — और क्या बल्क चलने से पहले आप उसे देखेंगे। शर्त को मंज़ूरी के साथ ही दर्ज कर लेने से दोनों बाद में अलग नहीं होते।",
+          "hi-en":
+            "Nahin. Kisi badlaav ki shart par approve kiya gaya sample conditional approval hai, aur wo badlaav khud abhi bhi pakka hona baaki hai. Poochiye ki wo kaise dikhaya jaayega — naya swatch, lab dip ya strike-off — aur kya bulk chalne se pehle aap use dekhenge. Shart ko approval ke saath hi record kar lene se dono baad mein alag nahin hote.",
+        },
+      },
+      {
+        question: {
+          en: "What should I check when the bulk arrives?",
+          hi: "बल्क माल पहुँचने पर क्या जाँचना चाहिए?",
+          "hi-en": "Bulk maal pahunchne par kya jaanchna chahiye?",
+        },
+        answer: {
+          en: "Check against the approved sample itself rather than a photograph or a memory of it, and check across the lot rather than the first roll or the top of the stack. Look at the properties you agreed to hold — composition, weight, width, shade, finish — and note what you find while the consignment is still intact. A record made on arrival is far easier to act on than one assembled after the fabric has been cut.",
+          hi: "जाँच तस्वीर या याददाश्त से नहीं, मंज़ूर सैंपल से कीजिए, और पूरे लॉट में कीजिए — सिर्फ़ पहले थान या ढेर के ऊपरी हिस्से से नहीं। जिन बातों को सैंपल के मुताबिक़ रखना तय हुआ था — सामग्री, वज़न, चौड़ाई, शेड, फ़िनिश — उन्हें देखिए, और जो मिले उसे माल बिना छेड़े रहते हुए दर्ज कीजिए। पहुँचने पर बनाया गया रिकॉर्ड, कपड़ा कटने के बाद जोड़े गए रिकॉर्ड से कहीं ज़्यादा काम आता है।",
+          "hi-en":
+            "Jaanch tasveer ya yaaddasht se nahin, approved sample se kijiye, aur poore lot mein kijiye — sirf pehle than ya dher ke upari hisse se nahin. Jin baaton ko sample ke mutabik rakhna tay hua tha — composition, weight, width, shade, finish — unhe dekhiye, aur jo mile use maal bina chhede rehte hue record kijiye. Pahunchne par banaya gaya record, kapda katne ke baad jode gaye record se kahin zyada kaam aata hai.",
+        },
+      },
+      {
+        question: {
+          en: "What should I do if the bulk does not match the sample?",
+          hi: "अगर बल्क माल सैंपल से मेल न खाए तो क्या करें?",
+          "hi-en": "Agar bulk maal sample se mel na khaaye to kya karein?",
+        },
+        answer: {
+          en: "Raise it early, before the fabric is cut or processed further, and raise it with evidence: the approved sample, the product code both sides agreed, photographs of the lot, and a note of what differs and by how much. A specific difference measured against a recorded specification can be discussed and settled. A general impression that the goods are not right, weeks after delivery, usually cannot.",
+          hi: "जल्दी उठाइए — कपड़ा कटने या आगे प्रोसेस होने से पहले — और सबूत के साथ उठाइए: मंज़ूर सैंपल, दोनों पक्षों का तय किया प्रोडक्ट कोड, लॉट की तस्वीरें, और यह नोट कि क्या फ़र्क़ है और कितना। दर्ज स्पेसिफ़िकेशन के सामने नापा गया ठोस फ़र्क़ बातचीत से सुलझ सकता है। डिलीवरी के हफ़्तों बाद दी गई यह आम राय कि माल ठीक नहीं है, आम तौर पर नहीं सुलझती।",
+          "hi-en":
+            "Jaldi uthaiye — kapda katne ya aage process hone se pehle — aur saboot ke saath uthaiye: approved sample, dono taraf ka tay kiya product code, lot ki tasveerein, aur yeh note ki kya farak hai aur kitna. Record ki gayi specification ke saamne naapa gaya thos farak baatcheet se suljh sakta hai. Delivery ke hafton baad di gayi yeh aam raay ki maal theek nahin hai, aam taur par nahin sulajhti.",
+        },
+      },
+    ],
   },
 ];
 

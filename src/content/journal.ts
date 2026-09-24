@@ -4,6 +4,7 @@ import linen from "@/assets/fabric-linen-shirting.jpg";
 import swatchOnCard from "@/assets/swatch-on-card.jpg";
 import wovenDetail from "@/assets/woven-detail.jpg";
 import swatchStack from "@/assets/swatch-stack.jpg";
+import warehouse from "@/assets/warehouse-surat.jpg";
 import organza from "@/assets/fabric-beaded-organza.jpg";
 import type { Lang } from "@/content/translations";
 import { whatsAppUrl } from "@/content/whatsapp";
@@ -97,6 +98,239 @@ export function relatedArticles(article: JournalArticle, count: number) {
 }
 
 export const JOURNAL: JournalArticle[] = [
+  {
+    slug: "fabric-width-and-costing",
+    inlineLinks: [
+      {
+        phrase: {
+          en: "what the cloth weighs",
+          hi: "कपड़े का वज़न",
+          "hi-en": "kapde ka weight",
+        },
+        href: "/blog/fabric-gsm-bulk-orders",
+      },
+    ],
+    image: warehouse,
+    published: "2026-09-24",
+    imageAlt: {
+      en: "Rolls of cloth stacked by width, where yardage and costing actually meet",
+      hi: "चौड़ाई के हिसाब से रखे कपड़े के थान — जहाँ गज़ और लागत असल में मिलते हैं",
+      "hi-en":
+        "Chaudai ke hisaab se rakhe kapde ke than — jahan gaz aur laagat asal mein milte hain",
+    },
+    category: {
+      en: "Specification guide",
+      hi: "स्पेसिफ़िकेशन गाइड",
+      "hi-en": "Specification guide",
+    },
+    metaTitle: {
+      en: "Fabric width and costing explained",
+      hi: "कपड़े की चौड़ाई और लागत",
+      "hi-en": "Kapde ki chaudai aur laagat",
+    },
+    title: {
+      en: "Fabric width and what it does to your costing",
+      hi: "कपड़े की चौड़ाई और आपकी लागत पर उसका असर",
+      "hi-en": "Kapde ki chaudai aur aapki laagat par uska asar",
+    },
+    excerpt: {
+      en: "Why the cheaper metre is often the dearer garment, and why extra width only helps when it fits another piece across.",
+      hi: "सस्ता मीटर अक्सर महँगा कपड़ा क्यों बन जाता है, और ज़्यादा चौड़ाई तभी काम आती है जब उसमें एक और पीस बैठ जाए।",
+      "hi-en":
+        "Sasta meter aksar mehenga kapda kyun ban jaata hai, aur zyada chaudai tabhi kaam aati hai jab usme ek aur piece baith jaaye.",
+    },
+    introduction: {
+      en: "Width is the specification buyers check last and pay for first. Two quotations at the same rate per metre are not the same offer if the cloth is a different width, and a wider cloth is not automatically the better buy either. What decides it is whether the extra width lets you cut another piece across — and often it does not, in which case you are paying for cloth that goes into the waste. This guide covers the arithmetic, the difference between the width quoted and the width you can cut, and what to establish before comparing two prices.",
+      hi: "चौड़ाई वह स्पेसिफ़िकेशन है जिसे खरीदार सबसे आख़िर में देखते हैं और जिसका पैसा सबसे पहले देते हैं। एक ही प्रति मीटर दर पर दो कोटेशन एक जैसी पेशकश नहीं हैं, अगर कपड़े की चौड़ाई अलग है — और चौड़ा कपड़ा अपने आप बेहतर सौदा भी नहीं होता। फ़ैसला इस बात से होता है कि बढ़ी हुई चौड़ाई में एक और पीस आड़े में बैठता है या नहीं — और अक्सर नहीं बैठता, यानी आप उस कपड़े का पैसा दे रहे हैं जो कतरन में जाएगा। यह गाइड बताती है इसका गणित, कोटेशन की चौड़ाई और काटने लायक़ चौड़ाई का फ़र्क़, और दो दाम तुलना करने से पहले क्या पक्का कर लेना चाहिए।",
+      "hi-en":
+        "Chaudai wo specification hai jise khareedar sabse aakhir mein dekhte hain aur jiska paisa sabse pehle dete hain. Ek hi prati meter dar par do quotation ek jaisi peshkash nahin hain, agar kapde ki chaudai alag hai — aur chauda kapda apne aap behtar sauda bhi nahin hota. Faisla is baat se hota hai ki badhi hui chaudai mein ek aur piece aade mein baithta hai ya nahin — aur aksar nahin baithta, yaani aap us kapde ka paisa de rahe hain jo katran mein jaayega. Yeh guide batati hai iska ganit, quotation ki chaudai aur kaatne laayak chaudai ka farak, aur do daam tulna karne se pehle kya pakka kar lena chahiye.",
+    },
+    sections: [
+      {
+        heading: {
+          en: "Rate per metre and cost per garment are different questions",
+          hi: "प्रति मीटर दर और प्रति कपड़ा लागत — दो अलग सवाल",
+          "hi-en": "Prati meter dar aur prati kapda laagat — do alag sawaal",
+        },
+        paragraphs: {
+          en: [
+            "A metre of 58 inch cloth carries about 32 per cent more material than a metre of 44 inch cloth, because 58 divided by 44 is 1.32. Quoted at the same rate per metre, the narrower cloth is therefore around a third dearer for the same quantity of material.",
+            "That arithmetic is easy and it is also not the answer. You do not buy material, you buy pieces cut from it. What you actually need to know is how many pieces come off a metre of each width — and that depends on your pattern, not on the ratio.",
+            "So a rate per metre is only comparable between cloths of identical width. Across different widths it tells you almost nothing on its own.",
+          ],
+          hi: [
+            "58 इंच चौड़े कपड़े के एक मीटर में 44 इंच वाले एक मीटर से लगभग 32 प्रतिशत ज़्यादा माल होता है, क्योंकि 58 बँटा 44 बराबर 1.32 है। एक ही प्रति मीटर दर पर, यानी उतने ही माल के लिए पतला कपड़ा करीब एक-तिहाई महँगा पड़ता है।",
+            "यह गणित आसान है, और यही जवाब नहीं है। आप माल नहीं खरीदते, आप उसमें से कटने वाले पीस खरीदते हैं। असल में जानने की बात यह है कि हर चौड़ाई के एक मीटर से कितने पीस निकलते हैं — और वह आपके पैटर्न पर निर्भर है, अनुपात पर नहीं।",
+            "इसलिए प्रति मीटर दर की तुलना सिर्फ़ एक ही चौड़ाई के कपड़ों के बीच हो सकती है। अलग-अलग चौड़ाई में वह अकेले लगभग कुछ नहीं बताती।",
+          ],
+          "hi-en": [
+            "58 inch chaude kapde ke ek meter mein 44 inch wale ek meter se lagbhag 32 percent zyada maal hota hai, kyunki 58 banta 44 barabar 1.32 hai. Ek hi prati meter dar par, yaani utne hi maal ke liye patla kapda kareeb ek tihai mehenga padta hai.",
+            "Yeh ganit aasan hai, aur yahi jawaab nahin hai. Aap maal nahin khareedte, aap usme se katne wale piece khareedte hain. Asal mein jaanne ki baat yeh hai ki har chaudai ke ek meter se kitne piece nikalte hain — aur wo aapke pattern par nirbhar hai, anupaat par nahin.",
+            "Isliye prati meter dar ki tulna sirf ek hi chaudai ke kapdon ke beech ho sakti hai. Alag alag chaudai mein wo akele lagbhag kuch nahin batati.",
+          ],
+        },
+      },
+      {
+        heading: {
+          en: "Extra width only helps when another piece fits across",
+          hi: "बढ़ी चौड़ाई तभी काम की है जब एक और पीस आड़े बैठे",
+          "hi-en": "Badhi chaudai tabhi kaam ki hai jab ek aur piece aade baithe",
+        },
+        paragraphs: {
+          en: [
+            "Take a pattern piece 26 inches wide. Across 58 inch cloth two of them fit, using 52 inches and wasting 6. Across 44 inch cloth only one fits, using 26 and wasting 18. Here the wider cloth yields twice as much per metre and is clearly the cheaper garment even at a higher rate.",
+            "Now take a piece 30 inches wide. Across 58 inch cloth one fits, wasting 28 inches. Across 44 inch cloth one fits, wasting 14. Both widths give you the same single piece per metre — so the wider cloth has produced nothing extra, and every rupee of the width premium has gone into the cutting waste. On that pattern the narrower cloth is the better buy.",
+            "This is why the same fabric at the same rate can be economical for one buyer and wasteful for another. Width is not a quality, it is a fit against your pattern, and nobody but you knows the pattern.",
+          ],
+          hi: [
+            "मान लीजिए एक पैटर्न पीस 26 इंच चौड़ा है। 58 इंच कपड़े में आड़े दो पीस बैठते हैं — 52 इंच इस्तेमाल, 6 इंच बर्बाद। 44 इंच में सिर्फ़ एक बैठता है — 26 इंच इस्तेमाल, 18 बर्बाद। यहाँ चौड़ा कपड़ा प्रति मीटर दोगुना देता है और ऊँची दर पर भी साफ़ तौर पर सस्ता कपड़ा बनता है।",
+            "अब 30 इंच चौड़ा पीस लीजिए। 58 इंच कपड़े में एक बैठता है — 28 इंच बर्बाद। 44 इंच में भी एक बैठता है — 14 इंच बर्बाद। दोनों चौड़ाई प्रति मीटर वही एक पीस देती हैं — यानी चौड़े कपड़े ने कुछ अतिरिक्त नहीं दिया, और चौड़ाई का पूरा अतिरिक्त पैसा कतरन में गया। उस पैटर्न पर पतला कपड़ा बेहतर सौदा है।",
+            "इसीलिए वही कपड़ा उसी दर पर एक खरीदार के लिए किफ़ायती और दूसरे के लिए बर्बादी हो सकता है। चौड़ाई कोई गुण नहीं है, वह आपके पैटर्न से मेल है — और पैटर्न आपके सिवा कोई नहीं जानता।",
+          ],
+          "hi-en": [
+            "Maan lijiye ek pattern piece 26 inch chauda hai. 58 inch kapde mein aade do piece baithte hain — 52 inch istemaal, 6 inch barbaad. 44 inch mein sirf ek baithta hai — 26 inch istemaal, 18 barbaad. Yahan chauda kapda prati meter doguna deta hai aur oonchi dar par bhi saaf taur par sasta kapda banta hai.",
+            "Ab 30 inch chauda piece lijiye. 58 inch kapde mein ek baithta hai — 28 inch barbaad. 44 inch mein bhi ek baithta hai — 14 inch barbaad. Dono chaudai prati meter wahi ek piece deti hain — yaani chaude kapde ne kuch atirikt nahin diya, aur chaudai ka poora atirikt paisa katran mein gaya. Us pattern par patla kapda behtar sauda hai.",
+            "Isiliye wahi kapda usi dar par ek khareedar ke liye kifayati aur doosre ke liye barbaadi ho sakta hai. Chaudai koi gun nahin hai, wo aapke pattern se mel hai — aur pattern aapke siva koi nahin jaanta.",
+          ],
+        },
+      },
+      {
+        heading: {
+          en: "The width quoted and the width you can cut",
+          hi: "कोटेशन की चौड़ाई और काटने लायक़ चौड़ाई",
+          "hi-en": "Quotation ki chaudai aur kaatne laayak chaudai",
+        },
+        paragraphs: {
+          en: [
+            "A quoted width is usually the full width including selvedges, and selvedges are not cuttable. How much they take varies with the loom and the finish, and on some cloths the outer inch or two is also distorted or shaded differently enough to be unusable. Cuttable width is the number your marker actually runs on.",
+            "Finishing moves the figure too. Cloth can come off the loom at one width and out of the finishing range narrower, and a width quoted from greige is not the width that arrives. This is the same problem as reading what the cloth weighs from a greige figure rather than a finished one.",
+            "So ask for cuttable width, ask whether the figure is greige or finished, and ask what tolerance applies. Width varies between lots for the same reasons weight does.",
+          ],
+          hi: [
+            "कोटेशन में दी गई चौड़ाई आम तौर पर किनारों सहित पूरी चौड़ाई होती है, और किनारे काटने लायक़ नहीं होते। वे कितना लेते हैं यह लूम और फ़िनिश पर बदलता है, और कुछ कपड़ों में बाहरी एक-दो इंच का शेड या बुनावट भी इतनी अलग होती है कि वह इस्तेमाल लायक़ नहीं रहती। काटने लायक़ चौड़ाई वही आँकड़ा है जिस पर आपका मार्कर असल में चलता है।",
+            "फ़िनिशिंग भी आँकड़े को हिलाती है। कपड़ा लूम से एक चौड़ाई पर उतर सकता है और फ़िनिशिंग रेंज से पतला निकल सकता है, और ग्रे से बताई गई चौड़ाई वह नहीं होती जो पहुँचती है। यह वही समस्या है जो कपड़े का वज़न ग्रे आँकड़े से पढ़ने में होती है।",
+            "इसलिए काटने लायक़ चौड़ाई पूछिए, पूछिए कि आँकड़ा ग्रे का है या फ़िनिश्ड का, और पूछिए कि छूट कितनी है। चौड़ाई लॉट-दर-लॉट उन्हीं वजहों से बदलती है जिनसे वज़न बदलता है।",
+          ],
+          "hi-en": [
+            "Quotation mein di gayi chaudai aam taur par kinaron sahit poori chaudai hoti hai, aur kinare kaatne laayak nahin hote. Wo kitna lete hain yeh loom aur finish par badalta hai, aur kuch kapdon mein bahari ek do inch ka shade ya bunavat bhi itni alag hoti hai ki wo istemaal laayak nahin rehti. Kaatne laayak chaudai wahi aankda hai jis par aapka marker asal mein chalta hai.",
+            "Finishing bhi aankde ko hilati hai. Kapda loom se ek chaudai par utar sakta hai aur finishing range se patla nikal sakta hai, aur grey se batai gayi chaudai wo nahin hoti jo pahunchti hai. Yeh wahi samasya hai jo kapde ka weight grey aankde se padhne mein hoti hai.",
+            "Isliye kaatne laayak chaudai poochiye, poochiye ki aankda grey ka hai ya finished ka, aur poochiye ki tolerance kitni hai. Chaudai lot dar lot unhi wajahon se badalti hai jinse weight badalta hai.",
+          ],
+        },
+      },
+      {
+        heading: {
+          en: "Comparing two quotations at different widths",
+          hi: "अलग-अलग चौड़ाई के दो कोटेशन की तुलना",
+          "hi-en": "Alag alag chaudai ke do quotation ki tulna",
+        },
+        paragraphs: {
+          en: [
+            "Do not convert to a rate per square metre and stop there. It is the right arithmetic for comparing material and the wrong arithmetic for comparing cost, because it assumes you can use every inch, which the previous section shows you usually cannot.",
+            "Lay the pattern out instead, even roughly. Work out how many pieces come off one metre at each width, divide the rate per metre by that number, and compare the results. That figure is cost per piece, and it is the only comparison that survives contact with a cutting table.",
+            "Where the widths give the same yield, take the narrower cloth. Where the wider one yields more, the premium is worth paying up to the point where the yields converge again.",
+          ],
+          hi: [
+            "प्रति वर्ग मीटर दर निकालकर वहीं मत रुकिए। माल की तुलना के लिए वह सही गणित है और लागत की तुलना के लिए ग़लत, क्योंकि वह मानकर चलता है कि आप हर इंच इस्तेमाल कर सकते हैं — और पिछला हिस्सा दिखाता है कि आम तौर पर नहीं कर सकते।",
+            "इसके बजाय पैटर्न बिछाइए, मोटे तौर पर भी चलेगा। निकालिए कि हर चौड़ाई पर एक मीटर से कितने पीस आते हैं, प्रति मीटर दर को उस संख्या से बाँटिए, और नतीजों की तुलना कीजिए। वह आँकड़ा प्रति पीस लागत है, और कटाई की मेज़ से टकराने के बाद यही एक तुलना टिकती है।",
+            "जहाँ दोनों चौड़ाई से उतने ही पीस निकलें, पतला कपड़ा लीजिए। जहाँ चौड़े से ज़्यादा निकलें, वहाँ अतिरिक्त दाम उस बिंदु तक देना सही है जहाँ दोनों की उपज फिर बराबर हो जाए।",
+          ],
+          "hi-en": [
+            "Prati varg meter dar nikaalkar wahin mat rukiye. Maal ki tulna ke liye wo sahi ganit hai aur laagat ki tulna ke liye galat, kyunki wo maankar chalta hai ki aap har inch istemaal kar sakte hain — aur pichhla hissa dikhata hai ki aam taur par nahin kar sakte.",
+            "Iske bajaye pattern bichhaiye, mote taur par bhi chalega. Nikaaliye ki har chaudai par ek meter se kitne piece aate hain, prati meter dar ko us sankhya se baantiye, aur nateejon ki tulna kijiye. Wo aankda prati piece laagat hai, aur kataai ki mez se takraane ke baad yahi ek tulna tikti hai.",
+            "Jahan dono chaudai se utne hi piece niklein, patla kapda lijiye. Jahan chaude se zyada niklein, wahan atirikt daam us bindu tak dena sahi hai jahan dono ki upaj phir barabar ho jaaye.",
+          ],
+        },
+      },
+    ],
+    closing: {
+      heading: {
+        en: "What to establish before comparing prices",
+        hi: "दाम तुलना करने से पहले क्या पक्का कीजिए",
+        "hi-en": "Daam tulna karne se pehle kya pakka kijiye",
+      },
+      intro: {
+        en: "Four answers turn two incomparable quotations into a decision.",
+        hi: "चार जवाब दो बेमेल कोटेशन को एक फ़ैसले में बदल देते हैं।",
+        "hi-en": "Chaar jawaab do bemel quotation ko ek faisle mein badal dete hain.",
+      },
+      checklist: {
+        en: [
+          "Cuttable width, not full width including selvedges",
+          "Whether the width quoted is greige or finished",
+          "The width tolerance, and whether it varies between lots",
+          "How many pieces your own pattern yields per metre at that width",
+        ],
+        hi: [
+          "काटने लायक़ चौड़ाई, किनारों सहित पूरी चौड़ाई नहीं",
+          "बताई गई चौड़ाई ग्रे की है या फ़िनिश्ड की",
+          "चौड़ाई की छूट, और यह कि वह लॉट-दर-लॉट बदलती है या नहीं",
+          "उस चौड़ाई पर आपके अपने पैटर्न से प्रति मीटर कितने पीस निकलते हैं",
+        ],
+        "hi-en": [
+          "Kaatne laayak chaudai, kinaron sahit poori chaudai nahin",
+          "Batai gayi chaudai grey ki hai ya finished ki",
+          "Chaudai ki tolerance, aur yeh ki wo lot dar lot badalti hai ya nahin",
+          "Us chaudai par aapke apne pattern se prati meter kitne piece nikalte hain",
+        ],
+      },
+    },
+    faq: [
+      {
+        question: {
+          en: "Is wider fabric always cheaper in the end?",
+          hi: "क्या चौड़ा कपड़ा आख़िर में हमेशा सस्ता पड़ता है?",
+          "hi-en": "Kya chauda kapda aakhir mein hamesha sasta padta hai?",
+        },
+        answer: {
+          en: "No. It is cheaper only when the extra width fits another pattern piece across. If it does not, the additional width becomes cutting waste that you have paid for, and a narrower cloth at a lower rate gives the same yield for less.",
+          hi: "नहीं। वह तभी सस्ता है जब बढ़ी हुई चौड़ाई में एक और पैटर्न पीस आड़े बैठ जाए। अगर नहीं बैठता, तो अतिरिक्त चौड़ाई कतरन बन जाती है जिसका पैसा आपने दिया है, और कम दर पर पतला कपड़ा उतनी ही उपज कम पैसे में दे देता है।",
+          "hi-en":
+            "Nahin. Wo tabhi sasta hai jab badhi hui chaudai mein ek aur pattern piece aade baith jaaye. Agar nahin baithta, to atirikt chaudai katran ban jaati hai jiska paisa aapne diya hai, aur kam dar par patla kapda utni hi upaj kam paise mein de deta hai.",
+        },
+      },
+      {
+        question: {
+          en: "What is cuttable width?",
+          hi: "काटने लायक़ चौड़ाई क्या है?",
+          "hi-en": "Kaatne laayak chaudai kya hai?",
+        },
+        answer: {
+          en: "The width your marker can actually use, once the selvedges and any distorted or off-shade edge are excluded. A quoted width usually includes the selvedges, so cuttable width is always the smaller of the two figures and the only one worth costing against.",
+          hi: "वह चौड़ाई जो आपका मार्कर असल में इस्तेमाल कर सकता है — किनारे और कोई भी बिगड़ा या अलग शेड वाला सिरा हटाने के बाद। कोटेशन की चौड़ाई में आम तौर पर किनारे शामिल होते हैं, इसलिए काटने लायक़ चौड़ाई हमेशा दोनों में छोटी होती है, और लागत उसी पर निकालनी चाहिए।",
+          "hi-en":
+            "Wo chaudai jo aapka marker asal mein istemaal kar sakta hai — kinare aur koi bhi bigda ya alag shade wala sira hataane ke baad. Quotation ki chaudai mein aam taur par kinare shaamil hote hain, isliye kaatne laayak chaudai hamesha dono mein chhoti hoti hai, aur laagat usi par nikaalni chahiye.",
+        },
+      },
+      {
+        question: {
+          en: "Can I just convert both quotations to a rate per square metre?",
+          hi: "क्या मैं दोनों कोटेशन को प्रति वर्ग मीटर दर में बदल दूँ?",
+          "hi-en": "Kya main dono quotation ko prati varg meter dar mein badal doon?",
+        },
+        answer: {
+          en: "It is a fair comparison of material and a poor comparison of cost, because it assumes every inch of width gets used. Convert to cost per piece instead: pieces per metre at that width, divided into the rate per metre. That is the number your cutting table will agree with.",
+          hi: "माल की तुलना के लिए वह ठीक है, लागत की तुलना के लिए कमज़ोर — क्योंकि वह मानता है कि चौड़ाई का हर इंच इस्तेमाल होगा। इसके बजाय प्रति पीस लागत निकालिए: उस चौड़ाई पर प्रति मीटर पीस, और उसमें प्रति मीटर दर को बाँटिए। कटाई की मेज़ इसी आँकड़े से सहमत होगी।",
+          "hi-en":
+            "Maal ki tulna ke liye wo theek hai, laagat ki tulna ke liye kamzor — kyunki wo maanta hai ki chaudai ka har inch istemaal hoga. Iske bajaye prati piece laagat nikaaliye: us chaudai par prati meter piece, aur usme prati meter dar ko baantiye. Kataai ki mez isi aankde se sehmat hogi.",
+        },
+      },
+      {
+        question: {
+          en: "Does width change between lots?",
+          hi: "क्या चौड़ाई लॉट-दर-लॉट बदलती है?",
+          "hi-en": "Kya chaudai lot dar lot badalti hai?",
+        },
+        answer: {
+          en: "It can, for the same reasons weight does — loom tension, finishing route and batch. Agree a tolerance on width as well as on weight, and say which direction matters, because a cloth arriving narrower than costed changes your yield on every metre of the lot.",
+          hi: "बदल सकती है, उन्हीं वजहों से जिनसे वज़न बदलता है — लूम टेंशन, फ़िनिशिंग का रास्ता और बैच। वज़न की तरह चौड़ाई पर भी छूट तय कीजिए, और यह भी कहिए कि किस तरफ़ का फ़र्क़ अहम है, क्योंकि लागत से पतला आया कपड़ा लॉट के हर मीटर पर आपकी उपज बदल देता है।",
+          "hi-en":
+            "Badal sakti hai, unhi wajahon se jinse weight badalta hai — loom tension, finishing ka raasta aur batch. Weight ki tarah chaudai par bhi tolerance tay kijiye, aur yeh bhi kahiye ki kis taraf ka farak ahem hai, kyunki laagat se patla aaya kapda lot ke har meter par aapki upaj badal deta hai.",
+        },
+      },
+    ],
+    related: ["fabric-gsm-bulk-orders", "sample-to-bulk-order-checklist"],
+  },
   {
     slug: "fabric-gsm-bulk-orders",
     inlineLinks: [

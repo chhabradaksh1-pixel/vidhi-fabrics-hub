@@ -98,6 +98,263 @@ export function relatedArticles(article: JournalArticle, count: number) {
 
 export const JOURNAL: JournalArticle[] = [
   {
+    slug: "fabric-gsm-bulk-orders",
+    inlineLinks: [
+      {
+        phrase: {
+          en: "the rest of the specification",
+          hi: "बाक़ी स्पेसिफ़िकेशन",
+          "hi-en": "baaki specification",
+        },
+        href: "/blog/sample-to-bulk-order-checklist",
+      },
+    ],
+    image: jacquard,
+    published: "2026-09-24",
+    imageAlt: {
+      en: "A dense rust-red jacquard, the kind of construction where weight and handle diverge",
+      hi: "घनी बुनाई वाला रस्ट-लाल जैक्वार्ड — ऐसी बुनावट जिसमें वज़न और पकड़ अलग-अलग बातें होती हैं",
+      "hi-en":
+        "Ghani bunai wala rust-red jacquard — aisi bunavat jisme weight aur pakad alag alag baatein hoti hain",
+    },
+    category: {
+      en: "Specification guide",
+      hi: "स्पेसिफ़िकेशन गाइड",
+      "hi-en": "Specification guide",
+    },
+    metaTitle: {
+      en: "Fabric GSM explained for bulk orders",
+      hi: "कपड़े का GSM: बल्क ऑर्डर के लिए",
+      "hi-en": "Fabric GSM: bulk order ke liye",
+    },
+    title: {
+      en: "What GSM means when you order in bulk",
+      hi: "बल्क ऑर्डर में GSM का क्या मतलब है",
+      "hi-en": "Bulk order mein GSM ka kya matlab hai",
+    },
+    excerpt: {
+      en: "Why the weight you specify and the weight you receive are not the same number, and what to write on the order instead.",
+      hi: "जो वज़न आप लिखते हैं और जो माल में आता है, वे एक ही आँकड़ा क्यों नहीं होते — और ऑर्डर पर इसके बजाय क्या लिखना चाहिए।",
+      "hi-en":
+        "Jo weight aap likhte hain aur jo maal mein aata hai, wo ek hi aankda kyun nahin hote — aur order par iske bajaye kya likhna chahiye.",
+    },
+    introduction: {
+      en: "GSM is the number buyers quote most often and argue about most easily. It is a useful figure and a narrow one: it tells you what a cloth weighs over a fixed area and nothing else. Most weight disputes are not really about weight — they are about a figure that was never defined, never toleranced, and never checked the same way by both sides. This guide covers what the number does and does not carry, why the mill’s figure and yours can legitimately differ, and how to write it on an order so it means the same thing to everybody.",
+      hi: "GSM वह आँकड़ा है जिसका ज़िक्र खरीदार सबसे ज़्यादा करते हैं और जिस पर झगड़ा सबसे जल्दी होता है। यह काम का आँकड़ा है, पर सीमित है: यह बताता है कि तय क्षेत्र में कपड़े का वज़न कितना है, और इससे आगे कुछ नहीं। वज़न के ज़्यादातर विवाद असल में वज़न के बारे में नहीं होते — वे उस आँकड़े के बारे में होते हैं जिसकी परिभाषा तय नहीं हुई, जिसमें छूट नहीं लिखी गई, और जिसे दोनों पक्षों ने एक ही तरीक़े से नहीं जाँचा। यह गाइड बताती है कि यह आँकड़ा क्या बताता है और क्या नहीं, मिल का आँकड़ा और आपका आँकड़ा जायज़ तौर पर अलग क्यों हो सकते हैं, और ऑर्डर पर इसे कैसे लिखें ताकि सबके लिए इसका एक ही मतलब हो।",
+      "hi-en":
+        "GSM wo aankda hai jiska zikr khareedar sabse zyada karte hain aur jis par jhagda sabse jaldi hota hai. Yeh kaam ka aankda hai, par seemit hai: yeh batata hai ki tay kshetra mein kapde ka weight kitna hai, aur isse aage kuch nahin. Weight ke zyadatar vivaad asal mein weight ke baare mein nahin hote — wo us aankde ke baare mein hote hain jiski paribhasha tay nahin hui, jisme tolerance nahin likhi gayi, aur jise dono taraf ne ek hi tareeke se nahin jaancha. Yeh guide batati hai ki yeh aankda kya batata hai aur kya nahin, mill ka aankda aur aapka aankda jaayaz taur par alag kyun ho sakte hain, aur order par ise kaise likhein taki sabke liye iska ek hi matlab ho.",
+    },
+    sections: [
+      {
+        heading: {
+          en: "GSM is a weight, not a grade",
+          hi: "GSM वज़न है, दर्जा नहीं",
+          "hi-en": "GSM weight hai, grade nahin",
+        },
+        paragraphs: {
+          en: [
+            "GSM is grams per square metre. It describes how much a cloth weighs over a fixed area, and that is the whole of it. It is not a quality score, and a higher number is not a better fabric.",
+            "The right number is the one the end use needs. A shirting at 120 GSM and an upholstery cloth at 400 GSM are each correct for their purpose and each useless for the other. Most arguments about weight are really arguments about fitness for use that nobody wrote down.",
+            "So ask what the cloth has to do before asking what it should weigh. The answer to the first question narrows the second to a range, and a range is what you should be specifying anyway.",
+          ],
+          hi: [
+            "GSM का मतलब है ग्राम प्रति वर्ग मीटर। यह बताता है कि तय क्षेत्र में कपड़े का वज़न कितना है — बस इतना ही। यह गुणवत्ता का दर्जा नहीं है, और बड़ा नंबर बेहतर कपड़ा नहीं होता।",
+            "सही नंबर वही है जो इस्तेमाल की ज़रूरत हो। 120 GSM की शर्टिंग और 400 GSM का अपहोल्स्ट्री कपड़ा — दोनों अपने काम के लिए सही हैं और दूसरे के काम के लिए बेकार। वज़न पर होने वाली ज़्यादातर बहसें असल में इस बात पर होती हैं कि कपड़ा किस काम के लिए है, और वह कहीं लिखा नहीं गया।",
+            "इसलिए पहले पूछिए कि कपड़े को करना क्या है, फिर पूछिए कि उसका वज़न कितना होना चाहिए। पहले सवाल का जवाब दूसरे को एक दायरे तक ले आता है — और दायरा ही वह चीज़ है जो आपको लिखनी चाहिए।",
+          ],
+          "hi-en": [
+            "GSM ka matlab hai gram prati varg meter. Yeh batata hai ki tay kshetra mein kapde ka weight kitna hai — bas itna hi. Yeh quality ka grade nahin hai, aur bada number behtar kapda nahin hota.",
+            "Sahi number wahi hai jo istemaal ki zaroorat ho. 120 GSM ki shirting aur 400 GSM ka upholstery kapda — dono apne kaam ke liye sahi hain aur doosre ke kaam ke liye bekaar. Weight par hone wali zyadatar behsein asal mein is baat par hoti hain ki kapda kis kaam ke liye hai, aur wo kahin likha nahin gaya.",
+            "Isliye pehle poochiye ki kapde ko karna kya hai, phir poochiye ki uska weight kitna hona chahiye. Pehle sawaal ka jawaab doosre ko ek daayre tak le aata hai — aur daayra hi wo cheez hai jo aapko likhni chahiye.",
+          ],
+        },
+      },
+      {
+        heading: {
+          en: "Why the weight you specify and the weight you receive differ",
+          hi: "जो वज़न आप लिखते हैं और जो आता है, वे अलग क्यों होते हैं",
+          "hi-en": "Jo weight aap likhte hain aur jo aata hai, wo alag kyun hote hain",
+        },
+        paragraphs: {
+          en: [
+            "Greige cloth and finished cloth do not weigh the same. Washing, singeing, mercerising, calendering, dyeing and coating each move the figure, some up and some down. A mill quoting greige weight and a mill quoting finished weight are not quoting the same thing, and two quotations are not comparable until you know which is which.",
+            "Moisture accounts for more than most buyers expect. Cotton and viscose hold atmospheric moisture, so the same roll weighs differently in a humid Surat monsoon and a dry north Indian winter. Laboratory figures are taken at conditioned humidity; a weighing on a warehouse floor is not, and the gap between them is real rather than anybody’s error.",
+            "Loom and lot variance covers the rest. Tension, pick density and yarn batch all shift a little across a production run and more between runs. This is ordinary, it is why a single figure is a target rather than a promise, and it is the reason the next section matters more than this one.",
+          ],
+          hi: [
+            "ग्रे कपड़ा और फ़िनिश्ड कपड़ा एक जैसा वज़न नहीं रखते। धुलाई, सिंजिंग, मर्सराइज़िंग, कैलेंडरिंग, रंगाई और कोटिंग — हर प्रक्रिया आँकड़े को हिलाती है, कुछ ऊपर और कुछ नीचे। ग्रे वज़न बताने वाली मिल और फ़िनिश्ड वज़न बताने वाली मिल एक ही चीज़ नहीं बता रही हैं, और जब तक आप जान न लें कि कौन-सा कौन है, दो कोटेशन की तुलना नहीं हो सकती।",
+            "नमी का असर ज़्यादातर खरीदारों की उम्मीद से बड़ा होता है। कॉटन और विस्कोस हवा की नमी पकड़ते हैं, इसलिए वही थान सूरत के उमस भरे मानसून में और उत्तर भारत की सूखी सर्दी में अलग वज़न दिखाता है। लैब के आँकड़े तय नमी पर लिए जाते हैं; गोदाम के फ़र्श पर किया गया वज़न नहीं — और दोनों के बीच का फ़र्क़ असली है, किसी की ग़लती नहीं।",
+            "बाक़ी हिस्सा लूम और लॉट की भिन्नता का है। टेंशन, पिक डेंसिटी और यार्न बैच — सब एक प्रोडक्शन रन में थोड़ा और अलग-अलग रन के बीच ज़्यादा बदलते हैं। यह सामान्य है, इसी वजह से एक अकेला आँकड़ा लक्ष्य होता है वादा नहीं, और इसी वजह से अगला हिस्सा इससे ज़्यादा अहम है।",
+          ],
+          "hi-en": [
+            "Grey kapda aur finished kapda ek jaisa weight nahin rakhte. Dhulai, singeing, mercerising, calendering, rangai aur coating — har process aankde ko hilati hai, kuch upar aur kuch neeche. Grey weight batane wali mill aur finished weight batane wali mill ek hi cheez nahin bata rahi hain, aur jab tak aap jaan na lein ki kaun sa kaun hai, do quotation ki tulna nahin ho sakti.",
+            "Nami ka asar zyadatar khareedaron ki ummeed se bada hota hai. Cotton aur viscose hawa ki nami pakadte hain, isliye wahi than Surat ke umas bhare monsoon mein aur north India ki sookhi sardi mein alag weight dikhata hai. Lab ke aankde tay nami par liye jaate hain; godam ke farsh par kiya gaya weight nahin — aur dono ke beech ka farak asli hai, kisi ki galti nahin.",
+            "Baaki hissa loom aur lot ki bhinnata ka hai. Tension, pick density aur yarn batch — sab ek production run mein thoda aur alag alag run ke beech zyada badalte hain. Yeh normal hai, isi wajah se ek akela aankda lakshya hota hai vaada nahin, aur isi wajah se agla hissa isse zyada ahem hai.",
+          ],
+        },
+      },
+      {
+        heading: {
+          en: "Agree a tolerance, not just a number",
+          hi: "सिर्फ़ नंबर नहीं, छूट भी तय कीजिए",
+          "hi-en": "Sirf number nahin, tolerance bhi tay kijiye",
+        },
+        paragraphs: {
+          en: [
+            "Write the weight as a figure with a stated tolerance, or as a range. In the trade it is usually expressed as a percentage either side, and around five per cent is a figure often used — but the number matters far less than the fact that it was agreed rather than assumed. A tolerance nobody recorded becomes an argument the first time a lot lands light.",
+            "Say which direction matters to you, because they are different instructions. A garment maker costing yardage per piece usually cares that the cloth is not heavier than specified. A buyer worried about handle and opacity cares that it is not lighter. A supplier cannot infer which one you meant, and will not guess the same way you would.",
+            "Keep it with the rest of the specification, against the product code both sides use, so the weight cannot drift away from the sample it was agreed alongside.",
+          ],
+          hi: [
+            "वज़न को छूट के साथ लिखिए, या दायरे के रूप में। व्यापार में इसे आम तौर पर दोनों तरफ़ के प्रतिशत में लिखा जाता है, और लगभग पाँच प्रतिशत का आँकड़ा अक्सर इस्तेमाल होता है — पर नंबर से कहीं ज़्यादा अहम यह है कि वह तय किया गया हो, मान लिया गया न हो। जो छूट किसी ने दर्ज नहीं की, वह पहली बार माल हल्का आने पर झगड़ा बन जाती है।",
+            "यह भी कहिए कि आपके लिए किस तरफ़ का फ़र्क़ अहम है, क्योंकि ये दो अलग हिदायतें हैं। प्रति पीस गज़ का हिसाब लगाने वाले गारमेंट मेकर के लिए अहम है कि कपड़ा तय वज़न से भारी न हो। पकड़ और पारदर्शिता की चिंता करने वाले खरीदार के लिए अहम है कि वह हल्का न हो। सप्लायर अंदाज़ा नहीं लगा सकता कि आपका मतलब कौन-सा था, और वह आपकी तरह अंदाज़ा भी नहीं लगाएगा।",
+            "इसे बाक़ी स्पेसिफ़िकेशन के साथ ही रखिए, उसी प्रोडक्ट कोड के सामने जो दोनों पक्ष इस्तेमाल करते हैं, ताकि वज़न उस सैंपल से अलग न हो जाए जिसके साथ वह तय हुआ था।",
+          ],
+          "hi-en": [
+            "Weight ko tolerance ke saath likhiye, ya daayre ke roop mein. Vyapar mein ise aam taur par dono taraf ke percentage mein likha jaata hai, aur lagbhag paanch percent ka aankda aksar istemaal hota hai — par number se kahin zyada ahem yeh hai ki wo tay kiya gaya ho, maan liya gaya na ho. Jo tolerance kisi ne record nahin ki, wo pehli baar maal halka aane par jhagda ban jaati hai.",
+            "Yeh bhi kahiye ki aapke liye kis taraf ka farak ahem hai, kyunki ye do alag hidayatein hain. Prati piece gaz ka hisaab lagane wale garment maker ke liye ahem hai ki kapda tay weight se bhaari na ho. Pakad aur transparency ki chinta karne wale khareedar ke liye ahem hai ki wo halka na ho. Supplier andaza nahin laga sakta ki aapka matlab kaun sa tha, aur wo aapki tarah andaza bhi nahin lagayega.",
+            "Ise baaki specification ke saath hi rakhiye, usi product code ke saamne jo dono paksh istemaal karte hain, taki weight us sample se alag na ho jaaye jiske saath wo tay hua tha.",
+          ],
+        },
+      },
+      {
+        heading: {
+          en: "How to check the weight when the lot arrives",
+          hi: "माल पहुँचने पर वज़न कैसे जाँचें",
+          "hi-en": "Maal pahunchne par weight kaise jaanchein",
+        },
+        paragraphs: {
+          en: [
+            "A GSM cutter takes a disc of 100 square centimetres. Weigh the disc in grams and multiply by 100 to get grams per square metre. Without a cutter, cut a square of 10 by 10 centimetres as accurately as you can, weigh it on a scale that reads to a hundredth of a gram, and multiply by 100. The arithmetic is identical; the error moves into the cutting.",
+            "Take several samples rather than one. Weight varies across the width and along the length, so sample near both selvedges and near the middle, and from more than one roll. One disc from the end of one roll tells you about that disc.",
+            "Record the average and the spread, not just the average. A lot that averages the specified weight with a wide spread is a different problem from a lot sitting consistently under it, and the two lead to different conversations with the supplier.",
+          ],
+          hi: [
+            "GSM कटर 100 वर्ग सेंटीमीटर का गोल टुकड़ा काटता है। उस टुकड़े को ग्राम में तोलिए और 100 से गुणा कीजिए — यही ग्राम प्रति वर्ग मीटर है। कटर न हो तो 10 गुणा 10 सेंटीमीटर का चौकोर टुकड़ा जितना सही काट सकें काटिए, ग्राम के सौवें हिस्से तक पढ़ने वाले तराज़ू पर तोलिए, और 100 से गुणा कीजिए। गणित वही है; ग़लती कटाई में चली जाती है।",
+            "एक नहीं, कई नमूने लीजिए। वज़न चौड़ाई में और लंबाई में बदलता है, इसलिए दोनों किनारों के पास और बीच से नमूने लीजिए, और एक से ज़्यादा थान से। एक थान के सिरे से लिया गया एक टुकड़ा उसी टुकड़े के बारे में बताता है।",
+            "औसत के साथ बिखराव भी दर्ज कीजिए, सिर्फ़ औसत नहीं। जिस लॉट का औसत तय वज़न पर है पर बिखराव बड़ा है, वह उस लॉट से अलग समस्या है जो लगातार तय वज़न से नीचे बैठा है — और दोनों पर सप्लायर से बातचीत अलग होती है।",
+          ],
+          "hi-en": [
+            "GSM cutter 100 varg centimeter ka gol tukda kaatta hai. Us tukde ko gram mein toliye aur 100 se guna kijiye — yahi gram prati varg meter hai. Cutter na ho to 10 guna 10 centimeter ka chaukor tukda jitna sahi kaat sakein kaatiye, gram ke sauven hisse tak padhne wale taraazu par toliye, aur 100 se guna kijiye. Ganit wahi hai; galti kataai mein chali jaati hai.",
+            "Ek nahin, kai namune lijiye. Weight chaudai mein aur lambai mein badalta hai, isliye dono kinaron ke paas aur beech se namune lijiye, aur ek se zyada than se. Ek than ke sire se liya gaya ek tukda usi tukde ke baare mein batata hai.",
+            "Ausat ke saath bikhraav bhi record kijiye, sirf ausat nahin. Jis lot ka ausat tay weight par hai par bikhraav bada hai, wo us lot se alag samasya hai jo lagatar tay weight se neeche baitha hai — aur dono par supplier se baatcheet alag hoti hai.",
+          ],
+        },
+      },
+      {
+        heading: {
+          en: "Where GSM stops telling you anything",
+          hi: "GSM कहाँ जाकर कुछ नहीं बताता",
+          "hi-en": "GSM kahan jaakar kuch nahin batata",
+        },
+        paragraphs: {
+          en: [
+            "Two fabrics at the same weight can behave nothing alike. Yarn count, weave, twist and finish decide drape, opacity, handle and how the cloth takes a dye, and none of them appear in the weight. A loosely woven 140 GSM cloth in a coarse yarn and a tightly woven 140 GSM cloth in a fine one are not substitutes, whatever their specification sheets have in common.",
+            "This is why an approved sample outranks a number. The specification lets you shortlist candidates and hold a supply to account afterwards; the physical cloth is what tells you whether it is right in the first place. Use the figure to narrow the field and the sample to decide.",
+          ],
+          hi: [
+            "एक ही वज़न के दो कपड़े बिल्कुल अलग बर्ताव कर सकते हैं। यार्न काउंट, बुनावट, बल और फ़िनिश — ये तय करते हैं कि कपड़ा कैसे गिरता है, कितना पारदर्शी है, हाथ में कैसा लगता है और रंग कैसे पकड़ता है, और इनमें से कोई भी वज़न में नहीं दिखता। मोटे धागे का ढीला बुना 140 GSM और बारीक धागे का कसा बुना 140 GSM — ये एक-दूसरे की जगह नहीं ले सकते, चाहे उनकी स्पेसिफ़िकेशन शीट में कितना भी मेल हो।",
+            "इसीलिए मंज़ूर सैंपल किसी नंबर से ऊपर है। स्पेसिफ़िकेशन से आप विकल्प छाँटते हैं और बाद में सप्लाई को जवाबदेह रखते हैं; कपड़ा हाथ में लेकर ही पता चलता है कि वह सही है या नहीं। नंबर से दायरा छोटा कीजिए और सैंपल से फ़ैसला।",
+          ],
+          "hi-en": [
+            "Ek hi weight ke do kapde bilkul alag bartaav kar sakte hain. Yarn count, bunavat, bal aur finish — ye tay karte hain ki kapda kaise girta hai, kitna transparent hai, haath mein kaisa lagta hai aur rang kaise pakadta hai, aur inmein se koi bhi weight mein nahin dikhta. Mote dhaage ka dheela buna 140 GSM aur baareek dhaage ka kasa buna 140 GSM — ye ek doosre ki jagah nahin le sakte, chahe unki specification sheet mein kitna bhi mel ho.",
+            "Isiliye approved sample kisi number se upar hai. Specification se aap options chaantte hain aur baad mein supply ko jawabdeh rakhte hain; kapda haath mein lekar hi pata chalta hai ki wo sahi hai ya nahin. Number se daayra chhota kijiye aur sample se faisla.",
+          ],
+        },
+      },
+    ],
+    closing: {
+      heading: {
+        en: "What to put on the order",
+        hi: "ऑर्डर पर क्या लिखें",
+        "hi-en": "Order par kya likhein",
+      },
+      intro: {
+        en: "Five lines, and the weight stops being a source of argument.",
+        hi: "पाँच पंक्तियाँ, और वज़न झगड़े की जड़ नहीं रहता।",
+        "hi-en": "Paanch panktiyan, aur weight jhagde ki jad nahin rehta.",
+      },
+      checklist: {
+        en: [
+          "The weight, and whether the figure is greige or finished",
+          "The tolerance, as a percentage either side",
+          "Which direction of variance matters to you, and why",
+          "The product code the approved sample sits against",
+          "How the weight will be checked on arrival, and by whom",
+        ],
+        hi: [
+          "वज़न, और यह कि आँकड़ा ग्रे का है या फ़िनिश्ड का",
+          "छूट, दोनों तरफ़ के प्रतिशत में",
+          "आपके लिए किस तरफ़ का फ़र्क़ अहम है, और क्यों",
+          "वह प्रोडक्ट कोड जिसके सामने मंज़ूर सैंपल रखा है",
+          "पहुँचने पर वज़न कैसे जाँचा जाएगा, और कौन जाँचेगा",
+        ],
+        "hi-en": [
+          "Weight, aur yeh ki aankda grey ka hai ya finished ka",
+          "Tolerance, dono taraf ke percentage mein",
+          "Aapke liye kis taraf ka farak ahem hai, aur kyun",
+          "Wo product code jiske saamne approved sample rakha hai",
+          "Pahunchne par weight kaise jaancha jaayega, aur kaun jaanchega",
+        ],
+      },
+    },
+    faq: [
+      {
+        question: {
+          en: "Is a higher GSM better quality?",
+          hi: "ज़्यादा GSM का मतलब बेहतर गुणवत्ता है?",
+          "hi-en": "Zyada GSM ka matlab behtar quality hai?",
+        },
+        answer: {
+          en: "No. GSM is a weight and quality is a judgement about construction, yarn and finish. A heavy cloth woven from poor yarn is a heavy poor cloth. Weight only tells you whether a fabric is suited to the use you have in mind.",
+          hi: "नहीं। GSM वज़न है, और गुणवत्ता बुनावट, धागे और फ़िनिश पर बनने वाली राय है। ख़राब धागे से बुना भारी कपड़ा भारी ख़राब कपड़ा ही होता है। वज़न सिर्फ़ यह बताता है कि कपड़ा आपके सोचे हुए इस्तेमाल के लायक़ है या नहीं।",
+          "hi-en":
+            "Nahin. GSM weight hai, aur quality bunavat, dhaage aur finish par banne wali raay hai. Kharab dhaage se buna bhaari kapda bhaari kharab kapda hi hota hai. Weight sirf yeh batata hai ki kapda aapke soche hue istemaal ke laayak hai ya nahin.",
+        },
+      },
+      {
+        question: {
+          en: "Why do two suppliers quote different GSM for what looks like the same fabric?",
+          hi: "एक जैसे दिखने वाले कपड़े का GSM दो सप्लायर अलग-अलग क्यों बताते हैं?",
+          "hi-en": "Ek jaise dikhne wale kapde ka GSM do supplier alag alag kyun batate hain?",
+        },
+        answer: {
+          en: "Usually because one figure is greige and the other finished, or because they were measured under different humidity, or because one is a nominal specification and the other an actual weighing. Ask which of those a number is before treating two quotations as comparable.",
+          hi: "आम तौर पर इसलिए कि एक आँकड़ा ग्रे का है और दूसरा फ़िनिश्ड का, या दोनों अलग नमी में नापे गए, या एक नाममात्र स्पेसिफ़िकेशन है और दूसरा असल तुलाई। दो कोटेशन को तुलना लायक़ मानने से पहले पूछिए कि कौन-सा आँकड़ा किस तरह का है।",
+          "hi-en":
+            "Aam taur par isliye ki ek aankda grey ka hai aur doosra finished ka, ya dono alag nami mein naape gaye, ya ek naam-matra specification hai aur doosra asal tulai. Do quotation ko tulna laayak maanne se pehle poochiye ki kaun sa aankda kis tarah ka hai.",
+        },
+      },
+      {
+        question: {
+          en: "Can I check GSM without a GSM cutter?",
+          hi: "GSM कटर के बिना GSM जाँच सकते हैं?",
+          "hi-en": "GSM cutter ke bina GSM jaanch sakte hain?",
+        },
+        answer: {
+          en: "Yes. Cut a 10 by 10 centimetre square, weigh it on a scale reading to a hundredth of a gram, and multiply by 100. The method is sound; the accuracy depends entirely on how squarely you cut, so take several samples and average them.",
+          hi: "हाँ। 10 गुणा 10 सेंटीमीटर का चौकोर टुकड़ा काटिए, ग्राम के सौवें हिस्से तक पढ़ने वाले तराज़ू पर तोलिए, और 100 से गुणा कीजिए। तरीक़ा ठीक है; सटीकता पूरी तरह इस पर है कि कटाई कितनी सही हुई — इसलिए कई नमूने लेकर औसत निकालिए।",
+          "hi-en":
+            "Haan. 10 guna 10 centimeter ka chaukor tukda kaatiye, gram ke sauven hisse tak padhne wale taraazu par toliye, aur 100 se guna kijiye. Tareeka theek hai; accuracy poori tarah is par hai ki kataai kitni sahi hui — isliye kai namune lekar ausat nikaaliye.",
+        },
+      },
+      {
+        question: {
+          en: "The lot is within tolerance but feels wrong. What now?",
+          hi: "लॉट छूट के अंदर है पर पकड़ ठीक नहीं लगती। अब क्या?",
+          "hi-en": "Lot tolerance ke andar hai par pakad theek nahin lagti. Ab kya?",
+        },
+        answer: {
+          en: "Then weight was the wrong thing to have specified on its own. Handle comes from yarn and construction, so the conversation has to move to those and to the approved sample rather than to the number. It is also the argument for approving a physical sample instead of a specification sheet.",
+          hi: "तो अकेले वज़न लिखना ही ग़लत था। पकड़ धागे और बुनावट से आती है, इसलिए बातचीत उन पर और मंज़ूर सैंपल पर आनी चाहिए, नंबर पर नहीं। यही वजह है कि स्पेसिफ़िकेशन शीट की जगह कपड़े का सैंपल मंज़ूर करना चाहिए।",
+          "hi-en":
+            "To akele weight likhna hi galat tha. Pakad dhaage aur bunavat se aati hai, isliye baatcheet un par aur approved sample par aani chahiye, number par nahin. Yahi wajah hai ki specification sheet ki jagah kapde ka sample approve karna chahiye.",
+        },
+      },
+    ],
+    related: ["sample-to-bulk-order-checklist", "why-similar-sarees-have-different-prices"],
+  },
+  {
     slug: "source-fabric-from-surat",
     image: swatchStack,
     published: "2026-09-16",

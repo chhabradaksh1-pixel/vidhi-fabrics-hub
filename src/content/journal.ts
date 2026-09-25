@@ -104,6 +104,14 @@ export const JOURNAL: JournalArticle[] = [
     inlineLinks: [
       {
         phrase: {
+          en: "descriptive names",
+          hi: "वर्णन वाले नामों",
+          "hi-en": "varnan wale naamon",
+        },
+        href: "/blog/why-similar-sarees-have-different-prices",
+      },
+      {
+        phrase: {
           en: "what the cloth weighs",
           hi: "कपड़े के वज़न",
           "hi-en": "kapde ke weight",
@@ -872,6 +880,22 @@ export const JOURNAL: JournalArticle[] = [
     inlineLinks: [
       {
         phrase: {
+          en: "a complete fabric specification",
+          hi: "पूरा स्पेसिफ़िकेशन",
+          "hi-en": "poora specification",
+        },
+        href: "/blog/how-to-read-a-fabric-spec",
+      },
+      {
+        phrase: {
+          en: "widths and price levels",
+          hi: "चौड़ाई और कीमत",
+          "hi-en": "width aur price",
+        },
+        href: "/blog/fabric-width-and-costing",
+      },
+      {
+        phrase: {
           en: "from sample to bulk order",
           hi: "सैंपल से बल्क ऑर्डर तक",
           "hi-en": "sample se bulk order tak",
@@ -1409,7 +1433,16 @@ export const JOURNAL: JournalArticle[] = [
   },
   {
     slug: "buying-dress-material-wholesale",
+    related: ["how-to-read-a-fabric-spec", "why-similar-sarees-have-different-prices"],
     inlineLinks: [
+      {
+        phrase: {
+          en: "stated composition and measurements",
+          hi: "बताई गई सामग्री और नाप",
+          "hi-en": "batayi gayi composition aur measurements",
+        },
+        href: "/blog/how-to-read-a-fabric-spec",
+      },
       {
         phrase: {
           en: "source fabric from Surat remotely",
@@ -1600,6 +1633,17 @@ export const JOURNAL: JournalArticle[] = [
   },
   {
     slug: "why-similar-sarees-have-different-prices",
+    related: ["how-to-read-a-fabric-spec", "fabric-gsm-bulk-orders"],
+    inlineLinks: [
+      {
+        phrase: {
+          en: "a complete specification",
+          hi: "पूरा स्पेसिफ़िकेशन",
+          "hi-en": "poora specification",
+        },
+        href: "/blog/how-to-read-a-fabric-spec",
+      },
+    ],
     image: wovenDetail,
     imageAlt: {
       en: "A woven cloth seen up close, the interlacing of warp and weft visible thread by thread",
@@ -1765,7 +1809,16 @@ export const JOURNAL: JournalArticle[] = [
   },
   {
     slug: "sample-to-bulk-order-checklist",
+    related: ["fabric-gsm-bulk-orders", "how-to-read-a-fabric-spec"],
     inlineLinks: [
+      {
+        phrase: {
+          en: "agreed specification",
+          hi: "तय स्पेसिफ़िकेशन",
+          "hi-en": "tay specification",
+        },
+        href: "/blog/how-to-read-a-fabric-spec",
+      },
       {
         phrase: {
           en: "source fabric from Surat remotely",

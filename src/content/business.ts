@@ -89,6 +89,7 @@ export function localBusinessSchema(site: string) {
       "https://www.linkedin.com/company/vidhi-fabricss/",
       "https://www.indiamart.com/vidhi-fabrics-surat/",
       "https://www.exportersindia.com/vidhi-fabrics-surat/",
+      "https://www.justdial.com/Surat/Vidhi-Fabrics-Gajjar-Chamber-Begumpura/0261PX261-X261-230714173007-Q6A4_BZDET",
     ],
   };
 }

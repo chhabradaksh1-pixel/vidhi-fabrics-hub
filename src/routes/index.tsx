@@ -225,10 +225,9 @@ const FAQS: {
       "hi-en": "Main Vidhi Fabrics se kaise contact kar sakta hoon?",
     },
     answer: {
-      en: "You can reach us via the enquiry form on this page, by WhatsApp, or by phone. Our trade desk is available Monday to Saturday and responds within 12 hours. You can also visit us at 542-543 Golden Point, Begampura Road, Surat, Gujarat.",
-      hi: "आप इस पेज पर पूछताछ फॉर्म के माध्यम से, व्हाट्सएप द्वारा, या फोन पर हमसे संपर्क कर सकते हैं। हमारा ट्रेड डेस्क सोमवार से शनिवार तक उपलब्ध है और 12 घंटे के भीतर जवाब देता है। आप 542-543 गोल्डन पॉइंट, बेगमपुरा रोड, सूरत, गुजरात में भी हमसे मिल सकते हैं।",
-      "hi-en":
-        "Aap is page par enquiry form ke through, WhatsApp se, ya phone par hamare se contact kar sakte hain. Hamara trade desk Monday se Saturday tak available hai aur 12 hours ke andar respond karta hai. Aap 542-543 Golden Point, Begampura Road, Surat, Gujarat mein bhi hamare paas aa sakte hain.",
+      en: `You can reach us via the enquiry form on this page, by WhatsApp, or by phone. Our trade desk is available Monday to Saturday and responds within 12 hours. You can also visit us at ${ADDRESS_LINES.en.join(", ")}.`,
+      hi: `आप इस पेज पर पूछताछ फॉर्म के माध्यम से, व्हाट्सएप द्वारा, या फोन पर हमसे संपर्क कर सकते हैं। हमारा ट्रेड डेस्क सोमवार से शनिवार तक उपलब्ध है और 12 घंटे के भीतर जवाब देता है। आप ${ADDRESS_LINES.hi.join(", ")} में भी हमसे मिल सकते हैं।`,
+      "hi-en": `Aap is page par enquiry form ke through, WhatsApp se, ya phone par hamare se contact kar sakte hain. Hamara trade desk Monday se Saturday tak available hai aur 12 hours ke andar respond karta hai. Aap ${ADDRESS_LINES["hi-en"].join(", ")} mein bhi hamare paas aa sakte hain.`,
     },
   },
 ];

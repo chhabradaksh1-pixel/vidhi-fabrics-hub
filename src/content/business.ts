@@ -10,7 +10,12 @@ import type { Lang } from "@/content/translations";
  */
 export const BUSINESS = {
   name: "Vidhi Fabrics",
-  streetAddress: "542-543 Golden Point, Begumpura Road",
+  /* Golden Point stands on Ring Road; Begumpura is the locality around it,
+     not the road. The earlier "Begumpura Road" conflated the two, and the
+     Justdial listing has a third wording again. Postal lookups put
+     Ring Road / Golden Point in 395002, served by Surat Textile Market —
+     so the postcode here was already right and the street was not. */
+  streetAddress: "542-543 Golden Point, Ring Road, Begumpura",
   locality: "Surat",
   region: "Gujarat",
   postalCode: "395002",
@@ -30,7 +35,7 @@ export const ADDRESS_LINES: Record<Lang, string[]> = {
     BUSINESS.streetAddress,
     `${BUSINESS.locality}, ${BUSINESS.region} ${BUSINESS.postalCode}, India`,
   ],
-  hi: ["542-543 गोल्डन पॉइंट, बेगमपुरा रोड", `सूरत, गुजरात ${BUSINESS.postalCode}, भारत`],
+  hi: ["542-543 गोल्डन पॉइंट, रिंग रोड, बेगमपुरा", `सूरत, गुजरात ${BUSINESS.postalCode}, भारत`],
   "hi-en": [
     BUSINESS.streetAddress,
     `${BUSINESS.locality}, ${BUSINESS.region} ${BUSINESS.postalCode}, India`,

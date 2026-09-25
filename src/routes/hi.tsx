@@ -220,7 +220,7 @@ const FAQS: {
     },
     answer: {
       en: "You can reach us via the enquiry form, by WhatsApp, or by phone. Our trade desk is available Monday to Saturday and responds within 12 hours.",
-      hi: "आप पूछताछ फॉर्म, व्हाट्सएप या फोन के ज़रिए हमसे संपर्क कर सकते हैं। हमारा ट्रेड डेस्क सोमवार से शनिवार तक उपलब्ध है और 12 घंटे के भीतर जवाब देता है। आप 542-543 गोल्डन पॉइंट, बेगमपुरा रोड, सूरत, गुजरात भी आ सकते हैं।",
+      hi: `आप पूछताछ फॉर्म, व्हाट्सएप या फोन के ज़रिए हमसे संपर्क कर सकते हैं। हमारा ट्रेड डेस्क सोमवार से शनिवार तक उपलब्ध है और 12 घंटे के भीतर जवाब देता है। आप ${ADDRESS_LINES.hi.join(", ")} भी आ सकते हैं।`,
       "hi-en":
         "Enquiry form, WhatsApp ya phone se contact karein. Trade desk Monday to Saturday available hai aur 12 hours mein respond karta hai.",
     },

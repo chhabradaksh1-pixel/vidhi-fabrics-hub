@@ -1,11 +1,11 @@
 {
-  "crawledAt": "2026-09-24T12:37:35.241Z",
+  "crawledAt": "2026-09-24T12:44:30.774Z",
   "site": "https://www.vidhifabrics.com",
   "pages": [
     {
       "url": "https://www.vidhifabrics.com/",
       "status": 200,
-      "bytes": 109072,
+      "bytes": 110834,
       "title": "Surat Fabric Manufacturer &amp; Wholesaler | Vidhi Fabrics",
       "description": "Wholesale fabric supplier and manufacturer in Surat. Cotton, silk, jacquard and blends for retailers, brands and traders. 10+ export markets.",
       "canonical": "https://www.vidhifabrics.com/",
@@ -21,12 +21,12 @@
         "From Surat, Asia&#x27;s textile hub, to your shop."
       ],
       "h2Count": 8,
-      "h3Count": 24,
-      "words": 1110,
-      "images": 14,
+      "h3Count": 25,
+      "words": 1149,
+      "images": 15,
       "imagesNoAlt": 0,
       "imagesEmptyAlt": 0,
-      "internalLinks": 20,
+      "internalLinks": 21,
       "jsonLd": [
         "FAQPage",
         "LocalBusiness"
@@ -38,7 +38,7 @@
     {
       "url": "https://www.vidhifabrics.com/hi",
       "status": 200,
-      "bytes": 110434,
+      "bytes": 112176,
       "title": "सूरत में थोक कपड़ा सप्लायर | विधि फैब्रिक्स",
       "description": "विधि फैब्रिक्स से कॉटन, सिल्क, लिनन, पॉलिएस्टर और जैक्वार्ड कपड़ों की थोक जानकारी लें। अपनी ज़रूरत बताकर सैंपल, उपलब्धता और कोटेशन पूछें।",
       "canonical": "https://www.vidhifabrics.com/hi",
@@ -54,12 +54,12 @@
         "सूरत से आपकी दुकान तक, थोक कपड़े"
       ],
       "h2Count": 8,
-      "h3Count": 24,
-      "words": 1198,
-      "images": 14,
+      "h3Count": 25,
+      "words": 1240,
+      "images": 15,
       "imagesNoAlt": 0,
       "imagesEmptyAlt": 0,
-      "internalLinks": 20,
+      "internalLinks": 21,
       "jsonLd": [
         "FAQPage",
         "LocalBusiness"
@@ -71,7 +71,7 @@
     {
       "url": "https://www.vidhifabrics.com/blog",
       "status": 200,
-      "bytes": 22444,
+      "bytes": 24098,
       "title": "Surat Fabric Desk | Wholesale Buying Guides | Vidhi Fabrics",
       "description": "Practical guides to dress material, sarees, samples and wholesale sourcing from the Vidhi Fabrics desk in Surat.",
       "canonical": "https://www.vidhifabrics.com/blog",
@@ -86,13 +86,13 @@
       "h1": [
         "Surat Fabric Desk ."
       ],
-      "h2Count": 5,
+      "h2Count": 6,
       "h3Count": 0,
-      "words": 284,
-      "images": 5,
+      "words": 323,
+      "images": 6,
       "imagesNoAlt": 0,
       "imagesEmptyAlt": 0,
-      "internalLinks": 21,
+      "internalLinks": 22,
       "jsonLd": [
         "LocalBusiness"
       ],
@@ -103,7 +103,7 @@
     {
       "url": "https://www.vidhifabrics.com/hi/blog",
       "status": 200,
-      "bytes": 24190,
+      "bytes": 25824,
       "title": "सूरत फैब्रिक डेस्क | थोक खरीद गाइड | विधि फैब्रिक्स",
       "description": "ड्रेस मटेरियल, साड़ी, सैंपल और थोक सोर्सिंग पर काम की गाइड — सूरत से, विधि फैब्रिक्स के फैब्रिक डेस्क द्वारा।",
       "canonical": "https://www.vidhifabrics.com/hi/blog",
@@ -118,14 +118,80 @@
       "h1": [
         "सूरत फैब्रिक डेस्क ."
       ],
-      "h2Count": 5,
+      "h2Count": 6,
       "h3Count": 0,
-      "words": 315,
-      "images": 5,
+      "words": 357,
+      "images": 6,
       "imagesNoAlt": 0,
       "imagesEmptyAlt": 0,
-      "internalLinks": 21,
+      "internalLinks": 22,
       "jsonLd": [
+        "LocalBusiness"
+      ],
+      "impressions": null,
+      "clicks": null,
+      "position": null
+    },
+    {
+      "url": "https://www.vidhifabrics.com/blog/fabric-width-and-costing",
+      "status": 200,
+      "bytes": 45201,
+      "title": "Fabric width and costing explained | Vidhi Fabrics",
+      "description": "Why the cheaper metre is often the dearer garment, and why extra width only helps when it fits another piece across.",
+      "canonical": "https://www.vidhifabrics.com/blog/fabric-width-and-costing",
+      "robots": null,
+      "ogTitle": "Fabric width and what it does to your costing",
+      "ogImage": "https://www.vidhifabrics.com/assets/warehouse-surat-Dbdv5GF0.jpg",
+      "hreflang": [
+        "en",
+        "hi",
+        "x-default"
+      ],
+      "h1": [
+        "Fabric width and what it does to your costing"
+      ],
+      "h2Count": 8,
+      "h3Count": 0,
+      "words": 1129,
+      "images": 1,
+      "imagesNoAlt": 0,
+      "imagesEmptyAlt": 0,
+      "internalLinks": 20,
+      "jsonLd": [
+        "BlogPosting",
+        "LocalBusiness"
+      ],
+      "impressions": null,
+      "clicks": null,
+      "position": null
+    },
+    {
+      "url": "https://www.vidhifabrics.com/hi/blog/fabric-width-and-costing",
+      "status": 200,
+      "bytes": 47404,
+      "title": "कपड़े की चौड़ाई और लागत | विधि फैब्रिक्स",
+      "description": "सस्ता मीटर अक्सर महँगा कपड़ा क्यों बन जाता है, और ज़्यादा चौड़ाई तभी काम आती है जब उसमें एक और पीस बैठ जाए।",
+      "canonical": "https://www.vidhifabrics.com/hi/blog/fabric-width-and-costing",
+      "robots": null,
+      "ogTitle": "कपड़े की चौड़ाई और आपकी लागत पर उसका असर",
+      "ogImage": "https://www.vidhifabrics.com/assets/warehouse-surat-Dbdv5GF0.jpg",
+      "hreflang": [
+        "en",
+        "hi",
+        "x-default"
+      ],
+      "h1": [
+        "कपड़े की चौड़ाई और आपकी लागत पर उसका असर"
+      ],
+      "h2Count": 8,
+      "h3Count": 0,
+      "words": 1210,
+      "images": 1,
+      "imagesNoAlt": 0,
+      "imagesEmptyAlt": 0,
+      "internalLinks": 20,
+      "jsonLd": [
+        "BlogPosting",
         "LocalBusiness"
       ],
       "impressions": null,
@@ -201,7 +267,7 @@
     {
       "url": "https://www.vidhifabrics.com/blog/buying-dress-material-wholesale",
       "status": 200,
-      "bytes": 37099,
+      "bytes": 37085,
       "title": "Dress material wholesale: what to check | Vidhi Fabrics",
       "description": "From fabric details to minimum quantities, know what to ask before placing your first order.",
       "canonical": "https://www.vidhifabrics.com/blog/buying-dress-material-wholesale",
@@ -218,7 +284,7 @@
       ],
       "h2Count": 7,
       "h3Count": 0,
-      "words": 777,
+      "words": 776,
       "images": 1,
       "imagesNoAlt": 0,
       "imagesEmptyAlt": 0,
@@ -234,7 +300,7 @@
     {
       "url": "https://www.vidhifabrics.com/hi/blog/buying-dress-material-wholesale",
       "status": 200,
-      "bytes": 39531,
+      "bytes": 39529,
       "title": "ड्रेस मटेरियल थोक: पहले यह जाँच लीजिए | विधि फैब्रिक्स",
       "description": "कपड़े की जानकारी से लेकर न्यूनतम मात्रा तक — पहला ऑर्डर देने से पहले क्या पूछना चाहिए।",
       "canonical": "https://www.vidhifabrics.com/hi/blog/buying-dress-material-wholesale",
@@ -251,7 +317,7 @@
       ],
       "h2Count": 7,
       "h3Count": 0,
-      "words": 864,
+      "words": 865,
       "images": 1,
       "imagesNoAlt": 0,
       "imagesEmptyAlt": 0,
@@ -267,7 +333,7 @@
     {
       "url": "https://www.vidhifabrics.com/blog/why-similar-sarees-have-different-prices",
       "status": 200,
-      "bytes": 36103,
+      "bytes": 36089,
       "title": "Why similar sarees have different prices | Vidhi Fabrics",
       "description": "A closer look at how fabric, finishing and workmanship can influence a quote.",
       "canonical": "https://www.vidhifabrics.com/blog/why-similar-sarees-have-different-prices",
@@ -284,7 +350,7 @@
       ],
       "h2Count": 7,
       "h3Count": 0,
-      "words": 766,
+      "words": 765,
       "images": 1,
       "imagesNoAlt": 0,
       "imagesEmptyAlt": 0,
@@ -300,7 +366,7 @@
     {
       "url": "https://www.vidhifabrics.com/hi/blog/why-similar-sarees-have-different-prices",
       "status": 200,
-      "bytes": 38508,
+      "bytes": 38506,
       "title": "एक जैसी साड़ियों की कीमत अलग क्यों होती है | विधि फैब्रिक्स",
       "description": "कपड़ा, फ़िनिशिंग और कारीगरी कोटेशन को कैसे बदलते हैं — क़रीब से एक नज़र।",
       "canonical": "https://www.vidhifabrics.com/hi/blog/why-similar-sarees-have-different-prices",
@@ -317,7 +383,7 @@
       ],
       "h2Count": 7,
       "h3Count": 0,
-      "words": 833,
+      "words": 834,
       "images": 1,
       "imagesNoAlt": 0,
       "imagesEmptyAlt": 0,
@@ -333,7 +399,7 @@
     {
       "url": "https://www.vidhifabrics.com/blog/sample-to-bulk-order-checklist",
       "status": 200,
-      "bytes": 48038,
+      "bytes": 48024,
       "title": "Sample to bulk order: a buyer’s checklist | Vidhi Fabrics",
       "description": "The details to confirm before moving from a sample you like to a larger order.",
       "canonical": "https://www.vidhifabrics.com/blog/sample-to-bulk-order-checklist",
@@ -350,7 +416,7 @@
       ],
       "h2Count": 8,
       "h3Count": 0,
-      "words": 1115,
+      "words": 1114,
       "images": 1,
       "imagesNoAlt": 0,
       "imagesEmptyAlt": 0,
@@ -366,7 +432,7 @@
     {
       "url": "https://www.vidhifabrics.com/hi/blog/sample-to-bulk-order-checklist",
       "status": 200,
-      "bytes": 50030,
+      "bytes": 50028,
       "title": "सैंपल से बल्क ऑर्डर तक: खरीदार की चेकलिस्ट | विधि फैब्रिक्स",
       "description": "पसंद आए सैंपल से बड़े ऑर्डर तक जाने से पहले कौन-सी बातें पक्की कर लेनी चाहिए।",
       "canonical": "https://www.vidhifabrics.com/hi/blog/sample-to-bulk-order-checklist",
@@ -383,7 +449,7 @@
       ],
       "h2Count": 8,
       "h3Count": 0,
-      "words": 1239,
+      "words": 1240,
       "images": 1,
       "imagesNoAlt": 0,
       "imagesEmptyAlt": 0,

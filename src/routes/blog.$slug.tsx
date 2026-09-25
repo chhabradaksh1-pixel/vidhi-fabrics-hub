@@ -2,6 +2,7 @@ import { createFileRoute, notFound } from "@tanstack/react-router";
 import { JOURNAL, type JournalArticle } from "@/content/journal";
 import { JournalArticlePage } from "@/components/journal-pages";
 import { JournalHeader, JournalFooter } from "@/components/fabric-desk";
+import { breadcrumbList } from "@/lib/breadcrumbs";
 
 const SITE = "https://www.vidhifabrics.com";
 
@@ -70,6 +71,10 @@ export const Route = createFileRoute("/blog/$slug")({
             {
               type: "application/ld+json",
               children: JSON.stringify(blogPosting(article)),
+            },
+            {
+              type: "application/ld+json",
+              children: JSON.stringify(breadcrumbList("en", article)),
             },
           ],
         }

@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { JournalIndexPage } from "@/components/journal-pages";
+import { breadcrumbList } from "@/lib/breadcrumbs";
 
 const EN = "https://www.vidhifabrics.com/blog";
 const HI = "https://www.vidhifabrics.com/hi/blog";
@@ -28,6 +29,12 @@ export const Route = createFileRoute("/blog/")({
       { rel: "alternate", hrefLang: "en", href: EN },
       { rel: "alternate", hrefLang: "hi", href: HI },
       { rel: "alternate", hrefLang: "x-default", href: EN },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(breadcrumbList("en")),
+      },
     ],
   }),
   component: EnglishJournalRoute,

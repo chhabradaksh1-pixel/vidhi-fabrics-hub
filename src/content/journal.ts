@@ -5,6 +5,7 @@ import swatchOnCard from "@/assets/swatch-on-card.jpg";
 import wovenDetail from "@/assets/woven-detail.jpg";
 import swatchStack from "@/assets/swatch-stack.jpg";
 import warehouse from "@/assets/warehouse-surat.jpg";
+import specSamples from "@/assets/spec-samples.jpg";
 import organza from "@/assets/fabric-beaded-organza.jpg";
 import type { Lang } from "@/content/translations";
 import { whatsAppUrl } from "@/content/whatsapp";
@@ -98,6 +99,244 @@ export function relatedArticles(article: JournalArticle, count: number) {
 }
 
 export const JOURNAL: JournalArticle[] = [
+  {
+    slug: "how-to-read-a-fabric-spec",
+    inlineLinks: [
+      {
+        phrase: {
+          en: "what the cloth weighs",
+          hi: "कपड़े के वज़न",
+          "hi-en": "kapde ke weight",
+        },
+        href: "/blog/fabric-gsm-bulk-orders",
+      },
+      {
+        phrase: {
+          en: "the width you can actually cut",
+          hi: "काटने लायक़ चौड़ाई",
+          "hi-en": "kaatne laayak chaudai",
+        },
+        href: "/blog/fabric-width-and-costing",
+      },
+    ],
+    image: specSamples,
+    published: "2026-09-25",
+    imageAlt: {
+      en: "Textile samples in reds and browns, the form a specification takes before it is a decision",
+      hi: "लाल और भूरे रंगों में कपड़े के नमूने — फ़ैसला बनने से पहले स्पेसिफ़िकेशन इसी रूप में होता है",
+      "hi-en":
+        "Laal aur bhoore rangon mein kapde ke namune — faisla banne se pehle specification isi roop mein hota hai",
+    },
+    category: {
+      en: "Specification guide",
+      hi: "स्पेसिफ़िकेशन गाइड",
+      "hi-en": "Specification guide",
+    },
+    metaTitle: {
+      en: "How to read a fabric specification",
+      hi: "फ़ैब्रिक स्पेसिफ़िकेशन कैसे पढ़ें",
+      "hi-en": "Fabric specification kaise padhein",
+    },
+    title: {
+      en: "How to read a fabric specification",
+      hi: "फ़ैब्रिक स्पेसिफ़िकेशन कैसे पढ़ें",
+      "hi-en": "Fabric specification kaise padhein",
+    },
+    excerpt: {
+      en: "What each field on a spec sheet is actually telling you, which ones decide the cloth, and what the sheet leaves out.",
+      hi: "स्पेक शीट का हर ख़ाना असल में क्या बता रहा है, कौन-से ख़ाने कपड़ा तय करते हैं, और शीट क्या नहीं बताती।",
+      "hi-en":
+        "Spec sheet ka har khaana asal mein kya bata raha hai, kaun se khaane kapda tay karte hain, aur sheet kya nahin batati.",
+    },
+    introduction: {
+      en: "A specification is a shortlisting tool. It lets you compare candidates without holding them, ask precise questions, and hold a supply to account afterwards. What it cannot do is tell you whether a cloth is right, because the fields that decide how a fabric behaves are not the fields most buyers read first. This guide goes through a spec sheet in the order that matters: what each line is really saying, which lines separate two cloths that look identical on paper, and what the sheet never carries at all.",
+      hi: "स्पेसिफ़िकेशन छाँटने का औज़ार है। इससे आप बिना कपड़ा हाथ में लिए विकल्पों की तुलना कर सकते हैं, सटीक सवाल पूछ सकते हैं, और बाद में सप्लाई को जवाबदेह रख सकते हैं। जो यह नहीं कर सकता, वह है यह बताना कि कपड़ा सही है या नहीं — क्योंकि जिन ख़ानों से कपड़े का बर्ताव तय होता है, ज़्यादातर खरीदार उन्हें सबसे बाद में पढ़ते हैं। यह गाइड स्पेक शीट को उसी क्रम में पढ़ती है जो मायने रखता है: हर पंक्ति असल में क्या कह रही है, कौन-सी पंक्तियाँ काग़ज़ पर एक जैसे दिखने वाले दो कपड़ों को अलग करती हैं, और शीट में कभी क्या नहीं होता।",
+      "hi-en":
+        "Specification chaantne ka auzaar hai. Isse aap bina kapda haath mein liye options ki tulna kar sakte hain, sateek sawaal pooch sakte hain, aur baad mein supply ko jawabdeh rakh sakte hain. Jo yeh nahin kar sakta, wo hai yeh batana ki kapda sahi hai ya nahin — kyunki jin khaanon se kapde ka bartaav tay hota hai, zyadatar khareedar unhe sabse baad mein padhte hain. Yeh guide spec sheet ko usi kram mein padhti hai jo maayne rakhta hai: har pankti asal mein kya keh rahi hai, kaun si panktiyan kaagaz par ek jaise dikhne wale do kapdon ko alag karti hain, aur sheet mein kabhi kya nahin hota.",
+    },
+    sections: [
+      {
+        heading: {
+          en: "Composition tells you less than the percentage suggests",
+          hi: "कंपोज़िशन उतना नहीं बताता जितना प्रतिशत से लगता है",
+          "hi-en": "Composition utna nahin batata jitna percentage se lagta hai",
+        },
+        paragraphs: {
+          en: [
+            "A blend ratio is a statement about fibre content, not about behaviour. Two cloths both written as 55 per cent cotton and 45 per cent linen can differ in which fibre is in the warp and which in the weft, whether the blend is intimate or plied, and what the linen actually is. Each of those changes shrinkage, dye uptake and handle more than the ratio does.",
+            "Ask where the blend happens. A yarn spun from mixed fibre behaves differently from a cloth woven with one fibre one way and another fibre the other, even at an identical stated ratio. The spec sheet rarely says which, and the difference shows up in the first wash.",
+            "Treat descriptive names with more caution than percentages. Terms that describe an effect rather than a content — a linen look, a silk finish — are not composition claims and should not be read as though they were.",
+          ],
+          hi: [
+            "ब्लेंड का अनुपात रेशे की मात्रा बताता है, बर्ताव नहीं। 55 प्रतिशत कॉटन और 45 प्रतिशत लिनन लिखे दो कपड़े इस बात में अलग हो सकते हैं कि कौन-सा रेशा ताने में है और कौन-सा बाने में, ब्लेंड धागे के भीतर है या बुनाई में, और लिनन असल में क्या है। इनमें से हर बात सिकुड़न, रंग पकड़ और पकड़ को अनुपात से ज़्यादा बदलती है।",
+            "पूछिए कि ब्लेंड कहाँ हो रहा है। मिले-जुले रेशे से काता धागा उस कपड़े से अलग बर्ताव करता है जिसमें एक रेशा एक दिशा में और दूसरा रेशा दूसरी दिशा में बुना है — चाहे लिखा अनुपात एक ही हो। स्पेक शीट शायद ही बताती है कि कौन-सा, और फ़र्क़ पहली धुलाई में दिख जाता है।",
+            "प्रतिशत से ज़्यादा एहतियात वर्णन वाले नामों पर बरतिए। जो शब्द मात्रा नहीं बल्कि असर बताते हैं — लिनन लुक, सिल्क फ़िनिश — वे कंपोज़िशन का दावा नहीं हैं और उन्हें वैसा पढ़ना नहीं चाहिए।",
+          ],
+          "hi-en": [
+            "Blend ka anupaat reshe ki maatra batata hai, bartaav nahin. 55 percent cotton aur 45 percent linen likhe do kapde is baat mein alag ho sakte hain ki kaun sa resha taane mein hai aur kaun sa baane mein, blend dhaage ke bheetar hai ya bunai mein, aur linen asal mein kya hai. Inmein se har baat sikudan, rang pakad aur pakad ko anupaat se zyada badalti hai.",
+            "Poochiye ki blend kahan ho raha hai. Mile jule reshe se kaata dhaaga us kapde se alag bartaav karta hai jisme ek resha ek disha mein aur doosra resha doosri disha mein buna hai — chahe likha anupaat ek hi ho. Spec sheet shayad hi batati hai ki kaun sa, aur farak pehli dhulai mein dikh jaata hai.",
+            "Percentage se zyada ehtiyaat varnan wale naamon par bartiye. Jo shabd maatra nahin balki asar batate hain — linen look, silk finish — wo composition ka daava nahin hain aur unhe waisa padhna nahin chahiye.",
+          ],
+        },
+      },
+      {
+        heading: {
+          en: "Construction is where two identical weights stop being identical",
+          hi: "एक जैसे वज़न यहाँ आकर अलग हो जाते हैं",
+          "hi-en": "Ek jaise weight yahan aakar alag ho jaate hain",
+        },
+        paragraphs: {
+          en: [
+            "Yarn count, ends and picks, and weave are the three fields that explain most differences a buyer notices and cannot name. Count is the fineness of the yarn; ends and picks are how many threads run each way per inch; weave is how they cross. Together they decide drape, opacity, strength and how the surface takes light.",
+            "This is also the answer to why what the cloth weighs is not enough on its own. A coarse yarn loosely set and a fine yarn densely set can land on the same weight and behave nothing alike, and the construction fields are where that shows up on paper before it shows up in your hands.",
+            "If a specification gives weight and composition but no construction, it is not describing a cloth so much as a category. Ask for count and sett before treating it as a candidate.",
+          ],
+          hi: [
+            "यार्न काउंट, ताने-बाने की संख्या, और बुनावट — ये तीन ख़ाने ज़्यादातर उन फ़र्क़ों को समझाते हैं जो खरीदार महसूस करता है पर नाम नहीं दे पाता। काउंट धागे की बारीकी है; ताने-बाने की संख्या बताती है कि हर इंच में कितने धागे किस दिशा में जाते हैं; बुनावट बताती है कि वे कैसे एक-दूसरे को काटते हैं। मिलकर ये तय करते हैं कि कपड़ा कैसे गिरता है, कितना पारदर्शी है, कितना मज़बूत है और सतह रोशनी को कैसे लेती है।",
+            "यही जवाब है कि कपड़े के वज़न भर से काम क्यों नहीं चलता। मोटा धागा ढीला बैठाया और बारीक धागा कसा बैठाया — दोनों एक ही वज़न पर आ सकते हैं और बर्ताव बिल्कुल अलग कर सकते हैं, और कंस्ट्रक्शन के ख़ाने वही जगह हैं जहाँ यह हाथ में आने से पहले काग़ज़ पर दिख जाता है।",
+            "अगर स्पेसिफ़िकेशन में वज़न और कंपोज़िशन है पर कंस्ट्रक्शन नहीं, तो वह कपड़े का नहीं, एक श्रेणी का वर्णन है। उसे विकल्प मानने से पहले काउंट और सेट पूछिए।",
+          ],
+          "hi-en": [
+            "Yarn count, taane baane ki sankhya, aur bunavat — ye teen khaane zyadatar un farakon ko samjhate hain jo khareedar mehsoos karta hai par naam nahin de paata. Count dhaage ki baareeki hai; taane baane ki sankhya batati hai ki har inch mein kitne dhaage kis disha mein jaate hain; bunavat batati hai ki wo kaise ek doosre ko kaatte hain. Milkar ye tay karte hain ki kapda kaise girta hai, kitna transparent hai, kitna mazboot hai aur satah roshni ko kaise leti hai.",
+            "Yahi jawaab hai ki kapde ke weight bhar se kaam kyun nahin chalta. Mota dhaaga dheela baithaya aur baareek dhaaga kasa baithaya — dono ek hi weight par aa sakte hain aur bartaav bilkul alag kar sakte hain, aur construction ke khaane wahi jagah hain jahan yeh haath mein aane se pehle kaagaz par dikh jaata hai.",
+            "Agar specification mein weight aur composition hai par construction nahin, to wo kapde ka nahin, ek shreni ka varnan hai. Use option maanne se pehle count aur sett poochiye.",
+          ],
+        },
+      },
+      {
+        heading: {
+          en: "Finish changes the cloth, and not all of it lasts",
+          hi: "फ़िनिश कपड़ा बदल देती है, और पूरी टिकती नहीं",
+          "hi-en": "Finish kapda badal deti hai, aur poori tikti nahin",
+        },
+        paragraphs: {
+          en: [
+            "A finish is applied after weaving and it can move nearly every property on the sheet, including weight and the width you can actually cut. Mercerising, calendering, sanforising, easy-care resins and coatings each change something, and a figure quoted before finishing is not the figure that arrives.",
+            "Ask how permanent a finish is, because the answer differs sharply. A mechanical finish set into the fibre behaves differently over a garment life from a surface treatment that washes out over some number of cycles. A cloth chosen for a handle that disappears after five washes was chosen on a property it did not really have.",
+            "Where a finish carries a performance claim, ask what standard it was tested to and whether a report exists. An untested claim on a spec sheet is a description, not a specification.",
+          ],
+          hi: [
+            "फ़िनिश बुनाई के बाद लगती है और शीट की लगभग हर बात को हिला सकती है — वज़न और काटने लायक़ चौड़ाई समेत। मर्सराइज़िंग, कैलेंडरिंग, सैनफ़राइज़िंग, ईज़ी-केयर रेज़िन और कोटिंग — हर एक कुछ न कुछ बदलती है, और फ़िनिशिंग से पहले बताया आँकड़ा वह नहीं होता जो पहुँचता है।",
+            "पूछिए कि फ़िनिश कितनी टिकाऊ है, क्योंकि जवाब बहुत अलग होते हैं। रेशे में बैठी यांत्रिक फ़िनिश कपड़े की पूरी उम्र में उस सतही उपचार से अलग बर्ताव करती है जो कुछ धुलाइयों में निकल जाता है। जिस पकड़ के लिए कपड़ा चुना गया और वह पाँच धुलाई में चली गई — तो वह कपड़ा ऐसी ख़ूबी पर चुना गया जो उसमें थी ही नहीं।",
+            "जहाँ फ़िनिश के साथ कोई प्रदर्शन-दावा हो, पूछिए कि उसकी जाँच किस मानक पर हुई और रिपोर्ट है या नहीं। बिना जाँचा दावा स्पेक शीट पर वर्णन है, स्पेसिफ़िकेशन नहीं।",
+          ],
+          "hi-en": [
+            "Finish bunai ke baad lagti hai aur sheet ki lagbhag har baat ko hila sakti hai — weight aur kaatne laayak chaudai samet. Mercerising, calendering, sanforising, easy-care resin aur coating — har ek kuch na kuch badalti hai, aur finishing se pehle bataya aankda wo nahin hota jo pahunchta hai.",
+            "Poochiye ki finish kitni tikaau hai, kyunki jawaab bahut alag hote hain. Reshe mein baithi mechanical finish kapde ki poori umar mein us satahi upchaar se alag bartaav karti hai jo kuch dhulaiyon mein nikal jaata hai. Jis pakad ke liye kapda chuna gaya aur wo paanch dhulai mein chali gayi — to wo kapda aisi khoobi par chuna gaya jo usme thi hi nahin.",
+            "Jahan finish ke saath koi performance daava ho, poochiye ki uski jaanch kis maanak par hui aur report hai ya nahin. Bina jaancha daava spec sheet par varnan hai, specification nahin.",
+          ],
+        },
+      },
+      {
+        heading: {
+          en: "What the sheet leaves out",
+          hi: "शीट में क्या नहीं होता",
+          "hi-en": "Sheet mein kya nahin hota",
+        },
+        paragraphs: {
+          en: [
+            "Shrinkage, colourfastness and handle are the three that matter most and appear least. None of them can be inferred from weight, composition or construction with any confidence, and all three decide whether a buyer accepts the finished goods.",
+            "Ask for them separately and in writing. Residual shrinkage after washing, fastness to washing, rubbing and light, and a physical sample for handle. These are ordinary requests and a supplier who cannot answer them is telling you something useful.",
+            "Then let the sample decide. The specification is how you get from many candidates to a few and how you hold a lot to account once it ships; the cloth in your hand is the only thing that tells you it is right.",
+          ],
+          hi: [
+            "सिकुड़न, रंग की पक्की टिकाऊपन और पकड़ — ये तीन सबसे ज़्यादा मायने रखती हैं और सबसे कम दिखती हैं। इनमें से किसी का भरोसे लायक़ अंदाज़ा वज़न, कंपोज़िशन या कंस्ट्रक्शन से नहीं लगाया जा सकता, और तीनों तय करती हैं कि खरीदार तैयार माल लेगा या नहीं।",
+            "इन्हें अलग से और लिखित में माँगिए। धुलाई के बाद बची सिकुड़न; धुलाई, रगड़ और रोशनी पर रंग की पक्की; और पकड़ के लिए असली सैंपल। ये आम माँगें हैं, और जो सप्लायर इनका जवाब न दे सके, वह आपको एक काम की बात बता रहा है।",
+            "फिर फ़ैसला सैंपल पर छोड़िए। स्पेसिफ़िकेशन से आप बहुत सारे विकल्पों से कुछ तक पहुँचते हैं और माल भेजे जाने के बाद उसे जवाबदेह रखते हैं; हाथ में आया कपड़ा ही अकेली चीज़ है जो बताती है कि वह सही है।",
+          ],
+          "hi-en": [
+            "Sikudan, rang ki pakki tikaupan aur pakad — ye teen sabse zyada maayne rakhti hain aur sabse kam dikhti hain. Inmein se kisi ka bharose laayak andaza weight, composition ya construction se nahin lagaya ja sakta, aur teenon tay karti hain ki khareedar taiyaar maal lega ya nahin.",
+            "Inhe alag se aur likhit mein maangiye. Dhulai ke baad bachi sikudan; dhulai, ragad aur roshni par rang ki pakki; aur pakad ke liye asli sample. Ye aam maangein hain, aur jo supplier inka jawaab na de sake, wo aapko ek kaam ki baat bata raha hai.",
+            "Phir faisla sample par chhodiye. Specification se aap bahut saare options se kuch tak pahunchte hain aur maal bheje jaane ke baad use jawabdeh rakhte hain; haath mein aaya kapda hi akeli cheez hai jo batati hai ki wo sahi hai.",
+          ],
+        },
+      },
+    ],
+    closing: {
+      heading: {
+        en: "Fields to require on any quotation",
+        hi: "हर कोटेशन में ये ख़ाने माँगिए",
+        "hi-en": "Har quotation mein ye khaane maangiye",
+      },
+      intro: {
+        en: "A specification carrying all of these can be compared. One missing half of them cannot.",
+        hi: "जिस स्पेसिफ़िकेशन में ये सब हों, उसकी तुलना हो सकती है। जिसमें आधे न हों, उसकी नहीं।",
+        "hi-en":
+          "Jis specification mein ye sab hon, uski tulna ho sakti hai. Jisme aadhe na hon, uski nahin.",
+      },
+      checklist: {
+        en: [
+          "Composition, with where the blend happens — yarn or weave",
+          "Yarn count, and ends and picks per inch",
+          "Weave, named rather than described",
+          "Weight, stated as greige or finished, with a tolerance",
+          "Cuttable width, stated as greige or finished, with a tolerance",
+          "Finish, with how permanent it is and any standard it was tested to",
+          "Residual shrinkage and fastness figures, asked for separately",
+        ],
+        hi: [
+          "कंपोज़िशन, और यह कि ब्लेंड कहाँ है — धागे में या बुनाई में",
+          "यार्न काउंट, और प्रति इंच ताने-बाने की संख्या",
+          "बुनावट, वर्णन नहीं — नाम से",
+          "वज़न, ग्रे या फ़िनिश्ड बताकर, छूट के साथ",
+          "काटने लायक़ चौड़ाई, ग्रे या फ़िनिश्ड बताकर, छूट के साथ",
+          "फ़िनिश, कितनी टिकाऊ है और किस मानक पर जाँची गई",
+          "बची सिकुड़न और रंग की पक्की के आँकड़े, अलग से माँगे गए",
+        ],
+        "hi-en": [
+          "Composition, aur yeh ki blend kahan hai — dhaage mein ya bunai mein",
+          "Yarn count, aur prati inch taane baane ki sankhya",
+          "Bunavat, varnan nahin — naam se",
+          "Weight, grey ya finished batakar, tolerance ke saath",
+          "Kaatne laayak chaudai, grey ya finished batakar, tolerance ke saath",
+          "Finish, kitni tikaau hai aur kis maanak par jaanchi gayi",
+          "Bachi sikudan aur rang ki pakki ke aankde, alag se maange gaye",
+        ],
+      },
+    },
+    faq: [
+      {
+        question: {
+          en: "Which fields should I insist on before asking for a sample?",
+          hi: "सैंपल माँगने से पहले कौन-से ख़ाने ज़रूर माँगने चाहिए?",
+          "hi-en": "Sample maangne se pehle kaun se khaane zaroor maangne chahiye?",
+        },
+        answer: {
+          en: "Composition, weight with its tolerance, cuttable width with its tolerance, and construction — count, sett and weave. Those four let you rule out most candidates on paper, which is the whole purpose of a specification. Everything else is better settled against the sample.",
+          hi: "कंपोज़िशन, छूट सहित वज़न, छूट सहित काटने लायक़ चौड़ाई, और कंस्ट्रक्शन — काउंट, सेट और बुनावट। इन चार से आप ज़्यादातर विकल्प काग़ज़ पर ही छाँट सकते हैं, और स्पेसिफ़िकेशन का पूरा मक़सद यही है। बाक़ी सब सैंपल के सामने तय करना बेहतर है।",
+          "hi-en":
+            "Composition, tolerance sahit weight, tolerance sahit kaatne laayak chaudai, aur construction — count, sett aur bunavat. In chaar se aap zyadatar options kaagaz par hi chaant sakte hain, aur specification ka poora maqsad yahi hai. Baaki sab sample ke saamne tay karna behtar hai.",
+        },
+      },
+      {
+        question: {
+          en: "Two suppliers describe the same cloth differently. Which one is right?",
+          hi: "दो सप्लायर एक ही कपड़े का वर्णन अलग करते हैं। सही कौन है?",
+          "hi-en": "Do supplier ek hi kapde ka varnan alag karte hain. Sahi kaun hai?",
+        },
+        answer: {
+          en: "Often both, describing different stages or different fields. One may be quoting greige where the other quotes finished, or naming a weave where the other names an effect. Put the two sheets side by side field for field and the disagreement usually turns out to be a gap rather than a contradiction.",
+          hi: "अक्सर दोनों — बस वे अलग चरण या अलग ख़ाने बता रहे होते हैं। हो सकता है एक ग्रे का आँकड़ा दे रहा हो और दूसरा फ़िनिश्ड का, या एक बुनावट का नाम दे और दूसरा असर का। दोनों शीट को ख़ाने-दर-ख़ाने आमने-सामने रखिए, और मतभेद आम तौर पर विरोधाभास नहीं, कमी निकलता है।",
+          "hi-en":
+            "Aksar dono — bas wo alag charan ya alag khaane bata rahe hote hain. Ho sakta hai ek grey ka aankda de raha ho aur doosra finished ka, ya ek bunavat ka naam de aur doosra asar ka. Dono sheet ko khaane dar khaane aamne saamne rakhiye, aur matbhed aam taur par virodhabhaas nahin, kami nikalta hai.",
+        },
+      },
+      {
+        question: {
+          en: "The composition says one thing but the cloth handles like another. Is the sheet wrong?",
+          hi: "कंपोज़िशन कुछ कहता है पर कपड़ा कुछ और लगता है। क्या शीट ग़लत है?",
+          "hi-en": "Composition kuch kehta hai par kapda kuch aur lagta hai. Kya sheet galat hai?",
+        },
+        answer: {
+          en: "Usually not. Handle comes from construction and finish far more than from fibre content, so a stated composition can be accurate while the cloth feels nothing like what you expected. Check count, sett and finish before questioning the composition — that is where the explanation almost always sits.",
+          hi: "आम तौर पर नहीं। पकड़ रेशे की मात्रा से कहीं ज़्यादा कंस्ट्रक्शन और फ़िनिश से आती है, इसलिए लिखा कंपोज़िशन सही हो सकता है और कपड़ा फिर भी उम्मीद से बिल्कुल अलग लग सकता है। कंपोज़िशन पर सवाल उठाने से पहले काउंट, सेट और फ़िनिश देखिए — जवाब लगभग हमेशा वहीं होता है।",
+          "hi-en":
+            "Aam taur par nahin. Pakad reshe ki maatra se kahin zyada construction aur finish se aati hai, isliye likha composition sahi ho sakta hai aur kapda phir bhi ummeed se bilkul alag lag sakta hai. Composition par sawaal uthane se pehle count, sett aur finish dekhiye — jawaab lagbhag hamesha wahin hota hai.",
+        },
+      },
+    ],
+    related: ["fabric-gsm-bulk-orders", "fabric-width-and-costing"],
+  },
   {
     slug: "fabric-width-and-costing",
     inlineLinks: [

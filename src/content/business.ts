@@ -67,6 +67,25 @@ export function localBusinessSchema(site: string) {
         closes: BUSINESS.closes,
       },
     ],
-    sameAs: ["https://www.linkedin.com/company/vidhi-fabricss/"],
+    /*
+     * Profiles this business actually owns, so a crawler can join them and the
+     * website into one entity rather than several weak ones.
+     *
+     * There is at least one other "Vidhi Fabrics" trading in Surat — a second
+     * Justdial listing at Nawab Ni Wadi with far more reviews, an Instagram
+     * and a Facebook page carrying a different phone number. None of those are
+     * this business. Only add a URL here after confirming it with the owner:
+     * claiming someone else's profile merges you into their entity, which is
+     * worse than having no `sameAs` at all.
+     *
+     * The LinkedIn URL here was previously `vidhi-fabricss`, with a doubled
+     * "s", which is not this company's page — verified by checking which URL
+     * carries the real description (Middle East, Textile Hub, Iraq).
+     */
+    sameAs: [
+      "https://www.linkedin.com/company/vidhi-fabrics/",
+      "https://www.indiamart.com/vidhi-fabrics-surat/",
+      "https://www.exportersindia.com/vidhi-fabrics-surat/",
+    ],
   };
 }

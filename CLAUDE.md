@@ -179,7 +179,18 @@ text rather than merely poor text.
 - Footer column labels are `<p>` with `aria-labelledby`, **not** `<h2>`. Using
   headings there once left `/blog` with nothing but footer nav at h2 level.
   `JournalCard` takes a `headingLevel` prop for the same reason.
-- No new analytics provider. No AI/chatbot API. No large dependencies.
+- No AI/chatbot API. No large dependencies.
+- **Two analytics providers, and that is the ceiling.** Vercel Analytics and
+  the Google Ads tag (`AW-11259228096`, added 25 September 2026 at the owner's
+  request, for conversion tracking and remarketing). This rule previously read
+  "no new analytics provider"; it was amended rather than broken. Anything
+  further needs the owner's explicit decision, not an inference from this line.
+- **The Google Ads tag needs a privacy policy that does not exist.** Google
+  requires advertisers to disclose cookie and data collection, and the site has
+  no privacy page — `footer-copy.ts` records that one was deliberately left out
+  rather than linked to a 404. Writing it needs the business's actual data
+  practices, so it is an owner-side task, but it is now a compliance gap rather
+  than a nice-to-have.
 - Images: always ship a sized derivative, never an original. Card thumbnails
   render around 342×257; a 1600px file there is waste.
 

@@ -1,11 +1,11 @@
 {
-  "crawledAt": "2026-09-25T05:12:02.157Z",
+  "crawledAt": "2026-09-25T05:37:18.670Z",
   "site": "https://www.vidhifabrics.com",
   "pages": [
     {
       "url": "https://www.vidhifabrics.com/",
       "status": 200,
-      "bytes": 110834,
+      "bytes": 112590,
       "title": "Surat Fabric Manufacturer &amp; Wholesaler | Vidhi Fabrics",
       "description": "Wholesale fabric supplier and manufacturer in Surat. Cotton, silk, jacquard and blends for retailers, brands and traders. 10+ export markets.",
       "canonical": "https://www.vidhifabrics.com/",
@@ -21,12 +21,12 @@
         "From Surat, Asia&#x27;s textile hub, to your shop."
       ],
       "h2Count": 8,
-      "h3Count": 25,
-      "words": 1149,
-      "images": 15,
+      "h3Count": 26,
+      "words": 1186,
+      "images": 16,
       "imagesNoAlt": 0,
       "imagesEmptyAlt": 0,
-      "internalLinks": 21,
+      "internalLinks": 22,
       "jsonLd": [
         "FAQPage",
         "LocalBusiness"
@@ -38,7 +38,7 @@
     {
       "url": "https://www.vidhifabrics.com/hi",
       "status": 200,
-      "bytes": 112176,
+      "bytes": 113917,
       "title": "सूरत में थोक कपड़ा सप्लायर | विधि फैब्रिक्स",
       "description": "विधि फैब्रिक्स से कॉटन, सिल्क, लिनन, पॉलिएस्टर और जैक्वार्ड कपड़ों की थोक जानकारी लें। अपनी ज़रूरत बताकर सैंपल, उपलब्धता और कोटेशन पूछें।",
       "canonical": "https://www.vidhifabrics.com/hi",
@@ -54,12 +54,12 @@
         "सूरत से आपकी दुकान तक, थोक कपड़े"
       ],
       "h2Count": 8,
-      "h3Count": 25,
-      "words": 1240,
-      "images": 15,
+      "h3Count": 26,
+      "words": 1276,
+      "images": 16,
       "imagesNoAlt": 0,
       "imagesEmptyAlt": 0,
-      "internalLinks": 21,
+      "internalLinks": 22,
       "jsonLd": [
         "FAQPage",
         "LocalBusiness"
@@ -71,7 +71,7 @@
     {
       "url": "https://www.vidhifabrics.com/blog",
       "status": 200,
-      "bytes": 24420,
+      "bytes": 26068,
       "title": "Surat Fabric Desk | Wholesale Buying Guides | Vidhi Fabrics",
       "description": "Practical guides to dress material, sarees, samples and wholesale sourcing from the Vidhi Fabrics desk in Surat.",
       "canonical": "https://www.vidhifabrics.com/blog",
@@ -86,13 +86,13 @@
       "h1": [
         "Surat Fabric Desk ."
       ],
-      "h2Count": 6,
+      "h2Count": 7,
       "h3Count": 0,
-      "words": 323,
-      "images": 6,
+      "words": 360,
+      "images": 7,
       "imagesNoAlt": 0,
       "imagesEmptyAlt": 0,
-      "internalLinks": 22,
+      "internalLinks": 23,
       "jsonLd": [
         "BreadcrumbList",
         "LocalBusiness"
@@ -104,7 +104,7 @@
     {
       "url": "https://www.vidhifabrics.com/hi/blog",
       "status": 200,
-      "bytes": 26153,
+      "bytes": 27786,
       "title": "सूरत फैब्रिक डेस्क | थोक खरीद गाइड | विधि फैब्रिक्स",
       "description": "ड्रेस मटेरियल, साड़ी, सैंपल और थोक सोर्सिंग पर काम की गाइड — सूरत से, विधि फैब्रिक्स के फैब्रिक डेस्क द्वारा।",
       "canonical": "https://www.vidhifabrics.com/hi/blog",
@@ -119,14 +119,82 @@
       "h1": [
         "सूरत फैब्रिक डेस्क ."
       ],
-      "h2Count": 6,
+      "h2Count": 7,
       "h3Count": 0,
-      "words": 357,
-      "images": 6,
+      "words": 393,
+      "images": 7,
       "imagesNoAlt": 0,
       "imagesEmptyAlt": 0,
-      "internalLinks": 22,
+      "internalLinks": 23,
       "jsonLd": [
+        "BreadcrumbList",
+        "LocalBusiness"
+      ],
+      "impressions": null,
+      "clicks": null,
+      "position": null
+    },
+    {
+      "url": "https://www.vidhifabrics.com/blog/how-to-read-a-fabric-spec",
+      "status": 200,
+      "bytes": 46503,
+      "title": "How to read a fabric specification | Vidhi Fabrics",
+      "description": "What each field on a spec sheet is actually telling you, which ones decide the cloth, and what the sheet leaves out.",
+      "canonical": "https://www.vidhifabrics.com/blog/how-to-read-a-fabric-spec",
+      "robots": null,
+      "ogTitle": "How to read a fabric specification",
+      "ogImage": "https://www.vidhifabrics.com/assets/spec-samples-B4vk63tW.jpg",
+      "hreflang": [
+        "en",
+        "hi",
+        "x-default"
+      ],
+      "h1": [
+        "How to read a fabric specification"
+      ],
+      "h2Count": 8,
+      "h3Count": 0,
+      "words": 1128,
+      "images": 1,
+      "imagesNoAlt": 0,
+      "imagesEmptyAlt": 0,
+      "internalLinks": 21,
+      "jsonLd": [
+        "BlogPosting",
+        "BreadcrumbList",
+        "LocalBusiness"
+      ],
+      "impressions": null,
+      "clicks": null,
+      "position": null
+    },
+    {
+      "url": "https://www.vidhifabrics.com/hi/blog/how-to-read-a-fabric-spec",
+      "status": 200,
+      "bytes": 48540,
+      "title": "फ़ैब्रिक स्पेसिफ़िकेशन कैसे पढ़ें | विधि फैब्रिक्स",
+      "description": "स्पेक शीट का हर ख़ाना असल में क्या बता रहा है, कौन-से ख़ाने कपड़ा तय करते हैं, और शीट क्या नहीं बताती।",
+      "canonical": "https://www.vidhifabrics.com/hi/blog/how-to-read-a-fabric-spec",
+      "robots": null,
+      "ogTitle": "फ़ैब्रिक स्पेसिफ़िकेशन कैसे पढ़ें",
+      "ogImage": "https://www.vidhifabrics.com/assets/spec-samples-B4vk63tW.jpg",
+      "hreflang": [
+        "en",
+        "hi",
+        "x-default"
+      ],
+      "h1": [
+        "फ़ैब्रिक स्पेसिफ़िकेशन कैसे पढ़ें"
+      ],
+      "h2Count": 8,
+      "h3Count": 0,
+      "words": 1208,
+      "images": 1,
+      "imagesNoAlt": 0,
+      "imagesEmptyAlt": 0,
+      "internalLinks": 21,
+      "jsonLd": [
+        "BlogPosting",
         "BreadcrumbList",
         "LocalBusiness"
       ],
@@ -290,7 +358,7 @@
       ],
       "h2Count": 7,
       "h3Count": 0,
-      "words": 776,
+      "words": 774,
       "images": 1,
       "imagesNoAlt": 0,
       "imagesEmptyAlt": 0,
@@ -307,7 +375,7 @@
     {
       "url": "https://www.vidhifabrics.com/hi/blog/buying-dress-material-wholesale",
       "status": 200,
-      "bytes": 40035,
+      "bytes": 40037,
       "title": "ड्रेस मटेरियल थोक: पहले यह जाँच लीजिए | विधि फैब्रिक्स",
       "description": "कपड़े की जानकारी से लेकर न्यूनतम मात्रा तक — पहला ऑर्डर देने से पहले क्या पूछना चाहिए।",
       "canonical": "https://www.vidhifabrics.com/hi/blog/buying-dress-material-wholesale",
@@ -324,7 +392,7 @@
       ],
       "h2Count": 7,
       "h3Count": 0,
-      "words": 865,
+      "words": 861,
       "images": 1,
       "imagesNoAlt": 0,
       "imagesEmptyAlt": 0,
@@ -358,7 +426,7 @@
       ],
       "h2Count": 7,
       "h3Count": 0,
-      "words": 765,
+      "words": 763,
       "images": 1,
       "imagesNoAlt": 0,
       "imagesEmptyAlt": 0,
@@ -375,7 +443,7 @@
     {
       "url": "https://www.vidhifabrics.com/hi/blog/why-similar-sarees-have-different-prices",
       "status": 200,
-      "bytes": 39022,
+      "bytes": 39024,
       "title": "एक जैसी साड़ियों की कीमत अलग क्यों होती है | विधि फैब्रिक्स",
       "description": "कपड़ा, फ़िनिशिंग और कारीगरी कोटेशन को कैसे बदलते हैं — क़रीब से एक नज़र।",
       "canonical": "https://www.vidhifabrics.com/hi/blog/why-similar-sarees-have-different-prices",
@@ -392,7 +460,7 @@
       ],
       "h2Count": 7,
       "h3Count": 0,
-      "words": 834,
+      "words": 830,
       "images": 1,
       "imagesNoAlt": 0,
       "imagesEmptyAlt": 0,
@@ -426,7 +494,7 @@
       ],
       "h2Count": 8,
       "h3Count": 0,
-      "words": 1114,
+      "words": 1112,
       "images": 1,
       "imagesNoAlt": 0,
       "imagesEmptyAlt": 0,
@@ -443,7 +511,7 @@
     {
       "url": "https://www.vidhifabrics.com/hi/blog/sample-to-bulk-order-checklist",
       "status": 200,
-      "bytes": 50520,
+      "bytes": 50522,
       "title": "सैंपल से बल्क ऑर्डर तक: खरीदार की चेकलिस्ट | विधि फैब्रिक्स",
       "description": "पसंद आए सैंपल से बड़े ऑर्डर तक जाने से पहले कौन-सी बातें पक्की कर लेनी चाहिए।",
       "canonical": "https://www.vidhifabrics.com/hi/blog/sample-to-bulk-order-checklist",
@@ -460,7 +528,7 @@
       ],
       "h2Count": 8,
       "h3Count": 0,
-      "words": 1240,
+      "words": 1236,
       "images": 1,
       "imagesNoAlt": 0,
       "imagesEmptyAlt": 0,

@@ -128,6 +128,35 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         type: "application/ld+json",
         children: JSON.stringify(localBusinessSchema("https://www.vidhifabrics.com")),
       },
+      /*
+       * Google Ads tag, for conversion tracking and remarketing on the
+       * AW-11259228096 account. Installed at the owner's request.
+       *
+       * Loaded `async` so it never blocks rendering. The init below only
+       * touches `window.dataLayer`, deliberately — a head script that mutates
+       * the DOM before hydration desynchronises React and blanks the page,
+       * which has already happened once on this site. Nothing here reads or
+       * writes the document.
+       *
+       * Two things this brings with it, recorded because they are easy to
+       * forget. Google Ads requires advertisers to disclose cookie and data
+       * collection in a privacy policy, and this site has none. And it is the
+       * second analytics provider on the page alongside Vercel Analytics, so
+       * `CLAUDE.md`'s rule about not adding one has been amended rather than
+       * quietly broken.
+       */
+      {
+        src: "https://www.googletagmanager.com/gtag/js?id=AW-11259228096",
+        async: true,
+      },
+      {
+        children: [
+          "window.dataLayer = window.dataLayer || [];",
+          "function gtag(){dataLayer.push(arguments);}",
+          "gtag('js', new Date());",
+          "gtag('config', 'AW-11259228096');",
+        ].join("\n"),
+      },
     ],
   }),
 

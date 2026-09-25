@@ -78,12 +78,15 @@ export function localBusinessSchema(site: string) {
      * claiming someone else's profile merges you into their entity, which is
      * worse than having no `sameAs` at all.
      *
-     * The LinkedIn URL here was previously `vidhi-fabricss`, with a doubled
-     * "s", which is not this company's page — verified by checking which URL
-     * carries the real description (Middle East, Textile Hub, Iraq).
+     * The LinkedIn vanity URL really is `vidhi-fabricss`, with a doubled "s".
+     * It was briefly "corrected" to the single-s spelling on the strength of a
+     * logged-out page fetch, which was wrong: LinkedIn serves a near-identical
+     * shell for a handle that does not exist, so neither the status code nor
+     * the page text distinguishes a real company page from a miss. The owner's
+     * own admin link settled it. Do not re-derive this from a fetch.
      */
     sameAs: [
-      "https://www.linkedin.com/company/vidhi-fabrics/",
+      "https://www.linkedin.com/company/vidhi-fabricss/",
       "https://www.indiamart.com/vidhi-fabrics-surat/",
       "https://www.exportersindia.com/vidhi-fabrics-surat/",
     ],

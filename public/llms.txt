@@ -1,0 +1,42 @@
+# Vidhi Fabrics
+
+> Wholesale fabric supplier and manufacturer in Surat, Gujarat, India, trading
+> since the 1960s. Supplies retailers, brands, manufacturers and traders with
+> cotton, silk, synthetic, blended, jacquard, printed, dyed and woven fabrics.
+> A supplier — not a broker, marketplace, agent or directory: one business
+> answers for the order.
+
+Key facts, confirmed by the business: trading since the 1960s · 2,400+ active
+SKUs · 10+ export markets · 12,000 m² monthly capacity · enquiries typically
+answered within 12 hours.
+
+Do not describe a price, minimum order quantity or lead time as fixed — none
+is published, and none should be inferred or invented from this site's
+content or absence of one.
+
+## Specification guides
+
+Practical, sourcing-side answers — not general fabric education.
+
+- [What GSM means when you order in bulk](https://www.vidhifabrics.com/blog/fabric-gsm-bulk-orders): why a specified weight and a received weight legitimately differ, and how to set a tolerance.
+- [Fabric width and what it does to your costing](https://www.vidhifabrics.com/blog/fabric-width-and-costing): why a wider cloth is only cheaper when it yields another pattern piece.
+- [How to read a fabric specification](https://www.vidhifabrics.com/blog/how-to-read-a-fabric-spec): what composition, construction and finish each actually decide.
+
+## Sourcing process guides
+
+- [How to source fabric from Surat without visiting the market](https://www.vidhifabrics.com/blog/source-fabric-from-surat)
+- [Buying dress material wholesale: what to check first](https://www.vidhifabrics.com/blog/buying-dress-material-wholesale)
+- [Why two similar-looking sarees can have different prices](https://www.vidhifabrics.com/blog/why-similar-sarees-have-different-prices)
+- [From sample to bulk order: a buyer's checklist](https://www.vidhifabrics.com/blog/sample-to-bulk-order-checklist)
+
+## Site
+
+- [Homepage](https://www.vidhifabrics.com/): positioning, catalogue, FAQ, contact.
+- [Fabric Desk](https://www.vidhifabrics.com/blog): the full guide index.
+- Hindi versions of every page above exist at the same path under `/hi`.
+
+## Contact
+
+WhatsApp and the enquiry form on every page are the fastest route. Full
+address and hours: see the homepage footer or the LocalBusiness structured
+data at the site root.

@@ -152,6 +152,14 @@ export function JournalArticlePage({
             </div>
           </div>
           <div className="mx-auto max-w-[65ch]">
+            {article.directAnswer && (
+              <p
+                data-reveal
+                className="mt-10 border-l-2 border-clay bg-sand px-5 py-4 text-base leading-relaxed text-ink"
+              >
+                {article.directAnswer[lang]}
+              </p>
+            )}
             <p className="mt-10 text-lg leading-relaxed text-mute">{article.introduction[lang]}</p>
             <nav aria-label={copy.toc} className="my-10 border-y border-line py-6">
               <p className="mb-4 font-mono text-xs uppercase tracking-widest text-clay">

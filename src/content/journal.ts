@@ -55,6 +55,14 @@ export type JournalArticle = {
   title: Localized;
   excerpt: Localized;
   introduction: Localized;
+  /**
+   * A tight, self-contained answer — 40 to 60 words — rendered as a callout
+   * before the introduction. Two audiences at once: a human skimming for the
+   * conclusion, and an AI answer engine lifting a clean, quotable chunk
+   * rather than extracting one from narrative prose. Optional because not
+   * every article reduces to one claim; the three specification guides do.
+   */
+  directAnswer?: Localized;
   sections: JournalSection[];
   /** ISO date. Only set on articles whose publication date is known. */
   published?: string;
@@ -155,6 +163,12 @@ export const JOURNAL: JournalArticle[] = [
       hi: "स्पेक शीट का हर ख़ाना असल में क्या बता रहा है, कौन-से ख़ाने कपड़ा तय करते हैं, और शीट क्या नहीं बताती।",
       "hi-en":
         "Spec sheet ka har khaana asal mein kya bata raha hai, kaun se khaane kapda tay karte hain, aur sheet kya nahin batati.",
+    },
+    directAnswer: {
+      en: "A fabric specification is a shortlisting tool, not proof a cloth is right. Composition states fibre content, not behaviour; construction — yarn count, sett and weave — decides drape, opacity and handle far more. Ask for shrinkage, fastness and handle separately, then let an approved physical sample make the final call.",
+      hi: "फ़ैब्रिक स्पेसिफ़िकेशन छाँटने का औज़ार है, यह सबूत नहीं कि कपड़ा सही है। कंपोज़िशन रेशे की मात्रा बताता है, बर्ताव नहीं; कंस्ट्रक्शन — यार्न काउंट, सेट और बुनावट — गिरना, पारदर्शिता और पकड़ कहीं ज़्यादा तय करता है। सिकुड़न, रंग की पक्की और पकड़ अलग से माँगिए, फिर आख़िरी फ़ैसला मंज़ूर सैंपल पर छोड़िए।",
+      "hi-en":
+        "Fabric specification chaantne ka auzaar hai, yeh saboot nahin ki kapda sahi hai. Composition reshe ki maatra batata hai, bartaav nahin; construction — yarn count, sett aur bunavat — girna, transparency aur pakad kahin zyada tay karta hai. Sikudan, rang ki pakki aur pakad alag se maangiye, phir aakhri faisla approved sample par chhodiye.",
     },
     introduction: {
       en: "A specification is a shortlisting tool. It lets you compare candidates without holding them, ask precise questions, and hold a supply to account afterwards. What it cannot do is tell you whether a cloth is right, because the fields that decide how a fabric behaves are not the fields most buyers read first. This guide goes through a spec sheet in the order that matters: what each line is really saying, which lines separate two cloths that look identical on paper, and what the sheet never carries at all.",
@@ -385,6 +399,12 @@ export const JOURNAL: JournalArticle[] = [
       hi: "सस्ता मीटर अक्सर महँगा कपड़ा क्यों बन जाता है, और ज़्यादा चौड़ाई तभी काम आती है जब उसमें एक और पीस बैठ जाए।",
       "hi-en":
         "Sasta meter aksar mehenga kapda kyun ban jaata hai, aur zyada chaudai tabhi kaam aati hai jab usme ek aur piece baith jaaye.",
+    },
+    directAnswer: {
+      en: "A wider cloth is only cheaper if it lets you cut another pattern piece across it. Compare cost per piece, not rate per metre: divide the rate by how many pieces your own pattern yields at that width. Cuttable width excludes selvedges, and a quoted figure is often greige, not finished.",
+      hi: "चौड़ा कपड़ा तभी सस्ता है जब उसमें एक और पैटर्न पीस आड़े बैठ जाए। प्रति मीटर दर नहीं, प्रति पीस लागत की तुलना कीजिए: उस चौड़ाई पर आपका पैटर्न प्रति मीटर जितने पीस देता है, दर को उससे बाँटिए। काटने लायक़ चौड़ाई में किनारे शामिल नहीं, और बताई गई चौड़ाई अक्सर ग्रे की होती है, फ़िनिश्ड की नहीं।",
+      "hi-en":
+        "Chauda kapda tabhi sasta hai jab usme ek aur pattern piece aade baith jaaye. Prati meter dar nahin, prati piece laagat ki tulna kijiye: us chaudai par aapka pattern prati meter jitne piece deta hai, dar ko usse baantiye. Kaatne laayak chaudai mein kinare shaamil nahin, aur batai gayi chaudai aksar grey ki hoti hai, finished ki nahin.",
     },
     introduction: {
       en: "Width is the specification buyers check last and pay for first. Two quotations at the same rate per metre are not the same offer if the cloth is a different width, and a wider cloth is not automatically the better buy either. What decides it is whether the extra width lets you cut another piece across — and often it does not, in which case you are paying for cloth that goes into the waste. This guide covers the arithmetic, the difference between the width quoted and the width you can cut, and what to establish before comparing two prices.",
@@ -618,6 +638,12 @@ export const JOURNAL: JournalArticle[] = [
       hi: "जो वज़न आप लिखते हैं और जो माल में आता है, वे एक ही आँकड़ा क्यों नहीं होते — और ऑर्डर पर इसके बजाय क्या लिखना चाहिए।",
       "hi-en":
         "Jo weight aap likhte hain aur jo maal mein aata hai, wo ek hi aankda kyun nahin hote — aur order par iske bajaye kya likhna chahiye.",
+    },
+    directAnswer: {
+      en: "GSM (grams per square metre) is a fabric’s weight, not its quality. The figure a mill quotes and the figure you receive can legitimately differ — greige versus finished cloth, humidity and lot variance all move it — so agree a tolerance and a direction in writing, and check it with a cutter or a weighed 10x10cm square.",
+      hi: "GSM (ग्राम प्रति वर्ग मीटर) कपड़े का वज़न है, गुणवत्ता नहीं। मिल जो आँकड़ा बताती है और जो आपको मिलता है, वे जायज़ तौर पर अलग हो सकते हैं — ग्रे बनाम फ़िनिश्ड कपड़ा, नमी और लॉट की भिन्नता, सब इसे हिलाते हैं — इसलिए छूट और दिशा लिखित में तय कीजिए, और कटर या तौले गए 10x10cm टुकड़े से जाँचिए।",
+      "hi-en":
+        "GSM (gram prati varg meter) kapde ka weight hai, quality nahin. Mill jo aankda batati hai aur jo aapko milta hai, wo jaayaz taur par alag ho sakte hain — grey banaam finished kapda, nami aur lot ki bhinnata, sab ise hilate hain — isliye tolerance aur disha likhit mein tay kijiye, aur cutter ya tole gaye 10x10cm tukde se jaanchiye.",
     },
     introduction: {
       en: "GSM is the number buyers quote most often and argue about most easily. It is a useful figure and a narrow one: it tells you what a cloth weighs over a fixed area and nothing else. Most weight disputes are not really about weight — they are about a figure that was never defined, never toleranced, and never checked the same way by both sides. This guide covers what the number does and does not carry, why the mill’s figure and yours can legitimately differ, and how to write it on an order so it means the same thing to everybody.",

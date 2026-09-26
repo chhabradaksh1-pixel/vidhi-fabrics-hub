@@ -51,7 +51,7 @@ export function SiteFooter({ lang = "en" }: { lang?: Lang }) {
         <img
           src={heritageIllustration}
           alt="Vidhi Fabrics — from raw yarn to the finished weave, Surat"
-          className="mx-auto block h-auto w-full max-w-5xl"
+          className="block h-auto w-full"
           loading="lazy"
         />
       </div>

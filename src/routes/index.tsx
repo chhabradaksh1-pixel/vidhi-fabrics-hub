@@ -273,7 +273,7 @@ function Index() {
               aria-label="Vidhi Fabrics — go to the homepage"
               className="shrink-0 transition-opacity hover:opacity-80"
             >
-              <img src={logoMark} alt="Vidhi Fabrics" className="h-11 w-auto sm:h-12" />
+              <img src={logoMark} alt="Vidhi Fabrics" className="h-14 w-auto sm:h-16" />
             </a>
             <span className="hidden font-mono text-[10px] uppercase tracking-[0.15em] text-mute sm:block">
               {COPY.established[lang]}

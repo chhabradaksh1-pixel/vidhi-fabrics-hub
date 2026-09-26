@@ -2,6 +2,7 @@ import { ArrowDown, ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import cotton from "@/assets/fabric-cotton-linen.jpg";
 import jacquard from "@/assets/fabric-katan-jacquard.jpg";
+import logoMark from "@/assets/vidhi-logo-mark.png";
 import { JOURNAL, readingMinutes, type JournalArticle } from "@/content/journal";
 import { SiteFooter } from "@/components/site-footer";
 import type { Lang } from "@/content/translations";
@@ -363,9 +364,9 @@ export function JournalHeader({
         <a
           href={home}
           aria-label="Vidhi Fabrics — go to the homepage"
-          className="font-display text-2xl font-light tracking-tight transition-colors hover:text-clay sm:whitespace-nowrap"
+          className="shrink-0 transition-opacity hover:opacity-80"
         >
-          Vidhi Fabrics
+          <img src={logoMark} alt="Vidhi Fabrics" className="h-11 w-auto sm:h-12" />
         </a>
         <nav
           aria-label="Main navigation"

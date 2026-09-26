@@ -12,6 +12,7 @@ import { useReveal } from "@/hooks/use-reveal";
 
 import swatchBook from "@/assets/swatch-book.jpg";
 import weaveGround from "@/assets/weave-ground.jpg";
+import logoMark from "@/assets/vidhi-logo-mark.png";
 import {
   Accordion,
   AccordionContent,
@@ -266,13 +267,13 @@ function Index() {
     <div className="min-h-screen bg-paper font-body text-ink antialiased selection:bg-clay/20">
       <header className="sticky top-0 z-50 border-b border-line bg-paper/90 backdrop-blur">
         <div className="mx-auto flex min-h-16 max-w-6xl flex-wrap items-center justify-between gap-3 px-6 py-3">
-          <div className="flex items-baseline gap-2">
+          <div className="flex items-center gap-2">
             <a
               href="/"
               aria-label="Vidhi Fabrics — go to the homepage"
-              className="font-display text-2xl font-light tracking-tight transition-colors hover:text-clay"
+              className="shrink-0 transition-opacity hover:opacity-80"
             >
-              {COPY.brand[lang]}
+              <img src={logoMark} alt="Vidhi Fabrics" className="h-11 w-auto sm:h-12" />
             </a>
             <span className="hidden font-mono text-[10px] uppercase tracking-[0.15em] text-mute sm:block">
               {COPY.established[lang]}

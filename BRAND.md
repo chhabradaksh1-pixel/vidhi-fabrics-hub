@@ -199,21 +199,54 @@ differ, and light weights thin its conjuncts faster than they thin Latin.
 
 ## Logo and icons
 
-There is no drawn logotype. The brand mark is **"Vidhi Fabrics" set in the
-site grotesque**, tight tracking, beside a letterspaced established line in
-`mute` that hides below the `sm` breakpoint. It was Playfair Display semibold
-until the type system went to a single family; the wordmark follows the
-type system rather than keeping a serif of its own. The string is stored sentence case
-("Surat · Since the 1960s") and rendered uppercase by the label style.
+**There is now a drawn logotype** (added 26 September 2026, owner-supplied
+artwork): a cursive "V" doubling as a needle, with "idhi" beside it and
+"FABRICS" below in small caps, dark maroon on a transparent ground. It
+replaced the set-in-type wordmark ("Vidhi Fabrics" in the site grotesque)
+that this section used to describe — that text treatment is gone from every
+header, not just restyled.
 
-The icon is a clay tile with a paper **V** (`public/favicon.svg`): a `#8A412E`
-square, the V drawn as a path in `#FBFBF8`. It exists because it is the only
-thing that survived 16px — a weave pattern went muddy, a needle read as a
-checkmark, a two-band weave read as a plus sign, and a light-ground V dissolved
-into grey. If you redesign it, test at 16px first, not at 512.
+The owner-supplied original is a wider scene — mills, dyeing, a hand loom,
+women in sarees, a riverside palace backdrop — with the logotype sitting
+inside it, kept only as the file the two derivatives below were cut from, not
+itself referenced by the site. `vidhi-logo-mark.png` is the logotype alone,
+cropped tight with a transparent ground, and is the file every header uses.
+`footer-heritage-illustration.jpg` is the same scene flattened onto white and
+resized to 1600×893, used once, in the footer.
+
+**Where each lives:**
+
+- Both home routes' sticky header, and the journal header shared by every
+  `/blog` and `/hi/blog` page — `vidhi-logo-mark.png`, ~44px tall, on `paper`.
+- The footer — the full scene, `footer-heritage-illustration.jpg`, full width
+  on its own `paper` band immediately above the dark footer panel, not inside
+  it. The art was composed against white and has a large transparent area
+  above the skyline meant to read as sky, not as a window onto whatever sits
+  behind it; placing it directly on the footer's black ground would leave
+  that area reading as a hole.
+
+**The logo mark does not go on a dark ground.** Measured before deciding:
+the mark's ink is `#7A1A18`, which is 1.99:1 against the footer's black —
+under the 3:1 a graphical mark needs, the same class of failure as `clay` at
+1.08:1 on `ink`. The footer's own internal "Brand" column keeps the plain
+ivory text for this reason; it is the one place on the site the new logotype
+does not appear, and that is deliberate, not an oversight to fix later. A
+version recoloured for dark grounds would need its own pass; nothing here
+approximates one.
+
+The favicon is unchanged and still a clay tile with a paper **V**
+(`public/favicon.svg`): a `#8A412E` square, the V drawn as a path in
+`#FBFBF8`. It exists because it is the only thing that survived 16px — a
+weave pattern went muddy, a needle read as a checkmark, a two-band weave read
+as a plus sign, and a light-ground V dissolved into grey. The new logotype
+has not been tested at that size, and a script mark with fine strokes is
+exactly the shape that has failed 16px testing before on this project — treat
+it as unproven for favicon use rather than assuming it would work.
 
 Derived: `favicon.ico` (16/32/48), `apple-touch-icon.png`, `icon-192.png`,
-`icon-512.png`. `og-image.jpg` is the swatch-book photograph at 1200×630.
+`icon-512.png`. `og-image.jpg` is the swatch-book photograph at 1200×630 —
+also unchanged; whether it should become the new illustration is a separate,
+not-yet-made decision.
 
 ## Photography
 

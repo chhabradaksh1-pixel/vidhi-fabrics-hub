@@ -1,11 +1,11 @@
 import cotton from "@/assets/fabric-cotton-linen.jpg";
 import jacquard from "@/assets/fabric-katan-jacquard.jpg";
 import linen from "@/assets/fabric-linen-shirting.jpg";
-import swatchOnCard from "@/assets/swatch-on-card.jpg";
-import wovenDetail from "@/assets/woven-detail.jpg";
-import swatchStack from "@/assets/swatch-stack.jpg";
-import warehouse from "@/assets/warehouse-surat.jpg";
-import specSamples from "@/assets/spec-samples.jpg";
+import swatchOnCard from "@/assets/swatch-on-card.webp";
+import wovenDetail from "@/assets/woven-detail.webp";
+import swatchStack from "@/assets/swatch-stack.webp";
+import warehouse from "@/assets/warehouse-surat.webp";
+import specSamples from "@/assets/spec-samples.webp";
 import organza from "@/assets/fabric-beaded-organza.jpg";
 import type { Lang } from "@/content/translations";
 import { whatsAppUrl } from "@/content/whatsapp";

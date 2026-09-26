@@ -21,7 +21,14 @@ function blogPosting(article: JournalArticle) {
     mainEntityOfPage: url,
     url,
     image: new URL(article.image, SITE).href,
-    author: { "@type": "Organization", name: "Vidhi Fabrics" },
+    // Named per the CEO's confirmation (26 September 2026). See the English
+    // route for the full reasoning; kept identical here for consistency.
+    author: {
+      "@type": "Person",
+      name: "Dinesh Chhabra",
+      jobTitle: "CEO",
+      worksFor: { "@type": "Organization", name: "Vidhi Fabrics" },
+    },
     publisher: { "@type": "Organization", name: "Vidhi Fabrics" },
     ...(article.published ? { datePublished: article.published } : {}),
     ...(article.faq

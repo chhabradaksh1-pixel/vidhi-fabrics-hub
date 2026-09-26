@@ -20,7 +20,17 @@ function blogPosting(article: JournalArticle) {
     mainEntityOfPage: `${SITE}/blog/${article.slug}`,
     url: `${SITE}/blog/${article.slug}`,
     image: new URL(article.image, SITE).href,
-    author: { "@type": "Organization", name: "Vidhi Fabrics" },
+    // Named per the CEO's confirmation (26 September 2026). `publisher`
+    // stays the Organization; a Person `author` with `worksFor` is the
+    // schema.org pattern search engines and answer engines use to resolve
+    // who actually wrote a page, which a generic Organization author does
+    // not give them.
+    author: {
+      "@type": "Person",
+      name: "Dinesh Chhabra",
+      jobTitle: "CEO",
+      worksFor: { "@type": "Organization", name: "Vidhi Fabrics" },
+    },
     publisher: { "@type": "Organization", name: "Vidhi Fabrics" },
     ...(article.published ? { datePublished: article.published } : {}),
     ...(article.faq

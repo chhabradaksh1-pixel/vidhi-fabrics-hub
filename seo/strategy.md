@@ -114,32 +114,70 @@ picture — but it does not write articles.
 
 ## Current priorities
 
-Rewritten 23 September 2026 from the first Search Console export, replacing a
-list inferred from the markup. Full reasoning in
-`reports/2026-09-23-search-console.md`.
+Rewritten 27 September 2026 by the Sunday consolidation pass. Full reasoning in
+`reports/2026-09-27.md`.
 
-**Context that governs all of it: the site is two weeks old in Search.** Twelve
-days of data, 130 impressions. This is a discovery phase, not an
-underperformance problem.
+**Context that governs all of it: the evidence base has expired.** The list
+below replaces one written on 23 September from a Search Console export
+covering 9–20 September, when the site had twelve URLs. It now has eighteen.
+Six of them — the three specification guides and their Hindi twins — were
+published on 24 and 25 September and appear nowhere in that export. Neither
+does the deepened checklist article, whose improvement was the previous list's
+second item and which cannot be scored against data that predates it.
 
-1. **Get the existing Hindi reviewed by a native speaker.** The export shows
-   `/hi/blog/source-fabric-from-surat` at position 8.5 against 67 for the same
-   article in English. Hindi is the one advantage the data demonstrates, and
-   every further Hindi page is blocked behind this review. Owner-side task.
-2. **Deepen `/blog/sample-to-bulk-order-checklist`** — position 10.5, the only
-   page within reach of page one, and one of the shortest at 799 words.
-3. **Diagnose English `source-fabric-from-surat` at position 67** while its
-   Hindi twin sits at 8.5. The site's longest and best article ranking worst is
-   an anomaly worth understanding before writing anything new.
-4. **Check the hero's weight-200 type on a real mid-range Android.** Mobile is
-   80 of 130 impressions at position 7.86 against desktop's 16.48. The audience
-   is on phones.
-5. **The five truncated titles and the 199-character home description.**
-   Demoted from first to fifth: those pages have 1–6 impressions each, and
-   click-through work on ~0 impressions buys nothing. Still correct, just not a
-   lever yet.
+Everything below is therefore ranked on what can be observed on the site, not
+on measured demand.
 
-Two earlier items are struck off. The FAQPage gap did not exist — both home
+1. **A fresh Search Console export.** Owner-side, two minutes, and it unblocks
+   the next month of these reports. Performance → Web → last 3 months → export
+   all five CSVs into `seo/data/`. Nothing else on this list can be ranked
+   honestly until it exists.
+2. **Get the existing Hindi reviewed by a native speaker.** Unchanged in
+   position, changed in justification. The GSC case for Hindi is weaker than
+   the 23 September report implied — it rests on five impressions across four
+   Hindi URLs, which is close to no evidence at all. The case that survives
+   needs no impression data: nine of eighteen live URLs are in a language no
+   native speaker has ever checked, and three more Hindi articles were added
+   this week, so the review job grew 60% while sitting at the top of this list.
+   Owner-side task.
+3. **Defer the 6 MB autoplay loom video, or poster it.** Measured 27 September:
+   `weaving-loom.mp4` is 6,059,529 bytes, carries `autoplay loop muted
+playsinline` with no `poster` and no `preload`, sits at y=3,132px in a
+   10,069px document, and a network trace shows the browser fetching it during
+   initial page load before any scrolling. Mobile was 80 of 130 impressions.
+   This is the largest avoidable cost on the page. Needs the owner because a
+   poster frame cannot be extracted here (no ffmpeg) and it changes appearance.
+4. **Submit `public/sitemap.xml` in Search Console.** Carried over, now more
+   pressing: six URLs published on 24–25 September need discovering. The
+   sitemap itself is accurate — all 18 present, verified 27 September.
+5. **Decide what happens to 1 GB of unreferenced media in `public/`.** Two
+   `.mov` files (435 MB and 569 MB as LFS objects) plus the Klickpin pointer,
+   all serving HTTP 200 with a video content type and LFS pointer text as the
+   body. Unlinked, so no real crawl cost — the cost is repo weight. They may be
+   the owner's source footage, so this is a question, not a deletion.
+6. **Check the hero's weight-200 type on a real mid-range Android.** Carried
+   over unchanged. The audience is demonstrably on phones.
+7. **Write the next content cluster.** The specification-literacy wedge
+   (`content-strategy.md` cluster A) completed on 25 September. Next in that
+   file's sequence is the six fabric pages — most commercial, and the spec data
+   already exists. Still unproven as a strategy; no query in any export has
+   touched the wedge yet, because nothing had been written when the export was
+   taken.
+
+**Struck off.** "Diagnose English `source-fabric-from-surat` at position 67"
+was the previous list's third item. That page has **one impression** — an
+average position over a single impression is one query at one moment, not an
+anomaly. There is nothing there to diagnose until a larger export either
+reproduces it or does not.
+
+**Closed since 23 September**, verified live rather than from commit messages:
+the five truncated titles and the 199-character home description (longest title
+now 59 chars, home description 141); the deepened checklist article (799 →
+1,114 words, FAQ added); the whole specification-literacy cluster. Also the
+placeholder star ratings, which `CLAUDE.md` still lists as live and no longer
+are.
+
+Two earlier items remain struck off. The FAQPage gap did not exist — both home
 routes already emit it. The apparent `http`/`https`/`www` duplication in the
 export is not a fault either: all variants 308 to `https://www` and every one
 declares the right canonical, so Google is simply still consolidating.

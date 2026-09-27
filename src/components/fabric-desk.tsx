@@ -366,7 +366,13 @@ export function JournalHeader({
           aria-label="Vidhi Fabrics — go to the homepage"
           className="shrink-0 transition-opacity hover:opacity-80"
         >
-          <img src={logoMark} alt="Vidhi Fabrics" className="h-14 w-auto sm:h-16" />
+          <img
+            src={logoMark}
+            alt="Vidhi Fabrics"
+            width={348}
+            height={332}
+            className="h-14 w-auto sm:h-16"
+          />
         </a>
         <nav
           aria-label="Main navigation"

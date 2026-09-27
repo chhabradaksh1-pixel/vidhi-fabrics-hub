@@ -125,14 +125,33 @@ published on 24 and 25 September and appear nowhere in that export. Neither
 does the deepened checklist article, whose improvement was the previous list's
 second item and which cannot be scored against data that predates it.
 
+**And the second thing governing it: the work is finished but not shipped.**
+Two SEO branches are unmerged — `claude/seo-2026-09-26` (the Saturday
+performance pass, 2 commits) and `claude/seo-2026-09-27` (this one, 1 commit).
+The bottleneck this week was not finding work or doing it. It was merging it.
+
 Everything below is therefore ranked on what can be observed on the site, not
 on measured demand.
 
-1. **A fresh Search Console export.** Owner-side, two minutes, and it unblocks
+1. **Merge or reject `claude/seo-2026-09-26`.** It carries 697 KB off both home
+   routes (six journal images re-encoded to WebP at the size they render, an
+   appearance-neutral crop the browser was already doing) and removes ~1 GB of
+   LFS objects from a fresh clone by moving two camera originals out of
+   `public/`. Written, measured, tested, waiting. Nothing else on this list
+   comes close on effort-to-value.
+2. **A fresh Search Console export.** Owner-side, two minutes, and it unblocks
    the next month of these reports. Performance → Web → last 3 months → export
-   all five CSVs into `seo/data/`. Nothing else on this list can be ranked
-   honestly until it exists.
-2. **Get the existing Hindi reviewed by a native speaker.** Unchanged in
+   all five CSVs into `seo/data/`. Nothing else here can be ranked honestly
+   until it exists. Asked for on 26 September as well.
+3. **Re-encode `weaving-loom.mp4`.** 6,059,529 bytes — 69% of an 8.38 MB first
+   visit — `autoplay loop muted playsinline`, no `poster`, no `preload`,
+   rendering in a 192 px band on a phone. Confirmed 27 September that browsers
+   issue range requests for it during initial page load; `<video>` has no
+   native lazy-loading, so nothing defers it. Owner-side: no ffmpeg here, and
+   the originals are in `media-originals/` on the 26 September branch. The
+   largest single performance item on the site by a factor of two and a half
+   over everything else combined.
+4. **Get the existing Hindi reviewed by a native speaker.** Unchanged in
    position, changed in justification. The GSC case for Hindi is weaker than
    the 23 September report implied — it rests on five impressions across four
    Hindi URLs, which is close to no evidence at all. The case that survives
@@ -140,23 +159,13 @@ on measured demand.
    native speaker has ever checked, and three more Hindi articles were added
    this week, so the review job grew 60% while sitting at the top of this list.
    Owner-side task.
-3. **Defer the 6 MB autoplay loom video, or poster it.** Measured 27 September:
-   `weaving-loom.mp4` is 6,059,529 bytes, carries `autoplay loop muted
-playsinline` with no `poster` and no `preload`, sits at y=3,132px in a
-   10,069px document, and a network trace shows the browser fetching it during
-   initial page load before any scrolling. Mobile was 80 of 130 impressions.
-   This is the largest avoidable cost on the page. Needs the owner because a
-   poster frame cannot be extracted here (no ffmpeg) and it changes appearance.
-4. **Submit `public/sitemap.xml` in Search Console.** Carried over, now more
+5. **Submit `public/sitemap.xml` in Search Console.** Carried over, now more
    pressing: six URLs published on 24–25 September need discovering. The
    sitemap itself is accurate — all 18 present, verified 27 September.
-5. **Decide what happens to 1 GB of unreferenced media in `public/`.** Two
-   `.mov` files (435 MB and 569 MB as LFS objects) plus the Klickpin pointer,
-   all serving HTTP 200 with a video content type and LFS pointer text as the
-   body. Unlinked, so no real crawl cost — the cost is repo weight. They may be
-   the owner's source footage, so this is a question, not a deletion.
 6. **Check the hero's weight-200 type on a real mid-range Android.** Carried
-   over unchanged. The audience is demonstrably on phones.
+   over unchanged. The audience is demonstrably on phones, and the 26 September
+   pass found a second reason to look: `fabric-katan-jacquard.jpg` has 0.69× of
+   the resolution its box needs on a retina display.
 7. **Write the next content cluster.** The specification-literacy wedge
    (`content-strategy.md` cluster A) completed on 25 September. Next in that
    file's sequence is the six fabric pages — most commercial, and the spec data
@@ -174,8 +183,10 @@ reproduces it or does not.
 the five truncated titles and the 199-character home description (longest title
 now 59 chars, home description 141); the deepened checklist article (799 →
 1,114 words, FAQ added); the whole specification-literacy cluster. Also the
-placeholder star ratings, which `CLAUDE.md` still lists as live and no longer
-are.
+**placeholder star ratings**, removed in `b127a97` on 23 September — verified
+27 September that `ratingLabel` is absent from `src/` and "five-star" appears
+zero times in the live homepage. Two documents still list them as open and are
+wrong about it: `CLAUDE.md` line 227, and the 26 September report's ask #3.
 
 Two earlier items remain struck off. The FAQPage gap did not exist — both home
 routes already emit it. The apparent `http`/`https`/`www` duplication in the

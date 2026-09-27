@@ -10,7 +10,7 @@ import { TalkToUs } from "@/components/talk-to-us";
 import { WHATSAPP_NUMBER } from "@/content/whatsapp";
 import { useReveal } from "@/hooks/use-reveal";
 
-import swatchBook from "@/assets/swatch-book.jpg";
+import swatchBook from "@/assets/swatch-book.webp";
 import weaveGround from "@/assets/weave-ground.jpg";
 import logoMark from "@/assets/vidhi-logo-mark.png";
 import {

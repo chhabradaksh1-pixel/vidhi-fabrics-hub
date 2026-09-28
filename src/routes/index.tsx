@@ -39,7 +39,7 @@ export const Route = createFileRoute("/")({
         // one substantiated number, 10+ export markets. See BRAND.md for what
         // may and may not be claimed here.
         content:
-          "Wholesale fabric supplier and manufacturer in Surat. Cotton, silk, jacquard and blends for retailers, brands and traders. 10+ export markets.",
+          "Wholesale fabric supplier and manufacturer in Surat. Cotton, silk, jacquard, dress material and blends for retailers, brands and traders. 10+ export markets.",
       },
       {
         property: "og:title",

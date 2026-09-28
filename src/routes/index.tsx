@@ -28,27 +28,29 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       {
-        title: "Surat Fabric Manufacturer & Wholesaler | Vidhi Fabrics",
+        title: "Surat Fabric Supplier & Wholesaler | Vidhi Fabrics",
       },
       {
         name: "description",
         // 199 characters truncated at roughly 160, so the last third — which
         // carried the audiences and the export reach — was never shown. This
         // leads with the phrasing the site actually appears for ("fabric
-        // wholesale in surat", "fabric manufacturers in surat") and keeps the
-        // one substantiated number, 10+ export markets. See BRAND.md for what
-        // may and may not be claimed here.
+        // wholesale in surat") and keeps the one substantiated number, 10+
+        // export markets. Does not claim "manufacturer" — BRAND.md positions
+        // Vidhi as a supplier with access to Surat's manufacturing ecosystem,
+        // not a manufacturer itself. See BRAND.md for what may and may not be
+        // claimed here.
         content:
-          "Wholesale fabric supplier and manufacturer in Surat. Cotton, silk, jacquard and blends for retailers, brands and traders. 10+ export markets.",
+          "Wholesale fabric supplier in Surat, with direct access to the city's manufacturing ecosystem. Cotton, silk, jacquard and blends for retailers, brands and traders. 10+ export markets.",
       },
       {
         property: "og:title",
-        content: "Surat Fabric Manufacturer & Wholesaler | Vidhi Fabrics",
+        content: "Surat Fabric Supplier & Wholesaler | Vidhi Fabrics",
       },
       {
         property: "og:description",
         content:
-          "Manufacturer and wholesale fabric supply from Surat for retailers, brands, manufacturers and textile buyers. Broad materials, constructions, patterns and finishes, with quotations within 12 hours.",
+          "Wholesale fabric supply from Surat for retailers, brands, manufacturers and textile buyers, backed by direct access to the city's manufacturing ecosystem. Broad materials, constructions, patterns and finishes, with quotations within 12 hours.",
       },
       { property: "og:url", content: EN_URL },
       { property: "og:type", content: "website" },
@@ -83,23 +85,23 @@ const FAQS: {
       "hi-en": "Kya Vidhi Fabrics ek fabric manufacturer hai?",
     },
     answer: {
-      en: "Yes. Vidhi Fabrics is a fabric manufacturer and wholesale supplier based in Surat, India — trading in Surat since the 1960s, with more than sixty years in the industry. Surat is Asia's largest textile hub, and operating from here gives us direct access to manufacturing, dyeing, finishing and the broader textile supply chain. Buyers can approach us directly for fabric requirements.",
-      hi: "हाँ। Vidhi Fabrics एक फैब्रिक निर्माता और थोक सप्लायर है, जो सूरत, भारत में स्थित है — जो 1960 के दशक से सूरत में कपड़ा व्यापार कर रहा है, यानी उद्योग में साठ साल से ज़्यादा। सूरत एशिया का सबसे बड़ा टेक्सटाइल हब है, और यहाँ से संचालित होने के कारण हमें मैन्युफैक्चरिंग, डाईंग, फिनिशिंग और व्यापक टेक्सटाइल सप्लाई चेन तक सीधी पहुँच मिलती है। खरीदार अपनी फैब्रिक आवश्यकताओं के लिए सीधे हमसे संपर्क कर सकते हैं।",
+      en: "No — Vidhi Fabrics is a textile supplier, not a manufacturer. We don't run our own factory. Trading in Surat since the 1960s, with more than sixty years in the industry, we work directly with the city's mills, dyeing and finishing units and job workers, and take responsibility for the order end to end. Buyers deal with one supplier who answers for the order, backed by Surat's entire manufacturing ecosystem.",
+      hi: "नहीं — Vidhi Fabrics एक टेक्सटाइल सप्लायर है, निर्माता नहीं। हमारी अपनी फैक्ट्री नहीं है। 1960 के दशक से सूरत में व्यापार करते हुए, यानी उद्योग में साठ साल से ज़्यादा, हम सीधे शहर की मिलों, डाईंग और फिनिशिंग यूनिट्स और जॉब वर्कर्स के साथ काम करते हैं, और ऑर्डर की पूरी ज़िम्मेदारी लेते हैं। खरीदार एक ऐसे सप्लायर से डील करते हैं जो ऑर्डर के लिए जवाबदेह है, और जिसके पीछे सूरत का पूरा मैन्युफैक्चरिंग इकोसिस्टम है।",
       "hi-en":
-        "Haan. Vidhi Fabrics ek fabric manufacturer aur wholesale supplier hai, jo Surat, India mein based hai — jo 1960s se Surat mein kapda trade kar raha hai, yaani industry mein saath saal se zyada. Surat Asia ka sabse bada textile hub hai, aur yahan se operate karne ki wajah se hume manufacturing, dyeing, finishing aur broader textile supply chain tak direct access milta hai. Buyers apni fabric requirements ke liye directly hamare paas aa sakte hain.",
+        "Nahi — Vidhi Fabrics ek textile supplier hai, manufacturer nahi. Hamari khud ki factory nahi hai. 1960s se Surat mein trade karte hue, yaani industry mein saath saal se zyada, hum directly shehar ki mills, dyeing aur finishing units aur job workers ke saath kaam karte hain, aur order ki poori zimmedari lete hain. Buyers ek aise supplier se deal karte hain jo order ke liye jawabdeh hai, aur jiske peeche Surat ka poora manufacturing ecosystem hai.",
     },
   },
   {
     question: {
-      en: "What types of fabrics does Vidhi Fabrics manufacture and supply?",
-      hi: "Vidhi Fabrics किस तरह के फैब्रिक बनाता और सप्लाई करता है?",
-      "hi-en": "Vidhi Fabrics kis type ke fabrics manufacture aur supply karta hai?",
+      en: "What types of fabrics does Vidhi Fabrics supply?",
+      hi: "Vidhi Fabrics किस तरह के फैब्रिक सप्लाई करता है?",
+      "hi-en": "Vidhi Fabrics kis type ke fabrics supply karta hai?",
     },
     answer: {
-      en: "We manufacture and supply cotton, silk, linen, polyester, jacquard and blended fabrics — including woven, printed, dyed and finished varieties. Our range covers over 2,400 active SKUs across different constructions, patterns, weights and finishes. Share your requirement and our team will help you identify the right fabric.",
-      hi: "हम कॉटन, सिल्क, लिनन, पॉलिएस्टर, जैक्वार्ड और ब्लेंडेड फैब्रिक बनाते और सप्लाई करते हैं — जिसमें बुने, प्रिंटेड, रंगे और फिनिश्ड वैरायटी शामिल हैं। हमारी रेंज में विभिन्न कंस्ट्रक्शन, पैटर्न, वज़न और फिनिश में 2,400 से अधिक सक्रिय SKU हैं। अपनी आवश्यकता साझा करें और हमारी टीम आपको सही फैब्रिक पहचानने में मदद करेगी।",
+      en: "We supply cotton, silk, linen, polyester, jacquard and blended fabrics — including woven, printed, dyed and finished varieties, sourced from mills and processors across Surat. Our range covers over 2,400 active SKUs across different constructions, patterns, weights and finishes. Share your requirement and our team will help you identify the right fabric.",
+      hi: "हम कॉटन, सिल्क, लिनन, पॉलिएस्टर, जैक्वार्ड और ब्लेंडेड फैब्रिक सप्लाई करते हैं — जिसमें बुने, प्रिंटेड, रंगे और फिनिश्ड वैरायटी शामिल हैं, जो सूरत की मिलों और प्रोसेसर्स से सोर्स की जाती हैं। हमारी रेंज में विभिन्न कंस्ट्रक्शन, पैटर्न, वज़न और फिनिश में 2,400 से अधिक सक्रिय SKU हैं। अपनी आवश्यकता साझा करें और हमारी टीम आपको सही फैब्रिक पहचानने में मदद करेगी।",
       "hi-en":
-        "Hum cotton, silk, linen, polyester, jacquard aur blended fabrics manufacture aur supply karte hain — jisme woven, printed, dyed aur finished varieties shamil hain. Hamari range mein alag constructions, patterns, weights aur finishes mein 2,400 se zyada active SKUs hain. Apni requirement share karein aur hamari team aapko sahi fabric identify karne mein help karegi.",
+        "Hum cotton, silk, linen, polyester, jacquard aur blended fabrics supply karte hain — jisme woven, printed, dyed aur finished varieties shamil hain, jo Surat ki mills aur processors se source hoti hain. Hamari range mein alag constructions, patterns, weights aur finishes mein 2,400 se zyada active SKUs hain. Apni requirement share karein aur hamari team aapko sahi fabric identify karne mein help karegi.",
     },
   },
   {
@@ -117,15 +119,15 @@ const FAQS: {
   },
   {
     question: {
-      en: "Do you manufacture fabrics for retailers and boutique owners?",
-      hi: "क्या आप रिटेलर्स और बुटीक मालिकों के लिए फैब्रिक बनाते हैं?",
-      "hi-en": "Kya aap retailers aur boutique owners ke liye fabrics manufacture karte hain?",
+      en: "Do you supply fabrics to retailers and boutique owners?",
+      hi: "क्या आप रिटेलर्स और बुटीक मालिकों को फैब्रिक सप्लाई करते हैं?",
+      "hi-en": "Kya aap retailers aur boutique owners ko fabrics supply karte hain?",
     },
     answer: {
-      en: "Yes. Retailers and boutique businesses can source fabrics directly from Vidhi Fabrics as a manufacturer. If you run a fabric retail store, a boutique or a small fashion business and need a reliable supply of fabrics, reach out to our team with your requirement.",
-      hi: "हाँ। रिटेलर्स और बुटीक व्यवसाय Vidhi Fabrics से एक निर्माता के रूप में सीधे फैब्रिक सोर्स कर सकते हैं। यदि आप फैब्रिक रिटेल स्टोर, बुटीक या छोटा फैशन व्यवसाय चलाते हैं और फैब्रिक की विश्वसनीय आपूर्ति चाहते हैं, तो अपनी आवश्यकता के साथ हमारी टीम से संपर्क करें।",
+      en: "Yes. Retailers and boutique businesses can source fabrics directly from Vidhi Fabrics as a supplier. If you run a fabric retail store, a boutique or a small fashion business and need a reliable supply of fabrics, reach out to our team with your requirement.",
+      hi: "हाँ। रिटेलर्स और बुटीक व्यवसाय Vidhi Fabrics से एक सप्लायर के रूप में सीधे फैब्रिक सोर्स कर सकते हैं। यदि आप फैब्रिक रिटेल स्टोर, बुटीक या छोटा फैशन व्यवसाय चलाते हैं और फैब्रिक की विश्वसनीय आपूर्ति चाहते हैं, तो अपनी आवश्यकता के साथ हमारी टीम से संपर्क करें।",
       "hi-en":
-        "Haan. Retailers aur boutique businesses Vidhi Fabrics se directly ek manufacturer ke roop mein fabrics source kar sakte hain. Agar aap fabric retail store, boutique ya chhota fashion business chalate hain aur fabrics ki reliable supply chahte hain, toh apni requirement ke saath hamari team se contact karein.",
+        "Haan. Retailers aur boutique businesses Vidhi Fabrics se directly ek supplier ke roop mein fabrics source kar sakte hain. Agar aap fabric retail store, boutique ya chhota fashion business chalate hain aur fabrics ki reliable supply chahte hain, toh apni requirement ke saath hamari team se contact karein.",
     },
   },
   {
@@ -143,15 +145,15 @@ const FAQS: {
   },
   {
     question: {
-      en: "Can you manufacture fabrics to a specific requirement?",
-      hi: "क्या आप किसी विशेष आवश्यकता के अनुसार फैब्रिक बना सकते हैं?",
-      "hi-en": "Kya aap specific requirement ke hisaab se fabrics manufacture kar sakte hain?",
+      en: "Can you source fabrics to a specific requirement?",
+      hi: "क्या आप किसी विशेष आवश्यकता के अनुसार फैब्रिक सोर्स कर सकते हैं?",
+      "hi-en": "Kya aap specific requirement ke hisaab se fabrics source kar sakte hain?",
     },
     answer: {
-      en: "Yes. As a manufacturer based in Surat, we can work to specific requirements including particular constructions, compositions, finishes, patterns, colours and weights. We also have in-house dyeing and finishing capabilities. Share your specification with our team and we will advise on what we can produce for you.",
-      hi: "हाँ। सूरत में एक निर्माता के रूप में, हम विशेष कंस्ट्रक्शन, कम्पोज़िशन, फिनिश, पैटर्न, रंग और वज़न सहित विशेष आवश्यकताओं के अनुसार काम कर सकते हैं। हमारे पास इन-हाउस डाईंग और फिनिशिंग क्षमताएँ भी हैं। अपना स्पेसिफिकेशन हमारी टीम के साथ साझा करें और हम बताएँगे कि हम आपके लिए क्या बना सकते हैं।",
+      en: "Yes. As a supplier based in Surat, we can work to specific requirements including particular constructions, compositions, finishes, patterns, colours and weights, coordinated directly with our network of Surat mills, dyeing and finishing units. Share your specification with our team and we will advise on what we can source for you.",
+      hi: "हाँ। सूरत में एक सप्लायर के रूप में, हम विशेष कंस्ट्रक्शन, कम्पोज़िशन, फिनिश, पैटर्न, रंग और वज़न सहित विशेष आवश्यकताओं के अनुसार काम कर सकते हैं, जो सीधे हमारी सूरत की मिलों, डाईंग और फिनिशिंग यूनिट्स के नेटवर्क के साथ समन्वयित होता है। अपना स्पेसिफिकेशन हमारी टीम के साथ साझा करें और हम बताएँगे कि हम आपके लिए क्या सोर्स कर सकते हैं।",
       "hi-en":
-        "Haan. Surat mein ek manufacturer ke roop mein, hum specific constructions, compositions, finishes, patterns, colours aur weights ke hisaab se kaam kar sakte hain. Hamare paas in-house dyeing aur finishing capabilities bhi hain. Apna specification hamari team ke saath share karein aur hum batayenge ki hum aapke liye kya produce kar sakte hain.",
+        "Haan. Surat mein ek supplier ke roop mein, hum specific constructions, compositions, finishes, patterns, colours aur weights ke hisaab se kaam kar sakte hain, jo directly hamare Surat ki mills, dyeing aur finishing units ke network ke saath coordinate hota hai. Apna specification hamari team ke saath share karein aur hum batayenge ki hum aapke liye kya source kar sakte hain.",
     },
   },
   {
@@ -161,10 +163,10 @@ const FAQS: {
       "hi-en": "Kya aap bulk aur repeat production orders handle kar sakte hain?",
     },
     answer: {
-      en: "Yes. We work with buyers who need consistent fabric supply for ongoing and repeat orders. Our manufacturing base in Surat, along with more than sixty years in the textile industry, means we are set up to support bulk requirements and maintain consistency across production runs. Contact us to discuss your volume and frequency.",
-      hi: "हाँ। हम उन खरीदारों के साथ काम करते हैं जिन्हें चल रहे और रिपीट ऑर्डर के लिए लगातार फैब्रिक सप्लाई की ज़रूरत है। सूरत में हमारा मैन्युफैक्चरिंग बेस, साथ ही टेक्सटाइल उद्योग में साठ साल से ज़्यादा का अनुभव, का अर्थ है कि हम बल्क आवश्यकताओं को सपोर्ट करने और प्रोडक्शन रन में निरंतरता बनाए रखने के लिए तैयार हैं। अपनी मात्रा और आवृत्ति पर चर्चा करने के लिए हमसे संपर्क करें।",
+      en: "Yes. We work with buyers who need consistent fabric supply for ongoing and repeat orders. Our network across Surat's textile industry, built over more than sixty years, means we are set up to support bulk requirements and maintain consistency across supply runs. Contact us to discuss your volume and frequency.",
+      hi: "हाँ। हम उन खरीदारों के साथ काम करते हैं जिन्हें चल रहे और रिपीट ऑर्डर के लिए लगातार फैब्रिक सप्लाई की ज़रूरत है। सूरत के टेक्सटाइल उद्योग में हमारा नेटवर्क, साठ साल से ज़्यादा के अनुभव के साथ, का अर्थ है कि हम बल्क आवश्यकताओं को सपोर्ट करने और सप्लाई रन में निरंतरता बनाए रखने के लिए तैयार हैं। अपनी मात्रा और आवृत्ति पर चर्चा करने के लिए हमसे संपर्क करें।",
       "hi-en":
-        "Haan. Hum un buyers ke saath kaam karte hain jinhe ongoing aur repeat orders ke liye consistent fabric supply ki zaroorat hai. Surat mein hamara manufacturing base, saath hi textile industry mein saath saal se zyada ka experience, ka matlab hai ki hum bulk requirements ko support karne aur production runs mein consistency maintain karne ke liye taiyaar hain. Apni volume aur frequency discuss karne ke liye hamare se contact karein.",
+        "Haan. Hum un buyers ke saath kaam karte hain jinhe ongoing aur repeat orders ke liye consistent fabric supply ki zaroorat hai. Surat ke textile industry mein hamara network, saath saal se zyada ke experience ke saath, ka matlab hai ki hum bulk requirements ko support karne aur supply runs mein consistency maintain karne ke liye taiyaar hain. Apni volume aur frequency discuss karne ke liye hamare se contact karein.",
     },
   },
   {
@@ -174,10 +176,10 @@ const FAQS: {
       "hi-en": "Kya main fabric samples maang sakta hoon?",
     },
     answer: {
-      en: "Yes. You can request samples, shade cards and product specifications from our manufacturing range. Contact our team through the enquiry form or WhatsApp with your requirement to get started.",
-      hi: "हाँ। आप हमारी मैन्युफैक्चरिंग रेंज से सैंपल, शेड कार्ड और प्रोडक्ट स्पेसिफिकेशन माँग सकते हैं। शुरू करने के लिए अपनी आवश्यकता के साथ पूछताछ फॉर्म या व्हाट्सएप के माध्यम से हमारी टीम से संपर्क करें।",
+      en: "Yes. You can request samples, shade cards and product specifications from our range. Contact our team through the enquiry form or WhatsApp with your requirement to get started.",
+      hi: "हाँ। आप हमारी रेंज से सैंपल, शेड कार्ड और प्रोडक्ट स्पेसिफिकेशन माँग सकते हैं। शुरू करने के लिए अपनी आवश्यकता के साथ पूछताछ फॉर्म या व्हाट्सएप के माध्यम से हमारी टीम से संपर्क करें।",
       "hi-en":
-        "Haan. Aap hamare manufacturing range se samples, shade cards aur product specifications maang sakte hain. Shuru karne ke liye apni requirement ke saath enquiry form ya WhatsApp ke through hamari team se contact karein.",
+        "Haan. Aap hamare range se samples, shade cards aur product specifications maang sakte hain. Shuru karne ke liye apni requirement ke saath enquiry form ya WhatsApp ke through hamari team se contact karein.",
     },
   },
   {
@@ -208,9 +210,9 @@ const FAQS: {
   },
   {
     question: {
-      en: "What information should I provide for a manufacturing or custom fabric enquiry?",
-      hi: "मैन्युफैक्चरिंग या कस्टम फैब्रिक पूछताछ के लिए मुझे क्या जानकारी देनी चाहिए?",
-      "hi-en": "Manufacturing ya custom fabric enquiry ke liye mujhe kya information deni chahiye?",
+      en: "What information should I provide for a sourcing or custom fabric enquiry?",
+      hi: "सोर्सिंग या कस्टम फैब्रिक पूछताछ के लिए मुझे क्या जानकारी देनी चाहिए?",
+      "hi-en": "Sourcing ya custom fabric enquiry ke liye mujhe kya information deni chahiye?",
     },
     answer: {
       en: "Share the fabric type (e.g. cotton, silk, linen, jacquard), the intended use or garment application, approximate quantity, and any specific requirements around construction, composition, weight, colour, pattern or finish. For custom requirements, a reference sample, swatch or technical specification is always helpful. The more detail you can provide, the faster our team can respond.",

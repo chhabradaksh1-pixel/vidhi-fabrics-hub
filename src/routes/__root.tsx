@@ -79,17 +79,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Vidhi Fabrics | Surat Fabric Manufacturer & Wholesaler" },
+      { title: "Vidhi Fabrics | Surat Fabric Supplier & Wholesaler" },
       {
         name: "description",
-        content: "Fabric manufacturer and wholesale supplier in Surat, trading since the 1960s.",
+        content: "Fabric supplier and wholesale trader in Surat, trading since the 1960s.",
       },
       { name: "author", content: "Vidhi Fabrics" },
       { property: "og:site_name", content: "Vidhi Fabrics" },
-      { property: "og:title", content: "Vidhi Fabrics | Surat Fabric Manufacturer & Wholesaler" },
+      { property: "og:title", content: "Vidhi Fabrics | Surat Fabric Supplier & Wholesaler" },
       {
         property: "og:description",
-        content: "Fabric manufacturer and wholesale supplier in Surat, trading since the 1960s.",
+        content: "Fabric supplier and wholesale trader in Surat, trading since the 1960s.",
       },
       { property: "og:type", content: "website" },
       { property: "og:image", content: "https://www.vidhifabrics.com/og-image.jpg" },

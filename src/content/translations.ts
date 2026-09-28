@@ -51,9 +51,9 @@ export const COPY = {
   },
   hero: {
     eyebrow: {
-      en: "Surat · Manufacturer & Wholesale Textile Supply",
-      hi: "सूरत · निर्माता और थोक टेक्सटाइल सप्लाई",
-      "hi-en": "Surat · Manufacturer & Wholesale Textile Supply",
+      en: "Surat · Textile Supplier & Wholesale Trade",
+      hi: "सूरत · टेक्सटाइल सप्लायर और थोक व्यापार",
+      "hi-en": "Surat · Textile supplier aur wholesale trade",
     },
     heading: {
       en: "From Surat, Asia's textile hub, to your shop.",
@@ -61,10 +61,10 @@ export const COPY = {
       "hi-en": "From Surat, Asia's textile hub, to your shop.",
     },
     body: {
-      en: "Vidhi Fabrics is a Surat-based manufacturer and wholesale fabric and textile sourcing business. We supply retailers, brands, manufacturers and traders with cotton, silk, synthetic, blended, jacquard, printed, dyed, woven and other fabric varieties from trusted mills and sourcing partners.",
-      hi: "विधि फैब्रिक्स सूरत स्थित निर्माता और थोक फैब्रिक और टेक्सटाइल सोर्सिंग व्यवसाय है। हम रिटेलर्स, ब्रांड्स, निर्माताओं और व्यापारियों को भरोसेमंद मिलों और सोर्सिंग पार्टनर्स से कॉटन, सिल्क, सिंथेटिक, ब्लेंडेड, जैक्वार्ड, प्रिंटेड, रंगे, बुने और अन्य फैब्रिक वैरायटी सप्लाई करते हैं।",
+      en: "Vidhi Fabrics is a Surat-based textile supplier and wholesale fabric sourcing business. We supply retailers, brands, manufacturers and traders with cotton, silk, synthetic, blended, jacquard, printed, dyed, woven and other fabric varieties, sourced from trusted mills and manufacturing partners across the city.",
+      hi: "विधि फैब्रिक्स सूरत स्थित एक टेक्सटाइल सप्लायर और थोक फैब्रिक सोर्सिंग व्यवसाय है। हम रिटेलर्स, ब्रांड्स, निर्माताओं और व्यापारियों को शहर भर की भरोसेमंद मिलों और मैन्युफैक्चरिंग पार्टनर्स से सोर्स की गई कॉटन, सिल्क, सिंथेटिक, ब्लेंडेड, जैक्वार्ड, प्रिंटेड, रंगे, बुने और अन्य फैब्रिक वैरायटी सप्लाई करते हैं।",
       "hi-en":
-        "Vidhi Fabrics Surat-based manufacturer aur wholesale fabric and textile sourcing business hai. Hum retailers, brands, manufacturers aur traders ko trusted mills aur sourcing partners se cotton, silk, synthetic, blended, jacquard, printed, dyed, woven aur other fabric varieties supply karte hain.",
+        "Vidhi Fabrics Surat-based textile supplier aur wholesale fabric sourcing business hai. Hum retailers, brands, manufacturers aur traders ko shehar bhar ki trusted mills aur manufacturing partners se source ki gayi cotton, silk, synthetic, blended, jacquard, printed, dyed, woven aur other fabric varieties supply karte hain.",
     },
     stats: [
       {
@@ -315,10 +315,10 @@ export const COPY = {
       "hi-en": "Sirf sale nahi, contract ke liye certified.",
     },
     certBody: {
-      en: "OEKO-TEX and GOTS lines, in-house dyeing and finishing, and export documentation handled end to end. Surat's network means lead times that hold, and a floor that never runs out of next season.",
-      hi: "OEKO-TEX और GOTS लाइनें, इन-हाउस रंगाई और फिनिशिंग, और निर्यात दस्तावेज़ीकरण शुरू से अंत तक। सूरत का नेटवर्क यानी भरोसेमंद लीड टाइम, और ऐसा स्टॉक जो कभी खाली नहीं होता।",
+      en: "OEKO-TEX and GOTS lines, coordinated dyeing and finishing, and export documentation handled end to end. Surat's network means lead times that hold, and a floor that never runs out of next season.",
+      hi: "OEKO-TEX और GOTS लाइनें, समन्वयित रंगाई और फिनिशिंग, और निर्यात दस्तावेज़ीकरण शुरू से अंत तक। सूरत का नेटवर्क यानी भरोसेमंद लीड टाइम, और ऐसा स्टॉक जो कभी खाली नहीं होता।",
       "hi-en":
-        "OEKO-TEX aur GOTS lines, in-house dyeing aur finishing, aur export documentation end to end. Surat ka network matlab lead times jo tikte hain, aur stock jo kabhi khatam nahi hota.",
+        "OEKO-TEX aur GOTS lines, coordinated dyeing aur finishing, aur export documentation end to end. Surat ka network matlab lead times jo tikte hain, aur stock jo kabhi khatam nahi hota.",
     },
     imageAlt: {
       en: "An open swatch book of fabric samples, each shade carrying its own reference code",

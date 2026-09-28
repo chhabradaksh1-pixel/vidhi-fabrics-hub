@@ -133,6 +133,22 @@ These are the closest thing to commercial intent the site can legitimately
 compete for, and they connect the journal to the catalogue instead of leaving
 the two unlinked.
 
+### F. Original data for press
+
+One piece, built to be cited rather than searched. Not a buyer question but a
+number nobody else can publish, pitched to trade press (Fibre2Fashion, Indian
+Textile Journal, Apparel Resources) rather than aimed at Google directly.
+This is how most real backlinks in this industry actually get earned: one
+genuinely original data point, not a help article.
+
+The candidate: a short annual read on Surat fabric pricing or export trends,
+specific enough to be citable, general enough not to disclose anything
+competitively sensitive.
+
+**Blocked on the business, not on writing.** This needs real figures. A
+fabricated number here would fail the same test every other piece in this
+document has to pass.
+
 ## Sequence
 
 Ordered by return, not by ease.
@@ -217,3 +233,36 @@ best-performing article is a process-and-spec piece at position 10.5, which is
 weak support and not evidence.
 
 Re-export in a month. Twelve days at this volume is direction, not proof.
+
+## Competitive read, 28 September 2026
+
+The owner asked what a large, well-funded player outside textiles does well
+and what transfers. amberstudent.com — student housing, not fabric — has
+16,357 URLs in its sitemap: 12,632 programmatic location pages, 2,783 blog
+posts across twelve topic clusters, 780 news pages, 68 partner co-branded
+pages. Backed by $21M+ raised and a dedicated SEO/content team still hiring.
+
+Two things this validates rather than changes anything. Cluster E is already
+the right-sized version of their location-page play: a page per real thing
+the business has, not a page manufactured to exist. The directory and entity
+work already done this session — IndiaMART, ExportersIndia, Justdial,
+LinkedIn — is the same instinct as their partner network: presence where the
+buyer already is, not a new direction.
+
+One addition: Cluster F, above. Their most credible press coverage came from
+one data report, not an announcement — the same mechanism at a size this
+business can actually produce.
+
+What was rejected, not adopted: thousands of pages with no inventory behind
+them (their model works because a million real listings justify twelve
+thousand real pages; the same move here is exactly the thin content this
+document has argued against from the first paragraph), a standing news
+vertical (no comparable ongoing source for a wholesale supplier the way visa
+policy is for a student), and ambassador-style content (no user base to
+distribute it).
+
+Two more ideas, both owner-blocked and not clusters yet: co-branded pages for
+named Surat mill relationships, if any exist and would link back; and real
+buyer testimonials read as a link source and not only a trust fix — the same
+placeholder-rating gap in `CLAUDE.md`, worth one line here because it is now
+also a backlink question.

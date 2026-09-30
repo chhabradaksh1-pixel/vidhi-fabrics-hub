@@ -1485,6 +1485,7 @@ export const JOURNAL: JournalArticle[] = [
       },
     ],
     image: cotton,
+    published: "2026-09-12",
     imageAlt: {
       en: "Cream fabric folded to show its weave and texture",
       hi: "क्रीम रंग का कपड़ा, जिसकी बुनाई और बनावट दिख रही है",
@@ -1677,6 +1678,7 @@ export const JOURNAL: JournalArticle[] = [
       },
     ],
     image: wovenDetail,
+    published: "2026-09-12",
     imageAlt: {
       en: "A woven cloth seen up close, the interlacing of warp and weft visible thread by thread",
       hi: "पास से दिखा बुना हुआ कपड़ा, जिसमें ताने-बाने की बुनावट धागे-धागे दिख रही है",
@@ -1861,6 +1863,7 @@ export const JOURNAL: JournalArticle[] = [
       },
     ],
     image: swatchOnCard,
+    published: "2026-09-12",
     imageAlt: {
       en: "A woven swatch held on its reference card, the form a sample approval takes",
       hi: "अपने रेफ़रेंस कार्ड पर लगा बुना हुआ स्वैच — सैंपल मंज़ूरी इसी रूप में होती है",

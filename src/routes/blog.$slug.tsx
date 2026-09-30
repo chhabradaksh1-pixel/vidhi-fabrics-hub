@@ -31,7 +31,11 @@ function blogPosting(article: JournalArticle) {
       jobTitle: "CEO",
       worksFor: { "@type": "Organization", name: "Vidhi Fabrics" },
     },
-    publisher: { "@type": "Organization", name: "Vidhi Fabrics" },
+    publisher: {
+      "@type": "Organization",
+      name: "Vidhi Fabrics",
+      logo: { "@type": "ImageObject", url: `${SITE}/icon-512.png` },
+    },
     ...(article.published ? { datePublished: article.published } : {}),
     ...(article.faq
       ? {

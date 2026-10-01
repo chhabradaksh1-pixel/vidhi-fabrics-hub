@@ -11,8 +11,10 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as HiRouteImport } from './routes/hi'
+import { Route as PolyesterSareesWholesaleSuratRouteImport } from './routes/polyester-sarees-wholesale-surat'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
+import { Route as HiPolyesterSareesWholesaleSuratRouteImport } from './routes/hi_.polyester-sarees-wholesale-surat'
 import { Route as HiBlogIndexRouteImport } from './routes/hi_.blog.index'
 import { Route as HiBlogSlugRouteImport } from './routes/hi_.blog.$slug'
 
@@ -26,6 +28,12 @@ const HiRoute = HiRouteImport.update({
   path: '/hi',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PolyesterSareesWholesaleSuratRoute =
+  PolyesterSareesWholesaleSuratRouteImport.update({
+    id: '/polyester-sarees-wholesale-surat',
+    path: '/polyester-sarees-wholesale-surat',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const BlogIndexRoute = BlogIndexRouteImport.update({
   id: '/blog/',
   path: '/blog/',
@@ -36,6 +44,12 @@ const BlogSlugRoute = BlogSlugRouteImport.update({
   path: '/blog/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const HiPolyesterSareesWholesaleSuratRoute =
+  HiPolyesterSareesWholesaleSuratRouteImport.update({
+    id: '/hi_/polyester-sarees-wholesale-surat',
+    path: '/hi/polyester-sarees-wholesale-surat',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const HiBlogIndexRoute = HiBlogIndexRouteImport.update({
   id: '/hi_/blog/',
   path: '/hi/blog/',
@@ -50,7 +64,9 @@ const HiBlogSlugRoute = HiBlogSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/hi': typeof HiRoute
+  '/polyester-sarees-wholesale-surat': typeof PolyesterSareesWholesaleSuratRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/hi/polyester-sarees-wholesale-surat': typeof HiPolyesterSareesWholesaleSuratRoute
   '/blog/': typeof BlogIndexRoute
   '/hi/blog/$slug': typeof HiBlogSlugRoute
   '/hi/blog/': typeof HiBlogIndexRoute
@@ -58,7 +74,9 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/hi': typeof HiRoute
+  '/polyester-sarees-wholesale-surat': typeof PolyesterSareesWholesaleSuratRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/hi/polyester-sarees-wholesale-surat': typeof HiPolyesterSareesWholesaleSuratRoute
   '/blog': typeof BlogIndexRoute
   '/hi/blog/$slug': typeof HiBlogSlugRoute
   '/hi/blog': typeof HiBlogIndexRoute
@@ -67,7 +85,9 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/hi': typeof HiRoute
+  '/polyester-sarees-wholesale-surat': typeof PolyesterSareesWholesaleSuratRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/hi_/polyester-sarees-wholesale-surat': typeof HiPolyesterSareesWholesaleSuratRoute
   '/blog/': typeof BlogIndexRoute
   '/hi_/blog/$slug': typeof HiBlogSlugRoute
   '/hi_/blog/': typeof HiBlogIndexRoute
@@ -75,14 +95,31 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/hi' | '/blog/$slug' | '/blog/' | '/hi/blog/$slug' | '/hi/blog/'
+    | '/'
+    | '/hi'
+    | '/polyester-sarees-wholesale-surat'
+    | '/blog/$slug'
+    | '/hi/polyester-sarees-wholesale-surat'
+    | '/blog/'
+    | '/hi/blog/$slug'
+    | '/hi/blog/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/hi' | '/blog/$slug' | '/blog' | '/hi/blog/$slug' | '/hi/blog'
+  to:
+    | '/'
+    | '/hi'
+    | '/polyester-sarees-wholesale-surat'
+    | '/blog/$slug'
+    | '/hi/polyester-sarees-wholesale-surat'
+    | '/blog'
+    | '/hi/blog/$slug'
+    | '/hi/blog'
   id:
     | '__root__'
     | '/'
     | '/hi'
+    | '/polyester-sarees-wholesale-surat'
     | '/blog/$slug'
+    | '/hi_/polyester-sarees-wholesale-surat'
     | '/blog/'
     | '/hi_/blog/$slug'
     | '/hi_/blog/'
@@ -91,7 +128,9 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   HiRoute: typeof HiRoute
+  PolyesterSareesWholesaleSuratRoute: typeof PolyesterSareesWholesaleSuratRoute
   BlogSlugRoute: typeof BlogSlugRoute
+  HiPolyesterSareesWholesaleSuratRoute: typeof HiPolyesterSareesWholesaleSuratRoute
   BlogIndexRoute: typeof BlogIndexRoute
   HiBlogSlugRoute: typeof HiBlogSlugRoute
   HiBlogIndexRoute: typeof HiBlogIndexRoute
@@ -113,6 +152,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HiRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/polyester-sarees-wholesale-surat': {
+      id: '/polyester-sarees-wholesale-surat'
+      path: '/polyester-sarees-wholesale-surat'
+      fullPath: '/polyester-sarees-wholesale-surat'
+      preLoaderRoute: typeof PolyesterSareesWholesaleSuratRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/blog/': {
       id: '/blog/'
       path: '/blog'
@@ -125,6 +171,13 @@ declare module '@tanstack/react-router' {
       path: '/blog/$slug'
       fullPath: '/blog/$slug'
       preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hi_/polyester-sarees-wholesale-surat': {
+      id: '/hi_/polyester-sarees-wholesale-surat'
+      path: '/hi/polyester-sarees-wholesale-surat'
+      fullPath: '/hi/polyester-sarees-wholesale-surat'
+      preLoaderRoute: typeof HiPolyesterSareesWholesaleSuratRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/hi_/blog/': {
@@ -147,7 +200,9 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   HiRoute: HiRoute,
+  PolyesterSareesWholesaleSuratRoute: PolyesterSareesWholesaleSuratRoute,
   BlogSlugRoute: BlogSlugRoute,
+  HiPolyesterSareesWholesaleSuratRoute: HiPolyesterSareesWholesaleSuratRoute,
   BlogIndexRoute: BlogIndexRoute,
   HiBlogSlugRoute: HiBlogSlugRoute,
   HiBlogIndexRoute: HiBlogIndexRoute,

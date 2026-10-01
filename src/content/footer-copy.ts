@@ -72,6 +72,17 @@ export const FOOTER_COLUMNS: FooterColumn[] = [
         href: "/blog/buying-dress-material-wholesale",
       },
       {
+        // English-only destination (no Hindi/Hinglish version of this page
+        // yet), so the label stays close to the English term in all three
+        // languages rather than promising a translated page.
+        label: {
+          en: "Polyester sarees wholesale",
+          hi: "पॉलिएस्टर साड़ियाँ (थोक)",
+          "hi-en": "Polyester sarees wholesale",
+        },
+        href: "/polyester-sarees-wholesale-surat",
+      },
+      {
         label: { en: "Sarees", hi: "साड़ियाँ", "hi-en": "Sarees" },
         href: "/blog/why-similar-sarees-have-different-prices",
       },

@@ -24,7 +24,9 @@ function resolveHref(link: FooterLink, lang: Lang, home: string) {
   if (link.whatsApp) return whatsAppUrl(link.whatsApp[lang]);
   const href = link.href ?? "/";
   if (href.startsWith("#")) return `${home}${href}`;
-  if (lang === "hi" && href.startsWith("/blog")) return `/hi${href}`;
+  if (lang === "hi" && (href.startsWith("/blog") || href === "/polyester-sarees-wholesale-surat")) {
+    return `/hi${href}`;
+  }
   return href;
 }
 

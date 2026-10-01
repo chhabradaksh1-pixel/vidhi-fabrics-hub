@@ -137,33 +137,11 @@ function PolyesterSareesPage() {
           <div className="mx-auto max-w-[65ch]">
             <p className="mt-10 text-lg leading-relaxed text-mute">
               Vidhi Fabrics is a Surat-based textile supplier, with direct access to Surat's
-              manufacturing ecosystem, supplying polyester sarees in bulk to wholesalers,
-              retailers, resellers and boutiques. Most of our buyers are in North India, in
-              Punjab, Haryana and Rajasthan, and we also supply buyers in Madhya Pradesh. Because
-              we work directly in the Surat textile market, you get steady supply without extra
-              middlemen.
+              manufacturing ecosystem, supplying polyester sarees in bulk to wholesalers, retailers,
+              resellers and boutiques. Most of our buyers are in North India, in Punjab, Haryana and
+              Rajasthan, and we also supply buyers in Madhya Pradesh. Because we work directly in
+              the Surat textile market, you get steady supply without extra middlemen.
             </p>
-
-            {/*
-              PLACEHOLDER — no polyester saree product photography exists in
-              src/assets yet. The catalogue images there (fabric-beaded-organza,
-              fabric-katan-jacquard, etc.) are silk, not polyester, and BRAND.md
-              is explicit that a stock photo not matching the stated
-              composition is worse than no image. Flagged to the owner in the
-              handoff summary — replace this block with real photography,
-              shipped as a sized derivative (see CLAUDE.md on image weight) and
-              WebP where possible, loading="lazy" except if it ends up above
-              the fold.
-            */}
-            <div
-              role="img"
-              aria-label="Placeholder — polyester saree product photography not yet available"
-              className="mt-10 flex aspect-[4/3] w-full items-center justify-center border-2 border-dashed border-line bg-sand text-center text-sm text-mute"
-            >
-              Image placeholder — add real polyester saree photography here
-              <br />
-              (e.g. "Printed polyester saree wholesale Surat")
-            </div>
 
             <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">
               Why buy polyester sarees from us
@@ -195,16 +173,19 @@ function PolyesterSareesPage() {
 
             <section className="mt-12 border-t border-line pt-8">
               <h2 className="font-display text-2xl font-light sm:text-3xl">FAQs</h2>
-              <dl>
-                {FAQS.map((entry) => (
-                  <div key={entry.question} className="mt-7">
-                    <h3 className="font-display text-lg font-light leading-snug">
-                      {entry.question}
-                    </h3>
-                    <dd className="mt-3 leading-[1.85] text-mute">{entry.answer}</dd>
-                  </div>
-                ))}
-              </dl>
+              {/*
+                Each question is an <h3> with its answer directly after it.
+                This used to be a <dl> holding <h3> + <dd> with no <dt>, which
+                is invalid HTML: a <dd> must follow a <dt>, and a <dt> may not
+                contain a heading. Plain heading-and-paragraph pairs keep the
+                heading outline and are valid.
+              */}
+              {FAQS.map((entry) => (
+                <div key={entry.question} className="mt-7">
+                  <h3 className="font-display text-lg font-light leading-snug">{entry.question}</h3>
+                  <p className="mt-3 leading-[1.85] text-mute">{entry.answer}</p>
+                </div>
+              ))}
             </section>
 
             <div className="my-12 flex justify-center border-t border-line pt-10">

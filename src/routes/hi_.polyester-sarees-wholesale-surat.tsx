@@ -19,7 +19,8 @@ const FAQS: { question: string; answer: string }[] = [
   },
   {
     question: "क्या आप रिटेलर्स के साथ-साथ थोक विक्रेताओं को भी सप्लाई करते हैं?",
-    answer: "हाँ। हम थोक विक्रेताओं, डिस्ट्रीब्यूटर्स, रिटेलर्स, रीसेलर्स और बुटीक को बल्क में सप्लाई करते हैं।",
+    answer:
+      "हाँ। हम थोक विक्रेताओं, डिस्ट्रीब्यूटर्स, रिटेलर्स, रीसेलर्स और बुटीक को बल्क में सप्लाई करते हैं।",
   },
   {
     question: "क्या मैं ऑर्डर देने से पहले डिज़ाइन देख सकता हूँ?",
@@ -94,7 +95,8 @@ export const Route = createFileRoute("/hi_/polyester-sarees-wholesale-surat")({
   component: PolyesterSareesPageHi,
 });
 
-const CATALOGUE_MESSAGE = "नमस्ते विधि फैब्रिक्स, कृपया अपना पॉलिएस्टर साड़ी कैटलॉग और मौजूदा रेट भेजिए।";
+const CATALOGUE_MESSAGE =
+  "नमस्ते विधि फैब्रिक्स, कृपया अपना पॉलिएस्टर साड़ी कैटलॉग और मौजूदा रेट भेजिए।";
 
 function CatalogueButton({ className = "" }: { className?: string }) {
   return (
@@ -135,37 +137,26 @@ function PolyesterSareesPageHi() {
 
           <div className="mx-auto max-w-[65ch]">
             <p className="mt-10 text-lg leading-relaxed text-mute">
-              विधि फैब्रिक्स सूरत स्थित एक टेक्सटाइल सप्लायर है, जिसे सूरत के मैन्युफैक्चरिंग इकोसिस्टम तक सीधी पहुँच
-              है, और जो थोक विक्रेताओं, रिटेलर्स, रीसेलर्स और बुटीक को बल्क में पॉलिएस्टर साड़ियाँ सप्लाई करता है।
-              हमारे ज़्यादातर खरीदार उत्तर भारत में हैं — पंजाब, हरियाणा और राजस्थान में — और हम मध्य प्रदेश के
-              खरीदारों को भी सप्लाई करते हैं। चूँकि हम सीधे सूरत के टेक्सटाइल मार्केट में काम करते हैं, इसलिए आपको
-              बिना किसी अतिरिक्त बिचौलिए के लगातार सप्लाई मिलती है।
+              विधि फैब्रिक्स सूरत स्थित एक टेक्सटाइल सप्लायर है, जिसे सूरत के मैन्युफैक्चरिंग
+              इकोसिस्टम तक सीधी पहुँच है, और जो थोक विक्रेताओं, रिटेलर्स, रीसेलर्स और बुटीक को बल्क
+              में पॉलिएस्टर साड़ियाँ सप्लाई करता है। हमारे ज़्यादातर खरीदार उत्तर भारत में हैं —
+              पंजाब, हरियाणा और राजस्थान में — और हम मध्य प्रदेश के खरीदारों को भी सप्लाई करते हैं।
+              चूँकि हम सीधे सूरत के टेक्सटाइल मार्केट में काम करते हैं, इसलिए आपको बिना किसी
+              अतिरिक्त बिचौलिए के लगातार सप्लाई मिलती है।
             </p>
-
-            {/* PLACEHOLDER — same reasoning as the English route: no polyester
-                saree photography exists yet in src/assets. */}
-            <div
-              role="img"
-              aria-label="प्लेसहोल्डर — पॉलिएस्टर साड़ी की असली फ़ोटो अभी उपलब्ध नहीं है"
-              className="mt-10 flex aspect-[4/3] w-full items-center justify-center border-2 border-dashed border-line bg-sand text-center text-sm text-mute"
-            >
-              इमेज प्लेसहोल्डर — यहाँ असली पॉलिएस्टर साड़ी की फ़ोटो जोड़ें
-              <br />
-              (जैसे "सूरत थोक पॉलिएस्टर प्रिंटेड साड़ी")
-            </div>
 
             <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">
               हमसे पॉलिएस्टर साड़ियाँ क्यों खरीदें
             </h2>
             <p className="mt-5 leading-[1.85] text-mute">
-              हमारी पॉलिएस्टर रेंज में रोज़मर्रा के प्रिंट, त्योहारी कढ़ाई वाली साड़ियाँ, और उत्तर भारतीय बाज़ारों में
-              जो बिकता है उसके हिसाब से चुनी गई हल्की डिज़ाइनें शामिल हैं। पॉलिएस्टर रिटेलर्स और थोक विक्रेताओं दोनों
-              में लोकप्रिय है क्योंकि यह किफ़ायती है, रंग अच्छी तरह पकड़ता है, देखभाल में आसान है, और हर कीमत पर
-              जल्दी बिकता है।
+              हमारी पॉलिएस्टर रेंज में रोज़मर्रा के प्रिंट, त्योहारी कढ़ाई वाली साड़ियाँ, और उत्तर
+              भारतीय बाज़ारों में जो बिकता है उसके हिसाब से चुनी गई हल्की डिज़ाइनें शामिल हैं।
+              पॉलिएस्टर रिटेलर्स और थोक विक्रेताओं दोनों में लोकप्रिय है क्योंकि यह किफ़ायती है, रंग
+              अच्छी तरह पकड़ता है, देखभाल में आसान है, और हर कीमत पर जल्दी बिकता है।
             </p>
             <p className="mt-5 leading-[1.85] text-mute">
-              हम डिज़ाइन और रंग के हिसाब से सेट तैयार करते हैं, हर सीज़न नई डिज़ाइनें लाते रहते हैं, और ट्रांसपोर्ट के
-              लिए हर ऑर्डर को सावधानी से पैक करते हैं।
+              हम डिज़ाइन और रंग के हिसाब से सेट तैयार करते हैं, हर सीज़न नई डिज़ाइनें लाते रहते हैं,
+              और ट्रांसपोर्ट के लिए हर ऑर्डर को सावधानी से पैक करते हैं।
             </p>
             <p className="mt-5 leading-[1.85] text-mute">
               ताज़ा कैटलॉग और रेट के लिए हमें व्हाट्सएप पर{" "}
@@ -177,23 +168,26 @@ function PolyesterSareesPageHi() {
               >
                 {BUSINESS.phoneDisplay}
               </a>{" "}
-              पर मैसेज कीजिए, या हमसे {ADDRESS_LINES.hi.join(", ")} पर मिलिए। चाहे आप डिस्ट्रीब्यूशन के लिए स्टॉक कर
-              रहे थोक विक्रेता हों या बेस्टसेलर दोबारा मँगवा रहे रिटेलर, हम आपको ऐसी डिज़ाइनें चुनने में मदद करेंगे जो
-              आपके ग्राहकों और आपके मार्जिन, दोनों के अनुकूल हों।
+              पर मैसेज कीजिए, या हमसे {ADDRESS_LINES.hi.join(", ")} पर मिलिए। चाहे आप डिस्ट्रीब्यूशन
+              के लिए स्टॉक कर रहे थोक विक्रेता हों या बेस्टसेलर दोबारा मँगवा रहे रिटेलर, हम आपको ऐसी
+              डिज़ाइनें चुनने में मदद करेंगे जो आपके ग्राहकों और आपके मार्जिन, दोनों के अनुकूल हों।
             </p>
 
             <section className="mt-12 border-t border-line pt-8">
               <h2 className="font-display text-2xl font-light sm:text-3xl">सामान्य प्रश्न</h2>
-              <dl>
-                {FAQS.map((entry) => (
-                  <div key={entry.question} className="mt-7">
-                    <h3 className="font-display text-lg font-light leading-snug">
-                      {entry.question}
-                    </h3>
-                    <dd className="mt-3 leading-[1.85] text-mute">{entry.answer}</dd>
-                  </div>
-                ))}
-              </dl>
+              {/*
+                Each question is an <h3> with its answer directly after it.
+                This used to be a <dl> holding <h3> + <dd> with no <dt>, which
+                is invalid HTML: a <dd> must follow a <dt>, and a <dt> may not
+                contain a heading. Plain heading-and-paragraph pairs keep the
+                heading outline and are valid.
+              */}
+              {FAQS.map((entry) => (
+                <div key={entry.question} className="mt-7">
+                  <h3 className="font-display text-lg font-light leading-snug">{entry.question}</h3>
+                  <p className="mt-3 leading-[1.85] text-mute">{entry.answer}</p>
+                </div>
+              ))}
             </section>
 
             <div className="my-12 flex justify-center border-t border-line pt-10">

@@ -1,9 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Hand-maintained. Two things to keep true when editing:
+
+  1. Every URL needs a <lastmod>, and it must be the date that page's content
+     actually last changed - not the date this file was edited. The dates below
+     were computed from git: for the fourteen article URLs, the last commit that
+     changed that article's object in src/content/journal.ts; for the four index
+     URLs, the last commit touching the routes, copy and components they render.
+     Google ignores lastmod it finds untrustworthy, so a date bumped for its own
+     sake is worse than no date at all. Metadata-only edits (adding
+     datePublished, say) are not content changes and should not move it.
+
+  2. New routes must be added here by hand. This file does not generate itself,
+     so it drifts silently - it is worth checking against the route tree
+     whenever a route is added.
+-->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
     <loc>https://www.vidhifabrics.com/</loc>
+    <lastmod>2026-09-28</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.vidhifabrics.com/"/>
     <xhtml:link rel="alternate" hreflang="hi" href="https://www.vidhifabrics.com/hi"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vidhifabrics.com/"/>
@@ -11,6 +28,7 @@
 
   <url>
     <loc>https://www.vidhifabrics.com/hi</loc>
+    <lastmod>2026-09-27</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.vidhifabrics.com/"/>
     <xhtml:link rel="alternate" hreflang="hi" href="https://www.vidhifabrics.com/hi"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vidhifabrics.com/"/>
@@ -18,6 +36,7 @@
 
   <url>
     <loc>https://www.vidhifabrics.com/blog</loc>
+    <lastmod>2026-09-26</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.vidhifabrics.com/blog"/>
     <xhtml:link rel="alternate" hreflang="hi" href="https://www.vidhifabrics.com/hi/blog"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vidhifabrics.com/blog"/>
@@ -25,6 +44,7 @@
 
   <url>
     <loc>https://www.vidhifabrics.com/hi/blog</loc>
+    <lastmod>2026-09-26</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.vidhifabrics.com/blog"/>
     <xhtml:link rel="alternate" hreflang="hi" href="https://www.vidhifabrics.com/hi/blog"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vidhifabrics.com/blog"/>
@@ -32,6 +52,7 @@
 
   <url>
     <loc>https://www.vidhifabrics.com/blog/how-to-read-a-fabric-spec</loc>
+    <lastmod>2026-09-26</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.vidhifabrics.com/blog/how-to-read-a-fabric-spec"/>
     <xhtml:link rel="alternate" hreflang="hi" href="https://www.vidhifabrics.com/hi/blog/how-to-read-a-fabric-spec"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vidhifabrics.com/blog/how-to-read-a-fabric-spec"/>
@@ -39,6 +60,7 @@
 
   <url>
     <loc>https://www.vidhifabrics.com/hi/blog/how-to-read-a-fabric-spec</loc>
+    <lastmod>2026-09-26</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.vidhifabrics.com/blog/how-to-read-a-fabric-spec"/>
     <xhtml:link rel="alternate" hreflang="hi" href="https://www.vidhifabrics.com/hi/blog/how-to-read-a-fabric-spec"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vidhifabrics.com/blog/how-to-read-a-fabric-spec"/>
@@ -46,6 +68,7 @@
 
   <url>
     <loc>https://www.vidhifabrics.com/blog/fabric-width-and-costing</loc>
+    <lastmod>2026-09-26</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.vidhifabrics.com/blog/fabric-width-and-costing"/>
     <xhtml:link rel="alternate" hreflang="hi" href="https://www.vidhifabrics.com/hi/blog/fabric-width-and-costing"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vidhifabrics.com/blog/fabric-width-and-costing"/>
@@ -53,6 +76,7 @@
 
   <url>
     <loc>https://www.vidhifabrics.com/hi/blog/fabric-width-and-costing</loc>
+    <lastmod>2026-09-26</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.vidhifabrics.com/blog/fabric-width-and-costing"/>
     <xhtml:link rel="alternate" hreflang="hi" href="https://www.vidhifabrics.com/hi/blog/fabric-width-and-costing"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vidhifabrics.com/blog/fabric-width-and-costing"/>
@@ -60,6 +84,7 @@
 
   <url>
     <loc>https://www.vidhifabrics.com/blog/fabric-gsm-bulk-orders</loc>
+    <lastmod>2026-09-26</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.vidhifabrics.com/blog/fabric-gsm-bulk-orders"/>
     <xhtml:link rel="alternate" hreflang="hi" href="https://www.vidhifabrics.com/hi/blog/fabric-gsm-bulk-orders"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vidhifabrics.com/blog/fabric-gsm-bulk-orders"/>
@@ -67,6 +92,7 @@
 
   <url>
     <loc>https://www.vidhifabrics.com/hi/blog/fabric-gsm-bulk-orders</loc>
+    <lastmod>2026-09-26</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.vidhifabrics.com/blog/fabric-gsm-bulk-orders"/>
     <xhtml:link rel="alternate" hreflang="hi" href="https://www.vidhifabrics.com/hi/blog/fabric-gsm-bulk-orders"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vidhifabrics.com/blog/fabric-gsm-bulk-orders"/>
@@ -74,6 +100,7 @@
 
   <url>
     <loc>https://www.vidhifabrics.com/blog/buying-dress-material-wholesale</loc>
+    <lastmod>2026-09-25</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.vidhifabrics.com/blog/buying-dress-material-wholesale"/>
     <xhtml:link rel="alternate" hreflang="hi" href="https://www.vidhifabrics.com/hi/blog/buying-dress-material-wholesale"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vidhifabrics.com/blog/buying-dress-material-wholesale"/>
@@ -81,6 +108,7 @@
 
   <url>
     <loc>https://www.vidhifabrics.com/hi/blog/buying-dress-material-wholesale</loc>
+    <lastmod>2026-09-25</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.vidhifabrics.com/blog/buying-dress-material-wholesale"/>
     <xhtml:link rel="alternate" hreflang="hi" href="https://www.vidhifabrics.com/hi/blog/buying-dress-material-wholesale"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vidhifabrics.com/blog/buying-dress-material-wholesale"/>
@@ -88,6 +116,7 @@
 
   <url>
     <loc>https://www.vidhifabrics.com/blog/why-similar-sarees-have-different-prices</loc>
+    <lastmod>2026-09-25</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.vidhifabrics.com/blog/why-similar-sarees-have-different-prices"/>
     <xhtml:link rel="alternate" hreflang="hi" href="https://www.vidhifabrics.com/hi/blog/why-similar-sarees-have-different-prices"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vidhifabrics.com/blog/why-similar-sarees-have-different-prices"/>
@@ -95,6 +124,7 @@
 
   <url>
     <loc>https://www.vidhifabrics.com/hi/blog/why-similar-sarees-have-different-prices</loc>
+    <lastmod>2026-09-25</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.vidhifabrics.com/blog/why-similar-sarees-have-different-prices"/>
     <xhtml:link rel="alternate" hreflang="hi" href="https://www.vidhifabrics.com/hi/blog/why-similar-sarees-have-different-prices"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vidhifabrics.com/blog/why-similar-sarees-have-different-prices"/>
@@ -102,6 +132,7 @@
 
   <url>
     <loc>https://www.vidhifabrics.com/blog/sample-to-bulk-order-checklist</loc>
+    <lastmod>2026-09-25</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.vidhifabrics.com/blog/sample-to-bulk-order-checklist"/>
     <xhtml:link rel="alternate" hreflang="hi" href="https://www.vidhifabrics.com/hi/blog/sample-to-bulk-order-checklist"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vidhifabrics.com/blog/sample-to-bulk-order-checklist"/>
@@ -109,6 +140,7 @@
 
   <url>
     <loc>https://www.vidhifabrics.com/hi/blog/sample-to-bulk-order-checklist</loc>
+    <lastmod>2026-09-25</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.vidhifabrics.com/blog/sample-to-bulk-order-checklist"/>
     <xhtml:link rel="alternate" hreflang="hi" href="https://www.vidhifabrics.com/hi/blog/sample-to-bulk-order-checklist"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vidhifabrics.com/blog/sample-to-bulk-order-checklist"/>
@@ -116,6 +148,7 @@
 
   <url>
     <loc>https://www.vidhifabrics.com/blog/source-fabric-from-surat</loc>
+    <lastmod>2026-09-25</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.vidhifabrics.com/blog/source-fabric-from-surat"/>
     <xhtml:link rel="alternate" hreflang="hi" href="https://www.vidhifabrics.com/hi/blog/source-fabric-from-surat"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vidhifabrics.com/blog/source-fabric-from-surat"/>
@@ -123,6 +156,7 @@
 
   <url>
     <loc>https://www.vidhifabrics.com/hi/blog/source-fabric-from-surat</loc>
+    <lastmod>2026-09-25</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.vidhifabrics.com/blog/source-fabric-from-surat"/>
     <xhtml:link rel="alternate" hreflang="hi" href="https://www.vidhifabrics.com/hi/blog/source-fabric-from-surat"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.vidhifabrics.com/blog/source-fabric-from-surat"/>

@@ -6,9 +6,9 @@ import { WHATSAPP_NUMBER, whatsAppUrl } from "@/content/whatsapp";
 const SITE = "https://www.vidhifabrics.com";
 const PATH = "/polyester-sarees-wholesale-surat";
 
-const TITLE = "Polyester Sarees Wholesale in Surat | Vidhi Fabrics, Supplier & Wholesaler";
+const TITLE = "Polyester Sarees Wholesale in Surat | Vidhi Fabrics, Manufacturer & Wholesaler";
 const DESCRIPTION =
-  "Polyester sarees in bulk from a Surat supplier, for wholesalers and retailers across Punjab, Haryana, Rajasthan and MP. Get today's catalogue on WhatsApp.";
+  "Polyester sarees in bulk from a Surat manufacturer and wholesaler, for buyers across Punjab, Haryana, Rajasthan and MP. Get today's catalogue on WhatsApp.";
 
 const FAQS: { question: string; answer: string }[] = [
   {
@@ -26,13 +26,12 @@ const FAQS: { question: string; answer: string }[] = [
       "Yes. We share the latest catalogue on WhatsApp, and you're welcome to visit our shop at Golden Point, Ring Road, Surat.",
   },
   {
-    // Kept as the question a buyer actually searches and asks; only the
-    // answer changes. BRAND.md positions Vidhi as a supplier with direct
-    // access to Surat's manufacturing ecosystem, not a manufacturer itself —
-    // confirmed again directly for this page (no in-house factory).
-    question: "Are you a manufacturer or a supplier?",
+    // Positioning confirmed by the owner on 1 October 2026: manufacturer and
+    // wholesaler. Deliberately does not name which lines are made in-house;
+    // the owner has not specified them.
+    question: "Are you a manufacturer or a wholesaler?",
     answer:
-      "We're a supplier, not a manufacturer — we don't run our own factory. We work directly with Surat's mills, dyeing and finishing units, so you get one accountable point of contact backed by the city's full manufacturing ecosystem, with a wide and current range.",
+      "Both. Vidhi Fabrics is a Surat-based manufacturer and wholesaler. We manufacture some lines in-house and also supply from Surat's wider textile market, so you get one accountable point of contact and a wide, current range.",
   },
   {
     question: "How do I get wholesale rates?",
@@ -136,11 +135,12 @@ function PolyesterSareesPage() {
 
           <div className="mx-auto max-w-[65ch]">
             <p className="mt-10 text-lg leading-relaxed text-mute">
-              Vidhi Fabrics is a Surat-based textile supplier, with direct access to Surat's
-              manufacturing ecosystem, supplying polyester sarees in bulk to wholesalers, retailers,
-              resellers and boutiques. Most of our buyers are in North India, in Punjab, Haryana and
-              Rajasthan, and we also supply buyers in Madhya Pradesh. Because we work directly in
-              the Surat textile market, you get steady supply without extra middlemen.
+              Vidhi Fabrics is a Surat-based manufacturer and wholesaler, supplying polyester sarees
+              in bulk to wholesalers, retailers, resellers and boutiques. We manufacture some lines
+              in-house and also supply from Surat's wider textile market. Most of our buyers are in
+              North India, in Punjab, Haryana and Rajasthan, and we also supply buyers in Madhya
+              Pradesh. Because we work directly in the Surat textile market, you get steady supply
+              without extra middlemen.
             </p>
 
             <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">

@@ -30,21 +30,21 @@ export const Route = createFileRoute("/hi")({
   head: () => ({
     meta: [
       {
-        title: "सूरत में थोक कपड़ा सप्लायर | विधि फैब्रिक्स",
+        title: "सूरत में कपड़ा निर्माता और थोक विक्रेता | विधि फैब्रिक्स",
       },
       {
         name: "description",
         content:
-          "विधि फैब्रिक्स से कॉटन, सिल्क, लिनन, पॉलिएस्टर और जैक्वार्ड कपड़ों की थोक जानकारी लें। अपनी ज़रूरत बताकर सैंपल, उपलब्धता और कोटेशन पूछें।",
+          "सूरत के कपड़ा निर्माता और थोक विक्रेता विधि फैब्रिक्स से कॉटन, सिल्क, लिनन, पॉलिएस्टर और जैक्वार्ड कपड़ों की थोक जानकारी लें। अपनी ज़रूरत बताकर सैंपल, उपलब्धता और कोटेशन पूछें।",
       },
       {
         property: "og:title",
-        content: "सूरत में थोक कपड़ा सप्लायर | विधि फैब्रिक्स",
+        content: "सूरत में कपड़ा निर्माता और थोक विक्रेता | विधि फैब्रिक्स",
       },
       {
         property: "og:description",
         content:
-          "विधि फैब्रिक्स से कॉटन, सिल्क, लिनन, पॉलिएस्टर और जैक्वार्ड कपड़ों की थोक जानकारी लें। अपनी ज़रूरत बताकर सैंपल, उपलब्धता और कोटेशन पूछें।",
+          "सूरत के कपड़ा निर्माता और थोक विक्रेता विधि फैब्रिक्स से कॉटन, सिल्क, लिनन, पॉलिएस्टर और जैक्वार्ड कपड़ों की थोक जानकारी लें। अपनी ज़रूरत बताकर सैंपल, उपलब्धता और कोटेशन पूछें।",
       },
       { property: "og:url", content: HI_URL },
       { property: "og:type", content: "website" },
@@ -81,10 +81,10 @@ const FAQS: {
       "hi-en": "Kya Vidhi Fabrics ek fabric manufacturer hai?",
     },
     answer: {
-      en: "No — Vidhi Fabrics is a textile supplier, not a manufacturer. We don't run our own factory. Trading in Surat since the 1960s, with more than sixty years in the industry, we work directly with the city's mills and processors, and answer for the order end to end.",
-      hi: "नहीं — विधि फैब्रिक्स एक टेक्सटाइल सप्लायर है, निर्माता नहीं। हमारी अपनी फैक्ट्री नहीं है। 1960 के दशक से सूरत में व्यापार करते हुए, यानी उद्योग में साठ साल से ज़्यादा, हम सीधे शहर की मिलों और प्रोसेसर्स के साथ काम करते हैं, और ऑर्डर की पूरी ज़िम्मेदारी लेते हैं। खरीदार अपनी ज़रूरत के लिए सीधे हमसे संपर्क कर सकते हैं।",
+      en: "Yes. Vidhi Fabrics is a Surat-based manufacturer and wholesaler. We manufacture some lines in-house and also supply from Surat's wider textile market, so one business answers for the whole order. We have been in the Surat textile trade since the 1960s.",
+      hi: "हाँ। विधि फैब्रिक्स सूरत स्थित निर्माता और थोक विक्रेता है। कुछ लाइनें हम खुद बनाते हैं और साथ ही सूरत के बड़े कपड़ा बाज़ार से भी सप्लाई करते हैं, ताकि पूरे ऑर्डर की ज़िम्मेदारी एक ही व्यवसाय ले। हम 1960 के दशक से सूरत के कपड़ा व्यापार में हैं।",
       "hi-en":
-        "Nahi — Vidhi Fabrics ek textile supplier hai, manufacturer nahi. Hamari khud ki factory nahi hai. 1960s se Surat mein trade karte hue, yaani industry mein saath saal se zyada, hum directly shehar ki mills aur processors ke saath kaam karte hain, aur order ki poori zimmedari lete hain.",
+        "Haan. Vidhi Fabrics Surat ka manufacturer aur wholesaler hai. Kuch lines hum khud banate hain aur saath hi Surat ke bade textile market se bhi supply karte hain, taaki poore order ki zimmedari ek hi business le. Hum 1960s se Surat ke textile trade mein hain.",
     },
   },
   {
@@ -120,10 +120,10 @@ const FAQS: {
       "hi-en": "Kya aap retailers aur boutique owners ko fabrics supply karte hain?",
     },
     answer: {
-      en: "Yes. Retailers and boutique businesses can source fabrics directly from Vidhi Fabrics as a supplier.",
-      hi: "हाँ। रिटेलर्स और बुटीक व्यवसाय सीधे विधि फैब्रिक्स से एक सप्लायर के रूप में कपड़ा ले सकते हैं। अगर आप कपड़ा रिटेल स्टोर, बुटीक या छोटा फैशन व्यवसाय चलाते हैं, तो अपनी ज़रूरत के साथ हमसे संपर्क करें।",
+      en: "Yes. Retailers and boutique businesses can source fabrics directly from Vidhi Fabrics, a Surat-based manufacturer and wholesaler.",
+      hi: "हाँ। रिटेलर्स और बुटीक व्यवसाय सीधे सूरत के निर्माता और थोक विक्रेता विधि फैब्रिक्स से कपड़ा ले सकते हैं। अगर आप कपड़ा रिटेल स्टोर, बुटीक या छोटा फैशन व्यवसाय चलाते हैं, तो अपनी ज़रूरत के साथ हमसे संपर्क करें।",
       "hi-en":
-        "Haan. Retailers aur boutique businesses Vidhi Fabrics se directly ek supplier ke roop mein fabrics source kar sakte hain.",
+        "Haan. Retailers aur boutique businesses Vidhi Fabrics se directly fabrics source kar sakte hain.",
     },
   },
   {
@@ -146,10 +146,10 @@ const FAQS: {
       "hi-en": "Kya aap specific requirement ke hisaab se fabrics source kar sakte hain?",
     },
     answer: {
-      en: "Yes. As a supplier based in Surat, we can work to specific requirements including constructions, compositions, finishes, patterns, colours and weights, coordinated directly with our network of Surat mills, dyeing and finishing units.",
-      hi: "हाँ। सूरत में एक सप्लायर के रूप में, हम विशेष कंस्ट्रक्शन, कम्पोज़िशन, फिनिश, पैटर्न, रंग और वज़न के हिसाब से ज़रूरतों पर काम कर सकते हैं, जो सीधे हमारी सूरत की मिलों, रंगाई और फिनिशिंग यूनिट्स के नेटवर्क के साथ समन्वयित होता है। अपनी ज़रूरत बताएँ।",
+      en: "Yes. As a Surat-based manufacturer and wholesaler, we can work to specific requirements including constructions, compositions, finishes, patterns, colours and weights, coordinated directly with our network of Surat mills, dyeing and finishing units.",
+      hi: "हाँ। सूरत स्थित निर्माता और थोक विक्रेता के रूप में, हम विशेष कंस्ट्रक्शन, कम्पोज़िशन, फिनिश, पैटर्न, रंग और वज़न के हिसाब से ज़रूरतों पर काम कर सकते हैं, जो सीधे हमारी सूरत की मिलों, रंगाई और फिनिशिंग यूनिट्स के नेटवर्क के साथ समन्वयित होता है। अपनी ज़रूरत बताएँ।",
       "hi-en":
-        "Haan. Surat mein ek supplier ke roop mein hum specific constructions, finishes, patterns, colours aur weights ke hisaab se kaam kar sakte hain, jo directly hamare Surat ki mills, dyeing aur finishing units ke network ke saath coordinate hota hai.",
+        "Haan. Surat ke manufacturer aur wholesaler ke roop mein hum specific constructions, finishes, patterns, colours aur weights ke hisaab se kaam kar sakte hain, jo directly hamare Surat ki mills, dyeing aur finishing units ke network ke saath coordinate hota hai.",
     },
   },
   {

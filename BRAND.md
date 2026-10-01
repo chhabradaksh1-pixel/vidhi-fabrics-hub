@@ -19,16 +19,32 @@ jacquard is. Copy can use trade vocabulary without glossing it, and should
 never explain the obvious.
 
 The range spans cotton, silk, synthetic, blended, jacquard, printed, dyed and
-woven varieties, sourced from mills and sourcing partners.
+woven varieties: some lines manufactured in-house, the rest supplied from
+Surat's wider textile market.
 
 ## Positioning
 
-> One textile supplier. Access to Surat's entire manufacturing ecosystem.
+> Manufacturer and wholesaler. Access to Surat's entire textile market.
 
-A **supplier** — never a broker, marketplace, agent, aggregator or directory.
-The distinction is the whole proposition: the buyer deals with one business that
-answers for the order, and that business has the reach of the city behind it.
-Nothing should imply enquiries get passed along to someone else.
+A **manufacturer and wholesaler** — confirmed by the owner on 1 October 2026.
+Vidhi Fabrics manufactures some lines in-house and also supplies from Surat's
+wider textile market. Use that framing everywhere: copy, meta tags, structured
+data and `llms.txt`. In Hindi, निर्माता और थोक विक्रेता; in Hinglish,
+"manufacturer aur wholesaler".
+
+**Do not name which lines are made in-house.** The owner has not specified
+them, so "some lines" is the claim. Do not attach "we manufacture" to a
+particular product (polyester sarees, dress material or anything else) until
+he does.
+
+The earlier rule that the site must call Vidhi "a supplier, not a
+manufacturer" and say it runs no factory of its own is **withdrawn**. It was
+never confirmed by the owner, and no copy should say it.
+
+Never a broker, marketplace, agent, aggregator or directory. The distinction
+is the whole proposition: the buyer deals with one business that answers for
+the order, and that business has the reach of the city behind it. Nothing
+should imply enquiries get passed along to someone else.
 
 Surat's position is the backdrop, not the claim. "From Surat, Asia's textile
 hub, to your shop" is the register — the city gives scale, the business gives
@@ -43,6 +59,7 @@ form — not in copy, alt text, meta descriptions or structured data:
 - Guaranteed quality or guaranteed delivery
 - A fixed MOQ or a fixed lead time
 - Any unverified certification, production capacity or export statistic
+- Which specific lines are manufactured in-house, until the owner names them
 
 **Confirmed and usable**, as supplied by the owner:
 

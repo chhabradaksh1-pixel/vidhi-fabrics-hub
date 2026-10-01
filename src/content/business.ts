@@ -79,6 +79,9 @@ export function localBusinessSchema(site: string) {
     "@id": BUSINESS_ID,
     name: BUSINESS.name,
     alternateName: "विधि फैब्रिक्स",
+    // Positioning confirmed by the owner on 1 October 2026.
+    description:
+      "Surat-based fabric manufacturer and wholesaler. Manufactures some lines in-house and also supplies from Surat's wider textile market, selling in bulk to wholesalers, retailers, resellers and boutiques, mainly across North India.",
     url: site,
     logo: `${site}/icon-512.png`,
     image: `${site}/og-image.jpg`,

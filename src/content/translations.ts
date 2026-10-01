@@ -51,9 +51,9 @@ export const COPY = {
   },
   hero: {
     eyebrow: {
-      en: "Surat · Textile Supplier & Wholesale Trade",
-      hi: "सूरत · टेक्सटाइल सप्लायर और थोक व्यापार",
-      "hi-en": "Surat · Textile supplier aur wholesale trade",
+      en: "Surat · Manufacturer & Wholesaler",
+      hi: "सूरत · निर्माता और थोक विक्रेता",
+      "hi-en": "Surat · Manufacturer aur wholesaler",
     },
     heading: {
       en: "From Surat, Asia's textile hub, to your shop.",
@@ -61,10 +61,10 @@ export const COPY = {
       "hi-en": "From Surat, Asia's textile hub, to your shop.",
     },
     body: {
-      en: "Vidhi Fabrics is a Surat-based textile supplier and wholesale fabric sourcing business. We supply retailers, brands, manufacturers and traders with cotton, silk, synthetic, blended, jacquard, printed, dyed, woven and other fabric varieties, sourced from trusted mills and manufacturing partners across the city.",
-      hi: "विधि फैब्रिक्स सूरत स्थित एक टेक्सटाइल सप्लायर और थोक फैब्रिक सोर्सिंग व्यवसाय है। हम रिटेलर्स, ब्रांड्स, निर्माताओं और व्यापारियों को शहर भर की भरोसेमंद मिलों और मैन्युफैक्चरिंग पार्टनर्स से सोर्स की गई कॉटन, सिल्क, सिंथेटिक, ब्लेंडेड, जैक्वार्ड, प्रिंटेड, रंगे, बुने और अन्य फैब्रिक वैरायटी सप्लाई करते हैं।",
+      en: "Vidhi Fabrics is a Surat-based manufacturer and wholesaler. We manufacture some lines in-house and also supply from Surat's wider textile market, serving retailers, brands, manufacturers and traders with cotton, silk, synthetic, blended, jacquard, printed, dyed, woven and other fabric varieties.",
+      hi: "विधि फैब्रिक्स सूरत स्थित निर्माता और थोक विक्रेता है। कुछ लाइनें हम खुद बनाते हैं और साथ ही सूरत के बड़े कपड़ा बाज़ार से भी सप्लाई करते हैं। हम रिटेलर्स, ब्रांड्स, निर्माताओं और व्यापारियों को कॉटन, सिल्क, सिंथेटिक, ब्लेंडेड, जैक्वार्ड, प्रिंटेड, रंगे, बुने और अन्य फैब्रिक वैरायटी देते हैं।",
       "hi-en":
-        "Vidhi Fabrics Surat-based textile supplier aur wholesale fabric sourcing business hai. Hum retailers, brands, manufacturers aur traders ko shehar bhar ki trusted mills aur manufacturing partners se source ki gayi cotton, silk, synthetic, blended, jacquard, printed, dyed, woven aur other fabric varieties supply karte hain.",
+        "Vidhi Fabrics Surat ka manufacturer aur wholesaler hai. Kuch lines hum khud banate hain aur saath hi Surat ke bade textile market se bhi supply karte hain. Hum retailers, brands, manufacturers aur traders ko cotton, silk, synthetic, blended, jacquard, printed, dyed, woven aur other fabric varieties dete hain.",
     },
     // Where the buyers are, as stated by the owner. Mirrors `areaServed` in
     // content/business.ts and the polyester page's regions answer.

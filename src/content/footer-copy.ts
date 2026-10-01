@@ -25,9 +25,9 @@ export type FooterColumn = {
 };
 
 export const FOOTER_TAGLINE: Record<Lang, string> = {
-  en: "One textile supplier. Access to Surat’s entire manufacturing ecosystem.",
-  hi: "एक टेक्सटाइल सप्लायर। सूरत के पूरे मैन्युफैक्चरिंग नेटवर्क तक पहुँच।",
-  "hi-en": "Ek textile supplier. Surat ke poore manufacturing ecosystem tak access.",
+  en: "Manufacturer and wholesaler. Access to Surat’s entire textile market.",
+  hi: "निर्माता और थोक विक्रेता। सूरत के पूरे कपड़ा बाज़ार तक पहुँच।",
+  "hi-en": "Manufacturer aur wholesaler. Surat ke poore textile market tak access.",
 };
 
 export const FOOTER_CTA: Record<Lang, string> = {

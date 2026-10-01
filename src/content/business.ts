@@ -29,6 +29,32 @@ export const BUSINESS = {
   days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
 } as const;
 
+/**
+ * Stable identifier for the business entity in JSON-LD.
+ *
+ * Every block that refers to Vidhi Fabrics — the site-wide LocalBusiness and
+ * each BlogPosting's publisher — uses this one `@id`, so a crawler joins them
+ * into a single entity instead of reading a LocalBusiness and a separate,
+ * unconnected Organization with the same name. That matters more than usual
+ * here, because other businesses called Vidhi Fabrics exist. Never change it:
+ * an `@id` is an identifier, and moving it splits the entity again.
+ */
+export const BUSINESS_ID = "https://www.vidhifabrics.com/#business";
+
+/**
+ * Where the business mainly supplies, as stated by the owner: North India,
+ * chiefly Punjab, Haryana and Rajasthan, with buyers in Madhya Pradesh too.
+ * Emitted as `areaServed`; the homepage and polyester page say the same in
+ * words.
+ */
+export const AREA_SERVED = [
+  { "@type": "State", name: "Punjab" },
+  { "@type": "State", name: "Haryana" },
+  { "@type": "State", name: "Rajasthan" },
+  { "@type": "State", name: "Madhya Pradesh" },
+  { "@type": "Country", name: "India" },
+] as const;
+
 /** The address as shown on the page, one line per row. */
 export const ADDRESS_LINES: Record<Lang, string[]> = {
   en: [
@@ -50,7 +76,9 @@ export function localBusinessSchema(site: string) {
   return {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
+    "@id": BUSINESS_ID,
     name: BUSINESS.name,
+    alternateName: "विधि फैब्रिक्स",
     url: site,
     logo: `${site}/icon-512.png`,
     image: `${site}/og-image.jpg`,
@@ -64,6 +92,7 @@ export function localBusinessSchema(site: string) {
       postalCode: BUSINESS.postalCode,
       addressCountry: BUSINESS.country,
     },
+    areaServed: AREA_SERVED,
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",

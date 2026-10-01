@@ -13,10 +13,12 @@ import { useReveal } from "@/hooks/use-reveal";
 import swatchBook from "@/assets/swatch-book.webp";
 import weaveGround from "@/assets/weave-ground.jpg";
 import logoMark from "@/assets/vidhi-logo-mark.png";
+import loomPoster from "@/assets/weaving-loom-poster.webp";
+import { LazyLoopVideo } from "@/components/lazy-loop-video";
 import {
   Accordion,
-  AccordionContent,
   AccordionItem,
+  AccordionPanel,
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { COPY, type Lang } from "@/content/translations";
@@ -46,6 +48,8 @@ export const Route = createFileRoute("/hi")({
       },
       { property: "og:url", content: HI_URL },
       { property: "og:type", content: "website" },
+      { property: "og:locale", content: "hi_IN" },
+      { property: "og:locale:alternate", content: "en_IN" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
@@ -194,10 +198,10 @@ const FAQS: {
       "hi-en": "Main enquiry kaise karun ya order kaise dun?",
     },
     answer: {
-      en: "You can reach us through the enquiry form on this page, via WhatsApp, or by phone. Our trade desk responds within 12 hours.",
-      hi: "आप इस पेज पर पूछताछ फॉर्म के ज़रिए, व्हाट्सएप से, या फोन पर हमसे संपर्क कर सकते हैं। कपड़े का प्रकार, अनुमानित मात्रा और कोई विशेष ज़रूरत बताएँ — हमारा ट्रेड डेस्क 12 घंटे के भीतर जवाब देगा।",
+      en: "You can reach us through the enquiry form on this page, via WhatsApp, or by phone. Our trade desk typically responds within 12 hours.",
+      hi: "आप इस पेज पर पूछताछ फॉर्म के ज़रिए, व्हाट्सएप से, या फोन पर हमसे संपर्क कर सकते हैं। कपड़े का प्रकार, अनुमानित मात्रा और कोई विशेष ज़रूरत बताएँ — हमारा ट्रेड डेस्क आमतौर पर 12 घंटे के भीतर जवाब देगा।",
       "hi-en":
-        "Aap enquiry form, WhatsApp ya phone se hamare se contact kar sakte hain. Hamara trade desk 12 hours mein respond karta hai.",
+        "Aap enquiry form, WhatsApp ya phone se hamare se contact kar sakte hain. Hamara trade desk aam taur par 12 hours mein respond karta hai.",
     },
   },
   {
@@ -220,10 +224,10 @@ const FAQS: {
       "hi-en": "Vidhi Fabrics se kaise contact karein?",
     },
     answer: {
-      en: "You can reach us via the enquiry form, by WhatsApp, or by phone. Our trade desk is available Monday to Saturday and responds within 12 hours.",
-      hi: `आप पूछताछ फॉर्म, व्हाट्सएप या फोन के ज़रिए हमसे संपर्क कर सकते हैं। हमारा ट्रेड डेस्क सोमवार से शनिवार तक उपलब्ध है और 12 घंटे के भीतर जवाब देता है। आप ${ADDRESS_LINES.hi.join(", ")} भी आ सकते हैं।`,
+      en: "You can reach us via the enquiry form, by WhatsApp, or by phone. Our trade desk is available Monday to Saturday and typically responds within 12 hours.",
+      hi: `आप पूछताछ फॉर्म, व्हाट्सएप या फोन के ज़रिए हमसे संपर्क कर सकते हैं। हमारा ट्रेड डेस्क सोमवार से शनिवार तक उपलब्ध है और आमतौर पर 12 घंटे के भीतर जवाब देता है। आप ${ADDRESS_LINES.hi.join(", ")} भी आ सकते हैं।`,
       "hi-en":
-        "Enquiry form, WhatsApp ya phone se contact karein. Trade desk Monday to Saturday available hai aur 12 hours mein respond karta hai.",
+        "Enquiry form, WhatsApp ya phone se contact karein. Trade desk Monday to Saturday available hai aur aam taur par 12 hours mein respond karta hai.",
     },
   },
 ];
@@ -356,6 +360,9 @@ function HiIndex() {
             <p className="mt-6 max-w-[46ch] text-pretty text-lg text-mute">
               {COPY.hero.body[lang]}
             </p>
+            <p className="mt-3 max-w-[46ch] text-pretty text-lg text-mute">
+              {COPY.hero.regions[lang]}
+            </p>
             <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3 font-mono text-xs text-mute">
               {COPY.hero.stats.map((s) => (
                 <span key={s.en}>{s[lang]}</span>
@@ -460,12 +467,9 @@ function HiIndex() {
       <AboutSection lang={lang} whatsappUrl={getWhatsAppUrl(lang)} />
 
       <section data-reveal aria-hidden="true" className="border-b border-line">
-        <video
+        <LazyLoopVideo
           src="/weaving-loom.mp4?v=a787f8f"
-          autoPlay
-          loop
-          muted
-          playsInline
+          poster={loomPoster}
           className="h-48 w-full object-cover sm:h-64 lg:h-80"
         />
       </section>
@@ -601,13 +605,23 @@ function HiIndex() {
 
           <Accordion type="single" collapsible className="mt-10">
             {FAQS.map((faq, index) => (
-              <AccordionItem key={faq.question.hi} value={`faq-${index}`} className="border-line">
-                <AccordionTrigger className="font-display text-lg font-light text-ink hover:no-underline">
+              <AccordionItem
+                key={faq.question.hi}
+                value={`faq-${index}`}
+                className="group/faq border-line"
+              >
+                <AccordionTrigger
+                  aria-controls={`faq-panel-${index}`}
+                  className="font-display text-lg font-light text-ink hover:no-underline"
+                >
                   {faq.question[lang]}
                 </AccordionTrigger>
-                <AccordionContent className="max-w-2xl text-base leading-relaxed text-mute">
+                <AccordionPanel
+                  id={`faq-panel-${index}`}
+                  className="max-w-2xl text-base leading-relaxed text-mute"
+                >
                   {faq.answer[lang]}
-                </AccordionContent>
+                </AccordionPanel>
               </AccordionItem>
             ))}
           </Accordion>

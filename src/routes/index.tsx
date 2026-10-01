@@ -13,10 +13,12 @@ import { useReveal } from "@/hooks/use-reveal";
 import swatchBook from "@/assets/swatch-book.webp";
 import weaveGround from "@/assets/weave-ground.jpg";
 import logoMark from "@/assets/vidhi-logo-mark.png";
+import loomPoster from "@/assets/weaving-loom-poster.webp";
+import { LazyLoopVideo } from "@/components/lazy-loop-video";
 import {
   Accordion,
-  AccordionContent,
   AccordionItem,
+  AccordionPanel,
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { COPY, LANGUAGES, type Lang } from "@/content/translations";
@@ -50,10 +52,12 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "Wholesale fabric supply from Surat for retailers, brands, manufacturers and textile buyers, backed by direct access to the city's manufacturing ecosystem. Broad materials, constructions, patterns and finishes, with quotations within 12 hours.",
+          "Wholesale fabric supply from Surat for retailers, brands, manufacturers and textile buyers, backed by direct access to the city's manufacturing ecosystem. Broad materials, constructions, patterns and finishes, with replies typically within 12 hours.",
       },
       { property: "og:url", content: EN_URL },
       { property: "og:type", content: "website" },
+      { property: "og:locale", content: "en_IN" },
+      { property: "og:locale:alternate", content: "hi_IN" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
@@ -202,10 +206,10 @@ const FAQS: {
       "hi-en": "Main enquiry kaise karun ya order kaise dun?",
     },
     answer: {
-      en: "You can reach us through the enquiry form on this page, via WhatsApp, or by phone. Share your fabric requirement — the type of fabric, approximate quantity and any specific construction, composition or finish — and our trade desk will respond within 12 hours.",
-      hi: "आप इस पेज पर पूछताछ फॉर्म के माध्यम से, व्हाट्सएप के जरिए, या फोन द्वारा हमसे संपर्क कर सकते हैं। अपनी फैब्रिक आवश्यकता साझा करें — फैब्रिक का प्रकार, अनुमानित मात्रा और कोई विशेष कंस्ट्रक्शन, कम्पोज़िशन या फिनिश — और हमारा ट्रेड डेस्क 12 घंटे के भीतर जवाब देगा।",
+      en: "You can reach us through the enquiry form on this page, via WhatsApp, or by phone. Share your fabric requirement — the type of fabric, approximate quantity and any specific construction, composition or finish — and our trade desk will typically respond within 12 hours.",
+      hi: "आप इस पेज पर पूछताछ फॉर्म के माध्यम से, व्हाट्सएप के जरिए, या फोन द्वारा हमसे संपर्क कर सकते हैं। अपनी फैब्रिक आवश्यकता साझा करें — फैब्रिक का प्रकार, अनुमानित मात्रा और कोई विशेष कंस्ट्रक्शन, कम्पोज़िशन या फिनिश — और हमारा ट्रेड डेस्क आमतौर पर 12 घंटे के भीतर जवाब देगा।",
       "hi-en":
-        "Aap is page par enquiry form ke through, WhatsApp ke zariye, ya phone se hamare se contact kar sakte hain. Apni fabric requirement share karein — fabric ka type, approximate quantity aur koi specific construction, composition ya finish — aur hamara trade desk 12 hours ke andar respond karega.",
+        "Aap is page par enquiry form ke through, WhatsApp ke zariye, ya phone se hamare se contact kar sakte hain. Apni fabric requirement share karein — fabric ka type, approximate quantity aur koi specific construction, composition ya finish — aur hamara trade desk aam taur par 12 hours ke andar respond karega.",
     },
   },
   {
@@ -228,9 +232,9 @@ const FAQS: {
       "hi-en": "Main Vidhi Fabrics se kaise contact kar sakta hoon?",
     },
     answer: {
-      en: `You can reach us via the enquiry form on this page, by WhatsApp, or by phone. Our trade desk is available Monday to Saturday and responds within 12 hours. You can also visit us at ${ADDRESS_LINES.en.join(", ")}.`,
-      hi: `आप इस पेज पर पूछताछ फॉर्म के माध्यम से, व्हाट्सएप द्वारा, या फोन पर हमसे संपर्क कर सकते हैं। हमारा ट्रेड डेस्क सोमवार से शनिवार तक उपलब्ध है और 12 घंटे के भीतर जवाब देता है। आप ${ADDRESS_LINES.hi.join(", ")} में भी हमसे मिल सकते हैं।`,
-      "hi-en": `Aap is page par enquiry form ke through, WhatsApp se, ya phone par hamare se contact kar sakte hain. Hamara trade desk Monday se Saturday tak available hai aur 12 hours ke andar respond karta hai. Aap ${ADDRESS_LINES["hi-en"].join(", ")} mein bhi hamare paas aa sakte hain.`,
+      en: `You can reach us via the enquiry form on this page, by WhatsApp, or by phone. Our trade desk is available Monday to Saturday and typically responds within 12 hours. You can also visit us at ${ADDRESS_LINES.en.join(", ")}.`,
+      hi: `आप इस पेज पर पूछताछ फॉर्म के माध्यम से, व्हाट्सएप द्वारा, या फोन पर हमसे संपर्क कर सकते हैं। हमारा ट्रेड डेस्क सोमवार से शनिवार तक उपलब्ध है और आमतौर पर 12 घंटे के भीतर जवाब देता है। आप ${ADDRESS_LINES.hi.join(", ")} में भी हमसे मिल सकते हैं।`,
+      "hi-en": `Aap is page par enquiry form ke through, WhatsApp se, ya phone par hamare se contact kar sakte hain. Hamara trade desk Monday se Saturday tak available hai aur aam taur par 12 hours ke andar respond karta hai. Aap ${ADDRESS_LINES["hi-en"].join(", ")} mein bhi hamare paas aa sakte hain.`,
     },
   },
 ];
@@ -364,6 +368,9 @@ function Index() {
             <p className="mt-6 max-w-[46ch] text-pretty text-lg text-mute">
               {COPY.hero.body[lang]}
             </p>
+            <p className="mt-3 max-w-[46ch] text-pretty text-lg text-mute">
+              {COPY.hero.regions[lang]}
+            </p>
             <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3 font-mono text-xs text-mute">
               {COPY.hero.stats.map((s) => (
                 <span key={s.en}>{s[lang]}</span>
@@ -469,12 +476,9 @@ function Index() {
       <AboutSection lang={lang} whatsappUrl={getWhatsAppUrl(lang)} />
 
       <section data-reveal aria-hidden="true" className="border-b border-line">
-        <video
+        <LazyLoopVideo
           src="/weaving-loom.mp4?v=a787f8f"
-          autoPlay
-          loop
-          muted
-          playsInline
+          poster={loomPoster}
           className="h-48 w-full object-cover sm:h-64 lg:h-80"
         />
       </section>
@@ -615,13 +619,23 @@ function Index() {
 
           <Accordion type="single" collapsible className="mt-10">
             {FAQS.map((faq, index) => (
-              <AccordionItem key={faq.question.en} value={`faq-${index}`} className="border-line">
-                <AccordionTrigger className="font-display text-lg font-light text-ink hover:no-underline">
+              <AccordionItem
+                key={faq.question.en}
+                value={`faq-${index}`}
+                className="group/faq border-line"
+              >
+                <AccordionTrigger
+                  aria-controls={`faq-panel-${index}`}
+                  className="font-display text-lg font-light text-ink hover:no-underline"
+                >
                   {faq.question[lang]}
                 </AccordionTrigger>
-                <AccordionContent className="max-w-2xl text-base leading-relaxed text-mute">
+                <AccordionPanel
+                  id={`faq-panel-${index}`}
+                  className="max-w-2xl text-base leading-relaxed text-mute"
+                >
                   {faq.answer[lang]}
-                </AccordionContent>
+                </AccordionPanel>
               </AccordionItem>
             ))}
           </Accordion>

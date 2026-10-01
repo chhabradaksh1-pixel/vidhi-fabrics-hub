@@ -48,4 +48,41 @@ const AccordionContent = React.forwardRef<
 ));
 AccordionContent.displayName = AccordionPrimitive.Content.displayName;
 
-export { Accordion, AccordionItem, AccordionTrigger, AccordionContent };
+/*
+ * An answer panel whose text is always in the server-rendered HTML.
+ *
+ * Radix's `AccordionContent` renders its children only while the item is
+ * open — even with `forceMount`, closed items ship as an empty `<div hidden>`.
+ * That left every homepage FAQ answer out of the HTML a crawler receives:
+ * they existed only in the FAQPage JSON-LD, which is a structured-data /
+ * visible-content mismatch and gives answer engines nothing to quote.
+ *
+ * This panel is a plain element driven entirely by the item's `data-state`,
+ * so it needs no React state and renders identically on server and client.
+ * Closed: zero-height grid row plus `visibility: hidden`, which keeps the text
+ * in the markup but out of view, the tab order and the accessibility tree.
+ * Open: the row expands to its content height, with the same short ease the
+ * Radix animation used. The parent `AccordionItem` must carry `group/faq`.
+ */
+const AccordionPanel = ({
+  id,
+  className,
+  children,
+}: {
+  /** Pass the same id as the trigger's `aria-controls`. */
+  id?: string;
+  className?: string;
+  children: React.ReactNode;
+}) => (
+  <div
+    id={id}
+    role="region"
+    className="invisible grid grid-rows-[0fr] text-sm transition-[grid-template-rows,visibility] duration-200 ease-out group-data-[state=open]/faq:visible group-data-[state=open]/faq:grid-rows-[1fr] motion-reduce:transition-none"
+  >
+    <div className="min-h-0 overflow-hidden">
+      <div className={cn("pb-4 pt-0", className)}>{children}</div>
+    </div>
+  </div>
+);
+
+export { Accordion, AccordionItem, AccordionTrigger, AccordionContent, AccordionPanel };

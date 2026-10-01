@@ -3,6 +3,7 @@ import { JOURNAL, type JournalArticle } from "@/content/journal";
 import { JournalArticlePage } from "@/components/journal-pages";
 import { JournalHeader, JournalFooter } from "@/components/fabric-desk";
 import { breadcrumbList } from "@/lib/breadcrumbs";
+import { BUSINESS_ID } from "@/content/business";
 
 const SITE = "https://www.vidhifabrics.com";
 
@@ -31,8 +32,12 @@ function blogPosting(article: JournalArticle) {
       jobTitle: "CEO",
       worksFor: { "@type": "Organization", name: "Vidhi Fabrics" },
     },
+    // Same `@id` as the site-wide LocalBusiness block, so the publisher is
+    // that business rather than a second, unlinked Organization. Name and
+    // logo stay inline because Google reads them from the publisher itself.
     publisher: {
       "@type": "Organization",
+      "@id": BUSINESS_ID,
       name: "Vidhi Fabrics",
       logo: { "@type": "ImageObject", url: `${SITE}/icon-512.png` },
     },

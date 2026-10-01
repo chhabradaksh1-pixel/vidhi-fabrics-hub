@@ -1176,19 +1176,19 @@ export const JOURNAL: JournalArticle[] = [
           en: [
             "The fabric price is only one part of the buying decision. Before paying, ask for a written quotation or order summary containing the full commercial terms.",
             "Check whether the MOQ applies per colour, per design, per roll or across the full order. Also confirm whether the quoted price depends on purchasing the entire assortment.",
-            "Vidhi Fabrics is the supplier responsible for helping you understand the available options, the quotation and the order. Our network of Surat mills, manufacturers and processors supports the supply behind the scenes; you should not have to coordinate separately with every participant.",
+            "Vidhi Fabrics, as manufacturer and wholesaler, is responsible for helping you understand the available options, the quotation and the order. We manufacture some lines in-house, and our network of Surat mills, manufacturers and processors supports the rest behind the scenes; you should not have to coordinate separately with every participant.",
             "When sourcing dress materials, you can also use our guide to buying dress material wholesale, or start from our fabric range.",
           ],
           hi: [
             "कपड़े की कीमत खरीद के फ़ैसले का एक हिस्सा भर है। पैसे देने से पहले लिखित कोटेशन या ऑर्डर का सारांश माँगिए, जिसमें पूरी व्यापारिक शर्तें हों।",
             "देखिए कि MOQ हर रंग पर, हर डिज़ाइन पर, हर रोल पर या पूरे ऑर्डर पर लागू है। यह भी पक्का कीजिए कि बताई गई कीमत पूरी रेंज खरीदने पर टिकी है या नहीं।",
-            "विधि फैब्रिक्स वह सप्लायर है जिसकी ज़िम्मेदारी आपको उपलब्ध विकल्प, कोटेशन और ऑर्डर समझाने की है। सूरत की मिलों, निर्माताओं और प्रोसेसरों का हमारा नेटवर्क पीछे रहकर सप्लाई सँभालता है; आपको हर एक से अलग-अलग तालमेल नहीं बिठाना पड़ता।",
+            "निर्माता और थोक विक्रेता के रूप में, विधि फैब्रिक्स की ज़िम्मेदारी आपको उपलब्ध विकल्प, कोटेशन और ऑर्डर समझाने की है। कुछ लाइनें हम खुद बनाते हैं, और बाकी सप्लाई सूरत की मिलों, निर्माताओं और प्रोसेसरों का हमारा नेटवर्क पीछे रहकर सँभालता है; आपको हर एक से अलग-अलग तालमेल नहीं बिठाना पड़ता।",
             "ड्रेस मटेरियल मंगवाते समय आप ड्रेस मटेरियल थोक में खरीदने की हमारी गाइड भी देख सकते हैं, या हमारी फैब्रिक रेंज से शुरू कर सकते हैं।",
           ],
           "hi-en": [
             "Fabric ki price khareed ke faisle ka ek hissa bhar hai. Paise dene se pehle likhit quotation ya order ka summary maangiye, jisme poori commercial terms hon.",
             "Dekhiye ki MOQ har colour par, har design par, har roll par ya poore order par lagu hai. Yeh bhi pakka kijiye ki batayi gayi price poori range khareedne par tiki hai ya nahi.",
-            "Vidhi Fabrics wo supplier hai jiski zimmedari aapko available options, quotation aur order samjhane ki hai. Surat ki mills, manufacturers aur processors ka hamara network peeche rehkar supply sambhalta hai; aapko har ek se alag alag taalmel nahi bithana padta.",
+            "Vidhi Fabrics manufacturer aur wholesaler ke roop mein aapko available options, quotation aur order samjhane ki zimmedari leta hai. Kuch lines hum khud banate hain, aur baaki supply Surat ki mills, manufacturers aur processors ka hamara network peeche rehkar sambhalta hai; aapko har ek se alag alag taalmel nahi bithana padta.",
             "Dress material mangwate samay aap dress material wholesale mein khareedne ki hamari guide bhi dekh sakte hain, ya hamari fabric range se shuru kar sakte hain.",
           ],
         },

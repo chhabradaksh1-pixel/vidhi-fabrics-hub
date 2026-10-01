@@ -16,12 +16,14 @@ this file does not repeat it.
 
 ## The business
 
-Vidhi Fabrics is a textile supplier and wholesaler in Surat, in the trade since
-the 1960s.
+Vidhi Fabrics is a manufacturer and wholesaler in Surat, in the trade since
+the 1960s (positioning confirmed by the owner on 1 October 2026). It
+manufactures some lines in-house and also supplies from Surat's wider textile
+market; which lines are in-house has not been specified, so never name them.
 
-> One textile supplier. Access to Surat's entire manufacturing ecosystem.
+> Manufacturer and wholesaler. Access to Surat's entire textile market.
 
-A **supplier** — not a broker, marketplace, agent or directory. What may and
+Not a broker, marketplace, agent or directory. What may and
 may not be claimed on the site is set out in `BRAND.md`; some claims the owner
 has ruled out explicitly, so check there before writing copy.
 

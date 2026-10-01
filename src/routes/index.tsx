@@ -13,6 +13,8 @@ import { useReveal } from "@/hooks/use-reveal";
 import swatchBook from "@/assets/swatch-book.webp";
 import weaveGround from "@/assets/weave-ground.jpg";
 import logoMark from "@/assets/vidhi-logo-mark.png";
+import loomPoster from "@/assets/weaving-loom-poster.webp";
+import { LazyLoopVideo } from "@/components/lazy-loop-video";
 import {
   Accordion,
   AccordionItem,
@@ -469,12 +471,9 @@ function Index() {
       <AboutSection lang={lang} whatsappUrl={getWhatsAppUrl(lang)} />
 
       <section data-reveal aria-hidden="true" className="border-b border-line">
-        <video
+        <LazyLoopVideo
           src="/weaving-loom.mp4?v=a787f8f"
-          autoPlay
-          loop
-          muted
-          playsInline
+          poster={loomPoster}
           className="h-48 w-full object-cover sm:h-64 lg:h-80"
         />
       </section>

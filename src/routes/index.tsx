@@ -15,8 +15,8 @@ import weaveGround from "@/assets/weave-ground.jpg";
 import logoMark from "@/assets/vidhi-logo-mark.png";
 import {
   Accordion,
-  AccordionContent,
   AccordionItem,
+  AccordionPanel,
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { COPY, LANGUAGES, type Lang } from "@/content/translations";
@@ -615,13 +615,23 @@ function Index() {
 
           <Accordion type="single" collapsible className="mt-10">
             {FAQS.map((faq, index) => (
-              <AccordionItem key={faq.question.en} value={`faq-${index}`} className="border-line">
-                <AccordionTrigger className="font-display text-lg font-light text-ink hover:no-underline">
+              <AccordionItem
+                key={faq.question.en}
+                value={`faq-${index}`}
+                className="group/faq border-line"
+              >
+                <AccordionTrigger
+                  aria-controls={`faq-panel-${index}`}
+                  className="font-display text-lg font-light text-ink hover:no-underline"
+                >
                   {faq.question[lang]}
                 </AccordionTrigger>
-                <AccordionContent className="max-w-2xl text-base leading-relaxed text-mute">
+                <AccordionPanel
+                  id={`faq-panel-${index}`}
+                  className="max-w-2xl text-base leading-relaxed text-mute"
+                >
                   {faq.answer[lang]}
-                </AccordionContent>
+                </AccordionPanel>
               </AccordionItem>
             ))}
           </Accordion>

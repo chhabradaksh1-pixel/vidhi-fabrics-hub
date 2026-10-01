@@ -48,6 +48,8 @@ export const Route = createFileRoute("/hi")({
       },
       { property: "og:url", content: HI_URL },
       { property: "og:type", content: "website" },
+      { property: "og:locale", content: "hi_IN" },
+      { property: "og:locale:alternate", content: "en_IN" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [

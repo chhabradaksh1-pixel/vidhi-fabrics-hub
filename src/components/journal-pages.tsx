@@ -87,7 +87,6 @@ export function JournalIndexPage({ initialLang }: { initialLang: Lang }) {
         <p className="font-mono text-xs uppercase tracking-[0.18em] text-clay">{copy.journal}</p>
         <h1 className="mt-5 font-display text-5xl font-light tracking-tight sm:text-6xl">
           {copy.journalTitle}
-          <span className="text-clay">.</span>
         </h1>
         <p className="mt-6 max-w-xl text-lg leading-relaxed text-mute">{copy.journalLede}</p>
         <div className="mt-14 grid gap-6 md:grid-cols-3">

@@ -259,7 +259,7 @@ export function FabricDeskSection({ lang = "en" }: { lang?: Lang }) {
               id="fabric-desk-heading"
               className="mt-4 font-display text-4xl font-light tracking-tight lg:text-5xl"
             >
-              Surat Fabric Desk<span className="text-clay">.</span>
+              Surat Fabric Desk
             </h2>
             <p className="mt-4 text-mute">{copy.subtitle}</p>
           </div>

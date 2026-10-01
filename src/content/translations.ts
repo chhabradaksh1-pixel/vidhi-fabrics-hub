@@ -66,6 +66,14 @@ export const COPY = {
       "hi-en":
         "Vidhi Fabrics Surat-based textile supplier aur wholesale fabric sourcing business hai. Hum retailers, brands, manufacturers aur traders ko shehar bhar ki trusted mills aur manufacturing partners se source ki gayi cotton, silk, synthetic, blended, jacquard, printed, dyed, woven aur other fabric varieties supply karte hain.",
     },
+    // Where the buyers are, as stated by the owner. Mirrors `areaServed` in
+    // content/business.ts and the polyester page's regions answer.
+    regions: {
+      en: "We mainly supply buyers across North India: Punjab, Haryana, Rajasthan and Madhya Pradesh.",
+      hi: "हम मुख्य रूप से उत्तर भारत के खरीदारों को सप्लाई करते हैं: पंजाब, हरियाणा, राजस्थान और मध्य प्रदेश।",
+      "hi-en":
+        "Hum zyadatar North India ke buyers ko supply karte hain: Punjab, Haryana, Rajasthan aur Madhya Pradesh.",
+    },
     stats: [
       {
         en: "2,400+ active SKUs",

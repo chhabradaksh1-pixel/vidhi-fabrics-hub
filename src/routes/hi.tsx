@@ -360,6 +360,9 @@ function HiIndex() {
             <p className="mt-6 max-w-[46ch] text-pretty text-lg text-mute">
               {COPY.hero.body[lang]}
             </p>
+            <p className="mt-3 max-w-[46ch] text-pretty text-lg text-mute">
+              {COPY.hero.regions[lang]}
+            </p>
             <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3 font-mono text-xs text-mute">
               {COPY.hero.stats.map((s) => (
                 <span key={s.en}>{s[lang]}</span>

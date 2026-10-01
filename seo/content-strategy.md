@@ -53,10 +53,19 @@ rather than changing direction.
 
 | Article                                                     | Words | Cluster         |
 | ----------------------------------------------------------- | ----- | --------------- |
-| How to Source Fabric from Surat Without Visiting the Market | 1,784 | Market literacy |
-| From sample to bulk order: a buyer's checklist              | 799   | Process         |
-| Buying dress material wholesale? Here's what to check first | 780   | Process         |
-| Why two similar-looking sarees can have different prices    | 769   | Specification   |
+| How to Source Fabric from Surat Without Visiting the Market | 1,788 | Market literacy |
+| Fabric GSM explained for bulk orders                        | 1,436 | Specification   |
+| How to read a fabric specification                          | 1,238 | Specification   |
+| Fabric width and costing explained                          | 1,182 | Specification   |
+| From sample to bulk order: a buyer's checklist              | 1,114 | Process         |
+| Buying dress material wholesale? Here's what to check first | 775   | Process         |
+| Why two similar-looking sarees can have different prices    | 765   | Specification   |
+
+Table updated 29 September 2026 from that day's crawl (`audit.mjs` word
+counts, English routes). The original 23 September table listed four articles;
+the three specification pieces were added 24–25 September and the checklist was
+deepened from 799 words. The paragraph below describes the 23 September state
+and is kept as the reasoning it was.
 
 Four pieces, one strong. The Surat sourcing piece is more than twice the length
 of the others and is the only one with real depth — it should be treated as the
@@ -153,10 +162,11 @@ document has to pass.
 
 Ordered by return, not by ease.
 
-1. **The three GSM/width/spec pieces (A).** Widest gap, clearest authority,
-   nothing comparable exists. Start with GSM — it is the term buyers actually
-   type.
-2. **The six fabric pages (E).** Most commercial, and the data exists.
+1. ~~**The three GSM/width/spec pieces (A).**~~ Done, 24–25 September 2026.
+2. **The six fabric pages (E).** Most commercial. **Blocked on the owner
+   confirming the catalogue specs** (29 September): the data exists, but it
+   dates from the initial site-template commit, and two values look implausible
+   on their face — see `reports/2026-09-29.md`.
 3. **"What to send when you do not know the fabric's name" (B).** Highest
    real-world frequency of any question on this list.
 4. **Transport from Surat (D).** Practical, unwritten, follows every quote.

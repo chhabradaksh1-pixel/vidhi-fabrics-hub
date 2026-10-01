@@ -1,13 +1,13 @@
 {
-  "crawledAt": "2026-09-27T05:54:45.778Z",
+  "crawledAt": "2026-09-29T07:08:42.025Z",
   "site": "https://www.vidhifabrics.com",
   "pages": [
     {
       "url": "https://www.vidhifabrics.com/",
       "status": 200,
-      "bytes": 113413,
+      "bytes": 113480,
       "title": "Surat Fabric Manufacturer &amp; Wholesaler | Vidhi Fabrics",
-      "description": "Wholesale fabric supplier and manufacturer in Surat. Cotton, silk, jacquard and blends for retailers, brands and traders. 10+ export markets.",
+      "description": "Wholesale fabric supplier and manufacturer in Surat. Cotton, silk, jacquard, dress material and blends for retailers, brands and traders. 10+ export markets.",
       "canonical": "https://www.vidhifabrics.com/",
       "robots": null,
       "ogTitle": "Surat Fabric Manufacturer &amp; Wholesaler | Vidhi Fabrics",
@@ -38,7 +38,7 @@
     {
       "url": "https://www.vidhifabrics.com/hi",
       "status": 200,
-      "bytes": 114738,
+      "bytes": 114789,
       "title": "सूरत में थोक कपड़ा सप्लायर | विधि फैब्रिक्स",
       "description": "विधि फैब्रिक्स से कॉटन, सिल्क, लिनन, पॉलिएस्टर और जैक्वार्ड कपड़ों की थोक जानकारी लें। अपनी ज़रूरत बताकर सैंपल, उपलब्धता और कोटेशन पूछें।",
       "canonical": "https://www.vidhifabrics.com/hi",
@@ -71,7 +71,7 @@
     {
       "url": "https://www.vidhifabrics.com/blog",
       "status": 200,
-      "bytes": 26846,
+      "bytes": 26897,
       "title": "Surat Fabric Desk | Wholesale Buying Guides | Vidhi Fabrics",
       "description": "Practical guides to dress material, sarees, samples and wholesale sourcing from the Vidhi Fabrics desk in Surat.",
       "canonical": "https://www.vidhifabrics.com/blog",
@@ -104,7 +104,7 @@
     {
       "url": "https://www.vidhifabrics.com/hi/blog",
       "status": 200,
-      "bytes": 28564,
+      "bytes": 28615,
       "title": "सूरत फैब्रिक डेस्क | थोक खरीद गाइड | विधि फैब्रिक्स",
       "description": "ड्रेस मटेरियल, साड़ी, सैंपल और थोक सोर्सिंग पर काम की गाइड — सूरत से, विधि फैब्रिक्स के फैब्रिक डेस्क द्वारा।",
       "canonical": "https://www.vidhifabrics.com/hi/blog",
@@ -137,7 +137,7 @@
     {
       "url": "https://www.vidhifabrics.com/blog/how-to-read-a-fabric-spec",
       "status": 200,
-      "bytes": 50484,
+      "bytes": 50535,
       "title": "How to read a fabric specification | Vidhi Fabrics",
       "description": "What each field on a spec sheet is actually telling you, which ones decide the cloth, and what the sheet leaves out.",
       "canonical": "https://www.vidhifabrics.com/blog/how-to-read-a-fabric-spec",
@@ -171,7 +171,7 @@
     {
       "url": "https://www.vidhifabrics.com/hi/blog/how-to-read-a-fabric-spec",
       "status": 200,
-      "bytes": 52529,
+      "bytes": 52580,
       "title": "फ़ैब्रिक स्पेसिफ़िकेशन कैसे पढ़ें | विधि फैब्रिक्स",
       "description": "स्पेक शीट का हर ख़ाना असल में क्या बता रहा है, कौन-से ख़ाने कपड़ा तय करते हैं, और शीट क्या नहीं बताती।",
       "canonical": "https://www.vidhifabrics.com/hi/blog/how-to-read-a-fabric-spec",
@@ -205,7 +205,7 @@
     {
       "url": "https://www.vidhifabrics.com/blog/fabric-width-and-costing",
       "status": 200,
-      "bytes": 47906,
+      "bytes": 47957,
       "title": "Fabric width and costing explained | Vidhi Fabrics",
       "description": "Why the cheaper metre is often the dearer garment, and why extra width only helps when it fits another piece across.",
       "canonical": "https://www.vidhifabrics.com/blog/fabric-width-and-costing",
@@ -239,7 +239,7 @@
     {
       "url": "https://www.vidhifabrics.com/hi/blog/fabric-width-and-costing",
       "status": 200,
-      "bytes": 50118,
+      "bytes": 50169,
       "title": "कपड़े की चौड़ाई और लागत | विधि फैब्रिक्स",
       "description": "सस्ता मीटर अक्सर महँगा कपड़ा क्यों बन जाता है, और ज़्यादा चौड़ाई तभी काम आती है जब उसमें एक और पीस बैठ जाए।",
       "canonical": "https://www.vidhifabrics.com/hi/blog/fabric-width-and-costing",
@@ -273,7 +273,7 @@
     {
       "url": "https://www.vidhifabrics.com/blog/fabric-gsm-bulk-orders",
       "status": 200,
-      "bytes": 53766,
+      "bytes": 53817,
       "title": "Fabric GSM explained for bulk orders | Vidhi Fabrics",
       "description": "Why the weight you specify and the weight you receive are not the same number, and what to write on the order instead.",
       "canonical": "https://www.vidhifabrics.com/blog/fabric-gsm-bulk-orders",
@@ -307,7 +307,7 @@
     {
       "url": "https://www.vidhifabrics.com/hi/blog/fabric-gsm-bulk-orders",
       "status": 200,
-      "bytes": 55720,
+      "bytes": 55771,
       "title": "कपड़े का GSM: बल्क ऑर्डर के लिए | विधि फैब्रिक्स",
       "description": "जो वज़न आप लिखते हैं और जो माल में आता है, वे एक ही आँकड़ा क्यों नहीं होते — और ऑर्डर पर इसके बजाय क्या लिखना चाहिए।",
       "canonical": "https://www.vidhifabrics.com/hi/blog/fabric-gsm-bulk-orders",
@@ -341,7 +341,7 @@
     {
       "url": "https://www.vidhifabrics.com/blog/buying-dress-material-wholesale",
       "status": 200,
-      "bytes": 38848,
+      "bytes": 38899,
       "title": "Dress material wholesale: what to check | Vidhi Fabrics",
       "description": "From fabric details to minimum quantities, know what to ask before placing your first order.",
       "canonical": "https://www.vidhifabrics.com/blog/buying-dress-material-wholesale",
@@ -375,7 +375,7 @@
     {
       "url": "https://www.vidhifabrics.com/hi/blog/buying-dress-material-wholesale",
       "status": 200,
-      "bytes": 41306,
+      "bytes": 41357,
       "title": "ड्रेस मटेरियल थोक: पहले यह जाँच लीजिए | विधि फैब्रिक्स",
       "description": "कपड़े की जानकारी से लेकर न्यूनतम मात्रा तक — पहला ऑर्डर देने से पहले क्या पूछना चाहिए।",
       "canonical": "https://www.vidhifabrics.com/hi/blog/buying-dress-material-wholesale",
@@ -409,7 +409,7 @@
     {
       "url": "https://www.vidhifabrics.com/blog/why-similar-sarees-have-different-prices",
       "status": 200,
-      "bytes": 37787,
+      "bytes": 37838,
       "title": "Why similar sarees have different prices | Vidhi Fabrics",
       "description": "A closer look at how fabric, finishing and workmanship can influence a quote.",
       "canonical": "https://www.vidhifabrics.com/blog/why-similar-sarees-have-different-prices",
@@ -443,7 +443,7 @@
     {
       "url": "https://www.vidhifabrics.com/hi/blog/why-similar-sarees-have-different-prices",
       "status": 200,
-      "bytes": 40220,
+      "bytes": 40271,
       "title": "एक जैसी साड़ियों की कीमत अलग क्यों होती है | विधि फैब्रिक्स",
       "description": "कपड़ा, फ़िनिशिंग और कारीगरी कोटेशन को कैसे बदलते हैं — क़रीब से एक नज़र।",
       "canonical": "https://www.vidhifabrics.com/hi/blog/why-similar-sarees-have-different-prices",
@@ -477,7 +477,7 @@
     {
       "url": "https://www.vidhifabrics.com/blog/sample-to-bulk-order-checklist",
       "status": 200,
-      "bytes": 49673,
+      "bytes": 49724,
       "title": "Sample to bulk order: a buyer’s checklist | Vidhi Fabrics",
       "description": "The details to confirm before moving from a sample you like to a larger order.",
       "canonical": "https://www.vidhifabrics.com/blog/sample-to-bulk-order-checklist",
@@ -511,7 +511,7 @@
     {
       "url": "https://www.vidhifabrics.com/hi/blog/sample-to-bulk-order-checklist",
       "status": 200,
-      "bytes": 51689,
+      "bytes": 51740,
       "title": "सैंपल से बल्क ऑर्डर तक: खरीदार की चेकलिस्ट | विधि फैब्रिक्स",
       "description": "पसंद आए सैंपल से बड़े ऑर्डर तक जाने से पहले कौन-सी बातें पक्की कर लेनी चाहिए।",
       "canonical": "https://www.vidhifabrics.com/hi/blog/sample-to-bulk-order-checklist",
@@ -545,7 +545,7 @@
     {
       "url": "https://www.vidhifabrics.com/blog/source-fabric-from-surat",
       "status": 200,
-      "bytes": 73034,
+      "bytes": 73085,
       "title": "How to Source Fabric from Surat Remotely | Vidhi Fabrics",
       "description": "A wholesale buyer’s guide to sourcing fabric from Surat remotely, covering requirements, samples, quotations, bulk approval, dispatch and delivery.",
       "canonical": "https://www.vidhifabrics.com/blog/source-fabric-from-surat",
@@ -579,7 +579,7 @@
     {
       "url": "https://www.vidhifabrics.com/hi/blog/source-fabric-from-surat",
       "status": 200,
-      "bytes": 74248,
+      "bytes": 74299,
       "title": "दूर बैठे सूरत से कपड़ा कैसे मंगवाएँ | विधि फैब्रिक्स",
       "description": "दूर बैठे सूरत से कपड़ा मंगवाने की थोक खरीदार गाइड — ज़रूरत, सैंपल, कोटेशन, बल्क मंज़ूरी, डिस्पैच और डिलीवरी तक।",
       "canonical": "https://www.vidhifabrics.com/hi/blog/source-fabric-from-surat",

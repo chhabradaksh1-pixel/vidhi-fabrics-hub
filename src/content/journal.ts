@@ -1516,6 +1516,12 @@ export const JOURNAL: JournalArticle[] = [
       "hi-en":
         "Fabric details se lekar minimum quantity tak — pehla order dene se pehle kya poochna chahiye.",
     },
+    directAnswer: {
+      en: "Buying dress material wholesale means confirming five things before ordering: the buying brief, exact set composition, a physical sample, how the minimum order quantity is calculated, and the full written order summary — price, taxes, packing and dispatch — before payment.",
+      hi: "ड्रेस मटेरियल थोक में खरीदने से पहले पाँच बातें पक्की कर लीजिए: खरीद की ब्रीफ़, सेट की सही सामग्री, एक असली सैंपल, न्यूनतम मात्रा कैसे तय होती है, और भुगतान से पहले पूरा लिखित ऑर्डर सारांश — कीमत, कर, पैकिंग और डिस्पैच।",
+      "hi-en":
+        "Dress material wholesale mein khareedne se pehle paanch baatein pakki kar lijiye: buying brief, set ki sahi composition, ek asli sample, minimum quantity kaise tay hoti hai, aur payment se pehle poora likhit order summary — price, taxes, packing aur dispatch.",
+    },
     introduction: {
       en: "A useful wholesale enquiry starts with the customer you are buying for. Before choosing a catalogue, write down the type of shop you run, the price range your customers usually buy, and the occasions you want to serve. This gives your supplier a clearer brief and gives you a better way to judge the options. Use the following checks to turn an attractive product photograph into an order you understand.",
       hi: "अच्छी थोक पूछताछ की शुरुआत उस ग्राहक से होती है जिसके लिए आप खरीद रहे हैं। कैटलॉग चुनने से पहले लिख लीजिए कि आपकी दुकान किस तरह की है, आपके ग्राहक आमतौर पर किस कीमत पर खरीदते हैं, और आप किन मौकों के लिए सामान रखना चाहते हैं। इससे सप्लायर को साफ़ ब्रीफ़ मिलता है और आपको विकल्प परखने का बेहतर तरीक़ा। नीचे दी गई जाँचें एक आकर्षक तस्वीर को ऐसे ऑर्डर में बदलने में मदद करती हैं जिसे आप समझते हों।",
@@ -1660,6 +1666,47 @@ export const JOURNAL: JournalArticle[] = [
             "Delivery address aur receiving contact confirm kijiye.",
             "Tay kijiye ki substitution ya delay ki information kaise di jayegi.",
           ],
+        },
+      },
+    ],
+    faq: [
+      {
+        question: {
+          en: "Is there a fixed minimum order quantity for dress material?",
+          hi: "क्या ड्रेस मटेरियल की कोई तय न्यूनतम मात्रा होती है?",
+          "hi-en": "Kya dress material ki koi fixed minimum quantity hoti hai?",
+        },
+        answer: {
+          en: "No — minimum quantities vary by catalogue, design and colour, and some suppliers apply it per component in a set rather than per piece. A more useful question than what the MOQ is in general is how it is calculated for the specific lot you are considering: per design, per colourway, or across the catalogue as a whole. Confirm this before comparing quotations, since two suppliers quoting the 'same' MOQ can mean different things.",
+          hi: "नहीं — न्यूनतम मात्रा कैटलॉग, डिज़ाइन और रंग के हिसाब से अलग-अलग होती है, और कुछ सप्लायर इसे सेट के हर हिस्से पर अलग से भी लागू करते हैं। असली सवाल यह नहीं कि न्यूनतम मात्रा आम तौर पर क्या है, बल्कि यह कि जिस लॉट में आपकी दिलचस्पी है उसके लिए यह कैसे तय होती है — हर डिज़ाइन पर, हर रंग पर, या पूरे कैटलॉग पर। कोटेशन की तुलना करने से पहले यह पक्का कर लीजिए, क्योंकि दो सप्लायरों की 'एक जैसी' न्यूनतम मात्रा का मतलब अलग-अलग हो सकता है।",
+          "hi-en":
+            "Nahin — minimum quantity catalogue, design aur colour ke hisaab se alag alag hoti hai, aur kuch suppliers ise set ke har component par alag se bhi apply karte hain. Asli sawal yeh nahi ki minimum quantity aam taur par kya hai, balki yeh ki jis lot mein aapki dilchaspi hai uske liye yeh kaise tay hoti hai — har design par, har colour par, ya poore catalogue par. Quotation compare karne se pehle yeh pakka kar lijiye, kyunki do suppliers ki 'ek jaisi' minimum quantity ka matlab alag alag ho sakta hai.",
+        },
+      },
+      {
+        question: {
+          en: "What's the difference between dress material and regular yardage?",
+          hi: "ड्रेस मटेरियल और सामान्य गज़ कपड़े (yardage) में क्या फ़र्क़ है?",
+          "hi-en": "Dress material aur regular yardage mein kya farak hai?",
+        },
+        answer: {
+          en: "Dress material is usually sold as a set — top, bottom and dupatta pieces together, in a fixed combination — rather than as fabric by the metre. That changes what you need to check: a yardage order is specified by composition, width and length; a dress material set also needs confirmation of what each component contains, whether any piece is optional, and whether the set is unstitched, semi-stitched or ready to wear.",
+          hi: "ड्रेस मटेरियल आमतौर पर एक सेट के रूप में बिकता है — टॉप, बॉटम और दुपट्टे के टुकड़े एक तय कॉम्बिनेशन में — न कि मीटर के हिसाब से कपड़े के रूप में। इससे यह तय होता है कि आपको क्या जाँचना है: गज़ कपड़े के ऑर्डर में सामग्री, चौड़ाई और लंबाई बताई जाती है; ड्रेस मटेरियल सेट में यह भी पक्का करना होता है कि हर हिस्से में क्या है, कोई हिस्सा वैकल्पिक तो नहीं, और सेट अनस्टिच्ड है, सेमी-स्टिच्ड या रेडी टू वियर।",
+          "hi-en":
+            "Dress material aam taur par ek set ke roop mein bikta hai — top, bottom aur dupatte ke tukde ek tay combination mein — na ki meter ke hisaab se fabric ke roop mein. Isse yeh tay hota hai ki aapko kya jaanchna hai: yardage order mein composition, width aur length batayi jaati hai; dress material set mein yeh bhi pakka karna hota hai ki har component mein kya hai, koi component optional to nahi, aur set unstitched hai, semi-stitched ya ready to wear.",
+        },
+      },
+      {
+        question: {
+          en: "Can I order dress material if I'm not based in India?",
+          hi: "क्या मैं भारत से बाहर रहते हुए भी ड्रेस मटेरियल ऑर्डर कर सकता हूँ?",
+          "hi-en": "Kya main India se bahar rehte hue bhi dress material order kar sakta hoon?",
+        },
+        answer: {
+          en: "Yes. The buying brief and sample process are the same regardless of where you are; the main addition is confirming delivery location, applicable duties and the dispatch timeline in writing before the order is placed.",
+          hi: "हाँ। खरीद की ब्रीफ़ और सैंपल की प्रक्रिया वही रहती है, चाहे आप कहीं भी हों; मुख्य फ़र्क़ यह है कि डिलीवरी की जगह, लागू शुल्क और डिस्पैच की समय-सीमा को ऑर्डर देने से पहले लिखित में पक्का करना होता है।",
+          "hi-en":
+            "Haan. Buying brief aur sample ki process wahi rehti hai, chahe aap kahin bhi hon; mukhya farak yeh hai ki delivery location, applicable duties aur dispatch ki timeline ko order dene se pehle likhit mein pakka karna hota hai.",
         },
       },
     ],

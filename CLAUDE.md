@@ -224,21 +224,34 @@ Nothing here is blocked on code. Most need a decision or data from the owner.
 
 **Live and wrong — fix when the owner supplies the data**
 
-- **Placeholder star ratings.** All four testimonial cards on both home routes
-  carry `ratingLabel: "Example five-star placeholder rating"` as their
-  `aria-label` (`src/content/translations.ts`). Screen readers announce that
-  verbatim, in all three languages, right now. Oldest open item; raised
-  repeatedly, never resolved. Either get real ratings or drop the stars.
 - **`sales@vidhifabrics.com`** is published in five places per page plus the
   structured data. Confirm the mailbox actually exists.
-- **Oversized card images.** The sarees-guide card pulls a 474 KB / 1600×1067
-  file to render at 342×257 — about +324 KB on the homepage versus the 150 KB
-  image it replaced. A ~95 KB 700px derivative fixes it. The other three cards
-  are oversized too (1024×768 for ~347×260), pre-existing.
-- **`weaving-loom.mp4`** (6 MB) is served `cache-control: max-age=0,
-must-revalidate` — it revalidates on every visit.
-- **Junk file in `public/`**: a broken Git LFS pointer from a Pinterest
-  download, unreferenced, served publicly as 131 bytes of text.
+- **Journal images are still oversized in dimensions, though smaller in bytes.**
+  The six images the catalogue cards and journal pages use (`woven-detail`,
+  `swatch-book`, `swatch-on-card`, `swatch-stack`, `warehouse-surat`,
+  `spec-samples`) were re-encoded from JPEG to WebP on 26 September — e.g.
+  `woven-detail.webp` is 332 KB versus the old 474 KB JPEG — but none were
+  resized. `woven-detail.webp` is still 1024×768 for a 342×257 card slot, and
+  `swatch-book.webp` is 1440×900. A sized derivative (~700px for a card) is
+  still the real fix; the format change only cut bytes, not the
+  resolution mismatch.
+- **`weaving-loom.mp4`** (6 MB) is still the single largest item on the
+  homepage. Correction carried from the 26 September SEO report: it does
+  **not** revalidate on every visit — it returns a 304 with 0 bytes on repeat
+  visits, so the 6 MB is a first-visit cost, not a per-visit one. Still needs a
+  re-encode, which needs ffmpeg, not available in this environment.
+
+**Fixed since this list was last written — removed 1 October 2026**
+
+- ~~Placeholder star ratings~~ — removed in `b127a97` (23 September). Verified
+  again 1 October: `ratingLabel` and "five-star" appear nowhere in `src/` or
+  the live homepage HTML. This item sat here as stale for over a week after
+  the actual fix landed; the SEO report caught the staleness on 27 September,
+  this file is the correction.
+- ~~Junk file in `public/`~~ — removed in the 26 September SEO pass, merged
+  1 October. The two camera-original `.mov` files also moved to
+  `media-originals/` as source material for a future re-encode, so a fresh
+  clone no longer pulls ~1 GB of LFS objects for files the site doesn't serve.
 
 **Owner-side**
 

@@ -52,7 +52,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "Wholesale fabric supply from Surat for retailers, brands, manufacturers and textile buyers, backed by direct access to the city's manufacturing ecosystem. Broad materials, constructions, patterns and finishes, with quotations within 12 hours.",
+          "Wholesale fabric supply from Surat for retailers, brands, manufacturers and textile buyers, backed by direct access to the city's manufacturing ecosystem. Broad materials, constructions, patterns and finishes, with replies typically within 12 hours.",
       },
       { property: "og:url", content: EN_URL },
       { property: "og:type", content: "website" },
@@ -206,10 +206,10 @@ const FAQS: {
       "hi-en": "Main enquiry kaise karun ya order kaise dun?",
     },
     answer: {
-      en: "You can reach us through the enquiry form on this page, via WhatsApp, or by phone. Share your fabric requirement — the type of fabric, approximate quantity and any specific construction, composition or finish — and our trade desk will respond within 12 hours.",
-      hi: "आप इस पेज पर पूछताछ फॉर्म के माध्यम से, व्हाट्सएप के जरिए, या फोन द्वारा हमसे संपर्क कर सकते हैं। अपनी फैब्रिक आवश्यकता साझा करें — फैब्रिक का प्रकार, अनुमानित मात्रा और कोई विशेष कंस्ट्रक्शन, कम्पोज़िशन या फिनिश — और हमारा ट्रेड डेस्क 12 घंटे के भीतर जवाब देगा।",
+      en: "You can reach us through the enquiry form on this page, via WhatsApp, or by phone. Share your fabric requirement — the type of fabric, approximate quantity and any specific construction, composition or finish — and our trade desk will typically respond within 12 hours.",
+      hi: "आप इस पेज पर पूछताछ फॉर्म के माध्यम से, व्हाट्सएप के जरिए, या फोन द्वारा हमसे संपर्क कर सकते हैं। अपनी फैब्रिक आवश्यकता साझा करें — फैब्रिक का प्रकार, अनुमानित मात्रा और कोई विशेष कंस्ट्रक्शन, कम्पोज़िशन या फिनिश — और हमारा ट्रेड डेस्क आमतौर पर 12 घंटे के भीतर जवाब देगा।",
       "hi-en":
-        "Aap is page par enquiry form ke through, WhatsApp ke zariye, ya phone se hamare se contact kar sakte hain. Apni fabric requirement share karein — fabric ka type, approximate quantity aur koi specific construction, composition ya finish — aur hamara trade desk 12 hours ke andar respond karega.",
+        "Aap is page par enquiry form ke through, WhatsApp ke zariye, ya phone se hamare se contact kar sakte hain. Apni fabric requirement share karein — fabric ka type, approximate quantity aur koi specific construction, composition ya finish — aur hamara trade desk aam taur par 12 hours ke andar respond karega.",
     },
   },
   {
@@ -232,9 +232,9 @@ const FAQS: {
       "hi-en": "Main Vidhi Fabrics se kaise contact kar sakta hoon?",
     },
     answer: {
-      en: `You can reach us via the enquiry form on this page, by WhatsApp, or by phone. Our trade desk is available Monday to Saturday and responds within 12 hours. You can also visit us at ${ADDRESS_LINES.en.join(", ")}.`,
-      hi: `आप इस पेज पर पूछताछ फॉर्म के माध्यम से, व्हाट्सएप द्वारा, या फोन पर हमसे संपर्क कर सकते हैं। हमारा ट्रेड डेस्क सोमवार से शनिवार तक उपलब्ध है और 12 घंटे के भीतर जवाब देता है। आप ${ADDRESS_LINES.hi.join(", ")} में भी हमसे मिल सकते हैं।`,
-      "hi-en": `Aap is page par enquiry form ke through, WhatsApp se, ya phone par hamare se contact kar sakte hain. Hamara trade desk Monday se Saturday tak available hai aur 12 hours ke andar respond karta hai. Aap ${ADDRESS_LINES["hi-en"].join(", ")} mein bhi hamare paas aa sakte hain.`,
+      en: `You can reach us via the enquiry form on this page, by WhatsApp, or by phone. Our trade desk is available Monday to Saturday and typically responds within 12 hours. You can also visit us at ${ADDRESS_LINES.en.join(", ")}.`,
+      hi: `आप इस पेज पर पूछताछ फॉर्म के माध्यम से, व्हाट्सएप द्वारा, या फोन पर हमसे संपर्क कर सकते हैं। हमारा ट्रेड डेस्क सोमवार से शनिवार तक उपलब्ध है और आमतौर पर 12 घंटे के भीतर जवाब देता है। आप ${ADDRESS_LINES.hi.join(", ")} में भी हमसे मिल सकते हैं।`,
+      "hi-en": `Aap is page par enquiry form ke through, WhatsApp se, ya phone par hamare se contact kar sakte hain. Hamara trade desk Monday se Saturday tak available hai aur aam taur par 12 hours ke andar respond karta hai. Aap ${ADDRESS_LINES["hi-en"].join(", ")} mein bhi hamare paas aa sakte hain.`,
     },
   },
 ];

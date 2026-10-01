@@ -198,10 +198,10 @@ const FAQS: {
       "hi-en": "Main enquiry kaise karun ya order kaise dun?",
     },
     answer: {
-      en: "You can reach us through the enquiry form on this page, via WhatsApp, or by phone. Our trade desk responds within 12 hours.",
-      hi: "आप इस पेज पर पूछताछ फॉर्म के ज़रिए, व्हाट्सएप से, या फोन पर हमसे संपर्क कर सकते हैं। कपड़े का प्रकार, अनुमानित मात्रा और कोई विशेष ज़रूरत बताएँ — हमारा ट्रेड डेस्क 12 घंटे के भीतर जवाब देगा।",
+      en: "You can reach us through the enquiry form on this page, via WhatsApp, or by phone. Our trade desk typically responds within 12 hours.",
+      hi: "आप इस पेज पर पूछताछ फॉर्म के ज़रिए, व्हाट्सएप से, या फोन पर हमसे संपर्क कर सकते हैं। कपड़े का प्रकार, अनुमानित मात्रा और कोई विशेष ज़रूरत बताएँ — हमारा ट्रेड डेस्क आमतौर पर 12 घंटे के भीतर जवाब देगा।",
       "hi-en":
-        "Aap enquiry form, WhatsApp ya phone se hamare se contact kar sakte hain. Hamara trade desk 12 hours mein respond karta hai.",
+        "Aap enquiry form, WhatsApp ya phone se hamare se contact kar sakte hain. Hamara trade desk aam taur par 12 hours mein respond karta hai.",
     },
   },
   {
@@ -224,10 +224,10 @@ const FAQS: {
       "hi-en": "Vidhi Fabrics se kaise contact karein?",
     },
     answer: {
-      en: "You can reach us via the enquiry form, by WhatsApp, or by phone. Our trade desk is available Monday to Saturday and responds within 12 hours.",
-      hi: `आप पूछताछ फॉर्म, व्हाट्सएप या फोन के ज़रिए हमसे संपर्क कर सकते हैं। हमारा ट्रेड डेस्क सोमवार से शनिवार तक उपलब्ध है और 12 घंटे के भीतर जवाब देता है। आप ${ADDRESS_LINES.hi.join(", ")} भी आ सकते हैं।`,
+      en: "You can reach us via the enquiry form, by WhatsApp, or by phone. Our trade desk is available Monday to Saturday and typically responds within 12 hours.",
+      hi: `आप पूछताछ फॉर्म, व्हाट्सएप या फोन के ज़रिए हमसे संपर्क कर सकते हैं। हमारा ट्रेड डेस्क सोमवार से शनिवार तक उपलब्ध है और आमतौर पर 12 घंटे के भीतर जवाब देता है। आप ${ADDRESS_LINES.hi.join(", ")} भी आ सकते हैं।`,
       "hi-en":
-        "Enquiry form, WhatsApp ya phone se contact karein. Trade desk Monday to Saturday available hai aur 12 hours mein respond karta hai.",
+        "Enquiry form, WhatsApp ya phone se contact karein. Trade desk Monday to Saturday available hai aur aam taur par 12 hours mein respond karta hai.",
     },
   },
 ];

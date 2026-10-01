@@ -99,9 +99,10 @@ export const COPY = {
       "hi-en": "Wholesale Inquiry",
     },
     sub: {
-      en: "Tell us what you source. We reply within 12 hours.",
-      hi: "बताइए आप क्या खरीदते हैं। हम 12 घंटे में जवाब देते हैं।",
-      "hi-en": "Bataiye aap kya source karte hain. Hum 12 hours mein reply karte hain.",
+      en: "Tell us what you source. We typically reply within 12 hours.",
+      hi: "बताइए आप क्या खरीदते हैं। हम आमतौर पर 12 घंटे में जवाब देते हैं।",
+      "hi-en":
+        "Bataiye aap kya source karte hain. Hum aam taur par 12 hours mein reply karte hain.",
     },
     company: {
       en: "Company / brand name",
@@ -139,9 +140,9 @@ export const COPY = {
       "hi-en": "Quotation maangein",
     },
     sent: {
-      en: "Thank you, our trade desk will reply within 12 hours.",
-      hi: "धन्यवाद, हमारा ट्रेड डेस्क 12 घंटे में जवाब देगा।",
-      "hi-en": "Shukriya, hamara trade desk 12 hours mein reply karega.",
+      en: "Thank you. Our trade desk typically replies within 12 hours.",
+      hi: "धन्यवाद। हमारा ट्रेड डेस्क आमतौर पर 12 घंटे में जवाब देता है।",
+      "hi-en": "Shukriya. Hamara trade desk aam taur par 12 hours mein reply karta hai.",
     },
   },
   leadPopup: {
@@ -444,10 +445,10 @@ export const COPY = {
       "hi-en": "Bade scale par source karne ke liye taiyaar?",
     },
     body: {
-      en: "Tell us the fabric, the volume and the season. We'll send samples and a quotation within 12 hours.",
-      hi: "बताइए कपड़ा, मात्रा और सीज़न। हम 12 घंटे में सैंपल और कोटेशन भेजेंगे।",
+      en: "Tell us the fabric, the volume and the season. We typically reply within 12 hours.",
+      hi: "बताइए कपड़ा, मात्रा और सीज़न। हम आमतौर पर 12 घंटे में जवाब देते हैं।",
       "hi-en":
-        "Bataiye fabric, volume aur season. Hum 12 hours mein samples aur quotation bhejenge.",
+        "Bataiye fabric, volume aur season. Hum aam taur par 12 hours mein reply karte hain.",
     },
     cta: {
       en: "Start a wholesale inquiry",

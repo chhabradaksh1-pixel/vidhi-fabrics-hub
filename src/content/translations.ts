@@ -81,9 +81,10 @@ export const COPY = {
         "hi-en": "2,400+ active SKUs",
       },
       {
-        en: "10+ export markets",
-        hi: "10+ निर्यात बाज़ार",
-        "hi-en": "10+ export markets",
+        // Export focus, not export history (owner, 2 October 2026).
+        en: "Export enquiries welcome: UAE & international",
+        hi: "UAE व अंतरराष्ट्रीय एक्सपोर्ट पूछताछ का स्वागत",
+        "hi-en": "Export enquiries welcome: UAE & international",
       },
       {
         en: "60+ years in textiles",
@@ -310,8 +311,13 @@ export const COPY = {
         label: { en: "Active SKUs", hi: "सक्रिय SKU", "hi-en": "Active SKUs" },
       },
       {
-        value: "10+",
-        label: { en: "Export markets", hi: "निर्यात बाज़ार", "hi-en": "Export markets" },
+        // Export focus, not a count of markets shipped to (owner, 2 October 2026).
+        value: "UAE",
+        label: {
+          en: "Export enquiries welcome",
+          hi: "एक्सपोर्ट पूछताछ का स्वागत",
+          "hi-en": "Export enquiries welcome",
+        },
       },
       {
         value: "12k",
@@ -370,11 +376,12 @@ export const COPY = {
         },
       },
       {
-        value: { en: "10+", hi: "10+", "hi-en": "10+" },
+        // Export focus, not a count of markets shipped to (owner, 2 October 2026).
+        value: { en: "UAE", hi: "UAE", "hi-en": "UAE" },
         label: {
-          en: "Export markets served",
-          hi: "निर्यात बाज़ार",
-          "hi-en": "Export markets served",
+          en: "Export enquiries welcome from the UAE and other international markets",
+          hi: "UAE और अन्य अंतरराष्ट्रीय बाज़ारों से एक्सपोर्ट पूछताछ का स्वागत है",
+          "hi-en": "UAE aur dusre international markets se export enquiries ka swagat hai",
         },
       },
     ],

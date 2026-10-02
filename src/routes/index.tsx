@@ -99,10 +99,10 @@ const FAQS: {
       "hi-en": "Vidhi Fabrics kis type ke fabrics supply karta hai?",
     },
     answer: {
-      en: "We supply cotton, silk, linen, polyester, jacquard and blended fabrics — including woven, printed, dyed and finished varieties, sourced from mills and processors across Surat. Our range covers over 2,400 active SKUs across different constructions, patterns, weights and finishes. Share your requirement and our team will help you identify the right fabric.",
-      hi: "हम कॉटन, सिल्क, लिनन, पॉलिएस्टर, जैक्वार्ड और ब्लेंडेड फैब्रिक सप्लाई करते हैं — जिसमें बुने, प्रिंटेड, रंगे और फिनिश्ड वैरायटी शामिल हैं, जो सूरत की मिलों और प्रोसेसर्स से सोर्स की जाती हैं। हमारी रेंज में विभिन्न कंस्ट्रक्शन, पैटर्न, वज़न और फिनिश में 2,400 से अधिक सक्रिय SKU हैं। अपनी आवश्यकता साझा करें और हमारी टीम आपको सही फैब्रिक पहचानने में मदद करेगी।",
+      en: "Our main categories are polyester sarees and dress material, which we manufacture and wholesale from Surat. Our range covers over 2,400 active SKUs across different constructions, patterns, weights and finishes. Share your requirement and our team will help you identify the right fabric.",
+      hi: "हमारी मुख्य श्रेणियाँ पॉलिएस्टर साड़ियाँ और ड्रेस मटेरियल हैं, जिन्हें हम सूरत से बनाते और थोक में बेचते हैं। हमारी रेंज में विभिन्न कंस्ट्रक्शन, पैटर्न, वज़न और फिनिश में 2,400 से अधिक सक्रिय SKU हैं। अपनी आवश्यकता साझा करें और हमारी टीम आपको सही फैब्रिक पहचानने में मदद करेगी।",
       "hi-en":
-        "Hum cotton, silk, linen, polyester, jacquard aur blended fabrics supply karte hain — jisme woven, printed, dyed aur finished varieties shamil hain, jo Surat ki mills aur processors se source hoti hain. Hamari range mein alag constructions, patterns, weights aur finishes mein 2,400 se zyada active SKUs hain. Apni requirement share karein aur hamari team aapko sahi fabric identify karne mein help karegi.",
+        "Hamari main categories polyester sarees aur dress material hain, jinhe hum Surat se banate aur wholesale mein bechte hain. Hamari range mein alag constructions, patterns, weights aur finishes mein 2,400 se zyada active SKUs hain. Apni requirement share karein aur hamari team aapko sahi fabric identify karne mein help karegi.",
     },
   },
   {
@@ -133,15 +133,17 @@ const FAQS: {
   },
   {
     question: {
-      en: "Can international buyers source directly from Vidhi Fabrics?",
-      hi: "क्या अंतरराष्ट्रीय खरीदार Vidhi Fabrics से सीधे सोर्स कर सकते हैं?",
-      "hi-en": "Kya international buyers Vidhi Fabrics se directly source kar sakte hain?",
+      en: "Do you supply international buyers?",
+      hi: "क्या आप एक्सपोर्ट के ऑर्डर लेते हैं?",
+      "hi-en": "Kya aap export orders lete hain?",
     },
     answer: {
-      en: "Yes. We supply fabrics across 10+ export markets. International buyers — including wholesalers, distributors, retailers and brands looking to source wholesale fabrics from India — are welcome to contact us directly. Our team handles export documentation end to end.",
-      hi: "हाँ। हम 10+ निर्यात बाज़ारों में फैब्रिक सप्लाई करते हैं। अंतरराष्ट्रीय खरीदार — जिसमें भारत से थोक फैब्रिक सोर्स करने के इच्छुक थोक विक्रेता, वितरक, रिटेलर्स और ब्रांड शामिल हैं — सीधे हमसे संपर्क करने के लिए स्वागत हैं। हमारी टीम निर्यात दस्तावेज़ीकरण शुरू से अंत तक संभालती है।",
-      "hi-en":
-        "Haan. Hum 10+ export markets mein fabrics supply karte hain. International buyers — jisme India se wholesale fabrics source karne ke ichchuk wholesalers, distributors, retailers aur brands shamil hain — directly hamare se contact karne ke liye welcome hain. Hamari team export documentation end to end handle karti hai.",
+      // Export focus, not export history: Vidhi Fabrics does not export yet
+      // (owner, 2 October 2026). Never state a count of countries or past
+      // shipments. See BRAND.md.
+      en: `Yes. Export enquiries are welcome from the UAE and other international markets. Contact us on WhatsApp or at ${BUSINESS.email}.`,
+      hi: `जी हाँ। UAE और अन्य अंतरराष्ट्रीय बाज़ारों से एक्सपोर्ट पूछताछ का स्वागत है। व्हाट्सएप पर या ${BUSINESS.email} पर हमसे बात कीजिए।`,
+      "hi-en": `Haan. UAE aur dusre international markets se export enquiries ka swagat hai. WhatsApp par ya ${BUSINESS.email} par hamse baat kijiye.`,
     },
   },
   {
@@ -216,10 +218,10 @@ const FAQS: {
       "hi-en": "Sourcing ya custom fabric enquiry ke liye mujhe kya information deni chahiye?",
     },
     answer: {
-      en: "Share the fabric type (e.g. cotton, silk, linen, jacquard), the intended use or garment application, approximate quantity, and any specific requirements around construction, composition, weight, colour, pattern or finish. For custom requirements, a reference sample, swatch or technical specification is always helpful. The more detail you can provide, the faster our team can respond.",
-      hi: "फैब्रिक का प्रकार (जैसे कॉटन, सिल्क, लिनन, जैक्वार्ड), इच्छित उपयोग या गारमेंट एप्लिकेशन, अनुमानित मात्रा, और कंस्ट्रक्शन, कम्पोज़िशन, वज़न, रंग, पैटर्न या फिनिश के बारे में कोई विशेष आवश्यकता साझा करें। कस्टम आवश्यकताओं के लिए, रेफरेंस सैंपल, स्वॉच या तकनीकी स्पेसिफिकेशन हमेशा सहायक होती है। आप जितनी अधिक जानकारी दे सकते हैं, हमारी टीम उतनी ही जल्दी जवाब दे सकती है।",
+      en: "Share the fabric type (e.g. polyester sarees or dress material), the intended use or garment application, approximate quantity, and any specific requirements around construction, composition, weight, colour, pattern or finish. For custom requirements, a reference sample, swatch or technical specification is always helpful. The more detail you can provide, the faster our team can respond.",
+      hi: "फैब्रिक का प्रकार (जैसे पॉलिएस्टर साड़ी या ड्रेस मटेरियल), इच्छित उपयोग या गारमेंट एप्लिकेशन, अनुमानित मात्रा, और कंस्ट्रक्शन, कम्पोज़िशन, वज़न, रंग, पैटर्न या फिनिश के बारे में कोई विशेष आवश्यकता साझा करें। कस्टम आवश्यकताओं के लिए, रेफरेंस सैंपल, स्वॉच या तकनीकी स्पेसिफिकेशन हमेशा सहायक होती है। आप जितनी अधिक जानकारी दे सकते हैं, हमारी टीम उतनी ही जल्दी जवाब दे सकती है।",
       "hi-en":
-        "Fabric ka type (jaise cotton, silk, linen, jacquard), intended use ya garment application, approximate quantity, aur construction, composition, weight, colour, pattern ya finish ke baare mein koi specific requirement share karein. Custom requirements ke liye, ek reference sample, swatch ya technical specification hamesha helpful hoti hai. Aap jitni zyada detail de sakte hain, hamari team utni jaldi respond kar sakti hai.",
+        "Fabric ka type (jaise polyester saree ya dress material), intended use ya garment application, approximate quantity, aur construction, composition, weight, colour, pattern ya finish ke baare mein koi specific requirement share karein. Custom requirements ke liye, ek reference sample, swatch ya technical specification hamesha helpful hoti hai. Aap jitni zyada detail de sakte hain, hamari team utni jaldi respond kar sakti hai.",
     },
   },
   {

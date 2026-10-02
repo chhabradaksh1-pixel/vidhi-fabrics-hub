@@ -73,6 +73,14 @@ form — not in copy, alt text, meta descriptions or structured data:
 The export-market figure (10+) and the monthly capacity figure (12k m²) were
 withdrawn on 2 October 2026 and must not be used anywhere.
 
+**Export focus (owner, 2 October 2026).** Vidhi Fabrics does not export yet but
+is open to export enquiries. Highlight the UAE and other international markets
+as the export focus, e.g. "Export enquiries welcome from the UAE and other
+international markets" / "UAE और अन्य अंतरराष्ट्रीय बाज़ारों से एक्सपोर्ट पूछताछ का
+स्वागत है". Never claim current export markets or export history, never state
+a count of countries exported to, and don't describe the business as an
+established exporter.
+
 One framing was explicitly rejected: **do not present the response time as
 replying to "wholesale enquiries."** It reads as though only large buyers are
 welcome. A boutique owner sourcing a small run is a real customer and the copy

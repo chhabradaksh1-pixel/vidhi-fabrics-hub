@@ -61,10 +61,10 @@ export const COPY = {
       "hi-en": "From Surat, Asia's textile hub, to your shop.",
     },
     body: {
-      en: "Vidhi Fabrics is a Surat-based manufacturer and wholesaler. We manufacture some lines in-house and also supply from Surat's wider textile market, serving retailers, brands, manufacturers and traders with cotton, silk, synthetic, blended, jacquard, printed, dyed, woven and other fabric varieties.",
-      hi: "विधि फैब्रिक्स सूरत स्थित निर्माता और थोक विक्रेता है। कुछ लाइनें हम खुद बनाते हैं और साथ ही सूरत के बड़े कपड़ा बाज़ार से भी सप्लाई करते हैं। हम रिटेलर्स, ब्रांड्स, निर्माताओं और व्यापारियों को कॉटन, सिल्क, सिंथेटिक, ब्लेंडेड, जैक्वार्ड, प्रिंटेड, रंगे, बुने और अन्य फैब्रिक वैरायटी देते हैं।",
+      en: "Vidhi Fabrics is a Surat manufacturer and wholesaler of polyester sarees and dress material, supplying wholesalers, retailers, resellers and boutiques.",
+      hi: "विधि फैब्रिक्स सूरत की पॉलिएस्टर साड़ी और ड्रेस मटेरियल निर्माता व थोक विक्रेता है, जो होलसेलर, रिटेलर, रीसेलर और बुटीक को माल देती है।",
       "hi-en":
-        "Vidhi Fabrics Surat ka manufacturer aur wholesaler hai. Kuch lines hum khud banate hain aur saath hi Surat ke bade textile market se bhi supply karte hain. Hum retailers, brands, manufacturers aur traders ko cotton, silk, synthetic, blended, jacquard, printed, dyed, woven aur other fabric varieties dete hain.",
+        "Vidhi Fabrics Surat ka polyester saree aur dress material manufacturer aur wholesaler hai, jo wholesalers, retailers, resellers aur boutiques ko maal deta hai.",
     },
     // Where the buyers are, as stated by the owner. Mirrors `areaServed` in
     // content/business.ts and the polyester page's regions answer.
@@ -320,8 +320,13 @@ export const COPY = {
         },
       },
       {
-        value: "12k",
-        label: { en: "Meters / month", hi: "मीटर / माह", "hi-en": "Meters / month" },
+        // Replaces the withdrawn monthly-capacity figure (owner, 2 October 2026).
+        value: "Surat",
+        label: {
+          en: "Manufacturer & wholesaler, Ring Road",
+          hi: "निर्माता व थोक विक्रेता, रिंग रोड",
+          "hi-en": "Manufacturer & wholesaler, Ring Road",
+        },
       },
     ],
     certTitle: {
@@ -330,10 +335,10 @@ export const COPY = {
       "hi-en": "Sirf sale nahi, contract ke liye certified.",
     },
     certBody: {
-      en: "OEKO-TEX and GOTS lines, coordinated dyeing and finishing, and export documentation handled end to end. Surat's network means lead times that hold, and a floor that never runs out of next season.",
-      hi: "OEKO-TEX और GOTS लाइनें, समन्वयित रंगाई और फिनिशिंग, और निर्यात दस्तावेज़ीकरण शुरू से अंत तक। सूरत का नेटवर्क यानी भरोसेमंद लीड टाइम, और ऐसा स्टॉक जो कभी खाली नहीं होता।",
+      en: "OEKO-TEX and GOTS lines, with dyeing and finishing coordinated through Surat's mills. One manufacturer and wholesaler answers for the whole order, with new designs every season, and export enquiries are welcome from the UAE.",
+      hi: "OEKO-TEX और GOTS लाइनें, और रंगाई-फ़िनिशिंग का तालमेल सूरत की मिलों के साथ। पूरे ऑर्डर की ज़िम्मेदारी एक ही निर्माता व थोक विक्रेता की, हर सीज़न नई डिज़ाइनों के साथ — और UAE से एक्सपोर्ट पूछताछ का भी स्वागत है।",
       "hi-en":
-        "OEKO-TEX aur GOTS lines, coordinated dyeing aur finishing, aur export documentation end to end. Surat ka network matlab lead times jo tikte hain, aur stock jo kabhi khatam nahi hota.",
+        "OEKO-TEX aur GOTS lines, aur dyeing-finishing ka taalmel Surat ki mills ke saath. Poore order ki zimmedari ek hi manufacturer aur wholesaler ki, har season nayi designs ke saath — aur UAE se export enquiries ka bhi swagat hai.",
     },
     imageAlt: {
       en: "An open swatch book of fabric samples, each shade carrying its own reference code",

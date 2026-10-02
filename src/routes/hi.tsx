@@ -182,19 +182,6 @@ const FAQS: {
   },
   {
     question: {
-      en: "What is the minimum order quantity?",
-      hi: "न्यूनतम ऑर्डर मात्रा क्या है?",
-      "hi-en": "Minimum order quantity kya hai?",
-    },
-    answer: {
-      en: "Minimum order quantities vary depending on the fabric type, construction, colour, finish and specific requirement. Contact our team for the relevant MOQ.",
-      hi: "न्यूनतम ऑर्डर मात्रा कपड़े के प्रकार, कंस्ट्रक्शन, रंग, फिनिश और आवश्यकता के आधार पर अलग-अलग होती है। सही जानकारी के लिए हमारी टीम से संपर्क करें।",
-      "hi-en":
-        "Minimum order quantity fabric type, construction, colour aur requirement ke hisaab se alag hoti hai. Relevant MOQ ke liye hamse contact karein.",
-    },
-  },
-  {
-    question: {
       en: "How do I enquire or place an order?",
       hi: "मैं पूछताछ कैसे करूँ या ऑर्डर कैसे दूँ?",
       "hi-en": "Main enquiry kaise karun ya order kaise dun?",

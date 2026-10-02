@@ -38,7 +38,7 @@ export const Route = createFileRoute("/")({
         name: "description",
         // Polyester sarees and dress material, manufacturer and wholesaler,
         // and the buyers and markets served (owner-approved, 2 October 2026).
-        // No capacity, export, MOQ or timing claims. See BRAND.md.
+        // No capacity, export-history, MOQ or timing claims. See BRAND.md.
         content:
           "Surat manufacturer and wholesaler of polyester sarees and dress material, for wholesalers, retailers, resellers and boutiques in Punjab, Haryana and Rajasthan.",
       },
@@ -183,19 +183,6 @@ const FAQS: {
       hi: "हाँ। आप हमारी रेंज से सैंपल, शेड कार्ड और प्रोडक्ट स्पेसिफिकेशन माँग सकते हैं। शुरू करने के लिए अपनी आवश्यकता के साथ पूछताछ फॉर्म या व्हाट्सएप के माध्यम से हमारी टीम से संपर्क करें।",
       "hi-en":
         "Haan. Aap hamare range se samples, shade cards aur product specifications maang sakte hain. Shuru karne ke liye apni requirement ke saath enquiry form ya WhatsApp ke through hamari team se contact karein.",
-    },
-  },
-  {
-    question: {
-      en: "What is the minimum order quantity?",
-      hi: "न्यूनतम ऑर्डर मात्रा क्या है?",
-      "hi-en": "Minimum order quantity kya hai?",
-    },
-    answer: {
-      en: "Minimum order quantities vary depending on the fabric type, construction, colour, finish and specific requirement. Contact our team with your requirement and we will confirm the relevant MOQ.",
-      hi: "न्यूनतम ऑर्डर मात्रा फैब्रिक के प्रकार, कंस्ट्रक्शन, रंग, फिनिश और विशेष आवश्यकता के आधार पर अलग-अलग होती है। अपनी आवश्यकता के साथ हमारी टीम से संपर्क करें और हम संबंधित MOQ की पुष्टि करेंगे।",
-      "hi-en":
-        "Minimum order quantity fabric type, construction, colour, finish aur specific requirement ke hisaab se alag hoti hai. Apni requirement ke saath hamari team se contact karein aur hum relevant MOQ confirm karenge.",
     },
   },
   {

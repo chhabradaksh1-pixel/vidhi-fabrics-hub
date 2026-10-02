@@ -1,58 +1,11 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
-import { JOURNAL, type JournalArticle } from "@/content/journal";
+import { JOURNAL } from "@/content/journal";
 import { JournalArticlePage } from "@/components/journal-pages";
 import { JournalHeader, JournalFooter } from "@/components/fabric-desk";
 import { breadcrumbList } from "@/lib/breadcrumbs";
-import { BUSINESS_ID } from "@/content/business";
+import { articleBlogPosting, articleFaqPage } from "@/lib/journal-schema";
 
 const SITE = "https://www.vidhifabrics.com";
-
-/**
- * BlogPosting structured data. Only properties the content source actually
- * carries are emitted, so datePublished appears for articles that record one.
- */
-function blogPosting(article: JournalArticle) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    headline: article.title.en,
-    description: article.excerpt.en,
-    inLanguage: "en",
-    mainEntityOfPage: `${SITE}/blog/${article.slug}`,
-    url: `${SITE}/blog/${article.slug}`,
-    image: new URL(article.image, SITE).href,
-    // Named per the CEO's confirmation (26 September 2026). `publisher`
-    // stays the Organization; a Person `author` with `worksFor` is the
-    // schema.org pattern search engines and answer engines use to resolve
-    // who actually wrote a page, which a generic Organization author does
-    // not give them.
-    author: {
-      "@type": "Person",
-      name: "Dinesh Chhabra",
-      jobTitle: "CEO",
-      worksFor: { "@type": "Organization", name: "Vidhi Fabrics" },
-    },
-    // Same `@id` as the site-wide LocalBusiness block, so the publisher is
-    // that business rather than a second, unlinked Organization. Name and
-    // logo stay inline because Google reads them from the publisher itself.
-    publisher: {
-      "@type": "Organization",
-      "@id": BUSINESS_ID,
-      name: "Vidhi Fabrics",
-      logo: { "@type": "ImageObject", url: `${SITE}/icon-512.png` },
-    },
-    ...(article.published ? { datePublished: article.published } : {}),
-    ...(article.faq
-      ? {
-          mainEntity: article.faq.map((entry) => ({
-            "@type": "Question",
-            name: entry.question.en,
-            acceptedAnswer: { "@type": "Answer", text: entry.answer.en },
-          })),
-        }
-      : {}),
-  };
-}
 
 export const Route = createFileRoute("/blog/$slug")({
   loader: ({ params }) => {
@@ -60,8 +13,9 @@ export const Route = createFileRoute("/blog/$slug")({
     if (!article) throw notFound();
     return article;
   },
-  head: ({ loaderData: article }) =>
-    article
+  head: ({ loaderData: article }) => {
+    const faqPage = article ? articleFaqPage(article, "en") : null;
+    return article
       ? {
           meta: [
             { title: `${article.metaTitle?.en ?? article.title.en} | Vidhi Fabrics` },
@@ -89,8 +43,11 @@ export const Route = createFileRoute("/blog/$slug")({
           scripts: [
             {
               type: "application/ld+json",
-              children: JSON.stringify(blogPosting(article)),
+              children: JSON.stringify(articleBlogPosting(article, "en")),
             },
+            ...(faqPage
+              ? [{ type: "application/ld+json", children: JSON.stringify(faqPage) }]
+              : []),
             {
               type: "application/ld+json",
               children: JSON.stringify(breadcrumbList("en", article)),
@@ -102,7 +59,8 @@ export const Route = createFileRoute("/blog/$slug")({
             { title: "Article not found | Vidhi Fabrics" },
             { name: "robots", content: "noindex" },
           ],
-        },
+        };
+  },
   notFoundComponent: () => (
     <div className="min-h-screen bg-paper">
       <JournalHeader />

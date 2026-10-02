@@ -30,21 +30,21 @@ export const Route = createFileRoute("/hi")({
   head: () => ({
     meta: [
       {
-        title: "सूरत में कपड़ा निर्माता और थोक विक्रेता | विधि फैब्रिक्स",
+        title: "साड़ी और ड्रेस मटेरियल निर्माता व थोक विक्रेता, सूरत | विधि फैब्रिक्स",
       },
       {
         name: "description",
         content:
-          "सूरत के कपड़ा निर्माता और थोक विक्रेता विधि फैब्रिक्स से कॉटन, सिल्क, लिनन, पॉलिएस्टर और जैक्वार्ड कपड़ों की थोक जानकारी लें। अपनी ज़रूरत बताकर सैंपल, उपलब्धता और कोटेशन पूछें।",
+          "सूरत की पॉलिएस्टर साड़ी और ड्रेस मटेरियल निर्माता व थोक विक्रेता। पंजाब, हरियाणा और राजस्थान के होलसेलर, रिटेलर, रीसेलर और बुटीक के लिए। डिज़ाइन, सैंपल और रेट के लिए संपर्क करें।",
       },
       {
         property: "og:title",
-        content: "सूरत में कपड़ा निर्माता और थोक विक्रेता | विधि फैब्रिक्स",
+        content: "साड़ी और ड्रेस मटेरियल निर्माता व थोक विक्रेता, सूरत | विधि फैब्रिक्स",
       },
       {
         property: "og:description",
         content:
-          "सूरत के कपड़ा निर्माता और थोक विक्रेता विधि फैब्रिक्स से कॉटन, सिल्क, लिनन, पॉलिएस्टर और जैक्वार्ड कपड़ों की थोक जानकारी लें। अपनी ज़रूरत बताकर सैंपल, उपलब्धता और कोटेशन पूछें।",
+          "विधि फैब्रिक्स सूरत की पॉलिएस्टर साड़ी और ड्रेस मटेरियल निर्माता व थोक विक्रेता है, जो पंजाब, हरियाणा और राजस्थान के होलसेलर, रिटेलर, रीसेलर और बुटीक को माल देती है। डिज़ाइन, सैंपल और रेट के लिए व्हाट्सएप करें।",
       },
       { property: "og:url", content: HI_URL },
       { property: "og:type", content: "website" },
@@ -94,10 +94,10 @@ const FAQS: {
       "hi-en": "Vidhi Fabrics kis type ke fabrics supply karta hai?",
     },
     answer: {
-      en: "We supply cotton, silk, linen, polyester, jacquard and blended fabrics, sourced from mills and processors across Surat.",
-      hi: "हम कॉटन, सिल्क, लिनन, पॉलिएस्टर, जैक्वार्ड और ब्लेंडेड कपड़े सप्लाई करते हैं — जिसमें बुने, प्रिंटेड, रंगे और फिनिश्ड वैरायटी शामिल हैं, जो सूरत की मिलों और प्रोसेसर्स से सोर्स की जाती हैं। हमारी रेंज में 2,400 से अधिक सक्रिय SKU हैं। अपनी ज़रूरत बताएँ और हमारी टीम सही कपड़ा पहचानने में मदद करेगी।",
+      en: "Our main categories are polyester sarees and dress material, which we manufacture and wholesale from Surat. Through our network of Surat mills and manufacturing units, we also source other fabrics to order, such as organza and net.",
+      hi: "हमारी मुख्य श्रेणियाँ पॉलिएस्टर साड़ियाँ और ड्रेस मटेरियल हैं, जिन्हें हम सूरत से बनाते और थोक में बेचते हैं। सूरत की मिलों और मैन्युफैक्चरिंग यूनिट्स के नेटवर्क से हम ऑर्गेंज़ा, नेट जैसे दूसरे कपड़े भी ऑर्डर पर सोर्स करते हैं। हमारी रेंज में 2,400 से अधिक सक्रिय SKU हैं। अपनी ज़रूरत बताएँ और हमारी टीम सही कपड़ा पहचानने में मदद करेगी।",
       "hi-en":
-        "Hum cotton, silk, linen, polyester, jacquard aur blended fabrics supply karte hain, jo Surat ki mills aur processors se source hoti hain.",
+        "Hamari main categories polyester sarees aur dress material hain, jinhe hum Surat se banate aur wholesale mein bechte hain. Surat ki mills aur manufacturing units ke network se hum organza, net jaise dusre fabrics bhi order par source karte hain.",
     },
   },
   {
@@ -128,15 +128,17 @@ const FAQS: {
   },
   {
     question: {
-      en: "Can international buyers source directly from Vidhi Fabrics?",
-      hi: "क्या विदेशी खरीदार विधि फैब्रिक्स से सीधे कपड़ा मँगा सकते हैं?",
-      "hi-en": "Kya international buyers Vidhi Fabrics se directly source kar sakte hain?",
+      en: "Do you supply international buyers?",
+      hi: "क्या आप एक्सपोर्ट के ऑर्डर लेते हैं?",
+      "hi-en": "Kya aap export orders lete hain?",
     },
     answer: {
-      en: "Yes. We supply fabrics across 10+ export markets. Our team handles export documentation end to end.",
-      hi: "हाँ। हम 10 से अधिक निर्यात बाज़ारों में कपड़ा सप्लाई करते हैं। विदेशी खरीदार सीधे हमसे संपर्क कर सकते हैं। हमारी टीम निर्यात दस्तावेज़ीकरण शुरू से अंत तक संभालती है।",
-      "hi-en":
-        "Haan. Hum 10+ export markets mein fabrics supply karte hain. Hamari team export documentation end to end handle karti hai.",
+      // Export focus, not export history: Vidhi Fabrics does not export yet
+      // (owner, 2 October 2026). Never state a count of countries or past
+      // shipments. See BRAND.md.
+      en: `Yes. Export enquiries are welcome from the UAE and other international markets. Contact us on WhatsApp or at ${BUSINESS.email}.`,
+      hi: `जी हाँ। UAE और अन्य अंतरराष्ट्रीय बाज़ारों से एक्सपोर्ट पूछताछ का स्वागत है। व्हाट्सएप पर या ${BUSINESS.email} पर हमसे बात कीजिए।`,
+      "hi-en": `Haan. UAE aur dusre international markets se export enquiries ka swagat hai. WhatsApp par ya ${BUSINESS.email} par hamse baat kijiye.`,
     },
   },
   {
@@ -180,19 +182,6 @@ const FAQS: {
   },
   {
     question: {
-      en: "What is the minimum order quantity?",
-      hi: "न्यूनतम ऑर्डर मात्रा क्या है?",
-      "hi-en": "Minimum order quantity kya hai?",
-    },
-    answer: {
-      en: "Minimum order quantities vary depending on the fabric type, construction, colour, finish and specific requirement. Contact our team for the relevant MOQ.",
-      hi: "न्यूनतम ऑर्डर मात्रा कपड़े के प्रकार, कंस्ट्रक्शन, रंग, फिनिश और आवश्यकता के आधार पर अलग-अलग होती है। सही जानकारी के लिए हमारी टीम से संपर्क करें।",
-      "hi-en":
-        "Minimum order quantity fabric type, construction, colour aur requirement ke hisaab se alag hoti hai. Relevant MOQ ke liye hamse contact karein.",
-    },
-  },
-  {
-    question: {
       en: "How do I enquire or place an order?",
       hi: "मैं पूछताछ कैसे करूँ या ऑर्डर कैसे दूँ?",
       "hi-en": "Main enquiry kaise karun ya order kaise dun?",
@@ -212,7 +201,7 @@ const FAQS: {
     },
     answer: {
       en: "Share the fabric type, intended use, approximate quantity, and any specific requirements around construction, composition, weight, colour, pattern or finish.",
-      hi: "कपड़े का प्रकार (जैसे कॉटन, सिल्क, लिनन, जैक्वार्ड), उपयोग, अनुमानित मात्रा, और कंस्ट्रक्शन, रंग, पैटर्न या फिनिश से जुड़ी विशेष ज़रूरत बताएँ। कस्टम ऑर्डर के लिए रेफरेंस सैंपल या तकनीकी स्पेसिफिकेशन भी सहायक होती है।",
+      hi: "कपड़े का प्रकार (जैसे पॉलिएस्टर साड़ी, ड्रेस मटेरियल, ऑर्गेंज़ा या नेट), उपयोग, अनुमानित मात्रा, और कंस्ट्रक्शन, रंग, पैटर्न या फिनिश से जुड़ी विशेष ज़रूरत बताएँ। कस्टम ऑर्डर के लिए रेफरेंस सैंपल या तकनीकी स्पेसिफिकेशन भी सहायक होती है।",
       "hi-en":
         "Fabric ka type, intended use, approximate quantity, aur koi specific construction, colour, pattern ya finish requirement share karein.",
     },

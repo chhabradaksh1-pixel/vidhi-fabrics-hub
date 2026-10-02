@@ -13,14 +13,18 @@ a spec. If you change a token, re-measure rather than reasoning about it.
 
 ## Who this is for
 
-Vidhi Fabrics supplies **retailers, brands, manufacturers and traders** —
-people who already know fabric. They are comparing suppliers, not learning what
+Vidhi Fabrics supplies **wholesalers, retailers, resellers and boutiques** —
+mainly in Punjab, Haryana and Rajasthan, sometimes Madhya Pradesh (confirmed by
+the owner on 2 October 2026). These are people who already know fabric. They are comparing suppliers, not learning what
 jacquard is. Copy can use trade vocabulary without glossing it, and should
 never explain the obvious.
 
-The range spans cotton, silk, synthetic, blended, jacquard, printed, dyed and
-woven varieties: some lines manufactured in-house, the rest supplied from
-Surat's wider textile market.
+The main categories are **polyester sarees and dress material** (manufacturer
+and wholesaler). On top of that, Vidhi Fabrics offers **fabric sourcing**:
+through its network of Surat mills and manufacturing units it sources organza,
+net and other fabrics to order (owner, 2 October 2026). Name organza and net as
+examples; don't present cotton, silk, linen or jacquard as standing ranges.
+Never mention margins or describe the sourcing as reselling.
 
 ## Positioning
 
@@ -67,16 +71,26 @@ form — not in copy, alt text, meta descriptions or structured data:
 | ------------------ | ------------------------- |
 | Years in the trade | since the 1960s           |
 | Active SKUs        | 2,400+                    |
-| Export markets     | 10+                       |
-| Monthly capacity   | 12k m²                    |
 | Enquiry response   | typically within 12 hours |
+
+The export-market figure (10+) and the monthly capacity figure (12k m²) were
+withdrawn on 2 October 2026 and must not be used anywhere.
+
+**Export focus (owner, 2 October 2026).** Vidhi Fabrics does not export yet but
+is open to export enquiries. Highlight the UAE and other international markets
+as the export focus, e.g. "Export enquiries welcome from the UAE and other
+international markets" / "UAE और अन्य अंतरराष्ट्रीय बाज़ारों से एक्सपोर्ट पूछताछ का
+स्वागत है". Never claim current export markets or export history, never state
+a count of countries exported to, and don't describe the business as an
+established exporter.
 
 One framing was explicitly rejected: **do not present the response time as
 replying to "wholesale enquiries."** It reads as though only large buyers are
 welcome. A boutique owner sourcing a small run is a real customer and the copy
 must not signal otherwise.
 
-The OEKO-TEX and GOTS claim in `certBody` is accurate per the owner, but no
+GOTS was removed on 2 October 2026 (it certifies organic cotton, which does
+not fit the range). The OEKO-TEX claim in `certBody` is accurate per the owner, but no
 certificate or licence numbers have been supplied. Until they are, don't extend
 or restate the claim anywhere new.
 
@@ -170,7 +184,7 @@ effectively invisible rather than merely hard to read, so the rule matters more
 now, not less.
 
 `mute` is the tightest pair in the set at 4.89:1 on `sand`. It was chosen by
-searching down the neutral ramp for the lightest grey clearing 4.5:1 on *both*
+searching down the neutral ramp for the lightest grey clearing 4.5:1 on _both_
 grounds; a step lighter fails on `sand`. Do not lighten it.
 
 Over a texture or photograph, check the **brightest pixel**, not the average.

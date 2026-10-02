@@ -154,8 +154,8 @@ function PolyesterSareesPageHi() {
               अच्छी तरह पकड़ता है, देखभाल में आसान है, और हर कीमत पर जल्दी बिकता है।
             </p>
             <p className="mt-5 leading-[1.85] text-mute">
-              हम डिज़ाइन और रंग के हिसाब से सेट तैयार करते हैं, हर सीज़न नई डिज़ाइनें लाते रहते हैं,
-              और ट्रांसपोर्ट के लिए हर ऑर्डर को सावधानी से पैक करते हैं।
+              हम डिज़ाइन और रंग के हिसाब से सेट तैयार करते हैं और हर सीज़न नई डिज़ाइनें लाते रहते
+              हैं।
             </p>
             <p className="mt-5 leading-[1.85] text-mute">
               ताज़ा कैटलॉग और रेट के लिए हमें व्हाट्सएप पर{" "}
@@ -170,6 +170,42 @@ function PolyesterSareesPageHi() {
               पर मैसेज कीजिए, या हमसे {ADDRESS_LINES.hi.join(", ")} पर मिलिए। चाहे आप डिस्ट्रीब्यूशन
               के लिए स्टॉक कर रहे थोक विक्रेता हों या बेस्टसेलर दोबारा मँगवा रहे रिटेलर, हम आपको ऐसी
               डिज़ाइनें चुनने में मदद करेंगे जो आपके ग्राहकों और आपके मार्जिन, दोनों के अनुकूल हों।
+            </p>
+
+            <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">
+              बल्क ऑर्डर देने से पहले
+            </h2>
+            <p className="mt-5 leading-[1.85] text-mute">
+              हमारे सूरत फैब्रिक डेस्क की ये चार गाइड उन सवालों का जवाब देती हैं जो खरीदार सबसे
+              ज़्यादा पूछते हैं:{" "}
+              <a
+                href="/hi/blog/why-similar-sarees-have-different-prices"
+                className="text-clay underline decoration-line underline-offset-4 hover:text-claydeep"
+              >
+                एक जैसी दिखने वाली दो साड़ियों के दाम अलग क्यों होते हैं
+              </a>
+              ,{" "}
+              <a
+                href="/hi/blog/fabric-gsm-bulk-orders"
+                className="text-clay underline decoration-line underline-offset-4 hover:text-claydeep"
+              >
+                बल्क ऑर्डर में GSM का असली मतलब
+              </a>
+              ,{" "}
+              <a
+                href="/hi/blog/sample-to-bulk-order-checklist"
+                className="text-clay underline decoration-line underline-offset-4 hover:text-claydeep"
+              >
+                सैंपल से बल्क ऑर्डर तक की चेकलिस्ट
+              </a>{" "}
+              और{" "}
+              <a
+                href="/hi/blog/karva-chauth-diwali-festive-stock"
+                className="text-clay underline decoration-line underline-offset-4 hover:text-claydeep"
+              >
+                करवा चौथ और दिवाली के लिए क्या स्टॉक करें
+              </a>
+              ।
             </p>
 
             <p className="mt-5 leading-[1.85] text-mute">

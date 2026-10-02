@@ -67,6 +67,13 @@ export type JournalArticle = {
   /** ISO date. Only set on articles whose publication date is known. */
   published?: string;
   /**
+   * ISO date of the last substantive content change, when it differs from
+   * `published`. Emitted as `dateModified` and shown beside the publication
+   * date. Keep it in step with the article's `<lastmod>` in sitemap.xml, and
+   * do not bump it for metadata-only edits.
+   */
+  modified?: string;
+  /**
    * Search-facing title, when it should differ from the on-page H1. Falls back
    * to the article title.
    */
@@ -107,6 +114,368 @@ export function relatedArticles(article: JournalArticle, count: number) {
 }
 
 export const JOURNAL: JournalArticle[] = [
+  {
+    slug: "karva-chauth-diwali-festive-stock",
+    image: organza,
+    published: "2026-10-02",
+    imageAlt: {
+      en: "Champagne shimmer fabric scattered with pearl beads, draped to show how it falls",
+      hi: "मोतियों से सजा शैम्पेन रंग का चमकीला कपड़ा, लटकाकर दिखाया गया कि वह कैसे गिरता है",
+      "hi-en":
+        "Motiyon se saja champagne rang ka chamkila kapda, latkakar dikhaya gaya ki wo kaise girta hai",
+    },
+    category: {
+      en: "Seasonal buying",
+      hi: "सीज़न की खरीद",
+      "hi-en": "Season ki khareed",
+    },
+    metaTitle: {
+      en: "Karva Chauth & Diwali saree and suit stocking guide",
+      hi: "करवा चौथ और दिवाली के लिए साड़ी-सूट स्टॉक गाइड",
+      "hi-en": "Karva Chauth aur Diwali ke liye saree-suit stock guide",
+    },
+    metaDescription: {
+      en: "What retailers and boutiques in Punjab, Haryana and Rajasthan stock for Karva Chauth and Diwali: festive colours, fabric feel, set mixes and price bands.",
+      hi: "पंजाब, हरियाणा और राजस्थान के रिटेलर और बुटीक करवा चौथ व दिवाली के लिए क्या स्टॉक करें: त्योहारी रंग, कपड़े का फ़ील, साड़ी-सूट का मेल और प्राइस बैंड।",
+      "hi-en":
+        "Punjab, Haryana aur Rajasthan ke retailers aur boutiques Karva Chauth va Diwali ke liye kya stock karein: festive rang, kapde ka feel, saree-suit ka mel aur price bands.",
+    },
+    title: {
+      en: "Karva Chauth and Diwali: what sarees and suits North Indian retailers stock",
+      hi: "करवा चौथ और दिवाली के लिए साड़ी-सूट का स्टॉक: पंजाब-हरियाणा के दुकानदारों की गाइड",
+      "hi-en":
+        "Karva Chauth aur Diwali ke liye saree-suit ka stock: Punjab-Haryana ke dukaandaron ki guide",
+    },
+    excerpt: {
+      en: "Festive colours, fabric feel, how to mix sarees with suits and how to spread price bands, for the Karva Chauth and Diwali season.",
+      hi: "त्योहारी रंग, कपड़े का फ़ील, साड़ी और सूट का मेल, और प्राइस बैंड का बँटवारा — करवा चौथ और दिवाली के सीज़न के लिए।",
+      "hi-en":
+        "Festive rang, kapde ka feel, saree aur suit ka mel, aur price bands ka bantwara — Karva Chauth aur Diwali ke season ke liye.",
+    },
+    directAnswer: {
+      en: "For Karva Chauth and Diwali, North Indian retailers lean on reds, maroons and deep festive shades, and add pastels and jewel tones for Diwali. Spread the range across everyday-festive, middle and statement price bands, judge the fabric feel on a physical sample, and stock sarees with unstitched suits so one order covers both festivals.",
+      hi: "करवा चौथ और दिवाली के लिए उत्तर भारत के दुकानदार सबसे ज़्यादा लाल, मैरून और गहरे त्योहारी रंगों पर चलते हैं, और दिवाली के लिए पेस्टल व चटक रंग भी जोड़ते हैं। रेंज को रोज़मर्रा-त्योहारी, बीच के और ख़ास — तीन प्राइस बैंड में बाँटिए, कपड़े का फ़ील असली सैंपल पर परखिए, और साड़ियों के साथ अनस्टिच्ड सूट भी रखिए ताकि एक ही ऑर्डर से दोनों त्योहार निकल जाएँ।",
+      "hi-en":
+        "Karva Chauth aur Diwali ke liye North India ke dukaandaar sabse zyada laal, maroon aur gehre festive rangon par chalte hain, aur Diwali ke liye pastel aur chatak rang bhi jodte hain. Range ko rozmarra-festive, beech ke aur khaas — teen price bands mein baantiye, kapde ka feel asli sample par parkhiye, aur sarees ke saath unstitched suits bhi rakhiye taaki ek hi order se dono tyohaar nikal jaayein.",
+    },
+    introduction: {
+      en: "Karva Chauth and Diwali usually fall only a few weeks apart, and for many shops in Punjab, Haryana and Rajasthan they run together as one long festive season. The two festivals do not sell the same stock, though. This guide sets out how to plan for both — colours, fabric feel, the balance of sarees and suits, and price bands — so the picture is clear before you place the order.",
+      hi: "करवा चौथ और दिवाली के बीच आम तौर पर कुछ ही हफ़्ते होते हैं, और पंजाब, हरियाणा और राजस्थान की कई दुकानों के लिए दोनों मिलकर एक लंबा त्योहारी सीज़न बन जाते हैं। फिर भी दोनों त्योहारों में एक जैसा माल नहीं बिकता। यह गाइड बताती है कि दोनों के लिए स्टॉक कैसे सोचें — रंग, कपड़े का फ़ील, साड़ी और सूट का अनुपात, और प्राइस बैंड — ताकि ऑर्डर देने से पहले तस्वीर साफ़ रहे।",
+      "hi-en":
+        "Karva Chauth aur Diwali ke beech aam taur par kuch hi hafte hote hain, aur Punjab, Haryana aur Rajasthan ki kai dukaanon ke liye dono milkar ek lamba festive season ban jaate hain. Phir bhi dono tyohaaron mein ek jaisa maal nahin bikta. Yeh guide batati hai ki dono ke liye stock kaise sochein — rang, kapde ka feel, saree aur suit ka anupaat, aur price bands — taaki order dene se pehle tasveer saaf rahe.",
+    },
+    inlineLinks: [
+      {
+        phrase: {
+          en: "festive polyester sarees",
+          hi: "त्योहारी पॉलिएस्टर साड़ियों",
+          "hi-en": "festive polyester sarees",
+        },
+        href: "/polyester-sarees-wholesale-surat",
+      },
+      {
+        phrase: {
+          en: "unstitched suits and dress material",
+          hi: "अनस्टिच्ड सूट और ड्रेस मटेरियल",
+          "hi-en": "unstitched suits aur dress material",
+        },
+        href: "/dress-material-wholesale-surat",
+      },
+      {
+        phrase: {
+          en: "sample-to-bulk checklist",
+          hi: "सैंपल से बल्क ऑर्डर की चेकलिस्ट",
+          "hi-en": "sample se bulk order ki checklist",
+        },
+        href: "/blog/sample-to-bulk-order-checklist",
+      },
+      {
+        phrase: {
+          en: "why two similar-looking sarees can be priced differently",
+          hi: "एक जैसी दिखने वाली साड़ियों के दाम अलग क्यों होते हैं",
+          "hi-en": "ek jaisi dikhne wali sarees ke daam alag kyun hote hain",
+        },
+        href: "/blog/why-similar-sarees-have-different-prices",
+      },
+      {
+        phrase: {
+          en: "what GSM tells you",
+          hi: "GSM असल में क्या बताता है",
+          "hi-en": "GSM asal mein kya batata hai",
+        },
+        href: "/blog/fabric-gsm-bulk-orders",
+      },
+    ],
+    related: [
+      "sample-to-bulk-order-checklist",
+      "why-similar-sarees-have-different-prices",
+      "buying-dress-material-wholesale",
+    ],
+    sections: [
+      {
+        heading: {
+          en: "Start with the occasion, not the catalogue",
+          hi: "कैटलॉग से नहीं, मौक़े से शुरू कीजिए",
+          "hi-en": "Catalogue se nahin, mauke se shuru kijiye",
+        },
+        paragraphs: {
+          en: [
+            "Karva Chauth is a day for married women, built around the fast, the evening puja and the moonrise. Most customers want something new to wear for it, often a saree or a suit in a traditional colour, and some buy as a gift within the family.",
+            "Diwali widens the brief. Customers are buying for family visits, pujas at home and at the shop, gifting and several days of going out, and they are often buying for more than one person. Plan the order in two layers: a focused Karva Chauth range that goes on display first, and a broader Diwali range behind it.",
+          ],
+          hi: [
+            "करवा चौथ सुहागिन महिलाओं का दिन है — व्रत, शाम की पूजा और चाँद का इंतज़ार। ज़्यादातर ग्राहक उस दिन पहनने के लिए कुछ नया चाहती हैं, अक्सर पारंपरिक रंग की साड़ी या सूट, और कुछ परिवार में तोहफ़ा देने के लिए भी खरीदती हैं।",
+            "दिवाली में दायरा बड़ा हो जाता है। ग्राहक रिश्तेदारों के यहाँ जाने, घर और दुकान की पूजा, तोहफ़ों और कई दिनों के आने-जाने के लिए खरीदते हैं, और अक्सर एक से ज़्यादा लोगों के लिए। इसलिए ऑर्डर को दो हिस्सों में सोचिए: करवा चौथ की एक छोटी, चुनी हुई रेंज जो पहले डिस्प्ले में लगे, और उसके पीछे दिवाली की बड़ी रेंज।",
+          ],
+          "hi-en": [
+            "Karva Chauth suhagan mahilaon ka din hai — vrat, shaam ki pooja aur chaand ka intezaar. Zyadatar customers us din pehenne ke liye kuch naya chahti hain, aksar paramparik rang ki saree ya suit, aur kuch parivaar mein tohfa dene ke liye bhi khareedti hain.",
+            "Diwali mein daayra bada ho jaata hai. Customers rishtedaron ke yahan jaane, ghar aur dukaan ki pooja, tohfon aur kai dinon ke aane-jaane ke liye khareedte hain, aur aksar ek se zyada logon ke liye. Isliye order ko do hisson mein sochiye: Karva Chauth ki ek chhoti, chuni hui range jo pehle display mein lage, aur uske peeche Diwali ki badi range.",
+          ],
+        },
+      },
+      {
+        heading: {
+          en: "Colours: reds and maroons first, then a wider festive spread",
+          hi: "रंग: पहले लाल और मैरून, फिर त्योहारी रंगों का फैलाव",
+          "hi-en": "Rang: pehle laal aur maroon, phir festive rangon ka phailaav",
+        },
+        paragraphs: {
+          en: [
+            "For Karva Chauth, red is the anchor. Bridal red, maroon, wine, rani pink and orange-red are the shades most customers look for, and a rack without them looks unprepared. Keep a few deep greens and royal blues alongside for customers who want something festive that is not red.",
+            "Diwali takes a broader palette: mustard and marigold yellows, bottle green, royal blue, purple and magenta, often with gold, copper or silver work. Lighter pastels with festive detailing suit younger buyers and daytime visits. Spread the colours across designs rather than taking one design in every colour, so the display looks full without tying money up in shades that move slowly.",
+            "Reds are also the hardest shades to keep consistent. Check the sample in daylight and under your shop lights, record the shade or design code you approved, and order all the colours of one design together where you can, because separate lots of the same red can differ.",
+          ],
+          hi: [
+            "करवा चौथ में लाल रंग सबसे ज़रूरी है। सुर्ख़ लाल, मैरून, वाइन, रानी पिंक और नारंगी-लाल — ज़्यादातर ग्राहक यही रंग ढूँढती हैं, और इनके बिना रैक अधूरा लगता है। जो ग्राहक त्योहारी तो चाहें पर लाल नहीं, उनके लिए कुछ गहरे हरे और रॉयल ब्लू भी साथ में रखिए।",
+            "दिवाली में रंग खुलकर आते हैं: सरसों और गेंदे जैसे पीले, बोतल हरा, रॉयल ब्लू, बैंगनी और मैजेंटा — अक्सर गोल्डन, कॉपर या सिल्वर काम के साथ। त्योहारी काम वाले हल्के पेस्टल कम उम्र की ग्राहकों और दिन में मिलने-जुलने के लिए अच्छे रहते हैं। एक डिज़ाइन हर रंग में लेने के बजाय रंगों को अलग-अलग डिज़ाइनों में बाँटिए, ताकि डिस्प्ले भरा दिखे और पैसा धीरे बिकने वाले शेड में न फँसे।",
+            "लाल को एक जैसा रखना भी सबसे मुश्किल होता है। सैंपल को दिन की रोशनी में भी देखिए और अपनी दुकान की लाइट में भी, जो शेड या डिज़ाइन कोड मंज़ूर किया वह लिख लीजिए, और जहाँ हो सके एक डिज़ाइन के सारे रंग एक साथ मँगाइए — क्योंकि एक ही लाल के अलग-अलग लॉट में फ़र्क़ आ सकता है।",
+          ],
+          "hi-en": [
+            "Karva Chauth mein laal rang sabse zaroori hai. Surkh laal, maroon, wine, rani pink aur orange-red — zyadatar customers yahi rang dhoondhti hain, aur inke bina rack adhoora lagta hai. Jo customers festive to chahein par laal nahin, unke liye kuch gehre hare aur royal blue bhi saath mein rakhiye.",
+            "Diwali mein rang khulkar aate hain: sarson aur gende jaise peele, bottle green, royal blue, baingani aur magenta — aksar golden, copper ya silver kaam ke saath. Festive kaam wale halke pastel kam umar ki customers aur din mein milne-julne ke liye achhe rehte hain. Ek design har rang mein lene ke bajaye rangon ko alag-alag designs mein baantiye, taaki display bhara dikhe aur paisa dheere bikne wale shade mein na phanse.",
+            "Laal ko ek jaisa rakhna bhi sabse mushkil hota hai. Sample ko din ki roshni mein bhi dekhiye aur apni dukaan ki light mein bhi, jo shade ya design code approve kiya wo likh lijiye, aur jahan ho sake ek design ke saare rang ek saath mangaiye — kyunki ek hi laal ke alag-alag lot mein farak aa sakta hai.",
+          ],
+        },
+        checklist: {
+          en: [
+            "Karva Chauth core: red, maroon, wine, rani pink, orange-red",
+            "Diwali spread: yellows, bottle green, royal blue, purple, magenta",
+            "A smaller run of pastels with festive work",
+            "A shade or design code recorded for every approved colour",
+          ],
+          hi: [
+            "करवा चौथ के मुख्य रंग: लाल, मैरून, वाइन, रानी पिंक, नारंगी-लाल",
+            "दिवाली के रंग: पीले, बोतल हरा, रॉयल ब्लू, बैंगनी, मैजेंटा",
+            "त्योहारी काम वाले पेस्टल, थोड़ी मात्रा में",
+            "हर मंज़ूर रंग का शेड या डिज़ाइन कोड लिखा हुआ",
+          ],
+          "hi-en": [
+            "Karva Chauth ke mukhya rang: laal, maroon, wine, rani pink, orange-red",
+            "Diwali ke rang: peele, bottle green, royal blue, baingani, magenta",
+            "Festive kaam wale pastel, thodi maatra mein",
+            "Har approved rang ka shade ya design code likha hua",
+          ],
+        },
+      },
+      {
+        heading: {
+          en: "Feel the fabric before you trust the photograph",
+          hi: "तस्वीर पर भरोसा करने से पहले कपड़ा हाथ में लीजिए",
+          "hi-en": "Photo par bharosa karne se pehle kapda haath mein lijiye",
+        },
+        paragraphs: {
+          en: [
+            "Festive polyester sarees sell on look and feel: a georgette or chiffon-style drape, a satin or silk-look sheen, or a heavier embroidered body. A photograph flattens all of this. Ask for a physical sample, or at least a short video shot in daylight, and judge the drape, the sheen, how see-through the body is and how much weight the work adds.",
+            "Weight is part of the answer but not all of it; our note on what GSM tells you explains why two sarees at the same weight can fall differently. Check the border and pallu finishing, whether a blouse piece is included and what it is made of, and whether the embroidery, sequins or zari look clean on the reverse.",
+            "For suits, check each piece on its own. The top, bottom and dupatta are often different fabrics, and in festive sets the dupatta frequently carries most of the work. Confirm whether the set is unstitched or semi-stitched, and that every piece in the photograph is part of the set.",
+          ],
+          hi: [
+            "त्योहारी पॉलिएस्टर साड़ियाँ अपने लुक और फ़ील से बिकती हैं — जॉर्जेट या शिफ़ॉन जैसा ड्रेप, सैटिन या सिल्क जैसी चमक, या कढ़ाई वाली भारी बॉडी। तस्वीर में ये सारी बातें दब जाती हैं। असली सैंपल माँगिए, या कम से कम दिन की रोशनी में बना छोटा वीडियो, और देखिए कि साड़ी कैसे गिरती है, कितनी चमकती है, बॉडी कितनी पारदर्शी है और काम से वह कितनी भारी हो गई है।",
+            "वज़न जवाब का एक हिस्सा है, पूरा जवाब नहीं — GSM असल में क्या बताता है, इस पर हमारा नोट समझाता है कि एक ही वज़न की दो साड़ियाँ अलग तरह से क्यों गिरती हैं। बॉर्डर और पल्लू की फ़िनिशिंग देखिए, ब्लाउज़ पीस साथ है या नहीं और किस कपड़े का है, और कढ़ाई, सीक्विन या ज़री उल्टी तरफ़ से कितनी साफ़ है।",
+            "सूट में हर पीस अलग से जाँचिए। टॉप, बॉटम और दुपट्टा अक्सर अलग-अलग कपड़े के होते हैं, और त्योहारी सेट में ज़्यादातर काम दुपट्टे पर ही होता है। पक्का कीजिए कि सेट अनस्टिच्ड है या सेमी-स्टिच्ड, और तस्वीर में दिख रहा हर पीस सेट में शामिल है।",
+          ],
+          "hi-en": [
+            "Festive polyester sarees apne look aur feel se bikti hain — georgette ya chiffon jaisa drape, satin ya silk jaisi chamak, ya kadhai wali bhaari body. Photo mein ye saari baatein dab jaati hain. Asli sample maangiye, ya kam se kam din ki roshni mein bana chhota video, aur dekhiye ki saree kaise girti hai, kitni chamakti hai, body kitni transparent hai aur kaam se wo kitni bhaari ho gayi hai.",
+            "Weight jawab ka ek hissa hai, poora jawab nahin — GSM asal mein kya batata hai, is par hamara note samjhata hai ki ek hi weight ki do sarees alag tarah se kyun girti hain. Border aur pallu ki finishing dekhiye, blouse piece saath hai ya nahin aur kis kapde ka hai, aur kadhai, sequin ya zari ulti taraf se kitni saaf hai.",
+            "Suit mein har piece alag se check kijiye. Top, bottom aur dupatta aksar alag-alag kapde ke hote hain, aur festive set mein zyadatar kaam dupatte par hi hota hai. Pakka kijiye ki set unstitched hai ya semi-stitched, aur photo mein dikh raha har piece set mein shamil hai.",
+          ],
+        },
+      },
+      {
+        heading: {
+          en: "Mix sarees and suits in one order",
+          hi: "एक ही ऑर्डर में साड़ी और सूट मिलाइए",
+          "hi-en": "Ek hi order mein saree aur suit milaiye",
+        },
+        paragraphs: {
+          en: [
+            "In much of Punjab and Haryana, the unstitched suit is as much a festive purchase as the saree, while many shops in Rajasthan lean towards sarees. The right balance comes from your own counter, so look at what sold last season before you set it. A single order that combines sarees with unstitched suits and dress material covers both festivals and keeps the display balanced.",
+            "Within each category, choose fewer designs in more colours rather than many designs in one colour each. A design that sells is easier to restock, customers find it easier to compare, and the display looks deliberate. Before you finalise the mix, ask how quantities work for your order — per design, per colour or across the set.",
+            "Catalogues for our festive polyester sarees and our dress material can both be shared on WhatsApp, so you can build the mix design by design.",
+          ],
+          hi: [
+            "पंजाब और हरियाणा के ज़्यादातर हिस्सों में अनस्टिच्ड सूट भी त्योहार की उतनी ही बड़ी खरीद है जितनी साड़ी, जबकि राजस्थान की कई दुकानों में साड़ी आगे रहती है। सही अनुपात आपके अपने काउंटर से तय होगा, इसलिए पहले देखिए कि पिछले सीज़न में क्या बिका। साड़ियों के साथ अनस्टिच्ड सूट और ड्रेस मटेरियल वाला एक ही ऑर्डर दोनों त्योहार सँभाल लेता है और डिस्प्ले भी संतुलित रखता है।",
+            "हर कैटेगरी में कम डिज़ाइन और ज़्यादा रंग चुनिए, न कि ढेर सारे डिज़ाइन, हर एक सिर्फ़ एक रंग में। जो डिज़ाइन चल जाए उसे दोबारा मँगाना आसान रहता है, ग्राहक के लिए तुलना आसान होती है, और डिस्प्ले सोचा-समझा लगता है। मेल फ़ाइनल करने से पहले पूछ लीजिए कि आपके ऑर्डर में मात्रा का हिसाब कैसे है — हर डिज़ाइन पर, हर रंग पर या पूरे सेट पर।",
+            "हमारी त्योहारी पॉलिएस्टर साड़ियों और ड्रेस मटेरियल, दोनों के कैटलॉग व्हाट्सएप पर भेजे जा सकते हैं, ताकि आप एक-एक डिज़ाइन चुनकर अपना मेल बना सकें।",
+          ],
+          "hi-en": [
+            "Punjab aur Haryana ke zyadatar hisson mein unstitched suit bhi tyohaar ki utni hi badi khareed hai jitni saree, jabki Rajasthan ki kai dukaanon mein saree aage rehti hai. Sahi anupaat aapke apne counter se tay hoga, isliye pehle dekhiye ki pichhle season mein kya bika. Sarees ke saath unstitched suits aur dress material wala ek hi order dono tyohaar sambhal leta hai aur display bhi balanced rakhta hai.",
+            "Har category mein kam designs aur zyada rang chuniye, na ki dher saare designs, har ek sirf ek rang mein. Jo design chal jaaye use dobara mangana aasaan rehta hai, customer ke liye comparison aasaan hota hai, aur display soch-samajhkar bana lagta hai. Mix final karne se pehle pooch lijiye ki aapke order mein quantity ka hisaab kaise hai — har design par, har rang par ya poore set par.",
+            "Hamari festive polyester sarees aur dress material, dono ke catalogue WhatsApp par bheje ja sakte hain, taaki aap ek-ek design chunkar apna mix bana sakein.",
+          ],
+        },
+      },
+      {
+        heading: {
+          en: "Spread the range across price bands",
+          hi: "रेंज को प्राइस बैंड में बाँटिए",
+          "hi-en": "Range ko price bands mein baantiye",
+        },
+        paragraphs: {
+          en: [
+            "Festive customers do not all spend the same, and a range that sits at one price point loses customers at both ends. Think in three bands: an everyday-festive band for customers who want something new without a large spend, a middle band where most of the volume usually sits, and a smaller statement band with heavier work that anchors the display.",
+            "What separates the bands is usually the fabric, the work and the finishing rather than the design alone; our guide on why two similar-looking sarees can be priced differently shows what to compare. Ask for rates across all three bands in one conversation, so you can see the whole spread before you commit to any part of it.",
+            "Keep the statement band small. A few heavier pieces lift the whole rack; too many tie up stock that fewer customers buy.",
+          ],
+          hi: [
+            "त्योहार पर हर ग्राहक एक जितना ख़र्च नहीं करता, और एक ही दाम पर टिकी रेंज दोनों तरफ़ के ग्राहक खो देती है। तीन बैंड में सोचिए: रोज़मर्रा-त्योहारी बैंड उन ग्राहकों के लिए जो ज़्यादा ख़र्च किए बिना कुछ नया चाहते हैं, बीच का बैंड जिसमें आम तौर पर सबसे ज़्यादा बिक्री होती है, और भारी काम वाला एक छोटा ख़ास बैंड जो डिस्प्ले की शान बढ़ाए।",
+            "बैंड के बीच फ़र्क़ आम तौर पर कपड़े, काम और फ़िनिशिंग से आता है, सिर्फ़ डिज़ाइन से नहीं — एक जैसी दिखने वाली साड़ियों के दाम अलग क्यों होते हैं, इस पर हमारी गाइड बताती है कि किन बातों की तुलना करें। तीनों बैंड के रेट एक ही बातचीत में माँगिए, ताकि किसी भी हिस्से पर फ़ैसला करने से पहले पूरी तस्वीर सामने हो।",
+            "ख़ास बैंड छोटा रखिए। कुछ भारी पीस पूरे रैक की रौनक बढ़ा देते हैं; ज़्यादा हो जाएँ तो ऐसा स्टॉक फँस जाता है जिसके ख़रीदार कम हैं।",
+          ],
+          "hi-en": [
+            "Tyohaar par har customer ek jitna kharch nahin karta, aur ek hi daam par tiki range dono taraf ke customers kho deti hai. Teen bands mein sochiye: rozmarra-festive band un customers ke liye jo zyada kharch kiye bina kuch naya chahte hain, beech ka band jisme aam taur par sabse zyada bikri hoti hai, aur bhaari kaam wala ek chhota khaas band jo display ki shaan badhaye.",
+            "Bands ke beech farak aam taur par kapde, kaam aur finishing se aata hai, sirf design se nahin — ek jaisi dikhne wali sarees ke daam alag kyun hote hain, is par hamari guide batati hai ki kin baaton ki tulna karein. Teeno bands ke rate ek hi baatcheet mein maangiye, taaki kisi bhi hisse par faisla karne se pehle poori tasveer saamne ho.",
+            "Khaas band chhota rakhiye. Kuch bhaari piece poore rack ki raunak badha dete hain; zyada ho jaayein to aisa stock phans jaata hai jiske khareedar kam hain.",
+          ],
+        },
+      },
+      {
+        heading: {
+          en: "Approve on the sample and keep a record",
+          hi: "मंज़ूरी सैंपल पर दीजिए और रिकॉर्ड रखिए",
+          "hi-en": "Approval sample par dijiye aur record rakhiye",
+        },
+        paragraphs: {
+          en: [
+            "Festive stock is bought on detail — a shade of red, the weight of a border, the work on a dupatta — so approve on the physical sample, not the catalogue image. Record the design code, the colour and what you agreed, and ask how quantities and timing work for your order before you confirm it.",
+            "Our sample-to-bulk checklist covers each step in more detail. After the season, note which designs, colours and bands sold through and which did not. That record is the most useful thing you can bring to next year's festive order.",
+          ],
+          hi: [
+            "त्योहारी स्टॉक बारीकियों पर खरीदा जाता है — लाल का एक शेड, बॉर्डर का वज़न, दुपट्टे का काम — इसलिए मंज़ूरी कैटलॉग की तस्वीर पर नहीं, असली सैंपल पर दीजिए। डिज़ाइन कोड, रंग और जो तय हुआ वह लिख लीजिए, और ऑर्डर पक्का करने से पहले पूछ लीजिए कि आपके ऑर्डर में मात्रा और समय का हिसाब कैसे रहेगा।",
+            "हमारी सैंपल से बल्क ऑर्डर की चेकलिस्ट हर क़दम विस्तार से बताती है। सीज़न ख़त्म होने पर लिखिए कि कौन-से डिज़ाइन, रंग और बैंड पूरे बिके और कौन-से नहीं। अगले साल के त्योहारी ऑर्डर के लिए यही रिकॉर्ड सबसे ज़्यादा काम आएगा।",
+          ],
+          "hi-en": [
+            "Festive stock baareekiyon par khareeda jaata hai — laal ka ek shade, border ka weight, dupatte ka kaam — isliye approval catalogue ki photo par nahin, asli sample par dijiye. Design code, rang aur jo tay hua wo likh lijiye, aur order pakka karne se pehle pooch lijiye ki aapke order mein quantity aur timing ka hisaab kaise rahega.",
+            "Hamari sample se bulk order ki checklist har kadam vistaar se batati hai. Season khatam hone par likhiye ki kaun se designs, rang aur bands poore bike aur kaun se nahin. Agle saal ke festive order ke liye yahi record sabse zyada kaam aayega.",
+          ],
+        },
+      },
+    ],
+    closing: {
+      heading: {
+        en: "Before you place your festive order",
+        hi: "त्योहारी ऑर्डर देने से पहले",
+        "hi-en": "Festive order dene se pehle",
+      },
+      intro: {
+        en: "Run through this list once the samples are in.",
+        hi: "सैंपल आ जाएँ, तो यह सूची एक बार देख लीजिए।",
+        "hi-en": "Sample aa jaayein, to yeh list ek baar dekh lijiye.",
+      },
+      checklist: {
+        en: [
+          "Karva Chauth core colours covered: red, maroon, wine, rani pink",
+          "Diwali colours spread across designs, not one design in every shade",
+          "Feel, drape and sheen checked on a sample or a daylight video",
+          "Blouse piece and set contents confirmed for every design",
+          "Sarees and suits balanced to what sold on your counter last season",
+          "Three price bands, with a small statement band",
+          "Design and shade codes recorded with each approval",
+          "How quantities and timing work for the order confirmed in writing",
+        ],
+        hi: [
+          "करवा चौथ के मुख्य रंग शामिल: लाल, मैरून, वाइन, रानी पिंक",
+          "दिवाली के रंग अलग-अलग डिज़ाइनों में बँटे, एक डिज़ाइन हर शेड में नहीं",
+          "फ़ील, ड्रेप और चमक सैंपल या दिन की रोशनी वाले वीडियो पर परखी",
+          "हर डिज़ाइन में ब्लाउज़ पीस और सेट के पीस पक्के किए",
+          "साड़ी और सूट का अनुपात पिछले सीज़न की बिक्री के हिसाब से",
+          "तीन प्राइस बैंड, और ख़ास बैंड छोटा",
+          "हर मंज़ूरी के साथ डिज़ाइन और शेड कोड लिखे",
+          "ऑर्डर में मात्रा और समय का हिसाब लिखित में पक्का किया",
+        ],
+        "hi-en": [
+          "Karva Chauth ke mukhya rang shamil: laal, maroon, wine, rani pink",
+          "Diwali ke rang alag-alag designs mein bante, ek design har shade mein nahin",
+          "Feel, drape aur chamak sample ya din ki roshni wale video par parkhi",
+          "Har design mein blouse piece aur set ke piece pakke kiye",
+          "Saree aur suit ka anupaat pichhle season ki bikri ke hisaab se",
+          "Teen price bands, aur khaas band chhota",
+          "Har approval ke saath design aur shade code likhe",
+          "Order mein quantity aur timing ka hisaab likhit mein pakka kiya",
+        ],
+      },
+    },
+    faq: [
+      {
+        question: {
+          en: "Which saree colours do customers look for at Karva Chauth?",
+          hi: "करवा चौथ पर ग्राहक साड़ी के कौन-से रंग ढूँढती हैं?",
+          "hi-en": "Karva Chauth par customers saree ke kaun se rang dhoondhti hain?",
+        },
+        answer: {
+          en: "Red is the anchor, with maroon, wine, rani pink and orange-red alongside it: the traditional colours for married women on the day. Keep a smaller run of deep greens, royal blues and other festive shades for customers who want something celebratory that is not red.",
+          hi: "लाल सबसे ज़रूरी है, और उसके साथ मैरून, वाइन, रानी पिंक और नारंगी-लाल — इस दिन सुहागिन महिलाओं के पारंपरिक रंग। जो ग्राहक त्योहारी तो चाहें पर लाल नहीं, उनके लिए गहरे हरे, रॉयल ब्लू और दूसरे त्योहारी रंग थोड़ी मात्रा में रखिए।",
+          "hi-en":
+            "Laal sabse zaroori hai, aur uske saath maroon, wine, rani pink aur orange-red — is din suhagan mahilaon ke paramparik rang. Jo customers festive to chahein par laal nahin, unke liye gehre hare, royal blue aur doosre festive rang thodi maatra mein rakhiye.",
+        },
+      },
+      {
+        question: {
+          en: "Should I stock sarees or suits for Karva Chauth and Diwali?",
+          hi: "करवा चौथ और दिवाली के लिए साड़ी रखें या सूट?",
+          "hi-en": "Karva Chauth aur Diwali ke liye saree rakhein ya suit?",
+        },
+        answer: {
+          en: "Usually both. In much of Punjab and Haryana unstitched suits sell alongside sarees as festive wear, while many shops in Rajasthan lean towards sarees. Set the balance from what sold on your own counter last season, and cover both in one order.",
+          hi: "आम तौर पर दोनों। पंजाब और हरियाणा के ज़्यादातर हिस्सों में त्योहार पर अनस्टिच्ड सूट साड़ियों के साथ-साथ बिकते हैं, जबकि राजस्थान की कई दुकानों में साड़ी आगे रहती है। अनुपात अपने काउंटर की पिछले सीज़न की बिक्री से तय कीजिए, और दोनों एक ही ऑर्डर में लीजिए।",
+          "hi-en":
+            "Aam taur par dono. Punjab aur Haryana ke zyadatar hisson mein tyohaar par unstitched suits sarees ke saath-saath bikte hain, jabki Rajasthan ki kai dukaanon mein saree aage rehti hai. Anupaat apne counter ki pichhle season ki bikri se tay kijiye, aur dono ek hi order mein lijiye.",
+        },
+      },
+      {
+        question: {
+          en: "How should I set price bands for festive stock?",
+          hi: "त्योहारी स्टॉक के लिए प्राइस बैंड कैसे तय करें?",
+          "hi-en": "Festive stock ke liye price bands kaise tay karein?",
+        },
+        answer: {
+          en: "Think in three bands: everyday-festive, a middle band that carries most of the volume, and a small statement band with heavier work. Ask for rates across all three together so you can see the spread, and compare the fabric, work and finishing rather than the design alone.",
+          hi: "तीन बैंड में सोचिए: रोज़मर्रा-त्योहारी, बीच का बैंड जिसमें सबसे ज़्यादा बिक्री होती है, और भारी काम वाला छोटा ख़ास बैंड। तीनों के रेट एक साथ माँगिए ताकि पूरा फैलाव दिखे, और सिर्फ़ डिज़ाइन नहीं, कपड़े, काम और फ़िनिशिंग की तुलना कीजिए।",
+          "hi-en":
+            "Teen bands mein sochiye: rozmarra-festive, beech ka band jisme sabse zyada bikri hoti hai, aur bhaari kaam wala chhota khaas band. Teeno ke rate ek saath maangiye taaki poora phailaav dikhe, aur sirf design nahin, kapde, kaam aur finishing ki tulna kijiye.",
+        },
+      },
+      {
+        question: {
+          en: "Can I see Vidhi Fabrics' festive designs before ordering?",
+          hi: "क्या ऑर्डर से पहले विधि फैब्रिक्स के त्योहारी डिज़ाइन देख सकते हैं?",
+          "hi-en": "Kya order se pehle Vidhi Fabrics ke festive designs dekh sakte hain?",
+        },
+        answer: {
+          en: "Yes. We share current catalogues for polyester sarees and dress material on WhatsApp, and you are welcome to visit us at Golden Point, Ring Road, Surat. Wherever you can, approve on the cloth rather than the photograph.",
+          hi: "हाँ। हम पॉलिएस्टर साड़ियों और ड्रेस मटेरियल के ताज़ा कैटलॉग व्हाट्सएप पर भेजते हैं, और आप गोल्डन पॉइंट, रिंग रोड, सूरत में हमसे मिलने भी आ सकते हैं। जहाँ हो सके, मंज़ूरी तस्वीर पर नहीं, कपड़े पर दीजिए।",
+          "hi-en":
+            "Haan. Hum polyester sarees aur dress material ke latest catalogue WhatsApp par bhejte hain, aur aap Golden Point, Ring Road, Surat mein humse milne bhi aa sakte hain. Jahan ho sake, approval photo par nahin, kapde par dijiye.",
+        },
+      },
+    ],
+    whatsAppMessage: {
+      en: "Hi Vidhi Fabrics, I read your Karva Chauth and Diwali stocking guide. Please share your festive polyester sarees and dress material catalogue.",
+      hi: "नमस्ते विधि फैब्रिक्स, मैंने करवा चौथ और दिवाली स्टॉक वाली आपकी गाइड पढ़ी। कृपया त्योहारी पॉलिएस्टर साड़ियों और ड्रेस मटेरियल का कैटलॉग भेजिए।",
+      "hi-en":
+        "Hi Vidhi Fabrics, maine Karva Chauth aur Diwali stock wali aapki guide padhi. Kripya festive polyester sarees aur dress material ka catalogue bhejiye.",
+    },
+  },
   {
     slug: "how-to-read-a-fabric-spec",
     inlineLinks: [
@@ -606,6 +975,14 @@ export const JOURNAL: JournalArticle[] = [
     inlineLinks: [
       {
         phrase: {
+          en: "polyester sarees wholesale page",
+          hi: "पॉलिएस्टर साड़ी थोक पेज",
+          "hi-en": "polyester saree wholesale page",
+        },
+        href: "/polyester-sarees-wholesale-surat",
+      },
+      {
+        phrase: {
           en: "the rest of the specification",
           hi: "बाक़ी स्पेसिफ़िकेशन",
           "hi-en": "baaki specification",
@@ -615,6 +992,7 @@ export const JOURNAL: JournalArticle[] = [
     ],
     image: jacquard,
     published: "2026-09-24",
+    modified: "2026-10-02",
     imageAlt: {
       en: "A dense rust-red jacquard, the kind of construction where weight and handle diverge",
       hi: "घनी बुनाई वाला रस्ट-लाल जैक्वार्ड — ऐसी बुनावट जिसमें वज़न और पकड़ अलग-अलग बातें होती हैं",
@@ -764,14 +1142,17 @@ export const JOURNAL: JournalArticle[] = [
           en: [
             "Two fabrics at the same weight can behave nothing alike. Yarn count, weave, twist and finish decide drape, opacity, handle and how the cloth takes a dye, and none of them appear in the weight. A loosely woven 140 GSM cloth in a coarse yarn and a tightly woven 140 GSM cloth in a fine one are not substitutes, whatever their specification sheets have in common.",
             "This is why an approved sample outranks a number. The specification lets you shortlist candidates and hold a supply to account afterwards; the physical cloth is what tells you whether it is right in the first place. Use the figure to narrow the field and the sample to decide.",
+            "With polyester sarees, weight is never the only question: drape and finish matter as much. To see current designs before you decide, start from our polyester sarees wholesale page.",
           ],
           hi: [
             "एक ही वज़न के दो कपड़े बिल्कुल अलग बर्ताव कर सकते हैं। यार्न काउंट, बुनावट, बल और फ़िनिश — ये तय करते हैं कि कपड़ा कैसे गिरता है, कितना पारदर्शी है, हाथ में कैसा लगता है और रंग कैसे पकड़ता है, और इनमें से कोई भी वज़न में नहीं दिखता। मोटे धागे का ढीला बुना 140 GSM और बारीक धागे का कसा बुना 140 GSM — ये एक-दूसरे की जगह नहीं ले सकते, चाहे उनकी स्पेसिफ़िकेशन शीट में कितना भी मेल हो।",
             "इसीलिए मंज़ूर सैंपल किसी नंबर से ऊपर है। स्पेसिफ़िकेशन से आप विकल्प छाँटते हैं और बाद में सप्लाई को जवाबदेह रखते हैं; कपड़ा हाथ में लेकर ही पता चलता है कि वह सही है या नहीं। नंबर से दायरा छोटा कीजिए और सैंपल से फ़ैसला।",
+            "पॉलिएस्टर साड़ियों में वज़न अकेला सवाल नहीं है — ड्रेप और फ़िनिश भी उतने ही ज़रूरी हैं। फ़ैसले से पहले ताज़ा डिज़ाइन देखने हों, तो हमारे पॉलिएस्टर साड़ी थोक पेज से शुरू कीजिए।",
           ],
           "hi-en": [
             "Ek hi weight ke do kapde bilkul alag bartaav kar sakte hain. Yarn count, bunavat, bal aur finish — ye tay karte hain ki kapda kaise girta hai, kitna transparent hai, haath mein kaisa lagta hai aur rang kaise pakadta hai, aur inmein se koi bhi weight mein nahin dikhta. Mote dhaage ka dheela buna 140 GSM aur baareek dhaage ka kasa buna 140 GSM — ye ek doosre ki jagah nahin le sakte, chahe unki specification sheet mein kitna bhi mel ho.",
             "Isiliye approved sample kisi number se upar hai. Specification se aap options chaantte hain aur baad mein supply ko jawabdeh rakhte hain; kapda haath mein lekar hi pata chalta hai ki wo sahi hai ya nahin. Number se daayra chhota kijiye aur sample se faisla.",
+            "Polyester sarees mein weight akela sawaal nahin hai — drape aur finish bhi utne hi zaroori hain. Faisle se pehle latest designs dekhne hon, to hamare polyester saree wholesale page se shuru kijiye.",
           ],
         },
       },
@@ -871,16 +1252,17 @@ export const JOURNAL: JournalArticle[] = [
     slug: "source-fabric-from-surat",
     image: swatchStack,
     published: "2026-09-16",
+    modified: "2026-10-02",
     metaTitle: {
       en: "How to Source Fabric from Surat Remotely",
       hi: "दूर बैठे सूरत से कपड़ा कैसे मंगवाएँ",
       "hi-en": "Remote rehkar Surat se fabric kaise mangwayein",
     },
     metaDescription: {
-      en: "A wholesale buyer’s guide to sourcing fabric from Surat remotely, covering requirements, samples, quotations, bulk approval, dispatch and delivery.",
-      hi: "दूर बैठे सूरत से कपड़ा मंगवाने की थोक खरीदार गाइड — ज़रूरत, सैंपल, कोटेशन, बल्क मंज़ूरी, डिस्पैच और डिलीवरी तक।",
+      en: "A wholesale buyer’s guide to sourcing fabric from Surat remotely, covering requirements, samples, quotations, bulk approval and order terms.",
+      hi: "दूर बैठे सूरत से कपड़ा मंगवाने की थोक खरीदार गाइड — ज़रूरत, सैंपल, कोटेशन, बल्क मंज़ूरी और ऑर्डर की शर्तों तक।",
       "hi-en":
-        "Remote rehkar Surat se fabric mangwane ki wholesale buyer guide — requirement, sample, quotation, bulk approval, dispatch aur delivery tak.",
+        "Remote rehkar Surat se fabric mangwane ki wholesale buyer guide — requirement, sample, quotation, bulk approval aur order terms tak.",
     },
     imageAlt: {
       en: "Folded fabric samples laid out in a colour run, ready to be compared",
@@ -964,19 +1346,19 @@ export const JOURNAL: JournalArticle[] = [
             "A message asking for “cotton fabric,” “something premium” or “the latest collection” leaves too much open to interpretation. Surat’s textile ecosystem covers a wide range of fibres, constructions, finishes, widths and price levels. The same broad fabric name may describe several materially different products.",
             "Before contacting a supplier, prepare a short buying brief containing the information you already know.",
             "You do not need to know every technical term. Explain the intended use and identify which characteristics are essential. A supplier can make a better recommendation when they understand whether the fabric is intended for sarees, dress materials, kurtis, shirts, occasionwear, uniforms or another application.",
-            "A useful enquiry might say: “We need a soft printed fabric for an everyday women’s garment range. The material should have good drape and should not be highly transparent. Our first requirement is approximately 500 metres across four designs, for delivery to Jaipur. Please suggest suitable options and provide the available width, GSM, MOQ and dispatch estimate.” That brief gives the supplier something specific to work with.",
+            "A useful enquiry might say: “We need a soft printed fabric for an everyday women’s garment range. The material should have good drape and should not be highly transparent. Our first requirement is approximately 500 metres across four designs, for delivery to Jaipur. Please suggest suitable options, with the available width and GSM, and explain how quantities and timing would work for this order.” That brief gives the supplier something specific to work with.",
           ],
           hi: [
             "“कॉटन फैब्रिक”, “कुछ प्रीमियम” या “नई कलेक्शन” माँगने वाला मैसेज बहुत कुछ अंदाज़े पर छोड़ देता है। सूरत के टेक्सटाइल कारोबार में रेशों, बुनावट, फ़िनिश, चौड़ाई और कीमत के कई स्तर हैं। एक ही आम नाम से कई ऐसे प्रोडक्ट बताए जा सकते हैं जो असल में एक-दूसरे से काफ़ी अलग हों।",
             "सप्लायर से बात करने से पहले एक छोटी खरीद-ब्रीफ़ तैयार कीजिए, जिसमें वह जानकारी हो जो आपको पहले से पता है।",
             "हर तकनीकी शब्द जानना ज़रूरी नहीं। यह बताइए कि कपड़ा किस काम के लिए है और कौन-सी बातें ज़रूरी हैं। जब सप्लायर को पता हो कि कपड़ा साड़ियों, ड्रेस मटेरियल, कुर्तियों, शर्ट, ओकेज़नवियर, यूनिफ़ॉर्म या किसी और काम के लिए है, तो वह बेहतर सुझाव दे सकता है।",
-            "एक काम की पूछताछ ऐसी हो सकती है: “हमें रोज़ पहनने वाली महिलाओं की रेंज के लिए मुलायम प्रिंटेड कपड़ा चाहिए। उसका ड्रेप अच्छा हो और वह बहुत पारदर्शी न हो। पहली ज़रूरत चार डिज़ाइनों में करीब 500 मीटर है, डिलीवरी जयपुर। कृपया सही विकल्प सुझाइए और उपलब्ध चौड़ाई, GSM, MOQ और डिस्पैच का अनुमान बताइए।” इतनी ब्रीफ़ से सप्लायर को ठोस बात मिल जाती है।",
+            "एक काम की पूछताछ ऐसी हो सकती है: “हमें रोज़ पहनने वाली महिलाओं की रेंज के लिए मुलायम प्रिंटेड कपड़ा चाहिए। उसका ड्रेप अच्छा हो और वह बहुत पारदर्शी न हो। पहली ज़रूरत चार डिज़ाइनों में करीब 500 मीटर है, डिलीवरी जयपुर। कृपया सही विकल्प सुझाइए, उपलब्ध चौड़ाई और GSM बताइए, और यह भी कि इस ऑर्डर में मात्रा और समय का हिसाब कैसे रहेगा।” इतनी ब्रीफ़ से सप्लायर को ठोस बात मिल जाती है।",
           ],
           "hi-en": [
             "“Cotton fabric”, “kuch premium” ya “nayi collection” maangne wala message bahut kuch andaaze par chhod deta hai. Surat ke textile karobar mein fibres, construction, finish, width aur price ke kai levels hain. Ek hi aam naam se kai aise products bataye ja sakte hain jo asal mein ek doosre se kaafi alag hon.",
             "Supplier se baat karne se pehle ek chhoti buying brief taiyar kijiye, jisme wo information ho jo aapko pehle se pata hai.",
             "Har technical term jaanna zaroori nahi. Yeh bataiye ki fabric kis kaam ke liye hai aur kaun si baatein zaroori hain. Jab supplier ko pata ho ki fabric sarees, dress material, kurtis, shirts, occasionwear, uniforms ya kisi aur kaam ke liye hai, to wo behtar suggestion de sakta hai.",
-            "Ek kaam ki enquiry aisi ho sakti hai: “Humein roz pehanne wali women’s range ke liye mulayam printed fabric chahiye. Uska drape achha ho aur wo bahut transparent na ho. Pehli requirement chaar designs mein kareeb 500 metre hai, delivery Jaipur. Kripya sahi options suggest kijiye aur available width, GSM, MOQ aur dispatch ka estimate bataiye.” Itni brief se supplier ko thos baat mil jaati hai.",
+            "Ek kaam ki enquiry aisi ho sakti hai: “Humein roz pehanne wali women’s range ke liye mulayam printed fabric chahiye. Uska drape achha ho aur wo bahut transparent na ho. Pehli requirement chaar designs mein kareeb 500 metre hai, delivery Jaipur. Kripya sahi options suggest kijiye, available width aur GSM bataiye, aur yeh bhi ki is order mein quantity aur timing ka hisaab kaise rahega.” Itni brief se supplier ko thos baat mil jaati hai.",
           ],
         },
         checklist: {
@@ -989,7 +1371,7 @@ export const JOURNAL: JournalArticle[] = [
             "Required width or GSM, where applicable",
             "Approximate order quantity",
             "Delivery city or country",
-            "Required arrival date",
+            "The season or occasion you are buying for",
             "Your workable buying range, if you have one",
           ],
           hi: [
@@ -1001,7 +1383,7 @@ export const JOURNAL: JournalArticle[] = [
             "ज़रूरी चौड़ाई या GSM, जहाँ लागू हो",
             "ऑर्डर की अनुमानित मात्रा",
             "डिलीवरी का शहर या देश",
-            "माल पहुँचने की ज़रूरी तारीख़",
+            "आप किस सीज़न या मौक़े के लिए खरीद रहे हैं",
             "आपकी चल सकने वाली खरीद रेंज, अगर तय है",
           ],
           "hi-en": [
@@ -1013,7 +1395,7 @@ export const JOURNAL: JournalArticle[] = [
             "Zaroori width ya GSM, jahan lagu ho",
             "Order ki approximate quantity",
             "Delivery ka city ya country",
-            "Maal pahunchne ki zaroori date",
+            "Aap kis season ya mauke ke liye khareed rahe hain",
             "Aapki chal sakne wali buying range, agar tay hai",
           ],
         },
@@ -1078,11 +1460,10 @@ export const JOURNAL: JournalArticle[] = [
             "Available colours or designs",
             "Finish or surface treatment",
             "Whether it is ready stock or requires production",
-            "MOQ and how the MOQ is calculated",
+            "How quantities and timing work for this option",
             "Unit of sale, such as metres, pieces, sets or rolls",
             "Price basis",
             "Sample availability",
-            "Estimated dispatch timeline",
           ],
           hi: [
             "प्रोडक्ट या सैंपल कोड",
@@ -1093,11 +1474,10 @@ export const JOURNAL: JournalArticle[] = [
             "उपलब्ध रंग या डिज़ाइन",
             "फ़िनिश या सतह का उपचार",
             "माल तैयार स्टॉक में है या बनवाना पड़ेगा",
-            "MOQ, और MOQ किस तरह गिना जाता है",
+            "इस विकल्प में मात्रा और समय का हिसाब कैसे है",
             "बिक्री की इकाई — मीटर, पीस, सेट या रोल",
             "कीमत किस आधार पर है",
             "सैंपल मिल सकता है या नहीं",
-            "डिस्पैच का अनुमानित समय",
           ],
           "hi-en": [
             "Product ya sample code",
@@ -1108,11 +1488,10 @@ export const JOURNAL: JournalArticle[] = [
             "Available colours ya designs",
             "Finish ya surface treatment",
             "Maal ready stock mein hai ya banwana padega",
-            "MOQ, aur MOQ kis tarah gina jaata hai",
+            "Is option mein quantity aur timing ka hisaab kaise hai",
             "Bikri ki unit — metre, piece, set ya roll",
             "Price kis aadhar par hai",
             "Sample mil sakta hai ya nahi",
-            "Dispatch ka approximate time",
           ],
         },
       },
@@ -1126,17 +1505,17 @@ export const JOURNAL: JournalArticle[] = [
           en: [
             "A physical sample helps answer questions that photographs cannot. Depending on the application, examine the feel and drape, weight and thickness, transparency, colour under ordinary lighting, print or motif scale, surface texture, usable width, stretch and recovery, and the finishing and edge quality.",
             "If shrinkage, colourfastness or another performance characteristic is important, communicate the requirement before ordering. Ask what testing or supporting information is available. Appearance alone cannot establish how a material will perform during cutting, stitching, washing or regular use.",
-            "A sample approved with a change in colour, width or finish is not an unconditional approval. Confirm how the revised version will be checked before bulk production or dispatch. For additional checks, work through our guide from sample to bulk order.",
+            "A sample approved with a change in colour, width or finish is not an unconditional approval. Confirm how the revised version will be checked before bulk production. For additional checks, work through our guide from sample to bulk order.",
           ],
           hi: [
             "असली सैंपल उन सवालों के जवाब देता है जो तस्वीर नहीं दे सकती। काम के हिसाब से देखिए — फ़ील और ड्रेप, वज़न और मोटाई, पारदर्शिता, आम रोशनी में रंग, प्रिंट या मोटिफ़ का आकार, सतह की बनावट, इस्तेमाल लायक चौड़ाई, खिंचाव और वापस लौटना, और फ़िनिशिंग व किनारों की सफ़ाई।",
             "अगर सिकुड़न, रंग की पक्कापन या कोई और गुण ज़रूरी है, तो ऑर्डर से पहले यह बात कह दीजिए। पूछिए कि कौन-सी जाँच या सहायक जानकारी उपलब्ध है। सिर्फ़ देखने से यह तय नहीं होता कि कटाई, सिलाई, धुलाई और रोज़ इस्तेमाल में कपड़ा कैसा निकलेगा।",
-            "रंग, चौड़ाई या फ़िनिश में बदलाव की शर्त पर मंज़ूर किया गया सैंपल बिना शर्त मंज़ूरी नहीं है। पक्का कीजिए कि बल्क बनने या डिस्पैच से पहले बदला हुआ रूप कैसे जाँचा जाएगा। आगे की जाँच के लिए हमारी गाइड सैंपल से बल्क ऑर्डर तक देखिए।",
+            "रंग, चौड़ाई या फ़िनिश में बदलाव की शर्त पर मंज़ूर किया गया सैंपल बिना शर्त मंज़ूरी नहीं है। पक्का कीजिए कि बल्क बनने से पहले बदला हुआ रूप कैसे जाँचा जाएगा। आगे की जाँच के लिए हमारी गाइड सैंपल से बल्क ऑर्डर तक देखिए।",
           ],
           "hi-en": [
             "Asli sample un sawaalon ke jawab deta hai jo photograph nahi de sakti. Kaam ke hisaab se dekhiye — feel aur drape, weight aur thickness, transparency, aam roshni mein colour, print ya motif ka size, surface texture, usable width, stretch aur recovery, aur finishing va edges ki safai.",
             "Agar shrinkage, colourfastness ya koi aur performance zaroori hai, to order se pehle yeh baat keh deejiye. Poochiye ki kaun si testing ya supporting information available hai. Sirf dekhne se yeh tay nahi hota ki cutting, stitching, dhulai aur roz istemal mein fabric kaisa niklega.",
-            "Colour, width ya finish mein badlav ki shart par approve kiya gaya sample bina shart approval nahi hai. Pakka kijiye ki bulk banne ya dispatch se pehle badla hua roop kaise jaancha jayega. Aage ki checks ke liye hamari guide sample se bulk order tak dekhiye.",
+            "Colour, width ya finish mein badlav ki shart par approve kiya gaya sample bina shart approval nahi hai. Pakka kijiye ki bulk banne se pehle badla hua roop kaise jaancha jayega. Aage ki checks ke liye hamari guide sample se bulk order tak dekhiye.",
           ],
         },
         checklist: {
@@ -1175,19 +1554,19 @@ export const JOURNAL: JournalArticle[] = [
         paragraphs: {
           en: [
             "The fabric price is only one part of the buying decision. Before paying, ask for a written quotation or order summary containing the full commercial terms.",
-            "Check whether the MOQ applies per colour, per design, per roll or across the full order. Also confirm whether the quoted price depends on purchasing the entire assortment.",
+            "Ask how quantities work for this order — per colour, per design, per roll or across the full order. Also confirm whether the quoted price depends on purchasing the entire assortment.",
             "Vidhi Fabrics, as manufacturer and wholesaler, is responsible for helping you understand the available options, the quotation and the order. We manufacture some lines in-house, and our network of Surat mills, manufacturers and processors supports the rest behind the scenes; you should not have to coordinate separately with every participant.",
             "When sourcing dress materials, you can also use our guide to buying dress material wholesale, or start from our fabric range.",
           ],
           hi: [
             "कपड़े की कीमत खरीद के फ़ैसले का एक हिस्सा भर है। पैसे देने से पहले लिखित कोटेशन या ऑर्डर का सारांश माँगिए, जिसमें पूरी व्यापारिक शर्तें हों।",
-            "देखिए कि MOQ हर रंग पर, हर डिज़ाइन पर, हर रोल पर या पूरे ऑर्डर पर लागू है। यह भी पक्का कीजिए कि बताई गई कीमत पूरी रेंज खरीदने पर टिकी है या नहीं।",
+            "पूछिए कि इस ऑर्डर में मात्रा का हिसाब कैसे है — हर रंग पर, हर डिज़ाइन पर, हर रोल पर या पूरे ऑर्डर पर। यह भी पक्का कीजिए कि बताई गई कीमत पूरी रेंज खरीदने पर टिकी है या नहीं।",
             "निर्माता और थोक विक्रेता के रूप में, विधि फैब्रिक्स की ज़िम्मेदारी आपको उपलब्ध विकल्प, कोटेशन और ऑर्डर समझाने की है। कुछ लाइनें हम खुद बनाते हैं, और बाकी सप्लाई सूरत की मिलों, निर्माताओं और प्रोसेसरों का हमारा नेटवर्क पीछे रहकर सँभालता है; आपको हर एक से अलग-अलग तालमेल नहीं बिठाना पड़ता।",
             "ड्रेस मटेरियल मंगवाते समय आप ड्रेस मटेरियल थोक में खरीदने की हमारी गाइड भी देख सकते हैं, या हमारी फैब्रिक रेंज से शुरू कर सकते हैं।",
           ],
           "hi-en": [
             "Fabric ki price khareed ke faisle ka ek hissa bhar hai. Paise dene se pehle likhit quotation ya order ka summary maangiye, jisme poori commercial terms hon.",
-            "Dekhiye ki MOQ har colour par, har design par, har roll par ya poore order par lagu hai. Yeh bhi pakka kijiye ki batayi gayi price poori range khareedne par tiki hai ya nahi.",
+            "Poochiye ki is order mein quantity ka hisaab kaise hai — har colour par, har design par, har roll par ya poore order par. Yeh bhi pakka kijiye ki batayi gayi price poori range khareedne par tiki hai ya nahi.",
             "Vidhi Fabrics manufacturer aur wholesaler ke roop mein aapko available options, quotation aur order samjhane ki zimmedari leta hai. Kuch lines hum khud banate hain, aur baaki supply Surat ki mills, manufacturers aur processors ka hamara network peeche rehkar sambhalta hai; aapko har ek se alag alag taalmel nahi bithana padta.",
             "Dress material mangwate samay aap dress material wholesale mein khareedne ki hamari guide bhi dekh sakte hain, ya hamari fabric range se shuru kar sakte hain.",
           ],
@@ -1202,7 +1581,7 @@ export const JOURNAL: JournalArticle[] = [
             "Freight or delivery responsibility",
             "Payment stages",
             "Stock or production status",
-            "Estimated dispatch date",
+            "How timing works for this order",
             "Rules for substitutions or quantity changes",
             "Process for reporting shortages, damage or incorrect material",
           ],
@@ -1215,7 +1594,7 @@ export const JOURNAL: JournalArticle[] = [
             "भाड़ा या डिलीवरी की ज़िम्मेदारी",
             "भुगतान के चरण",
             "स्टॉक या उत्पादन की स्थिति",
-            "डिस्पैच की अनुमानित तारीख़",
+            "इस ऑर्डर में समय का हिसाब",
             "बदलाव या मात्रा में फेरबदल के नियम",
             "कम माल, नुक़सान या ग़लत माल की शिकायत का तरीक़ा",
           ],
@@ -1228,7 +1607,7 @@ export const JOURNAL: JournalArticle[] = [
             "Freight ya delivery ki zimmedari",
             "Payment ke stages",
             "Stock ya production ki sthiti",
-            "Dispatch ki approximate date",
+            "Is order mein timing ka hisaab",
             "Substitution ya quantity mein farebadal ke rules",
             "Kam maal, damage ya galat maal ki complaint ka tareeka",
           ],
@@ -1236,51 +1615,42 @@ export const JOURNAL: JournalArticle[] = [
       },
       {
         heading: {
-          en: "Separate the dispatch date from the arrival date",
-          hi: "डिस्पैच की तारीख़ और पहुँचने की तारीख़ अलग रखिए",
-          "hi-en": "Dispatch ki date aur pahunchne ki date alag rakhiye",
+          en: "Agree how timing works for your order",
+          hi: "ऑर्डर में समय का हिसाब पहले तय कीजिए",
+          "hi-en": "Order mein timing ka hisaab pehle tay kijiye",
         },
         paragraphs: {
           en: [
-            "“Ready in ten days” can refer to production completion, dispatch or delivery. These are not the same milestone. Tell the supplier the date by which the material must arrive — not only when you expect it to leave Surat.",
-            "Transport time can vary by destination and shipment type. If the fabric is needed for a launch, festive season or customer order, include reasonable time for receiving, inspecting and resolving any concern before cutting begins.",
+            "A word like “ready” can mean different things: a lot that has been prepared, one that has been packed, or one that is already with you. Ask how timing works for your order, and get the answer in writing alongside the rest of the order summary.",
+            "If the fabric is for a launch, a festive season or a customer order, tell the supplier which season you are buying for, and leave yourself room to receive, inspect and resolve any concern before cutting begins.",
           ],
           hi: [
-            "“दस दिन में तैयार” का मतलब उत्पादन पूरा होना, डिस्पैच या डिलीवरी — कुछ भी हो सकता है। ये एक ही पड़ाव नहीं हैं। सप्लायर को वह तारीख़ बताइए जिस तक माल पहुँच जाना चाहिए, सिर्फ़ यह नहीं कि वह सूरत से कब निकलेगा।",
-            "गंतव्य और भेजने के तरीक़े से ट्रांसपोर्ट का समय बदलता है। अगर कपड़ा किसी लॉन्च, त्योहारी सीज़न या ग्राहक के ऑर्डर के लिए है, तो कटाई शुरू होने से पहले माल लेने, जाँचने और किसी दिक़्क़त को सुलझाने का वाजिब समय भी जोड़िए।",
+            "“तैयार” जैसे शब्द के कई मतलब हो सकते हैं — माल बन चुका है, पैक हो चुका है, या आपके हाथ में आ चुका है। पूछिए कि आपके ऑर्डर में समय का हिसाब कैसे रहेगा, और यह जवाब बाक़ी ऑर्डर सारांश के साथ लिखित में लीजिए।",
+            "अगर कपड़ा किसी लॉन्च, त्योहारी सीज़न या ग्राहक के ऑर्डर के लिए है, तो सप्लायर को बताइए कि आप किस सीज़न के लिए खरीद रहे हैं। कटाई शुरू करने से पहले माल लेने, जाँचने और कोई दिक़्क़त सुलझाने की गुंजाइश अपने पास रखिए।",
           ],
           "hi-en": [
-            "“Das din mein taiyar” ka matlab production poora hona, dispatch ya delivery — kuch bhi ho sakta hai. Ye ek hi milestone nahi hain. Supplier ko wo date bataiye jis tak maal pahunch jaana chahiye, sirf yeh nahi ki wo Surat se kab niklega.",
-            "Destination aur bhejne ke tareeke se transport ka time badalta hai. Agar fabric kisi launch, festive season ya customer ke order ke liye hai, to cutting shuru hone se pehle maal lene, jaanchne aur kisi dikkat ko suljhane ka waajib time bhi jodiye.",
+            "“Ready” jaise shabd ke kai matlab ho sakte hain — maal ban chuka hai, pack ho chuka hai, ya aapke haath mein aa chuka hai. Poochiye ki aapke order mein timing ka hisaab kaise rahega, aur yeh jawab baaki order summary ke saath likhit mein lijiye.",
+            "Agar fabric kisi launch, festive season ya customer ke order ke liye hai, to supplier ko bataiye ki aap kis season ke liye khareed rahe hain. Cutting shuru karne se pehle maal lene, jaanchne aur koi dikkat suljhane ki gunjaish apne paas rakhiye.",
           ],
         },
         checklist: {
           en: [
-            "Expected production or preparation completion",
-            "Estimated dispatch date",
-            "Transport method",
+            "Stock or preparation status",
+            "How timing works for your order",
             "Delivery destination and receiving contact",
-            "Shipment or tracking information",
-            "Whether partial shipments are possible",
-            "How delays or stock changes will be communicated",
+            "How stock changes will be communicated",
           ],
           hi: [
-            "उत्पादन या तैयारी पूरी होने का अनुमान",
-            "डिस्पैच की अनुमानित तारीख़",
-            "भेजने का तरीक़ा",
+            "स्टॉक या तैयारी की स्थिति",
+            "आपके ऑर्डर में समय का हिसाब",
             "डिलीवरी की जगह और माल लेने वाले का संपर्क",
-            "शिपमेंट या ट्रैकिंग की जानकारी",
-            "माल किश्तों में भेजा जा सकता है या नहीं",
-            "देरी या स्टॉक में बदलाव की सूचना कैसे मिलेगी",
+            "स्टॉक में बदलाव की सूचना कैसे मिलेगी",
           ],
           "hi-en": [
-            "Production ya taiyari poori hone ka anumaan",
-            "Dispatch ki approximate date",
-            "Bhejne ka tareeka",
+            "Stock ya taiyari ki sthiti",
+            "Aapke order mein timing ka hisaab",
             "Delivery ki jagah aur maal lene wale ka contact",
-            "Shipment ya tracking ki information",
-            "Maal kishton mein bheja ja sakta hai ya nahi",
-            "Deri ya stock mein badlav ki soochna kaise milegi",
+            "Stock mein badlav ki soochna kaise milegi",
           ],
         },
       },
@@ -1330,11 +1700,11 @@ export const JOURNAL: JournalArticle[] = [
           "Shared the quantity and delivery location",
           "Explained what matters in any reference photograph",
           "Received comparable product specifications",
-          "Confirmed the MOQ basis",
+          "Confirmed how quantities work for the order",
           "Reviewed or approved a sample",
           "Saved the approved product code",
           "Confirmed taxes, packing and freight",
-          "Distinguished dispatch from delivery",
+          "Confirmed how timing works for the order",
           "Agreed how changes and problems will be reported",
           "Prepared a receiving and inspection process",
         ],
@@ -1343,11 +1713,11 @@ export const JOURNAL: JournalArticle[] = [
           "मात्रा और डिलीवरी की जगह बताई",
           "रेफ़रेंस तस्वीर में क्या ज़रूरी है, यह समझाया",
           "तुलना लायक प्रोडक्ट स्पेसिफ़िकेशन मिले",
-          "MOQ किस आधार पर है, यह पक्का किया",
+          "ऑर्डर में मात्रा का हिसाब पक्का किया",
           "सैंपल देखा या मंज़ूर किया",
           "मंज़ूर प्रोडक्ट कोड सँभालकर रखा",
           "कर, पैकिंग और भाड़ा पक्का किया",
-          "डिस्पैच और डिलीवरी में फ़र्क़ साफ़ किया",
+          "ऑर्डर में समय का हिसाब पक्का किया",
           "बदलाव और दिक़्क़तों की शिकायत का तरीक़ा तय किया",
           "माल लेने और जाँचने की तैयारी की",
         ],
@@ -1356,11 +1726,11 @@ export const JOURNAL: JournalArticle[] = [
           "Quantity aur delivery ki jagah batayi",
           "Reference photograph mein kya zaroori hai, yeh samjhaya",
           "Comparison layak product specifications mile",
-          "MOQ kis aadhar par hai, yeh pakka kiya",
+          "Order mein quantity ka hisaab pakka kiya",
           "Sample dekha ya approve kiya",
           "Approved product code sambhaal kar rakha",
           "Taxes, packing aur freight pakka kiya",
-          "Dispatch aur delivery mein farq saaf kiya",
+          "Order mein timing ka hisaab pakka kiya",
           "Changes aur dikkaton ki complaint ka tareeka tay kiya",
           "Maal lene aur jaanchne ki taiyari ki",
         ],
@@ -1387,10 +1757,10 @@ export const JOURNAL: JournalArticle[] = [
           "hi-en": "Surat ke fabric supplier ko kaun si information bhejni chahiye?",
         },
         answer: {
-          en: "Send the intended application, preferred fabric or fibre, required feel or appearance, colour or design references, width or GSM requirements, approximate quantity, delivery location and required arrival date.",
-          hi: "कपड़ा किस काम के लिए है, पसंदीदा कपड़ा या रेशा, कैसा फ़ील या रूप चाहिए, रंग या डिज़ाइन के रेफ़रेंस, चौड़ाई या GSM की ज़रूरत, अनुमानित मात्रा, डिलीवरी की जगह और पहुँचने की ज़रूरी तारीख़ भेजिए।",
+          en: "Send the intended application, preferred fabric or fibre, required feel or appearance, colour or design references, width or GSM requirements, approximate quantity, delivery location and the season you are buying for.",
+          hi: "कपड़ा किस काम के लिए है, पसंदीदा कपड़ा या रेशा, कैसा फ़ील या रूप चाहिए, रंग या डिज़ाइन के रेफ़रेंस, चौड़ाई या GSM की ज़रूरत, अनुमानित मात्रा, डिलीवरी की जगह और आप किस सीज़न के लिए खरीद रहे हैं — यह सब भेजिए।",
           "hi-en":
-            "Fabric kis kaam ke liye hai, pasandeeda fabric ya fibre, kaisa feel ya look chahiye, colour ya design ke references, width ya GSM ki zaroorat, approximate quantity, delivery ki jagah aur pahunchne ki zaroori date bhejiye.",
+            "Fabric kis kaam ke liye hai, pasandeeda fabric ya fibre, kaisa feel ya look chahiye, colour ya design ke references, width ya GSM ki zaroorat, approximate quantity, delivery ki jagah aur aap kis season ke liye khareed rahe hain — yeh sab bhejiye.",
         },
       },
       {
@@ -1408,15 +1778,15 @@ export const JOURNAL: JournalArticle[] = [
       },
       {
         question: {
-          en: "How does fabric MOQ work?",
-          hi: "कपड़े का MOQ कैसे चलता है?",
-          "hi-en": "Fabric ka MOQ kaise chalta hai?",
+          en: "How do order quantities work for fabric?",
+          hi: "कपड़े के ऑर्डर में मात्रा का हिसाब कैसे चलता है?",
+          "hi-en": "Fabric order mein quantity ka hisaab kaise chalta hai?",
         },
         answer: {
-          en: "MOQ may apply per colour, design, roll, product or total order. Buyers should ask the supplier to explain exactly how the minimum quantity is calculated before comparing quotations.",
-          hi: "MOQ हर रंग, डिज़ाइन, रोल, प्रोडक्ट या पूरे ऑर्डर पर लागू हो सकता है। कोटेशन की तुलना करने से पहले खरीदार को सप्लायर से पूछ लेना चाहिए कि न्यूनतम मात्रा ठीक किस तरह गिनी जाती है।",
+          en: "Quantities can be worked out per colour, design, roll, product or across the total order. Ask the supplier how quantities work for your order before comparing quotations, so that you compare like with like.",
+          hi: "मात्रा का हिसाब हर रंग, डिज़ाइन, रोल, प्रोडक्ट या पूरे ऑर्डर पर हो सकता है। कोटेशन की तुलना से पहले सप्लायर से पूछ लीजिए कि आपके ऑर्डर में यह हिसाब कैसे रहेगा, ताकि तुलना बराबरी की हो।",
           "hi-en":
-            "MOQ har colour, design, roll, product ya poore order par lagu ho sakta hai. Quotations compare karne se pehle khareedar ko supplier se pooch lena chahiye ki minimum quantity theek kis tarah gini jaati hai.",
+            "Quantity ka hisaab har colour, design, roll, product ya poore order par ho sakta hai. Quotations compare karne se pehle supplier se pooch lijiye ki aapke order mein yeh hisaab kaise rahega, taaki comparison barabari ka ho.",
         },
       },
       {
@@ -1426,10 +1796,10 @@ export const JOURNAL: JournalArticle[] = [
           "hi-en": "Fabric ki price ke alawa kin baaton ki comparison karni chahiye?",
         },
         answer: {
-          en: "Compare composition, construction, GSM, width, finish, MOQ, availability, taxes, packing, freight, payment terms, dispatch timing and the process for reporting an incorrect or defective supply.",
-          hi: "सामग्री, बुनावट, GSM, चौड़ाई, फ़िनिश, MOQ, उपलब्धता, कर, पैकिंग, भाड़ा, भुगतान की शर्तें, डिस्पैच का समय और ग़लत या ख़राब माल की शिकायत के तरीक़े — इन सबकी तुलना कीजिए।",
+          en: "Compare composition, construction, GSM, width, finish, how quantities work, availability, taxes, packing, freight, payment terms, how timing works and the process for reporting an incorrect or defective supply.",
+          hi: "सामग्री, बुनावट, GSM, चौड़ाई, फ़िनिश, मात्रा का हिसाब, उपलब्धता, कर, पैकिंग, भाड़ा, भुगतान की शर्तें, समय का हिसाब और ग़लत या ख़राब माल की शिकायत के तरीक़े — इन सबकी तुलना कीजिए।",
           "hi-en":
-            "Composition, construction, GSM, width, finish, MOQ, availability, taxes, packing, freight, payment terms, dispatch timing aur galat ya kharab maal ki complaint ke tareeke — in sabki comparison kijiye.",
+            "Composition, construction, GSM, width, finish, quantity ka hisaab, availability, taxes, packing, freight, payment terms, timing ka hisaab aur galat ya kharab maal ki complaint ke tareeke — in sabki comparison kijiye.",
         },
       },
     ],
@@ -1494,6 +1864,7 @@ export const JOURNAL: JournalArticle[] = [
     ],
     image: cotton,
     published: "2026-09-12",
+    modified: "2026-10-02",
     imageAlt: {
       en: "Cream fabric folded to show its weave and texture",
       hi: "क्रीम रंग का कपड़ा, जिसकी बुनाई और बनावट दिख रही है",
@@ -1519,16 +1890,16 @@ export const JOURNAL: JournalArticle[] = [
       "hi-en": "Dress material wholesale mein khareed rahe hain? Pehle yeh check kar lijiye.",
     },
     excerpt: {
-      en: "From fabric details to minimum quantities, know what to ask before placing your first order.",
-      hi: "कपड़े की जानकारी से लेकर न्यूनतम मात्रा तक — पहला ऑर्डर देने से पहले क्या पूछना चाहिए।",
+      en: "From fabric details to how quantities work, know what to ask before placing your first order.",
+      hi: "कपड़े की जानकारी से लेकर मात्रा के हिसाब तक — पहला ऑर्डर देने से पहले क्या पूछना चाहिए।",
       "hi-en":
-        "Fabric details se lekar minimum quantity tak — pehla order dene se pehle kya poochna chahiye.",
+        "Fabric details se lekar quantity ke hisaab tak — pehla order dene se pehle kya poochna chahiye.",
     },
     directAnswer: {
-      en: "Buying dress material wholesale means confirming five things before ordering: the buying brief, exact set composition, a physical sample, how the minimum order quantity is calculated, and the full written order summary — price, taxes, packing and dispatch — before payment.",
-      hi: "ड्रेस मटेरियल थोक में खरीदने से पहले पाँच बातें पक्की कर लीजिए: खरीद की ब्रीफ़, सेट की सही सामग्री, एक असली सैंपल, न्यूनतम मात्रा कैसे तय होती है, और भुगतान से पहले पूरा लिखित ऑर्डर सारांश — कीमत, कर, पैकिंग और डिस्पैच।",
+      en: "Buying dress material wholesale means confirming five things before ordering: the buying brief, exact set composition, a physical sample, how quantities and timing work for your order, and the full written order summary — price, taxes and packing — before payment.",
+      hi: "ड्रेस मटेरियल थोक में खरीदने से पहले पाँच बातें पक्की कर लीजिए: खरीद की ब्रीफ़, सेट की सही सामग्री, एक असली सैंपल, आपके ऑर्डर में मात्रा और समय का हिसाब कैसा रहेगा, और भुगतान से पहले पूरा लिखित ऑर्डर सारांश — कीमत, कर और पैकिंग।",
       "hi-en":
-        "Dress material wholesale mein khareedne se pehle paanch baatein pakki kar lijiye: buying brief, set ki sahi composition, ek asli sample, minimum quantity kaise tay hoti hai, aur payment se pehle poora likhit order summary — price, taxes, packing aur dispatch.",
+        "Dress material wholesale mein khareedne se pehle paanch baatein pakki kar lijiye: buying brief, set ki sahi composition, ek asli sample, aapke order mein quantity aur timing ka hisaab kaisa rahega, aur payment se pehle poora likhit order summary — price, taxes aur packing.",
     },
     introduction: {
       en: "A useful wholesale enquiry starts with the customer you are buying for. Before choosing a catalogue, write down the type of shop you run, the price range your customers usually buy, and the occasions you want to serve. This gives your supplier a clearer brief and gives you a better way to judge the options. Use the following checks to turn an attractive product photograph into an order you understand.",
@@ -1545,17 +1916,17 @@ export const JOURNAL: JournalArticle[] = [
         },
         paragraphs: {
           en: [
-            "Decide whether you need everyday dress material, a festive selection, or something for a particular customer request. Include your delivery city, approximate quantity and required arrival date. If you have a reference image, explain what you like about it: the colour, print, texture or overall look. A reference alone does not tell a supplier which details are essential.",
+            "Decide whether you need everyday dress material, a festive selection, or something for a particular customer request. Include your delivery city, approximate quantity and the season you are buying for. If you have a reference image, explain what you like about it: the colour, print, texture or overall look. A reference alone does not tell a supplier which details are essential.",
             "Separate your preferred buying price from your intended selling price. Ask what is included in the quotation before comparing it with another offer. A short written brief is easier to revisit than a long series of disconnected messages.",
             "If you are buying from another city or country, the same brief is what lets you source fabric from Surat remotely, without travelling to the market to see each option in person.",
           ],
           hi: [
-            "तय कीजिए कि आपको रोज़मर्रा का ड्रेस मटेरियल चाहिए, त्योहारी सिलेक्शन, या किसी ख़ास ग्राहक की माँग के लिए कुछ। अपना डिलीवरी शहर, अनुमानित मात्रा और पहुँचने की ज़रूरी तारीख़ शामिल कीजिए। अगर कोई रेफ़रेंस तस्वीर है, तो बताइए कि उसमें आपको क्या पसंद है — रंग, प्रिंट, बनावट या पूरा लुक। अकेली तस्वीर सप्लायर को यह नहीं बताती कि कौन-सी बात ज़रूरी है।",
+            "तय कीजिए कि आपको रोज़मर्रा का ड्रेस मटेरियल चाहिए, त्योहारी सिलेक्शन, या किसी ख़ास ग्राहक की माँग के लिए कुछ। अपना डिलीवरी शहर, अनुमानित मात्रा और जिस सीज़न के लिए खरीद रहे हैं, वह भी बताइए। अगर कोई रेफ़रेंस तस्वीर है, तो बताइए कि उसमें आपको क्या पसंद है — रंग, प्रिंट, बनावट या पूरा लुक। अकेली तस्वीर सप्लायर को यह नहीं बताती कि कौन-सी बात ज़रूरी है।",
             "अपनी खरीद कीमत और बिक्री कीमत अलग-अलग रखिए। किसी दूसरे ऑफ़र से तुलना करने से पहले पूछिए कि कोटेशन में क्या-क्या शामिल है। लिखी हुई छोटी ब्रीफ़ को दोबारा देखना, बिखरे हुए लंबे मैसेज पढ़ने से कहीं आसान है।",
             "अगर आप दूसरे शहर या देश से खरीद रहे हैं, तो यही ब्रीफ़ आपको दूर बैठे सूरत से कपड़ा मंगवाने देती है — हर विकल्प देखने के लिए बाज़ार जाने की ज़रूरत नहीं पड़ती।",
           ],
           "hi-en": [
-            "Tay kijiye ki aapko rozmarra ka dress material chahiye, festive selection, ya kisi khaas customer ki demand ke liye kuch. Apna delivery city, approximate quantity aur arrival ki zaroori date shamil kijiye. Agar koi reference image hai, to bataiye ki usme aapko kya pasand hai — colour, print, texture ya overall look. Akeli image supplier ko yeh nahi batati ki kaun si detail zaroori hai.",
+            "Tay kijiye ki aapko rozmarra ka dress material chahiye, festive selection, ya kisi khaas customer ki demand ke liye kuch. Apna delivery city, approximate quantity aur jis season ke liye khareed rahe hain, wo bhi bataiye. Agar koi reference image hai, to bataiye ki usme aapko kya pasand hai — colour, print, texture ya overall look. Akeli image supplier ko yeh nahi batati ki kaun si detail zaroori hai.",
             "Apni buying price aur selling price alag-alag rakhiye. Kisi doosre offer se compare karne se pehle poochiye ki quotation mein kya kya shamil hai. Likhi hui chhoti brief ko dobara dekhna, bikhre hue lambe messages padhne se kahin aasan hai.",
             "Agar aap doosre shahar ya desh se khareed rahe hain, to yahi brief aapko remote rehkar Surat se fabric mangwane deti hai — har option dekhne ke liye market jaane ki zaroorat nahi padti.",
           ],
@@ -1628,16 +1999,16 @@ export const JOURNAL: JournalArticle[] = [
         },
         paragraphs: {
           en: [
-            "Ask whether the minimum applies per design, colour, catalogue or total order. Find out whether you must purchase a full set of colourways and whether mixed selections are possible. This helps you judge whether the order fits your customers and the amount of stock you can carry.",
-            "Discuss repeat orders separately. Ask which designs are currently available, which require production and what may change between batches. Treat a popular design as a replenishment option only after availability and lead time have been confirmed.",
+            "Ask how quantities work for your order: per design, per colour, per catalogue or across the total order. Find out whether you must purchase a full set of colourways and whether mixed selections are possible. This helps you judge whether the order fits your customers and the amount of stock you can carry.",
+            "Discuss repeat orders separately. Ask which designs are currently available, which require production and what may change between batches. Treat a popular design as a replenishment option only after availability and timing have been confirmed for your order.",
           ],
           hi: [
-            "पूछिए कि न्यूनतम मात्रा हर डिज़ाइन पर लागू है, हर रंग पर, पूरे कैटलॉग पर या कुल ऑर्डर पर। जानिए कि क्या आपको सारे रंग एक साथ लेने होंगे और क्या मिला-जुला सिलेक्शन मुमकिन है। इससे तय होता है कि ऑर्डर आपके ग्राहकों और आपके स्टॉक रखने की क्षमता से मेल खाता है या नहीं।",
-            "रिपीट ऑर्डर पर अलग से बात कीजिए। पूछिए कि कौन-से डिज़ाइन अभी उपलब्ध हैं, किनका उत्पादन करना पड़ेगा, और बैच बदलने पर क्या फ़र्क़ आ सकता है। किसी लोकप्रिय डिज़ाइन को दोबारा मँगाने का विकल्प तभी मानिए जब उपलब्धता और लीड टाइम की पुष्टि हो जाए।",
+            "पूछिए कि आपके ऑर्डर में मात्रा का हिसाब कैसे है — हर डिज़ाइन पर, हर रंग पर, पूरे कैटलॉग पर या कुल ऑर्डर पर। जानिए कि क्या आपको सारे रंग एक साथ लेने होंगे और क्या मिला-जुला सिलेक्शन मुमकिन है। इससे तय होता है कि ऑर्डर आपके ग्राहकों और आपके स्टॉक रखने की क्षमता से मेल खाता है या नहीं।",
+            "रिपीट ऑर्डर पर अलग से बात कीजिए। पूछिए कि कौन-से डिज़ाइन अभी उपलब्ध हैं, किनका उत्पादन करना पड़ेगा, और बैच बदलने पर क्या फ़र्क़ आ सकता है। किसी लोकप्रिय डिज़ाइन को दोबारा मँगाने का विकल्प तभी मानिए जब आपके ऑर्डर के लिए उपलब्धता और समय, दोनों की पुष्टि हो जाए।",
           ],
           "hi-en": [
-            "Poochiye ki minimum quantity har design par lagu hai, har colour par, poore catalogue par ya total order par. Jaaniye ki kya aapko saare colourways ek saath lene honge aur kya mixed selection mumkin hai. Isse tay hota hai ki order aapke customers aur aapki stock rakhne ki capacity se match karta hai ya nahi.",
-            "Repeat orders par alag se baat kijiye. Poochiye ki kaun se designs abhi available hain, kinka production karna padega, aur batch badalne par kya fark aa sakta hai. Kisi popular design ko dobara mangwane ka option tabhi maaniye jab availability aur lead time confirm ho jaye.",
+            "Poochiye ki aapke order mein quantity ka hisaab kaise hai — har design par, har colour par, poore catalogue par ya total order par. Jaaniye ki kya aapko saare colourways ek saath lene honge aur kya mixed selection mumkin hai. Isse tay hota hai ki order aapke customers aur aapki stock rakhne ki capacity se match karta hai ya nahi.",
+            "Repeat orders par alag se baat kijiye. Poochiye ki kaun se designs abhi available hain, kinka production karna padega, aur batch badalne par kya fark aa sakta hai. Kisi popular design ko dobara mangwane ka option tabhi maaniye jab aapke order ke liye availability aur timing, dono confirm ho jayein.",
           ],
         },
       },
@@ -1649,15 +2020,15 @@ export const JOURNAL: JournalArticle[] = [
         },
         paragraphs: {
           en: [
-            "Request a written summary covering quantities, prices, applicable taxes, packing, freight, payment stages and the dispatch estimate. Confirm how defects, shortages or an incorrect item should be reported and what evidence the supplier needs. Those terms should be agreed before the shipment, not worked out after a problem.",
+            "Request a written summary covering quantities, prices, applicable taxes, packing, freight, payment stages and how timing works for your order. Confirm how defects, shortages or an incorrect item should be reported and what evidence the supplier needs. Those terms should be agreed before the order goes ahead, not worked out after a problem.",
             "For your first purchase, consider a manageable selection that lets you learn which products your customers actually choose. Record what sells, what generates questions and what remains unsold. That record can make your next sourcing brief more precise.",
           ],
           hi: [
-            "लिखित सारांश माँगिए जिसमें मात्रा, कीमत, लागू कर, पैकिंग, भाड़ा, भुगतान के चरण और भेजने का अनुमान शामिल हो। यह भी तय कीजिए कि ख़राबी, कम माल या ग़लत आइटम की शिकायत कैसे करनी है और सप्लायर को कौन-सा सबूत चाहिए। ये शर्तें माल भेजने से पहले तय होनी चाहिए, समस्या आने के बाद नहीं।",
+            "लिखित सारांश माँगिए जिसमें मात्रा, कीमत, लागू कर, पैकिंग, भाड़ा, भुगतान के चरण और आपके ऑर्डर में समय का हिसाब शामिल हो। यह भी तय कीजिए कि ख़राबी, कम माल या ग़लत आइटम की शिकायत कैसे करनी है और सप्लायर को कौन-सा सबूत चाहिए। ये शर्तें ऑर्डर आगे बढ़ने से पहले तय होनी चाहिए, समस्या आने के बाद नहीं।",
             "पहली खरीद में इतना ही लीजिए जितना सँभाल सकें, ताकि पता चले कि आपके ग्राहक असल में क्या चुनते हैं। लिखते जाइए कि क्या बिका, किस पर सवाल आए और क्या नहीं बिका। यही रिकॉर्ड आपकी अगली ब्रीफ़ को ज़्यादा सटीक बनाएगा।",
           ],
           "hi-en": [
-            "Likhit summary maangiye jisme quantity, price, applicable taxes, packing, freight, payment stages aur dispatch estimate shamil ho. Yeh bhi tay kijiye ki defect, shortage ya galat item ki complaint kaise karni hai aur supplier ko kaun sa evidence chahiye. Ye terms shipment se pehle tay honi chahiye, problem aane ke baad nahi.",
+            "Likhit summary maangiye jisme quantity, price, applicable taxes, packing, freight, payment stages aur aapke order mein timing ka hisaab shamil ho. Yeh bhi tay kijiye ki defect, shortage ya galat item ki complaint kaise karni hai aur supplier ko kaun sa evidence chahiye. Ye terms order aage badhne se pehle tay honi chahiye, problem aane ke baad nahi.",
             "Pehli purchase mein utna hi lijiye jitna sambhal sakein, taaki pata chale ki aapke customers asal mein kya choose karte hain. Likhte jaiye ki kya bika, kis par sawal aaye aur kya nahi bika. Yahi record aapki agli sourcing brief ko zyada precise banayega.",
           ],
         },
@@ -1683,15 +2054,15 @@ export const JOURNAL: JournalArticle[] = [
     faq: [
       {
         question: {
-          en: "Is there a fixed minimum order quantity for dress material?",
-          hi: "क्या ड्रेस मटेरियल की कोई तय न्यूनतम मात्रा होती है?",
-          "hi-en": "Kya dress material ki koi fixed minimum quantity hoti hai?",
+          en: "How do quantities work when buying dress material wholesale?",
+          hi: "थोक में ड्रेस मटेरियल लेते समय मात्रा का हिसाब कैसे चलता है?",
+          "hi-en": "Wholesale mein dress material lete samay quantity ka hisaab kaise chalta hai?",
         },
         answer: {
-          en: "No — minimum quantities vary by catalogue, design and colour, and some suppliers apply it per component in a set rather than per piece. A more useful question than what the MOQ is in general is how it is calculated for the specific lot you are considering: per design, per colourway, or across the catalogue as a whole. Confirm this before comparing quotations, since two suppliers quoting the 'same' MOQ can mean different things.",
-          hi: "नहीं — न्यूनतम मात्रा कैटलॉग, डिज़ाइन और रंग के हिसाब से अलग-अलग होती है, और कुछ सप्लायर इसे सेट के हर हिस्से पर अलग से भी लागू करते हैं। असली सवाल यह नहीं कि न्यूनतम मात्रा आम तौर पर क्या है, बल्कि यह कि जिस लॉट में आपकी दिलचस्पी है उसके लिए यह कैसे तय होती है — हर डिज़ाइन पर, हर रंग पर, या पूरे कैटलॉग पर। कोटेशन की तुलना करने से पहले यह पक्का कर लीजिए, क्योंकि दो सप्लायरों की 'एक जैसी' न्यूनतम मात्रा का मतलब अलग-अलग हो सकता है।",
+          en: "It varies by catalogue, design and colour, and some suppliers count each component of a set separately rather than per piece. The useful question is how quantities work for the specific lot you are considering: per design, per colourway, or across the catalogue as a whole. Confirm this before comparing quotations, since two suppliers describing the 'same' quantity can mean different things.",
+          hi: "यह कैटलॉग, डिज़ाइन और रंग के हिसाब से बदलता है, और कुछ सप्लायर सेट के हर हिस्से को अलग से गिनते हैं। काम का सवाल यह है कि जिस लॉट में आपकी दिलचस्पी है, उसमें मात्रा का हिसाब कैसे है — हर डिज़ाइन पर, हर रंग पर, या पूरे कैटलॉग पर। कोटेशन की तुलना करने से पहले यह पक्का कर लीजिए, क्योंकि दो सप्लायरों की 'एक जैसी' मात्रा का मतलब अलग-अलग हो सकता है।",
           "hi-en":
-            "Nahin — minimum quantity catalogue, design aur colour ke hisaab se alag alag hoti hai, aur kuch suppliers ise set ke har component par alag se bhi apply karte hain. Asli sawal yeh nahi ki minimum quantity aam taur par kya hai, balki yeh ki jis lot mein aapki dilchaspi hai uske liye yeh kaise tay hoti hai — har design par, har colour par, ya poore catalogue par. Quotation compare karne se pehle yeh pakka kar lijiye, kyunki do suppliers ki 'ek jaisi' minimum quantity ka matlab alag alag ho sakta hai.",
+            "Yeh catalogue, design aur colour ke hisaab se badalta hai, aur kuch suppliers set ke har component ko alag se ginte hain. Kaam ka sawal yeh hai ki jis lot mein aapki dilchaspi hai, usme quantity ka hisaab kaise hai — har design par, har colour par, ya poore catalogue par. Quotation compare karne se pehle yeh pakka kar lijiye, kyunki do suppliers ki 'ek jaisi' quantity ka matlab alag alag ho sakta hai.",
         },
       },
       {
@@ -1714,10 +2085,10 @@ export const JOURNAL: JournalArticle[] = [
           "hi-en": "Kya main India se bahar rehte hue bhi dress material order kar sakta hoon?",
         },
         answer: {
-          en: "Yes. The buying brief and sample process are the same regardless of where you are; the main addition is confirming delivery location, applicable duties and the dispatch timeline in writing before the order is placed.",
-          hi: "हाँ। खरीद की ब्रीफ़ और सैंपल की प्रक्रिया वही रहती है, चाहे आप कहीं भी हों; मुख्य फ़र्क़ यह है कि डिलीवरी की जगह, लागू शुल्क और डिस्पैच की समय-सीमा को ऑर्डर देने से पहले लिखित में पक्का करना होता है।",
+          en: "Yes. The buying brief and sample process are the same regardless of where you are; the main addition is confirming delivery location, applicable duties and how timing works for your order in writing before the order is placed.",
+          hi: "हाँ। खरीद की ब्रीफ़ और सैंपल की प्रक्रिया वही रहती है, चाहे आप कहीं भी हों; मुख्य फ़र्क़ यह है कि डिलीवरी की जगह, लागू शुल्क और आपके ऑर्डर में समय के हिसाब को ऑर्डर देने से पहले लिखित में पक्का करना होता है।",
           "hi-en":
-            "Haan. Buying brief aur sample ki process wahi rehti hai, chahe aap kahin bhi hon; mukhya farak yeh hai ki delivery location, applicable duties aur dispatch ki timeline ko order dene se pehle likhit mein pakka karna hota hai.",
+            "Haan. Buying brief aur sample ki process wahi rehti hai, chahe aap kahin bhi hon; mukhya farak yeh hai ki delivery location, applicable duties aur aapke order mein timing ke hisaab ko order dene se pehle likhit mein pakka karna hota hai.",
         },
       },
     ],
@@ -1726,6 +2097,14 @@ export const JOURNAL: JournalArticle[] = [
     slug: "why-similar-sarees-have-different-prices",
     related: ["how-to-read-a-fabric-spec", "fabric-gsm-bulk-orders"],
     inlineLinks: [
+      {
+        phrase: {
+          en: "polyester sarees wholesale page",
+          hi: "पॉलिएस्टर साड़ी थोक पेज",
+          "hi-en": "polyester saree wholesale page",
+        },
+        href: "/polyester-sarees-wholesale-surat",
+      },
       {
         phrase: {
           en: "a complete specification",
@@ -1737,6 +2116,7 @@ export const JOURNAL: JournalArticle[] = [
     ],
     image: wovenDetail,
     published: "2026-09-12",
+    modified: "2026-10-02",
     imageAlt: {
       en: "A woven cloth seen up close, the interlacing of warp and weft visible thread by thread",
       hi: "पास से दिखा बुना हुआ कपड़ा, जिसमें ताने-बाने की बुनावट धागे-धागे दिख रही है",
@@ -1846,16 +2226,16 @@ export const JOURNAL: JournalArticle[] = [
         },
         paragraphs: {
           en: [
-            "Make sure both quotations use the same quantity basis. One may refer to a single item while another depends on buying an entire catalogue or a larger assortment. Ask whether taxes, delivery and any customisation are included. Also confirm payment terms, dispatch estimates and the process for reporting a defective or incorrect item.",
-            "Availability matters to your buying decision. Ask whether the quoted item is in stock, made to order or dependent on a future batch. A price comparison is incomplete if one option cannot meet your required arrival date.",
+            "Make sure both quotations use the same quantity basis. One may refer to a single item while another depends on buying an entire catalogue or a larger assortment. Ask whether taxes, delivery and any customisation are included. Also confirm payment terms, how timing works for your order and the process for reporting a defective or incorrect item.",
+            "Availability matters to your buying decision. Ask whether the quoted item is in stock, made to order or dependent on a future batch. A price comparison is incomplete if one option does not suit the season you are buying for.",
           ],
           hi: [
-            "देखिए कि दोनों कोटेशन एक ही मात्रा के आधार पर हैं। हो सकता है एक अकेले आइटम का हो और दूसरा पूरे कैटलॉग या बड़े सिलेक्शन पर टिका हो। पूछिए कि कर, डिलीवरी और कोई भी फेरबदल शामिल है या नहीं। भुगतान की शर्तें, भेजने का अनुमान और ख़राब या ग़लत आइटम की शिकायत का तरीक़ा भी पक्का कीजिए।",
-            "उपलब्धता आपके खरीद फ़ैसले के लिए मायने रखती है। पूछिए कि कोट किया गया आइटम स्टॉक में है, ऑर्डर पर बनेगा, या किसी आने वाले बैच पर निर्भर है। अगर एक विकल्प आपकी ज़रूरी तारीख़ तक पहुँच ही नहीं सकता, तो कीमत की तुलना अधूरी है।",
+            "देखिए कि दोनों कोटेशन एक ही मात्रा के आधार पर हैं। हो सकता है एक अकेले आइटम का हो और दूसरा पूरे कैटलॉग या बड़े सिलेक्शन पर टिका हो। पूछिए कि कर, डिलीवरी और कोई भी फेरबदल शामिल है या नहीं। भुगतान की शर्तें, ऑर्डर में समय का हिसाब और ख़राब या ग़लत आइटम की शिकायत का तरीक़ा भी पक्का कीजिए।",
+            "उपलब्धता आपके खरीद फ़ैसले के लिए मायने रखती है। पूछिए कि कोट किया गया आइटम स्टॉक में है, ऑर्डर पर बनेगा, या किसी आने वाले बैच पर निर्भर है। अगर कोई विकल्प उस सीज़न के हिसाब से ठीक नहीं बैठता जिसके लिए आप खरीद रहे हैं, तो कीमत की तुलना अधूरी है।",
           ],
           "hi-en": [
-            "Dekhiye ki dono quotations ek hi quantity basis par hain. Ho sakta hai ek akele item ka ho aur doosra poore catalogue ya bade assortment par tika ho. Poochiye ki taxes, delivery aur koi bhi customisation included hai ya nahi. Payment terms, dispatch estimate aur defective ya galat item ki reporting ka process bhi confirm kijiye.",
-            "Availability aapke buying decision ke liye maayne rakhti hai. Poochiye ki quoted item stock mein hai, order par banega, ya kisi future batch par depend karta hai. Agar ek option aapki zaroori arrival date tak pahunch hi nahi sakta, to price comparison adhoori hai.",
+            "Dekhiye ki dono quotations ek hi quantity basis par hain. Ho sakta hai ek akele item ka ho aur doosra poore catalogue ya bade assortment par tika ho. Poochiye ki taxes, delivery aur koi bhi customisation included hai ya nahi. Payment terms, order mein timing ka hisaab aur defective ya galat item ki reporting ka process bhi confirm kijiye.",
+            "Availability aapke buying decision ke liye maayne rakhti hai. Poochiye ki quoted item stock mein hai, order par banega, ya kisi future batch par depend karta hai. Agar koi option us season ke hisaab se theek nahi baithta jiske liye aap khareed rahe hain, to price comparison adhoori hai.",
           ],
         },
         checklist: {
@@ -1886,14 +2266,17 @@ export const JOURNAL: JournalArticle[] = [
           en: [
             "Once you understand the differences, decide which ones matter to your shop. Your customers may prioritise a particular look, a comfortable feel, easy styling or a familiar price range. Ask yourself which details you can explain honestly at the counter and whether the product fits the occasions your buyers shop for.",
             "Save the specifications and your observations against the product code. After selling the range, add customer questions, feedback and reorder requests. Over time, this gives you a practical buying record and a stronger basis for discussing the next collection with your supplier.",
+            "If polyester sarees are part of your range, our polyester sarees wholesale page explains how to see current designs and rates on WhatsApp before you commit.",
           ],
           hi: [
             "फ़र्क़ समझ लेने के बाद तय कीजिए कि आपकी दुकान के लिए कौन-सा फ़र्क़ मायने रखता है। आपके ग्राहकों के लिए कोई ख़ास लुक, आरामदेह एहसास, आसान स्टाइलिंग या जानी-पहचानी कीमत ज़्यादा ज़रूरी हो सकती है। ख़ुद से पूछिए कि काउंटर पर आप कौन-सी बातें ईमानदारी से समझा सकते हैं, और क्या प्रोडक्ट उन मौकों पर फिट बैठता है जिनके लिए आपके ग्राहक खरीदते हैं।",
             "स्पेसिफ़िकेशन और अपनी टिप्पणियाँ प्रोडक्ट कोड के साथ सहेजिए। रेंज बिक जाने के बाद उसमें ग्राहकों के सवाल, प्रतिक्रिया और दोबारा माँग जोड़ते जाइए। समय के साथ यह आपका काम का खरीद-रिकॉर्ड बन जाएगा और अगले कलेक्शन पर सप्लायर से बात करने का मज़बूत आधार।",
+            "अगर आपकी रेंज में पॉलिएस्टर साड़ियाँ हैं, तो हमारा पॉलिएस्टर साड़ी थोक पेज बताता है कि ऑर्डर पक्का करने से पहले ताज़ा डिज़ाइन और रेट व्हाट्सएप पर कैसे देखें।",
           ],
           "hi-en": [
             "Fark samajh lene ke baad tay kijiye ki aapki shop ke liye kaun sa fark maayne rakhta hai. Aapke customers ke liye koi khaas look, aaramdeh feel, aasan styling ya jaani-pehchani price range zyada zaroori ho sakti hai. Khud se poochiye ki counter par aap kaun si baatein imaandari se samjha sakte hain, aur kya product un occasions par fit baithta hai jinke liye aapke buyers khareedte hain.",
             "Specifications aur apni observations product code ke saath save kijiye. Range bik jaane ke baad usme customers ke sawal, feedback aur reorder requests jodte jaiye. Samay ke saath yeh aapka kaam ka buying record ban jayega aur agle collection par supplier se baat karne ka mazboot aadhaar.",
+            "Agar aapki range mein polyester sarees hain, to hamara polyester saree wholesale page batata hai ki order pakka karne se pehle latest designs aur rates WhatsApp par kaise dekhein.",
           ],
         },
       },
@@ -1903,6 +2286,14 @@ export const JOURNAL: JournalArticle[] = [
     slug: "sample-to-bulk-order-checklist",
     related: ["fabric-gsm-bulk-orders", "how-to-read-a-fabric-spec"],
     inlineLinks: [
+      {
+        phrase: {
+          en: "polyester sarees wholesale page",
+          hi: "पॉलिएस्टर साड़ी थोक पेज",
+          "hi-en": "polyester saree wholesale page",
+        },
+        href: "/polyester-sarees-wholesale-surat",
+      },
       {
         phrase: {
           en: "agreed specification",
@@ -1922,6 +2313,7 @@ export const JOURNAL: JournalArticle[] = [
     ],
     image: swatchOnCard,
     published: "2026-09-12",
+    modified: "2026-10-02",
     imageAlt: {
       en: "A woven swatch held on its reference card, the form a sample approval takes",
       hi: "अपने रेफ़रेंस कार्ड पर लगा बुना हुआ स्वैच — सैंपल मंज़ूरी इसी रूप में होती है",
@@ -2044,22 +2436,22 @@ export const JOURNAL: JournalArticle[] = [
       },
       {
         heading: {
-          en: "Separate dispatch from arrival",
-          hi: "भेजने की तारीख़ और पहुँचने की तारीख़ अलग रखिए",
-          "hi-en": "Dispatch date aur arrival date alag rakhiye",
+          en: "Agree how timing works for your order",
+          hi: "ऑर्डर में समय का हिसाब तय कीजिए",
+          "hi-en": "Order mein timing ka hisaab tay kijiye",
         },
         paragraphs: {
           en: [
-            "Ask whether the promised date refers to production completion, dispatch or delivery. Record your required arrival date and discuss whether the proposed schedule can meet it. Confirm the delivery address, receiving contact and how shipment details will be shared.",
-            "Agree a process for updates if production, stock availability or transport changes. If partial shipments are possible, discuss whether they suit your business and how they affect costs and payment. A clear update process helps both parties make decisions while there is still time to respond.",
+            "Ask how timing works for your order, and what a word like “ready” refers to in your case. Note the season you are buying for, and confirm the delivery address and receiving contact.",
+            "Agree how you will be updated if stock availability or any part of the order changes. If the order may come in parts, discuss whether that suits your business and how it affects costs and payment. A clear update process helps both parties make decisions while there is still room to respond.",
           ],
           hi: [
-            "पूछिए कि जो तारीख़ दी गई है वह उत्पादन पूरा होने की है, माल भेजने की, या पहुँचने की। अपनी ज़रूरी पहुँच-तारीख़ लिखिए और बात कीजिए कि प्रस्तावित समय-सारिणी उसे पूरा कर सकती है या नहीं। डिलीवरी का पता, माल लेने वाले का संपर्क और शिपमेंट की जानकारी कैसे मिलेगी — ये पक्के कीजिए।",
-            "तय कीजिए कि उत्पादन, स्टॉक या परिवहन में बदलाव होने पर ख़बर कैसे मिलेगी। अगर माल किस्तों में आ सकता है, तो देखिए कि यह आपके कारोबार के लिए ठीक है या नहीं और इससे लागत तथा भुगतान पर क्या असर पड़ेगा। समय रहते सूचना मिलने से दोनों पक्ष फ़ैसला ले पाते हैं।",
+            "पूछिए कि आपके ऑर्डर में समय का हिसाब कैसे रहेगा, और आपके मामले में “तैयार” का मतलब क्या है। आप किस सीज़न के लिए खरीद रहे हैं, यह लिख लीजिए, और डिलीवरी का पता व माल लेने वाले का संपर्क पक्का कीजिए।",
+            "तय कीजिए कि स्टॉक या ऑर्डर के किसी हिस्से में बदलाव होने पर ख़बर कैसे मिलेगी। अगर माल किस्तों में आ सकता है, तो देखिए कि यह आपके कारोबार के लिए ठीक है या नहीं और इससे लागत तथा भुगतान पर क्या असर पड़ेगा। समय रहते सूचना मिलने से दोनों पक्ष फ़ैसला ले पाते हैं।",
           ],
           "hi-en": [
-            "Poochiye ki jo date di gayi hai wo production complete hone ki hai, dispatch ki, ya delivery ki. Apni zaroori arrival date likhiye aur baat kijiye ki proposed schedule use pura kar sakta hai ya nahi. Delivery address, receiving contact aur shipment details kaise milengi — ye confirm kijiye.",
-            "Tay kijiye ki production, stock ya transport mein badlaav hone par update kaise milega. Agar maal partial shipments mein aa sakta hai, to dekhiye ki yeh aapke business ke liye theek hai ya nahi aur isse cost tatha payment par kya asar padega. Samay rehte update milne se dono taraf faisla le paati hain.",
+            "Poochiye ki aapke order mein timing ka hisaab kaise rahega, aur aapke case mein “ready” ka matlab kya hai. Aap kis season ke liye khareed rahe hain, yeh likh lijiye, aur delivery address aur receiving contact confirm kijiye.",
+            "Tay kijiye ki stock ya order ke kisi hisse mein badlaav hone par update kaise milega. Agar maal hisson mein aa sakta hai, to dekhiye ki yeh aapke business ke liye theek hai ya nahi aur isse cost tatha payment par kya asar padega. Samay rehte update milne se dono taraf faisla le paati hain.",
           ],
         },
       },
@@ -2073,14 +2465,17 @@ export const JOURNAL: JournalArticle[] = [
           en: [
             "Before arrival, confirm the time window and process for reporting shortages, damage or specification differences. Ask what photographs, packaging records or other evidence are required. Make sure the person receiving the goods knows where to find the order summary and approved reference.",
             "On receipt, compare the delivery with the agreed order and document any concern promptly. Follow the supplier’s agreed reporting process. After the order is resolved, record product feedback, delivery experience and whether you would reorder. This gives the next purchase a clear starting point.",
+            "If you are moving from a saree sample to a bulk order, our polyester sarees wholesale page explains how to get the current catalogue and talk the order through with us.",
           ],
           hi: [
             "माल पहुँचने से पहले तय कीजिए कि कम माल, नुक़सान या स्पेसिफ़िकेशन में फ़र्क़ की शिकायत कितने समय में और किस तरीक़े से करनी है। पूछिए कि कौन-सी तस्वीरें, पैकिंग रिकॉर्ड या दूसरे सबूत चाहिए। जो व्यक्ति माल लेगा, उसे पता होना चाहिए कि ऑर्डर का सारांश और मंज़ूर रेफ़रेंस कहाँ रखे हैं।",
             "माल मिलने पर डिलीवरी की तुलना तय ऑर्डर से कीजिए और कोई भी दिक़्क़त तुरंत लिख लीजिए। सप्लायर के साथ तय शिकायत-प्रक्रिया का पालन कीजिए। मामला निपटने के बाद प्रोडक्ट पर राय, डिलीवरी का अनुभव और यह लिखिए कि दोबारा ऑर्डर करेंगे या नहीं। इससे अगली खरीद की शुरुआत साफ़ रहती है।",
+            "अगर आप साड़ी के सैंपल से बल्क ऑर्डर की ओर बढ़ रहे हैं, तो हमारा पॉलिएस्टर साड़ी थोक पेज बताता है कि ताज़ा कैटलॉग कैसे मँगाएँ और ऑर्डर पर हमसे बात कैसे करें।",
           ],
           "hi-en": [
             "Maal pahunchne se pehle tay kijiye ki shortage, damage ya specification mein fark ki complaint kitne samay mein aur kis tareeke se karni hai. Poochiye ki kaun si photographs, packaging records ya doosre evidence chahiye. Jo vyakti maal lega, use pata hona chahiye ki order summary aur approved reference kahan rakhe hain.",
             "Maal milne par delivery ki tulna tay order se kijiye aur koi bhi dikkat turant likh lijiye. Supplier ke saath tay reporting process follow kijiye. Maamla nipatne ke baad product feedback, delivery ka experience aur yeh likhiye ki dobara order karenge ya nahi. Isse agli purchase ki shuruaat saaf rehti hai.",
+            "Agar aap saree ke sample se bulk order ki taraf badh rahe hain, to hamara polyester saree wholesale page batata hai ki latest catalogue kaise mangayein aur order par humse baat kaise karein.",
           ],
         },
         checklist: {

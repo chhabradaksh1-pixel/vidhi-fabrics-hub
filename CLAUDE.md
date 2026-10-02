@@ -27,6 +27,11 @@ Not a broker, marketplace, agent or directory. What may and
 may not be claimed on the site is set out in `BRAND.md`; some claims the owner
 has ruled out explicitly, so check there before writing copy.
 
+Confirmed contact details (owner, 2 October 2026): 542-543 Golden Point, Ring
+Road, Begumpura, Surat 395002; WhatsApp +91 9825208413; **`sales@vidhifabrics.com`
+is confirmed to exist**. The Justdial listing's address is the owner's to fix;
+leave its `sameAs` URL alone.
+
 Contact details live in one place: `src/content/business.ts`. The WhatsApp
 number lives in `src/content/whatsapp.ts`. Never hardcode a second copy of
 either; build links from the helpers.
@@ -126,7 +131,7 @@ table.
 **The palette is monochrome.** Every colour token is a true neutral so the
 fabric photography is the only colour on the page. The token names are
 historical — `clay`, `navy`, `gold` are steps on one grey ramp, not hues. The
-clay-on-ink rule above got *more* dangerous in the process: that pair now
+clay-on-ink rule above got _more_ dangerous in the process: that pair now
 measures 1.08:1 rather than 2.29:1, so the same mistake renders as invisible
 text rather than merely poor text.
 
@@ -149,7 +154,7 @@ text rather than merely poor text.
   - **Don't nest a `data-reveal` inside another `data-reveal`.** The child
     animates while the parent is still at opacity 0, so the stagger happens
     unseen and the group appears all at once. The catalogue section is
-    deliberately *not* marked; its cards are.
+    deliberately _not_ marked; its cards are.
   - The staged state is scoped to `.vf-js`, which is **server-rendered** on
     `<html>` in `__root.tsx`. Adding that class from an inline script instead
     desynchronises hydration and React discards the render — the page goes
@@ -226,8 +231,6 @@ Nothing here is blocked on code. Most need a decision or data from the owner.
 
 **Live and wrong — fix when the owner supplies the data**
 
-- **`sales@vidhifabrics.com`** is published in five places per page plus the
-  structured data. Confirm the mailbox actually exists.
 - **Journal images are still oversized in dimensions, though smaller in bytes.**
   The six images the catalogue cards and journal pages use (`woven-detail`,
   `swatch-book`, `swatch-on-card`, `swatch-stack`, `warehouse-surat`,
@@ -254,6 +257,9 @@ Nothing here is blocked on code. Most need a decision or data from the owner.
   1 October. The two camera-original `.mov` files also moved to
   `media-originals/` as source material for a future re-encode, so a fresh
   clone no longer pulls ~1 GB of LFS objects for files the site doesn't serve.
+
+- ~~Confirm `sales@vidhifabrics.com` exists~~ — confirmed by the owner on
+  2 October 2026.
 
 **Owner-side**
 

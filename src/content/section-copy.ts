@@ -15,7 +15,7 @@ export const SECTION_COPY = {
     titleEnd: "All of it from Surat.",
     body: "Vidhi Fabrics has been trading cloth in Surat since the 1960s — more than sixty years in the same city and the same industry. The mills, dyers and finishers we work with are ones we have known for decades, not names off a list.",
     bodyEnd:
-      "That network is what you get access to. Send a swatch, a photograph or a rough idea, and we will tell you what it is, what it costs and how soon it can reach you — and say so plainly when a fabric or a deadline will not work.",
+      "That network is what you get access to. Send a swatch, a photograph or a rough idea, and we will tell you what it is, what it costs and whether we can supply it — and say so plainly when a fabric will not work for you. We make and wholesale polyester sarees and dress material, and source organza, net and other fabrics to order through our Surat network. Export enquiries are welcome too, from the UAE and other international markets.",
     cta: "Talk to our team",
     detail: "Rooted in Surat. Connected through textiles.",
     journal: "The journal / For textile buyers",
@@ -28,7 +28,10 @@ export const SECTION_COPY = {
     journalTitle: "Surat Fabric Desk",
     journalLede:
       "Practical guides to fabrics, sourcing and buying wholesale. Start with the questions that make your next order clearer.",
-    byline: "By Dinesh Chhabra, CEO, Vidhi Fabrics · Buyer guides",
+    bylineBy: "By",
+    bylineName: "Dinesh Chhabra, CEO, Vidhi Fabrics",
+    published: "Published",
+    updated: "Updated",
     toc: "In this guide",
     ctaKicker: "Your next order",
     ctaHeading: "Let’s talk about what you need.",
@@ -52,7 +55,7 @@ export const SECTION_COPY = {
     titleEnd: "और यह सब सूरत से।",
     body: "विधि फैब्रिक्स 1960 के दशक से सूरत में कपड़े का व्यापार कर रहा है — उसी शहर और उसी उद्योग में साठ साल से ज़्यादा। जिन मिलों, रंगाई और फ़िनिशिंग वालों के साथ हम काम करते हैं, उन्हें हम दशकों से जानते हैं, किसी सूची से चुने नाम नहीं।",
     bodyEnd:
-      "यही नेटवर्क आपके लिए खुलता है। एक स्वैच, एक तस्वीर या मोटा-मोटा ख़याल भेजिए — हम बताएँगे कि वह क्या है, कीमत क्या होगी और कितनी जल्दी पहुँचेगा। और अगर कोई कपड़ा या समय-सीमा मुमकिन नहीं, तो साफ़ कह देंगे।",
+      "यही नेटवर्क आपके लिए खुलता है। एक स्वैच, एक तस्वीर या मोटा-मोटा ख़याल भेजिए — हम बताएँगे कि वह क्या है, कीमत क्या होगी और क्या हम इसे दे पाएँगे। और अगर कोई कपड़ा आपके काम का नहीं, तो साफ़ कह देंगे। हम पॉलिएस्टर साड़ियाँ और ड्रेस मटेरियल बनाते और थोक में बेचते हैं, और सूरत के अपने नेटवर्क से ऑर्गेंज़ा, नेट और दूसरे कपड़े ऑर्डर पर सोर्स करते हैं। UAE और अन्य अंतरराष्ट्रीय बाज़ारों से एक्सपोर्ट पूछताछ का भी स्वागत है।",
     cta: "हमारी टीम से बात करें",
     detail: "जड़ें सूरत में। नाता कपड़ों से।",
     journal: "जानकारी / टेक्सटाइल खरीदारों के लिए",
@@ -65,7 +68,10 @@ export const SECTION_COPY = {
     journalTitle: "सूरत फैब्रिक डेस्क",
     journalLede:
       "कपड़ों, सोर्सिंग और थोक खरीदारी के लिए काम की गाइड। उन्हीं सवालों से शुरू कीजिए जो आपके अगले ऑर्डर को साफ़ कर दें।",
-    byline: "दिनेश छाबड़ा, सीईओ, विधि फैब्रिक्स · खरीदार गाइड",
+    bylineBy: "लेखक:",
+    bylineName: "दिनेश छाबड़ा, सीईओ, विधि फैब्रिक्स",
+    published: "प्रकाशित",
+    updated: "अपडेट",
     toc: "इस गाइड में",
     ctaKicker: "आपका अगला ऑर्डर",
     ctaHeading: "बताइए, आपको क्या चाहिए।",
@@ -90,7 +96,7 @@ export const SECTION_COPY = {
     titleEnd: "Aur yeh sab Surat se.",
     body: "Vidhi Fabrics 1960s se Surat mein kapde ka vyapar kar raha hai — usi sheher aur usi industry mein saath saal se zyada. Jin mills, dyers aur finishers ke saath hum kaam karte hain, unhe hum decades se jaante hain, kisi list se chune naam nahi.",
     bodyEnd:
-      "Yahi network aapke liye khulta hai. Ek swatch, ek photo ya mota-mota idea bhejiye — hum batayenge ki wo kya hai, price kya hogi aur kitni jaldi pahunchega. Aur agar koi fabric ya deadline mumkin nahi, to saaf keh denge.",
+      "Yahi network aapke liye khulta hai. Ek swatch, ek photo ya mota-mota idea bhejiye — hum batayenge ki wo kya hai, price kya hogi aur kya hum ise de payenge. Aur agar koi fabric aapke kaam ka nahi, to saaf keh denge. Hum polyester sarees aur dress material banate aur wholesale karte hain, aur Surat ke apne network se organza, net aur dusre fabrics order par source karte hain. UAE aur dusre international markets se export enquiries ka bhi swagat hai.",
     cta: "Hamari team se baat karein",
     detail: "Surat se jude. Textiles ke rishton se aage.",
     journal: "The journal / Textile buyers ke liye",
@@ -103,7 +109,10 @@ export const SECTION_COPY = {
     journalTitle: "Surat Fabric Desk",
     journalLede:
       "Fabrics, sourcing aur wholesale buying ke liye kaam ki guides. Unhi sawalon se shuru kijiye jo aapke agle order ko saaf kar dein.",
-    byline: "Dinesh Chhabra, CEO, Vidhi Fabrics · Buyer guides",
+    bylineBy: "Lekhak:",
+    bylineName: "Dinesh Chhabra, CEO, Vidhi Fabrics",
+    published: "Published",
+    updated: "Updated",
     toc: "Is guide mein",
     ctaKicker: "Aapka agla order",
     ctaHeading: "Bataiye, aapko kya chahiye.",

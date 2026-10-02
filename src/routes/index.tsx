@@ -99,10 +99,10 @@ const FAQS: {
       "hi-en": "Vidhi Fabrics kis type ke fabrics supply karta hai?",
     },
     answer: {
-      en: "Our main categories are polyester sarees and dress material, which we manufacture and wholesale from Surat. Our range covers over 2,400 active SKUs across different constructions, patterns, weights and finishes. Share your requirement and our team will help you identify the right fabric.",
-      hi: "हमारी मुख्य श्रेणियाँ पॉलिएस्टर साड़ियाँ और ड्रेस मटेरियल हैं, जिन्हें हम सूरत से बनाते और थोक में बेचते हैं। हमारी रेंज में विभिन्न कंस्ट्रक्शन, पैटर्न, वज़न और फिनिश में 2,400 से अधिक सक्रिय SKU हैं। अपनी आवश्यकता साझा करें और हमारी टीम आपको सही फैब्रिक पहचानने में मदद करेगी।",
+      en: "Our main categories are polyester sarees and dress material, which we manufacture and wholesale from Surat. Through our network of Surat mills and manufacturing units, we also source other fabrics to order, such as organza and net. Our range covers over 2,400 active SKUs across different constructions, patterns, weights and finishes. Share your requirement and our team will help you identify the right fabric.",
+      hi: "हमारी मुख्य श्रेणियाँ पॉलिएस्टर साड़ियाँ और ड्रेस मटेरियल हैं, जिन्हें हम सूरत से बनाते और थोक में बेचते हैं। सूरत की मिलों और मैन्युफैक्चरिंग यूनिट्स के नेटवर्क से हम ऑर्गेंज़ा, नेट जैसे दूसरे कपड़े भी ऑर्डर पर सोर्स करते हैं। हमारी रेंज में विभिन्न कंस्ट्रक्शन, पैटर्न, वज़न और फिनिश में 2,400 से अधिक सक्रिय SKU हैं। अपनी आवश्यकता साझा करें और हमारी टीम आपको सही फैब्रिक पहचानने में मदद करेगी।",
       "hi-en":
-        "Hamari main categories polyester sarees aur dress material hain, jinhe hum Surat se banate aur wholesale mein bechte hain. Hamari range mein alag constructions, patterns, weights aur finishes mein 2,400 se zyada active SKUs hain. Apni requirement share karein aur hamari team aapko sahi fabric identify karne mein help karegi.",
+        "Hamari main categories polyester sarees aur dress material hain, jinhe hum Surat se banate aur wholesale mein bechte hain. Surat ki mills aur manufacturing units ke network se hum organza, net jaise dusre fabrics bhi order par source karte hain. Hamari range mein alag constructions, patterns, weights aur finishes mein 2,400 se zyada active SKUs hain. Apni requirement share karein aur hamari team aapko sahi fabric identify karne mein help karegi.",
     },
   },
   {
@@ -205,10 +205,10 @@ const FAQS: {
       "hi-en": "Sourcing ya custom fabric enquiry ke liye mujhe kya information deni chahiye?",
     },
     answer: {
-      en: "Share the fabric type (e.g. polyester sarees or dress material), the intended use or garment application, approximate quantity, and any specific requirements around construction, composition, weight, colour, pattern or finish. For custom requirements, a reference sample, swatch or technical specification is always helpful. The more detail you can provide, the faster our team can respond.",
-      hi: "फैब्रिक का प्रकार (जैसे पॉलिएस्टर साड़ी या ड्रेस मटेरियल), इच्छित उपयोग या गारमेंट एप्लिकेशन, अनुमानित मात्रा, और कंस्ट्रक्शन, कम्पोज़िशन, वज़न, रंग, पैटर्न या फिनिश के बारे में कोई विशेष आवश्यकता साझा करें। कस्टम आवश्यकताओं के लिए, रेफरेंस सैंपल, स्वॉच या तकनीकी स्पेसिफिकेशन हमेशा सहायक होती है। आप जितनी अधिक जानकारी दे सकते हैं, हमारी टीम उतनी ही जल्दी जवाब दे सकती है।",
+      en: "Share the fabric type (e.g. polyester sarees, dress material, organza or net), the intended use or garment application, approximate quantity, and any specific requirements around construction, composition, weight, colour, pattern or finish. For custom requirements, a reference sample, swatch or technical specification is always helpful. The more detail you can provide, the faster our team can respond.",
+      hi: "फैब्रिक का प्रकार (जैसे पॉलिएस्टर साड़ी, ड्रेस मटेरियल, ऑर्गेंज़ा या नेट), इच्छित उपयोग या गारमेंट एप्लिकेशन, अनुमानित मात्रा, और कंस्ट्रक्शन, कम्पोज़िशन, वज़न, रंग, पैटर्न या फिनिश के बारे में कोई विशेष आवश्यकता साझा करें। कस्टम आवश्यकताओं के लिए, रेफरेंस सैंपल, स्वॉच या तकनीकी स्पेसिफिकेशन हमेशा सहायक होती है। आप जितनी अधिक जानकारी दे सकते हैं, हमारी टीम उतनी ही जल्दी जवाब दे सकती है।",
       "hi-en":
-        "Fabric ka type (jaise polyester saree ya dress material), intended use ya garment application, approximate quantity, aur construction, composition, weight, colour, pattern ya finish ke baare mein koi specific requirement share karein. Custom requirements ke liye, ek reference sample, swatch ya technical specification hamesha helpful hoti hai. Aap jitni zyada detail de sakte hain, hamari team utni jaldi respond kar sakti hai.",
+        "Fabric ka type (jaise polyester saree, dress material, organza ya net), intended use ya garment application, approximate quantity, aur construction, composition, weight, colour, pattern ya finish ke baare mein koi specific requirement share karein. Custom requirements ke liye, ek reference sample, swatch ya technical specification hamesha helpful hoti hai. Aap jitni zyada detail de sakte hain, hamari team utni jaldi respond kar sakti hai.",
     },
   },
   {

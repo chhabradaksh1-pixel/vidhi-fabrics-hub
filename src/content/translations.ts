@@ -61,10 +61,10 @@ export const COPY = {
       "hi-en": "From Surat, Asia's textile hub, to your shop.",
     },
     body: {
-      en: "Vidhi Fabrics is a Surat manufacturer and wholesaler of polyester sarees and dress material, supplying wholesalers, retailers, resellers and boutiques.",
-      hi: "विधि फैब्रिक्स सूरत की पॉलिएस्टर साड़ी और ड्रेस मटेरियल निर्माता व थोक विक्रेता है, जो होलसेलर, रिटेलर, रीसेलर और बुटीक को माल देती है।",
+      en: "Vidhi Fabrics is a Surat manufacturer and wholesaler of polyester sarees and dress material. Through our network of Surat mills and manufacturing units, we also source organza, net and other fabrics to order, for wholesalers, retailers, resellers and boutiques.",
+      hi: "विधि फैब्रिक्स सूरत की पॉलिएस्टर साड़ी और ड्रेस मटेरियल निर्माता व थोक विक्रेता है। सूरत की मिलों और मैन्युफैक्चरिंग यूनिट्स के अपने नेटवर्क से हम ऑर्गेंज़ा, नेट और दूसरे कपड़े भी ऑर्डर पर सोर्स करते हैं — होलसेलर, रिटेलर, रीसेलर और बुटीक के लिए।",
       "hi-en":
-        "Vidhi Fabrics Surat ka polyester saree aur dress material manufacturer aur wholesaler hai, jo wholesalers, retailers, resellers aur boutiques ko maal deta hai.",
+        "Vidhi Fabrics Surat ka polyester saree aur dress material manufacturer aur wholesaler hai. Surat ki mills aur manufacturing units ke apne network se hum organza, net aur dusre fabrics bhi order par source karte hain — wholesalers, retailers, resellers aur boutiques ke liye.",
     },
     // Where the buyers are, as stated by the owner. Mirrors `areaServed` in
     // content/business.ts and the polyester page's regions answer.
@@ -335,10 +335,10 @@ export const COPY = {
       "hi-en": "Sirf sale nahi, contract ke liye certified.",
     },
     certBody: {
-      en: "OEKO-TEX and GOTS lines, with dyeing and finishing coordinated through Surat's mills. One manufacturer and wholesaler answers for the whole order, with new designs every season, and export enquiries are welcome from the UAE.",
-      hi: "OEKO-TEX और GOTS लाइनें, और रंगाई-फ़िनिशिंग का तालमेल सूरत की मिलों के साथ। पूरे ऑर्डर की ज़िम्मेदारी एक ही निर्माता व थोक विक्रेता की, हर सीज़न नई डिज़ाइनों के साथ — और UAE से एक्सपोर्ट पूछताछ का भी स्वागत है।",
+      en: "OEKO-TEX lines, with dyeing and finishing coordinated through Surat's mills. One manufacturer and wholesaler answers for the whole order, with new designs every season, and export enquiries are welcome from the UAE.",
+      hi: "OEKO-TEX लाइनें, और रंगाई-फ़िनिशिंग का तालमेल सूरत की मिलों के साथ। पूरे ऑर्डर की ज़िम्मेदारी एक ही निर्माता व थोक विक्रेता की, हर सीज़न नई डिज़ाइनों के साथ — और UAE से एक्सपोर्ट पूछताछ का भी स्वागत है।",
       "hi-en":
-        "OEKO-TEX aur GOTS lines, aur dyeing-finishing ka taalmel Surat ki mills ke saath. Poore order ki zimmedari ek hi manufacturer aur wholesaler ki, har season nayi designs ke saath — aur UAE se export enquiries ka bhi swagat hai.",
+        "OEKO-TEX lines, aur dyeing-finishing ka taalmel Surat ki mills ke saath. Poore order ki zimmedari ek hi manufacturer aur wholesaler ki, har season nayi designs ke saath — aur UAE se export enquiries ka bhi swagat hai.",
     },
     imageAlt: {
       en: "An open swatch book of fabric samples, each shade carrying its own reference code",

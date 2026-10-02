@@ -121,7 +121,20 @@ export function localBusinessSchema(site: string) {
     alternateName: "विधि फैब्रिक्स",
     // Positioning confirmed by the owner on 1 October 2026.
     description:
-      "Surat-based fabric manufacturer and wholesaler. Manufactures some lines in-house and also supplies from Surat's wider textile market, selling in bulk to wholesalers, retailers, resellers and boutiques, mainly across North India.",
+      "Surat-based manufacturer and wholesaler of polyester sarees and dress material. Through a network of Surat mills and manufacturing units it also sources organza, net and other fabrics to order. Sells in bulk to wholesalers, retailers, resellers and boutiques, mainly across North India.",
+    makesOffer: [
+      ...["Polyester sarees", "Dress material", "Organza fabric", "Net fabric"].map((name) => ({
+        "@type": "Offer",
+        itemOffered: { "@type": "Product", name },
+      })),
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Fabric sourcing to order from Surat mills and manufacturing units",
+        },
+      },
+    ],
     disambiguatingDescription: DISAMBIGUATION.en,
     url: site,
     logo: `${site}/icon-512.png`,

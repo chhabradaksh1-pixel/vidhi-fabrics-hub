@@ -19,9 +19,12 @@ the owner on 2 October 2026). These are people who already know fabric. They are
 jacquard is. Copy can use trade vocabulary without glossing it, and should
 never explain the obvious.
 
-The main categories are **polyester sarees and dress material**. The wider range spans cotton, silk, synthetic, blended, jacquard, printed, dyed and
-woven varieties: some lines manufactured in-house, the rest supplied from
-Surat's wider textile market.
+The main categories are **polyester sarees and dress material** (manufacturer
+and wholesaler). On top of that, Vidhi Fabrics offers **fabric sourcing**:
+through its network of Surat mills and manufacturing units it sources organza,
+net and other fabrics to order (owner, 2 October 2026). Name organza and net as
+examples; don't present cotton, silk, linen or jacquard as standing ranges.
+Never mention margins or describe the sourcing as reselling.
 
 ## Positioning
 
@@ -86,7 +89,8 @@ replying to "wholesale enquiries."** It reads as though only large buyers are
 welcome. A boutique owner sourcing a small run is a real customer and the copy
 must not signal otherwise.
 
-The OEKO-TEX and GOTS claim in `certBody` is accurate per the owner, but no
+GOTS was removed on 2 October 2026 (it certifies organic cotton, which does
+not fit the range). The OEKO-TEX claim in `certBody` is accurate per the owner, but no
 certificate or licence numbers have been supplied. Until they are, don't extend
 or restate the claim anywhere new.
 

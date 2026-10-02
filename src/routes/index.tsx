@@ -30,7 +30,12 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       {
-        title: "Surat Fabric Manufacturer & Wholesaler | Vidhi Fabrics",
+        // Leads with the two main categories, as the owner asked
+        // (2 October 2026). Google tends to cut titles around 60 characters,
+        // so the brand at the end may be truncated in results; the site name
+        // is shown separately there, and the category terms carry the query.
+        title:
+          "Polyester Saree & Dress Material Manufacturer and Wholesaler, Surat | Vidhi Fabrics",
       },
       {
         name: "description",
@@ -46,7 +51,8 @@ export const Route = createFileRoute("/")({
       },
       {
         property: "og:title",
-        content: "Surat Fabric Manufacturer & Wholesaler | Vidhi Fabrics",
+        content:
+          "Polyester Saree & Dress Material Manufacturer and Wholesaler, Surat | Vidhi Fabrics",
       },
       {
         property: "og:description",

@@ -381,7 +381,7 @@ export function JournalHeader({
           <a href={`${home}#catalogue`} className="hover:text-clay">
             {copy.navCatalogue}
           </a>
-          <a href={`${home}#about`} className="hover:text-clay">
+          <a href={lang === "hi" ? "/hi/about" : "/about"} className="hover:text-clay">
             {copy.navAbout}
           </a>
           <a href={lang === "hi" ? "/hi/blog" : "/blog"} className="text-clay">

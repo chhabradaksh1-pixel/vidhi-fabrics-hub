@@ -14,9 +14,10 @@ import {
 import type { Lang } from "@/content/translations";
 import { blogPaths } from "@/content/blog-paths";
 import { hasHindiVersion } from "@/content/landing-pages";
+import { formatIsoDate } from "@/lib/dates";
 
 /** How many other guides the "Keep reading" list shows. */
-const RELATED_COUNT = 2;
+const RELATED_COUNT = 3;
 
 /**
  * Rewrites an in-site href for the Hindi URL tree, so a Hindi reader stays on
@@ -76,6 +77,33 @@ function useJournalLang(initial: Lang) {
   return { lang, setLang };
 }
 
+/**
+ * The index's article groups, keyed by the English category so the anchor ids
+ * are stable across languages. Cards are numbered in display order, running
+ * on from one group to the next.
+ */
+function journalGroups(lang: Lang) {
+  const groups: {
+    key: string;
+    label: string;
+    articles: { article: JournalArticle; number: number }[];
+  }[] = [];
+  JOURNAL.forEach((article) => {
+    const key = article.category.en.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+    let group = groups.find((g) => g.key === key);
+    if (!group) {
+      group = { key, label: article.category[lang], articles: [] };
+      groups.push(group);
+    }
+    group.articles.push({ article, number: 0 });
+  });
+  let number = 0;
+  for (const group of groups) {
+    for (const entry of group.articles) entry.number = ++number;
+  }
+  return groups;
+}
+
 export function JournalIndexPage({ initialLang }: { initialLang: Lang }) {
   const { lang, setLang } = useJournalLang(initialLang);
   const copy = SECTION_COPY[lang];
@@ -90,19 +118,34 @@ export function JournalIndexPage({ initialLang }: { initialLang: Lang }) {
           {copy.journalTitle}
         </h1>
         <p className="mt-6 max-w-xl text-lg leading-relaxed text-mute">{copy.journalLede}</p>
-        <div className="mt-14 grid gap-6 md:grid-cols-3">
-          {JOURNAL.map((article, index) => (
-            <JournalCard
-              key={article.slug}
-              article={article}
-              number={index + 1}
-              lang={lang}
-              readLabel={copy.read}
-              headingLevel={2}
-              href={`${lang === "hi" ? "/hi/blog" : "/blog"}/${article.slug}`}
-            />
-          ))}
-        </div>
+        {/*
+          Grouped by the category each article already carries, in the order
+          the categories first appear in JOURNAL. The group heading takes h2,
+          so the cards drop to h3 — the same outline as the home page rail.
+        */}
+        {journalGroups(lang).map((group) => (
+          <section key={group.key} className="mt-14" aria-labelledby={`desk-${group.key}`}>
+            <h2
+              id={`desk-${group.key}`}
+              className="border-b border-line pb-4 font-mono text-xs uppercase tracking-[0.18em] text-clay"
+            >
+              {group.label}
+            </h2>
+            <div className="mt-8 grid gap-6 md:grid-cols-3">
+              {group.articles.map(({ article, number }) => (
+                <JournalCard
+                  key={article.slug}
+                  article={article}
+                  number={number}
+                  lang={lang}
+                  readLabel={copy.read}
+                  headingLevel={3}
+                  href={`${lang === "hi" ? "/hi/blog" : "/blog"}/${article.slug}`}
+                />
+              ))}
+            </div>
+          </section>
+        ))}
       </main>
       <JournalFooter lang={lang} />
     </div>
@@ -138,7 +181,30 @@ export function JournalArticlePage({
           <h1 className="mt-5 text-balance font-display text-4xl font-light leading-[1.12] tracking-tight sm:text-5xl lg:text-6xl">
             {article.title[lang]}
           </h1>
-          <p className="mt-6 text-sm text-mute">{copy.byline}</p>
+          <p className="mt-6 text-sm text-mute">
+            {copy.bylineBy}{" "}
+            <a
+              href={lang === "hi" ? "/hi/about" : "/about"}
+              rel="author"
+              className="underline decoration-line underline-offset-4 hover:text-clay"
+            >
+              {copy.bylineName}
+            </a>
+            {article.published && (
+              <>
+                {" · "}
+                {copy.published}{" "}
+                <time dateTime={article.published}>{formatIsoDate(article.published, lang)}</time>
+              </>
+            )}
+            {article.modified && article.modified !== article.published && (
+              <>
+                {" · "}
+                {copy.updated}{" "}
+                <time dateTime={article.modified}>{formatIsoDate(article.modified, lang)}</time>
+              </>
+            )}
+          </p>
           <div data-reveal data-reveal-block className="mt-10">
             <div data-reveal-panel>
               <img

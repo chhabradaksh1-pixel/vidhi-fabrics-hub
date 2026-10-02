@@ -48,7 +48,7 @@ export const FOOTER_COLUMNS: FooterColumn[] = [
     links: [
       {
         label: { en: "About us", hi: "हमारे बारे में", "hi-en": "About us" },
-        href: "#about",
+        href: "/about",
       },
       {
         label: { en: "Our network", hi: "हमारा नेटवर्क", "hi-en": "Hamara network" },

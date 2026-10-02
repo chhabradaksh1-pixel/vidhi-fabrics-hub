@@ -171,6 +171,41 @@ function PolyesterSareesPage() {
               bestsellers, we'll help you choose designs that fit your customers and your margins.
             </p>
 
+            <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">
+              Before you place a bulk order
+            </h2>
+            <p className="mt-5 leading-[1.85] text-mute">
+              Four guides from our Surat Fabric Desk cover the questions buyers ask most:{" "}
+              <a
+                href="/blog/why-similar-sarees-have-different-prices"
+                className="text-clay underline decoration-line underline-offset-4 hover:text-claydeep"
+              >
+                why two similar-looking sarees can have different prices
+              </a>
+              ,{" "}
+              <a
+                href="/blog/fabric-gsm-bulk-orders"
+                className="text-clay underline decoration-line underline-offset-4 hover:text-claydeep"
+              >
+                what GSM means when you order in bulk
+              </a>
+              ,{" "}
+              <a
+                href="/blog/sample-to-bulk-order-checklist"
+                className="text-clay underline decoration-line underline-offset-4 hover:text-claydeep"
+              >
+                a checklist from sample to bulk order
+              </a>{" "}
+              and{" "}
+              <a
+                href="/blog/karva-chauth-diwali-festive-stock"
+                className="text-clay underline decoration-line underline-offset-4 hover:text-claydeep"
+              >
+                what to stock for Karva Chauth and Diwali
+              </a>
+              .
+            </p>
+
             <p className="mt-5 leading-[1.85] text-mute">
               We also supply{" "}
               <a

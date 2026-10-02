@@ -42,6 +42,46 @@ export const BUSINESS = {
 export const BUSINESS_ID = "https://www.vidhifabrics.com/#business";
 
 /**
+ * The person who signs the Fabric Desk articles, as named by the owner.
+ *
+ * One `@id` for every block that refers to him — each BlogPosting `author`
+ * and the Person on the About page — so a crawler resolves one person rather
+ * than a string repeated on fourteen pages. The About page is his profile URL.
+ */
+export const AUTHOR = {
+  id: "https://www.vidhifabrics.com/about#dinesh-chhabra",
+  name: "Dinesh Chhabra",
+  jobTitle: "CEO",
+  url: "https://www.vidhifabrics.com/about",
+} as const;
+
+/** schema.org Person for the article author, linked to the business entity. */
+export function authorSchema() {
+  return {
+    "@type": "Person",
+    "@id": AUTHOR.id,
+    name: AUTHOR.name,
+    jobTitle: AUTHOR.jobTitle,
+    url: AUTHOR.url,
+    worksFor: { "@type": "Organization", "@id": BUSINESS_ID, name: BUSINESS.name },
+  };
+}
+
+/**
+ * Tells this business apart from others with a similar name. Supplied by the
+ * owner (2 October 2026): there are similarly named businesses in Ludhiana
+ * and Ahmedabad, and this one is not connected to them. Emitted as the
+ * LocalBusiness `disambiguatingDescription` and repeated on the About page
+ * and in llms.txt, so every surface says the same thing.
+ */
+export const DISAMBIGUATION: Record<Lang, string> = {
+  en: "Vidhi Fabrics of 542-543 Golden Point, Ring Road, Begumpura, Surat: a manufacturer and wholesaler of polyester sarees and dress material. Not connected with the similarly named businesses in Ludhiana or Ahmedabad.",
+  hi: "विधि फैब्रिक्स, 542-543 गोल्डन पॉइंट, रिंग रोड, बेगमपुरा, सूरत — पॉलिएस्टर साड़ियों और ड्रेस मटेरियल के निर्माता और थोक विक्रेता। लुधियाना या अहमदाबाद में इससे मिलते-जुलते नाम वाले कारोबारों से हमारा कोई संबंध नहीं है।",
+  "hi-en":
+    "Vidhi Fabrics, 542-543 Golden Point, Ring Road, Begumpura, Surat — polyester sarees aur dress material ke manufacturer aur wholesaler. Ludhiana ya Ahmedabad mein isse milte-julte naam wale businesses se hamara koi sambandh nahin hai.",
+};
+
+/**
  * Where the business mainly supplies, as stated by the owner: North India,
  * chiefly Punjab, Haryana and Rajasthan, with buyers in Madhya Pradesh too.
  * Emitted as `areaServed`; the homepage and polyester page say the same in
@@ -82,6 +122,7 @@ export function localBusinessSchema(site: string) {
     // Positioning confirmed by the owner on 1 October 2026.
     description:
       "Surat-based fabric manufacturer and wholesaler. Manufactures some lines in-house and also supplies from Surat's wider textile market, selling in bulk to wholesalers, retailers, resellers and boutiques, mainly across North India.",
+    disambiguatingDescription: DISAMBIGUATION.en,
     url: site,
     logo: `${site}/icon-512.png`,
     image: `${site}/og-image.jpg`,

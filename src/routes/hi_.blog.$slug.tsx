@@ -1,56 +1,11 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
-import { JOURNAL, type JournalArticle } from "@/content/journal";
+import { JOURNAL } from "@/content/journal";
 import { JournalArticlePage } from "@/components/journal-pages";
 import { JournalHeader, JournalFooter } from "@/components/fabric-desk";
 import { breadcrumbList } from "@/lib/breadcrumbs";
-import { BUSINESS_ID } from "@/content/business";
+import { articleBlogPosting, articleFaqPage } from "@/lib/journal-schema";
 
 const SITE = "https://www.vidhifabrics.com";
-
-/**
- * BlogPosting structured data for the Hindi article URL. Only properties the
- * content source actually carries are emitted.
- */
-function blogPosting(article: JournalArticle) {
-  const url = `${SITE}/hi/blog/${article.slug}`;
-  return {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    headline: article.title.hi,
-    description: article.excerpt.hi,
-    inLanguage: "hi",
-    mainEntityOfPage: url,
-    url,
-    image: new URL(article.image, SITE).href,
-    // Named per the CEO's confirmation (26 September 2026). See the English
-    // route for the full reasoning; kept identical here for consistency.
-    author: {
-      "@type": "Person",
-      name: "Dinesh Chhabra",
-      jobTitle: "CEO",
-      worksFor: { "@type": "Organization", name: "Vidhi Fabrics" },
-    },
-    // Same `@id` as the site-wide LocalBusiness block, so the publisher is
-    // that business rather than a second, unlinked Organization. Name and
-    // logo stay inline because Google reads them from the publisher itself.
-    publisher: {
-      "@type": "Organization",
-      "@id": BUSINESS_ID,
-      name: "Vidhi Fabrics",
-      logo: { "@type": "ImageObject", url: `${SITE}/icon-512.png` },
-    },
-    ...(article.published ? { datePublished: article.published } : {}),
-    ...(article.faq
-      ? {
-          mainEntity: article.faq.map((entry) => ({
-            "@type": "Question",
-            name: entry.question.hi,
-            acceptedAnswer: { "@type": "Answer", text: entry.answer.hi },
-          })),
-        }
-      : {}),
-  };
-}
 
 export const Route = createFileRoute("/hi_/blog/$slug")({
   loader: ({ params }) => {
@@ -58,8 +13,9 @@ export const Route = createFileRoute("/hi_/blog/$slug")({
     if (!article) throw notFound();
     return article;
   },
-  head: ({ loaderData: article }) =>
-    article
+  head: ({ loaderData: article }) => {
+    const faqPage = article ? articleFaqPage(article, "hi") : null;
+    return article
       ? {
           meta: [
             { title: `${article.metaTitle?.hi ?? article.title.hi} | विधि फैब्रिक्स` },
@@ -87,8 +43,11 @@ export const Route = createFileRoute("/hi_/blog/$slug")({
           scripts: [
             {
               type: "application/ld+json",
-              children: JSON.stringify(blogPosting(article)),
+              children: JSON.stringify(articleBlogPosting(article, "hi")),
             },
+            ...(faqPage
+              ? [{ type: "application/ld+json", children: JSON.stringify(faqPage) }]
+              : []),
             {
               type: "application/ld+json",
               children: JSON.stringify(breadcrumbList("hi", article)),
@@ -100,7 +59,8 @@ export const Route = createFileRoute("/hi_/blog/$slug")({
             { title: "लेख नहीं मिला | विधि फैब्रिक्स" },
             { name: "robots", content: "noindex" },
           ],
-        },
+        };
+  },
   notFoundComponent: () => (
     <div className="min-h-screen bg-paper">
       <JournalHeader lang="hi" />

@@ -10,11 +10,13 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as DressMaterialWholesaleSuratRouteImport } from './routes/dress-material-wholesale-surat'
 import { Route as HiRouteImport } from './routes/hi'
 import { Route as PolyesterSareesWholesaleSuratRouteImport } from './routes/polyester-sarees-wholesale-surat'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
+import { Route as HiAboutRouteImport } from './routes/hi_.about'
 import { Route as HiDressMaterialWholesaleSuratRouteImport } from './routes/hi_.dress-material-wholesale-surat'
 import { Route as HiPolyesterSareesWholesaleSuratRouteImport } from './routes/hi_.polyester-sarees-wholesale-surat'
 import { Route as HiBlogIndexRouteImport } from './routes/hi_.blog.index'
@@ -23,6 +25,11 @@ import { Route as HiBlogSlugRouteImport } from './routes/hi_.blog.$slug'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DressMaterialWholesaleSuratRoute =
@@ -52,6 +59,11 @@ const BlogSlugRoute = BlogSlugRouteImport.update({
   path: '/blog/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const HiAboutRoute = HiAboutRouteImport.update({
+  id: '/hi_/about',
+  path: '/hi/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const HiDressMaterialWholesaleSuratRoute =
   HiDressMaterialWholesaleSuratRouteImport.update({
     id: '/hi_/dress-material-wholesale-surat',
@@ -77,10 +89,12 @@ const HiBlogSlugRoute = HiBlogSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/dress-material-wholesale-surat': typeof DressMaterialWholesaleSuratRoute
   '/hi': typeof HiRoute
   '/polyester-sarees-wholesale-surat': typeof PolyesterSareesWholesaleSuratRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/hi/about': typeof HiAboutRoute
   '/hi/dress-material-wholesale-surat': typeof HiDressMaterialWholesaleSuratRoute
   '/hi/polyester-sarees-wholesale-surat': typeof HiPolyesterSareesWholesaleSuratRoute
   '/blog/': typeof BlogIndexRoute
@@ -89,10 +103,12 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/dress-material-wholesale-surat': typeof DressMaterialWholesaleSuratRoute
   '/hi': typeof HiRoute
   '/polyester-sarees-wholesale-surat': typeof PolyesterSareesWholesaleSuratRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/hi/about': typeof HiAboutRoute
   '/hi/dress-material-wholesale-surat': typeof HiDressMaterialWholesaleSuratRoute
   '/hi/polyester-sarees-wholesale-surat': typeof HiPolyesterSareesWholesaleSuratRoute
   '/blog': typeof BlogIndexRoute
@@ -102,10 +118,12 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/dress-material-wholesale-surat': typeof DressMaterialWholesaleSuratRoute
   '/hi': typeof HiRoute
   '/polyester-sarees-wholesale-surat': typeof PolyesterSareesWholesaleSuratRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/hi_/about': typeof HiAboutRoute
   '/hi_/dress-material-wholesale-surat': typeof HiDressMaterialWholesaleSuratRoute
   '/hi_/polyester-sarees-wholesale-surat': typeof HiPolyesterSareesWholesaleSuratRoute
   '/blog/': typeof BlogIndexRoute
@@ -116,10 +134,12 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/about'
     | '/dress-material-wholesale-surat'
     | '/hi'
     | '/polyester-sarees-wholesale-surat'
     | '/blog/$slug'
+    | '/hi/about'
     | '/hi/dress-material-wholesale-surat'
     | '/hi/polyester-sarees-wholesale-surat'
     | '/blog/'
@@ -128,10 +148,12 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/about'
     | '/dress-material-wholesale-surat'
     | '/hi'
     | '/polyester-sarees-wholesale-surat'
     | '/blog/$slug'
+    | '/hi/about'
     | '/hi/dress-material-wholesale-surat'
     | '/hi/polyester-sarees-wholesale-surat'
     | '/blog'
@@ -140,10 +162,12 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/about'
     | '/dress-material-wholesale-surat'
     | '/hi'
     | '/polyester-sarees-wholesale-surat'
     | '/blog/$slug'
+    | '/hi_/about'
     | '/hi_/dress-material-wholesale-surat'
     | '/hi_/polyester-sarees-wholesale-surat'
     | '/blog/'
@@ -153,10 +177,12 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
   DressMaterialWholesaleSuratRoute: typeof DressMaterialWholesaleSuratRoute
   HiRoute: typeof HiRoute
   PolyesterSareesWholesaleSuratRoute: typeof PolyesterSareesWholesaleSuratRoute
   BlogSlugRoute: typeof BlogSlugRoute
+  HiAboutRoute: typeof HiAboutRoute
   HiDressMaterialWholesaleSuratRoute: typeof HiDressMaterialWholesaleSuratRoute
   HiPolyesterSareesWholesaleSuratRoute: typeof HiPolyesterSareesWholesaleSuratRoute
   BlogIndexRoute: typeof BlogIndexRoute
@@ -171,6 +197,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/dress-material-wholesale-surat': {
@@ -208,6 +241,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/hi_/about': {
+      id: '/hi_/about'
+      path: '/hi/about'
+      fullPath: '/hi/about'
+      preLoaderRoute: typeof HiAboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/hi_/dress-material-wholesale-surat': {
       id: '/hi_/dress-material-wholesale-surat'
       path: '/hi/dress-material-wholesale-surat'
@@ -241,10 +281,12 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
   DressMaterialWholesaleSuratRoute: DressMaterialWholesaleSuratRoute,
   HiRoute: HiRoute,
   PolyesterSareesWholesaleSuratRoute: PolyesterSareesWholesaleSuratRoute,
   BlogSlugRoute: BlogSlugRoute,
+  HiAboutRoute: HiAboutRoute,
   HiDressMaterialWholesaleSuratRoute: HiDressMaterialWholesaleSuratRoute,
   HiPolyesterSareesWholesaleSuratRoute: HiPolyesterSareesWholesaleSuratRoute,
   BlogIndexRoute: BlogIndexRoute,

@@ -30,7 +30,7 @@ export const Route = createFileRoute("/hi")({
   head: () => ({
     meta: [
       {
-        title: "सूरत में कपड़ा निर्माता और थोक विक्रेता | विधि फैब्रिक्स",
+        title: "पॉलिएस्टर साड़ी और ड्रेस मटेरियल निर्माता व थोक विक्रेता, सूरत | विधि फैब्रिक्स",
       },
       {
         name: "description",
@@ -39,7 +39,7 @@ export const Route = createFileRoute("/hi")({
       },
       {
         property: "og:title",
-        content: "सूरत में कपड़ा निर्माता और थोक विक्रेता | विधि फैब्रिक्स",
+        content: "पॉलिएस्टर साड़ी और ड्रेस मटेरियल निर्माता व थोक विक्रेता, सूरत | विधि फैब्रिक्स",
       },
       {
         property: "og:description",

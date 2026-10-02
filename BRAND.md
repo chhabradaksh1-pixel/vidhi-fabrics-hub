@@ -13,12 +13,13 @@ a spec. If you change a token, re-measure rather than reasoning about it.
 
 ## Who this is for
 
-Vidhi Fabrics supplies **retailers, brands, manufacturers and traders** —
-people who already know fabric. They are comparing suppliers, not learning what
+Vidhi Fabrics supplies **wholesalers, retailers, resellers and boutiques** —
+mainly in Punjab, Haryana and Rajasthan, sometimes Madhya Pradesh (confirmed by
+the owner on 2 October 2026). These are people who already know fabric. They are comparing suppliers, not learning what
 jacquard is. Copy can use trade vocabulary without glossing it, and should
 never explain the obvious.
 
-The range spans cotton, silk, synthetic, blended, jacquard, printed, dyed and
+The main categories are **polyester sarees and dress material**. The wider range spans cotton, silk, synthetic, blended, jacquard, printed, dyed and
 woven varieties: some lines manufactured in-house, the rest supplied from
 Surat's wider textile market.
 
@@ -67,9 +68,10 @@ form — not in copy, alt text, meta descriptions or structured data:
 | ------------------ | ------------------------- |
 | Years in the trade | since the 1960s           |
 | Active SKUs        | 2,400+                    |
-| Export markets     | 10+                       |
-| Monthly capacity   | 12k m²                    |
 | Enquiry response   | typically within 12 hours |
+
+The export-market figure (10+) and the monthly capacity figure (12k m²) were
+withdrawn on 2 October 2026 and must not be used anywhere.
 
 One framing was explicitly rejected: **do not present the response time as
 replying to "wholesale enquiries."** It reads as though only large buyers are
@@ -170,7 +172,7 @@ effectively invisible rather than merely hard to read, so the rule matters more
 now, not less.
 
 `mute` is the tightest pair in the set at 4.89:1 on `sand`. It was chosen by
-searching down the neutral ramp for the lightest grey clearing 4.5:1 on *both*
+searching down the neutral ramp for the lightest grey clearing 4.5:1 on _both_
 grounds; a step lighter fails on `sand`. Do not lighten it.
 
 Over a texture or photograph, check the **brightest pixel**, not the average.

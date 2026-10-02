@@ -153,8 +153,7 @@ function PolyesterSareesPage() {
               well, needs little care, and sells quickly at every price point.
             </p>
             <p className="mt-5 leading-[1.85] text-mute">
-              We put together sets by design and colour, keep new designs coming each season, and
-              pack every order carefully for transport.
+              We put together sets by design and colour, and keep new designs coming each season.
             </p>
             <p className="mt-5 leading-[1.85] text-mute">
               Message us on WhatsApp at{" "}

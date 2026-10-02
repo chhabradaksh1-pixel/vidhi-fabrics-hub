@@ -15,7 +15,7 @@ export const SECTION_COPY = {
     titleEnd: "All of it from Surat.",
     body: "Vidhi Fabrics has been trading cloth in Surat since the 1960s — more than sixty years in the same city and the same industry. The mills, dyers and finishers we work with are ones we have known for decades, not names off a list.",
     bodyEnd:
-      "That network is what you get access to. Send a swatch, a photograph or a rough idea, and we will tell you what it is, what it costs and how soon it can reach you — and say so plainly when a fabric or a deadline will not work.",
+      "That network is what you get access to. Send a swatch, a photograph or a rough idea, and we will tell you what it is, what it costs and whether we can supply it — and say so plainly when a fabric will not work for you.",
     cta: "Talk to our team",
     detail: "Rooted in Surat. Connected through textiles.",
     journal: "The journal / For textile buyers",
@@ -55,7 +55,7 @@ export const SECTION_COPY = {
     titleEnd: "और यह सब सूरत से।",
     body: "विधि फैब्रिक्स 1960 के दशक से सूरत में कपड़े का व्यापार कर रहा है — उसी शहर और उसी उद्योग में साठ साल से ज़्यादा। जिन मिलों, रंगाई और फ़िनिशिंग वालों के साथ हम काम करते हैं, उन्हें हम दशकों से जानते हैं, किसी सूची से चुने नाम नहीं।",
     bodyEnd:
-      "यही नेटवर्क आपके लिए खुलता है। एक स्वैच, एक तस्वीर या मोटा-मोटा ख़याल भेजिए — हम बताएँगे कि वह क्या है, कीमत क्या होगी और कितनी जल्दी पहुँचेगा। और अगर कोई कपड़ा या समय-सीमा मुमकिन नहीं, तो साफ़ कह देंगे।",
+      "यही नेटवर्क आपके लिए खुलता है। एक स्वैच, एक तस्वीर या मोटा-मोटा ख़याल भेजिए — हम बताएँगे कि वह क्या है, कीमत क्या होगी और क्या हम इसे दे पाएँगे। और अगर कोई कपड़ा आपके काम का नहीं, तो साफ़ कह देंगे।",
     cta: "हमारी टीम से बात करें",
     detail: "जड़ें सूरत में। नाता कपड़ों से।",
     journal: "जानकारी / टेक्सटाइल खरीदारों के लिए",
@@ -96,7 +96,7 @@ export const SECTION_COPY = {
     titleEnd: "Aur yeh sab Surat se.",
     body: "Vidhi Fabrics 1960s se Surat mein kapde ka vyapar kar raha hai — usi sheher aur usi industry mein saath saal se zyada. Jin mills, dyers aur finishers ke saath hum kaam karte hain, unhe hum decades se jaante hain, kisi list se chune naam nahi.",
     bodyEnd:
-      "Yahi network aapke liye khulta hai. Ek swatch, ek photo ya mota-mota idea bhejiye — hum batayenge ki wo kya hai, price kya hogi aur kitni jaldi pahunchega. Aur agar koi fabric ya deadline mumkin nahi, to saaf keh denge.",
+      "Yahi network aapke liye khulta hai. Ek swatch, ek photo ya mota-mota idea bhejiye — hum batayenge ki wo kya hai, price kya hogi aur kya hum ise de payenge. Aur agar koi fabric aapke kaam ka nahi, to saaf keh denge.",
     cta: "Hamari team se baat karein",
     detail: "Surat se jude. Textiles ke rishton se aage.",
     journal: "The journal / Textile buyers ke liye",

@@ -30,34 +30,26 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       {
-        // Leads with the two main categories, as the owner asked
-        // (2 October 2026). Google tends to cut titles around 60 characters,
-        // so the brand at the end may be truncated in results; the site name
-        // is shown separately there, and the category terms carry the query.
-        title:
-          "Polyester Saree & Dress Material Manufacturer and Wholesaler, Surat | Vidhi Fabrics",
+        // Leads with the two main categories (owner-approved, 2 October 2026).
+        // Shortened to 74 characters so less is cut off in search results.
+        title: "Saree & Dress Material Manufacturer and Wholesaler, Surat | Vidhi Fabrics",
       },
       {
         name: "description",
-        // 199 characters truncated at roughly 160, so the last third — which
-        // carried the audiences and the export reach — was never shown. This
-        // leads with the phrasing the site actually appears for ("fabric
-        // wholesale in surat") and keeps the one substantiated number, 10+
-        // export markets. Positions Vidhi as a manufacturer and wholesaler, as
-        // confirmed by the owner on 1 October 2026. See BRAND.md for what may
-        // and may not be claimed here.
+        // Polyester sarees and dress material, manufacturer and wholesaler,
+        // and the buyers and markets served (owner-approved, 2 October 2026).
+        // No capacity, export, MOQ or timing claims. See BRAND.md.
         content:
-          "Fabric manufacturer and wholesaler in Surat. Cotton, silk, jacquard, dress material and blends for retailers, brands and traders. 10+ export markets.",
+          "Surat manufacturer and wholesaler of polyester sarees and dress material, for wholesalers, retailers, resellers and boutiques in Punjab, Haryana and Rajasthan.",
       },
       {
         property: "og:title",
-        content:
-          "Polyester Saree & Dress Material Manufacturer and Wholesaler, Surat | Vidhi Fabrics",
+        content: "Saree & Dress Material Manufacturer and Wholesaler, Surat | Vidhi Fabrics",
       },
       {
         property: "og:description",
         content:
-          "Fabric manufacturer and wholesaler in Surat, for retailers, brands, manufacturers and textile buyers. We manufacture some lines in-house and also supply from Surat's wider textile market. Broad materials, constructions, patterns and finishes, with replies typically within 12 hours.",
+          "Vidhi Fabrics is a Surat manufacturer and wholesaler of polyester sarees and dress material, supplying wholesalers, retailers, resellers and boutiques in Punjab, Haryana and Rajasthan. Ask on WhatsApp for designs, samples and rates.",
       },
       { property: "og:url", content: EN_URL },
       { property: "og:type", content: "website" },

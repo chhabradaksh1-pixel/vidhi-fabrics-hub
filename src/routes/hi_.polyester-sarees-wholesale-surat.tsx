@@ -172,6 +172,17 @@ function PolyesterSareesPageHi() {
               डिज़ाइनें चुनने में मदद करेंगे जो आपके ग्राहकों और आपके मार्जिन, दोनों के अनुकूल हों।
             </p>
 
+            <p className="mt-5 leading-[1.85] text-mute">
+              हम सूरत से{" "}
+              <a
+                href="/hi/dress-material-wholesale-surat"
+                className="text-clay underline decoration-line underline-offset-4 hover:text-claydeep"
+              >
+                थोक में ड्रेस मटेरियल
+              </a>{" "}
+              भी सप्लाई करते हैं, जिसमें अनस्टिच्ड सूट शामिल हैं।
+            </p>
+
             <section className="mt-12 border-t border-line pt-8">
               <h2 className="font-display text-2xl font-light sm:text-3xl">सामान्य प्रश्न</h2>
               {/*

@@ -1,0 +1,238 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { JournalHeader, JournalFooter } from "@/components/fabric-desk";
+import { ADDRESS_LINES, BUSINESS, BUSINESS_ID } from "@/content/business";
+import { WHATSAPP_NUMBER, whatsAppUrl } from "@/content/whatsapp";
+
+const SITE = "https://www.vidhifabrics.com";
+const PATH = "/dress-material-wholesale-surat";
+
+const TITLE = "Dress Material Wholesale in Surat | Vidhi Fabrics, Manufacturer & Wholesaler";
+const DESCRIPTION =
+  "Dress material and unstitched suits in bulk from a Surat manufacturer and wholesaler, for buyers across North India. Get the catalogue on WhatsApp.";
+
+const linkClass = "text-clay underline decoration-line underline-offset-4 hover:text-claydeep";
+
+const FAQS: { question: string; answer: string }[] = [
+  {
+    question: "What is included in a dress material set?",
+    answer:
+      "Usually fabric for the top, the bottom and a dupatta. Sets vary by design, so we confirm the pieces, their fabric and their measurements for each design before you order.",
+  },
+  {
+    question: "Do you supply unstitched suits?",
+    answer:
+      "Yes. We supply unstitched suits and dress material sets, so retailers and boutiques can offer customers their own fit and style.",
+  },
+  {
+    question: "Which regions do you supply?",
+    answer: "Mainly North India: Punjab, Haryana, Rajasthan and Madhya Pradesh.",
+  },
+  {
+    question: "Do you supply retailers as well as wholesalers?",
+    answer: "Yes. We supply wholesalers, retailers, resellers and boutiques in bulk.",
+  },
+  {
+    // Positioning confirmed by the owner on 1 October 2026: manufacturer and
+    // wholesaler. Deliberately does not name which lines are made in-house;
+    // the owner has not specified them. Same answer as the polyester page.
+    question: "Are you a manufacturer or a wholesaler?",
+    answer:
+      "Both. Vidhi Fabrics is a Surat-based manufacturer and wholesaler. We manufacture some lines in-house and also supply from Surat's wider textile market, so you get one accountable point of contact and a wide, current range.",
+  },
+  {
+    question: "How do I get the catalogue?",
+    answer: `Send a message on WhatsApp at ${BUSINESS.phoneDisplay} and we'll share the current dress material catalogue. You're also welcome to visit our shop at Golden Point, Ring Road, Surat.`,
+  },
+];
+
+function breadcrumbList() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Vidhi Fabrics", item: `${SITE}/` },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Dress Material Wholesale Surat",
+        item: `${SITE}${PATH}`,
+      },
+    ],
+  };
+}
+
+function faqPage() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    url: `${SITE}${PATH}`,
+    inLanguage: "en-IN",
+    // Ties the page to the site-wide LocalBusiness node emitted in __root.tsx.
+    publisher: { "@id": BUSINESS_ID },
+    about: { "@id": BUSINESS_ID },
+    mainEntity: FAQS.map((f) => ({
+      "@type": "Question",
+      name: f.question,
+      acceptedAnswer: { "@type": "Answer", text: f.answer },
+    })),
+  };
+}
+
+export const Route = createFileRoute("/dress-material-wholesale-surat")({
+  head: () => ({
+    meta: [
+      { title: TITLE },
+      { name: "description", content: DESCRIPTION },
+      { property: "og:title", content: TITLE },
+      { property: "og:description", content: DESCRIPTION },
+      { property: "og:url", content: `${SITE}${PATH}` },
+      { property: "og:type", content: "website" },
+      { property: "og:locale", content: "en_IN" },
+      { property: "og:locale:alternate", content: "hi_IN" },
+    ],
+    links: [
+      { rel: "canonical", href: `${SITE}${PATH}` },
+      { rel: "alternate", hrefLang: "en", href: `${SITE}${PATH}` },
+      { rel: "alternate", hrefLang: "hi", href: `${SITE}/hi${PATH}` },
+      { rel: "alternate", hrefLang: "x-default", href: `${SITE}${PATH}` },
+    ],
+    scripts: [
+      { type: "application/ld+json", children: JSON.stringify(breadcrumbList()) },
+      { type: "application/ld+json", children: JSON.stringify(faqPage()) },
+    ],
+  }),
+  component: DressMaterialPage,
+});
+
+const CATALOGUE_MESSAGE = "Hi Vidhi Fabrics, please share your dress material catalogue.";
+
+function CatalogueButton({ className = "" }: { className?: string }) {
+  return (
+    <a
+      href={whatsAppUrl(CATALOGUE_MESSAGE)}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`inline-flex items-center justify-center rounded-sm bg-clay px-6 py-3 font-mono text-xs uppercase tracking-[0.12em] text-paper transition-colors hover:bg-claydeep ${className}`}
+    >
+      Get Catalogue on WhatsApp
+    </a>
+  );
+}
+
+function DressMaterialPage() {
+  return (
+    <div className="min-h-screen bg-paper text-ink">
+      <JournalHeader lang="en" />
+      <main>
+        <article className="mx-auto max-w-4xl px-6 py-12 sm:py-16" lang="en">
+          <nav aria-label="Breadcrumb" className="text-xs text-mute">
+            <ol className="flex flex-wrap items-center gap-2">
+              <li>
+                <a href="/" className="hover:text-clay">
+                  Vidhi Fabrics
+                </a>
+              </li>
+              <li aria-hidden="true">/</li>
+              <li className="text-ink">Dress Material Wholesale Surat</li>
+            </ol>
+          </nav>
+
+          <h1 className="mt-6 text-balance font-display text-4xl font-light leading-[1.12] tracking-tight sm:text-5xl lg:text-6xl">
+            Dress Material Wholesale, Direct from Surat
+          </h1>
+
+          <CatalogueButton className="mt-8" />
+
+          <div className="mx-auto max-w-[65ch]">
+            <p className="mt-10 text-lg leading-relaxed text-mute">
+              Vidhi Fabrics is a Surat-based manufacturer and wholesaler, supplying dress material
+              in bulk to wholesalers, retailers, resellers and boutiques. We manufacture some lines
+              in-house and also supply from Surat's wider textile market. Most of our buyers are in
+              North India, in Punjab, Haryana, Rajasthan and Madhya Pradesh.
+            </p>
+
+            <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">
+              Unstitched suits and dress material sets
+            </h2>
+            <p className="mt-5 leading-[1.85] text-mute">
+              Dress material is sold as a set, not by the metre. A typical unstitched suit combines
+              fabric for the top, the bottom and a dupatta, in lengths a tailor can work with.
+              Retailers stock it because customers choose their own fit and style, and one set can
+              be stitched in many ways. We supply everyday and festive sets, arranged by design and
+              colour, so you can build a selection that suits your counter.
+            </p>
+
+            <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">
+              Why buy dress material from Surat
+            </h2>
+            <p className="mt-5 leading-[1.85] text-mute">
+              Surat is one of India's main centres for synthetic and blended fabrics. Its markets
+              carry dress material from weaving, printing and embroidery units across the city, so
+              you see a wide choice of designs in one place, with a shorter chain between the cloth
+              and your shop. As a manufacturer and wholesaler in this market, we see new designs as
+              they arrive and can tell you what each set is made of.
+            </p>
+
+            <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">
+              What to check when buying wholesale
+            </h2>
+            <p className="mt-5 leading-[1.85] text-mute">
+              Ask for the composition and measurements of each piece, since the top, bottom and
+              dupatta are often different fabrics. Confirm whether the set is unstitched or
+              semi-stitched, and which pieces are included. Check the sample in ordinary daylight
+              for feel, drape and colour, and keep the design code with your approval. Before
+              paying, get the full order in writing. Our{" "}
+              <a href="/blog/buying-dress-material-wholesale" className={linkClass}>
+                guide to buying dress material wholesale
+              </a>{" "}
+              covers each step in more detail.
+            </p>
+
+            <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">
+              How to get the catalogue
+            </h2>
+            <p className="mt-5 leading-[1.85] text-mute">
+              Message us on WhatsApp at{" "}
+              <a
+                href={`https://wa.me/${WHATSAPP_NUMBER}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={linkClass}
+              >
+                {BUSINESS.phoneDisplay}
+              </a>{" "}
+              and tell us what you stock: everyday or festive, the fabrics you prefer and the city
+              you sell in. We'll send the current catalogue on WhatsApp. You can also visit us at{" "}
+              {ADDRESS_LINES.en.join(", ")}.
+            </p>
+            <p className="mt-5 leading-[1.85] text-mute">
+              We also supply{" "}
+              <a href="/polyester-sarees-wholesale-surat" className={linkClass}>
+                polyester sarees wholesale
+              </a>{" "}
+              from Surat.
+            </p>
+
+            <section className="mt-12 border-t border-line pt-8">
+              <h2 className="font-display text-2xl font-light sm:text-3xl">FAQs</h2>
+              {/* Each question is an <h3> with its answer directly after it,
+                  matching the polyester page (valid heading-and-paragraph
+                  pairs rather than a <dl>). */}
+              {FAQS.map((entry) => (
+                <div key={entry.question} className="mt-7">
+                  <h3 className="font-display text-lg font-light leading-snug">{entry.question}</h3>
+                  <p className="mt-3 leading-[1.85] text-mute">{entry.answer}</p>
+                </div>
+              ))}
+            </section>
+
+            <div className="my-12 flex justify-center border-t border-line pt-10">
+              <CatalogueButton />
+            </div>
+          </div>
+        </article>
+      </main>
+      <JournalFooter lang="en" />
+    </div>
+  );
+}

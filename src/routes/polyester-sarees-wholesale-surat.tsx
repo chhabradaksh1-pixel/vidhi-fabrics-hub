@@ -171,6 +171,17 @@ function PolyesterSareesPage() {
               bestsellers, we'll help you choose designs that fit your customers and your margins.
             </p>
 
+            <p className="mt-5 leading-[1.85] text-mute">
+              We also supply{" "}
+              <a
+                href="/dress-material-wholesale-surat"
+                className="text-clay underline decoration-line underline-offset-4 hover:text-claydeep"
+              >
+                dress material wholesale
+              </a>{" "}
+              from Surat, including unstitched suits.
+            </p>
+
             <section className="mt-12 border-t border-line pt-8">
               <h2 className="font-display text-2xl font-light sm:text-3xl">FAQs</h2>
               {/*

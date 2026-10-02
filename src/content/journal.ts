@@ -1483,6 +1483,14 @@ export const JOURNAL: JournalArticle[] = [
         },
         href: "/blog/source-fabric-from-surat",
       },
+      {
+        phrase: {
+          en: "dress material wholesale page",
+          hi: "ड्रेस मटेरियल थोक पेज",
+          "hi-en": "dress material wholesale page",
+        },
+        href: "/dress-material-wholesale-surat",
+      },
     ],
     image: cotton,
     published: "2026-09-12",
@@ -1562,12 +1570,15 @@ export const JOURNAL: JournalArticle[] = [
         paragraphs: {
           en: [
             "Ask for the stated composition and measurements of each component. A set may have different materials for the top, bottom and dupatta, so confirm each separately. Check whether any component is optional and whether the product is unstitched, semi-stitched or ready to wear. Do not assume the styling shown in a photograph is included in the purchase.",
+            "For the sets we supply, our dress material wholesale page explains who we work with and how to request the catalogue.",
           ],
           hi: [
             "हर हिस्से की बताई गई सामग्री और नाप माँगिए। एक सेट में टॉप, बॉटम और दुपट्टे का कपड़ा अलग-अलग हो सकता है, इसलिए हर एक की अलग पुष्टि कीजिए। देखिए कि कोई हिस्सा वैकल्पिक तो नहीं, और प्रोडक्ट अनस्टिच्ड है, सेमी-स्टिच्ड या रेडी टू वियर। यह मान लेना ठीक नहीं कि तस्वीर में दिख रही पूरी स्टाइलिंग खरीद में शामिल है।",
+            "हम कौन-से सेट सप्लाई करते हैं, यह हमारे ड्रेस मटेरियल थोक पेज पर है — हम किनके साथ काम करते हैं और कैटलॉग कैसे मँगवाएँ।",
           ],
           "hi-en": [
             "Har component ki batayi gayi composition aur measurements maangiye. Ek set mein top, bottom aur dupatte ka fabric alag alag ho sakta hai, isliye har ek ki alag confirmation lijiye. Dekhiye ki koi component optional to nahi, aur product unstitched hai, semi-stitched ya ready to wear. Yeh maan lena theek nahi ki photograph mein dikh rahi poori styling purchase mein shamil hai.",
+            "Hum kaun se sets supply karte hain, yeh hamare dress material wholesale page par hai — hum kinke saath kaam karte hain aur catalogue kaise mangwayein.",
           ],
         },
         checklist: {

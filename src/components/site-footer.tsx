@@ -14,6 +14,7 @@ import {
 import { ADDRESS_LINES, BUSINESS } from "@/content/business";
 import type { Lang } from "@/content/translations";
 import { whatsAppUrl } from "@/content/whatsapp";
+import { hasHindiVersion } from "@/content/landing-pages";
 
 /**
  * Resolves a footer link for the language being shown. In-page anchors are
@@ -24,7 +25,7 @@ function resolveHref(link: FooterLink, lang: Lang, home: string) {
   if (link.whatsApp) return whatsAppUrl(link.whatsApp[lang]);
   const href = link.href ?? "/";
   if (href.startsWith("#")) return `${home}${href}`;
-  if (lang === "hi" && (href.startsWith("/blog") || href === "/polyester-sarees-wholesale-surat")) {
+  if (lang === "hi" && (href.startsWith("/blog") || hasHindiVersion(href))) {
     return `/hi${href}`;
   }
   return href;

@@ -72,15 +72,23 @@ export const FOOTER_COLUMNS: FooterColumn[] = [
         href: "/blog/buying-dress-material-wholesale",
       },
       {
-        // English-only destination (no Hindi/Hinglish version of this page
-        // yet), so the label stays close to the English term in all three
-        // languages rather than promising a translated page.
+        // English and Hindi versions exist; the footer sends Hindi readers to
+        // /hi/... (see site-footer.tsx). There is no separate Hinglish URL, so
+        // the Hinglish label stays close to the English term.
         label: {
           en: "Polyester sarees wholesale",
           hi: "पॉलिएस्टर साड़ियाँ (थोक)",
           "hi-en": "Polyester sarees wholesale",
         },
         href: "/polyester-sarees-wholesale-surat",
+      },
+      {
+        label: {
+          en: "Dress material wholesale",
+          hi: "ड्रेस मटेरियल (थोक)",
+          "hi-en": "Dress material wholesale",
+        },
+        href: "/dress-material-wholesale-surat",
       },
       {
         label: { en: "Sarees", hi: "साड़ियाँ", "hi-en": "Sarees" },

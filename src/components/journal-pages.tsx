@@ -13,6 +13,7 @@ import {
 } from "@/content/journal";
 import type { Lang } from "@/content/translations";
 import { blogPaths } from "@/content/blog-paths";
+import { hasHindiVersion } from "@/content/landing-pages";
 
 /** How many other guides the "Keep reading" list shows. */
 const RELATED_COUNT = 2;
@@ -23,7 +24,7 @@ const RELATED_COUNT = 2;
  */
 function localiseHref(href: string, lang: Lang) {
   if (lang !== "hi") return href;
-  if (href.startsWith("/blog/")) return `/hi${href}`;
+  if (href.startsWith("/blog/") || hasHindiVersion(href)) return `/hi${href}`;
   if (href.startsWith("/#")) return `/hi${href.slice(1)}`;
   return href;
 }

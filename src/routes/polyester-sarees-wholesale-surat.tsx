@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { JournalHeader, JournalFooter } from "@/components/fabric-desk";
 import { ADDRESS_LINES, BUSINESS } from "@/content/business";
-import { WHATSAPP_NUMBER, whatsAppUrl } from "@/content/whatsapp";
+import { whatsAppUrl } from "@/content/whatsapp";
 
 const SITE = "https://www.vidhifabrics.com";
 const PATH = "/polyester-sarees-wholesale-surat";
@@ -158,7 +158,7 @@ function PolyesterSareesPage() {
             <p className="mt-5 leading-[1.85] text-mute">
               Message us on WhatsApp at{" "}
               <a
-                href={`https://wa.me/${WHATSAPP_NUMBER}`}
+                href={whatsAppUrl(CATALOGUE_MESSAGE)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-clay underline decoration-line underline-offset-4 hover:text-claydeep"

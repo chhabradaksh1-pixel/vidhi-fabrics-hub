@@ -54,18 +54,60 @@ function isComplete(a: Answers) {
   );
 }
 
-function buildMessage(a: Answers) {
+const MESSAGE_LINES: Record<
+  Lang,
+  {
+    greeting: string;
+    intro: string;
+    product: string;
+    requirement: string;
+    quantity: string;
+    location: string;
+    close: string;
+  }
+> = {
+  en: {
+    greeting: "Hi Vidhi Fabrics,",
+    intro: "I submitted a sourcing requirement on your website.",
+    product: "Product",
+    requirement: "Requirement",
+    quantity: "Quantity",
+    location: "Location",
+    close: "I'd like to know the available options, catalogue and pricing.",
+  },
+  hi: {
+    greeting: "नमस्ते विधि फैब्रिक्स,",
+    intro: "मैंने आपकी वेबसाइट पर अपनी ज़रूरत भेजी है।",
+    product: "प्रोडक्ट",
+    requirement: "ज़रूरत",
+    quantity: "मात्रा",
+    location: "जगह",
+    close: "कृपया उपलब्ध विकल्प, कैटलॉग और रेट बताइए।",
+  },
+  "hi-en": {
+    greeting: "Namaste Vidhi Fabrics,",
+    intro: "Maine aapki website par apni requirement bheji hai.",
+    product: "Product",
+    requirement: "Requirement",
+    quantity: "Quantity",
+    location: "Location",
+    close: "Kripya available options, catalogue aur rates bataiye.",
+  },
+};
+
+function buildMessage(a: Answers, lang: Lang) {
+  const t = MESSAGE_LINES[lang];
   return [
-    "Hi Vidhi Fabrics,",
+    t.greeting,
     "",
-    "I submitted a sourcing requirement on your website.",
+    t.intro,
     "",
-    `Product: ${a.category}`,
-    `Requirement: ${a.requirement}`,
-    `Quantity: ${a.quantity}`,
-    `Location: ${a.city}, ${a.country}`,
+    `${t.product}: ${a.category}`,
+    `${t.requirement}: ${a.requirement}`,
+    `${t.quantity}: ${a.quantity}`,
+    `${t.location}: ${a.city}, ${a.country}`,
     "",
-    "I'd like to know the available options, MOQ and pricing.",
+    t.close,
   ].join("\n");
 }
 
@@ -399,7 +441,7 @@ export function TalkToUs({ lang = "en" }: { lang?: Lang }) {
             {step === "done" && complete ? (
               <div className="space-y-3">
                 <a
-                  href={whatsAppUrl(buildMessage(answers))}
+                  href={whatsAppUrl(buildMessage(answers, lang))}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => track("talk_to_us_whatsapp_clicked")}

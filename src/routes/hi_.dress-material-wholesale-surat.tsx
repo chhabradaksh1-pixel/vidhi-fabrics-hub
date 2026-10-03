@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { JournalHeader, JournalFooter } from "@/components/fabric-desk";
 import { ADDRESS_LINES, BUSINESS, BUSINESS_ID } from "@/content/business";
-import { WHATSAPP_NUMBER, whatsAppUrl } from "@/content/whatsapp";
+import { whatsAppUrl } from "@/content/whatsapp";
 
 const SITE = "https://www.vidhifabrics.com";
 const EN_PATH = "/dress-material-wholesale-surat";
@@ -191,7 +191,7 @@ function DressMaterialPageHi() {
             <p className="mt-5 leading-[1.85] text-mute">
               हमें व्हाट्सएप पर{" "}
               <a
-                href={`https://wa.me/${WHATSAPP_NUMBER}`}
+                href={whatsAppUrl(CATALOGUE_MESSAGE)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={linkClass}

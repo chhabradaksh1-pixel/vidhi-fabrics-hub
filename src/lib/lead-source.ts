@@ -124,12 +124,21 @@ export function resolveSource(): SourceCode {
   return fromReferrer;
 }
 
+/**
+ * Client only. A page that can't be identified by its path (the 404 page,
+ * which renders at any URL) declares its code with `data-lead-page`.
+ */
+function pageOverride(): string | null {
+  const value = document.querySelector<HTMLElement>("[data-lead-page]")?.dataset["leadPage"];
+  return value && /^[A-Z]{2,5}$/.test(value) ? value : null;
+}
+
 /** Client only. Page, source and ref code for the current page. */
 export function currentLeadContext(): LeadContext {
   if (typeof window === "undefined") {
     return { page: "OTH", source: DEFAULT_SOURCE, ref: `OTH-${DEFAULT_SOURCE}` };
   }
-  const page = pageCode(window.location.pathname);
+  const page = pageOverride() ?? pageCode(window.location.pathname);
   const source = resolveSource();
   return { page, source, ref: `${page}-${source}` };
 }

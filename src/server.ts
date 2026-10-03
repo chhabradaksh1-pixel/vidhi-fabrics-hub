@@ -2,6 +2,7 @@ import "./lib/error-capture";
 
 import { consumeLastCapturedError } from "./lib/error-capture";
 import { renderErrorPage } from "./lib/error-page";
+import { shortRedirectResponse } from "./lib/short-redirects";
 
 type ServerEntry = {
   fetch: (request: Request, env: unknown, ctx: unknown) => Promise<Response> | Response;
@@ -36,6 +37,19 @@ async function normalizeCatastrophicSsrResponse(response: Response): Promise<Res
   });
 }
 
+// Belt and braces for the 404 page's <meta name="robots" content="noindex">:
+// crawlers that skip the HTML still get the header.
+function markNotFound(response: Response): Response {
+  if (response.status !== 404) return response;
+  const headers = new Headers(response.headers);
+  headers.set("x-robots-tag", "noindex");
+  return new Response(response.body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers,
+  });
+}
+
 function isH3SwallowedErrorBody(body: string): boolean {
   try {
     const payload = JSON.parse(body) as { unhandled?: unknown; message?: unknown };
@@ -52,9 +66,11 @@ export default {
       if (url.pathname === "/api/leads") {
         return await handleLeadRequest(request, env);
       }
+      const redirect = shortRedirectResponse(url);
+      if (redirect) return redirect;
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
-      return await normalizeCatastrophicSsrResponse(response);
+      return markNotFound(await normalizeCatastrophicSsrResponse(response));
     } catch (error) {
       console.error(error);
       return new Response(renderErrorPage(), {

@@ -20,14 +20,36 @@ they first reached the site in that browser session.
 | RES  | Saree wholesale for resellers `/saree-wholesale-for-resellers`           |
 | ORG  | Organza and net fabric for boutiques `/organza-net-fabric-for-boutiques` |
 | COM  | Vidhi Reseller Circle join page `/reseller-circle` (form only)           |
+| ERR  | "Page not found" (404) page, at any mistyped or old URL                  |
 | OTH  | Any other page                                                           |
 
 Hindi pages add **H** to the page code: HOMH, SARH, DRSH, BLGH, BLIH, ABTH, RESH, ORGH,
-COMH.
+COMH, ERRH (a 404 under `/hi/...`).
 
 The Reseller Circle join form sends `form=reseller-circle` with `ref_code` such
 as `COM-IG`. This means the person _asked to join_ from the website. It is not
 the same as joining the WhatsApp Community itself.
+
+An **ERR** code means the visitor landed on a broken or mistyped link and then
+messaged you. If you see several, ask where the link came from so it can be
+fixed or redirected.
+
+## Short links
+
+These short addresses permanently redirect to the full pages, and keep any
+`?utm_source=...` tags, so they are safe to use in the channel links below.
+Each one also works with `/hi` in front, going to the Hindi page (for example
+`/hi/sarees`).
+
+| Short link                               | Goes to                             |
+| ---------------------------------------- | ----------------------------------- |
+| `/sarees`, `/saree`, `/polyester-sarees` | `/polyester-sarees-wholesale-surat` |
+| `/dress-material`, `/dress-materials`    | `/dress-material-wholesale-surat`   |
+| `/resellers`, `/reseller`                | `/saree-wholesale-for-resellers`    |
+| `/organza`, `/net`, `/organza-net`       | `/organza-net-fabric-for-boutiques` |
+| `/circle`, `/community`                  | `/reseller-circle`                  |
+
+The visitor's page code is the page they end up on, e.g. `/sarees` gives SAR.
 
 ## Source codes
 

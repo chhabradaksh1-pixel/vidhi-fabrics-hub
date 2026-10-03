@@ -209,6 +209,17 @@ function DressMaterialPageHi() {
               </a>{" "}
               भी सप्लाई करते हैं।
             </p>
+            <p className="mt-5 leading-[1.85] text-mute">
+              दुपट्टों, लहंगे की परतों, स्लीव्स और ओवरले के लिए बुटीक हमसे{" "}
+              <a href="/hi/organza-net-fabric-for-boutiques" className={linkClass}>
+                ऑर्गेंज़ा और नेट कपड़ा
+              </a>{" "}
+              मँगवा सकते हैं, जो हम सूरत के अपने नेटवर्क से ऑर्डर पर सोर्स करते हैं। रीसेलर देखें —{" "}
+              <a href="/hi/saree-wholesale-for-resellers" className={linkClass}>
+                रीसेलर के लिए साड़ी होलसेल
+              </a>
+              ।
+            </p>
 
             <section className="mt-12 border-t border-line pt-8">
               <h2 className="font-display text-2xl font-light sm:text-3xl">सामान्य प्रश्न</h2>

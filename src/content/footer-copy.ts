@@ -51,6 +51,14 @@ export const FOOTER_COLUMNS: FooterColumn[] = [
         href: "/about",
       },
       {
+        label: {
+          en: "Join the Reseller Circle",
+          hi: "रीसेलर सर्कल से जुड़िए",
+          "hi-en": "Reseller Circle join kijiye",
+        },
+        href: "/reseller-circle",
+      },
+      {
         label: { en: "Our network", hi: "हमारा नेटवर्क", "hi-en": "Hamara network" },
         href: "#reach",
       },
@@ -89,6 +97,22 @@ export const FOOTER_COLUMNS: FooterColumn[] = [
           "hi-en": "Dress material wholesale",
         },
         href: "/dress-material-wholesale-surat",
+      },
+      {
+        label: {
+          en: "Sarees for resellers",
+          hi: "रीसेलर के लिए साड़ियाँ",
+          "hi-en": "Sarees for resellers",
+        },
+        href: "/saree-wholesale-for-resellers",
+      },
+      {
+        label: {
+          en: "Organza & net for boutiques",
+          hi: "बुटीक के लिए ऑर्गेंज़ा व नेट",
+          "hi-en": "Organza & net for boutiques",
+        },
+        href: "/organza-net-fabric-for-boutiques",
       },
       {
         label: { en: "Sarees", hi: "साड़ियाँ", "hi-en": "Sarees" },

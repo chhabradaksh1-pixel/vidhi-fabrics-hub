@@ -8,6 +8,9 @@ export const LANDING_PAGES_WITH_HINDI: readonly string[] = [
   "/polyester-sarees-wholesale-surat",
   "/dress-material-wholesale-surat",
   "/about",
+  "/saree-wholesale-for-resellers",
+  "/organza-net-fabric-for-boutiques",
+  "/reseller-circle",
 ];
 
 export function hasHindiVersion(href: string) {

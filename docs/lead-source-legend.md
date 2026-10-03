@@ -9,17 +9,25 @@ they first reached the site in that browser session.
 
 ## Page codes
 
-| Code | Page                                                      |
-| ---- | --------------------------------------------------------- |
-| HOM  | Homepage `/`                                              |
-| SAR  | Polyester sarees page `/polyester-sarees-wholesale-surat` |
-| DRS  | Dress material page `/dress-material-wholesale-surat`     |
-| BLG  | A Fabric Desk article `/blog/...`                         |
-| BLI  | Fabric Desk index `/blog`                                 |
-| ABT  | About page `/about`                                       |
-| OTH  | Any other page                                            |
+| Code | Page                                                                     |
+| ---- | ------------------------------------------------------------------------ |
+| HOM  | Homepage `/`                                                             |
+| SAR  | Polyester sarees page `/polyester-sarees-wholesale-surat`                |
+| DRS  | Dress material page `/dress-material-wholesale-surat`                    |
+| BLG  | A Fabric Desk article `/blog/...`                                        |
+| BLI  | Fabric Desk index `/blog`                                                |
+| ABT  | About page `/about`                                                      |
+| RES  | Saree wholesale for resellers `/saree-wholesale-for-resellers`           |
+| ORG  | Organza and net fabric for boutiques `/organza-net-fabric-for-boutiques` |
+| COM  | Vidhi Reseller Circle join page `/reseller-circle` (form only)           |
+| OTH  | Any other page                                                           |
 
-Hindi pages add **H** to the page code: HOMH, SARH, DRSH, BLGH, BLIH, ABTH.
+Hindi pages add **H** to the page code: HOMH, SARH, DRSH, BLGH, BLIH, ABTH, RESH, ORGH,
+COMH.
+
+The Reseller Circle join form sends `form=reseller-circle` with `ref_code` such
+as `COM-IG`. This means the person _asked to join_ from the website. It is not
+the same as joining the WhatsApp Community itself.
 
 ## Source codes
 

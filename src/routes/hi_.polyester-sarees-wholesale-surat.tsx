@@ -218,6 +218,23 @@ function PolyesterSareesPageHi() {
               </a>{" "}
               भी सप्लाई करते हैं, जिसमें अनस्टिच्ड सूट शामिल हैं।
             </p>
+            <p className="mt-5 leading-[1.85] text-mute">
+              व्हाट्सएप, इंस्टाग्राम या घर से बेचते हैं? देखिए
+              <a
+                href="/hi/saree-wholesale-for-resellers"
+                className="text-clay underline decoration-line underline-offset-4 hover:text-claydeep"
+              >
+                रीसेलर के लिए साड़ी होलसेल
+              </a>
+              । बुटीक हमसे
+              <a
+                href="/hi/organza-net-fabric-for-boutiques"
+                className="text-clay underline decoration-line underline-offset-4 hover:text-claydeep"
+              >
+                ऑर्गेंज़ा और नेट कपड़ा
+              </a>
+              भी मँगवा सकते हैं, जो हम सूरत के अपने नेटवर्क से ऑर्डर पर सोर्स करते हैं।
+            </p>
 
             <section className="mt-12 border-t border-line pt-8">
               <h2 className="font-display text-2xl font-light sm:text-3xl">सामान्य प्रश्न</h2>

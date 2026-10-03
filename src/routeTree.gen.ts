@@ -13,12 +13,18 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as DressMaterialWholesaleSuratRouteImport } from './routes/dress-material-wholesale-surat'
 import { Route as HiRouteImport } from './routes/hi'
+import { Route as OrganzaNetFabricForBoutiquesRouteImport } from './routes/organza-net-fabric-for-boutiques'
 import { Route as PolyesterSareesWholesaleSuratRouteImport } from './routes/polyester-sarees-wholesale-surat'
+import { Route as ResellerCircleRouteImport } from './routes/reseller-circle'
+import { Route as SareeWholesaleForResellersRouteImport } from './routes/saree-wholesale-for-resellers'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as HiAboutRouteImport } from './routes/hi_.about'
 import { Route as HiDressMaterialWholesaleSuratRouteImport } from './routes/hi_.dress-material-wholesale-surat'
+import { Route as HiOrganzaNetFabricForBoutiquesRouteImport } from './routes/hi_.organza-net-fabric-for-boutiques'
 import { Route as HiPolyesterSareesWholesaleSuratRouteImport } from './routes/hi_.polyester-sarees-wholesale-surat'
+import { Route as HiResellerCircleRouteImport } from './routes/hi_.reseller-circle'
+import { Route as HiSareeWholesaleForResellersRouteImport } from './routes/hi_.saree-wholesale-for-resellers'
 import { Route as HiBlogIndexRouteImport } from './routes/hi_.blog.index'
 import { Route as HiBlogSlugRouteImport } from './routes/hi_.blog.$slug'
 
@@ -43,10 +49,27 @@ const HiRoute = HiRouteImport.update({
   path: '/hi',
   getParentRoute: () => rootRouteImport,
 } as any)
+const OrganzaNetFabricForBoutiquesRoute =
+  OrganzaNetFabricForBoutiquesRouteImport.update({
+    id: '/organza-net-fabric-for-boutiques',
+    path: '/organza-net-fabric-for-boutiques',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const PolyesterSareesWholesaleSuratRoute =
   PolyesterSareesWholesaleSuratRouteImport.update({
     id: '/polyester-sarees-wholesale-surat',
     path: '/polyester-sarees-wholesale-surat',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ResellerCircleRoute = ResellerCircleRouteImport.update({
+  id: '/reseller-circle',
+  path: '/reseller-circle',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SareeWholesaleForResellersRoute =
+  SareeWholesaleForResellersRouteImport.update({
+    id: '/saree-wholesale-for-resellers',
+    path: '/saree-wholesale-for-resellers',
     getParentRoute: () => rootRouteImport,
   } as any)
 const BlogIndexRoute = BlogIndexRouteImport.update({
@@ -70,10 +93,27 @@ const HiDressMaterialWholesaleSuratRoute =
     path: '/hi/dress-material-wholesale-surat',
     getParentRoute: () => rootRouteImport,
   } as any)
+const HiOrganzaNetFabricForBoutiquesRoute =
+  HiOrganzaNetFabricForBoutiquesRouteImport.update({
+    id: '/hi_/organza-net-fabric-for-boutiques',
+    path: '/hi/organza-net-fabric-for-boutiques',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const HiPolyesterSareesWholesaleSuratRoute =
   HiPolyesterSareesWholesaleSuratRouteImport.update({
     id: '/hi_/polyester-sarees-wholesale-surat',
     path: '/hi/polyester-sarees-wholesale-surat',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const HiResellerCircleRoute = HiResellerCircleRouteImport.update({
+  id: '/hi_/reseller-circle',
+  path: '/hi/reseller-circle',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HiSareeWholesaleForResellersRoute =
+  HiSareeWholesaleForResellersRouteImport.update({
+    id: '/hi_/saree-wholesale-for-resellers',
+    path: '/hi/saree-wholesale-for-resellers',
     getParentRoute: () => rootRouteImport,
   } as any)
 const HiBlogIndexRoute = HiBlogIndexRouteImport.update({
@@ -92,11 +132,17 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/dress-material-wholesale-surat': typeof DressMaterialWholesaleSuratRoute
   '/hi': typeof HiRoute
+  '/organza-net-fabric-for-boutiques': typeof OrganzaNetFabricForBoutiquesRoute
   '/polyester-sarees-wholesale-surat': typeof PolyesterSareesWholesaleSuratRoute
+  '/reseller-circle': typeof ResellerCircleRoute
+  '/saree-wholesale-for-resellers': typeof SareeWholesaleForResellersRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/hi/about': typeof HiAboutRoute
   '/hi/dress-material-wholesale-surat': typeof HiDressMaterialWholesaleSuratRoute
+  '/hi/organza-net-fabric-for-boutiques': typeof HiOrganzaNetFabricForBoutiquesRoute
   '/hi/polyester-sarees-wholesale-surat': typeof HiPolyesterSareesWholesaleSuratRoute
+  '/hi/reseller-circle': typeof HiResellerCircleRoute
+  '/hi/saree-wholesale-for-resellers': typeof HiSareeWholesaleForResellersRoute
   '/blog/': typeof BlogIndexRoute
   '/hi/blog/$slug': typeof HiBlogSlugRoute
   '/hi/blog/': typeof HiBlogIndexRoute
@@ -106,11 +152,17 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/dress-material-wholesale-surat': typeof DressMaterialWholesaleSuratRoute
   '/hi': typeof HiRoute
+  '/organza-net-fabric-for-boutiques': typeof OrganzaNetFabricForBoutiquesRoute
   '/polyester-sarees-wholesale-surat': typeof PolyesterSareesWholesaleSuratRoute
+  '/reseller-circle': typeof ResellerCircleRoute
+  '/saree-wholesale-for-resellers': typeof SareeWholesaleForResellersRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/hi/about': typeof HiAboutRoute
   '/hi/dress-material-wholesale-surat': typeof HiDressMaterialWholesaleSuratRoute
+  '/hi/organza-net-fabric-for-boutiques': typeof HiOrganzaNetFabricForBoutiquesRoute
   '/hi/polyester-sarees-wholesale-surat': typeof HiPolyesterSareesWholesaleSuratRoute
+  '/hi/reseller-circle': typeof HiResellerCircleRoute
+  '/hi/saree-wholesale-for-resellers': typeof HiSareeWholesaleForResellersRoute
   '/blog': typeof BlogIndexRoute
   '/hi/blog/$slug': typeof HiBlogSlugRoute
   '/hi/blog': typeof HiBlogIndexRoute
@@ -121,11 +173,17 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/dress-material-wholesale-surat': typeof DressMaterialWholesaleSuratRoute
   '/hi': typeof HiRoute
+  '/organza-net-fabric-for-boutiques': typeof OrganzaNetFabricForBoutiquesRoute
   '/polyester-sarees-wholesale-surat': typeof PolyesterSareesWholesaleSuratRoute
+  '/reseller-circle': typeof ResellerCircleRoute
+  '/saree-wholesale-for-resellers': typeof SareeWholesaleForResellersRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/hi_/about': typeof HiAboutRoute
   '/hi_/dress-material-wholesale-surat': typeof HiDressMaterialWholesaleSuratRoute
+  '/hi_/organza-net-fabric-for-boutiques': typeof HiOrganzaNetFabricForBoutiquesRoute
   '/hi_/polyester-sarees-wholesale-surat': typeof HiPolyesterSareesWholesaleSuratRoute
+  '/hi_/reseller-circle': typeof HiResellerCircleRoute
+  '/hi_/saree-wholesale-for-resellers': typeof HiSareeWholesaleForResellersRoute
   '/blog/': typeof BlogIndexRoute
   '/hi_/blog/$slug': typeof HiBlogSlugRoute
   '/hi_/blog/': typeof HiBlogIndexRoute
@@ -137,11 +195,17 @@ export interface FileRouteTypes {
     | '/about'
     | '/dress-material-wholesale-surat'
     | '/hi'
+    | '/organza-net-fabric-for-boutiques'
     | '/polyester-sarees-wholesale-surat'
+    | '/reseller-circle'
+    | '/saree-wholesale-for-resellers'
     | '/blog/$slug'
     | '/hi/about'
     | '/hi/dress-material-wholesale-surat'
+    | '/hi/organza-net-fabric-for-boutiques'
     | '/hi/polyester-sarees-wholesale-surat'
+    | '/hi/reseller-circle'
+    | '/hi/saree-wholesale-for-resellers'
     | '/blog/'
     | '/hi/blog/$slug'
     | '/hi/blog/'
@@ -151,11 +215,17 @@ export interface FileRouteTypes {
     | '/about'
     | '/dress-material-wholesale-surat'
     | '/hi'
+    | '/organza-net-fabric-for-boutiques'
     | '/polyester-sarees-wholesale-surat'
+    | '/reseller-circle'
+    | '/saree-wholesale-for-resellers'
     | '/blog/$slug'
     | '/hi/about'
     | '/hi/dress-material-wholesale-surat'
+    | '/hi/organza-net-fabric-for-boutiques'
     | '/hi/polyester-sarees-wholesale-surat'
+    | '/hi/reseller-circle'
+    | '/hi/saree-wholesale-for-resellers'
     | '/blog'
     | '/hi/blog/$slug'
     | '/hi/blog'
@@ -165,11 +235,17 @@ export interface FileRouteTypes {
     | '/about'
     | '/dress-material-wholesale-surat'
     | '/hi'
+    | '/organza-net-fabric-for-boutiques'
     | '/polyester-sarees-wholesale-surat'
+    | '/reseller-circle'
+    | '/saree-wholesale-for-resellers'
     | '/blog/$slug'
     | '/hi_/about'
     | '/hi_/dress-material-wholesale-surat'
+    | '/hi_/organza-net-fabric-for-boutiques'
     | '/hi_/polyester-sarees-wholesale-surat'
+    | '/hi_/reseller-circle'
+    | '/hi_/saree-wholesale-for-resellers'
     | '/blog/'
     | '/hi_/blog/$slug'
     | '/hi_/blog/'
@@ -180,11 +256,17 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   DressMaterialWholesaleSuratRoute: typeof DressMaterialWholesaleSuratRoute
   HiRoute: typeof HiRoute
+  OrganzaNetFabricForBoutiquesRoute: typeof OrganzaNetFabricForBoutiquesRoute
   PolyesterSareesWholesaleSuratRoute: typeof PolyesterSareesWholesaleSuratRoute
+  ResellerCircleRoute: typeof ResellerCircleRoute
+  SareeWholesaleForResellersRoute: typeof SareeWholesaleForResellersRoute
   BlogSlugRoute: typeof BlogSlugRoute
   HiAboutRoute: typeof HiAboutRoute
   HiDressMaterialWholesaleSuratRoute: typeof HiDressMaterialWholesaleSuratRoute
+  HiOrganzaNetFabricForBoutiquesRoute: typeof HiOrganzaNetFabricForBoutiquesRoute
   HiPolyesterSareesWholesaleSuratRoute: typeof HiPolyesterSareesWholesaleSuratRoute
+  HiResellerCircleRoute: typeof HiResellerCircleRoute
+  HiSareeWholesaleForResellersRoute: typeof HiSareeWholesaleForResellersRoute
   BlogIndexRoute: typeof BlogIndexRoute
   HiBlogSlugRoute: typeof HiBlogSlugRoute
   HiBlogIndexRoute: typeof HiBlogIndexRoute
@@ -220,11 +302,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HiRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/organza-net-fabric-for-boutiques': {
+      id: '/organza-net-fabric-for-boutiques'
+      path: '/organza-net-fabric-for-boutiques'
+      fullPath: '/organza-net-fabric-for-boutiques'
+      preLoaderRoute: typeof OrganzaNetFabricForBoutiquesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/polyester-sarees-wholesale-surat': {
       id: '/polyester-sarees-wholesale-surat'
       path: '/polyester-sarees-wholesale-surat'
       fullPath: '/polyester-sarees-wholesale-surat'
       preLoaderRoute: typeof PolyesterSareesWholesaleSuratRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reseller-circle': {
+      id: '/reseller-circle'
+      path: '/reseller-circle'
+      fullPath: '/reseller-circle'
+      preLoaderRoute: typeof ResellerCircleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/saree-wholesale-for-resellers': {
+      id: '/saree-wholesale-for-resellers'
+      path: '/saree-wholesale-for-resellers'
+      fullPath: '/saree-wholesale-for-resellers'
+      preLoaderRoute: typeof SareeWholesaleForResellersRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/blog/': {
@@ -255,11 +358,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HiDressMaterialWholesaleSuratRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/hi_/organza-net-fabric-for-boutiques': {
+      id: '/hi_/organza-net-fabric-for-boutiques'
+      path: '/hi/organza-net-fabric-for-boutiques'
+      fullPath: '/hi/organza-net-fabric-for-boutiques'
+      preLoaderRoute: typeof HiOrganzaNetFabricForBoutiquesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/hi_/polyester-sarees-wholesale-surat': {
       id: '/hi_/polyester-sarees-wholesale-surat'
       path: '/hi/polyester-sarees-wholesale-surat'
       fullPath: '/hi/polyester-sarees-wholesale-surat'
       preLoaderRoute: typeof HiPolyesterSareesWholesaleSuratRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hi_/reseller-circle': {
+      id: '/hi_/reseller-circle'
+      path: '/hi/reseller-circle'
+      fullPath: '/hi/reseller-circle'
+      preLoaderRoute: typeof HiResellerCircleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hi_/saree-wholesale-for-resellers': {
+      id: '/hi_/saree-wholesale-for-resellers'
+      path: '/hi/saree-wholesale-for-resellers'
+      fullPath: '/hi/saree-wholesale-for-resellers'
+      preLoaderRoute: typeof HiSareeWholesaleForResellersRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/hi_/blog/': {
@@ -284,11 +408,17 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   DressMaterialWholesaleSuratRoute: DressMaterialWholesaleSuratRoute,
   HiRoute: HiRoute,
+  OrganzaNetFabricForBoutiquesRoute: OrganzaNetFabricForBoutiquesRoute,
   PolyesterSareesWholesaleSuratRoute: PolyesterSareesWholesaleSuratRoute,
+  ResellerCircleRoute: ResellerCircleRoute,
+  SareeWholesaleForResellersRoute: SareeWholesaleForResellersRoute,
   BlogSlugRoute: BlogSlugRoute,
   HiAboutRoute: HiAboutRoute,
   HiDressMaterialWholesaleSuratRoute: HiDressMaterialWholesaleSuratRoute,
+  HiOrganzaNetFabricForBoutiquesRoute: HiOrganzaNetFabricForBoutiquesRoute,
   HiPolyesterSareesWholesaleSuratRoute: HiPolyesterSareesWholesaleSuratRoute,
+  HiResellerCircleRoute: HiResellerCircleRoute,
+  HiSareeWholesaleForResellersRoute: HiSareeWholesaleForResellersRoute,
   BlogIndexRoute: BlogIndexRoute,
   HiBlogSlugRoute: HiBlogSlugRoute,
   HiBlogIndexRoute: HiBlogIndexRoute,

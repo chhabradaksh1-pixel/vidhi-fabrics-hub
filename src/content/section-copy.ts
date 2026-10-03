@@ -45,6 +45,7 @@ export const SECTION_COPY = {
     navCatalogue: "Catalogue",
     navAbout: "About us",
     navDesk: "Fabric Desk",
+    navCircle: "Reseller Circle",
     navContact: "Contact",
   },
   hi: {
@@ -86,6 +87,7 @@ export const SECTION_COPY = {
     navCatalogue: "कैटलॉग",
     navAbout: "हमारे बारे में",
     navDesk: "फैब्रिक डेस्क",
+    navCircle: "रीसेलर सर्कल",
     navContact: "संपर्क",
   },
   "hi-en": {
@@ -127,6 +129,7 @@ export const SECTION_COPY = {
     navCatalogue: "Catalogue",
     navAbout: "About us",
     navDesk: "Fabric Desk",
+    navCircle: "Reseller Circle",
     navContact: "Contact",
   },
 };

@@ -10,6 +10,9 @@ import {
   type ErrorComponentProps,
 } from "@tanstack/react-router";
 import { Analytics } from "@vercel/analytics/react";
+
+import { LeadSourceTracker } from "@/components/lead-source-tracker";
+import { GA4_ID } from "@/lib/analytics";
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
@@ -156,6 +159,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "function gtag(){dataLayer.push(arguments);}",
           "gtag('js', new Date());",
           "gtag('config', 'AW-11259228096');",
+          // GA4, only when VITE_GA4_ID is set in the build environment (see
+          // src/lib/analytics.ts). The ID is validated as "G-XXXX" there.
+          ...(GA4_ID ? [`gtag('config', '${GA4_ID}');`] : []),
         ].join("\n"),
       },
     ],
@@ -208,6 +214,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
+      <LeadSourceTracker />
     </QueryClientProvider>
   );
 }

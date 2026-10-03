@@ -7,7 +7,10 @@ import { FabricCatalogueSection } from "@/components/fabric-catalogue";
 import { ReachMapSection } from "@/components/reach-map";
 import { SiteFooter } from "@/components/site-footer";
 import { TalkToUs } from "@/components/talk-to-us";
-import { WHATSAPP_NUMBER } from "@/content/whatsapp";
+import { whatsAppUrl } from "@/content/whatsapp";
+import { useLeadContext } from "@/hooks/use-lead-context";
+import { trackLeadEvent } from "@/lib/analytics";
+import { currentLeadContext } from "@/lib/lead-source";
 import { useReveal } from "@/hooks/use-reveal";
 
 import swatchBook from "@/assets/swatch-book.webp";
@@ -232,11 +235,12 @@ const WHATSAPP_MESSAGES: Record<Lang, string> = {
 };
 
 function getWhatsAppUrl(lang: Lang) {
-  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGES[lang])}`;
+  return whatsAppUrl(WHATSAPP_MESSAGES[lang]);
 }
 
 function Index() {
   useReveal();
+  const lead = useLeadContext("/");
   const [lang, setLang] = useState<Lang>("en");
   const [sent, setSent] = useState(false);
   const [inquiryStatus, setInquiryStatus] = useState<"idle" | "sending" | "success" | "error">(
@@ -376,19 +380,29 @@ function Index() {
                 if (inquiryStatus === "sending") return;
 
                 const form = e.currentTarget;
+                const ctx = currentLeadContext();
                 setInquiryStatus("sending");
                 setSent(false);
 
                 try {
+                  const body = new FormData(form);
+                  body.set("source", ctx.source);
+                  body.set("page", ctx.page);
+                  body.set("ref_code", ctx.ref);
                   const response = await fetch(FORMSPREE_ENDPOINT, {
                     method: "POST",
-                    body: new FormData(form),
+                    body,
                     headers: { Accept: "application/json" },
                   });
 
                   if (!response.ok) throw new Error("Formspree submission failed");
 
                   form.reset();
+                  trackLeadEvent("form_submit", {
+                    page: ctx.page,
+                    source: ctx.source,
+                    ref_code: ctx.ref,
+                  });
                   setInquiryStatus("success");
                   setSent(true);
                 } catch {
@@ -396,6 +410,10 @@ function Index() {
                 }
               }}
             >
+              {/* Lead-source codes; see docs/lead-source-legend.md. */}
+              <input type="hidden" name="source" value={lead.source} />
+              <input type="hidden" name="page" value={lead.page} />
+              <input type="hidden" name="ref_code" value={lead.ref} />
               <input
                 required
                 name="company"
@@ -784,6 +802,7 @@ function LeadPopup({ lang, onClose }: LeadPopupProps) {
     }
 
     setStatus("saving");
+    const ctx = currentLeadContext();
     try {
       const response = await fetch(FORMSPREE_ENDPOINT, {
         method: "POST",
@@ -794,11 +813,18 @@ function LeadPopup({ lang, onClose }: LeadPopupProps) {
           formData.set("phone", `+91${form.phone.replace(/\D/g, "")}`);
           formData.set("business", form.business.trim());
           formData.set("requirement", form.requirement.trim());
-          formData.set("source", "Website entry pop-up");
+          // "form" names which form this was; "source" is the lead-source
+          // code (docs/lead-source-legend.md). "source" used to hold the form
+          // name, before lead-source tracking.
+          formData.set("form", "Website entry pop-up");
+          formData.set("source", ctx.source);
+          formData.set("page", ctx.page);
+          formData.set("ref_code", ctx.ref);
           return formData;
         })(),
       });
       if (!response.ok) throw new Error("Lead submission failed");
+      trackLeadEvent("form_submit", { page: ctx.page, source: ctx.source, ref_code: ctx.ref });
       setStatus("success");
     } catch {
       setStatus("failure");

@@ -212,6 +212,17 @@ function DressMaterialPage() {
               </a>{" "}
               from Surat.
             </p>
+            <p className="mt-5 leading-[1.85] text-mute">
+              For dupattas, lehenga layers, sleeves and overlays, boutiques can ask us for{" "}
+              <a href="/organza-net-fabric-for-boutiques" className={linkClass}>
+                organza and net fabric
+              </a>
+              , sourced to order through our Surat network. Resellers can see{" "}
+              <a href="/saree-wholesale-for-resellers" className={linkClass}>
+                saree wholesale for resellers
+              </a>
+              .
+            </p>
 
             <section className="mt-12 border-t border-line pt-8">
               <h2 className="font-display text-2xl font-light sm:text-3xl">FAQs</h2>

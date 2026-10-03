@@ -387,6 +387,12 @@ export function JournalHeader({
           <a href={lang === "hi" ? "/hi/blog" : "/blog"} className="text-clay">
             {copy.navDesk}
           </a>
+          <a
+            href={lang === "hi" ? "/hi/reseller-circle" : "/reseller-circle"}
+            className="hover:text-clay"
+          >
+            {copy.navCircle}
+          </a>
           <a href={`${home}#contact`} className="hover:text-clay">
             {copy.navContact}
           </a>

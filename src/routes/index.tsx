@@ -5,6 +5,7 @@ import { AboutSection, FabricDeskSection, StoryLinks } from "@/components/fabric
 import { ADDRESS_LINES, BUSINESS } from "@/content/business";
 import { FabricCatalogueSection } from "@/components/fabric-catalogue";
 import { ReachMapSection } from "@/components/reach-map";
+import { ResellerCircleStrip } from "@/components/reseller-circle-cta";
 import { SiteFooter } from "@/components/site-footer";
 import { TalkToUs } from "@/components/talk-to-us";
 import { whatsAppUrl } from "@/content/whatsapp";
@@ -721,6 +722,7 @@ function Index() {
           </div>
         </div>
 
+        <ResellerCircleStrip lang={lang} href="/reseller-circle" />
         <SiteFooter lang={lang} />
       </section>
 

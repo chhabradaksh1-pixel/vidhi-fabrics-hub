@@ -215,6 +215,23 @@ function PolyesterSareesPage() {
               </a>{" "}
               from Surat, including unstitched suits.
             </p>
+            <p className="mt-5 leading-[1.85] text-mute">
+              Selling on WhatsApp or Instagram, or from home? See
+              <a
+                href="/saree-wholesale-for-resellers"
+                className="text-clay underline decoration-line underline-offset-4 hover:text-claydeep"
+              >
+                saree wholesale for resellers
+              </a>
+              . Boutiques can also ask us for
+              <a
+                href="/organza-net-fabric-for-boutiques"
+                className="text-clay underline decoration-line underline-offset-4 hover:text-claydeep"
+              >
+                organza and net fabric
+              </a>
+              , sourced to order through our Surat network.
+            </p>
 
             <section className="mt-12 border-t border-line pt-8">
               <h2 className="font-display text-2xl font-light sm:text-3xl">FAQs</h2>

@@ -167,7 +167,17 @@ export const COPY = {
       hi: "बताइए आपको कौन सा कपड़ा चाहिए, कितनी मात्रा चाहिए या कोई और जानकारी।",
       "hi-en": "Batayein kaunsa fabric chahiye, kitni quantity chahiye, ya koi aur details.",
     },
-    countryCode: { en: "+91", hi: "+91", "hi-en": "+91" },
+    countryCode: { en: "Country code", hi: "देश का कोड", "hi-en": "Country code" },
+    otherCode: {
+      en: "Other (type +code)",
+      hi: "दूसरा (+कोड लिखें)",
+      "hi-en": "Other (+code likhein)",
+    },
+    otherPlaceholder: {
+      en: "+971 50 123 4567",
+      hi: "+971 50 123 4567",
+      "hi-en": "+971 50 123 4567",
+    },
     submit: { en: "Send enquiry", hi: "पूछताछ भेजें", "hi-en": "Enquiry bhejein" },
     close: { en: "Close", hi: "बंद करें", "hi-en": "Close" },
     continue: {
@@ -186,9 +196,14 @@ export const COPY = {
       "hi-en": "Please yeh field bharein.",
     },
     invalidPhone: {
-      en: "Enter a valid Indian phone number.",
-      hi: "कृपया सही भारतीय फ़ोन नंबर डालें।",
-      "hi-en": "Valid Indian phone number daalein.",
+      en: "Enter a valid 10-digit Indian mobile number.",
+      hi: "कृपया सही 10 अंकों का भारतीय मोबाइल नंबर डालें।",
+      "hi-en": "Valid 10-digit Indian mobile number daalein.",
+    },
+    invalidIntlPhone: {
+      en: "Enter a valid phone number with its country code.",
+      hi: "कृपया देश के कोड के साथ सही फ़ोन नंबर डालें।",
+      "hi-en": "Country code ke saath valid phone number daalein.",
     },
     saving: { en: "Sending…", hi: "भेजा जा रहा है…", "hi-en": "Bhej rahe hain…" },
     success: {

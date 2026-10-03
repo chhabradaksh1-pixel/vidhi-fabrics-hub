@@ -7,9 +7,9 @@ const SITE = "https://www.vidhifabrics.com";
 const EN_PATH = "/polyester-sarees-wholesale-surat";
 const PATH = "/hi/polyester-sarees-wholesale-surat";
 
-const TITLE = "पॉलिएस्टर साड़ियाँ थोक, सूरत से | विधि फैब्रिक्स, निर्माता और थोक विक्रेता";
+const TITLE = "पॉलिएस्टर साड़ी होलसेल, सूरत से | विधि फैब्रिक्स";
 const DESCRIPTION =
-  "पंजाब, हरियाणा, राजस्थान और मध्य प्रदेश के थोक विक्रेताओं और रिटेलर्स के लिए, सूरत के निर्माता और थोक विक्रेता से बल्क में पॉलिएस्टर साड़ियाँ। व्हाट्सएप पर आज का कैटलॉग पाइए।";
+  "सूरत के निर्माता और होलसेलर से पॉलिएस्टर साड़ियाँ होलसेल में — पंजाब, हरियाणा, राजस्थान और मध्य प्रदेश के खरीदारों के लिए। आज का कैटलॉग व्हाट्सएप पर।";
 
 const FAQS: { question: string; answer: string }[] = [
   {
@@ -145,7 +145,7 @@ function PolyesterSareesPageHi() {
             </p>
 
             <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">
-              हमसे पॉलिएस्टर साड़ियाँ क्यों खरीदें
+              हमसे पॉलिएस्टर साड़ियाँ होलसेल में क्यों खरीदें
             </h2>
             <p className="mt-5 leading-[1.85] text-mute">
               हमारी पॉलिएस्टर रेंज में रोज़मर्रा के प्रिंट, त्योहारी कढ़ाई वाली साड़ियाँ, और उत्तर

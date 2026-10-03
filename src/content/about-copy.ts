@@ -38,7 +38,7 @@ export const ABOUT_COPY: Record<Lang, AboutCopy> = {
   en: {
     metaTitle: "About Vidhi Fabrics | Surat Manufacturer and Wholesaler",
     metaDescription:
-      "Vidhi Fabrics is a family-run manufacturer and wholesaler of polyester sarees and dress material at Golden Point, Ring Road, Surat. Led by founder and CEO Dinesh Chhabra.",
+      "Family-run manufacturer and wholesaler of polyester sarees and dress material at Golden Point, Ring Road, Surat. Led by founder and CEO Dinesh Chhabra.",
     kicker: "About Vidhi Fabrics",
     title: "A family textile business in the Surat market",
     lede: "Vidhi Fabrics is a manufacturer and wholesaler in Surat, Gujarat. We make some lines in-house and supply the rest from Surat’s wider textile market, selling polyester sarees and dress material in bulk to wholesalers, retailers, resellers and boutiques.",
@@ -83,9 +83,9 @@ export const ABOUT_COPY: Record<Lang, AboutCopy> = {
     breadcrumbAbout: "About",
   },
   hi: {
-    metaTitle: "विधि फैब्रिक्स के बारे में | सूरत के निर्माता और थोक विक्रेता",
+    metaTitle: "विधि फैब्रिक्स के बारे में | सूरत के निर्माता और होलसेलर",
     metaDescription:
-      "विधि फैब्रिक्स गोल्डन पॉइंट, रिंग रोड, सूरत का एक पारिवारिक कारोबार है — पॉलिएस्टर साड़ियों और ड्रेस मटेरियल के निर्माता और थोक विक्रेता। संस्थापक और सीईओ: दिनेश छाबड़ा।",
+      "गोल्डन पॉइंट, रिंग रोड, सूरत का पारिवारिक कारोबार — पॉलिएस्टर साड़ी और ड्रेस मटेरियल के निर्माता और होलसेलर। संस्थापक और सीईओ: दिनेश छाबड़ा।",
     kicker: "विधि फैब्रिक्स के बारे में",
     title: "सूरत के कपड़ा बाज़ार का एक पारिवारिक कारोबार",
     lede: "विधि फैब्रिक्स सूरत, गुजरात के निर्माता और थोक विक्रेता हैं। कुछ लाइनें हम खुद बनाते हैं और बाक़ी सूरत के बड़े कपड़ा बाज़ार से सप्लाई करते हैं — थोक विक्रेताओं, रिटेलरों, रीसेलरों और बुटीक को बल्क में पॉलिएस्टर साड़ियाँ और ड्रेस मटेरियल।",

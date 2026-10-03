@@ -1,12 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useState } from "react";
 import { Linkedin } from "lucide-react";
 import { AboutSection, FabricDeskSection, StoryLinks } from "@/components/fabric-desk";
-import { ADDRESS_LINES, BUSINESS } from "@/content/business";
+import { ADDRESS_LINES, BUSINESS, GSTIN_LABEL } from "@/content/business";
 import { FabricCatalogueSection } from "@/components/fabric-catalogue";
 import { ReachMapSection } from "@/components/reach-map";
 import { ResellerCircleStrip } from "@/components/reseller-circle-cta";
 import { SiteFooter } from "@/components/site-footer";
+import { LeadPopup, useEngagementPopup } from "@/components/lead-popup";
+import { MapEmbed } from "@/components/map-embed";
 import { TalkToUs } from "@/components/talk-to-us";
 import { whatsAppUrl } from "@/content/whatsapp";
 import { useLeadContext } from "@/hooks/use-lead-context";
@@ -15,8 +17,9 @@ import { currentLeadContext } from "@/lib/lead-source";
 import { useReveal } from "@/hooks/use-reveal";
 
 import swatchBook from "@/assets/swatch-book.webp";
+import swatchBook960 from "@/assets/swatch-book-960.webp";
 import weaveGround from "@/assets/weave-ground.jpg";
-import logoMark from "@/assets/vidhi-logo-mark.png";
+import logoMark from "@/assets/vidhi-logo-mark.webp";
 import loomPoster from "@/assets/weaving-loom-poster.webp";
 import { LazyLoopVideo } from "@/components/lazy-loop-video";
 import {
@@ -34,16 +37,16 @@ export const Route = createFileRoute("/hi")({
   head: () => ({
     meta: [
       {
-        title: "साड़ी और ड्रेस मटेरियल निर्माता व थोक विक्रेता, सूरत | विधि फैब्रिक्स",
+        title: "साड़ी और ड्रेस मटेरियल निर्माता व होलसेलर, सूरत | विधि फैब्रिक्स",
       },
       {
         name: "description",
         content:
-          "सूरत की पॉलिएस्टर साड़ी और ड्रेस मटेरियल निर्माता व थोक विक्रेता। पंजाब, हरियाणा और राजस्थान के होलसेलर, रिटेलर, रीसेलर और बुटीक के लिए। डिज़ाइन, सैंपल और रेट के लिए संपर्क करें।",
+          "सूरत के पॉलिएस्टर साड़ी और ड्रेस मटेरियल निर्माता व होलसेलर — पंजाब, हरियाणा, राजस्थान के होलसेलर, रिटेलर, रीसेलर और बुटीक के लिए। डिज़ाइन और रेट व्हाट्सएप पर।",
       },
       {
         property: "og:title",
-        content: "साड़ी और ड्रेस मटेरियल निर्माता व थोक विक्रेता, सूरत | विधि फैब्रिक्स",
+        content: "साड़ी और ड्रेस मटेरियल निर्माता व होलसेलर, सूरत | विधि फैब्रिक्स",
       },
       {
         property: "og:description",
@@ -243,14 +246,9 @@ function HiIndex() {
   const [inquiryStatus, setInquiryStatus] = useState<"idle" | "sending" | "success" | "error">(
     "idle",
   );
-  const [leadOpen, setLeadOpen] = useState(false);
-
-  useEffect(() => {
-    const sessionKey = "vidhi-lead-popup-seen";
-    if (window.sessionStorage.getItem(sessionKey) === "1") return;
-    window.sessionStorage.setItem(sessionKey, "1");
-    setLeadOpen(true);
-  }, []);
+  // Opens after real engagement (half the page or 35 s), once a session,
+  // never on load. See src/components/lead-popup.tsx.
+  const [leadOpen, setLeadOpen] = useEngagementPopup();
 
   const leadVoice = COPY.testimonials.cards[0];
   const otherVoices = COPY.testimonials.cards.slice(1);
@@ -268,8 +266,11 @@ function HiIndex() {
               <img
                 src={logoMark}
                 alt="Vidhi Fabrics"
-                width={348}
-                height={332}
+                width={210}
+                height={200}
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
                 className="h-14 w-auto sm:h-16"
               />
             </a>
@@ -342,152 +343,156 @@ function HiIndex() {
         </nav>
       </header>
 
-      <section className="vf-rise border-b border-line">
-        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-6 py-16 lg:grid-cols-12 lg:py-20">
-          <div className="lg:col-span-7">
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-clay">
-              {COPY.hero.eyebrow[lang]}
-            </p>
-            <h1 className="mt-5 text-balance font-display text-5xl font-extralight leading-[1.03] tracking-tight lg:text-6xl">
-              {lang === "hi" ? "सूरत से आपकी दुकान तक, थोक कपड़े" : COPY.hero.heading[lang]}
-            </h1>
-            <p className="mt-6 max-w-[46ch] text-pretty text-lg text-mute">
-              {COPY.hero.body[lang]}
-            </p>
-            <p className="mt-3 max-w-[46ch] text-pretty text-lg text-mute">
-              {COPY.hero.regions[lang]}
-            </p>
-            <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3 font-mono text-xs text-mute">
-              {COPY.hero.stats.map((s) => (
-                <span key={s.en}>{s[lang]}</span>
-              ))}
+      <main id="main">
+        <section className="vf-rise border-b border-line">
+          <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-6 py-16 lg:grid-cols-12 lg:py-20">
+            <div className="lg:col-span-7">
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-clay">
+                {COPY.hero.eyebrow[lang]}
+              </p>
+              <h1 className="mt-5 text-balance font-display text-5xl font-extralight leading-[1.03] tracking-tight lg:text-6xl">
+                {lang === "hi" ? "सूरत से आपकी दुकान तक, थोक कपड़े" : COPY.hero.heading[lang]}
+              </h1>
+              <p className="mt-6 max-w-[46ch] text-pretty text-lg text-mute">
+                {COPY.hero.body[lang]}
+              </p>
+              <p className="mt-3 max-w-[46ch] text-pretty text-lg text-mute">
+                {COPY.hero.regions[lang]}
+              </p>
+              <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3 font-mono text-xs text-mute">
+                {COPY.hero.stats.map((s) => (
+                  <span key={s.en}>{s[lang]}</span>
+                ))}
+              </div>
+            </div>
+
+            <div
+              id="inquiry"
+              className="rounded-md bg-sand/50 p-6 ring-1 ring-black/5 lg:col-span-5"
+            >
+              <p className="font-mono text-xs uppercase tracking-[0.15em] text-clay">
+                {COPY.inquiry.label[lang]}
+              </p>
+              <p className="mt-1 text-sm text-mute">{COPY.inquiry.sub[lang]}</p>
+              <form
+                className="mt-5 space-y-3"
+                onSubmit={async (e) => {
+                  e.preventDefault();
+                  if (inquiryStatus === "sending") return;
+
+                  const form = e.currentTarget;
+                  const ctx = currentLeadContext();
+                  setInquiryStatus("sending");
+                  setSent(false);
+
+                  try {
+                    const body = new FormData(form);
+                    body.set("source", ctx.source);
+                    body.set("page", ctx.page);
+                    body.set("ref_code", ctx.ref);
+                    const response = await fetch(FORMSPREE_ENDPOINT, {
+                      method: "POST",
+                      body,
+                      headers: { Accept: "application/json" },
+                    });
+
+                    if (!response.ok) throw new Error("Formspree submission failed");
+
+                    form.reset();
+                    trackLeadEvent("form_submit", {
+                      page: ctx.page,
+                      source: ctx.source,
+                      ref_code: ctx.ref,
+                    });
+                    setInquiryStatus("success");
+                    setSent(true);
+                  } catch {
+                    setInquiryStatus("error");
+                  }
+                }}
+              >
+                {/* Lead-source codes; see docs/lead-source-legend.md. */}
+                <input type="hidden" name="source" value={lead.source} />
+                <input type="hidden" name="page" value={lead.page} />
+                <input type="hidden" name="ref_code" value={lead.ref} />
+                <input
+                  required
+                  name="company"
+                  className="w-full rounded-sm bg-paper px-3 py-2.5 text-sm outline-none ring-1 ring-line focus:ring-clay"
+                  placeholder={COPY.inquiry.company[lang]}
+                  aria-label={COPY.inquiry.company[lang]}
+                />
+                <input
+                  required
+                  type="email"
+                  name="email"
+                  className="w-full rounded-sm bg-paper px-3 py-2.5 text-sm outline-none ring-1 ring-line focus:ring-clay"
+                  placeholder={COPY.inquiry.email[lang]}
+                  aria-label={COPY.inquiry.email[lang]}
+                />
+                <input
+                  name="phone"
+                  className="w-full rounded-sm bg-paper px-3 py-2.5 text-sm outline-none ring-1 ring-line focus:ring-clay"
+                  placeholder={COPY.inquiry.phone[lang]}
+                  aria-label={COPY.inquiry.phone[lang]}
+                />
+                <select
+                  name="buyer_type"
+                  className="w-full rounded-sm bg-paper px-3 py-2.5 text-sm text-mute outline-none ring-1 ring-line focus:ring-clay"
+                  aria-label={COPY.inquiry.buyerTypes.retail[lang]}
+                >
+                  <option>{COPY.inquiry.buyerTypes.retail[lang]}</option>
+                  <option>{COPY.inquiry.buyerTypes.wholesaler[lang]}</option>
+                  <option>{COPY.inquiry.buyerTypes.trader[lang]}</option>
+                  <option>{COPY.inquiry.buyerTypes.manufacturer[lang]}</option>
+                </select>
+                <textarea
+                  name="message"
+                  rows={3}
+                  className="w-full resize-none rounded-sm bg-paper px-3 py-2.5 text-sm outline-none ring-1 ring-line focus:ring-clay"
+                  placeholder={COPY.inquiry.message[lang]}
+                  aria-label={COPY.inquiry.message[lang]}
+                />
+                <button
+                  type="submit"
+                  disabled={inquiryStatus === "sending"}
+                  className="w-full rounded-sm bg-clay py-3 font-mono text-xs uppercase tracking-[0.15em] text-paper transition-colors hover:bg-claydeep"
+                >
+                  {inquiryStatus === "sending" ? "भेजा जा रहा है..." : COPY.inquiry.submit[lang]}
+                </button>
+                {inquiryStatus === "success" && sent ? (
+                  <p role="status" aria-live="polite" className="pt-1 text-sm text-sage">
+                    {COPY.inquiry.sent[lang]}
+                  </p>
+                ) : null}
+                {inquiryStatus === "error" ? (
+                  <p role="alert" aria-live="assertive" className="pt-1 text-sm text-claydeep">
+                    कुछ गलत हो गया। कृपया दोबारा कोशिश करें या सीधे संपर्क करें।
+                  </p>
+                ) : null}
+              </form>
             </div>
           </div>
+        </section>
 
-          <div id="inquiry" className="rounded-md bg-sand/50 p-6 ring-1 ring-black/5 lg:col-span-5">
-            <p className="font-mono text-xs uppercase tracking-[0.15em] text-clay">
-              {COPY.inquiry.label[lang]}
-            </p>
-            <p className="mt-1 text-sm text-mute">{COPY.inquiry.sub[lang]}</p>
-            <form
-              className="mt-5 space-y-3"
-              onSubmit={async (e) => {
-                e.preventDefault();
-                if (inquiryStatus === "sending") return;
+        <FabricCatalogueSection lang={lang} />
 
-                const form = e.currentTarget;
-                const ctx = currentLeadContext();
-                setInquiryStatus("sending");
-                setSent(false);
+        <AboutSection lang={lang} whatsappUrl={getWhatsAppUrl(lang)} />
 
-                try {
-                  const body = new FormData(form);
-                  body.set("source", ctx.source);
-                  body.set("page", ctx.page);
-                  body.set("ref_code", ctx.ref);
-                  const response = await fetch(FORMSPREE_ENDPOINT, {
-                    method: "POST",
-                    body,
-                    headers: { Accept: "application/json" },
-                  });
+        <section data-reveal aria-hidden="true" className="border-b border-line">
+          <LazyLoopVideo
+            src="/weaving-loom.mp4?v=a787f8f"
+            poster={loomPoster}
+            className="h-48 w-full object-cover sm:h-64 lg:h-80"
+          />
+        </section>
 
-                  if (!response.ok) throw new Error("Formspree submission failed");
-
-                  form.reset();
-                  trackLeadEvent("form_submit", {
-                    page: ctx.page,
-                    source: ctx.source,
-                    ref_code: ctx.ref,
-                  });
-                  setInquiryStatus("success");
-                  setSent(true);
-                } catch {
-                  setInquiryStatus("error");
-                }
-              }}
-            >
-              {/* Lead-source codes; see docs/lead-source-legend.md. */}
-              <input type="hidden" name="source" value={lead.source} />
-              <input type="hidden" name="page" value={lead.page} />
-              <input type="hidden" name="ref_code" value={lead.ref} />
-              <input
-                required
-                name="company"
-                className="w-full rounded-sm bg-paper px-3 py-2.5 text-sm outline-none ring-1 ring-line focus:ring-clay"
-                placeholder={COPY.inquiry.company[lang]}
-                aria-label={COPY.inquiry.company[lang]}
-              />
-              <input
-                required
-                type="email"
-                name="email"
-                className="w-full rounded-sm bg-paper px-3 py-2.5 text-sm outline-none ring-1 ring-line focus:ring-clay"
-                placeholder={COPY.inquiry.email[lang]}
-                aria-label={COPY.inquiry.email[lang]}
-              />
-              <input
-                name="phone"
-                className="w-full rounded-sm bg-paper px-3 py-2.5 text-sm outline-none ring-1 ring-line focus:ring-clay"
-                placeholder={COPY.inquiry.phone[lang]}
-                aria-label={COPY.inquiry.phone[lang]}
-              />
-              <select
-                name="buyer_type"
-                className="w-full rounded-sm bg-paper px-3 py-2.5 text-sm text-mute outline-none ring-1 ring-line focus:ring-clay"
-                aria-label={COPY.inquiry.buyerTypes.retail[lang]}
-              >
-                <option>{COPY.inquiry.buyerTypes.retail[lang]}</option>
-                <option>{COPY.inquiry.buyerTypes.wholesaler[lang]}</option>
-                <option>{COPY.inquiry.buyerTypes.trader[lang]}</option>
-                <option>{COPY.inquiry.buyerTypes.manufacturer[lang]}</option>
-              </select>
-              <textarea
-                name="message"
-                rows={3}
-                className="w-full resize-none rounded-sm bg-paper px-3 py-2.5 text-sm outline-none ring-1 ring-line focus:ring-clay"
-                placeholder={COPY.inquiry.message[lang]}
-                aria-label={COPY.inquiry.message[lang]}
-              />
-              <button
-                type="submit"
-                disabled={inquiryStatus === "sending"}
-                className="w-full rounded-sm bg-clay py-3 font-mono text-xs uppercase tracking-[0.15em] text-paper transition-colors hover:bg-claydeep"
-              >
-                {inquiryStatus === "sending" ? "भेजा जा रहा है..." : COPY.inquiry.submit[lang]}
-              </button>
-              {inquiryStatus === "success" && sent ? (
-                <p role="status" aria-live="polite" className="pt-1 text-sm text-sage">
-                  {COPY.inquiry.sent[lang]}
-                </p>
-              ) : null}
-              {inquiryStatus === "error" ? (
-                <p role="alert" aria-live="assertive" className="pt-1 text-sm text-claydeep">
-                  कुछ गलत हो गया। कृपया दोबारा कोशिश करें या सीधे संपर्क करें।
-                </p>
-              ) : null}
-            </form>
-          </div>
-        </div>
-      </section>
-
-      <FabricCatalogueSection lang={lang} />
-
-      <AboutSection lang={lang} whatsappUrl={getWhatsAppUrl(lang)} />
-
-      <section data-reveal aria-hidden="true" className="border-b border-line">
-        <LazyLoopVideo
-          src="/weaving-loom.mp4?v=a787f8f"
-          poster={loomPoster}
-          className="h-48 w-full object-cover sm:h-64 lg:h-80"
-        />
-      </section>
-
-      <section
-        data-reveal
-        id="scale"
-        className="relative overflow-hidden border-b border-line bg-ink text-paper"
-      >
-        {/*
+        <section
+          data-reveal
+          id="scale"
+          className="relative overflow-hidden border-b border-line bg-ink text-paper"
+        >
+          {/*
           The weave sits behind the dark ground as a texture, not a picture.
           weave-ground.jpg is a desaturated, softened derivative of the woven
           close-up: the photograph's threads are teal and mustard while every
@@ -498,464 +503,241 @@ function HiIndex() {
           cannot lift the background past the contrast ceiling, so paper text
           stays above AA.
         */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-[0.1]"
-          style={{ backgroundImage: `url(${weaveGround})` }}
-        />
-        <div className="relative mx-auto max-w-6xl px-6 py-20">
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-claylight">
-            {COPY.scale.marker[lang]}
-          </p>
-          <h2 className="mt-3 max-w-[20ch] text-balance font-display text-4xl font-light tracking-tight lg:text-5xl">
-            {COPY.scale.heading[lang]}
-          </h2>
-
-          <div className="mt-12 grid grid-cols-2 gap-px bg-paper/15 lg:grid-cols-4">
-            {COPY.scale.stats.map((s) => (
-              <div key={s.value} className="bg-ink p-6">
-                <p className="font-display text-4xl font-light break-words text-claylight sm:text-5xl">
-                  {s.value}
-                </p>
-                <p className="mt-2 font-mono text-xs uppercase tracking-[0.12em] text-paper/60">
-                  {s.label[lang]}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-12 grid grid-cols-1 items-center gap-8 lg:grid-cols-2">
-            <div data-reveal-block className="rounded-md">
-              <div data-reveal-panel>
-                <img
-                  src={swatchBook}
-                  alt={COPY.scale.imageAlt[lang]}
-                  loading="lazy"
-                  width={1440}
-                  height={900}
-                  className="aspect-[16/10] w-full rounded-md object-cover ring-1 ring-white/10"
-                />
-              </div>
-            </div>
-            <div className="max-w-[40ch] text-pretty text-base text-paper/80">
-              <p className="font-display text-2xl font-light text-paper">
-                {COPY.scale.certTitle[lang]}
-              </p>
-              <p className="mt-4">{COPY.scale.certBody[lang]}</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section data-reveal className="border-b border-line bg-paper">
-        <div className="mx-auto max-w-6xl px-6 py-20">
-          <div className="max-w-2xl">
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-clay">
-              {COPY.testimonials.marker[lang]}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-[0.1]"
+            style={{ backgroundImage: `url(${weaveGround})` }}
+          />
+          <div className="relative mx-auto max-w-6xl px-6 py-20">
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-claylight">
+              {COPY.scale.marker[lang]}
             </p>
-            <h2 className="mt-3 text-balance font-display text-4xl font-light tracking-tight lg:text-5xl">
-              {COPY.testimonials.heading[lang]}
+            <h2 className="mt-3 max-w-[20ch] text-balance font-display text-4xl font-light tracking-tight lg:text-5xl">
+              {COPY.scale.heading[lang]}
             </h2>
-            <p className="mt-5 max-w-[60ch] text-pretty text-mute">
-              {COPY.testimonials.body[lang]}
-            </p>
-          </div>
 
-          <dl className="mt-12 grid grid-cols-1 gap-8 border-y border-line py-10 sm:grid-cols-3 sm:gap-6">
-            {COPY.testimonials.proof.map((stat) => (
-              <div key={stat.label.en} className="sm:text-center">
-                <dd className="font-display text-4xl font-light tracking-tight text-clay sm:text-5xl">
-                  {stat.value[lang]}
-                </dd>
-                <dt className="mx-auto mt-3 max-w-[22ch] text-sm leading-relaxed text-mute">
-                  {stat.label[lang]}
-                </dt>
-              </div>
-            ))}
-          </dl>
-          {leadVoice && (
-            <figure className="mt-14 max-w-4xl">
-              <blockquote className="text-balance font-display text-2xl font-light leading-snug tracking-tight text-ink sm:text-3xl lg:text-4xl">
-                {leadVoice.quote[lang]}
-              </blockquote>
-              <figcaption className="mt-7 font-mono text-xs uppercase tracking-[0.16em] text-mute">
-                {leadVoice.customerLabel[lang]} · {leadVoice.location}
-              </figcaption>
-            </figure>
-          )}
-          {otherVoices.length > 0 && (
-            <div className="mt-16 grid grid-cols-1 gap-x-10 gap-y-12 border-t border-line pt-12 md:grid-cols-3">
-              {otherVoices.map((testimonial, testimonialIndex) => (
-                <figure
-                  key={`${testimonial.customerLabel.en}-${testimonial.location}-${testimonialIndex}`}
-                >
-                  <blockquote className="leading-relaxed text-mute">
-                    {testimonial.quote[lang]}
-                  </blockquote>
-                  <figcaption className="mt-5 font-mono text-[11px] uppercase tracking-[0.16em] text-mute">
-                    {testimonial.customerLabel[lang]} · {testimonial.location}
-                  </figcaption>
-                </figure>
+            <div className="mt-12 grid grid-cols-2 gap-px bg-paper/15 lg:grid-cols-4">
+              {COPY.scale.stats.map((s) => (
+                <div key={s.value} className="bg-ink p-6">
+                  <p className="font-display text-4xl font-light break-words text-claylight sm:text-5xl">
+                    {s.value}
+                  </p>
+                  <p className="mt-2 font-mono text-xs uppercase tracking-[0.12em] text-paper/60">
+                    {s.label[lang]}
+                  </p>
+                </div>
               ))}
             </div>
-          )}
-        </div>
-      </section>
 
-      <section data-reveal id="faq" className="border-b border-line bg-paper">
-        <div className="mx-auto max-w-3xl px-6 py-20">
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-clay">
-            {FAQ_SECTION_COPY[lang].marker}
-          </p>
-          <h2 className="mt-3 font-display text-4xl font-light tracking-tight lg:text-5xl">
-            {FAQ_SECTION_COPY[lang].heading}
-          </h2>
-
-          <Accordion type="single" collapsible className="mt-10">
-            {FAQS.map((faq, index) => (
-              <AccordionItem
-                key={faq.question.hi}
-                value={`faq-${index}`}
-                className="group/faq border-line"
-              >
-                <AccordionTrigger
-                  aria-controls={`faq-panel-${index}`}
-                  className="font-display text-lg font-light text-ink hover:no-underline"
-                >
-                  {faq.question[lang]}
-                </AccordionTrigger>
-                <AccordionPanel
-                  id={`faq-panel-${index}`}
-                  className="max-w-2xl text-base leading-relaxed text-mute"
-                >
-                  {faq.answer[lang]}
-                </AccordionPanel>
-              </AccordionItem>
-            ))}
-          </Accordion>
-
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify({
-                "@context": "https://schema.org",
-                "@type": "FAQPage",
-                mainEntity: FAQS.map((faq) => ({
-                  "@type": "Question",
-                  name: faq.question.hi,
-                  acceptedAnswer: {
-                    "@type": "Answer",
-                    text: faq.answer.hi,
-                  },
-                })),
-              }),
-            }}
-          />
-        </div>
-      </section>
-
-      <ReachMapSection lang={lang} />
-
-      <FabricDeskSection lang={lang} />
-
-      <section data-reveal id="contact" className="bg-paper">
-        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-6 py-20 lg:grid-cols-2">
-          <div>
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-clay">
-              {COPY.contact.marker[lang]}
-            </p>
-            <h2 className="mt-3 text-balance font-display text-4xl font-light tracking-tight lg:text-5xl">
-              {COPY.contact.heading[lang]}
-            </h2>
-            <p className="mt-5 max-w-[40ch] text-pretty text-mute">{COPY.contact.body[lang]}</p>
-            <a
-              href="#inquiry"
-              className="mt-7 inline-block rounded-sm bg-clay px-6 py-3.5 font-mono text-xs uppercase tracking-[0.15em] text-paper transition-colors hover:bg-claydeep"
-            >
-              {COPY.contact.cta[lang]}
-            </a>
+            <div className="mt-12 grid grid-cols-1 items-center gap-8 lg:grid-cols-2">
+              <div data-reveal-block className="rounded-md">
+                <div data-reveal-panel>
+                  <img
+                    src={swatchBook}
+                    srcSet={`${swatchBook960} 960w, ${swatchBook} 1440w`}
+                    sizes="(min-width: 1024px) 560px, calc(100vw - 48px)"
+                    alt={COPY.scale.imageAlt[lang]}
+                    loading="lazy"
+                    decoding="async"
+                    width={1440}
+                    height={900}
+                    className="aspect-[16/10] w-full rounded-md object-cover ring-1 ring-white/10"
+                  />
+                </div>
+              </div>
+              <div className="max-w-[40ch] text-pretty text-base text-paper/80">
+                <p className="font-display text-2xl font-light text-paper">
+                  {COPY.scale.certTitle[lang]}
+                </p>
+                <p className="mt-4">{COPY.scale.certBody[lang]}</p>
+              </div>
+            </div>
           </div>
-          <div className="space-y-4 font-mono text-sm text-mute">
-            <div>
-              <p className="text-[11px] uppercase tracking-[0.15em] text-clay">
-                {COPY.contact.hqLabel[lang]}
+        </section>
+
+        <section data-reveal className="border-b border-line bg-paper">
+          <div className="mx-auto max-w-6xl px-6 py-20">
+            <div className="max-w-2xl">
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-clay">
+                {COPY.testimonials.marker[lang]}
               </p>
-              <p className="mt-1 text-ink">
-                {ADDRESS_LINES[lang].map((line) => (
-                  <span key={line} className="block">
-                    {line}
-                  </span>
+              <h2 className="mt-3 text-balance font-display text-4xl font-light tracking-tight lg:text-5xl">
+                {COPY.testimonials.heading[lang]}
+              </h2>
+              <p className="mt-5 max-w-[60ch] text-pretty text-mute">
+                {COPY.testimonials.body[lang]}
+              </p>
+            </div>
+
+            <dl className="mt-12 grid grid-cols-1 gap-8 border-y border-line py-10 sm:grid-cols-3 sm:gap-6">
+              {COPY.testimonials.proof.map((stat) => (
+                <div key={stat.label.en} className="sm:text-center">
+                  <dd className="font-display text-4xl font-light tracking-tight text-clay sm:text-5xl">
+                    {stat.value[lang]}
+                  </dd>
+                  <dt className="mx-auto mt-3 max-w-[22ch] text-sm leading-relaxed text-mute">
+                    {stat.label[lang]}
+                  </dt>
+                </div>
+              ))}
+            </dl>
+            {leadVoice && (
+              <figure className="mt-14 max-w-4xl">
+                <blockquote className="text-balance font-display text-2xl font-light leading-snug tracking-tight text-ink sm:text-3xl lg:text-4xl">
+                  {leadVoice.quote[lang]}
+                </blockquote>
+                <figcaption className="mt-7 font-mono text-xs uppercase tracking-[0.16em] text-mute">
+                  {leadVoice.customerLabel[lang]} · {leadVoice.location}
+                </figcaption>
+              </figure>
+            )}
+            {otherVoices.length > 0 && (
+              <div className="mt-16 grid grid-cols-1 gap-x-10 gap-y-12 border-t border-line pt-12 md:grid-cols-3">
+                {otherVoices.map((testimonial, testimonialIndex) => (
+                  <figure
+                    key={`${testimonial.customerLabel.en}-${testimonial.location}-${testimonialIndex}`}
+                  >
+                    <blockquote className="leading-relaxed text-mute">
+                      {testimonial.quote[lang]}
+                    </blockquote>
+                    <figcaption className="mt-5 font-mono text-[11px] uppercase tracking-[0.16em] text-mute">
+                      {testimonial.customerLabel[lang]} · {testimonial.location}
+                    </figcaption>
+                  </figure>
                 ))}
-              </p>
-            </div>
+              </div>
+            )}
+          </div>
+        </section>
+
+        <section data-reveal id="faq" className="border-b border-line bg-paper">
+          <div className="mx-auto max-w-3xl px-6 py-20">
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-clay">
+              {FAQ_SECTION_COPY[lang].marker}
+            </p>
+            <h2 className="mt-3 font-display text-4xl font-light tracking-tight lg:text-5xl">
+              {FAQ_SECTION_COPY[lang].heading}
+            </h2>
+
+            <Accordion type="single" collapsible className="mt-10">
+              {FAQS.map((faq, index) => (
+                <AccordionItem
+                  key={faq.question.hi}
+                  value={`faq-${index}`}
+                  className="group/faq border-line"
+                >
+                  <AccordionTrigger
+                    aria-controls={`faq-panel-${index}`}
+                    className="font-display text-lg font-light text-ink hover:no-underline"
+                  >
+                    {faq.question[lang]}
+                  </AccordionTrigger>
+                  <AccordionPanel
+                    id={`faq-panel-${index}`}
+                    className="max-w-2xl text-base leading-relaxed text-mute"
+                  >
+                    {faq.answer[lang]}
+                  </AccordionPanel>
+                </AccordionItem>
+              ))}
+            </Accordion>
+
+            <script
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{
+                __html: JSON.stringify({
+                  "@context": "https://schema.org",
+                  "@type": "FAQPage",
+                  mainEntity: FAQS.map((faq) => ({
+                    "@type": "Question",
+                    name: faq.question.hi,
+                    acceptedAnswer: {
+                      "@type": "Answer",
+                      text: faq.answer.hi,
+                    },
+                  })),
+                }),
+              }}
+            />
+          </div>
+        </section>
+
+        <ReachMapSection lang={lang} />
+
+        <FabricDeskSection lang={lang} />
+
+        <section data-reveal id="contact" className="bg-paper">
+          <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-6 py-20 lg:grid-cols-2">
             <div>
-              <p className="text-[11px] uppercase tracking-[0.15em] text-clay">
-                {COPY.contact.deskLabel[lang]}
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-clay">
+                {COPY.contact.marker[lang]}
               </p>
-              <p className="mt-1 text-ink">
-                <a href={`tel:${BUSINESS.phone}`} className="hover:text-clay">
-                  {BUSINESS.phoneDisplay}
-                </a>
-                <span className="mx-2 text-mute">·</span>
-                <a href={`mailto:${BUSINESS.email}`} className="break-all hover:text-clay">
-                  {BUSINESS.email}
-                </a>
-              </p>
+              <h2 className="mt-3 text-balance font-display text-4xl font-light tracking-tight lg:text-5xl">
+                {COPY.contact.heading[lang]}
+              </h2>
+              <p className="mt-5 max-w-[40ch] text-pretty text-mute">{COPY.contact.body[lang]}</p>
+              <a
+                href="#inquiry"
+                className="mt-7 inline-block rounded-sm bg-clay px-6 py-3.5 font-mono text-xs uppercase tracking-[0.15em] text-paper transition-colors hover:bg-claydeep"
+              >
+                {COPY.contact.cta[lang]}
+              </a>
             </div>
-            <div>
-              <p className="text-[11px] uppercase tracking-[0.15em] text-clay">
-                {COPY.contact.hoursLabel[lang]}
-              </p>
-              <p className="mt-1 text-ink">{COPY.contact.hoursValue[lang]}</p>
+            <div className="space-y-4 font-mono text-sm text-mute">
+              <div>
+                <p className="text-[11px] uppercase tracking-[0.15em] text-clay">
+                  {COPY.contact.hqLabel[lang]}
+                </p>
+                <p className="mt-1 text-ink">
+                  {ADDRESS_LINES[lang].map((line) => (
+                    <span key={line} className="block">
+                      {line}
+                    </span>
+                  ))}
+                </p>
+              </div>
+              <div>
+                <p className="text-[11px] uppercase tracking-[0.15em] text-clay">
+                  {COPY.contact.deskLabel[lang]}
+                </p>
+                <p className="mt-1 text-ink">
+                  <a href={`tel:${BUSINESS.phone}`} className="hover:text-clay">
+                    {BUSINESS.phoneDisplay}
+                  </a>
+                  <span className="mx-2 text-mute">·</span>
+                  <a href={`mailto:${BUSINESS.email}`} className="break-all hover:text-clay">
+                    {BUSINESS.email}
+                  </a>
+                </p>
+              </div>
+              <div>
+                <p className="text-[11px] uppercase tracking-[0.15em] text-clay">
+                  {COPY.contact.hoursLabel[lang]}
+                </p>
+                <p className="mt-1 text-ink">{COPY.contact.hoursValue[lang]}</p>
+              </div>
+              <div>
+                <p className="text-[11px] uppercase tracking-[0.15em] text-clay">{GSTIN_LABEL}</p>
+                <p className="mt-1 text-ink">{BUSINESS.gstin}</p>
+              </div>
+              <MapEmbed lang={lang} className="pt-2 font-body" />
             </div>
           </div>
-        </div>
+        </section>
+      </main>
 
-        <ResellerCircleStrip lang={lang} href="/hi/reseller-circle" />
-        <SiteFooter lang={lang} />
-      </section>
+      <ResellerCircleStrip lang={lang} href="/hi/reseller-circle" />
+      <SiteFooter lang={lang} />
 
       <TalkToUs lang={lang} />
 
-      {leadOpen ? <LeadPopup lang={lang} onClose={() => setLeadOpen(false)} /> : null}
+      {leadOpen ? (
+        <LeadPopup
+          lang={lang}
+          formName="Website entry pop-up (Hindi)"
+          onClose={() => setLeadOpen(false)}
+        />
+      ) : null}
     </div>
-  );
-}
-
-type LeadPopupProps = {
-  lang: Lang;
-  onClose: () => void;
-};
-
-type LeadForm = {
-  name: string;
-  phone: string;
-  business: string;
-  requirement: string;
-};
-
-function LeadPopup({ lang, onClose }: LeadPopupProps) {
-  const copy = COPY.leadPopup;
-  const nameRef = useRef<HTMLInputElement>(null);
-  const [form, setForm] = useState<LeadForm>({
-    name: "",
-    phone: "",
-    business: "",
-    requirement: "",
-  });
-  const [errors, setErrors] = useState<Partial<Record<keyof LeadForm, string>>>({});
-  const [status, setStatus] = useState<"idle" | "saving" | "success" | "failure">("idle");
-
-  useEffect(() => {
-    nameRef.current?.focus();
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape" && status !== "saving") onClose();
-      if (event.key !== "Tab") return;
-      const dialog = nameRef.current?.closest("[role=dialog]");
-      if (!dialog) return;
-      const focusable = Array.from(
-        dialog.querySelectorAll<HTMLElement>(
-          "button:not(:disabled), input:not(:disabled), textarea:not(:disabled)",
-        ),
-      );
-      if (focusable.length === 0) return;
-      const first = focusable[0];
-      const last = focusable[focusable.length - 1];
-      if (!first || !last) return;
-      if (event.shiftKey && document.activeElement === first) {
-        event.preventDefault();
-        last.focus();
-      } else if (!event.shiftKey && document.activeElement === last) {
-        event.preventDefault();
-        first.focus();
-      }
-    };
-    document.addEventListener("keydown", handleKeyDown);
-    return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [onClose, status]);
-
-  function updateField(field: keyof LeadForm, value: string) {
-    setForm((current) => ({ ...current, [field]: value }));
-    setErrors((current) => ({ ...current, [field]: undefined }));
-  }
-
-  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const nextErrors: Partial<Record<keyof LeadForm, string>> = {};
-    if (!form.name.trim()) nextErrors.name = copy.required[lang];
-    if (!form.requirement.trim()) nextErrors.requirement = copy.required[lang];
-    if (!/^[6-9]\d{9}$/.test(form.phone.replace(/\D/g, ""))) {
-      nextErrors.phone = copy.invalidPhone[lang];
-    }
-    if (Object.keys(nextErrors).length > 0) {
-      setErrors(nextErrors);
-      return;
-    }
-
-    setStatus("saving");
-    const ctx = currentLeadContext();
-    try {
-      const response = await fetch(FORMSPREE_ENDPOINT, {
-        method: "POST",
-        headers: { Accept: "application/json" },
-        body: (() => {
-          const formData = new FormData();
-          formData.set("name", form.name.trim());
-          formData.set("phone", `+91${form.phone.replace(/\D/g, "")}`);
-          formData.set("business", form.business.trim());
-          formData.set("requirement", form.requirement.trim());
-          // "form" names which form this was; "source" is the lead-source
-          // code (docs/lead-source-legend.md). "source" used to hold the form
-          // name, before lead-source tracking.
-          formData.set("form", "Website entry pop-up (Hindi)");
-          formData.set("source", ctx.source);
-          formData.set("page", ctx.page);
-          formData.set("ref_code", ctx.ref);
-          return formData;
-        })(),
-      });
-      if (!response.ok) throw new Error("Lead submission failed");
-      trackLeadEvent("form_submit", { page: ctx.page, source: ctx.source, ref_code: ctx.ref });
-      setStatus("success");
-    } catch {
-      setStatus("failure");
-    }
-  }
-
-  return (
-    <div
-      className="fixed inset-0 z-[60] flex items-center justify-center bg-ink/55 p-4"
-      role="presentation"
-    >
-      <div
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="lead-popup-heading"
-        className="max-h-[calc(100vh-2rem)] w-full max-w-lg overflow-y-auto rounded-md bg-paper p-6 shadow-2xl sm:p-8"
-      >
-        <div className="flex items-start justify-between gap-6">
-          <div>
-            <h2 id="lead-popup-heading" className="font-display text-3xl font-light tracking-tight">
-              {copy.heading[lang]}
-            </h2>
-            <p className="mt-2 text-sm text-mute">{copy.body[lang]}</p>
-          </div>
-          <button
-            type="button"
-            onClick={onClose}
-            disabled={status === "saving"}
-            aria-label={copy.close[lang]}
-            className="shrink-0 rounded-sm px-2 py-1 text-2xl leading-none text-mute hover:bg-sand hover:text-ink disabled:opacity-50"
-          >
-            ×
-          </button>
-        </div>
-
-        {status === "success" ? (
-          <div className="mt-7 space-y-5">
-            <p className="text-sage">{copy.success[lang]}</p>
-            <button
-              type="button"
-              onClick={onClose}
-              className="rounded-sm bg-clay px-4 py-3 text-sm text-paper hover:bg-claydeep"
-            >
-              {copy.continue[lang]}
-            </button>
-          </div>
-        ) : (
-          <form className="mt-6 space-y-4" onSubmit={handleSubmit} noValidate>
-            <LeadField label={copy.name[lang]} error={errors.name}>
-              <input
-                ref={nameRef}
-                name="name"
-                value={form.name}
-                onChange={(event) => updateField("name", event.target.value)}
-                required
-                aria-invalid={Boolean(errors.name)}
-                className="vf-lead-input"
-              />
-            </LeadField>
-            <LeadField label={copy.phone[lang]} error={errors.phone}>
-              <div className="flex gap-2">
-                <span className="flex items-center rounded-sm border border-line bg-sand px-3 text-sm text-mute">
-                  {copy.countryCode[lang]}
-                </span>
-                <input
-                  name="phone"
-                  type="tel"
-                  inputMode="numeric"
-                  value={form.phone}
-                  onChange={(event) => updateField("phone", event.target.value)}
-                  required
-                  aria-invalid={Boolean(errors.phone)}
-                  className="vf-lead-input"
-                />
-              </div>
-            </LeadField>
-            <LeadField label={copy.business[lang]}>
-              <input
-                name="business"
-                value={form.business}
-                onChange={(event) => updateField("business", event.target.value)}
-                className="vf-lead-input"
-              />
-            </LeadField>
-            <LeadField label={copy.requirement[lang]} error={errors.requirement}>
-              <textarea
-                name="requirement"
-                rows={3}
-                placeholder={copy.requirementPlaceholder[lang]}
-                value={form.requirement}
-                onChange={(event) => updateField("requirement", event.target.value)}
-                required
-                aria-invalid={Boolean(errors.requirement)}
-                className="vf-lead-input resize-none"
-              />
-            </LeadField>
-            <p className="text-xs text-mute">{copy.notice[lang]}</p>
-            {status === "failure" ? (
-              <p role="alert" className="text-sm text-claydeep">
-                {copy.failure[lang]}
-              </p>
-            ) : null}
-            <div className="flex flex-wrap items-center justify-between gap-3 pt-1">
-              <button
-                type="button"
-                onClick={onClose}
-                disabled={status === "saving"}
-                className="text-sm text-mute underline-offset-4 hover:text-ink hover:underline disabled:opacity-50"
-              >
-                {copy.continue[lang]}
-              </button>
-              <button
-                type="submit"
-                disabled={status === "saving"}
-                className="rounded-sm bg-clay px-5 py-3 text-sm text-paper hover:bg-claydeep disabled:cursor-wait disabled:opacity-60"
-              >
-                {status === "saving" ? copy.saving[lang] : copy.submit[lang]}
-              </button>
-            </div>
-          </form>
-        )}
-      </div>
-    </div>
-  );
-}
-
-function LeadField({
-  label,
-  error,
-  children,
-}: {
-  label: string;
-  error?: string | undefined;
-  children: React.ReactNode;
-}) {
-  return (
-    <label className="block text-sm">
-      <span className="mb-1 block font-medium">{label}</span>
-      {children}
-      {error ? <span className="mt-1 block text-xs text-claydeep">{error}</span> : null}
-    </label>
   );
 }

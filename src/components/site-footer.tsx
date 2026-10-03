@@ -1,6 +1,8 @@
 import { ArrowUpRight, Linkedin, MessageCircle } from "lucide-react";
 
-import heritageIllustration from "@/assets/footer-heritage-illustration.jpg";
+import heritage800 from "@/assets/footer-heritage-illustration-800.webp";
+import heritage1200 from "@/assets/footer-heritage-illustration-1200.webp";
+import heritage1600 from "@/assets/footer-heritage-illustration-1600.webp";
 import {
   FOOTER_COLUMNS,
   FOOTER_CONTACT,
@@ -11,7 +13,8 @@ import {
   LINKEDIN_URL,
   type FooterLink,
 } from "@/content/footer-copy";
-import { ADDRESS_LINES, BUSINESS } from "@/content/business";
+import { ADDRESS_LINES, BUSINESS, GSTIN_LABEL } from "@/content/business";
+import { DirectionsLink } from "@/components/map-embed";
 import type { Lang } from "@/content/translations";
 import { whatsAppUrl } from "@/content/whatsapp";
 import { hasHindiVersion } from "@/content/landing-pages";
@@ -52,12 +55,15 @@ export function SiteFooter({ lang = "en" }: { lang?: Lang }) {
        */}
       <div className="bg-paper">
         <img
-          src={heritageIllustration}
+          src={heritage1200}
+          srcSet={`${heritage800} 800w, ${heritage1200} 1200w, ${heritage1600} 1600w`}
+          sizes="100vw"
           alt="Vidhi Fabrics — from raw yarn to the finished weave, Surat"
           width={1600}
           height={893}
           className="block h-auto w-full"
           loading="lazy"
+          decoding="async"
         />
       </div>
       <footer className="vf-weave relative overflow-hidden border-t border-gold/45 text-ivory">
@@ -71,7 +77,9 @@ export function SiteFooter({ lang = "en" }: { lang?: Lang }) {
           className="vf-wave -top-10 h-56 border-gold/10 sm:-top-16 sm:h-72"
         />
 
-        <div className="relative mx-auto max-w-6xl px-6 py-16 lg:py-20">
+        {/* Extra bottom space on phones so the last row can scroll clear of
+            the floating Talk-to-us button. */}
+        <div className="relative mx-auto max-w-6xl px-6 pb-28 pt-16 sm:pb-16 lg:py-20">
           <div className="grid gap-12 lg:grid-cols-4 lg:gap-10">
             {/* Brand */}
             <div>
@@ -156,6 +164,9 @@ export function SiteFooter({ lang = "en" }: { lang?: Lang }) {
                     </span>
                   ))}
                 </p>
+                <p>
+                  <DirectionsLink lang={lang} tone="dark" />
+                </p>
                 <p>{contact.hours}</p>
                 {/*
                 Each link sits in its own block so the rows never depend on
@@ -180,6 +191,9 @@ export function SiteFooter({ lang = "en" }: { lang?: Lang }) {
                   >
                     {lang === "hi" ? "व्हाट्सएप" : "WhatsApp"}
                   </a>
+                </p>
+                <p className="font-mono text-xs tracking-wide text-ivory/75">
+                  {GSTIN_LABEL}: {BUSINESS.gstin}
                 </p>
               </address>
             </div>

@@ -5,6 +5,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { TALK_COPY, type TalkStep } from "@/content/talk-to-us-copy";
 import type { Lang } from "@/content/translations";
 import { whatsAppUrl } from "@/content/whatsapp";
+import { LEAD_POPUP_EVENT, type LeadPopupEventDetail } from "@/lib/ui-events";
 
 type Answers = {
   category: string;
@@ -111,6 +112,25 @@ function buildMessage(a: Answers, lang: Lang) {
   ].join("\n");
 }
 
+/** Below Tailwind's `sm` breakpoint: phones. */
+const MOBILE_QUERY = "(max-width: 639.98px)";
+
+/**
+ * CTAs the floating launcher must never sit on top of: WhatsApp links, submit
+ * buttons and anything marked `data-vf-cta`, outside the launcher itself.
+ */
+const CTA_SELECTOR = 'a[href*="wa.me/"], button[type="submit"], [data-vf-cta]';
+
+/**
+ * Floating "Talk to us" launcher and guided WhatsApp hand-off, on every page
+ * (mounted in __root.tsx for inner pages, and by the two home routes, which
+ * own the Hinglish toggle).
+ *
+ * On phones it shrinks to a round icon button, never shows the teaser bubble,
+ * and fades out whenever it would cover a call-to-action or while the
+ * homepage enquiry pop-up is open. WhatsApp links inside it are tagged with
+ * the page's lead ref code by <LeadSourceTracker />, like every other link.
+ */
 export function TalkToUs({ lang = "en" }: { lang?: Lang }) {
   const copy = TALK_COPY[lang];
   const [open, setOpen] = useState(false);
@@ -121,10 +141,15 @@ export function TalkToUs({ lang = "en" }: { lang?: Lang }) {
   const [nudge, setNudge] = useState(false);
   const [city, setCity] = useState("");
   const [country, setCountry] = useState("");
+  // The homepage enquiry pop-up is open: stay out of its way.
+  const [popupOpen, setPopupOpen] = useState(false);
+  // On a phone, the launcher would currently cover a CTA.
+  const [overCta, setOverCta] = useState(false);
 
   const panelRef = useRef<HTMLDivElement>(null);
   const logRef = useRef<HTMLDivElement>(null);
   const launcherRef = useRef<HTMLButtonElement>(null);
+  const stackRef = useRef<HTMLDivElement>(null);
   const liveInputRef = useRef<HTMLInputElement>(null);
 
   // Restore an in-progress conversation from earlier in the session.
@@ -135,6 +160,63 @@ export function TalkToUs({ lang = "en" }: { lang?: Lang }) {
     setAnswers(saved.answers);
     setCity(saved.answers.city);
     setCountry(saved.answers.country);
+  }, []);
+
+  useEffect(() => {
+    const onPopup = (event: Event) => {
+      const detail = (event as CustomEvent<LeadPopupEventDetail>).detail;
+      setPopupOpen(Boolean(detail?.open));
+      if (detail?.open) setTeaser(false);
+    };
+    window.addEventListener(LEAD_POPUP_EVENT, onPopup);
+    return () => window.removeEventListener(LEAD_POPUP_EVENT, onPopup);
+  }, []);
+
+  // Phones only: fade out while the launcher overlaps a CTA, so it never
+  // hides a "Get catalogue on WhatsApp" button or a form's submit button.
+  // Checked on scroll and resize, one measurement per animation frame.
+  useEffect(() => {
+    const media = window.matchMedia(MOBILE_QUERY);
+    let frame = 0;
+    const measure = () => {
+      frame = 0;
+      const stack = stackRef.current;
+      if (!stack || !media.matches) {
+        setOverCta(false);
+        return;
+      }
+      const r = stack.getBoundingClientRect();
+      const pad = 12;
+      let hit = false;
+      for (const el of document.querySelectorAll<HTMLElement>(CTA_SELECTOR)) {
+        if (stack.contains(el) || panelRef.current?.contains(el)) continue;
+        const c = el.getBoundingClientRect();
+        if (c.width === 0 || c.height === 0) continue;
+        if (
+          c.left < r.right + pad &&
+          c.right > r.left - pad &&
+          c.top < r.bottom + pad &&
+          c.bottom > r.top - pad
+        ) {
+          hit = true;
+          break;
+        }
+      }
+      setOverCta(hit);
+    };
+    const schedule = () => {
+      if (!frame) frame = window.requestAnimationFrame(measure);
+    };
+    schedule();
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", schedule);
+    media.addEventListener("change", schedule);
+    return () => {
+      if (frame) window.cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", schedule);
+      window.removeEventListener("resize", schedule);
+      media.removeEventListener("change", schedule);
+    };
   }, []);
 
   // Nudge the visitor twice at most, and never once they have engaged.
@@ -261,12 +343,15 @@ export function TalkToUs({ lang = "en" }: { lang?: Lang }) {
     <>
       {/* Teaser + launcher share a corner stack so they move together. */}
       <div
-        className={`fixed bottom-5 right-5 z-[70] flex flex-col items-end gap-3 ${
-          open ? "pointer-events-none opacity-0" : "opacity-100"
+        ref={stackRef}
+        className={`fixed bottom-[max(1rem,env(safe-area-inset-bottom))] right-4 z-[70] flex flex-col items-end gap-3 sm:bottom-5 sm:right-5 ${
+          open || popupOpen || overCta ? "pointer-events-none opacity-0" : "opacity-100"
         } transition-opacity`}
+        aria-hidden={open || popupOpen || overCta ? true : undefined}
       >
-        {teaser ? (
-          <div className="vf-pop-in flex max-w-[16rem] items-start gap-2 rounded-md rounded-br-sm border border-line bg-paper px-4 py-3 shadow-xl">
+        {/* The teaser bubble is a desktop nicety; on a phone it covers copy. */}
+        {teaser && !popupOpen ? (
+          <div className="vf-pop-in hidden max-w-[16rem] items-start gap-2 rounded-md rounded-br-sm border border-line bg-paper px-4 py-3 shadow-xl sm:flex">
             <button
               type="button"
               onClick={openPanel}
@@ -297,12 +382,13 @@ export function TalkToUs({ lang = "en" }: { lang?: Lang }) {
             onClick={openPanel}
             aria-haspopup="dialog"
             aria-expanded={open}
-            className={`relative inline-flex items-center gap-2.5 rounded-full bg-clay px-6 py-4 font-mono text-sm uppercase tracking-[0.12em] text-paper shadow-xl ring-2 ring-paper transition-colors hover:bg-claydeep focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink ${
+            tabIndex={open || popupOpen || overCta ? -1 : undefined}
+            className={`relative inline-flex size-14 items-center justify-center gap-2.5 rounded-full bg-clay font-mono text-sm uppercase tracking-[0.12em] text-paper shadow-xl ring-2 ring-paper transition-colors hover:bg-claydeep focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink sm:size-auto sm:px-6 sm:py-4 ${
               nudge ? "vf-nudge" : ""
             }`}
           >
-            <MessageCircle size={19} aria-hidden="true" />
-            {copy.launcher}
+            <MessageCircle size={22} aria-hidden="true" className="sm:size-[19px]" />
+            <span className="sr-only sm:not-sr-only">{copy.launcher}</span>
           </button>
         </div>
       </div>
@@ -360,6 +446,17 @@ export function TalkToUs({ lang = "en" }: { lang?: Lang }) {
           </div>
 
           <div className="shrink-0 border-t border-line bg-sand/50 px-5 py-4">
+            {step === "category" ? (
+              <a
+                href={whatsAppUrl(copy.directMessage)}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => track("talk_to_us_direct_whatsapp_clicked")}
+                className="mb-3 block text-center text-xs text-claydeep underline decoration-line underline-offset-4 hover:text-ink"
+              >
+                {copy.direct}
+              </a>
+            ) : null}
             {step === "category" ? (
               <Choices
                 options={copy.categories}

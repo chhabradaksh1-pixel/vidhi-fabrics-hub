@@ -6,7 +6,7 @@ import { whatsAppUrl } from "@/content/whatsapp";
 const SITE = "https://www.vidhifabrics.com";
 const PATH = "/polyester-sarees-wholesale-surat";
 
-const TITLE = "Polyester Sarees Wholesale in Surat | Vidhi Fabrics, Manufacturer & Wholesaler";
+const TITLE = "Polyester Sarees Wholesale Surat | Vidhi Fabrics";
 const DESCRIPTION =
   "Polyester sarees in bulk from a Surat manufacturer and wholesaler, for buyers across Punjab, Haryana, Rajasthan and MP. Get today's catalogue on WhatsApp.";
 

@@ -6,7 +6,7 @@ import { whatsAppUrl } from "@/content/whatsapp";
 const SITE = "https://www.vidhifabrics.com";
 const PATH = "/dress-material-wholesale-surat";
 
-const TITLE = "Dress Material Wholesale in Surat | Vidhi Fabrics, Manufacturer & Wholesaler";
+const TITLE = "Dress Material & Unstitched Suits Wholesale Surat | Vidhi";
 const DESCRIPTION =
   "Dress material and unstitched suits in bulk from a Surat manufacturer and wholesaler, for buyers across North India. Get the catalogue on WhatsApp.";
 
@@ -138,7 +138,7 @@ function DressMaterialPage() {
           </nav>
 
           <h1 className="mt-6 text-balance font-display text-4xl font-light leading-[1.12] tracking-tight sm:text-5xl lg:text-6xl">
-            Dress Material Wholesale, Direct from Surat
+            Dress Material &amp; Unstitched Suits Wholesale, Direct from Surat
           </h1>
 
           <CatalogueButton className="mt-8" />
@@ -146,9 +146,10 @@ function DressMaterialPage() {
           <div className="mx-auto max-w-[65ch]">
             <p className="mt-10 text-lg leading-relaxed text-mute">
               Vidhi Fabrics is a Surat-based manufacturer and wholesaler, supplying dress material
-              in bulk to wholesalers, retailers, resellers and boutiques. We manufacture some lines
-              in-house and also supply from Surat's wider textile market. Most of our buyers are in
-              North India, in Punjab, Haryana, Rajasthan and Madhya Pradesh.
+              and unstitched suits in bulk to wholesalers, retailers, resellers and boutiques. We
+              manufacture some lines in-house and also supply from Surat's wider textile market.
+              Most of our buyers are in North India, in Punjab, Haryana, Rajasthan and Madhya
+              Pradesh.
             </p>
 
             <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">

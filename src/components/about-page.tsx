@@ -2,7 +2,8 @@ import { useState } from "react";
 
 import { JournalHeader, JournalFooter } from "@/components/fabric-desk";
 import { ABOUT_COPY } from "@/content/about-copy";
-import { ADDRESS_LINES, BUSINESS, DISAMBIGUATION } from "@/content/business";
+import { ADDRESS_LINES, BUSINESS, DISAMBIGUATION, GSTIN_LABEL } from "@/content/business";
+import { MapEmbed } from "@/components/map-embed";
 import { FOOTER_CONTACT } from "@/content/footer-copy";
 import { hasHindiVersion } from "@/content/landing-pages";
 import type { Lang } from "@/content/translations";
@@ -141,7 +142,14 @@ export function AboutPage({ initialLang }: { initialLang: Lang }) {
                   </dt>
                   <dd className="mt-1 text-mute">{FOOTER_CONTACT[lang].hours}</dd>
                 </div>
+                <div>
+                  <dt className="font-mono text-xs uppercase tracking-widest text-clay">
+                    {GSTIN_LABEL}
+                  </dt>
+                  <dd className="mt-1">{BUSINESS.gstin}</dd>
+                </div>
               </dl>
+              <MapEmbed lang={lang} className="mt-8" />
             </section>
           </div>
         </article>

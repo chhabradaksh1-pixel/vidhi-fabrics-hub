@@ -7,9 +7,9 @@ import { whatsAppUrl } from "@/content/whatsapp";
 const SITE = "https://www.vidhifabrics.com";
 const PATH = "/organza-net-fabric-for-boutiques";
 
-const TITLE = "Organza & Net Fabric for Boutiques | Sourced in Surat | Vidhi Fabrics";
+const TITLE = "Organza & Net Fabric Wholesale for Boutiques, Surat";
 const DESCRIPTION =
-  "Organza and net fabric for boutiques, sourced to order through our network of Surat mills and manufacturing units. Share a shade card, sample or width on WhatsApp.";
+  "Organza and net fabric wholesale for boutiques, sourced to order through our network of Surat mills and units. Share a shade card, sample or width on WhatsApp.";
 
 const linkClass = "text-clay underline decoration-line underline-offset-4 hover:text-claydeep";
 
@@ -151,9 +151,9 @@ function OrganzaNetPage() {
           <div className="mx-auto max-w-[65ch]">
             <p className="mt-10 text-lg leading-relaxed text-mute">
               Vidhi Fabrics is a Surat manufacturer and wholesaler of polyester sarees and dress
-              material. For boutiques, we also source organza, net and other fabrics to order
-              through our network of Surat mills and manufacturing units. Share a shade card, a
-              sample or the width you need on WhatsApp, approve a sample, and then order in bulk.
+              material. For boutiques, we also supply organza and net fabric wholesale, sourced to
+              order through our network of Surat mills and manufacturing units. Share a shade card,
+              a sample or the width you need on WhatsApp, approve a sample, and then order in bulk.
             </p>
 
             <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">

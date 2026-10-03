@@ -55,6 +55,10 @@ Instagram, Facebook and WhatsApp visits often show up as D.
 | Catalogue PDF / shared link (sarees)         | `https://www.vidhifabrics.com/polyester-sarees-wholesale-surat?utm_source=catalogue&utm_medium=shared_link&utm_campaign=catalogue` |
 | Catalogue PDF / shared link (dress material) | `https://www.vidhifabrics.com/dress-material-wholesale-surat?utm_source=catalogue&utm_medium=shared_link&utm_campaign=catalogue`   |
 
+**Not live yet (3 October 2026):** the Facebook page and the WhatsApp Channel
+don't exist yet. Use the links above once they are created, from the very
+first post.
+
 To point any of these at another page, keep the part from `?utm_source=...`
 and change the path, for example
 `https://www.vidhifabrics.com/hi/polyester-sarees-wholesale-surat?utm_source=instagram&utm_medium=social&utm_campaign=bio`.

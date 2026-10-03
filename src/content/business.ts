@@ -24,6 +24,8 @@ export const BUSINESS = {
   phone: "+919825208413",
   phoneDisplay: "+91 98252 08413",
   email: "sales@vidhifabrics.com",
+  /** GST registration, confirmed by the owner on 3 October 2026. Gujarat (24). */
+  gstin: "24ABFPC2380K1ZW",
   opens: "11:00",
   closes: "21:00",
   days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
@@ -70,15 +72,17 @@ export function authorSchema() {
 /**
  * Tells this business apart from others with a similar name. Supplied by the
  * owner (2 October 2026): there are similarly named businesses in Ludhiana
- * and Ahmedabad, and this one is not connected to them. Emitted as the
+ * and Ahmedabad, and this one is not connected to them. The "Vidhi fabric"
+ * shop at Atlanta Shoppers, Vesu, Surat (its own Google Business Profile) was
+ * added on 3 October 2026 after the site audit found it. Emitted as the
  * LocalBusiness `disambiguatingDescription` and repeated on the About page
  * and in llms.txt, so every surface says the same thing.
  */
 export const DISAMBIGUATION: Record<Lang, string> = {
-  en: "Vidhi Fabrics of 542-543 Golden Point, Ring Road, Begumpura, Surat: a manufacturer and wholesaler of polyester sarees and dress material. Not connected with the similarly named businesses in Ludhiana or Ahmedabad.",
-  hi: "विधि फैब्रिक्स, 542-543 गोल्डन पॉइंट, रिंग रोड, बेगमपुरा, सूरत — पॉलिएस्टर साड़ियों और ड्रेस मटेरियल के निर्माता और थोक विक्रेता। लुधियाना या अहमदाबाद में इससे मिलते-जुलते नाम वाले कारोबारों से हमारा कोई संबंध नहीं है।",
+  en: "Vidhi Fabrics of 542-543 Golden Point, Ring Road, Begumpura, Surat: a manufacturer and wholesaler of polyester sarees and dress material. Not connected with the similarly named businesses in Ludhiana or Ahmedabad, or with the similarly named fabric shop in Vesu, Surat.",
+  hi: "विधि फैब्रिक्स, 542-543 गोल्डन पॉइंट, रिंग रोड, बेगमपुरा, सूरत — पॉलिएस्टर साड़ियों और ड्रेस मटेरियल के निर्माता और थोक विक्रेता। लुधियाना या अहमदाबाद में इससे मिलते-जुलते नाम वाले कारोबारों से, और सूरत के वेसू में मिलते-जुलते नाम वाली कपड़े की दुकान से, हमारा कोई संबंध नहीं है।",
   "hi-en":
-    "Vidhi Fabrics, 542-543 Golden Point, Ring Road, Begumpura, Surat — polyester sarees aur dress material ke manufacturer aur wholesaler. Ludhiana ya Ahmedabad mein isse milte-julte naam wale businesses se hamara koi sambandh nahin hai.",
+    "Vidhi Fabrics, 542-543 Golden Point, Ring Road, Begumpura, Surat — polyester sarees aur dress material ke manufacturer aur wholesaler. Ludhiana ya Ahmedabad mein isse milte-julte naam wale businesses se, aur Surat ke Vesu mein milte-julte naam wali fabric shop se, hamara koi sambandh nahin hai.",
 };
 
 /**
@@ -141,6 +145,7 @@ export function localBusinessSchema(site: string) {
     image: `${site}/og-image.jpg`,
     telephone: BUSINESS.phone,
     email: BUSINESS.email,
+    taxID: BUSINESS.gstin,
     address: {
       "@type": "PostalAddress",
       streetAddress: BUSINESS.streetAddress,
@@ -184,3 +189,30 @@ export function localBusinessSchema(site: string) {
     ],
   };
 }
+
+/** The full address as one line, for map search and directions. */
+export const MAP_QUERY = `Vidhi Fabrics, ${BUSINESS.streetAddress}, ${BUSINESS.locality}, ${BUSINESS.region} ${BUSINESS.postalCode}`;
+
+/**
+ * Google Maps directions to the shop. The public "Maps URLs" form needs no API
+ * key and opens the Maps app on phones.
+ */
+export const DIRECTIONS_URL = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(MAP_QUERY)}`;
+
+/** Keyless Google Maps embed for the same address. */
+export const MAP_EMBED_URL = `https://maps.google.com/maps?q=${encodeURIComponent(MAP_QUERY)}&z=17&output=embed`;
+
+export const DIRECTIONS_LABEL: Record<Lang, string> = {
+  en: "Get directions",
+  hi: "रास्ता देखें",
+  "hi-en": "Directions dekhein",
+};
+
+/** "GSTIN" is the term printed on Indian invoices, in every language. */
+export const GSTIN_LABEL = "GSTIN";
+
+export const MAP_TITLE: Record<Lang, string> = {
+  en: "Map: Vidhi Fabrics, Golden Point, Ring Road, Surat",
+  hi: "नक्शा: विधि फैब्रिक्स, गोल्डन पॉइंट, रिंग रोड, सूरत",
+  "hi-en": "Map: Vidhi Fabrics, Golden Point, Ring Road, Surat",
+};

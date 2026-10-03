@@ -7,7 +7,7 @@ const SITE = "https://www.vidhifabrics.com";
 const EN_PATH = "/dress-material-wholesale-surat";
 const PATH = "/hi/dress-material-wholesale-surat";
 
-const TITLE = "ड्रेस मटेरियल थोक, सूरत से | विधि फैब्रिक्स, निर्माता और थोक विक्रेता";
+const TITLE = "ड्रेस मटेरियल और अनस्टिच्ड सूट होलसेल, सूरत | विधि फैब्रिक्स";
 const DESCRIPTION =
   "उत्तर भारत के खरीदारों के लिए, सूरत के निर्माता और थोक विक्रेता से बल्क में ड्रेस मटेरियल और अनस्टिच्ड सूट। व्हाट्सएप पर कैटलॉग पाइए।";
 
@@ -138,7 +138,7 @@ function DressMaterialPageHi() {
           </nav>
 
           <h1 className="mt-6 text-balance font-display text-4xl font-light leading-[1.12] tracking-tight sm:text-5xl lg:text-6xl">
-            ड्रेस मटेरियल थोक, सीधे सूरत से
+            ड्रेस मटेरियल और अनस्टिच्ड सूट होलसेल, सीधे सूरत से
           </h1>
 
           <CatalogueButton className="mt-8" />

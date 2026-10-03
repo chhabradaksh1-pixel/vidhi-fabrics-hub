@@ -89,9 +89,9 @@ export type CirclePageCopy = {
 
 export const CIRCLE_PAGE: Record<"en" | "hi", CirclePageCopy> = {
   en: {
-    metaTitle: "Join the Vidhi Reseller Circle | WhatsApp Community for Boutiques & Resellers",
+    metaTitle: "Vidhi Reseller Circle | WhatsApp Group for Resellers",
     metaDescription:
-      "A private WhatsApp community for boutiques and home-based resellers in North India, run by Vidhi Fabrics, Surat. Members' catalogue and rate card, ready photos and captions, monthly new designs.",
+      "Private WhatsApp community for boutiques and home-based resellers in North India, run by Vidhi Fabrics, Surat. Catalogue, ready photos, monthly new designs.",
     breadcrumbHome: "Vidhi Fabrics",
     breadcrumb: "Reseller Circle",
     breadcrumbLabel: "Breadcrumb",
@@ -155,9 +155,9 @@ export const CIRCLE_PAGE: Record<"en" | "hi", CirclePageCopy> = {
     related: "Browse our pages for resellers and boutiques:",
   },
   hi: {
-    metaTitle: "विधि रीसेलर सर्कल से जुड़िए | बुटीक और रीसेलर के लिए व्हाट्सएप कम्युनिटी",
+    metaTitle: "विधि रीसेलर सर्कल | रीसेलर के लिए व्हाट्सएप ग्रुप",
     metaDescription:
-      "उत्तर भारत के बुटीक और घर से बेचने वाले रीसेलरों के लिए विधि फैब्रिक्स, सूरत की प्राइवेट व्हाट्सएप कम्युनिटी। सदस्यों का कैटलॉग और रेट कार्ड, तैयार फ़ोटो और कैप्शन, हर महीने नई डिज़ाइनें।",
+      "उत्तर भारत के बुटीक और रीसेलरों के लिए विधि फैब्रिक्स, सूरत की प्राइवेट व्हाट्सएप कम्युनिटी। होलसेल कैटलॉग, तैयार फ़ोटो और कैप्शन, हर महीने नई डिज़ाइनें।",
     breadcrumbHome: "विधि फैब्रिक्स",
     breadcrumb: "रीसेलर सर्कल",
     breadcrumbLabel: "ब्रेडक्रंब",

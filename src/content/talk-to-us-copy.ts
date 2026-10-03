@@ -27,6 +27,9 @@ export const TALK_COPY: Record<
     doneOne: string;
     doneTwo: string;
     cta: string;
+    /** One-tap route straight to WhatsApp, for visitors who skip the questions. */
+    direct: string;
+    directMessage: string;
   }
 > = {
   en: {
@@ -52,6 +55,8 @@ export const TALK_COPY: Record<
     doneOne: "Perfect — we've got enough to understand your requirement.",
     doneTwo: "Continue with the Vidhi Fabrics team for pricing, availability and next steps.",
     cta: "Continue on WhatsApp →",
+    direct: "Skip the questions: chat on WhatsApp now",
+    directMessage: "Hi Vidhi Fabrics, I am looking for a fabric.",
   },
   hi: {
     launcher: "हमसे बात करें",
@@ -76,6 +81,8 @@ export const TALK_COPY: Record<
     doneOne: "बढ़िया — आपकी ज़रूरत समझने के लिए इतना काफ़ी है।",
     doneTwo: "कीमत, उपलब्धता और आगे के क़दम के लिए विधि फैब्रिक्स की टीम से बात जारी रखिए।",
     cta: "व्हाट्सएप पर जारी रखें →",
+    direct: "सवाल छोड़ें: अभी व्हाट्सएप पर बात करें",
+    directMessage: "नमस्ते विधि फैब्रिक्स, मुझे एक कपड़ा चाहिए।",
   },
   "hi-en": {
     launcher: "Humse baat karein",
@@ -101,5 +108,7 @@ export const TALK_COPY: Record<
     doneTwo:
       "Pricing, availability aur aage ke steps ke liye Vidhi Fabrics team se baat jaari rakhiye.",
     cta: "WhatsApp par jaari rakhein →",
+    direct: "Sawaal chhodein: abhi WhatsApp par baat karein",
+    directMessage: "Hi Vidhi Fabrics, mujhe ek fabric chahiye.",
   },
 };

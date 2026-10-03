@@ -5,6 +5,41 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
+ * Self-hosted Inter (3 October 2026, from the site audit). These are the exact
+ * variable woff2 files Google Fonts was serving (Inter v20, latin and
+ * latin-ext), so rendering is unchanged, but there is no longer a
+ * render-blocking request to fonts.googleapis.com and a second connection to
+ * fonts.gstatic.com before any text could paint. The latin file is preloaded
+ * in __root.tsx. One face per subset covers all four weights (200 to 500), as
+ * Google's did.
+ *
+ * Noto Sans Devanagari is declared only on the Hindi routes (see
+ * DevanagariFont in __root.tsx), so English pages never download it.
+ */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 200 500;
+  font-display: swap;
+  src: url("./assets/fonts/inter-latin-wght.woff2") format("woff2");
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 200 500;
+  font-display: swap;
+  src: url("./assets/fonts/inter-latin-ext-wght.woff2") format("woff2");
+  unicode-range:
+    U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F,
+    U+A720-A7FF;
+}
+
+/*
  * Design system definition.
  *
  * The @theme inline block maps CSS custom properties to Tailwind utility
@@ -33,7 +68,8 @@
      * Noto Sans Devanagari is loaded at the same four weights, so the Hindi
      * route gets genuine light cuts rather than a synthesised one. Verified
      * against the Google Fonts API before committing to the light display
-     * weights: it serves 200/300/400/500. */
+     * weights: it serves 200/300/400/500. Both families are now self-hosted
+     * (see the @font-face rules at the top of this file). */
   --font-display: "Inter", "Noto Sans Devanagari", system-ui, sans-serif;
   --font-body: "Inter", "Noto Sans Devanagari", system-ui, sans-serif;
   --font-mono: "Inter", "Noto Sans Devanagari", system-ui, sans-serif;

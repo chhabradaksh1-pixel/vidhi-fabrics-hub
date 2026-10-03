@@ -8,9 +8,9 @@ const SITE = "https://www.vidhifabrics.com";
 const EN_PATH = "/organza-net-fabric-for-boutiques";
 const PATH = "/hi/organza-net-fabric-for-boutiques";
 
-const TITLE = "बुटीक के लिए ऑर्गेंज़ा और नेट कपड़ा, सूरत से | विधि फैब्रिक्स";
+const TITLE = "बुटीक के लिए ऑर्गेंज़ा और नेट कपड़ा होलसेल, सूरत | विधि फैब्रिक्स";
 const DESCRIPTION =
-  "बुटीक के लिए ऑर्गेंज़ा और नेट कपड़ा, सूरत की मिलों और मैन्युफैक्चरिंग यूनिट्स के हमारे नेटवर्क से ऑर्डर पर सोर्स किया हुआ। शेड कार्ड, सैंपल या चौड़ाई व्हाट्सएप पर भेजिए।";
+  "बुटीक के लिए ऑर्गेंज़ा और नेट कपड़ा होलसेल में, सूरत की मिलों के हमारे नेटवर्क से ऑर्डर पर सोर्स किया हुआ। शेड कार्ड, सैंपल या चौड़ाई व्हाट्सएप पर भेजिए।";
 
 const linkClass = "text-clay underline decoration-line underline-offset-4 hover:text-claydeep";
 

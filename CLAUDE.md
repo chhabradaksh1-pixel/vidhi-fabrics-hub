@@ -225,6 +225,26 @@ text rather than merely poor text.
 - Vite does not bundle unimported files in `src/assets/` (verified; there is no
   `import.meta.glob`). Unused originals cost repo weight but not page weight.
 
+## Performance and request handling (3 October 2026)
+
+- Fonts are self-hosted in `src/assets/fonts/` (Inter in `styles.css`; Noto
+  Sans Devanagari declared and preloaded from `__root.tsx` on `/hi` routes
+  only). Don't reintroduce the Google Fonts stylesheet: it was render-blocking.
+- gtag.js is loaded by `src/lib/deferred-gtag.ts` (first interaction or 3.5 s
+  after load). The inline `dataLayer`/`gtag()` stub in `__root.tsx` queues
+  every event until then; keep it.
+- The homepage pop-up (`src/components/lead-popup.tsx`) opens after 35 s or 50%
+  scroll, once per session. It never opens on load.
+- `src/lib/edge-policy.ts` (called from `src/server.ts`): 200 HTML responses get
+  `s-maxage=3600, stale-while-revalidate=86400`; 404s, redirects, errors and
+  `/api` are untouched. `vidhi-fabrics-hub.lovable.app` 301s to www;
+  other Lovable preview hosts get `X-Robots-Tag: noindex`.
+- The Vercel function region (bom1) is set in `vite.config.ts` via nitro's
+  `vercel.functions` option, not in `vercel.json`.
+- GSTIN 24ABFPC2380K1ZW (owner-confirmed 3 October 2026) lives in
+  `BUSINESS.gstin`; it is shown in the footer, home contact block and /about,
+  and is the LocalBusiness `taxID`.
+
 ## Open items
 
 Nothing here is blocked on code. Most need a decision or data from the owner.

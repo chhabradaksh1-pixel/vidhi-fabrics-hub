@@ -1,8 +1,8 @@
 import { ArrowDown, ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
-import cotton from "@/assets/fabric-cotton-linen.jpg";
-import jacquard from "@/assets/fabric-katan-jacquard.jpg";
-import logoMark from "@/assets/vidhi-logo-mark.png";
+import cotton from "@/assets/fabric-cotton-linen.webp";
+import jacquard from "@/assets/fabric-katan-jacquard.webp";
+import logoMark from "@/assets/vidhi-logo-mark.webp";
 import { JOURNAL, readingMinutes, type JournalArticle } from "@/content/journal";
 import { SiteFooter } from "@/components/site-footer";
 import type { Lang } from "@/content/translations";
@@ -369,8 +369,8 @@ export function JournalHeader({
           <img
             src={logoMark}
             alt="Vidhi Fabrics"
-            width={348}
-            height={332}
+            width={210}
+            height={200}
             className="h-14 w-auto sm:h-16"
           />
         </a>

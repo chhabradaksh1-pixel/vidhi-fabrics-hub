@@ -2,6 +2,7 @@ import "./lib/error-capture";
 
 import { consumeLastCapturedError } from "./lib/error-capture";
 import { renderErrorPage } from "./lib/error-page";
+import { applyEdgePolicy, lovableRedirect } from "./lib/edge-policy";
 import { shortRedirectResponse } from "./lib/short-redirects";
 
 type ServerEntry = {
@@ -66,11 +67,14 @@ export default {
       if (url.pathname === "/api/leads") {
         return await handleLeadRequest(request, env);
       }
+      const lovable = lovableRedirect(url);
+      if (lovable) return lovable;
       const redirect = shortRedirectResponse(url);
       if (redirect) return redirect;
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
-      return markNotFound(await normalizeCatastrophicSsrResponse(response));
+      const page = markNotFound(await normalizeCatastrophicSsrResponse(response));
+      return applyEdgePolicy(request, url, page);
     } catch (error) {
       console.error(error);
       return new Response(renderErrorPage(), {

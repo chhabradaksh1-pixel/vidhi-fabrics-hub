@@ -1,9 +1,9 @@
-import cottonLinen from "@/assets/fabric-cotton-linen.jpg";
-import katanJacquard from "@/assets/fabric-katan-jacquard.jpg";
-import linenShirting from "@/assets/fabric-linen-shirting.jpg";
-import performanceTwill from "@/assets/fabric-performance-twill.jpg";
-import beadedOrganza from "@/assets/fabric-beaded-organza.jpg";
-import denimCanvas from "@/assets/fabric-denim-canvas.jpg";
+import cottonLinen from "@/assets/fabric-cotton-linen.webp";
+import katanJacquard from "@/assets/fabric-katan-jacquard.webp";
+import linenShirting from "@/assets/fabric-linen-shirting.webp";
+import performanceTwill from "@/assets/fabric-performance-twill.webp";
+import beadedOrganza from "@/assets/fabric-beaded-organza.webp";
+import denimCanvas from "@/assets/fabric-denim-canvas.webp";
 
 import type { Fabric } from "./translations";
 

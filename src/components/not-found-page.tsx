@@ -1,4 +1,4 @@
-import logoMark from "@/assets/vidhi-logo-mark.png";
+import logoMark from "@/assets/vidhi-logo-mark.webp";
 import { whatsAppUrl } from "@/content/whatsapp";
 
 /**
@@ -84,8 +84,8 @@ export function NotFoundPage({ pathname }: { pathname: string }) {
           <img
             src={logoMark}
             alt="Vidhi Fabrics"
-            width={348}
-            height={332}
+            width={210}
+            height={200}
             className="h-14 w-auto"
           />
         </a>

@@ -245,7 +245,11 @@ function ResellerSareesPageHi() {
               <a href="/hi/blog/karva-chauth-diwali-festive-stock" className={linkClass}>
                 करवा चौथ और दिवाली के लिए क्या स्टॉक करें
               </a>
-              ।
+              । कैटलॉग{" "}
+              <a href="/hi/diwali-karva-chauth-wholesale-surat" className={linkClass}>
+                दिवाली और करवा चौथ होलसेल
+              </a>{" "}
+              पेज पर माँगिए।
             </p>
 
             <ResellerCircleCta lang="hi" className="mt-12" />

@@ -118,6 +118,7 @@ export const JOURNAL: JournalArticle[] = [
     slug: "karva-chauth-diwali-festive-stock",
     image: organza,
     published: "2026-10-02",
+    modified: "2026-10-05",
     imageAlt: {
       en: "Champagne shimmer fabric scattered with pearl beads, draped to show how it falls",
       hi: "मोतियों से सजा शैम्पेन रंग का चमकीला कपड़ा, लटकाकर दिखाया गया कि वह कैसे गिरता है",
@@ -204,6 +205,14 @@ export const JOURNAL: JournalArticle[] = [
           "hi-en": "GSM asal mein kya batata hai",
         },
         href: "/blog/fabric-gsm-bulk-orders",
+      },
+      {
+        phrase: {
+          en: "Diwali and Karva Chauth wholesale page",
+          hi: "दिवाली और करवा चौथ होलसेल पेज",
+          "hi-en": "Diwali aur Karva Chauth wholesale page",
+        },
+        href: "/diwali-karva-chauth-wholesale-surat",
       },
     ],
     related: [
@@ -311,17 +320,17 @@ export const JOURNAL: JournalArticle[] = [
           en: [
             "In much of Punjab and Haryana, the unstitched suit is as much a festive purchase as the saree, while many shops in Rajasthan lean towards sarees. The right balance comes from your own counter, so look at what sold last season before you set it. A single order that combines sarees with unstitched suits and dress material covers both festivals and keeps the display balanced.",
             "Within each category, choose fewer designs in more colours rather than many designs in one colour each. A design that sells is easier to restock, customers find it easier to compare, and the display looks deliberate. Before you finalise the mix, ask how quantities work for your order — per design, per colour or across the set.",
-            "Catalogues for our festive polyester sarees and our dress material can both be shared on WhatsApp, so you can build the mix design by design.",
+            "Catalogues for our festive polyester sarees and our dress material can both be shared on WhatsApp, so you can build the mix design by design. Boutiques and resellers can start from the Diwali and Karva Chauth wholesale page.",
           ],
           hi: [
             "पंजाब और हरियाणा के ज़्यादातर हिस्सों में अनस्टिच्ड सूट भी त्योहार की उतनी ही बड़ी खरीद है जितनी साड़ी, जबकि राजस्थान की कई दुकानों में साड़ी आगे रहती है। सही अनुपात आपके अपने काउंटर से तय होगा, इसलिए पहले देखिए कि पिछले सीज़न में क्या बिका। साड़ियों के साथ अनस्टिच्ड सूट और ड्रेस मटेरियल वाला एक ही ऑर्डर दोनों त्योहार सँभाल लेता है और डिस्प्ले भी संतुलित रखता है।",
             "हर कैटेगरी में कम डिज़ाइन और ज़्यादा रंग चुनिए, न कि ढेर सारे डिज़ाइन, हर एक सिर्फ़ एक रंग में। जो डिज़ाइन चल जाए उसे दोबारा मँगाना आसान रहता है, ग्राहक के लिए तुलना आसान होती है, और डिस्प्ले सोचा-समझा लगता है। मेल फ़ाइनल करने से पहले पूछ लीजिए कि आपके ऑर्डर में मात्रा का हिसाब कैसे है — हर डिज़ाइन पर, हर रंग पर या पूरे सेट पर।",
-            "हमारी त्योहारी पॉलिएस्टर साड़ियों और ड्रेस मटेरियल, दोनों के कैटलॉग व्हाट्सएप पर भेजे जा सकते हैं, ताकि आप एक-एक डिज़ाइन चुनकर अपना मेल बना सकें।",
+            "हमारी त्योहारी पॉलिएस्टर साड़ियों और ड्रेस मटेरियल, दोनों के कैटलॉग व्हाट्सएप पर भेजे जा सकते हैं, ताकि आप एक-एक डिज़ाइन चुनकर अपना मेल बना सकें। बुटीक और रीसेलर दिवाली और करवा चौथ होलसेल पेज से भी शुरू कर सकते हैं।",
           ],
           "hi-en": [
             "Punjab aur Haryana ke zyadatar hisson mein unstitched suit bhi tyohaar ki utni hi badi khareed hai jitni saree, jabki Rajasthan ki kai dukaanon mein saree aage rehti hai. Sahi anupaat aapke apne counter se tay hoga, isliye pehle dekhiye ki pichhle season mein kya bika. Sarees ke saath unstitched suits aur dress material wala ek hi order dono tyohaar sambhal leta hai aur display bhi balanced rakhta hai.",
             "Har category mein kam designs aur zyada rang chuniye, na ki dher saare designs, har ek sirf ek rang mein. Jo design chal jaaye use dobara mangana aasaan rehta hai, customer ke liye comparison aasaan hota hai, aur display soch-samajhkar bana lagta hai. Mix final karne se pehle pooch lijiye ki aapke order mein quantity ka hisaab kaise hai — har design par, har rang par ya poore set par.",
-            "Hamari festive polyester sarees aur dress material, dono ke catalogue WhatsApp par bheje ja sakte hain, taaki aap ek-ek design chunkar apna mix bana sakein.",
+            "Hamari festive polyester sarees aur dress material, dono ke catalogue WhatsApp par bheje ja sakte hain, taaki aap ek-ek design chunkar apna mix bana sakein. Boutiques aur resellers Diwali aur Karva Chauth wholesale page se bhi shuru kar sakte hain.",
           ],
         },
       },

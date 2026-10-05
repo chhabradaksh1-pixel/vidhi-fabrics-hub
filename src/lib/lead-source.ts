@@ -38,6 +38,7 @@ export function pageCode(pathname: string): string {
   else if (rest.startsWith("/blog/")) code = "BLG";
   else if (rest === "/saree-wholesale-for-resellers") code = "RES";
   else if (rest === "/organza-net-fabric-for-boutiques") code = "ORG";
+  else if (rest === "/diwali-karva-chauth-wholesale-surat") code = "FES";
   else if (rest === "/reseller-circle") code = "COM";
 
   return hindi ? `${code}H` : code;

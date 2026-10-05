@@ -115,6 +115,14 @@ export const FOOTER_COLUMNS: FooterColumn[] = [
         href: "/organza-net-fabric-for-boutiques",
       },
       {
+        label: {
+          en: "Diwali & Karva Chauth wholesale",
+          hi: "दिवाली और करवा चौथ होलसेल",
+          "hi-en": "Diwali & Karva Chauth wholesale",
+        },
+        href: "/diwali-karva-chauth-wholesale-surat",
+      },
+      {
         label: { en: "Sarees", hi: "साड़ियाँ", "hi-en": "Sarees" },
         href: "/blog/why-similar-sarees-have-different-prices",
       },

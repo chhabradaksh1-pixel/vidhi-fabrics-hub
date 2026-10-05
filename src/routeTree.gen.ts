@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as DiwaliKarvaChauthWholesaleSuratRouteImport } from './routes/diwali-karva-chauth-wholesale-surat'
 import { Route as DressMaterialWholesaleSuratRouteImport } from './routes/dress-material-wholesale-surat'
 import { Route as HiRouteImport } from './routes/hi'
 import { Route as OrganzaNetFabricForBoutiquesRouteImport } from './routes/organza-net-fabric-for-boutiques'
@@ -20,6 +21,7 @@ import { Route as SareeWholesaleForResellersRouteImport } from './routes/saree-w
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as HiAboutRouteImport } from './routes/hi_.about'
+import { Route as HiDiwaliKarvaChauthWholesaleSuratRouteImport } from './routes/hi_.diwali-karva-chauth-wholesale-surat'
 import { Route as HiDressMaterialWholesaleSuratRouteImport } from './routes/hi_.dress-material-wholesale-surat'
 import { Route as HiOrganzaNetFabricForBoutiquesRouteImport } from './routes/hi_.organza-net-fabric-for-boutiques'
 import { Route as HiPolyesterSareesWholesaleSuratRouteImport } from './routes/hi_.polyester-sarees-wholesale-surat'
@@ -38,6 +40,12 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DiwaliKarvaChauthWholesaleSuratRoute =
+  DiwaliKarvaChauthWholesaleSuratRouteImport.update({
+    id: '/diwali-karva-chauth-wholesale-surat',
+    path: '/diwali-karva-chauth-wholesale-surat',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const DressMaterialWholesaleSuratRoute =
   DressMaterialWholesaleSuratRouteImport.update({
     id: '/dress-material-wholesale-surat',
@@ -87,6 +95,12 @@ const HiAboutRoute = HiAboutRouteImport.update({
   path: '/hi/about',
   getParentRoute: () => rootRouteImport,
 } as any)
+const HiDiwaliKarvaChauthWholesaleSuratRoute =
+  HiDiwaliKarvaChauthWholesaleSuratRouteImport.update({
+    id: '/hi_/diwali-karva-chauth-wholesale-surat',
+    path: '/hi/diwali-karva-chauth-wholesale-surat',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const HiDressMaterialWholesaleSuratRoute =
   HiDressMaterialWholesaleSuratRouteImport.update({
     id: '/hi_/dress-material-wholesale-surat',
@@ -130,6 +144,7 @@ const HiBlogSlugRoute = HiBlogSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/diwali-karva-chauth-wholesale-surat': typeof DiwaliKarvaChauthWholesaleSuratRoute
   '/dress-material-wholesale-surat': typeof DressMaterialWholesaleSuratRoute
   '/hi': typeof HiRoute
   '/organza-net-fabric-for-boutiques': typeof OrganzaNetFabricForBoutiquesRoute
@@ -138,6 +153,7 @@ export interface FileRoutesByFullPath {
   '/saree-wholesale-for-resellers': typeof SareeWholesaleForResellersRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/hi/about': typeof HiAboutRoute
+  '/hi/diwali-karva-chauth-wholesale-surat': typeof HiDiwaliKarvaChauthWholesaleSuratRoute
   '/hi/dress-material-wholesale-surat': typeof HiDressMaterialWholesaleSuratRoute
   '/hi/organza-net-fabric-for-boutiques': typeof HiOrganzaNetFabricForBoutiquesRoute
   '/hi/polyester-sarees-wholesale-surat': typeof HiPolyesterSareesWholesaleSuratRoute
@@ -150,6 +166,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/diwali-karva-chauth-wholesale-surat': typeof DiwaliKarvaChauthWholesaleSuratRoute
   '/dress-material-wholesale-surat': typeof DressMaterialWholesaleSuratRoute
   '/hi': typeof HiRoute
   '/organza-net-fabric-for-boutiques': typeof OrganzaNetFabricForBoutiquesRoute
@@ -158,6 +175,7 @@ export interface FileRoutesByTo {
   '/saree-wholesale-for-resellers': typeof SareeWholesaleForResellersRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/hi/about': typeof HiAboutRoute
+  '/hi/diwali-karva-chauth-wholesale-surat': typeof HiDiwaliKarvaChauthWholesaleSuratRoute
   '/hi/dress-material-wholesale-surat': typeof HiDressMaterialWholesaleSuratRoute
   '/hi/organza-net-fabric-for-boutiques': typeof HiOrganzaNetFabricForBoutiquesRoute
   '/hi/polyester-sarees-wholesale-surat': typeof HiPolyesterSareesWholesaleSuratRoute
@@ -171,6 +189,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/diwali-karva-chauth-wholesale-surat': typeof DiwaliKarvaChauthWholesaleSuratRoute
   '/dress-material-wholesale-surat': typeof DressMaterialWholesaleSuratRoute
   '/hi': typeof HiRoute
   '/organza-net-fabric-for-boutiques': typeof OrganzaNetFabricForBoutiquesRoute
@@ -179,6 +198,7 @@ export interface FileRoutesById {
   '/saree-wholesale-for-resellers': typeof SareeWholesaleForResellersRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/hi_/about': typeof HiAboutRoute
+  '/hi_/diwali-karva-chauth-wholesale-surat': typeof HiDiwaliKarvaChauthWholesaleSuratRoute
   '/hi_/dress-material-wholesale-surat': typeof HiDressMaterialWholesaleSuratRoute
   '/hi_/organza-net-fabric-for-boutiques': typeof HiOrganzaNetFabricForBoutiquesRoute
   '/hi_/polyester-sarees-wholesale-surat': typeof HiPolyesterSareesWholesaleSuratRoute
@@ -193,6 +213,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/diwali-karva-chauth-wholesale-surat'
     | '/dress-material-wholesale-surat'
     | '/hi'
     | '/organza-net-fabric-for-boutiques'
@@ -201,6 +222,7 @@ export interface FileRouteTypes {
     | '/saree-wholesale-for-resellers'
     | '/blog/$slug'
     | '/hi/about'
+    | '/hi/diwali-karva-chauth-wholesale-surat'
     | '/hi/dress-material-wholesale-surat'
     | '/hi/organza-net-fabric-for-boutiques'
     | '/hi/polyester-sarees-wholesale-surat'
@@ -213,6 +235,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/diwali-karva-chauth-wholesale-surat'
     | '/dress-material-wholesale-surat'
     | '/hi'
     | '/organza-net-fabric-for-boutiques'
@@ -221,6 +244,7 @@ export interface FileRouteTypes {
     | '/saree-wholesale-for-resellers'
     | '/blog/$slug'
     | '/hi/about'
+    | '/hi/diwali-karva-chauth-wholesale-surat'
     | '/hi/dress-material-wholesale-surat'
     | '/hi/organza-net-fabric-for-boutiques'
     | '/hi/polyester-sarees-wholesale-surat'
@@ -233,6 +257,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
+    | '/diwali-karva-chauth-wholesale-surat'
     | '/dress-material-wholesale-surat'
     | '/hi'
     | '/organza-net-fabric-for-boutiques'
@@ -241,6 +266,7 @@ export interface FileRouteTypes {
     | '/saree-wholesale-for-resellers'
     | '/blog/$slug'
     | '/hi_/about'
+    | '/hi_/diwali-karva-chauth-wholesale-surat'
     | '/hi_/dress-material-wholesale-surat'
     | '/hi_/organza-net-fabric-for-boutiques'
     | '/hi_/polyester-sarees-wholesale-surat'
@@ -254,6 +280,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  DiwaliKarvaChauthWholesaleSuratRoute: typeof DiwaliKarvaChauthWholesaleSuratRoute
   DressMaterialWholesaleSuratRoute: typeof DressMaterialWholesaleSuratRoute
   HiRoute: typeof HiRoute
   OrganzaNetFabricForBoutiquesRoute: typeof OrganzaNetFabricForBoutiquesRoute
@@ -262,6 +289,7 @@ export interface RootRouteChildren {
   SareeWholesaleForResellersRoute: typeof SareeWholesaleForResellersRoute
   BlogSlugRoute: typeof BlogSlugRoute
   HiAboutRoute: typeof HiAboutRoute
+  HiDiwaliKarvaChauthWholesaleSuratRoute: typeof HiDiwaliKarvaChauthWholesaleSuratRoute
   HiDressMaterialWholesaleSuratRoute: typeof HiDressMaterialWholesaleSuratRoute
   HiOrganzaNetFabricForBoutiquesRoute: typeof HiOrganzaNetFabricForBoutiquesRoute
   HiPolyesterSareesWholesaleSuratRoute: typeof HiPolyesterSareesWholesaleSuratRoute
@@ -286,6 +314,13 @@ declare module '@tanstack/react-router' {
       path: '/about'
       fullPath: '/about'
       preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/diwali-karva-chauth-wholesale-surat': {
+      id: '/diwali-karva-chauth-wholesale-surat'
+      path: '/diwali-karva-chauth-wholesale-surat'
+      fullPath: '/diwali-karva-chauth-wholesale-surat'
+      preLoaderRoute: typeof DiwaliKarvaChauthWholesaleSuratRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/dress-material-wholesale-surat': {
@@ -351,6 +386,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HiAboutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/hi_/diwali-karva-chauth-wholesale-surat': {
+      id: '/hi_/diwali-karva-chauth-wholesale-surat'
+      path: '/hi/diwali-karva-chauth-wholesale-surat'
+      fullPath: '/hi/diwali-karva-chauth-wholesale-surat'
+      preLoaderRoute: typeof HiDiwaliKarvaChauthWholesaleSuratRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/hi_/dress-material-wholesale-surat': {
       id: '/hi_/dress-material-wholesale-surat'
       path: '/hi/dress-material-wholesale-surat'
@@ -406,6 +448,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  DiwaliKarvaChauthWholesaleSuratRoute: DiwaliKarvaChauthWholesaleSuratRoute,
   DressMaterialWholesaleSuratRoute: DressMaterialWholesaleSuratRoute,
   HiRoute: HiRoute,
   OrganzaNetFabricForBoutiquesRoute: OrganzaNetFabricForBoutiquesRoute,
@@ -414,6 +457,8 @@ const rootRouteChildren: RootRouteChildren = {
   SareeWholesaleForResellersRoute: SareeWholesaleForResellersRoute,
   BlogSlugRoute: BlogSlugRoute,
   HiAboutRoute: HiAboutRoute,
+  HiDiwaliKarvaChauthWholesaleSuratRoute:
+    HiDiwaliKarvaChauthWholesaleSuratRoute,
   HiDressMaterialWholesaleSuratRoute: HiDressMaterialWholesaleSuratRoute,
   HiOrganzaNetFabricForBoutiquesRoute: HiOrganzaNetFabricForBoutiquesRoute,
   HiPolyesterSareesWholesaleSuratRoute: HiPolyesterSareesWholesaleSuratRoute,

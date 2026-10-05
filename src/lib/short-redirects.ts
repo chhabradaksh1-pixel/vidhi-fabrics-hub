@@ -24,6 +24,8 @@ const SHORT_PATHS: Record<string, string> = {
   "/circle": "/reseller-circle",
   "/resellers": "/saree-wholesale-for-resellers",
   "/reseller": "/saree-wholesale-for-resellers",
+  "/diwali": "/diwali-karva-chauth-wholesale-surat",
+  "/karva-chauth": "/diwali-karva-chauth-wholesale-surat",
 };
 
 /** 308 is the permanent redirect that keeps the request method. */

@@ -30,6 +30,10 @@ const COPY: Record<"en" | "hi", Copy> = {
       { href: "/dress-material-wholesale-surat", label: "Dress material wholesale" },
       { href: "/saree-wholesale-for-resellers", label: "Sarees for resellers" },
       { href: "/organza-net-fabric-for-boutiques", label: "Organza & net for boutiques" },
+      {
+        href: "/diwali-karva-chauth-wholesale-surat",
+        label: "Diwali & Karva Chauth wholesale",
+      },
       { href: "/reseller-circle", label: "Join the Vidhi Reseller Circle" },
       { href: "/blog", label: "The Fabric Desk (blog)" },
     ],
@@ -47,6 +51,10 @@ const COPY: Record<"en" | "hi", Copy> = {
       { href: "/hi/dress-material-wholesale-surat", label: "ड्रेस मटेरियल होलसेल" },
       { href: "/hi/saree-wholesale-for-resellers", label: "रीसेलर के लिए साड़ियाँ" },
       { href: "/hi/organza-net-fabric-for-boutiques", label: "बुटीक के लिए ऑर्गेंज़ा और नेट" },
+      {
+        href: "/hi/diwali-karva-chauth-wholesale-surat",
+        label: "दिवाली और करवा चौथ होलसेल",
+      },
       { href: "/hi/reseller-circle", label: "विधि रीसेलर सर्कल से जुड़िए" },
       { href: "/hi/blog", label: "फैब्रिक डेस्क (ब्लॉग)" },
     ],

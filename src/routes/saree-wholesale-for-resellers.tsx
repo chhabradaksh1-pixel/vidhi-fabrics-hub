@@ -241,6 +241,10 @@ function ResellerSareesPage() {
               <a href="/blog/karva-chauth-diwali-festive-stock" className={linkClass}>
                 what to stock for Karva Chauth and Diwali
               </a>
+              , or ask for the catalogue on our{" "}
+              <a href="/diwali-karva-chauth-wholesale-surat" className={linkClass}>
+                Diwali and Karva Chauth wholesale page
+              </a>
               .
             </p>
 

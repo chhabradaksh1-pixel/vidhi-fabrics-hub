@@ -205,6 +205,13 @@ function PolyesterSareesPageHi() {
               >
                 करवा चौथ और दिवाली के लिए क्या स्टॉक करें
               </a>
+              । कैटलॉग के लिए देखिए —{" "}
+              <a
+                href="/hi/diwali-karva-chauth-wholesale-surat"
+                className="text-clay underline decoration-line underline-offset-4 hover:text-claydeep"
+              >
+                बुटीक के लिए दिवाली साड़ी होलसेल और करवा चौथ के सूट
+              </a>
               ।
             </p>
 

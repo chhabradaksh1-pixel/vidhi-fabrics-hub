@@ -10,6 +10,7 @@ export const LANDING_PAGES_WITH_HINDI: readonly string[] = [
   "/about",
   "/saree-wholesale-for-resellers",
   "/organza-net-fabric-for-boutiques",
+  "/diwali-karva-chauth-wholesale-surat",
   "/reseller-circle",
 ];
 

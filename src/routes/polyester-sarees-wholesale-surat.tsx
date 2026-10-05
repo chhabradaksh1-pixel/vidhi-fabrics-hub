@@ -202,6 +202,13 @@ function PolyesterSareesPage() {
               >
                 what to stock for Karva Chauth and Diwali
               </a>
+              . For the catalogue, see{" "}
+              <a
+                href="/diwali-karva-chauth-wholesale-surat"
+                className="text-clay underline decoration-line underline-offset-4 hover:text-claydeep"
+              >
+                Diwali wholesale sarees and Karva Chauth suits for boutiques
+              </a>
               .
             </p>
 

@@ -218,7 +218,11 @@ function DressMaterialPage() {
               <a href="/organza-net-fabric-for-boutiques" className={linkClass}>
                 organza and net fabric
               </a>
-              , sourced to order through our Surat network. Resellers can see{" "}
+              , sourced to order through our Surat network. For Karva Chauth and Diwali, see{" "}
+              <a href="/diwali-karva-chauth-wholesale-surat" className={linkClass}>
+                Diwali wholesale sarees and Karva Chauth unstitched suits
+              </a>
+              . Resellers can see{" "}
               <a href="/saree-wholesale-for-resellers" className={linkClass}>
                 saree wholesale for resellers
               </a>

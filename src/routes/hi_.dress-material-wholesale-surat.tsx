@@ -214,7 +214,12 @@ function DressMaterialPageHi() {
               <a href="/hi/organza-net-fabric-for-boutiques" className={linkClass}>
                 ऑर्गेंज़ा और नेट कपड़ा
               </a>{" "}
-              मँगवा सकते हैं, जो हम सूरत के अपने नेटवर्क से ऑर्डर पर सोर्स करते हैं। रीसेलर देखें —{" "}
+              मँगवा सकते हैं, जो हम सूरत के अपने नेटवर्क से ऑर्डर पर सोर्स करते हैं। करवा चौथ और
+              दिवाली के लिए देखिए —{" "}
+              <a href="/hi/diwali-karva-chauth-wholesale-surat" className={linkClass}>
+                दिवाली साड़ी होलसेल और करवा चौथ के अनस्टिच्ड सूट
+              </a>
+              । रीसेलर देखें —{" "}
               <a href="/hi/saree-wholesale-for-resellers" className={linkClass}>
                 रीसेलर के लिए साड़ी होलसेल
               </a>

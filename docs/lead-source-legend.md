@@ -19,12 +19,13 @@ they first reached the site in that browser session.
 | ABT  | About page `/about`                                                      |
 | RES  | Saree wholesale for resellers `/saree-wholesale-for-resellers`           |
 | ORG  | Organza and net fabric for boutiques `/organza-net-fabric-for-boutiques` |
+| FES  | Diwali and Karva Chauth wholesale `/diwali-karva-chauth-wholesale-surat` |
 | COM  | Vidhi Reseller Circle join page `/reseller-circle` (form only)           |
 | ERR  | "Page not found" (404) page, at any mistyped or old URL                  |
 | OTH  | Any other page                                                           |
 
 Hindi pages add **H** to the page code: HOMH, SARH, DRSH, BLGH, BLIH, ABTH, RESH, ORGH,
-COMH, ERRH (a 404 under `/hi/...`).
+FESH, COMH, ERRH (a 404 under `/hi/...`).
 
 The Reseller Circle join form sends `form=reseller-circle` with `ref_code` such
 as `COM-IG`. This means the person _asked to join_ from the website. It is not
@@ -41,13 +42,14 @@ These short addresses permanently redirect to the full pages, and keep any
 Each one also works with `/hi` in front, going to the Hindi page (for example
 `/hi/sarees`).
 
-| Short link                               | Goes to                             |
-| ---------------------------------------- | ----------------------------------- |
-| `/sarees`, `/saree`, `/polyester-sarees` | `/polyester-sarees-wholesale-surat` |
-| `/dress-material`, `/dress-materials`    | `/dress-material-wholesale-surat`   |
-| `/resellers`, `/reseller`                | `/saree-wholesale-for-resellers`    |
-| `/organza`, `/net`, `/organza-net`       | `/organza-net-fabric-for-boutiques` |
-| `/circle`, `/community`                  | `/reseller-circle`                  |
+| Short link                               | Goes to                                |
+| ---------------------------------------- | -------------------------------------- |
+| `/sarees`, `/saree`, `/polyester-sarees` | `/polyester-sarees-wholesale-surat`    |
+| `/dress-material`, `/dress-materials`    | `/dress-material-wholesale-surat`      |
+| `/resellers`, `/reseller`                | `/saree-wholesale-for-resellers`       |
+| `/organza`, `/net`, `/organza-net`       | `/organza-net-fabric-for-boutiques`    |
+| `/diwali`, `/karva-chauth`               | `/diwali-karva-chauth-wholesale-surat` |
+| `/circle`, `/community`                  | `/reseller-circle`                     |
 
 The visitor's page code is the page they end up on, e.g. `/sarees` gives SAR.
 
@@ -76,14 +78,15 @@ typed by hand. Log it as D.
 Always use these links instead of the bare website address. Without them,
 Instagram, Facebook and WhatsApp visits often show up as D.
 
-| Channel                                      | Link                                                                                                                               |
-| -------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| Instagram bio                                | `https://www.vidhifabrics.com/?utm_source=instagram&utm_medium=social&utm_campaign=bio`                                            |
-| Facebook page (website field and posts)      | `https://www.vidhifabrics.com/?utm_source=facebook&utm_medium=social&utm_campaign=page`                                            |
-| WhatsApp Channel posts                       | `https://www.vidhifabrics.com/?utm_source=whatsapp&utm_medium=channel&utm_campaign=channel`                                        |
-| Google Business Profile website button       | `https://www.vidhifabrics.com/?utm_source=gbp&utm_medium=organic&utm_campaign=profile`                                             |
-| Catalogue PDF / shared link (sarees)         | `https://www.vidhifabrics.com/polyester-sarees-wholesale-surat?utm_source=catalogue&utm_medium=shared_link&utm_campaign=catalogue` |
-| Catalogue PDF / shared link (dress material) | `https://www.vidhifabrics.com/dress-material-wholesale-surat?utm_source=catalogue&utm_medium=shared_link&utm_campaign=catalogue`   |
+| Channel                                             | Link                                                                                                                               |
+| --------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| Instagram bio                                       | `https://www.vidhifabrics.com/?utm_source=instagram&utm_medium=social&utm_campaign=bio`                                            |
+| Facebook page (website field and posts)             | `https://www.vidhifabrics.com/?utm_source=facebook&utm_medium=social&utm_campaign=page`                                            |
+| WhatsApp Channel posts                              | `https://www.vidhifabrics.com/?utm_source=whatsapp&utm_medium=channel&utm_campaign=channel`                                        |
+| Google Business Profile website button              | `https://www.vidhifabrics.com/?utm_source=gbp&utm_medium=organic&utm_campaign=profile`                                             |
+| Catalogue PDF / shared link (sarees)                | `https://www.vidhifabrics.com/polyester-sarees-wholesale-surat?utm_source=catalogue&utm_medium=shared_link&utm_campaign=catalogue` |
+| Catalogue PDF / shared link (dress material)        | `https://www.vidhifabrics.com/dress-material-wholesale-surat?utm_source=catalogue&utm_medium=shared_link&utm_campaign=catalogue`   |
+| Catalogue PDF / shared link (Diwali & Karva Chauth) | `https://www.vidhifabrics.com/diwali?utm_source=catalogue&utm_medium=shared_link&utm_campaign=festive`                             |
 
 **Not live yet (3 October 2026):** the Facebook page and the WhatsApp Channel
 don't exist yet. Use the links above once they are created, from the very

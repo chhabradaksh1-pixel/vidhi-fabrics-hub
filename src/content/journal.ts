@@ -131,9 +131,9 @@ export const JOURNAL: JournalArticle[] = [
       "hi-en": "Season ki khareed",
     },
     metaTitle: {
-      en: "Karva Chauth & Diwali saree and suit stocking guide",
-      hi: "करवा चौथ और दिवाली के लिए साड़ी-सूट स्टॉक गाइड",
-      "hi-en": "Karva Chauth aur Diwali ke liye saree-suit stock guide",
+      en: "Karva Chauth & Diwali saree-suit guide",
+      hi: "करवा चौथ और दिवाली साड़ी-सूट गाइड",
+      "hi-en": "Karva Chauth aur Diwali saree-suit guide",
     },
     metaDescription: {
       en: "What retailers and boutiques in Punjab, Haryana and Rajasthan stock for Karva Chauth and Diwali: festive colours, fabric feel, set mixes and price bands.",
@@ -751,9 +751,34 @@ export const JOURNAL: JournalArticle[] = [
         },
         href: "/blog/fabric-gsm-bulk-orders",
       },
+      {
+        phrase: {
+          en: "dress material wholesale page",
+          hi: "ड्रेस मटेरियल होलसेल पेज",
+          "hi-en": "dress material wholesale page",
+        },
+        href: "/dress-material-wholesale-surat",
+      },
+      {
+        phrase: {
+          en: "polyester sarees wholesale page",
+          hi: "पॉलिएस्टर साड़ी होलसेल पेज",
+          "hi-en": "polyester saree wholesale page",
+        },
+        href: "/polyester-sarees-wholesale-surat",
+      },
+      {
+        phrase: {
+          en: "saree wholesale for resellers page",
+          hi: "रीसेलर साड़ी होलसेल पेज",
+          "hi-en": "reseller saree wholesale page",
+        },
+        href: "/saree-wholesale-for-resellers",
+      },
     ],
     image: warehouse,
     published: "2026-09-24",
+    modified: "2026-10-09",
     imageAlt: {
       en: "Rolls of cloth stacked by width, where yardage and costing actually meet",
       hi: "चौड़ाई के हिसाब से रखे कपड़े के थान — जहाँ गज़ और लागत असल में मिलते हैं",
@@ -766,9 +791,15 @@ export const JOURNAL: JournalArticle[] = [
       "hi-en": "Specification guide",
     },
     metaTitle: {
-      en: "Fabric width and costing explained",
-      hi: "कपड़े की चौड़ाई और लागत",
-      "hi-en": "Kapde ki chaudai aur laagat",
+      en: "Fabric width and your shop's real cost",
+      hi: "चौड़ाई आपकी दुकान की लागत कैसे बदलती है",
+      "hi-en": "Chaudai aapki dukaan ki laagat kaise badalti hai",
+    },
+    metaDescription: {
+      en: "Boutiques and resellers: a wider cloth is not always the better buy. See how width changes the pieces you cut before you compare two Surat quotations.",
+      hi: "बुटीक और रीसेलर के लिए: चौड़ा कपड़ा हमेशा बेहतर नहीं होता। दो सूरत कोटेशन तुलना करने से पहले देखिए कि चौड़ाई काटे गए पीस कैसे बदलती है।",
+      "hi-en":
+        "Boutiques aur resellers ke liye: chauda kapda hamesha behtar nahin hota. Do Surat quotation compare karne se pehle dekhiye ki chaudai kaate gaye piece kaise badalti hai.",
     },
     title: {
       en: "Fabric width and what it does to your costing",
@@ -887,6 +918,24 @@ export const JOURNAL: JournalArticle[] = [
             "Prati varg meter dar nikaalkar wahin mat rukiye. Maal ki tulna ke liye wo sahi ganit hai aur laagat ki tulna ke liye galat, kyunki wo maankar chalta hai ki aap har inch istemaal kar sakte hain — aur pichhla hissa dikhata hai ki aam taur par nahin kar sakte.",
             "Iske bajaye pattern bichhaiye, mote taur par bhi chalega. Nikaaliye ki har chaudai par ek meter se kitne piece aate hain, prati meter dar ko us sankhya se baantiye, aur nateejon ki tulna kijiye. Wo aankda prati piece laagat hai, aur kataai ki mez se takraane ke baad yahi ek tulna tikti hai.",
             "Jahan dono chaudai se utne hi piece niklein, patla kapda lijiye. Jahan chaude se zyada niklein, wahan atirikt daam us bindu tak dena sahi hai jahan dono ki upaj phir barabar ho jaaye.",
+          ],
+        },
+      },
+      {
+        heading: {
+          en: "Where this lands for a boutique order",
+          hi: "बुटीक के ऑर्डर में यह कहाँ काम आता है",
+          "hi-en": "Boutique ke order mein yeh kahan kaam aata hai",
+        },
+        paragraphs: {
+          en: [
+            "The same question comes up on a finished set, not only on yardage. See the dress material wholesale page for unstitched suits, the polyester sarees wholesale page for saree lengths, and the saree wholesale for resellers page if you are buying a first mix for a boutique or a WhatsApp counter.",
+          ],
+          hi: [
+            "यही सवाल तैयार सेट पर भी आता है, सिर्फ़ गज़ कपड़े पर नहीं। अनस्टिच्ड सूट के लिए ड्रेस मटेरियल होलसेल पेज देखिए, साड़ी की लंबाई के लिए पॉलिएस्टर साड़ी होलसेल पेज, और बुटीक या व्हाट्सएप काउंटर के पहले मिक्स के लिए रीसेलर साड़ी होलसेल पेज।",
+          ],
+          "hi-en": [
+            "Yahi sawaal taiyar set par bhi aata hai, sirf gaz kapde par nahin. Unstitched suits ke liye dress material wholesale page dekhiye, saree ki lambai ke liye polyester saree wholesale page, aur boutique ya WhatsApp counter ke pehle mix ke liye reseller saree wholesale page.",
           ],
         },
       },
@@ -1261,17 +1310,17 @@ export const JOURNAL: JournalArticle[] = [
     slug: "source-fabric-from-surat",
     image: swatchStack,
     published: "2026-09-16",
-    modified: "2026-10-02",
+    modified: "2026-10-09",
     metaTitle: {
-      en: "How to Source Fabric from Surat Remotely",
-      hi: "दूर बैठे सूरत से कपड़ा कैसे मंगवाएँ",
-      "hi-en": "Remote rehkar Surat se fabric kaise mangwayein",
+      en: "Source Surat fabric without a visit",
+      hi: "बाज़ार जाए बिना सूरत से कपड़ा मंगवाएँ",
+      "hi-en": "Market jaaye bina Surat se fabric mangwayein",
     },
     metaDescription: {
-      en: "A wholesale buyer’s guide to sourcing fabric from Surat remotely, covering requirements, samples, quotations, bulk approval and order terms.",
-      hi: "दूर बैठे सूरत से कपड़ा मंगवाने की थोक खरीदार गाइड — ज़रूरत, सैंपल, कोटेशन, बल्क मंज़ूरी और ऑर्डर की शर्तों तक।",
+      en: "A WhatsApp buying brief for boutiques and resellers: what to send, how samples work, and how to order polyester sarees or dress material from Surat.",
+      hi: "बुटीक और रीसेलर के लिए व्हाट्सएप ब्रीफ़: क्या भेजें, सैंपल कैसे चले, और सूरत से पॉलिएस्टर साड़ी या ड्रेस मटेरियल कैसे मँगवाएँ।",
       "hi-en":
-        "Remote rehkar Surat se fabric mangwane ki wholesale buyer guide — requirement, sample, quotation, bulk approval aur order terms tak.",
+        "Boutiques aur resellers ke liye WhatsApp brief: kya bhejein, sample kaise chale, aur Surat se polyester saree ya dress material kaise mangwayein.",
     },
     imageAlt: {
       en: "Folded fabric samples laid out in a colour run, ready to be compared",
@@ -1340,6 +1389,30 @@ export const JOURNAL: JournalArticle[] = [
           "hi-en": "hamari fabric range",
         },
         href: "/#catalogue",
+      },
+      {
+        phrase: {
+          en: "dress material wholesale page",
+          hi: "ड्रेस मटेरियल होलसेल पेज",
+          "hi-en": "dress material wholesale page",
+        },
+        href: "/dress-material-wholesale-surat",
+      },
+      {
+        phrase: {
+          en: "polyester sarees wholesale page",
+          hi: "पॉलिएस्टर साड़ी होलसेल पेज",
+          "hi-en": "polyester saree wholesale page",
+        },
+        href: "/polyester-sarees-wholesale-surat",
+      },
+      {
+        phrase: {
+          en: "saree wholesale for resellers page",
+          hi: "रीसेलर साड़ी होलसेल पेज",
+          "hi-en": "reseller saree wholesale page",
+        },
+        href: "/saree-wholesale-for-resellers",
       },
     ],
     related: ["sample-to-bulk-order-checklist", "buying-dress-material-wholesale"],
@@ -1687,6 +1760,24 @@ export const JOURNAL: JournalArticle[] = [
             "Likhiye ki kya order kiya, kya mila, customer ya production se kya feedback aaya, colour aur finish ummeed par utre ya nahi, fabric kaatne ya bechne mein aasan raha ya nahi, kaun se designs jaldi bike, kaun se products bache reh gaye, aur yeh maal dobara mangwana chahiye ya nahi.",
             "Dobara order karte samay purana code deejiye aur poochiye ki maal usi stock ka hai ya naye batch ka. Jahan shade ya finish ek jaisa rehna zaroori hai, wahan baat kijiye ki naya maal purane reference se kaise milaya jayega.",
             "Saaf commercial record aage ki sourcing tez karta hai aur bikhri photographs aur chat messages par nirbharta ghatata hai.",
+          ],
+        },
+      },
+      {
+        heading: {
+          en: "Start from the product, then send the brief",
+          hi: "पहले प्रोडक्ट, फिर ब्रीफ़",
+          "hi-en": "Pehle product, phir brief",
+        },
+        paragraphs: {
+          en: [
+            "If the brief is a finished product rather than cloth by the metre, start from the page that matches it. The dress material wholesale page is unstitched suits, the polyester sarees wholesale page is the saree range, and the saree wholesale for resellers page is the first stop for a new reseller. Send the same brief on WhatsApp from there.",
+          ],
+          hi: [
+            "अगर ब्रीफ़ मीटर कपड़े की नहीं, तैयार प्रोडक्ट की है, तो उसी पेज से शुरू कीजिए जो मेल खाता हो। ड्रेस मटेरियल होलसेल पेज अनस्टिच्ड सूट है, पॉलिएस्टर साड़ी होलसेल पेज साड़ी की रेंज है, और रीसेलर साड़ी होलसेल पेज नए रीसेलर की पहली जगह है। वहीं से वही ब्रीफ़ व्हाट्सएप पर भेजिए।",
+          ],
+          "hi-en": [
+            "Agar brief meter kapde ki nahin, taiyar product ki hai, to usi page se shuru kijiye jo match kare. Dress material wholesale page unstitched suits hai, polyester saree wholesale page saree ki range hai, aur reseller saree wholesale page naye reseller ki pehli jagah hai. Wahin se wahi brief WhatsApp par bhejiye.",
           ],
         },
       },
@@ -2122,10 +2213,26 @@ export const JOURNAL: JournalArticle[] = [
         },
         href: "/blog/how-to-read-a-fabric-spec",
       },
+      {
+        phrase: {
+          en: "dress material wholesale page",
+          hi: "ड्रेस मटेरियल होलसेल पेज",
+          "hi-en": "dress material wholesale page",
+        },
+        href: "/dress-material-wholesale-surat",
+      },
+      {
+        phrase: {
+          en: "saree wholesale for resellers page",
+          hi: "रीसेलर साड़ी होलसेल पेज",
+          "hi-en": "reseller saree wholesale page",
+        },
+        href: "/saree-wholesale-for-resellers",
+      },
     ],
     image: wovenDetail,
     published: "2026-09-12",
-    modified: "2026-10-02",
+    modified: "2026-10-09",
     imageAlt: {
       en: "A woven cloth seen up close, the interlacing of warp and weft visible thread by thread",
       hi: "पास से दिखा बुना हुआ कपड़ा, जिसमें ताने-बाने की बुनावट धागे-धागे दिख रही है",
@@ -2142,9 +2249,15 @@ export const JOURNAL: JournalArticle[] = [
        Derived by trimming the display title rather than rewritten, so the
        Hindi is the reviewed-pending wording already on the page. */
     metaTitle: {
-      en: "Why similar sarees have different prices",
-      hi: "एक जैसी साड़ियों की कीमत अलग क्यों होती है",
-      "hi-en": "Ek jaisi sarees ki price alag kyun hoti hai",
+      en: "Why similar sarees don't cost the same",
+      hi: "एक जैसी साड़ियों का दाम एक जैसा क्यों नहीं",
+      "hi-en": "Ek jaisi sarees ka daam ek jaisa kyun nahin",
+    },
+    metaDescription: {
+      en: "Before you pick a polyester saree range, ask what sits behind two similar quotes: fabric, finish and work. Written for boutique and reseller buyers.",
+      hi: "पॉलिएस्टर साड़ी की रेंज चुनने से पहले पूछिए कि दो मिलते-जुलते कोटेशन के पीछे कपड़ा, फ़िनिश और कारीगरी क्या है। बुटीक और रीसेलर के लिए।",
+      "hi-en":
+        "Polyester saree ki range choose karne se pehle poochiye ki do milte-julte quotation ke peeche fabric, finish aur kaarigari kya hai. Boutique aur reseller buyers ke liye.",
     },
     title: {
       en: "Why two similar-looking sarees can have different prices",
@@ -2276,16 +2389,19 @@ export const JOURNAL: JournalArticle[] = [
             "Once you understand the differences, decide which ones matter to your shop. Your customers may prioritise a particular look, a comfortable feel, easy styling or a familiar price range. Ask yourself which details you can explain honestly at the counter and whether the product fits the occasions your buyers shop for.",
             "Save the specifications and your observations against the product code. After selling the range, add customer questions, feedback and reorder requests. Over time, this gives you a practical buying record and a stronger basis for discussing the next collection with your supplier.",
             "If polyester sarees are part of your range, our polyester sarees wholesale page explains how to see current designs and rates on WhatsApp before you commit.",
+            "Shops that sell both keep dress material beside the sarees. The dress material wholesale page covers unstitched suits, and the saree wholesale for resellers page is where a new reseller starts.",
           ],
           hi: [
             "फ़र्क़ समझ लेने के बाद तय कीजिए कि आपकी दुकान के लिए कौन-सा फ़र्क़ मायने रखता है। आपके ग्राहकों के लिए कोई ख़ास लुक, आरामदेह एहसास, आसान स्टाइलिंग या जानी-पहचानी कीमत ज़्यादा ज़रूरी हो सकती है। ख़ुद से पूछिए कि काउंटर पर आप कौन-सी बातें ईमानदारी से समझा सकते हैं, और क्या प्रोडक्ट उन मौकों पर फिट बैठता है जिनके लिए आपके ग्राहक खरीदते हैं।",
             "स्पेसिफ़िकेशन और अपनी टिप्पणियाँ प्रोडक्ट कोड के साथ सहेजिए। रेंज बिक जाने के बाद उसमें ग्राहकों के सवाल, प्रतिक्रिया और दोबारा माँग जोड़ते जाइए। समय के साथ यह आपका काम का खरीद-रिकॉर्ड बन जाएगा और अगले कलेक्शन पर सप्लायर से बात करने का मज़बूत आधार।",
             "अगर आपकी रेंज में पॉलिएस्टर साड़ियाँ हैं, तो हमारा पॉलिएस्टर साड़ी थोक पेज बताता है कि ऑर्डर पक्का करने से पहले ताज़ा डिज़ाइन और रेट व्हाट्सएप पर कैसे देखें।",
+            "जो दुकानें दोनों बेचती हैं, वे साड़ियों के साथ ड्रेस मटेरियल रखती हैं। अनस्टिच्ड सूट ड्रेस मटेरियल होलसेल पेज पर हैं, और नया रीसेलर रीसेलर साड़ी होलसेल पेज से शुरू करता है।",
           ],
           "hi-en": [
             "Fark samajh lene ke baad tay kijiye ki aapki shop ke liye kaun sa fark maayne rakhta hai. Aapke customers ke liye koi khaas look, aaramdeh feel, aasan styling ya jaani-pehchani price range zyada zaroori ho sakti hai. Khud se poochiye ki counter par aap kaun si baatein imaandari se samjha sakte hain, aur kya product un occasions par fit baithta hai jinke liye aapke buyers khareedte hain.",
             "Specifications aur apni observations product code ke saath save kijiye. Range bik jaane ke baad usme customers ke sawal, feedback aur reorder requests jodte jaiye. Samay ke saath yeh aapka kaam ka buying record ban jayega aur agle collection par supplier se baat karne ka mazboot aadhaar.",
             "Agar aapki range mein polyester sarees hain, to hamara polyester saree wholesale page batata hai ki order pakka karne se pehle latest designs aur rates WhatsApp par kaise dekhein.",
+            "Jo dukaanen dono bechti hain, wo sarees ke saath dress material rakhti hain. Unstitched suits dress material wholesale page par hain, aur naya reseller reseller saree wholesale page se shuru karta hai.",
           ],
         },
       },

@@ -62,9 +62,17 @@ export const COPY = {
     },
     body: {
       en: "Vidhi Fabrics is a Surat manufacturer and wholesaler of polyester sarees and dress material. Through our network of Surat mills and manufacturing units, we also source organza, net and other fabrics to order, for wholesalers, retailers, resellers and boutiques.",
-      hi: "विधि फैब्रिक्स सूरत की पॉलिएस्टर साड़ी और ड्रेस मटेरियल निर्माता व थोक विक्रेता है। सूरत की मिलों और मैन्युफैक्चरिंग यूनिट्स के अपने नेटवर्क से हम ऑर्गेंज़ा, नेट और दूसरे कपड़े भी ऑर्डर पर सोर्स करते हैं — होलसेलर, रिटेलर, रीसेलर और बुटीक के लिए।",
+      // Same meaning as the English sentence. Uses होलसेल, सूरत, ड्रेस मटीरियल
+      // and साड़ी in the trade register. No native speaker has reviewed this
+      // wording — see BRAND.md.
+      hi: "विधि फैब्रिक्स सूरत का पॉलिएस्टर साड़ी और ड्रेस मटीरियल निर्माता और होलसेलर है। सूरत की मिलों और मैन्युफैक्चरिंग यूनिट्स के नेटवर्क से हम ऑर्गेंज़ा, नेट और दूसरे कपड़े भी ऑर्डर पर सोर्स करते हैं — होलसेलर, रिटेलर, रीसेलर और बुटीक के लिए।",
       "hi-en":
         "Vidhi Fabrics Surat ka polyester saree aur dress material manufacturer aur wholesaler hai. Surat ki mills aur manufacturing units ke apne network se hum organza, net aur dusre fabrics bhi order par source karte hain — wholesalers, retailers, resellers aur boutiques ke liye.",
+    },
+    dressLink: {
+      en: "Dress material and unstitched suits wholesale",
+      hi: "सूरत से ड्रेस मटीरियल और अनस्टिच्ड सूट होलसेल",
+      "hi-en": "Surat se dress material aur unstitched suits wholesale",
     },
     // Where the buyers are, as stated by the owner. Mirrors `areaServed` in
     // content/business.ts and the polyester page's regions answer.
@@ -293,6 +301,11 @@ export const COPY = {
       en: "Ask about this fabric",
       hi: "इस फैब्रिक के बारे में पूछें",
       "hi-en": "Is fabric ke baare mein poochein",
+    },
+    askOnWhatsApp: {
+      en: "Ask on WhatsApp",
+      hi: "व्हाट्सएप पर पूछिए",
+      "hi-en": "WhatsApp par poochiye",
     },
     /* {name} and {sku} are replaced at render time. */
     enquiryMessage: {

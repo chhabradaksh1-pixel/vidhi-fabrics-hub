@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 
-import { FABRICS } from "@/content/fabrics";
+import { CATALOGUE_RANGES, FABRICS, type CatalogueRange } from "@/content/fabrics";
 import {
   CATEGORY_LABELS,
   COPY,
@@ -9,6 +9,23 @@ import {
   type Lang,
 } from "@/content/translations";
 import { whatsAppUrl } from "@/content/whatsapp";
+
+function rangeHref(href: string, lang: Lang) {
+  return lang === "hi" ? `/hi${href}` : href;
+}
+
+function rangeMatches(line: CatalogueRange, lang: Lang, needle: string, materials: Material[]) {
+  if (
+    materials.length > 0 &&
+    (line.category === "sourcing" || !materials.includes(line.category))
+  ) {
+    return false;
+  }
+  if (needle === "") return true;
+  return [line.name[lang], line.tag[lang], line.body[lang]].some((field) =>
+    field.toLowerCase().includes(needle),
+  );
+}
 
 /**
  * The fabric catalogue.
@@ -60,8 +77,13 @@ export function FabricCatalogueSection({ lang }: { lang: Lang }) {
   const [view, setView] = useState<View>("grid");
   const [openSku, setOpenSku] = useState<string | null>(null);
 
+  const needle = query.trim().toLowerCase();
+  const ranges = useMemo(
+    () => CATALOGUE_RANGES.filter((line) => rangeMatches(line, lang, needle, materials)),
+    [lang, materials, needle],
+  );
+
   const shown = useMemo(() => {
-    const needle = query.trim().toLowerCase();
     const matched = FABRICS.filter((f) => {
       if (materials.length > 0 && !materials.includes(f.category)) return false;
       if (needle === "") return true;
@@ -76,7 +98,7 @@ export function FabricCatalogueSection({ lang }: { lang: Lang }) {
       if (sort === "width") return a.widthIn - b.widthIn;
       return compare.compare(a.name[lang], b.name[lang]);
     });
-  }, [lang, materials, query, sort]);
+  }, [lang, materials, needle, sort]);
 
   const filtered = query.trim() !== "" || materials.length > 0;
   const open = openSku === null ? undefined : shown.find((f) => f.sku === openSku);
@@ -192,8 +214,8 @@ export function FabricCatalogueSection({ lang }: { lang: Lang }) {
           <div className="flex items-center gap-4">
             <p aria-live="polite" className="font-mono text-[11px] tracking-[0.14em] text-mute">
               {fill(COPY.catalogue.count[lang], {
-                shown: String(shown.length),
-                total: String(FABRICS.length),
+                shown: String(shown.length + ranges.length),
+                total: String(FABRICS.length + CATALOGUE_RANGES.length),
               })}
             </p>
             {filtered && (
@@ -208,14 +230,20 @@ export function FabricCatalogueSection({ lang }: { lang: Lang }) {
           </div>
         </div>
 
-        {shown.length === 0 ? (
+        {shown.length + ranges.length === 0 ? (
           <p className="mt-10 text-sm text-mute">
             {query.trim() === "" ? COPY.catalogue.empty[lang] : COPY.catalogue.noResults[lang]}
           </p>
-        ) : view === "table" ? (
-          <SpecTable lang={lang} fabrics={shown} onOpen={setOpenSku} />
         ) : (
-          <FabricGrid lang={lang} fabrics={shown} onOpen={setOpenSku} />
+          <>
+            {ranges.length > 0 && <RangeGrid lang={lang} ranges={ranges} />}
+            {shown.length > 0 &&
+              (view === "table" ? (
+                <SpecTable lang={lang} fabrics={shown} onOpen={setOpenSku} />
+              ) : (
+                <FabricGrid lang={lang} fabrics={shown} onOpen={setOpenSku} />
+              ))}
+          </>
         )}
       </div>
 
@@ -300,6 +328,50 @@ function SpecTable({
           ))}
         </tbody>
       </table>
+    </div>
+  );
+}
+
+/**
+ * The four selling ranges, in a fixed order above the cloth examples.
+ * Text cards: a stock photograph would claim a cloth the card does not show.
+ */
+function RangeGrid({ lang, ranges }: { lang: Lang; ranges: CatalogueRange[] }) {
+  return (
+    <div data-reveal-stagger className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
+      {ranges.map((line) => (
+        <article
+          key={line.id}
+          data-reveal
+          className="flex flex-col border border-line bg-sand/40 p-6"
+        >
+          <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-clay">
+            {line.tag[lang]}
+          </p>
+          <h3 className="mt-3 font-display text-2xl font-light leading-tight tracking-tight">
+            {line.name[lang]}
+          </h3>
+          <p className="mt-3 flex-1 text-sm leading-relaxed text-mute">{line.body[lang]}</p>
+          <div className="mt-6 flex flex-col items-start gap-3">
+            {line.whatsAppMessage ? (
+              <a
+                href={whatsAppUrl(line.whatsAppMessage[lang])}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center rounded-sm bg-clay px-4 py-3 font-mono text-[11px] uppercase tracking-[0.12em] text-paper transition-colors hover:bg-claydeep"
+              >
+                {COPY.catalogue.askOnWhatsApp[lang]}
+              </a>
+            ) : null}
+            <a
+              href={rangeHref(line.pageHref, lang)}
+              className="text-sm text-clay underline decoration-line underline-offset-4 hover:text-claydeep"
+            >
+              {line.linkLabel[lang]}
+            </a>
+          </div>
+        </article>
+      ))}
     </div>
   );
 }

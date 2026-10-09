@@ -81,6 +81,47 @@ const FAQS: {
   question: Record<Lang, string>;
   answer: Record<Lang, string>;
 }[] = [
+  // Short block for the Hindi homepage. Meaning matches the English strings.
+  // Native speaker review still outstanding — see BRAND.md.
+  {
+    question: {
+      en: "Do you sell dress material wholesale from Surat?",
+      hi: "क्या सूरत से ड्रेस मटीरियल होलसेल मिलता है?",
+      "hi-en": "Kya Surat se dress material wholesale milta hai?",
+    },
+    answer: {
+      en: "Yes. Dress material and unstitched suits are one of our two main categories, supplied from Surat to wholesalers, retailers, resellers and boutiques. Festive and daily-wear polyester and synthetic sets are shared on WhatsApp.",
+      hi: "हाँ। ड्रेस मटीरियल और अनस्टिच्ड सूट हमारी दो मुख्य श्रेणियों में से एक हैं, जो सूरत से होलसेलर, रिटेलर, रीसेलर और बुटीक को मिलते हैं। त्योहारी और रोज़मर्रा के पॉलिएस्टर और सिंथेटिक सेट व्हाट्सएप पर भेजे जाते हैं।",
+      "hi-en":
+        "Haan. Dress material aur unstitched suits hamari do main categories mein se ek hain, jo Surat se wholesalers, retailers, resellers aur boutiques ko milte hain. Festive aur daily-wear polyester aur synthetic sets WhatsApp par bheje jaate hain.",
+    },
+  },
+  {
+    question: {
+      en: "Do you supply polyester sarees wholesale?",
+      hi: "क्या पॉलिएस्टर साड़ी होलसेल में मिलती है?",
+      "hi-en": "Kya polyester saree wholesale mein milti hai?",
+    },
+    answer: {
+      en: "Yes. Polyester sarees are our other main category from Surat. Ask on WhatsApp for the current catalogue.",
+      hi: "हाँ। पॉलिएस्टर साड़ी सूरत से हमारी दूसरी मुख्य श्रेणी है। मौजूदा कैटलॉग के लिए व्हाट्सएप पर पूछिए।",
+      "hi-en":
+        "Haan. Polyester saree Surat se hamari doosri main category hai. Current catalogue ke liye WhatsApp par poochiye.",
+    },
+  },
+  {
+    question: {
+      en: "How do I order on WhatsApp?",
+      hi: "व्हाट्सएप पर ऑर्डर कैसे करें?",
+      "hi-en": "WhatsApp par order kaise karein?",
+    },
+    answer: {
+      en: "Message us with what you need — sarees, dress material, or both — and the city you sell in. We typically reply within 12 hours.",
+      hi: "हमें मैसेज कीजिए कि क्या चाहिए — साड़ी, ड्रेस मटीरियल, या दोनों — और आप किस शहर में बेचते हैं। हम आमतौर पर 12 घंटे में जवाब देते हैं।",
+      "hi-en":
+        "Humein message kijiye ki kya chahiye — saree, dress material, ya dono — aur aap kis sheher mein bechte hain. Hum aam taur par 12 hours mein jawab dete hain.",
+    },
+  },
   {
     question: {
       en: "Is Vidhi Fabrics a fabric manufacturer?",
@@ -358,6 +399,18 @@ function HiIndex() {
               </p>
               <p className="mt-3 max-w-[46ch] text-pretty text-lg text-mute">
                 {COPY.hero.regions[lang]}
+              </p>
+              <p className="mt-4">
+                <a
+                  href={
+                    lang === "hi"
+                      ? "/hi/dress-material-wholesale-surat"
+                      : "/dress-material-wholesale-surat"
+                  }
+                  className="text-clay underline decoration-line underline-offset-4 hover:text-claydeep"
+                >
+                  {COPY.hero.dressLink[lang]}
+                </a>
               </p>
               <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3 font-mono text-xs text-mute">
                 {COPY.hero.stats.map((s) => (

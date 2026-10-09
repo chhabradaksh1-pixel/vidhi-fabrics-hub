@@ -43,6 +43,36 @@ const FAQS: { question: string; answer: string }[] = [
     question: "How do I get the catalogue?",
     answer: `Send a message on WhatsApp at ${BUSINESS.phoneDisplay} and we'll share the current dress material catalogue. You're also welcome to visit our shop at Golden Point, Ring Road, Surat.`,
   },
+  {
+    question: "Is the dress material polyester?",
+    answer:
+      "The sets we supply are polyester and other synthetic dress material, as everyday sets and as festive sets. Tell us the hand and the occasion and we will share what matches from the current catalogue.",
+  },
+  {
+    question: "What do boutiques in Punjab and Haryana stock?",
+    answer:
+      "In much of Punjab and Haryana, unstitched suits sell alongside sarees, for the festive season and for the regular rail. A typical order mixes both.",
+  },
+  {
+    question: "What do shops in Rajasthan stock?",
+    answer:
+      "Many shops in Rajasthan lean towards sarees, and keep a smaller run of unstitched suits. Set the balance from what your own counter sold.",
+  },
+  {
+    question: "Can one order mix sarees and dress material?",
+    answer:
+      "Yes. You can combine dress material sets with polyester sarees, and mix festive and daily-wear designs, in one order.",
+  },
+  {
+    question: "Can I order on WhatsApp without visiting Surat?",
+    answer:
+      "Yes. Message us with what you stock and the city you sell in. We share the current catalogue on WhatsApp. Visiting the shop at Golden Point, Ring Road is welcome if you would rather see the sets in person.",
+  },
+  {
+    question: "What should my first WhatsApp message say?",
+    answer:
+      "Name the product, whether you want festive, daily wear, or a mix, and the city you sell in. Colours that already sell for you, or a photograph of a set you want matched, make the reply more useful.",
+  },
 ];
 
 function breadcrumbList() {
@@ -149,7 +179,7 @@ function DressMaterialPage() {
               and unstitched suits in bulk to wholesalers, retailers, resellers and boutiques. We
               manufacture some lines in-house and also supply from Surat's wider textile market.
               Most of our buyers are in North India, in Punjab, Haryana, Rajasthan and Madhya
-              Pradesh.
+              Pradesh. The sets are polyester and other synthetic dress material.
             </p>
 
             <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">
@@ -162,6 +192,57 @@ function DressMaterialPage() {
               be stitched in many ways. We supply everyday and festive sets, arranged by design and
               colour, so you can build a selection that suits your counter.
             </p>
+            <p className="mt-5 leading-[1.85] text-mute">
+              The set is the unit you are buying. Confirm which pieces are included, whether any
+              piece is optional, and whether the set is unstitched or semi-stitched. The top, the
+              bottom and the dupatta are often different fabrics. In festive sets the dupatta
+              frequently carries most of the work, so ask what each piece is made of.
+            </p>
+
+            <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">
+              Festive sets and daily-wear sets
+            </h2>
+            <p className="mt-5 leading-[1.85] text-mute">
+              Daily-wear sets are the ones a shop reorders through the year: printed and plain
+              polyester and other synthetic dress material, in colours that sell outside the
+              festival weeks. Boutiques use them for the regular rail, beside the festive edit.
+            </p>
+            <p className="mt-5 leading-[1.85] text-mute">
+              Festive sets are the tighter edit. For Karva Chauth and Diwali, boutiques and
+              resellers stock sarees and unstitched suits together. Karva Chauth is the smaller
+              brief: traditional festive colours, often bought to wear on the day or to give within
+              the family. Diwali opens the range. Many buyers in Punjab, Haryana and Rajasthan treat
+              the two festivals as one season, with a Karva Chauth edit first and a wider Diwali
+              range behind it. Both catalogues go out on WhatsApp, design by design. If a dupatta or
+              overlay needs organza or net, that cloth is sourced to order through our Surat mill
+              network, and is not part of the standing dress material sets.
+            </p>
+
+            <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">
+              What Punjab, Haryana and Rajasthan boutiques stock
+            </h2>
+            <p className="mt-5 leading-[1.85] text-mute">
+              In much of Punjab and Haryana, the unstitched suit is as much a festive purchase as
+              the saree. A boutique there usually wants both on the same order: polyester sarees for
+              customers who want a drape, and dress material sets for customers who will have the
+              suit stitched to their own measurements. Daily-wear sets sit beside that festive edit,
+              because the same counter sells through the rest of the year.
+            </p>
+            <p className="mt-5 leading-[1.85] text-mute">
+              Many shops in Rajasthan lean towards sarees, and still keep a smaller run of
+              unstitched suits for customers who ask for them. A shop there can lead with polyester
+              sarees and add dress material where the counter asks for it. Buyers in Madhya Pradesh
+              order the same two categories. Name the state in your first message, because the
+              balance of sarees and suits is not the same in every market. One order can mix festive
+              and daily-wear designs, and can add polyester sarees beside the suits.
+            </p>
+            <p className="mt-5 leading-[1.85] text-mute">
+              A boutique stocking for the season usually writes the order as a mix, not as one
+              design repeated. Festive sets cover Karva Chauth and Diwali. Daily-wear sets cover the
+              weeks between. Polyester sarees cover customers who want a finished drape rather than
+              a suit to be stitched. Tell us the split you want and we will send those designs from
+              the current catalogue.
+            </p>
 
             <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">
               Why buy dress material from Surat
@@ -170,30 +251,29 @@ function DressMaterialPage() {
               Surat is one of India's main centres for synthetic and blended fabrics. Its markets
               carry dress material from weaving, printing and embroidery units across the city, so
               you see a wide choice of designs in one place, with a shorter chain between the cloth
-              and your shop. As a manufacturer and wholesaler in this market, we see new designs as
-              they arrive and can tell you what each set is made of.
+              and your shop. As a manufacturer and wholesaler here, we see new designs as they
+              arrive and can tell you what each set is made of. One business answers for the order.
             </p>
 
             <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">
               What to check when buying wholesale
             </h2>
             <p className="mt-5 leading-[1.85] text-mute">
-              Ask for the composition and measurements of each piece, since the top, bottom and
-              dupatta are often different fabrics. Confirm whether the set is unstitched or
-              semi-stitched, and which pieces are included. Check the sample in ordinary daylight
-              for feel, drape and colour, and keep the design code with your approval. Before
-              paying, get the full order in writing. Our{" "}
+              Ask for the composition and measurements of each piece. Confirm whether the set is
+              unstitched or semi-stitched, and which pieces are included. Check the sample in
+              ordinary daylight for feel, drape and colour, and keep the design code with your
+              approval. Before paying, get the full order in writing. Our{" "}
               <a href="/blog/buying-dress-material-wholesale" className={linkClass}>
                 guide to buying dress material wholesale
               </a>{" "}
-              covers each step in more detail.
+              covers each step.
             </p>
 
             <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">
-              How to get the catalogue
+              How to order on WhatsApp
             </h2>
             <p className="mt-5 leading-[1.85] text-mute">
-              Message us on WhatsApp at{" "}
+              Ordering is a WhatsApp conversation. Message us at{" "}
               <a
                 href={whatsAppUrl(CATALOGUE_MESSAGE)}
                 target="_blank"
@@ -202,9 +282,17 @@ function DressMaterialPage() {
               >
                 {BUSINESS.phoneDisplay}
               </a>{" "}
-              and tell us what you stock: everyday or festive, the fabrics you prefer and the city
-              you sell in. We'll send the current catalogue on WhatsApp. You can also visit us at{" "}
-              {ADDRESS_LINES.en.join(", ")}.
+              and name three things: whether you want dress material, polyester sarees, or both;
+              whether the order is festive, daily wear, or a mix; and the city you sell in. If you
+              know the colours that move on your counter, name them. If you have a photograph of a
+              set you want matched, send it and say which part matters: the print, the dupatta work,
+              or the way the cloth falls.
+            </p>
+            <p className="mt-5 leading-[1.85] text-mute">
+              We reply with the current catalogue on WhatsApp, and we typically respond within 12
+              hours. Approve a sample before a larger order if you want to check the hand and the
+              colour, and keep the design code with that approval. You are also welcome to visit us
+              at {ADDRESS_LINES.en.join(", ")} and look through the sets in person.
             </p>
             <p className="mt-5 leading-[1.85] text-mute">
               We also supply{" "}

@@ -7,7 +7,7 @@ import { whatsAppUrl } from "@/content/whatsapp";
 const SITE = "https://www.vidhifabrics.com";
 const PATH = "/saree-wholesale-for-resellers";
 
-const TITLE = "Saree Wholesale for Resellers | Surat Saree Supplier | Vidhi Fabrics";
+const TITLE = "Saree Wholesale for Resellers, Surat | Vidhi Fabrics";
 const DESCRIPTION =
   "Polyester sarees wholesale for online and WhatsApp resellers, small shops and home sellers, from a Surat manufacturer and wholesaler. Catalogue on WhatsApp.";
 

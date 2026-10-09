@@ -335,8 +335,8 @@ function SpecTable({
 /**
  * The four selling ranges, in a fixed order above the cloth examples.
  * Text cards: a stock photograph would claim a cloth the card does not show.
- * The dress-material card is the exception — it carries the VF-SU01 sheet,
- * which is that suit, and is styled like the printed catalogue page.
+ * The dress-material card is the exception — it shows the suit on a model,
+ * on the catalogue page's maroon field and gold rule.
  *
  * `items-start` keeps a neighbour from stretching to the photograph's height.
  */
@@ -385,13 +385,11 @@ function RangeGrid({ lang, ranges }: { lang: Lang; ranges: CatalogueRange[] }) {
 }
 
 /**
- * Ivory & Maroon (VF-SU01) on the unstitched-suit card.
+ * The unstitched-suit card. The photograph is the model shot only.
  *
- * Colours are sampled from the sheet, not from the site ramp: field #400D13,
- * border gold #C3957A, caption #D6A98A, title #F8E7D9. On that field the gold
- * caption is 7.71:1 and the title is 13.6:1, so both clear WCAG AA.
- * Georgia is already on the machine; Noto Sans Devanagari (loaded on /hi)
- * covers the Hindi title. No new font file.
+ * Field #400D13 and border gold #C3957A are sampled from the catalogue
+ * sheet. On that field the cream heading is 13.6:1 and the gold caption
+ * is 7.71:1, so both clear WCAG AA.
  */
 function SuitRangeCard({
   lang,
@@ -413,19 +411,13 @@ function SuitRangeCard({
           height={image.height}
           className="h-auto w-full"
         />
-        <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.18em] text-[#C3957A]">
+        <p className="mt-5 font-mono text-[11px] uppercase tracking-[0.18em] text-[#C3957A]">
           {line.tag[lang]}
         </p>
-        <h3 className="vf-suit-serif mt-3 text-2xl font-normal leading-tight text-[#F8E7D9]">
+        <h3 className="mt-3 font-display text-2xl font-light leading-tight tracking-tight text-[#F8E7D9]">
           {line.name[lang]}
         </h3>
-        <p
-          className={`vf-suit-serif mt-2 flex-1 text-sm leading-relaxed text-[#D6A98A] ${
-            lang === "hi" ? "" : "italic"
-          }`}
-        >
-          {line.body[lang]}
-        </p>
+        <p className="mt-3 flex-1 text-sm leading-relaxed text-[#D6A98A]">{line.body[lang]}</p>
         <div className="mt-6 flex flex-col items-start gap-3">
           {line.whatsAppMessage ? (
             <a

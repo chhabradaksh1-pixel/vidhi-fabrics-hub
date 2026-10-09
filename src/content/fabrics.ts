@@ -58,10 +58,10 @@ export const CATALOGUE_RANGES: CatalogueRange[] = [
       "hi-en": "Dress material wholesale",
     },
     image: {
-      src: "/images/catalogue/suit-ivory-maroon.webp",
+      src: "/images/catalogue/suit-model.webp",
       width: 720,
-      height: 1018,
-      alt: "Ivory and maroon embroidered unstitched suit set, Vidhi Fabrics Surat",
+      height: 993,
+      alt: "Model wearing an unstitched salwar suit, Vidhi Fabrics Surat",
     },
   },
   {

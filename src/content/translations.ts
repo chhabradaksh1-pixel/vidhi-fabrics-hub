@@ -78,7 +78,7 @@ export const COPY = {
     // content/business.ts and the polyester page's regions answer.
     regions: {
       en: "We currently supply buyers across North India: Punjab, Haryana, Rajasthan, Uttar Pradesh and Madhya Pradesh, and we're expanding to buyers across India.",
-      hi: "हम मुख्य रूप से उत्तर भारत के खरीदारों को सप्लाई करते हैं: पंजाब, हरियाणा, राजस्थान और मध्य प्रदेश।",
+      hi: "हम मुख्य रूप से उत्तर भारत के खरीदारों को सप्लाई करते हैं: पंजाब, हरियाणा, राजस्थान, उत्तर प्रदेश और मध्य प्रदेश।",
       "hi-en":
         "Hum abhi North India ke buyers ko supply karte hain: Punjab, Haryana, Rajasthan, Uttar Pradesh aur Madhya Pradesh, aur ab hum poore India ke buyers tak pahunch rahe hain.",
     },

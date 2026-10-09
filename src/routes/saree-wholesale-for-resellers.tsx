@@ -43,7 +43,7 @@ const FAQS: { question: string; answer: string }[] = [
   {
     question: "Which regions do you supply?",
     answer:
-      "Mainly North India: Punjab, Haryana, Rajasthan and Madhya Pradesh. Export enquiries are also welcome from the UAE and other international markets.",
+      "Mainly North India: Punjab, Haryana, Rajasthan, Uttar Pradesh and Madhya Pradesh. Export enquiries are also welcome from the UAE and other international markets.",
   },
 ];
 
@@ -158,7 +158,7 @@ function ResellerSareesPage() {
             <p className="mt-5 leading-[1.85] text-mute">
               Many of our buyers sell to their own customers through WhatsApp groups, Status updates
               and Instagram pages, often from home. Others run a small shop or a counter in a local
-              market. Most are in North India, in Punjab, Haryana, Rajasthan and Madhya Pradesh.
+              market. Most are in North India, in Punjab, Haryana, Rajasthan, Uttar Pradesh and Madhya Pradesh.
               Whatever the size of your business, we deal with you directly as the manufacturer and
               wholesaler, not through an agent.
             </p>
@@ -215,7 +215,7 @@ function ResellerSareesPage() {
 
             <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">Where we supply</h2>
             <p className="mt-5 leading-[1.85] text-mute">
-              We mainly supply buyers in Punjab, Haryana, Rajasthan and Madhya Pradesh. Export
+              We mainly supply buyers in Punjab, Haryana, Rajasthan, Uttar Pradesh and Madhya Pradesh. Export
               enquiries are also welcome from the UAE and other international markets. Message us on
               WhatsApp at{" "}
               <a

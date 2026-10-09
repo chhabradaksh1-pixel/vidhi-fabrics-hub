@@ -61,7 +61,7 @@ export const ABOUT_COPY: Record<Lang, AboutCopy> = {
         heading: "What we supply, and to whom",
         paragraphs: [
           "Our main categories are polyester sarees and dress material, including unstitched suits. Through our network of Surat mills and manufacturing units, we also source organza, net and other fabrics to order. We sell in bulk to wholesalers, retailers, resellers and boutiques.",
-          "Most of our buyers are in North India, in Punjab, Haryana and Rajasthan, and we also supply buyers in Madhya Pradesh.",
+          "Most of our buyers are in North India, in Punjab, Haryana and Rajasthan, and we also supply buyers in Uttar Pradesh and Madhya Pradesh.",
         ],
         links: [
           { label: "Polyester sarees wholesale", href: "/polyester-sarees-wholesale-surat" },
@@ -108,7 +108,7 @@ export const ABOUT_COPY: Record<Lang, AboutCopy> = {
         heading: "हम क्या सप्लाई करते हैं, और किसे",
         paragraphs: [
           "हमारी मुख्य कैटेगरी पॉलिएस्टर साड़ियाँ और ड्रेस मटेरियल हैं, अनस्टिच्ड सूट समेत। सूरत की मिलों और मैन्युफैक्चरिंग यूनिट्स के अपने नेटवर्क से हम ऑर्गेंज़ा, नेट और दूसरे कपड़े भी ऑर्डर पर सोर्स करते हैं। हम थोक विक्रेताओं, रिटेलरों, रीसेलरों और बुटीक को बल्क में सप्लाई करते हैं।",
-          "हमारे ज़्यादातर खरीदार उत्तर भारत में हैं — पंजाब, हरियाणा और राजस्थान में — और मध्य प्रदेश के खरीदारों को भी हम सप्लाई करते हैं।",
+          "हमारे ज़्यादातर खरीदार उत्तर भारत में हैं — पंजाब, हरियाणा और राजस्थान में — और उत्तर प्रदेश व मध्य प्रदेश के खरीदारों को भी हम सप्लाई करते हैं।",
         ],
         links: [
           { label: "पॉलिएस्टर साड़ियाँ (थोक)", href: "/polyester-sarees-wholesale-surat" },
@@ -155,7 +155,7 @@ export const ABOUT_COPY: Record<Lang, AboutCopy> = {
         heading: "Hum kya supply karte hain, aur kise",
         paragraphs: [
           "Hamari main categories polyester sarees aur dress material hain, unstitched suits samet. Surat ki mills aur manufacturing units ke apne network se hum organza, net aur dusre fabrics bhi order par source karte hain. Hum wholesalers, retailers, resellers aur boutiques ko bulk mein supply karte hain.",
-          "Hamare zyadatar buyers North India mein hain — Punjab, Haryana aur Rajasthan mein — aur Madhya Pradesh ke buyers ko bhi hum supply karte hain.",
+          "Hamare zyadatar buyers North India mein hain — Punjab, Haryana aur Rajasthan mein — aur Uttar Pradesh va Madhya Pradesh ke buyers ko bhi hum supply karte hain.",
         ],
         links: [
           { label: "Polyester sarees wholesale", href: "/polyester-sarees-wholesale-surat" },

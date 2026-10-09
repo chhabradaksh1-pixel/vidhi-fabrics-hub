@@ -14,7 +14,7 @@ const FAQS: { question: string; answer: string }[] = [
   {
     question: "Which regions do you supply?",
     answer:
-      "Mainly North India, in Punjab, Haryana and Rajasthan, and we also supply buyers in Madhya Pradesh.",
+      "Mainly North India, in Punjab, Haryana and Rajasthan, and we also supply buyers in Uttar Pradesh and Madhya Pradesh.",
   },
   {
     question: "Do you supply wholesalers as well as retailers?",

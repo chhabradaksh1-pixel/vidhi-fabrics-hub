@@ -87,7 +87,7 @@ export const DISAMBIGUATION: Record<Lang, string> = {
 
 /**
  * Where the business mainly supplies, as stated by the owner: North India,
- * chiefly Punjab, Haryana and Rajasthan, with buyers in Madhya Pradesh too.
+ * chiefly Punjab, Haryana and Rajasthan, with buyers in Uttar Pradesh and Madhya Pradesh too.
  * Emitted as `areaServed`; the homepage and polyester page say the same in
  * words.
  */
@@ -95,6 +95,7 @@ export const AREA_SERVED = [
   { "@type": "State", name: "Punjab" },
   { "@type": "State", name: "Haryana" },
   { "@type": "State", name: "Rajasthan" },
+  { "@type": "State", name: "Uttar Pradesh" },
   { "@type": "State", name: "Madhya Pradesh" },
   { "@type": "Country", name: "India" },
 ] as const;

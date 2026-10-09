@@ -121,7 +121,7 @@ export const CIRCLE_PAGE: Record<"en" | "hi", CirclePageCopy> = {
       },
     ],
     whoHeading: "Who it's for",
-    who: "Boutiques, home-based resellers who sell on WhatsApp and Instagram, and small shops across North India, including Punjab, Haryana, Rajasthan and Madhya Pradesh. Our range covers polyester sarees and dress material, with organza, net and other fabrics sourced to order through our Surat network.",
+    who: "Boutiques, home-based resellers who sell on WhatsApp and Instagram, and small shops across North India, including Punjab, Haryana, Rajasthan, Uttar Pradesh and Madhya Pradesh. Our range covers polyester sarees and dress material, with organza, net and other fabrics sourced to order through our Surat network.",
     howHeading: "How joining works",
     steps: [
       "Fill in the short form on this page.",
@@ -187,7 +187,7 @@ export const CIRCLE_PAGE: Record<"en" | "hi", CirclePageCopy> = {
       },
     ],
     whoHeading: "यह किसके लिए है",
-    who: "उत्तर भारत के बुटीक, व्हाट्सएप और इंस्टाग्राम पर घर से बेचने वाले रीसेलर और छोटी दुकानें — पंजाब, हरियाणा, राजस्थान और मध्य प्रदेश समेत। हमारी रेंज में पॉलिएस्टर साड़ियाँ और ड्रेस मटेरियल हैं, और सूरत के अपने नेटवर्क से हम ऑर्गेंज़ा, नेट और दूसरे कपड़े ऑर्डर पर सोर्स करते हैं।",
+    who: "उत्तर भारत के बुटीक, व्हाट्सएप और इंस्टाग्राम पर घर से बेचने वाले रीसेलर और छोटी दुकानें — पंजाब, हरियाणा, राजस्थान, उत्तर प्रदेश और मध्य प्रदेश समेत। हमारी रेंज में पॉलिएस्टर साड़ियाँ और ड्रेस मटेरियल हैं, और सूरत के अपने नेटवर्क से हम ऑर्गेंज़ा, नेट और दूसरे कपड़े ऑर्डर पर सोर्स करते हैं।",
     howHeading: "जुड़ने का तरीका",
     steps: [
       "इस पेज पर छोटा-सा फ़ॉर्म भरिए।",

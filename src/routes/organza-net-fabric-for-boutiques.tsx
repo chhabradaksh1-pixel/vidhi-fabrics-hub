@@ -46,7 +46,7 @@ const FAQS: { question: string; answer: string }[] = [
   {
     question: "Which regions do you supply?",
     answer:
-      "Mainly North India: Punjab, Haryana, Rajasthan and Madhya Pradesh. Export enquiries are also welcome from the UAE and other international markets.",
+      "Mainly North India: Punjab, Haryana, Rajasthan, Uttar Pradesh and Madhya Pradesh. Export enquiries are also welcome from the UAE and other international markets.",
   },
 ];
 
@@ -220,7 +220,7 @@ function OrganzaNetPage() {
             <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">Where we supply</h2>
             <p className="mt-5 leading-[1.85] text-mute">
               Most of our buyers are boutiques, retailers and wholesalers in Punjab, Haryana,
-              Rajasthan and Madhya Pradesh. Export enquiries are also welcome from the UAE and other
+              Rajasthan, Uttar Pradesh and Madhya Pradesh. Export enquiries are also welcome from the UAE and other
               international markets. Message us on WhatsApp at{" "}
               <a
                 href={whatsAppUrl(REQUIREMENT_MESSAGE)}

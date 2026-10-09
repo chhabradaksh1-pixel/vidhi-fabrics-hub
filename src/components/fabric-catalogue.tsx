@@ -335,44 +335,109 @@ function SpecTable({
 /**
  * The four selling ranges, in a fixed order above the cloth examples.
  * Text cards: a stock photograph would claim a cloth the card does not show.
+ * The dress-material card is the exception — it shows the suit on a model,
+ * on the catalogue page's maroon field and gold rule.
+ *
+ * `items-start` keeps a neighbour from stretching to the photograph's height.
  */
 function RangeGrid({ lang, ranges }: { lang: Lang; ranges: CatalogueRange[] }) {
   return (
-    <div data-reveal-stagger className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
-      {ranges.map((line) => (
-        <article
-          key={line.id}
-          data-reveal
-          className="flex flex-col border border-line bg-sand/40 p-6"
-        >
-          <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-clay">
-            {line.tag[lang]}
-          </p>
-          <h3 className="mt-3 font-display text-2xl font-light leading-tight tracking-tight">
-            {line.name[lang]}
-          </h3>
-          <p className="mt-3 flex-1 text-sm leading-relaxed text-mute">{line.body[lang]}</p>
-          <div className="mt-6 flex flex-col items-start gap-3">
-            {line.whatsAppMessage ? (
+    <div data-reveal-stagger className="mt-12 grid grid-cols-1 items-start gap-6 sm:grid-cols-2">
+      {ranges.map((line) =>
+        line.image ? (
+          <SuitRangeCard key={line.id} lang={lang} line={line} image={line.image} />
+        ) : (
+          <article
+            key={line.id}
+            data-reveal
+            className="flex flex-col border border-line bg-sand/40 p-6"
+          >
+            <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-clay">
+              {line.tag[lang]}
+            </p>
+            <h3 className="mt-3 font-display text-2xl font-light leading-tight tracking-tight">
+              {line.name[lang]}
+            </h3>
+            <p className="mt-3 flex-1 text-sm leading-relaxed text-mute">{line.body[lang]}</p>
+            <div className="mt-6 flex flex-col items-start gap-3">
+              {line.whatsAppMessage ? (
+                <a
+                  href={whatsAppUrl(line.whatsAppMessage[lang])}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center rounded-sm bg-clay px-4 py-3 font-mono text-[11px] uppercase tracking-[0.12em] text-paper transition-colors hover:bg-claydeep"
+                >
+                  {COPY.catalogue.askOnWhatsApp[lang]}
+                </a>
+              ) : null}
               <a
-                href={whatsAppUrl(line.whatsAppMessage[lang])}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-sm bg-clay px-4 py-3 font-mono text-[11px] uppercase tracking-[0.12em] text-paper transition-colors hover:bg-claydeep"
+                href={rangeHref(line.pageHref, lang)}
+                className="text-sm text-clay underline decoration-line underline-offset-4 hover:text-claydeep"
               >
-                {COPY.catalogue.askOnWhatsApp[lang]}
+                {line.linkLabel[lang]}
               </a>
-            ) : null}
-            <a
-              href={rangeHref(line.pageHref, lang)}
-              className="text-sm text-clay underline decoration-line underline-offset-4 hover:text-claydeep"
-            >
-              {line.linkLabel[lang]}
-            </a>
-          </div>
-        </article>
-      ))}
+            </div>
+          </article>
+        ),
+      )}
     </div>
+  );
+}
+
+/**
+ * The unstitched-suit card. The photograph is the model shot only.
+ *
+ * Field #400D13 and border gold #C3957A are sampled from the catalogue
+ * sheet. On that field the cream heading is 13.6:1 and the gold caption
+ * is 7.71:1, so both clear WCAG AA.
+ */
+function SuitRangeCard({
+  lang,
+  line,
+  image,
+}: {
+  lang: Lang;
+  line: CatalogueRange;
+  image: NonNullable<CatalogueRange["image"]>;
+}) {
+  return (
+    <article data-reveal className="flex min-w-0 flex-col self-start bg-[#400D13] p-3 sm:p-3.5">
+      <div className="flex flex-col border border-[#C3957A] p-3 sm:p-4">
+        <img
+          src={image.src}
+          alt={image.alt}
+          loading="lazy"
+          width={image.width}
+          height={image.height}
+          className="h-auto w-full"
+        />
+        <p className="mt-5 font-mono text-[11px] uppercase tracking-[0.18em] text-[#C3957A]">
+          {line.tag[lang]}
+        </p>
+        <h3 className="mt-3 font-display text-2xl font-light leading-tight tracking-tight text-[#F8E7D9]">
+          {line.name[lang]}
+        </h3>
+        <p className="mt-3 flex-1 text-sm leading-relaxed text-[#D6A98A]">{line.body[lang]}</p>
+        <div className="mt-6 flex flex-col items-start gap-3">
+          {line.whatsAppMessage ? (
+            <a
+              href={whatsAppUrl(line.whatsAppMessage[lang])}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center rounded-sm bg-[#C3957A] px-4 py-3 font-mono text-[11px] uppercase tracking-[0.12em] text-[#400D13] transition-colors hover:bg-[#F8E7D9]"
+            >
+              {COPY.catalogue.askOnWhatsApp[lang]}
+            </a>
+          ) : null}
+          <a
+            href={rangeHref(line.pageHref, lang)}
+            className="text-sm text-[#F8E7D9] underline decoration-[#C3957A] underline-offset-4 hover:text-white"
+          >
+            {line.linkLabel[lang]}
+          </a>
+        </div>
+      </div>
+    </article>
   );
 }
 

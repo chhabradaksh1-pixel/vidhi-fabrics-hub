@@ -335,8 +335,9 @@ function SpecTable({
 /**
  * The four selling ranges, in a fixed order above the cloth examples.
  * Text cards: a stock photograph would claim a cloth the card does not show.
- * The dress-material card is the exception — it shows the suit on a model,
- * on the catalogue page's maroon field and gold rule.
+ * The dress-material card is the exception — it shows the suit on a model.
+ * The card itself matches the text cards beside it; maroon is only the
+ * thin bar along the top.
  *
  * `items-start` keeps a neighbour from stretching to the photograph's height.
  */
@@ -385,11 +386,8 @@ function RangeGrid({ lang, ranges }: { lang: Lang; ranges: CatalogueRange[] }) {
 }
 
 /**
- * The unstitched-suit card. The photograph is the model shot only.
- *
- * Field #400D13 and border gold #C3957A are sampled from the catalogue
- * sheet. On that field the cream heading is 13.6:1 and the gold caption
- * is 7.71:1, so both clear WCAG AA.
+ * The unstitched-suit card. Same ground, rule and type as the text cards.
+ * Maroon (`#7A1A18`, the logotype) is only the 4px bar on the top edge.
  */
 function SuitRangeCard({
   lang,
@@ -401,8 +399,12 @@ function SuitRangeCard({
   image: NonNullable<CatalogueRange["image"]>;
 }) {
   return (
-    <article data-reveal className="flex min-w-0 flex-col self-start bg-[#400D13] p-3 sm:p-3.5">
-      <div className="flex flex-col border border-[#C3957A] p-3 sm:p-4">
+    <article
+      data-reveal
+      className="flex min-w-0 flex-col self-start overflow-hidden border border-line bg-sand/40"
+    >
+      <div className="h-1 bg-[#7A1A18]" aria-hidden="true" />
+      <div className="flex flex-col p-6">
         <img
           src={image.src}
           alt={image.alt}
@@ -411,27 +413,27 @@ function SuitRangeCard({
           height={image.height}
           className="h-auto w-full"
         />
-        <p className="mt-5 font-mono text-[11px] uppercase tracking-[0.18em] text-[#C3957A]">
+        <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.18em] text-clay">
           {line.tag[lang]}
         </p>
-        <h3 className="mt-3 font-display text-2xl font-light leading-tight tracking-tight text-[#F8E7D9]">
+        <h3 className="mt-3 font-display text-2xl font-light leading-tight tracking-tight">
           {line.name[lang]}
         </h3>
-        <p className="mt-3 flex-1 text-sm leading-relaxed text-[#D6A98A]">{line.body[lang]}</p>
+        <p className="mt-3 flex-1 text-sm leading-relaxed text-mute">{line.body[lang]}</p>
         <div className="mt-6 flex flex-col items-start gap-3">
           {line.whatsAppMessage ? (
             <a
               href={whatsAppUrl(line.whatsAppMessage[lang])}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-sm bg-[#C3957A] px-4 py-3 font-mono text-[11px] uppercase tracking-[0.12em] text-[#400D13] transition-colors hover:bg-[#F8E7D9]"
+              className="inline-flex items-center justify-center rounded-sm bg-clay px-4 py-3 font-mono text-[11px] uppercase tracking-[0.12em] text-paper transition-colors hover:bg-claydeep"
             >
               {COPY.catalogue.askOnWhatsApp[lang]}
             </a>
           ) : null}
           <a
             href={rangeHref(line.pageHref, lang)}
-            className="text-sm text-[#F8E7D9] underline decoration-[#C3957A] underline-offset-4 hover:text-white"
+            className="text-sm text-clay underline decoration-line underline-offset-4 hover:text-claydeep"
           >
             {line.linkLabel[lang]}
           </a>

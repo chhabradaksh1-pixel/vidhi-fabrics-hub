@@ -636,6 +636,13 @@
   .vf-js [data-reveal].is-in [data-reveal-block] [data-reveal-panel] img {
     transform: none;
   }
+
+  /* Suit catalogue card only. Georgia for the Latin title and caption;
+     Noto Sans Devanagari is already loaded on /hi and supplies the Hindi
+     title. One card, not a site typeface. */
+  .vf-suit-serif {
+    font-family: Georgia, "Noto Sans Devanagari", "Times New Roman", serif;
+  }
 }
 
 @layer base {

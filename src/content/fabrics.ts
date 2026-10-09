@@ -22,6 +22,13 @@ export type CatalogueRange = {
   pageHref: string;
   linkLabel: Record<Lang, string>;
   whatsAppMessage?: Record<Lang, string>;
+  /** Product photograph shown at the top of this range card. */
+  image?: {
+    src: string;
+    width: number;
+    height: number;
+    alt: string;
+  };
 };
 
 export const CATALOGUE_RANGES: CatalogueRange[] = [
@@ -49,6 +56,12 @@ export const CATALOGUE_RANGES: CatalogueRange[] = [
       en: "Dress material wholesale",
       hi: "ड्रेस मटीरियल होलसेल",
       "hi-en": "Dress material wholesale",
+    },
+    image: {
+      src: "/images/catalogue/suit-ivory-maroon.webp",
+      width: 720,
+      height: 1018,
+      alt: "Ivory and maroon embroidered unstitched suit set, Vidhi Fabrics Surat",
     },
   },
   {

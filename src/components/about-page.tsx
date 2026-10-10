@@ -1,7 +1,9 @@
 import { useState } from "react";
 
 import { JournalHeader, JournalFooter } from "@/components/fabric-desk";
+import { TradeStory } from "@/components/trade-story";
 import { ABOUT_COPY } from "@/content/about-copy";
+import { SECTION_COPY } from "@/content/section-copy";
 import { ADDRESS_LINES, BUSINESS, DISAMBIGUATION, GSTIN_LABEL } from "@/content/business";
 import { MapEmbed } from "@/components/map-embed";
 import { FOOTER_CONTACT } from "@/content/footer-copy";
@@ -84,6 +86,15 @@ export function AboutPage({ initialLang }: { initialLang: Lang }) {
               </section>
             ))}
 
+            <section className="mt-12">
+              <h2 className="font-display text-2xl font-light sm:text-3xl">
+                {SECTION_COPY[lang].title}
+              </h2>
+              <p className="mt-5 leading-[1.85] text-ink">{SECTION_COPY[lang].titleEnd}</p>
+              <p className="mt-5 leading-[1.85] text-mute">{SECTION_COPY[lang].body}</p>
+              <p className="mt-5 leading-[1.85] text-mute">{SECTION_COPY[lang].bodyEnd}</p>
+            </section>
+
             <section className="mt-12 border-l-2 border-clay bg-sand px-6 py-6">
               <h2 className="font-display text-2xl font-light sm:text-3xl">
                 {copy.disambiguationHeading}
@@ -153,6 +164,7 @@ export function AboutPage({ initialLang }: { initialLang: Lang }) {
             </section>
           </div>
         </article>
+        <TradeStory lang={lang} />
       </main>
       <JournalFooter lang={lang} />
     </div>

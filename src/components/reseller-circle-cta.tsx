@@ -23,17 +23,28 @@ export function ResellerCircleCta({ lang, className = "" }: { lang: Lang; classN
   );
 }
 
-/** One-line strip shown just above the homepage footer. */
+/** Homepage section for the reseller community. */
 export function ResellerCircleStrip({ lang, href }: { lang: Lang; href: string }) {
   const copy = CIRCLE_STRIP[lang];
   return (
-    <div className="border-t border-line bg-sand/60">
-      <div className="mx-auto flex max-w-6xl flex-col items-start gap-4 px-6 py-8 sm:flex-row sm:items-center sm:justify-between">
-        <p className="max-w-[60ch] text-pretty leading-relaxed text-ink">{copy.text}</p>
-        <a href={href} className={buttonClass}>
+    <section data-reveal aria-labelledby="reseller-circle-heading" className="scroll-mt-36">
+      <div className="mx-auto max-w-6xl px-6 py-24 lg:py-32">
+        <h2
+          id="reseller-circle-heading"
+          className="text-balance font-display text-4xl font-light tracking-tight lg:text-5xl"
+        >
+          {copy.heading}
+        </h2>
+        <p className="mt-5 max-w-[46ch] text-pretty text-lg leading-relaxed text-mute">
+          {copy.text}
+        </p>
+        <a
+          href={href}
+          className="vf-btn-maroon mt-8 inline-flex shrink-0 items-center justify-center rounded-sm px-6 py-3 font-mono text-xs uppercase tracking-[0.12em] transition-colors"
+        >
           {copy.button}
         </a>
       </div>
-    </div>
+    </section>
   );
 }

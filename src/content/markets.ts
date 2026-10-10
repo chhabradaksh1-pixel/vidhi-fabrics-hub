@@ -91,7 +91,14 @@ export const MARKETS: Market[] = [
 
 export const REACH_COPY: Record<
   Lang,
-  { marker: string; heading: string; body: string; originLabel: string; listLabel: string }
+  {
+    marker: string;
+    heading: string;
+    body: string;
+    originLabel: string;
+    listLabel: string;
+    mapLink: string;
+  }
 > = {
   en: {
     marker: "Reach / Surat to the world",
@@ -99,6 +106,7 @@ export const REACH_COPY: Record<
     body: "Everything ships from one place. A selection of the markets we supply, alongside buyers across India.",
     originLabel: "Origin",
     listLabel: "Markets shown",
+    mapLink: "See the full map",
   },
   hi: {
     marker: "पहुँच / सूरत से दुनिया तक",
@@ -106,6 +114,7 @@ export const REACH_COPY: Record<
     body: "सब कुछ एक ही जगह से भेजा जाता है। नीचे उन बाज़ारों में से कुछ हैं जिन्हें हम सप्लाई करते हैं; इनके अलावा पूरे भारत में भी हमारे खरीदार हैं।",
     originLabel: "शुरुआत",
     listLabel: "दिखाए गए बाज़ार",
+    mapLink: "पूरा नक्शा देखिए",
   },
   "hi-en": {
     marker: "Reach / Surat se duniya tak",
@@ -113,5 +122,6 @@ export const REACH_COPY: Record<
     body: "Sab kuch ek hi jagah se bheja jaata hai. Yahan un markets mein se kuch hain jinhe hum supply karte hain, saath hi poore India ke buyers.",
     originLabel: "Origin",
     listLabel: "Dikhaye gaye markets",
+    mapLink: "Poora nakhsha dekhiye",
   },
 };

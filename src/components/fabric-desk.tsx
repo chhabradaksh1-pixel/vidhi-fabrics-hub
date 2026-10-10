@@ -25,62 +25,49 @@ export function StoryLinks({ lang = "en" }: { lang?: Lang }) {
 export function AboutSection({ lang, whatsappUrl }: { lang: Lang; whatsappUrl: string }) {
   const copy = SECTION_COPY[lang];
   return (
-    <section
-      id="about"
-      data-reveal
-      aria-labelledby="about-heading"
-      className="scroll-mt-36 border-b border-line bg-sand"
-    >
-      <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-20 lg:grid-cols-2 lg:gap-20 lg:py-24">
-        <div className="relative pb-12 pr-10 sm:pr-16">
-          <div data-reveal-block>
-            <div data-reveal-panel>
-              <img
-                src={jacquard}
-                alt="Rust-red fabric with intricate woven motifs"
-                width={1024}
-                height={768}
-                loading="lazy"
-                decoding="async"
-                className="aspect-[4/5] w-full object-cover"
-              />
-            </div>
-          </div>
-          <div className="absolute bottom-0 right-0 w-[48%] border-8 border-sand">
-            <div data-reveal-block>
-              <div data-reveal-panel>
-                <img
-                  src={cotton}
-                  alt="Soft cream fabric with a visible weave"
-                  width={1024}
-                  height={768}
-                  loading="lazy"
-                  decoding="async"
-                  className="aspect-square w-full object-cover"
-                />
-              </div>
-            </div>
-          </div>
-          <p className="absolute bottom-3 left-0 max-w-[45%] font-mono text-[10px] uppercase leading-relaxed tracking-widest text-mute">
-            {copy.detail}
-          </p>
+    <section id="about" data-reveal aria-labelledby="about-heading" className="scroll-mt-36">
+      <div className="mx-auto grid max-w-6xl items-center gap-16 px-6 py-24 lg:grid-cols-2 lg:gap-24 lg:py-32">
+        <div className="grid grid-cols-2 gap-4">
+          <img
+            src={jacquard}
+            alt="Rust-red fabric with intricate woven motifs"
+            width={1024}
+            height={768}
+            loading="lazy"
+            decoding="async"
+            className="aspect-[4/5] w-full object-cover"
+          />
+          <img
+            src={cotton}
+            alt="Soft cream fabric with a visible weave"
+            width={1024}
+            height={768}
+            loading="lazy"
+            decoding="async"
+            className="mt-10 aspect-[4/5] w-full object-cover"
+          />
         </div>
         <div>
-          <p className="font-mono text-xs uppercase tracking-[0.18em] text-clay">{copy.marker}</p>
+          <p className="font-mono text-xs uppercase tracking-[0.18em] text-[#7A1A18]">
+            {copy.marker}
+          </p>
           <h2
             id="about-heading"
             className="mt-5 text-balance font-display text-4xl font-light leading-[1.12] tracking-tight lg:text-5xl"
           >
             {copy.title}
-            <span className="mt-2 block text-clay">{copy.titleEnd}</span>
           </h2>
-          <p className="mt-7 leading-relaxed text-mute">{copy.body}</p>
-          <p className="mt-4 leading-relaxed text-mute">{copy.bodyEnd}</p>
+          <p className="mt-6 max-w-[42ch] text-pretty text-lg leading-relaxed text-mute">
+            {copy.support}
+          </p>
+          <p className="mt-4 font-mono text-[10px] uppercase leading-relaxed tracking-widest text-mute">
+            {copy.detail}
+          </p>
           <a
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-8 inline-flex items-center gap-4 bg-clay px-6 py-4 text-sm font-medium text-paper transition-colors hover:bg-claydeep"
+            className="vf-btn-maroon mt-8 inline-flex items-center gap-4 px-6 py-4 text-sm font-medium transition-colors"
           >
             {copy.cta}
             <ArrowUpRight size={18} aria-hidden="true" />

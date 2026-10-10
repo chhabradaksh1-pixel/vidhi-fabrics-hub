@@ -38,16 +38,19 @@ export const CIRCLE_CTA: Record<Lang, { heading: string; body: string; button: s
 };
 
 /** One-line strip above the homepage footer. */
-export const CIRCLE_STRIP: Record<Lang, { text: string; button: string }> = {
+export const CIRCLE_STRIP: Record<Lang, { heading: string; text: string; button: string }> = {
   en: {
+    heading: "The Reseller Circle",
     text: "Sell to your own customers? Join the Vidhi Reseller Circle, our private WhatsApp community for boutiques and home-based sellers.",
     button: "Join the Reseller Circle",
   },
   hi: {
+    heading: "विधि रीसेलर सर्कल",
     text: "अपने ग्राहकों को बेचते हैं? विधि रीसेलर सर्कल से जुड़िए — बुटीक और घर से बेचने वालों के लिए हमारी प्राइवेट व्हाट्सएप कम्युनिटी।",
     button: "रीसेलर सर्कल से जुड़िए",
   },
   "hi-en": {
+    heading: "Vidhi Reseller Circle",
     text: "Apne customers ko bechte hain? Vidhi Reseller Circle se judiye — boutiques aur ghar se bechne walon ke liye hamari private WhatsApp community.",
     button: "Reseller Circle join kijiye",
   },

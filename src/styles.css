@@ -54,23 +54,15 @@
  */
 
 @theme inline {
-  /* One grotesque, four weights, both scripts — the Inditex model, where a
-     single family carries display, body and labels and there is no serif and
-     no mono anywhere.
+  /* Body and labels stay Inter. Headings use a serif (owner, 10 October
+     2026): Georgia where it is installed, Liberation Serif as the
+     metric-compatible face on systems that do not have Georgia. Noto Sans
+     Devanagari is unicode-range limited to Devanagari, so it only fills those
+     glyphs and does not replace the Latin serif.
      *
-     * The three tokens are kept rather than collapsed so no component has to
-     * change: `font-display`, `font-body` and `font-mono` all now resolve to
-     * the same family, and the distinction between them is carried by weight,
-     * size and letter-spacing instead of by typeface. `font-mono` in
-     * particular is now a misnomer — it marks the uppercase letterspaced
-     * labels, which are no longer monospaced.
-     *
-     * Noto Sans Devanagari is loaded at the same four weights, so the Hindi
-     * route gets genuine light cuts rather than a synthesised one. Verified
-     * against the Google Fonts API before committing to the light display
-     * weights: it serves 200/300/400/500. Both families are now self-hosted
-     * (see the @font-face rules at the top of this file). */
-  --font-display: "Inter", "Noto Sans Devanagari", system-ui, sans-serif;
+     * `font-mono` is still a misnomer — it marks the uppercase letterspaced
+     * labels, which are Inter, not a monospace. */
+  --font-display: Georgia, "Liberation Serif", "Noto Sans Devanagari", "Times New Roman", serif;
   --font-body: "Inter", "Noto Sans Devanagari", system-ui, sans-serif;
   --font-mono: "Inter", "Noto Sans Devanagari", system-ui, sans-serif;
   --color-paper: var(--paper);
@@ -248,6 +240,26 @@
     font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
   }
+}
+
+/* Homepage ground and accents. Scoped here so catalogue filters and the
+   rest of the site keep their existing tokens. Maroon is the logotype
+   #7A1A18 (9.4:1 on this cream). */
+.vf-home {
+  background-color: #f6f1ea;
+}
+.vf-btn-maroon {
+  background-color: #7a1a18;
+  color: #f6f1ea;
+}
+.vf-btn-maroon:hover {
+  background-color: #5c1210;
+}
+.vf-link-maroon {
+  color: #7a1a18;
+}
+.vf-link-maroon:hover {
+  color: #5c1210;
 }
 
 /*

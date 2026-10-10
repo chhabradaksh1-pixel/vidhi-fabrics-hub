@@ -14,20 +14,47 @@ function arcPath(toLon: number, toLat: number) {
   return `M${a.x.toFixed(1)} ${a.y.toFixed(1)}Q${mx.toFixed(1)} ${my.toFixed(1)} ${b.x.toFixed(1)} ${b.y.toFixed(1)}`;
 }
 
-export function ReachMapSection({ lang = "en" }: { lang?: Lang }) {
+/** Short homepage list. The drawn map lives on the about page. */
+export function ReachStrip({ lang = "en", mapHref }: { lang?: Lang; mapHref: string }) {
+  const copy = REACH_COPY[lang];
+
+  return (
+    <section id="reach" aria-labelledby="reach-heading" className="scroll-mt-36">
+      <div className="mx-auto max-w-6xl px-6 py-20 lg:py-24">
+        <h2
+          id="reach-heading"
+          className="font-display text-3xl font-light tracking-tight lg:text-4xl"
+        >
+          {copy.heading}
+        </h2>
+        <p className="mt-4 max-w-[52ch] text-lg text-mute">{copy.body}</p>
+        <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+          <li className="font-medium">{ORIGIN.name[lang]}</li>
+          {DESTINATIONS.map((m) => (
+            <li key={m.id}>{m.name[lang]}</li>
+          ))}
+        </ul>
+        <a
+          href={mapHref}
+          className="vf-link-maroon mt-6 inline-block text-sm underline underline-offset-4"
+        >
+          {copy.mapLink}
+        </a>
+      </div>
+    </section>
+  );
+}
+
+export function ReachMapSection({ lang = "en", id = "reach" }: { lang?: Lang; id?: string }) {
   const copy = REACH_COPY[lang];
   const origin = project(ORIGIN.lon, ORIGIN.lat);
 
   return (
-    <section
-      id="reach"
-      aria-labelledby="reach-heading"
-      className="scroll-mt-36 border-b border-line bg-paper"
-    >
+    <section id={id} aria-labelledby="reach-map-heading" className="scroll-mt-36">
       <div className="mx-auto max-w-6xl px-6 py-20 lg:py-24">
         <p className="font-mono text-xs uppercase tracking-[0.18em] text-clay">{copy.marker}</p>
         <h2
-          id="reach-heading"
+          id="reach-map-heading"
           className="mt-4 font-display text-4xl font-light tracking-tight lg:text-5xl"
         >
           {copy.heading}

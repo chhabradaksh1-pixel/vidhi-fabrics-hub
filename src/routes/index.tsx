@@ -1,14 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { Linkedin } from "lucide-react";
-import { AboutSection, FabricDeskSection, StoryLinks } from "@/components/fabric-desk";
-import { ADDRESS_LINES, BUSINESS, GSTIN_LABEL } from "@/content/business";
+import { AboutSection, StoryLinks } from "@/components/fabric-desk";
+import { ADDRESS_LINES, BUSINESS } from "@/content/business";
 import { FabricCatalogueSection } from "@/components/fabric-catalogue";
-import { ReachMapSection } from "@/components/reach-map";
+import { ReachStrip } from "@/components/reach-map";
 import { ResellerCircleStrip } from "@/components/reseller-circle-cta";
 import { SiteFooter } from "@/components/site-footer";
 import { LeadPopup, useEngagementPopup } from "@/components/lead-popup";
-import { MapEmbed } from "@/components/map-embed";
 import { TalkToUs } from "@/components/talk-to-us";
 import { whatsAppUrl } from "@/content/whatsapp";
 import { useLeadContext } from "@/hooks/use-lead-context";
@@ -16,12 +14,7 @@ import { trackLeadEvent } from "@/lib/analytics";
 import { currentLeadContext } from "@/lib/lead-source";
 import { useReveal } from "@/hooks/use-reveal";
 
-import swatchBook from "@/assets/swatch-book.webp";
-import swatchBook960 from "@/assets/swatch-book-960.webp";
-import weaveGround from "@/assets/weave-ground.jpg";
 import logoMark from "@/assets/vidhi-logo-mark.webp";
-import loomPoster from "@/assets/weaving-loom-poster.webp";
-import { LazyLoopVideo } from "@/components/lazy-loop-video";
 import {
   Accordion,
   AccordionItem,
@@ -77,10 +70,22 @@ export const Route = createFileRoute("/")({
 
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/maeypydr";
 
-const FAQ_SECTION_COPY: Record<Lang, { marker: string; heading: string }> = {
-  en: { marker: "FAQ / Sourcing", heading: "Common questions, answered." },
-  hi: { marker: "FAQ / सोर्सिंग", heading: "आम सवालों के जवाब।" },
-  "hi-en": { marker: "FAQ / Sourcing", heading: "Common questions ke answers." },
+const FAQ_SECTION_COPY: Record<Lang, { marker: string; heading: string; support: string }> = {
+  en: {
+    marker: "FAQ / Sourcing",
+    heading: "Common questions, answered.",
+    support: "Dress material, polyester sarees, and how to order.",
+  },
+  hi: {
+    marker: "FAQ / सोर्सिंग",
+    heading: "आम सवालों के जवाब।",
+    support: "ड्रेस मटीरियल, पॉलिएस्टर साड़ी, और ऑर्डर कैसे करें।",
+  },
+  "hi-en": {
+    marker: "FAQ / Sourcing",
+    heading: "Common questions ke answers.",
+    support: "Dress material, polyester saree, aur order kaise karein.",
+  },
 };
 
 const FAQS: {
@@ -294,13 +299,9 @@ function Index() {
   // never on load. See src/components/lead-popup.tsx.
   const [leadOpen, setLeadOpen] = useEngagementPopup();
 
-  // One customer voice leads the testimonials at display size.
-  const leadVoice = COPY.testimonials.cards[0];
-  const otherVoices = COPY.testimonials.cards.slice(1);
-
   return (
-    <div className="min-h-screen bg-paper font-body text-ink antialiased selection:bg-clay/20">
-      <header className="sticky top-0 z-50 border-b border-line bg-paper/90 backdrop-blur">
+    <div className="vf-home min-h-screen font-body text-ink antialiased selection:bg-[#7A1A18]/15">
+      <header className="sticky top-0 z-50 bg-[#F6F1EA]/90 backdrop-blur">
         <div className="mx-auto flex min-h-16 max-w-6xl flex-wrap items-center justify-between gap-3 px-6 py-3">
           <div className="flex items-center gap-2">
             <a
@@ -328,7 +329,7 @@ function Index() {
             <a href="#catalogue" className="transition-colors hover:text-ink">
               {COPY.nav.catalogue[lang]}
             </a>
-            <a href="#scale" className="transition-colors hover:text-ink">
+            <a href="/about#scale" className="transition-colors hover:text-ink">
               {COPY.nav.scale[lang]}
             </a>
             <a href="#contact" className="transition-colors hover:text-ink">
@@ -346,7 +347,7 @@ function Index() {
               <a
                 href="/"
                 aria-current="page"
-                className="px-3 py-2 font-mono text-sm transition-colors bg-ink text-paper"
+                className="bg-[#7A1A18] px-3 py-2 font-mono text-sm text-[#F6F1EA] transition-colors"
               >
                 EN
               </a>
@@ -362,7 +363,7 @@ function Index() {
                 aria-pressed={lang === "hi-en"}
                 title="Hinglish"
                 className={`px-3 py-2 font-mono text-sm transition-colors ${
-                  lang === "hi-en" ? "bg-ink text-paper" : "text-mute hover:text-ink"
+                  lang === "hi-en" ? "bg-[#7A1A18] text-[#F6F1EA]" : "text-mute hover:text-ink"
                 }`}
               >
                 Hinglish
@@ -372,7 +373,7 @@ function Index() {
               href={getWhatsAppUrl(lang)}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-sm bg-clay px-4 py-2 font-mono text-xs uppercase tracking-[0.12em] text-paper transition-colors hover:bg-claydeep"
+              className="vf-btn-maroon rounded-sm px-4 py-2 font-mono text-xs uppercase tracking-[0.12em] transition-colors"
             >
               {COPY.nav.cta[lang]}
             </a>
@@ -380,7 +381,7 @@ function Index() {
         </div>
         <nav
           aria-label="Section navigation"
-          className="flex flex-wrap justify-center gap-x-6 gap-y-3 border-t border-line px-6 py-3 text-xs xl:hidden"
+          className="flex flex-wrap justify-center gap-x-6 gap-y-3 px-6 py-3 text-xs xl:hidden"
         >
           <a href="#catalogue">{COPY.nav.catalogue[lang]}</a>
           <StoryLinks lang={lang} />
@@ -389,29 +390,26 @@ function Index() {
       </header>
 
       <main id="main">
-        <section className="vf-rise border-b border-line">
-          <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-6 py-16 lg:grid-cols-12 lg:py-20">
+        <section className="vf-rise">
+          <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 px-6 py-24 lg:grid-cols-12 lg:py-32">
             <div className="lg:col-span-7">
-              <p className="font-mono text-xs uppercase tracking-[0.2em] text-clay">
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-[#7A1A18]">
                 {COPY.hero.eyebrow[lang]}
               </p>
-              <h1 className="mt-5 text-balance font-display text-5xl font-extralight leading-[1.03] tracking-tight lg:text-6xl">
+              <h1 className="mt-5 text-balance font-display text-5xl font-light leading-[1.08] tracking-tight lg:text-6xl">
                 {COPY.hero.heading[lang]}
               </h1>
-              <p className="mt-6 max-w-[46ch] text-pretty text-lg text-mute">
-                {COPY.hero.body[lang]}
+              <p className="mt-6 max-w-[42ch] text-pretty text-lg leading-relaxed text-mute">
+                {COPY.hero.body[lang]} {COPY.hero.regions[lang]}
               </p>
-              <p className="mt-3 max-w-[46ch] text-pretty text-lg text-mute">
-                {COPY.hero.regions[lang]}
-              </p>
-              <p className="mt-4">
+              <p className="mt-5">
                 <a
                   href={
                     lang === "hi"
                       ? "/hi/dress-material-wholesale-surat"
                       : "/dress-material-wholesale-surat"
                   }
-                  className="text-clay underline decoration-line underline-offset-4 hover:text-claydeep"
+                  className="vf-link-maroon underline decoration-[#7A1A18]/30 underline-offset-4"
                 >
                   {COPY.hero.dressLink[lang]}
                 </a>
@@ -423,11 +421,8 @@ function Index() {
               </div>
             </div>
 
-            <div
-              id="inquiry"
-              className="rounded-md bg-sand/50 p-6 ring-1 ring-black/5 lg:col-span-5"
-            >
-              <p className="font-mono text-xs uppercase tracking-[0.15em] text-clay">
+            <div id="inquiry" className="lg:col-span-5">
+              <p className="font-mono text-xs uppercase tracking-[0.15em] text-[#7A1A18]">
                 {COPY.inquiry.label[lang]}
               </p>
               <p className="mt-1 text-sm text-mute">{COPY.inquiry.sub[lang]}</p>
@@ -513,7 +508,7 @@ function Index() {
                 <button
                   type="submit"
                   disabled={inquiryStatus === "sending"}
-                  className="w-full rounded-sm bg-clay py-3 font-mono text-xs uppercase tracking-[0.15em] text-paper transition-colors hover:bg-claydeep"
+                  className="vf-btn-maroon w-full rounded-sm py-3 font-mono text-xs uppercase tracking-[0.15em] transition-colors"
                 >
                   {inquiryStatus === "sending" ? "Sending..." : COPY.inquiry.submit[lang]}
                 </button>
@@ -537,150 +532,53 @@ function Index() {
 
         <AboutSection lang={lang} whatsappUrl={getWhatsAppUrl(lang)} />
 
-        <section data-reveal aria-hidden="true" className="border-b border-line">
-          <LazyLoopVideo
-            src="/weaving-loom.mp4?v=a787f8f"
-            poster={loomPoster}
-            className="h-48 w-full object-cover sm:h-64 lg:h-80"
-          />
-        </section>
+        <ResellerCircleStrip lang={lang} href="/reseller-circle" />
 
-        <section
-          data-reveal
-          id="scale"
-          className="relative overflow-hidden border-b border-line bg-ink text-paper"
-        >
-          {/*
-          The weave sits behind the dark ground as a texture, not a picture.
-          weave-ground.jpg is a desaturated, softened derivative of the woven
-          close-up: the photograph's threads are teal and mustard while every
-          brand hue is warm (clay 12deg, sand 40deg, ink 30deg), so in colour the
-          cast fought the palette. Greyscale and blur are baked into the file
-          rather than applied in CSS, which drops it from 474 KB to 81 KB and
-          costs nothing visible at 10%. At this opacity the brightest thread
-          cannot lift the background past the contrast ceiling, so paper text
-          stays above AA.
-        */}
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-[0.1]"
-            style={{ backgroundImage: `url(${weaveGround})` }}
-          />
-          <div className="relative mx-auto max-w-6xl px-6 py-20">
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-claylight">
-              {COPY.scale.marker[lang]}
-            </p>
-            <h2 className="mt-3 max-w-[20ch] text-balance font-display text-4xl font-light tracking-tight lg:text-5xl">
-              {COPY.scale.heading[lang]}
+        <section id="contact" data-reveal className="scroll-mt-36">
+          <div className="mx-auto max-w-3xl px-6 py-24 lg:py-32">
+            <h2 className="text-balance font-display text-4xl font-light tracking-tight lg:text-5xl">
+              {COPY.homeCta.heading[lang]}
             </h2>
-
-            <div className="mt-12 grid grid-cols-2 gap-px bg-paper/15 lg:grid-cols-4">
-              {COPY.scale.stats.map((s) => (
-                <div key={s.value} className="bg-ink p-6">
-                  <p className="font-display text-4xl font-light break-words text-claylight sm:text-5xl">
-                    {s.value}
-                  </p>
-                  <p className="mt-2 font-mono text-xs uppercase tracking-[0.12em] text-paper/60">
-                    {s.label[lang]}
-                  </p>
-                </div>
-              ))}
+            <p className="mt-5 max-w-[42ch] text-pretty text-lg leading-relaxed text-mute">
+              {COPY.homeCta.support[lang]}
+            </p>
+            <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+              <a
+                href={getWhatsAppUrl(lang)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="vf-btn-maroon rounded-sm px-6 py-3.5 font-mono text-xs uppercase tracking-[0.15em] transition-colors"
+              >
+                {COPY.nav.cta[lang]}
+              </a>
+              <a
+                href="#inquiry"
+                className="vf-link-maroon text-sm underline decoration-[#7A1A18]/30 underline-offset-4"
+              >
+                {COPY.contact.cta[lang]}
+              </a>
             </div>
-
-            <div className="mt-12 grid grid-cols-1 items-center gap-8 lg:grid-cols-2">
-              <div data-reveal-block className="rounded-md">
-                <div data-reveal-panel>
-                  <img
-                    src={swatchBook}
-                    srcSet={`${swatchBook960} 960w, ${swatchBook} 1440w`}
-                    sizes="(min-width: 1024px) 560px, calc(100vw - 48px)"
-                    alt={COPY.scale.imageAlt[lang]}
-                    loading="lazy"
-                    decoding="async"
-                    width={1440}
-                    height={900}
-                    className="aspect-[16/10] w-full rounded-md object-cover ring-1 ring-white/10"
-                  />
-                </div>
-              </div>
-              <div className="max-w-[40ch] text-pretty text-base text-paper/80">
-                <p className="font-display text-2xl font-light text-paper">
-                  {COPY.scale.certTitle[lang]}
-                </p>
-                <p className="mt-4">{COPY.scale.certBody[lang]}</p>
-              </div>
-            </div>
+            <p className="mt-8 font-mono text-sm text-mute">
+              <a href={`tel:${BUSINESS.phone}`} className="vf-link-maroon">
+                {BUSINESS.phoneDisplay}
+              </a>
+              <span className="mx-2">·</span>
+              <a href={`mailto:${BUSINESS.email}`} className="vf-link-maroon break-all">
+                {BUSINESS.email}
+              </a>
+            </p>
           </div>
         </section>
 
-        <section data-reveal className="border-b border-line bg-paper">
-          <div className="mx-auto max-w-6xl px-6 py-20">
-            <div className="max-w-2xl">
-              <p className="font-mono text-xs uppercase tracking-[0.2em] text-clay">
-                {COPY.testimonials.marker[lang]}
-              </p>
-              <h2 className="mt-3 text-balance font-display text-4xl font-light tracking-tight lg:text-5xl">
-                {COPY.testimonials.heading[lang]}
-              </h2>
-              <p className="mt-5 max-w-[60ch] text-pretty text-mute">
-                {COPY.testimonials.body[lang]}
-              </p>
-            </div>
-
-            <dl className="mt-12 grid grid-cols-1 gap-8 border-y border-line py-10 sm:grid-cols-3 sm:gap-6">
-              {COPY.testimonials.proof.map((stat) => (
-                <div key={stat.label.en} className="sm:text-center">
-                  <dd className="font-display text-4xl font-light tracking-tight text-clay sm:text-5xl">
-                    {stat.value[lang]}
-                  </dd>
-                  <dt className="mx-auto mt-3 max-w-[22ch] text-sm leading-relaxed text-mute">
-                    {stat.label[lang]}
-                  </dt>
-                </div>
-              ))}
-            </dl>
-            {/*
-            One quote carries the section at display size and the rest sit
-            quieter beneath it, so the block reads as a statement rather than a
-            row of equal boxes.
-          */}
-            {leadVoice && (
-              <figure className="mt-14 max-w-4xl">
-                <blockquote className="text-balance font-display text-2xl font-light leading-snug tracking-tight text-ink sm:text-3xl lg:text-4xl">
-                  {leadVoice.quote[lang]}
-                </blockquote>
-                <figcaption className="mt-7 font-mono text-xs uppercase tracking-[0.16em] text-mute">
-                  {leadVoice.customerLabel[lang]} · {leadVoice.location}
-                </figcaption>
-              </figure>
-            )}
-            {otherVoices.length > 0 && (
-              <div className="mt-16 grid grid-cols-1 gap-x-10 gap-y-12 border-t border-line pt-12 md:grid-cols-3">
-                {otherVoices.map((testimonial, testimonialIndex) => (
-                  <figure
-                    key={`${testimonial.customerLabel.en}-${testimonial.location}-${testimonialIndex}`}
-                  >
-                    <blockquote className="leading-relaxed text-mute">
-                      {testimonial.quote[lang]}
-                    </blockquote>
-                    <figcaption className="mt-5 font-mono text-[11px] uppercase tracking-[0.16em] text-mute">
-                      {testimonial.customerLabel[lang]} · {testimonial.location}
-                    </figcaption>
-                  </figure>
-                ))}
-              </div>
-            )}
-          </div>
-        </section>
-
-        <section data-reveal id="faq" className="border-b border-line bg-paper">
-          <div className="mx-auto max-w-3xl px-6 py-20">
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-clay">
+        <section data-reveal id="faq" className="scroll-mt-36">
+          <div className="mx-auto max-w-3xl px-6 py-20 lg:py-24">
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-[#7A1A18]">
               {FAQ_SECTION_COPY[lang].marker}
             </p>
-            <h2 className="mt-3 font-display text-4xl font-light tracking-tight lg:text-5xl">
+            <h2 className="mt-4 font-display text-4xl font-light tracking-tight lg:text-5xl">
               {FAQ_SECTION_COPY[lang].heading}
             </h2>
+            <p className="mt-4 text-lg text-mute">{FAQ_SECTION_COPY[lang].support}</p>
 
             <Accordion type="single" collapsible className="mt-10">
               {FAQS.map((faq, index) => (
@@ -725,71 +623,9 @@ function Index() {
           </div>
         </section>
 
-        <ReachMapSection lang={lang} />
-
-        <FabricDeskSection lang={lang} />
-
-        <section data-reveal id="contact" className="bg-paper">
-          <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-6 py-20 lg:grid-cols-2">
-            <div>
-              <p className="font-mono text-xs uppercase tracking-[0.2em] text-clay">
-                {COPY.contact.marker[lang]}
-              </p>
-              <h2 className="mt-3 text-balance font-display text-4xl font-light tracking-tight lg:text-5xl">
-                {COPY.contact.heading[lang]}
-              </h2>
-              <p className="mt-5 max-w-[40ch] text-pretty text-mute">{COPY.contact.body[lang]}</p>
-              <a
-                href="#inquiry"
-                className="mt-7 inline-block rounded-sm bg-clay px-6 py-3.5 font-mono text-xs uppercase tracking-[0.15em] text-paper transition-colors hover:bg-claydeep"
-              >
-                {COPY.contact.cta[lang]}
-              </a>
-            </div>
-            <div className="space-y-4 font-mono text-sm text-mute">
-              <div>
-                <p className="text-[11px] uppercase tracking-[0.15em] text-clay">
-                  {COPY.contact.hqLabel[lang]}
-                </p>
-                <p className="mt-1 text-ink">
-                  {ADDRESS_LINES[lang].map((line) => (
-                    <span key={line} className="block">
-                      {line}
-                    </span>
-                  ))}
-                </p>
-              </div>
-              <div>
-                <p className="text-[11px] uppercase tracking-[0.15em] text-clay">
-                  {COPY.contact.deskLabel[lang]}
-                </p>
-                <p className="mt-1 text-ink">
-                  <a href={`tel:${BUSINESS.phone}`} className="hover:text-clay">
-                    {BUSINESS.phoneDisplay}
-                  </a>
-                  <span className="mx-2 text-mute">·</span>
-                  <a href={`mailto:${BUSINESS.email}`} className="break-all hover:text-clay">
-                    {BUSINESS.email}
-                  </a>
-                </p>
-              </div>
-              <div>
-                <p className="text-[11px] uppercase tracking-[0.15em] text-clay">
-                  {COPY.contact.hoursLabel[lang]}
-                </p>
-                <p className="mt-1 text-ink">{COPY.contact.hoursValue[lang]}</p>
-              </div>
-              <div>
-                <p className="text-[11px] uppercase tracking-[0.15em] text-clay">{GSTIN_LABEL}</p>
-                <p className="mt-1 text-ink">{BUSINESS.gstin}</p>
-              </div>
-              <MapEmbed lang={lang} className="pt-2 font-body" />
-            </div>
-          </div>
-        </section>
+        <ReachStrip lang={lang} mapHref="/about#reach-map" />
       </main>
 
-      <ResellerCircleStrip lang={lang} href="/reseller-circle" />
       <SiteFooter lang={lang} />
 
       <TalkToUs lang={lang} />

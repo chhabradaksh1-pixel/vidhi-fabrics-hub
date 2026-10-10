@@ -56,9 +56,9 @@ export const COPY = {
       "hi-en": "Surat · Manufacturer aur wholesaler",
     },
     heading: {
-      en: "From Surat, Asia's textile hub, to your shop.",
-      hi: "सूरत, एशिया के टेक्सटाइल हब से, आपकी दुकान तक।",
-      "hi-en": "From Surat, Asia's textile hub, to your shop.",
+      en: "From Surat to your shop.",
+      hi: "सूरत से आपकी दुकान तक।",
+      "hi-en": "Surat se aapki dukaan tak.",
     },
     body: {
       en: "Vidhi Fabrics is a Surat manufacturer and wholesaler of polyester sarees and dress material. Through our network of Surat mills and manufacturing units, we also source organza, net and other fabrics to order, for wholesalers, retailers, resellers and boutiques.",
@@ -502,6 +502,19 @@ export const COPY = {
       en: "Mon–Sat · 11:00 AM–9:00 PM",
       hi: "सोम–शनि · सुबह 11:00–रात 9:00",
       "hi-en": "Mon–Sat · 11:00 AM–9:00 PM",
+    },
+  },
+  homeCta: {
+    heading: {
+      en: "Talk on WhatsApp.",
+      hi: "व्हाट्सएप पर बात करें।",
+      "hi-en": "WhatsApp par baat karein.",
+    },
+    support: {
+      en: "Tell us the fabric, the volume and the season. We typically reply within 12 hours.",
+      hi: "बताइए कपड़ा, मात्रा और सीज़न। हम आमतौर पर 12 घंटे में जवाब देते हैं।",
+      "hi-en":
+        "Bataiye fabric, volume aur season. Hum aam taur par 12 hours mein reply karte hain.",
     },
   },
   footer: {

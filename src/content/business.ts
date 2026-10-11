@@ -21,8 +21,8 @@ export const BUSINESS = {
   postalCode: "395002",
   country: "IN",
   /** E.164, the form tel: links and structured data want. */
-  phone: "+919825208413",
-  phoneDisplay: "+91 98252 08413",
+  phone: "+919172914279",
+  phoneDisplay: "+91 91729 14279",
   email: "sales@vidhifabrics.com",
   /** GST registration, confirmed by the owner on 3 October 2026. Gujarat (24). */
   gstin: "24ABFPC2380K1ZW",

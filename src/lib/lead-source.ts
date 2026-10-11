@@ -41,6 +41,7 @@ export function pageCode(pathname: string): string {
   else if (rest === "/diwali-karva-chauth-wholesale-surat") code = "FES";
   else if (rest === "/reseller-circle") code = "COM";
   else if (rest === "/start-suit-saree-business-from-home") code = "GUI";
+  else if (rest === "/how-to-buy-polyester-sarees-wholesale-surat") code = "PBG";
 
   return hindi ? `${code}H` : code;
 }

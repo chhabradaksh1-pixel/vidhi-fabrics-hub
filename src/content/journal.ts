@@ -8,6 +8,7 @@ import warehouse from "@/assets/warehouse-surat.webp";
 import specSamples from "@/assets/spec-samples.webp";
 import organza from "@/assets/fabric-beaded-organza.jpg";
 import { HOME_BUSINESS_GUIDE } from "@/content/home-business-guide";
+import { POLYESTER_BUYING_GUIDE } from "@/content/polyester-buying-guide";
 import type { Lang } from "@/content/translations";
 import { whatsAppUrl } from "@/content/whatsapp";
 
@@ -2687,6 +2688,7 @@ export const JOURNAL: JournalArticle[] = [
     ],
   },
   HOME_BUSINESS_GUIDE,
+  POLYESTER_BUYING_GUIDE,
 ];
 
 const WHATSAPP_INTRO: Record<Lang, (title: string) => string> = {

@@ -4,7 +4,7 @@
  * The number was previously repeated in the two home routes and inlined
  * again in the journal helper. Everything now builds links from here.
  */
-export const WHATSAPP_NUMBER = "919825208413";
+export const WHATSAPP_NUMBER = "919172914279";
 
 /**
  * Builds a wa.me link with a prefilled message. Every WhatsApp button must use

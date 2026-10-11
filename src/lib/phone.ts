@@ -30,14 +30,14 @@ export const DIAL_CODES: readonly DialCode[] = [
 export type PhoneResult = { ok: true; e164: string } | { ok: false; reason: "india" | "intl" };
 
 /**
- * Validates and normalises a number. Returns E.164 ("+919825208413") when it
+ * Validates and normalises a number. Returns E.164 ("+919172914279") when it
  * looks right. `dial` is a code from DIAL_CODES or OTHER_DIAL.
  */
 export function normalisePhone(dial: string, raw: string): PhoneResult {
   const digits = raw.replace(/\D/g, "");
 
   if (dial === "+91") {
-    // Accept a pasted "+91 98252 08413" or "098252 08413" as well.
+    // Accept a pasted "+91 91729 14279" or "091729 14279" as well.
     const local = digits.replace(/^(91|0)(?=\d{10}$)/, "");
     return /^[6-9]\d{9}$/.test(local)
       ? { ok: true, e164: `+91${local}` }

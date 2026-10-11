@@ -3,7 +3,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import cotton from "@/assets/fabric-cotton-linen.webp";
 import jacquard from "@/assets/fabric-katan-jacquard.webp";
 import logoMark from "@/assets/vidhi-logo-mark.webp";
-import { JOURNAL, readingMinutes, type JournalArticle } from "@/content/journal";
+import { JOURNAL, articleHref, readingMinutes, type JournalArticle } from "@/content/journal";
 import { SiteFooter } from "@/components/site-footer";
 import type { Lang } from "@/content/translations";
 import { MINUTES_LABEL, SECTION_COPY } from "@/content/section-copy";
@@ -102,7 +102,7 @@ export function JournalCard({
   return (
     <article className="group flex h-full flex-col overflow-hidden">
       <a
-        href={href ?? `/blog/${article.slug}`}
+        href={href ?? articleHref(article, lang)}
         className="flex h-full flex-col"
         aria-label={`${readLabel}: ${article.title[lang]}`}
       >
@@ -152,8 +152,6 @@ function JournalRail({ lang, copy }: { lang: Lang; copy: (typeof SECTION_COPY)["
   const rail = useRef<HTMLDivElement>(null);
   const [atStart, setAtStart] = useState(true);
   const [atEnd, setAtEnd] = useState(false);
-  const base = lang === "hi" ? "/hi/blog" : "/blog";
-
   const measure = useCallback(() => {
     const el = rail.current;
     if (!el) return;
@@ -201,7 +199,7 @@ function JournalRail({ lang, copy }: { lang: Lang; copy: (typeof SECTION_COPY)["
               number={index + 1}
               lang={lang}
               readLabel={copy.read}
-              href={`${base}/${article.slug}`}
+              href={articleHref(article, lang)}
             />
           </div>
         ))}

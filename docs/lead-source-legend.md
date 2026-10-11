@@ -21,11 +21,12 @@ they first reached the site in that browser session.
 | ORG  | Organza and net fabric for boutiques `/organza-net-fabric-for-boutiques` |
 | FES  | Diwali and Karva Chauth wholesale `/diwali-karva-chauth-wholesale-surat` |
 | COM  | Vidhi Reseller Circle join page `/reseller-circle` (form only)           |
+| GUI  | Home business guide `/start-suit-saree-business-from-home`               |
 | ERR  | "Page not found" (404) page, at any mistyped or old URL                  |
 | OTH  | Any other page                                                           |
 
 Hindi pages add **H** to the page code: HOMH, SARH, DRSH, BLGH, BLIH, ABTH, RESH, ORGH,
-FESH, COMH, ERRH (a 404 under `/hi/...`).
+FESH, COMH, GUIH, ERRH (a 404 under `/hi/...`).
 
 The Reseller Circle join form sends `form=reseller-circle` with `ref_code` such
 as `COM-IG`. This means the person _asked to join_ from the website. It is not

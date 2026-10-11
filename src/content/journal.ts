@@ -7,6 +7,7 @@ import swatchStack from "@/assets/swatch-stack.webp";
 import warehouse from "@/assets/warehouse-surat.webp";
 import specSamples from "@/assets/spec-samples.webp";
 import organza from "@/assets/fabric-beaded-organza.jpg";
+import { HOME_BUSINESS_GUIDE } from "@/content/home-business-guide";
 import type { Lang } from "@/content/translations";
 import { whatsAppUrl } from "@/content/whatsapp";
 
@@ -92,7 +93,14 @@ export type JournalArticle = {
     heading: Localized;
     body: Localized;
     label: Localized;
+    /** A second close, such as the Reseller Circle, beside the WhatsApp button. */
+    secondary?: { label: Localized; href: string };
   };
+  /**
+   * Public path when the guide is not under `/blog`. Hindi is the same path
+   * with `/hi` prefixed. Omitted articles stay at `/blog/<slug>`.
+   */
+  href?: string;
   /** Overrides the prefilled WhatsApp message for this article only. */
   whatsAppMessage?: Localized;
   /**
@@ -2678,6 +2686,7 @@ export const JOURNAL: JournalArticle[] = [
       },
     ],
   },
+  HOME_BUSINESS_GUIDE,
 ];
 
 const WHATSAPP_INTRO: Record<Lang, (title: string) => string> = {
@@ -2687,6 +2696,12 @@ const WHATSAPP_INTRO: Record<Lang, (title: string) => string> = {
   "hi-en": (t) =>
     `Hi Vidhi Fabrics, maine “${t}” padha. Main apni sourcing requirements discuss karna chahta/chahti hoon.`,
 };
+
+/** Crawlable path for an article, including a guide that does not live under `/blog`. */
+export function articleHref(article: Pick<JournalArticle, "slug" | "href">, lang: Lang) {
+  const path = article.href ?? `/blog/${article.slug}`;
+  return lang === "hi" ? `/hi${path}` : path;
+}
 
 export function articleWhatsAppUrl(article: JournalArticle, lang: Lang) {
   const message = article.whatsAppMessage?.[lang] ?? WHATSAPP_INTRO[lang](article.title[lang]);

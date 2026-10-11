@@ -18,6 +18,7 @@ import { Route as OrganzaNetFabricForBoutiquesRouteImport } from './routes/organ
 import { Route as PolyesterSareesWholesaleSuratRouteImport } from './routes/polyester-sarees-wholesale-surat'
 import { Route as ResellerCircleRouteImport } from './routes/reseller-circle'
 import { Route as SareeWholesaleForResellersRouteImport } from './routes/saree-wholesale-for-resellers'
+import { Route as StartSuitSareeBusinessFromHomeRouteImport } from './routes/start-suit-saree-business-from-home'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as HiAboutRouteImport } from './routes/hi_.about'
@@ -27,6 +28,7 @@ import { Route as HiOrganzaNetFabricForBoutiquesRouteImport } from './routes/hi_
 import { Route as HiPolyesterSareesWholesaleSuratRouteImport } from './routes/hi_.polyester-sarees-wholesale-surat'
 import { Route as HiResellerCircleRouteImport } from './routes/hi_.reseller-circle'
 import { Route as HiSareeWholesaleForResellersRouteImport } from './routes/hi_.saree-wholesale-for-resellers'
+import { Route as HiStartSuitSareeBusinessFromHomeRouteImport } from './routes/hi_.start-suit-saree-business-from-home'
 import { Route as HiBlogIndexRouteImport } from './routes/hi_.blog.index'
 import { Route as HiBlogSlugRouteImport } from './routes/hi_.blog.$slug'
 
@@ -80,6 +82,12 @@ const SareeWholesaleForResellersRoute =
     path: '/saree-wholesale-for-resellers',
     getParentRoute: () => rootRouteImport,
   } as any)
+const StartSuitSareeBusinessFromHomeRoute =
+  StartSuitSareeBusinessFromHomeRouteImport.update({
+    id: '/start-suit-saree-business-from-home',
+    path: '/start-suit-saree-business-from-home',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const BlogIndexRoute = BlogIndexRouteImport.update({
   id: '/blog/',
   path: '/blog/',
@@ -130,6 +138,12 @@ const HiSareeWholesaleForResellersRoute =
     path: '/hi/saree-wholesale-for-resellers',
     getParentRoute: () => rootRouteImport,
   } as any)
+const HiStartSuitSareeBusinessFromHomeRoute =
+  HiStartSuitSareeBusinessFromHomeRouteImport.update({
+    id: '/hi_/start-suit-saree-business-from-home',
+    path: '/hi/start-suit-saree-business-from-home',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const HiBlogIndexRoute = HiBlogIndexRouteImport.update({
   id: '/hi_/blog/',
   path: '/hi/blog/',
@@ -151,6 +165,7 @@ export interface FileRoutesByFullPath {
   '/polyester-sarees-wholesale-surat': typeof PolyesterSareesWholesaleSuratRoute
   '/reseller-circle': typeof ResellerCircleRoute
   '/saree-wholesale-for-resellers': typeof SareeWholesaleForResellersRoute
+  '/start-suit-saree-business-from-home': typeof StartSuitSareeBusinessFromHomeRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/hi/about': typeof HiAboutRoute
   '/hi/diwali-karva-chauth-wholesale-surat': typeof HiDiwaliKarvaChauthWholesaleSuratRoute
@@ -159,6 +174,7 @@ export interface FileRoutesByFullPath {
   '/hi/polyester-sarees-wholesale-surat': typeof HiPolyesterSareesWholesaleSuratRoute
   '/hi/reseller-circle': typeof HiResellerCircleRoute
   '/hi/saree-wholesale-for-resellers': typeof HiSareeWholesaleForResellersRoute
+  '/hi/start-suit-saree-business-from-home': typeof HiStartSuitSareeBusinessFromHomeRoute
   '/blog/': typeof BlogIndexRoute
   '/hi/blog/$slug': typeof HiBlogSlugRoute
   '/hi/blog/': typeof HiBlogIndexRoute
@@ -173,6 +189,7 @@ export interface FileRoutesByTo {
   '/polyester-sarees-wholesale-surat': typeof PolyesterSareesWholesaleSuratRoute
   '/reseller-circle': typeof ResellerCircleRoute
   '/saree-wholesale-for-resellers': typeof SareeWholesaleForResellersRoute
+  '/start-suit-saree-business-from-home': typeof StartSuitSareeBusinessFromHomeRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/hi/about': typeof HiAboutRoute
   '/hi/diwali-karva-chauth-wholesale-surat': typeof HiDiwaliKarvaChauthWholesaleSuratRoute
@@ -181,6 +198,7 @@ export interface FileRoutesByTo {
   '/hi/polyester-sarees-wholesale-surat': typeof HiPolyesterSareesWholesaleSuratRoute
   '/hi/reseller-circle': typeof HiResellerCircleRoute
   '/hi/saree-wholesale-for-resellers': typeof HiSareeWholesaleForResellersRoute
+  '/hi/start-suit-saree-business-from-home': typeof HiStartSuitSareeBusinessFromHomeRoute
   '/blog': typeof BlogIndexRoute
   '/hi/blog/$slug': typeof HiBlogSlugRoute
   '/hi/blog': typeof HiBlogIndexRoute
@@ -196,6 +214,7 @@ export interface FileRoutesById {
   '/polyester-sarees-wholesale-surat': typeof PolyesterSareesWholesaleSuratRoute
   '/reseller-circle': typeof ResellerCircleRoute
   '/saree-wholesale-for-resellers': typeof SareeWholesaleForResellersRoute
+  '/start-suit-saree-business-from-home': typeof StartSuitSareeBusinessFromHomeRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/hi_/about': typeof HiAboutRoute
   '/hi_/diwali-karva-chauth-wholesale-surat': typeof HiDiwaliKarvaChauthWholesaleSuratRoute
@@ -204,6 +223,7 @@ export interface FileRoutesById {
   '/hi_/polyester-sarees-wholesale-surat': typeof HiPolyesterSareesWholesaleSuratRoute
   '/hi_/reseller-circle': typeof HiResellerCircleRoute
   '/hi_/saree-wholesale-for-resellers': typeof HiSareeWholesaleForResellersRoute
+  '/hi_/start-suit-saree-business-from-home': typeof HiStartSuitSareeBusinessFromHomeRoute
   '/blog/': typeof BlogIndexRoute
   '/hi_/blog/$slug': typeof HiBlogSlugRoute
   '/hi_/blog/': typeof HiBlogIndexRoute
@@ -220,6 +240,7 @@ export interface FileRouteTypes {
     | '/polyester-sarees-wholesale-surat'
     | '/reseller-circle'
     | '/saree-wholesale-for-resellers'
+    | '/start-suit-saree-business-from-home'
     | '/blog/$slug'
     | '/hi/about'
     | '/hi/diwali-karva-chauth-wholesale-surat'
@@ -228,6 +249,7 @@ export interface FileRouteTypes {
     | '/hi/polyester-sarees-wholesale-surat'
     | '/hi/reseller-circle'
     | '/hi/saree-wholesale-for-resellers'
+    | '/hi/start-suit-saree-business-from-home'
     | '/blog/'
     | '/hi/blog/$slug'
     | '/hi/blog/'
@@ -242,6 +264,7 @@ export interface FileRouteTypes {
     | '/polyester-sarees-wholesale-surat'
     | '/reseller-circle'
     | '/saree-wholesale-for-resellers'
+    | '/start-suit-saree-business-from-home'
     | '/blog/$slug'
     | '/hi/about'
     | '/hi/diwali-karva-chauth-wholesale-surat'
@@ -250,6 +273,7 @@ export interface FileRouteTypes {
     | '/hi/polyester-sarees-wholesale-surat'
     | '/hi/reseller-circle'
     | '/hi/saree-wholesale-for-resellers'
+    | '/hi/start-suit-saree-business-from-home'
     | '/blog'
     | '/hi/blog/$slug'
     | '/hi/blog'
@@ -264,6 +288,7 @@ export interface FileRouteTypes {
     | '/polyester-sarees-wholesale-surat'
     | '/reseller-circle'
     | '/saree-wholesale-for-resellers'
+    | '/start-suit-saree-business-from-home'
     | '/blog/$slug'
     | '/hi_/about'
     | '/hi_/diwali-karva-chauth-wholesale-surat'
@@ -272,6 +297,7 @@ export interface FileRouteTypes {
     | '/hi_/polyester-sarees-wholesale-surat'
     | '/hi_/reseller-circle'
     | '/hi_/saree-wholesale-for-resellers'
+    | '/hi_/start-suit-saree-business-from-home'
     | '/blog/'
     | '/hi_/blog/$slug'
     | '/hi_/blog/'
@@ -287,6 +313,7 @@ export interface RootRouteChildren {
   PolyesterSareesWholesaleSuratRoute: typeof PolyesterSareesWholesaleSuratRoute
   ResellerCircleRoute: typeof ResellerCircleRoute
   SareeWholesaleForResellersRoute: typeof SareeWholesaleForResellersRoute
+  StartSuitSareeBusinessFromHomeRoute: typeof StartSuitSareeBusinessFromHomeRoute
   BlogSlugRoute: typeof BlogSlugRoute
   HiAboutRoute: typeof HiAboutRoute
   HiDiwaliKarvaChauthWholesaleSuratRoute: typeof HiDiwaliKarvaChauthWholesaleSuratRoute
@@ -295,6 +322,7 @@ export interface RootRouteChildren {
   HiPolyesterSareesWholesaleSuratRoute: typeof HiPolyesterSareesWholesaleSuratRoute
   HiResellerCircleRoute: typeof HiResellerCircleRoute
   HiSareeWholesaleForResellersRoute: typeof HiSareeWholesaleForResellersRoute
+  HiStartSuitSareeBusinessFromHomeRoute: typeof HiStartSuitSareeBusinessFromHomeRoute
   BlogIndexRoute: typeof BlogIndexRoute
   HiBlogSlugRoute: typeof HiBlogSlugRoute
   HiBlogIndexRoute: typeof HiBlogIndexRoute
@@ -365,6 +393,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SareeWholesaleForResellersRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/start-suit-saree-business-from-home': {
+      id: '/start-suit-saree-business-from-home'
+      path: '/start-suit-saree-business-from-home'
+      fullPath: '/start-suit-saree-business-from-home'
+      preLoaderRoute: typeof StartSuitSareeBusinessFromHomeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/blog/': {
       id: '/blog/'
       path: '/blog'
@@ -428,6 +463,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HiSareeWholesaleForResellersRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/hi_/start-suit-saree-business-from-home': {
+      id: '/hi_/start-suit-saree-business-from-home'
+      path: '/hi/start-suit-saree-business-from-home'
+      fullPath: '/hi/start-suit-saree-business-from-home'
+      preLoaderRoute: typeof HiStartSuitSareeBusinessFromHomeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/hi_/blog/': {
       id: '/hi_/blog/'
       path: '/hi/blog'
@@ -455,6 +497,7 @@ const rootRouteChildren: RootRouteChildren = {
   PolyesterSareesWholesaleSuratRoute: PolyesterSareesWholesaleSuratRoute,
   ResellerCircleRoute: ResellerCircleRoute,
   SareeWholesaleForResellersRoute: SareeWholesaleForResellersRoute,
+  StartSuitSareeBusinessFromHomeRoute: StartSuitSareeBusinessFromHomeRoute,
   BlogSlugRoute: BlogSlugRoute,
   HiAboutRoute: HiAboutRoute,
   HiDiwaliKarvaChauthWholesaleSuratRoute:
@@ -464,6 +507,7 @@ const rootRouteChildren: RootRouteChildren = {
   HiPolyesterSareesWholesaleSuratRoute: HiPolyesterSareesWholesaleSuratRoute,
   HiResellerCircleRoute: HiResellerCircleRoute,
   HiSareeWholesaleForResellersRoute: HiSareeWholesaleForResellersRoute,
+  HiStartSuitSareeBusinessFromHomeRoute: HiStartSuitSareeBusinessFromHomeRoute,
   BlogIndexRoute: BlogIndexRoute,
   HiBlogSlugRoute: HiBlogSlugRoute,
   HiBlogIndexRoute: HiBlogIndexRoute,

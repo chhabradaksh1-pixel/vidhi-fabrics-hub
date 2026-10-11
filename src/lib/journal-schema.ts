@@ -1,4 +1,4 @@
-import { JOURNAL, type JournalArticle } from "@/content/journal";
+import { JOURNAL, articleHref, type JournalArticle } from "@/content/journal";
 import { BUSINESS, BUSINESS_ID, authorSchema } from "@/content/business";
 import { SECTION_COPY } from "@/content/section-copy";
 import type { CrawlLang } from "@/lib/breadcrumbs";
@@ -10,7 +10,7 @@ function deskUrl(lang: CrawlLang) {
 }
 
 export function articleUrl(article: JournalArticle, lang: CrawlLang) {
-  return `${deskUrl(lang)}/${article.slug}`;
+  return new URL(articleHref(article, lang), SITE).href;
 }
 
 /**

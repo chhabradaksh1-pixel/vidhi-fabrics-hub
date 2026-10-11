@@ -1,5 +1,5 @@
+import { articleHref, type Localized } from "@/content/journal";
 import { SECTION_COPY } from "@/content/section-copy";
-import type { Localized } from "@/content/journal";
 
 const SITE = "https://www.vidhifabrics.com";
 
@@ -24,7 +24,10 @@ export type CrawlLang = "en" | "hi";
  * The home URL carries its trailing slash so the breadcrumb points at the same
  * string the canonical does, rather than a second spelling of the same page.
  */
-export function breadcrumbList(lang: CrawlLang, article?: { slug: string; title: Localized }) {
+export function breadcrumbList(
+  lang: CrawlLang,
+  article?: { slug: string; title: Localized; href?: string },
+) {
   const home = lang === "hi" ? `${SITE}/hi` : `${SITE}/`;
   const desk = lang === "hi" ? `${SITE}/hi/blog` : `${SITE}/blog`;
 
@@ -34,7 +37,10 @@ export function breadcrumbList(lang: CrawlLang, article?: { slug: string; title:
   ];
 
   if (article) {
-    trail.push({ name: article.title[lang], item: `${desk}/${article.slug}` });
+    trail.push({
+      name: article.title[lang],
+      item: new URL(articleHref(article, lang), SITE).href,
+    });
   }
 
   return {

@@ -12,6 +12,7 @@ export const LANDING_PAGES_WITH_HINDI: readonly string[] = [
   "/organza-net-fabric-for-boutiques",
   "/diwali-karva-chauth-wholesale-surat",
   "/reseller-circle",
+  "/start-suit-saree-business-from-home",
 ];
 
 export function hasHindiVersion(href: string) {

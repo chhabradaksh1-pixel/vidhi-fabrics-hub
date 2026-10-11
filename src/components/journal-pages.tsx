@@ -5,6 +5,7 @@ import { JournalCard, JournalHeader, JournalFooter } from "@/components/fabric-d
 import { SECTION_COPY } from "@/content/section-copy";
 import {
   JOURNAL,
+  articleHref,
   articleWhatsAppUrl,
   readingMinutes,
   relatedArticles,
@@ -140,7 +141,7 @@ export function JournalIndexPage({ initialLang }: { initialLang: Lang }) {
                   lang={lang}
                   readLabel={copy.read}
                   headingLevel={3}
-                  href={`${lang === "hi" ? "/hi/blog" : "/blog"}/${article.slug}`}
+                  href={articleHref(article, lang)}
                 />
               ))}
             </div>
@@ -161,17 +162,20 @@ export function JournalArticlePage({
 }) {
   const { lang, setLang } = useJournalLang(initialLang);
   const copy = SECTION_COPY[lang];
-  const base = lang === "hi" ? "/hi/blog" : "/blog";
+  const desk = lang === "hi" ? "/hi/blog" : "/blog";
+  const paths = article.href
+    ? { en: article.href, hi: `/hi${article.href}` }
+    : blogPaths(article.slug);
 
   return (
     <div className="min-h-screen bg-paper text-ink">
-      <JournalHeader lang={lang} setLang={setLang} paths={blogPaths(article.slug)} />
+      <JournalHeader lang={lang} setLang={setLang} paths={paths} />
       <main>
         <article
           className="mx-auto max-w-4xl px-6 py-12 sm:py-16"
           lang={lang === "hi" ? "hi" : "en"}
         >
-          <a href={base} className="inline-flex items-center gap-2 text-sm text-clay">
+          <a href={desk} className="inline-flex items-center gap-2 text-sm text-clay">
             <ArrowLeft size={16} aria-hidden="true" />
             {copy.journalTitle}
           </a>
@@ -312,6 +316,14 @@ export function JournalArticlePage({
                 {article.cta?.label[lang] ?? copy.talk}
                 <ArrowUpRight className="shrink-0" size={18} aria-hidden="true" />
               </a>
+              {article.cta?.secondary && (
+                <a
+                  href={localiseHref(article.cta.secondary.href, lang)}
+                  className="mt-4 inline-block text-sm text-paper underline underline-offset-4"
+                >
+                  {article.cta.secondary.label[lang]}
+                </a>
+              )}
             </aside>
             <div className="border-t border-line pt-8">
               <h2 className="font-display text-2xl font-light">{copy.related}</h2>
@@ -319,7 +331,7 @@ export function JournalArticlePage({
                 {relatedArticles(article, RELATED_COUNT).map((item) => (
                   <li key={item.slug}>
                     <a
-                      href={`${base}/${item.slug}`}
+                      href={articleHref(item, lang)}
                       className="text-clay underline underline-offset-4"
                     >
                       {item.title[lang]}

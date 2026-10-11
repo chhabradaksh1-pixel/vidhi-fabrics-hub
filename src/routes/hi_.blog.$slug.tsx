@@ -10,7 +10,8 @@ const SITE = "https://www.vidhifabrics.com";
 export const Route = createFileRoute("/hi_/blog/$slug")({
   loader: ({ params }) => {
     const article = JOURNAL.find((item) => item.slug === params.slug);
-    if (!article) throw notFound();
+    // Guides with their own URL must not also resolve under /blog.
+    if (!article || article.href) throw notFound();
     return article;
   },
   head: ({ loaderData: article }) => {

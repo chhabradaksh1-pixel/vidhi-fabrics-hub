@@ -363,6 +363,54 @@
   animation: vf-nudge 0.8s ease-out 1;
 }
 
+/*
+ * After the slide-in, one small hop, then a quiet gap of about 7s.
+ * The hop is the first 18% of a 7.2s loop, so the peaks are ~7s apart.
+ * Transform only — the button stays in the same layout box.
+ */
+@keyframes vf-launcher-hop {
+  0% {
+    transform: translateY(0);
+  }
+  5% {
+    transform: translateY(-14px);
+  }
+  10% {
+    transform: translateY(0);
+  }
+  14% {
+    transform: translateY(-5px);
+  }
+  18%,
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@utility vf-launcher-hop {
+  animation: vf-launcher-hop 7.2s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+/* Soft WhatsApp-green halo behind the launcher. Sits under the clay button. */
+@keyframes vf-wa-glow {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+    box-shadow: 0 0 10px 2px rgb(37 211 102 / 0.45);
+  }
+  50% {
+    opacity: 0.2;
+    transform: scale(1.14);
+    box-shadow: 0 0 18px 8px rgb(37 211 102 / 0.28);
+  }
+}
+
+@utility vf-wa-glow {
+  background-color: #25d366;
+  animation: vf-wa-glow 2.8s ease-in-out infinite;
+}
+
 @layer base {
   ::selection {
     background: oklch(0.2178 0 0 / 16%);
@@ -500,6 +548,18 @@
      off-screen pose. Motion snaps the value after mount. */
   [data-vf-launcher],
   [data-vf-launcher-in] {
+    transform: none !important;
+  }
+
+  .vf-launcher-hop,
+  .vf-wa-glow {
+    animation: none !important;
+  }
+
+  .vf-wa-glow {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    opacity: 0 !important;
     transform: none !important;
   }
 }

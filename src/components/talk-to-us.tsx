@@ -25,6 +25,14 @@ const TEASER_FIRST_MS = 4000;
 const TEASER_REPEAT_MS = 75000;
 const TEASER_MAX_SHOWS = 2;
 
+/**
+ * The hop and green glow stop for the rest of the session once the visitor
+ * opens the panel or dismisses the teaser.
+ */
+const ATTENTION_KEY = "vidhi-launcher-settled";
+/** Long enough for the 0.55s slide-in to finish before the first hop. */
+const HOP_AFTER_SLIDE_MS = 800;
+
 function loadSaved(): { step: TalkStep; answers: Answers } | null {
   try {
     const raw = window.sessionStorage.getItem(STORE_KEY);
@@ -178,6 +186,9 @@ export function TalkToUs({ lang = "en" }: { lang?: Lang }) {
   const [draft, setDraft] = useState("");
   const [teaser, setTeaser] = useState(false);
   const [nudge, setNudge] = useState(false);
+  // Glow from first paint. The hop waits until the slide-in has finished.
+  const [attention, setAttention] = useState(true);
+  const [hop, setHop] = useState(false);
   const [city, setCity] = useState("");
   const [country, setCountry] = useState("");
   // The homepage enquiry pop-up is open: stay out of its way.
@@ -298,6 +309,41 @@ export function TalkToUs({ lang = "en" }: { lang?: Lang }) {
     }
   }, [open]);
 
+  const settleAttention = useCallback(() => {
+    setAttention(false);
+    setHop(false);
+    try {
+      window.sessionStorage.setItem(ATTENTION_KEY, "1");
+    } catch {
+      /* private mode */
+    }
+  }, []);
+
+  // Hop only after the entrance, and never again once they have engaged.
+  useEffect(() => {
+    try {
+      if (window.sessionStorage.getItem(ATTENTION_KEY) === "1") {
+        setAttention(false);
+        return;
+      }
+    } catch {
+      /* private mode — keep the attention, it simply will not persist */
+    }
+    const t = window.setTimeout(() => {
+      try {
+        if (window.sessionStorage.getItem(ATTENTION_KEY) === "1") return;
+      } catch {
+        /* private mode */
+      }
+      setHop(true);
+    }, HOP_AFTER_SLIDE_MS);
+    return () => window.clearTimeout(t);
+  }, []);
+
+  useEffect(() => {
+    if (open) settleAttention();
+  }, [open, settleAttention]);
+
   const advance = useCallback((next: TalkStep, patch: Partial<Answers>) => {
     setAnswers((prev) => {
       const merged = { ...prev, ...patch };
@@ -400,7 +446,10 @@ export function TalkToUs({ lang = "en" }: { lang?: Lang }) {
             </button>
             <button
               type="button"
-              onClick={() => setTeaser(false)}
+              onClick={() => {
+                setTeaser(false);
+                settleAttention();
+              }}
               aria-label={copy.teaserClose}
               className="-mr-1 -mt-1 shrink-0 rounded-sm p-1 text-mute transition-colors hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-clay"
             >
@@ -410,25 +459,29 @@ export function TalkToUs({ lang = "en" }: { lang?: Lang }) {
         ) : null}
 
         <FloatingLauncher>
-          {/* Pulsing ring — decorative, sits behind the button. */}
-          <span
-            aria-hidden="true"
-            className="vf-pulse-ring absolute inset-0 rounded-full bg-clay"
-          />
-          <button
-            ref={launcherRef}
-            type="button"
-            onClick={openPanel}
-            aria-haspopup="dialog"
-            aria-expanded={open}
-            tabIndex={open || popupOpen || overCta ? -1 : undefined}
-            className={`relative inline-flex size-14 items-center justify-center gap-2.5 rounded-full bg-clay font-mono text-sm uppercase tracking-[0.12em] text-paper shadow-xl ring-2 ring-paper transition-colors hover:bg-claydeep focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink sm:size-auto sm:px-6 sm:py-4 ${
-              nudge ? "vf-nudge" : ""
-            }`}
-          >
-            <MessageCircle size={22} aria-hidden="true" className="sm:size-[19px]" />
-            <span className="sr-only sm:not-sr-only">{copy.launcher}</span>
-          </button>
+          <div className={hop && attention ? "vf-launcher-hop relative" : "relative"}>
+            {/* Green halo — decorative, sits behind the button. Stops once they engage. */}
+            {attention ? (
+              <span
+                aria-hidden="true"
+                className="vf-wa-glow pointer-events-none absolute inset-0 rounded-full"
+              />
+            ) : null}
+            <button
+              ref={launcherRef}
+              type="button"
+              onClick={openPanel}
+              aria-haspopup="dialog"
+              aria-expanded={open}
+              tabIndex={open || popupOpen || overCta ? -1 : undefined}
+              className={`relative inline-flex size-14 items-center justify-center gap-2.5 rounded-full bg-clay font-mono text-sm uppercase tracking-[0.12em] text-paper shadow-xl ring-2 ring-paper transition-colors hover:bg-claydeep focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink sm:size-auto sm:px-6 sm:py-4 ${
+                nudge ? "vf-nudge" : ""
+              }`}
+            >
+              <MessageCircle size={22} aria-hidden="true" className="sm:size-[19px]" />
+              <span className="sr-only sm:not-sr-only">{copy.launcher}</span>
+            </button>
+          </div>
         </FloatingLauncher>
       </div>
 

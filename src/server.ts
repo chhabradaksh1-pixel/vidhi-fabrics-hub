@@ -2,7 +2,7 @@ import "./lib/error-capture";
 
 import { consumeLastCapturedError } from "./lib/error-capture";
 import { renderErrorPage } from "./lib/error-page";
-import { applyEdgePolicy, lovableRedirect } from "./lib/edge-policy";
+import { applyEdgePolicy, canonicalHostRedirect, lovableRedirect } from "./lib/edge-policy";
 import { shortRedirectResponse } from "./lib/short-redirects";
 
 type ServerEntry = {
@@ -69,6 +69,8 @@ export default {
       }
       const lovable = lovableRedirect(url);
       if (lovable) return lovable;
+      const canonical = canonicalHostRedirect(request, url);
+      if (canonical) return canonical;
       const redirect = shortRedirectResponse(url);
       if (redirect) return redirect;
       const handler = await getServerEntry();

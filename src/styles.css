@@ -494,6 +494,14 @@
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
+
+  /* The launcher's entrance is a transform written into the server HTML.
+     Cancel it on the first paint so a reduced-motion visitor never sees the
+     off-screen pose. Motion snaps the value after mount. */
+  [data-vf-launcher],
+  [data-vf-launcher-in] {
+    transform: none !important;
+  }
 }
 
 @layer components {

@@ -1,6 +1,7 @@
 import { track } from "@vercel/analytics";
 import { MessageCircle, X } from "lucide-react";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { arc, motion, MotionConfig } from "motion/react";
+import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 
 import { TALK_COPY, type TalkStep } from "@/content/talk-to-us-copy";
 import type { Lang } from "@/content/translations";
@@ -114,6 +115,44 @@ function buildMessage(a: Answers, lang: Lang) {
 
 /** Below Tailwind's `sm` breakpoint: phones. */
 const MOBILE_QUERY = "(max-width: 639.98px)";
+
+/**
+ * Entrance offset: the launcher's own width, plus the larger corner inset
+ * (`sm:right-5` is 1.25rem). That starts it just past the right edge and
+ * leaves the resting position — `right-4` / `sm:right-5` — fully on screen.
+ * A viewport calc such as `100vw - 50%` is not used; it would park the
+ * control on the layout box itself and can leave it clipped.
+ */
+const LAUNCHER_ENTER_X = "calc(100% + 1.25rem)";
+
+/**
+ * Slide-in, plus an arc for any later change of this box.
+ *
+ * The tree is the same on the server and the client. Branching on
+ * `useReducedMotion()` swaps a `motion.div` for a plain `div` on the first
+ * client render (the hook reads `matchMedia` immediately) and fails hydration.
+ * `MotionConfig reducedMotion="user"` is applied when the node mounts, so a
+ * reduced-motion visitor snaps to the resting pose instead. The stylesheet
+ * also forces `transform: none` under that media query, so the server's
+ * off-screen `translateX` never paints.
+ */
+function FloatingLauncher({ children }: { children: ReactNode }) {
+  return (
+    <MotionConfig reducedMotion="user">
+      <motion.div layout data-vf-launcher transition={{ layout: { path: arc() } }}>
+        <motion.div
+          className="relative"
+          data-vf-launcher-in
+          initial={{ x: LAUNCHER_ENTER_X }}
+          animate={{ x: 0 }}
+          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+        >
+          {children}
+        </motion.div>
+      </motion.div>
+    </MotionConfig>
+  );
+}
 
 /**
  * CTAs the floating launcher must never sit on top of: WhatsApp links, submit
@@ -370,7 +409,7 @@ export function TalkToUs({ lang = "en" }: { lang?: Lang }) {
           </div>
         ) : null}
 
-        <div className="relative">
+        <FloatingLauncher>
           {/* Pulsing ring — decorative, sits behind the button. */}
           <span
             aria-hidden="true"
@@ -390,7 +429,7 @@ export function TalkToUs({ lang = "en" }: { lang?: Lang }) {
             <MessageCircle size={22} aria-hidden="true" className="sm:size-[19px]" />
             <span className="sr-only sm:not-sr-only">{copy.launcher}</span>
           </button>
-        </div>
+        </FloatingLauncher>
       </div>
 
       {open ? (

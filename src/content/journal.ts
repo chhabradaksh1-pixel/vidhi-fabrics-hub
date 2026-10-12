@@ -521,9 +521,34 @@ export const JOURNAL: JournalArticle[] = [
         },
         href: "/blog/fabric-width-and-costing",
       },
+      {
+        phrase: {
+          en: "polyester saree wholesale page",
+          hi: "पॉलिएस्टर साड़ी होलसेल पेज",
+          "hi-en": "polyester saree wholesale page",
+        },
+        href: "/polyester-sarees-wholesale-surat",
+      },
+      {
+        phrase: {
+          en: "dress material wholesale page",
+          hi: "ड्रेस मटेरियल होलसेल पेज",
+          "hi-en": "dress material wholesale page",
+        },
+        href: "/dress-material-wholesale-surat",
+      },
+      {
+        phrase: {
+          en: "how to buy polyester sarees wholesale from Surat",
+          hi: "सूरत से पॉलिएस्टर साड़ी थोक खरीदने की गाइड",
+          "hi-en": "Surat se polyester sarees wholesale kaise kharidein",
+        },
+        href: "/how-to-buy-polyester-sarees-wholesale-surat",
+      },
     ],
     image: specSamples,
     published: "2026-09-25",
+    modified: "2026-10-12",
     imageAlt: {
       en: "Textile samples in reds and browns, the form a specification takes before it is a decision",
       hi: "लाल और भूरे रंगों में कपड़े के नमूने — फ़ैसला बनने से पहले स्पेसिफ़िकेशन इसी रूप में होता है",
@@ -536,9 +561,15 @@ export const JOURNAL: JournalArticle[] = [
       "hi-en": "Specification guide",
     },
     metaTitle: {
-      en: "How to read a fabric specification",
-      hi: "फ़ैब्रिक स्पेसिफ़िकेशन कैसे पढ़ें",
-      "hi-en": "Fabric specification kaise padhein",
+      en: "How to read a Surat fabric spec",
+      hi: "सूरत की फ़ैब्रिक स्पेक कैसे पढ़ें",
+      "hi-en": "Surat ki fabric spec kaise padhein",
+    },
+    metaDescription: {
+      en: "A Surat fabric spec is a shortlist, not proof. See which fields decide the cloth, which ones only describe it, and what the sheet leaves out.",
+      hi: "सूरत की फ़ैब्रिक स्पेक छाँटने का औज़ार है, सबूत नहीं। कौन-से ख़ाने कपड़ा तय करते हैं और शीट क्या छोड़ देती है, यह देखिए।",
+      "hi-en":
+        "Surat ki fabric spec chaantne ka auzaar hai, saboot nahin. Kaun se khaane kapda tay karte hain aur sheet kya chhod deti hai, yeh dekhiye.",
     },
     title: {
       en: "How to read a fabric specification",
@@ -650,16 +681,19 @@ export const JOURNAL: JournalArticle[] = [
             "Shrinkage, colourfastness and handle are the three that matter most and appear least. None of them can be inferred from weight, composition or construction with any confidence, and all three decide whether a buyer accepts the finished goods.",
             "Ask for them separately and in writing. Residual shrinkage after washing — tested to ISO 6330 — fastness to washing, rubbing and light, and a physical sample for handle. These are ordinary requests and a supplier who cannot answer them is telling you something useful.",
             "Then let the sample decide. The specification is how you get from many candidates to a few and how you hold a lot to account once it ships; the cloth in your hand is the only thing that tells you it is right.",
+            "When the order is a finished set rather than yardage, take the same shortlist to the polyester saree wholesale page, the dress material wholesale page, and the guide on how to buy polyester sarees wholesale from Surat.",
           ],
           hi: [
             "सिकुड़न, रंग की पक्की टिकाऊपन और पकड़ — ये तीन सबसे ज़्यादा मायने रखती हैं और सबसे कम दिखती हैं। इनमें से किसी का भरोसे लायक़ अंदाज़ा वज़न, कंपोज़िशन या कंस्ट्रक्शन से नहीं लगाया जा सकता, और तीनों तय करती हैं कि खरीदार तैयार माल लेगा या नहीं।",
             "इन्हें अलग से और लिखित में माँगिए। धुलाई के बाद बची सिकुड़न — ISO 6330 से जाँची गई — धुलाई, रगड़ और रोशनी पर रंग की पक्की; और पकड़ के लिए असली सैंपल। ये आम माँगें हैं, और जो सप्लायर इनका जवाब न दे सके, वह आपको एक काम की बात बता रहा है।",
             "फिर फ़ैसला सैंपल पर छोड़िए। स्पेसिफ़िकेशन से आप बहुत सारे विकल्पों से कुछ तक पहुँचते हैं और माल भेजे जाने के बाद उसे जवाबदेह रखते हैं; हाथ में आया कपड़ा ही अकेली चीज़ है जो बताती है कि वह सही है।",
+            "जब ऑर्डर गज़ कपड़े की जगह तैयार सेट हो, तो यही सूची पॉलिएस्टर साड़ी होलसेल पेज, ड्रेस मटेरियल होलसेल पेज, और सूरत से पॉलिएस्टर साड़ी थोक खरीदने की गाइड पर ले जाइए।",
           ],
           "hi-en": [
             "Sikudan, rang ki pakki tikaupan aur pakad — ye teen sabse zyada maayne rakhti hain aur sabse kam dikhti hain. Inmein se kisi ka bharose laayak andaza weight, composition ya construction se nahin lagaya ja sakta, aur teenon tay karti hain ki khareedar taiyaar maal lega ya nahin.",
             "Inhe alag se aur likhit mein maangiye. Dhulai ke baad bachi sikudan — ISO 6330 se jaanchi gayi — dhulai, ragad aur roshni par rang ki pakki; aur pakad ke liye asli sample. Ye aam maangein hain, aur jo supplier inka jawaab na de sake, wo aapko ek kaam ki baat bata raha hai.",
             "Phir faisla sample par chhodiye. Specification se aap bahut saare options se kuch tak pahunchte hain aur maal bheje jaane ke baad use jawabdeh rakhte hain; haath mein aaya kapda hi akeli cheez hai jo batati hai ki wo sahi hai.",
+            "Jab order gaz kapde ki jagah taiyar set ho, to yahi suchi polyester saree wholesale page, dress material wholesale page, aur Surat se polyester sarees wholesale kaise kharidein wali guide par le jaiye.",
           ],
         },
       },
@@ -784,10 +818,18 @@ export const JOURNAL: JournalArticle[] = [
         },
         href: "/saree-wholesale-for-resellers",
       },
+      {
+        phrase: {
+          en: "how to buy polyester sarees wholesale from Surat",
+          hi: "सूरत से पॉलिएस्टर साड़ी थोक खरीदने की गाइड",
+          "hi-en": "Surat se polyester sarees wholesale kaise kharidein",
+        },
+        href: "/how-to-buy-polyester-sarees-wholesale-surat",
+      },
     ],
     image: warehouse,
     published: "2026-09-24",
-    modified: "2026-10-09",
+    modified: "2026-10-12",
     imageAlt: {
       en: "Rolls of cloth stacked by width, where yardage and costing actually meet",
       hi: "चौड़ाई के हिसाब से रखे कपड़े के थान — जहाँ गज़ और लागत असल में मिलते हैं",
@@ -800,15 +842,15 @@ export const JOURNAL: JournalArticle[] = [
       "hi-en": "Specification guide",
     },
     metaTitle: {
-      en: "Fabric width and your shop's real cost",
-      hi: "चौड़ाई आपकी दुकान की लागत कैसे बदलती है",
-      "hi-en": "Chaudai aapki dukaan ki laagat kaise badalti hai",
+      en: "Fabric width and costing in Surat",
+      hi: "सूरत में कपड़े की चौड़ाई और लागत",
+      "hi-en": "Surat mein fabric width aur costing",
     },
     metaDescription: {
-      en: "Boutiques and resellers: a wider cloth is not always the better buy. See how width changes the pieces you cut before you compare two Surat quotations.",
-      hi: "बुटीक और रीसेलर के लिए: चौड़ा कपड़ा हमेशा बेहतर नहीं होता। दो सूरत कोटेशन तुलना करने से पहले देखिए कि चौड़ाई काटे गए पीस कैसे बदलती है।",
+      en: "A wider Surat cloth is not always the better buy. Compare how many pieces you cut at each width before you choose between two offers.",
+      hi: "चौड़ा सूरत का कपड़ा हमेशा बेहतर नहीं होता। दो ऑफ़र में से चुनने से पहले देखिए हर चौड़ाई पर कितने पीस कटते हैं।",
       "hi-en":
-        "Boutiques aur resellers ke liye: chauda kapda hamesha behtar nahin hota. Do Surat quotation compare karne se pehle dekhiye ki chaudai kaate gaye piece kaise badalti hai.",
+        "Chauda Surat ka kapda hamesha behtar nahin hota. Do offer mein se chunne se pehle dekhiye har chaudai par kitne piece katte hain.",
     },
     title: {
       en: "Fabric width and what it does to your costing",
@@ -939,12 +981,15 @@ export const JOURNAL: JournalArticle[] = [
         paragraphs: {
           en: [
             "The same question comes up on a finished set, not only on yardage. See the dress material wholesale page for unstitched suits, the polyester sarees wholesale page for saree lengths, and the saree wholesale for resellers page if you are buying a first mix for a boutique or a WhatsApp counter.",
+            "Weight, print and finish sit beside width on a finished saree. The guide on how to buy polyester sarees wholesale from Surat walks through those checks in order.",
           ],
           hi: [
             "यही सवाल तैयार सेट पर भी आता है, सिर्फ़ गज़ कपड़े पर नहीं। अनस्टिच्ड सूट के लिए ड्रेस मटेरियल होलसेल पेज देखिए, साड़ी की लंबाई के लिए पॉलिएस्टर साड़ी होलसेल पेज, और बुटीक या व्हाट्सएप काउंटर के पहले मिक्स के लिए रीसेलर साड़ी होलसेल पेज।",
+            "तैयार साड़ी पर चौड़ाई के साथ वज़न, प्रिंट और फ़िनिश भी देखनी होती है। सूरत से पॉलिएस्टर साड़ी थोक खरीदने की गाइड इन जाँचों को क्रम से बताती है।",
           ],
           "hi-en": [
             "Yahi sawaal taiyar set par bhi aata hai, sirf gaz kapde par nahin. Unstitched suits ke liye dress material wholesale page dekhiye, saree ki lambai ke liye polyester saree wholesale page, aur boutique ya WhatsApp counter ke pehle mix ke liye reseller saree wholesale page.",
+            "Taiyar saree par chaudai ke saath weight, print aur finish bhi dekhni hoti hai. Surat se polyester sarees wholesale kaise kharidein, yeh guide in jaanchon ko kram se batati hai.",
           ],
         },
       },

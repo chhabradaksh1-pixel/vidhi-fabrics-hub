@@ -238,7 +238,11 @@ text rather than merely poor text.
 - `src/lib/edge-policy.ts` (called from `src/server.ts`): 200 HTML responses get
   `s-maxage=3600, stale-while-revalidate=86400`; 404s, redirects, errors and
   `/api` are untouched. `vidhi-fabrics-hub.lovable.app` 301s to www;
-  other Lovable preview hosts get `X-Robots-Tag: noindex`.
+  other Lovable preview hosts get `X-Robots-Tag: noindex`. Apex and `http://www`
+  301 to `https://www.vidhifabrics.com` from `vercel.json` (copied into Nitro's
+  Vercel output config by `scripts/inject-canonical-host-routes.mjs`) and from
+  the same rule in the server. Vercel's own HTTP→HTTPS upgrade is a 308 on the
+  same host and runs first; it cannot be turned into that 301.
 - The Vercel function region (bom1) is set in `vite.config.ts` via nitro's
   `vercel.functions` option, not in `vercel.json`.
 - GSTIN 24ABFPC2380K1ZW (owner-confirmed 3 October 2026) lives in

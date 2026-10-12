@@ -6,6 +6,9 @@
  * the site is built by Nitro, which on Vercel writes its own
  * `.vercel/output/config.json`, so redirects defined here work the same in
  * every environment (local preview included) and are tested with the app.
+ * Host canonicalisation is the exception: it lives in vercel.json so the
+ * edge can answer it, and scripts/inject-canonical-host-routes.mjs copies
+ * those rules into the generated config on a Vercel build.
  *
  * Every short path also works under /hi, going to the Hindi page. A trailing
  * slash is accepted, matching ignores case, and the query string (UTM tags,

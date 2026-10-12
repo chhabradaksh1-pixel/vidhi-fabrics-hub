@@ -9,7 +9,17 @@
  *    for the owner, so they are not redirected; they get `X-Robots-Tag:
  *    noindex` instead.
  *
- * 2. Edge caching for page HTML. Pages are the same for every visitor (the lead
+ * 2. The canonical host. `http://www.vidhifabrics.com`, `http://vidhifabrics.com`
+ *    and `https://vidhifabrics.com` 301 straight to `https://www.vidhifabrics.com`
+ *    on the same path (query kept). A short alias such as `/sarees` is resolved
+ *    in that same response, so the non-canonical host does not add a second hop.
+ *    Vercel's CDN still upgrades bare HTTP to HTTPS with its own 308 before any
+ *    project rule or this function runs, and that upgrade cannot be turned off.
+ *    The edge rules in vercel.json (copied into Nitro's output config on a
+ *    Vercel build) are what production actually hits; this function is the same
+ *    rule for local preview and for any request that reaches the server.
+ *
+ * 3. Edge caching for page HTML. Pages are the same for every visitor (the lead
  *    source and the Hinglish toggle are client-side), so a successful HTML
  *    response can be held at Vercel's edge for an hour and served stale for a
  *    day while it revalidates. A new deployment purges Vercel's edge cache, so
@@ -19,7 +29,11 @@
  *    the /api routes keep their own headers.
  */
 
+import { shortRedirectTarget } from "./short-redirects";
+
 export const CANONICAL_ORIGIN = "https://www.vidhifabrics.com";
+const CANONICAL_HOST = "www.vidhifabrics.com";
+const APEX_HOST = "vidhifabrics.com";
 
 /** The published Lovable URL of this project (see README). */
 const LOVABLE_PUBLISHED_HOST = "vidhi-fabrics-hub.lovable.app";
@@ -37,6 +51,55 @@ export function lovableRedirect(url: URL): Response | null {
     status: 301,
     headers: {
       location: `${CANONICAL_ORIGIN}${url.pathname}${url.search}`,
+      "cache-control": "public, max-age=86400",
+    },
+  });
+}
+
+function forwardedFirst(value: string | null): string {
+  return value?.split(",")[0]?.trim().toLowerCase() ?? "";
+}
+
+/** Public hostname, without a port. Prefers the forwarded host over the internal URL. */
+function requestHostname(request: Request, url: URL): string {
+  const raw =
+    forwardedFirst(request.headers.get("x-forwarded-host")) ||
+    forwardedFirst(request.headers.get("host")) ||
+    url.hostname.toLowerCase();
+  return raw.replace(/:\d+$/, "");
+}
+
+function requestProto(request: Request, url: URL): string {
+  return (
+    forwardedFirst(request.headers.get("x-forwarded-proto")) ||
+    url.protocol.replace(":", "").toLowerCase()
+  );
+}
+
+function isLocalHost(hostname: string): boolean {
+  return (
+    hostname === "localhost" ||
+    hostname === "127.0.0.1" ||
+    hostname === "[::1]" ||
+    hostname === "::1"
+  );
+}
+
+/**
+ * 301 to the canonical origin, or null when this request is already on it
+ * (or is a local / preview host we must not bounce).
+ */
+export function canonicalHostRedirect(request: Request, url: URL): Response | null {
+  const hostname = requestHostname(request, url);
+  if (isLocalHost(hostname) || isLovablePreviewHost(hostname)) return null;
+  if (hostname !== APEX_HOST && hostname !== CANONICAL_HOST) return null;
+  if (hostname === CANONICAL_HOST && requestProto(request, url) === "https") return null;
+
+  const path = shortRedirectTarget(url.pathname) ?? url.pathname;
+  return new Response(null, {
+    status: 301,
+    headers: {
+      location: `${CANONICAL_ORIGIN}${path}${url.search}`,
       "cache-control": "public, max-age=86400",
     },
   });

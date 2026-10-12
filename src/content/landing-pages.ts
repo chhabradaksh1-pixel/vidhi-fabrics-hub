@@ -13,6 +13,7 @@ export const LANDING_PAGES_WITH_HINDI: readonly string[] = [
   "/diwali-karva-chauth-wholesale-surat",
   "/reseller-circle",
   "/start-suit-saree-business-from-home",
+  "/how-to-buy-polyester-sarees-wholesale-surat",
 ];
 
 export function hasHindiVersion(href: string) {

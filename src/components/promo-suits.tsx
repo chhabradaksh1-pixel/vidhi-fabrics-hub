@@ -13,9 +13,9 @@ const suitLink =
 const TICKER_COPIES = 5;
 
 /**
- * The PR #23 banner, with only the sentence scrolling. Colours, type, padding
- * and the WhatsApp button are the banner's. Renders nothing when
- * `PROMO_SUITS` is false, or after dismiss for the rest of the session.
+ * The suit banner, with only the sentence scrolling. The bar is the button
+ * maroon; the WhatsApp control is inverted so it still reads on that ground.
+ * Renders nothing when `PROMO_SUITS` is false, or after dismiss for the session.
  */
 export function PromoSuitsTicker({ lang }: { lang: Lang }) {
   const [open, setOpen] = useState(true);
@@ -32,7 +32,7 @@ export function PromoSuitsTicker({ lang }: { lang: Lang }) {
   const text = PROMO_COPY.banner[lang];
   const copies = Array.from({ length: TICKER_COPIES }, (_, i) => i);
   return (
-    <div className="vf-promo-ticker border-b border-[#7A1A18]/25 bg-[#F6F1EA] text-ink">
+    <div className="vf-promo-ticker border-b border-white/20">
       <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-4 gap-y-2 px-6 py-2">
         <p className="vf-promo-ticker-viewport min-w-0 flex-1 text-sm leading-snug">
           <span className="sr-only">{text}</span>
@@ -47,7 +47,7 @@ export function PromoSuitsTicker({ lang }: { lang: Lang }) {
             data-lead-ref={PROMO_SUIT_REF}
             target="_blank"
             rel="noopener noreferrer"
-            className="vf-btn-maroon rounded-sm px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.12em] transition-colors"
+            className="vf-promo-ticker-btn rounded-sm px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.12em] transition-colors"
           >
             {PROMO_COPY.bannerButton[lang]}
           </a>
@@ -62,7 +62,7 @@ export function PromoSuitsTicker({ lang }: { lang: Lang }) {
               }
             }}
             aria-label={PROMO_COPY.dismiss[lang]}
-            className="grid size-8 place-items-center rounded-sm text-lg leading-none text-ink/70 transition-colors hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7A1A18]"
+            className="grid size-8 place-items-center rounded-sm text-lg leading-none text-white transition-colors hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
           >
             <span aria-hidden="true">×</span>
           </button>
@@ -72,13 +72,28 @@ export function PromoSuitsTicker({ lang }: { lang: Lang }) {
   );
 }
 
+/** The sentence sparkle is a colour emoji unless it is drawn as its own glyph. */
+function TickerSentence({ text }: { text: string }) {
+  const parts = text.split("✨");
+  return parts.map((part, i) => (
+    <span key={i}>
+      {part}
+      {i < parts.length - 1 ? (
+        <span className="vf-promo-ticker-spark" aria-hidden="true">
+          ✨
+        </span>
+      ) : null}
+    </span>
+  ));
+}
+
 function TickerGroup({ copies, text }: { copies: number[]; text: string }) {
   return (
     <span className="vf-promo-ticker-group">
       {copies.map((i) => (
         <span key={i} className="vf-promo-ticker-item">
-          {text}
-          <span className="vf-promo-ticker-mark" aria-hidden="true">
+          <TickerSentence text={text} />
+          <span className="vf-promo-ticker-spark vf-promo-ticker-mark" aria-hidden="true">
             ✨
           </span>
         </span>

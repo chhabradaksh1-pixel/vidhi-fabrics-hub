@@ -57,9 +57,9 @@ export const PROMO_COPY: {
   },
   suitMessage,
   sareeLine: {
-    en: "New saree collection arriving soon — ask us what's in stock",
-    hi: "नई साड़ी कलेक्शन जल्द आ रही है — स्टॉक में क्या है, हमसे पूछिए",
-    "hi-en": "Nayi saree collection jald aa rahi hai — stock mein kya hai, humse poochiye",
+    en: "New saree collection arriving soon. Ask us what's in stock",
+    hi: "नई साड़ी कलेक्शन जल्द आ रही है। स्टॉक में क्या है, हमसे पूछिए",
+    "hi-en": "Nayi saree collection jald aa rahi hai. Stock mein kya hai, humse poochiye",
   },
   sareeMessage,
 };

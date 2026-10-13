@@ -263,10 +263,27 @@
 }
 
 /*
- * Motion for the suit banner's sentence only. The bar, type and WhatsApp
- * button are the banner's own classes. Two identical groups; the keyframes
- * travel exactly one group (-50%). Transform only, so the bar does not shift.
+ * Motion for the suit banner's sentence only. Size, type and the loop are
+ * unchanged. The ground is the button maroon (#7A1A18); the control is
+ * inverted so it stays readable. Two identical groups; the keyframes travel
+ * exactly one group (-50%). Transform only, so the bar does not shift.
  */
+.vf-promo-ticker {
+  background-color: #7a1a18;
+  color: #fff;
+}
+.vf-promo-ticker-btn {
+  background-color: #fff;
+  color: #7a1a18;
+}
+.vf-promo-ticker-btn:hover {
+  background-color: #f6f1ea;
+  color: #7a1a18;
+}
+.vf-promo-ticker-spark {
+  display: inline-block;
+  filter: brightness(0) invert(1);
+}
 .vf-promo-ticker-viewport {
   overflow: hidden;
 }

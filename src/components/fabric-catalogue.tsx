@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 
 import { CATALOGUE_RANGES, FABRICS, type CatalogueRange } from "@/content/fabrics";
+import { PROMO_SUITS } from "@/content/promo-suits";
 import {
   CATEGORY_LABELS,
   COPY,
@@ -78,10 +79,16 @@ export function FabricCatalogueSection({ lang }: { lang: Lang }) {
   const [openSku, setOpenSku] = useState<string | null>(null);
 
   const needle = query.trim().toLowerCase();
-  const ranges = useMemo(
-    () => CATALOGUE_RANGES.filter((line) => rangeMatches(line, lang, needle, materials)),
-    [lang, materials, needle],
-  );
+  const ranges = useMemo(() => {
+    const matched = CATALOGUE_RANGES.filter((line) => rangeMatches(line, lang, needle, materials));
+    // While the suit promo is on, keep that range card first. Filters still
+    // drop it when its material is not selected. Other cards stay in order.
+    if (!PROMO_SUITS) return matched;
+    return [
+      ...matched.filter((line) => line.id === "dress-material"),
+      ...matched.filter((line) => line.id !== "dress-material"),
+    ];
+  }, [lang, materials, needle]);
 
   const shown = useMemo(() => {
     const matched = FABRICS.filter((f) => {

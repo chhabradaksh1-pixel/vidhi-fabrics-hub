@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { JournalHeader, JournalFooter } from "@/components/fabric-desk";
+import { PromoSuitCatalogueCta } from "@/components/promo-suits";
 import { ADDRESS_LINES, BUSINESS, BUSINESS_ID } from "@/content/business";
 import { whatsAppUrl } from "@/content/whatsapp";
 
@@ -171,6 +172,7 @@ function DressMaterialPage() {
             Dress Material &amp; Unstitched Suits Wholesale, Direct from Surat
           </h1>
 
+          <PromoSuitCatalogueCta lang="en" />
           <CatalogueButton className="mt-8" />
 
           <div className="mx-auto max-w-[65ch]">

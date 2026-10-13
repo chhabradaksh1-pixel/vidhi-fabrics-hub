@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { JournalHeader, JournalFooter } from "@/components/fabric-desk";
+import { PromoSareeLine } from "@/components/promo-suits";
 import { ADDRESS_LINES, BUSINESS } from "@/content/business";
 import { whatsAppUrl } from "@/content/whatsapp";
 
@@ -132,6 +133,7 @@ function PolyesterSareesPage() {
           </h1>
 
           <CatalogueButton className="mt-8" />
+          <PromoSareeLine lang="en" />
 
           <div className="mx-auto max-w-[65ch]">
             <p className="mt-10 text-lg leading-relaxed text-mute">

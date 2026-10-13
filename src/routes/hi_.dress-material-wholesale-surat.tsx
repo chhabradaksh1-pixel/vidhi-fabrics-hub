@@ -2,6 +2,7 @@
 // native speaker. See BRAND.md.
 import { createFileRoute } from "@tanstack/react-router";
 import { JournalHeader, JournalFooter } from "@/components/fabric-desk";
+import { PromoSuitCatalogueCta } from "@/components/promo-suits";
 import { ADDRESS_LINES, BUSINESS, BUSINESS_ID } from "@/content/business";
 import { whatsAppUrl } from "@/content/whatsapp";
 
@@ -173,6 +174,7 @@ function DressMaterialPageHi() {
             ड्रेस मटेरियल और अनस्टिच्ड सूट होलसेल, सीधे सूरत से
           </h1>
 
+          <PromoSuitCatalogueCta lang="hi" />
           <CatalogueButton className="mt-8" />
 
           <div className="mx-auto max-w-[65ch]">
@@ -180,8 +182,8 @@ function DressMaterialPageHi() {
               विधि फैब्रिक्स सूरत का निर्माता और होलसेलर है। हम थोक विक्रेताओं, रिटेलर्स, रीसेलर्स
               और बुटीक को बल्क में ड्रेस मटेरियल और अनस्टिच्ड सूट देते हैं। कुछ लाइनें हम खुद बनाते
               हैं और साथ ही सूरत के बड़े कपड़ा बाज़ार से भी सप्लाई करते हैं। हमारे ज़्यादातर खरीदार
-              उत्तर भारत में हैं — पंजाब, हरियाणा, राजस्थान, उत्तर प्रदेश और मध्य प्रदेश। ये सेट पॉलिएस्टर और
-              दूसरे सिंथेटिक ड्रेस मटेरियल के हैं।
+              उत्तर भारत में हैं — पंजाब, हरियाणा, राजस्थान, उत्तर प्रदेश और मध्य प्रदेश। ये सेट
+              पॉलिएस्टर और दूसरे सिंथेटिक ड्रेस मटेरियल के हैं।
             </p>
 
             <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">

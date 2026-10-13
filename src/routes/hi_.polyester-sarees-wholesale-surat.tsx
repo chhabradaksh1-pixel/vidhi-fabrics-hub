@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { JournalHeader, JournalFooter } from "@/components/fabric-desk";
+import { PromoSareeLine } from "@/components/promo-suits";
 import { ADDRESS_LINES, BUSINESS } from "@/content/business";
 import { whatsAppUrl } from "@/content/whatsapp";
 
@@ -133,15 +134,16 @@ function PolyesterSareesPageHi() {
           </h1>
 
           <CatalogueButton className="mt-8" />
+          <PromoSareeLine lang="hi" />
 
           <div className="mx-auto max-w-[65ch]">
             <p className="mt-10 text-lg leading-relaxed text-mute">
               विधि फैब्रिक्स सूरत स्थित निर्माता और थोक विक्रेता है, जो थोक विक्रेताओं, रिटेलर्स,
               रीसेलर्स और बुटीक को बल्क में पॉलिएस्टर साड़ियाँ सप्लाई करता है। कुछ लाइनें हम खुद
               बनाते हैं और साथ ही सूरत के बड़े कपड़ा बाज़ार से भी सप्लाई करते हैं। हमारे ज़्यादातर
-              खरीदार उत्तर भारत में हैं — पंजाब, हरियाणा और राजस्थान में — और हम उत्तर प्रदेश व मध्य प्रदेश के
-              खरीदारों को भी सप्लाई करते हैं। चूँकि हम सीधे सूरत के टेक्सटाइल मार्केट में काम करते
-              हैं, इसलिए आपको बिना किसी अतिरिक्त बिचौलिए के लगातार सप्लाई मिलती है।
+              खरीदार उत्तर भारत में हैं — पंजाब, हरियाणा और राजस्थान में — और हम उत्तर प्रदेश व मध्य
+              प्रदेश के खरीदारों को भी सप्लाई करते हैं। चूँकि हम सीधे सूरत के टेक्सटाइल मार्केट में
+              काम करते हैं, इसलिए आपको बिना किसी अतिरिक्त बिचौलिए के लगातार सप्लाई मिलती है।
             </p>
 
             <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">

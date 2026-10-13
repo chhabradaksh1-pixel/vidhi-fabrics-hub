@@ -2,7 +2,12 @@ import { useRouterState } from "@tanstack/react-router";
 import { useEffect } from "react";
 
 import { trackLeadEvent } from "@/lib/analytics";
-import { currentLeadContext, isBusinessWhatsAppUrl, tagWhatsAppUrl } from "@/lib/lead-source";
+import {
+  currentLeadContext,
+  isBusinessWhatsAppUrl,
+  isLinkRef,
+  tagWhatsAppUrl,
+} from "@/lib/lead-source";
 
 /**
  * Adds the lead ref code to WhatsApp links and fires `whatsapp_click`.
@@ -14,7 +19,16 @@ import { currentLeadContext, isBusinessWhatsAppUrl, tagWhatsAppUrl } from "@/lib
  * and causes hydration mismatches. The server-rendered href therefore carries
  * no ref; a visitor without JavaScript sends an untagged message, which the
  * legend treats as source D.
+ *
+ * A link may set `data-lead-ref="SUIT"` to send that code instead of the
+ * page's PAGE-SOURCE ref. Used by the temporary suit-catalogue buttons.
  */
+function refForAnchor(a: HTMLAnchorElement): string {
+  const override = a.dataset.leadRef ?? "";
+  if (isLinkRef(override)) return override;
+  return currentLeadContext().ref;
+}
+
 function tagAnchor(a: HTMLAnchorElement, ref: string) {
   const href = a.getAttribute("href");
   if (!href || !isBusinessWhatsAppUrl(href)) return;
@@ -40,14 +54,15 @@ export function LeadSourceTracker() {
     // Tag early, so long-press "copy link" and the status bar mostly show it.
     const onPointerDown = (event: Event) => {
       const a = whatsAppAnchor(event.target);
-      if (a) tagAnchor(a, currentLeadContext().ref);
+      if (a) tagAnchor(a, refForAnchor(a));
     };
     const onActivate = (event: MouseEvent) => {
       const a = whatsAppAnchor(event.target);
       if (!a) return;
       const ctx = currentLeadContext();
-      tagAnchor(a, ctx.ref);
-      trackLeadEvent("whatsapp_click", { page: ctx.page, source: ctx.source, ref_code: ctx.ref });
+      const ref = refForAnchor(a);
+      tagAnchor(a, ref);
+      trackLeadEvent("whatsapp_click", { page: ctx.page, source: ctx.source, ref_code: ref });
     };
     document.addEventListener("pointerdown", onPointerDown, true);
     document.addEventListener("click", onActivate, true);

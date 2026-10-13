@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { JournalHeader, JournalFooter } from "@/components/fabric-desk";
+import { PromoSareeLine } from "@/components/promo-suits";
 import { ResellerCircleCta } from "@/components/reseller-circle-cta";
 import { ADDRESS_LINES, BUSINESS, BUSINESS_ID } from "@/content/business";
 import { whatsAppUrl } from "@/content/whatsapp";
@@ -144,6 +145,7 @@ function ResellerSareesPage() {
           </h1>
 
           <CatalogueButton className="mt-8" />
+          <PromoSareeLine lang="en" />
 
           <div className="mx-auto max-w-[65ch]">
             <p className="mt-10 text-lg leading-relaxed text-mute">
@@ -158,9 +160,9 @@ function ResellerSareesPage() {
             <p className="mt-5 leading-[1.85] text-mute">
               Many of our buyers sell to their own customers through WhatsApp groups, Status updates
               and Instagram pages, often from home. Others run a small shop or a counter in a local
-              market. Most are in North India, in Punjab, Haryana, Rajasthan, Uttar Pradesh and Madhya Pradesh.
-              Whatever the size of your business, we deal with you directly as the manufacturer and
-              wholesaler, not through an agent.
+              market. Most are in North India, in Punjab, Haryana, Rajasthan, Uttar Pradesh and
+              Madhya Pradesh. Whatever the size of your business, we deal with you directly as the
+              manufacturer and wholesaler, not through an agent.
             </p>
 
             <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">
@@ -215,9 +217,9 @@ function ResellerSareesPage() {
 
             <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">Where we supply</h2>
             <p className="mt-5 leading-[1.85] text-mute">
-              We mainly supply buyers in Punjab, Haryana, Rajasthan, Uttar Pradesh and Madhya Pradesh. Export
-              enquiries are also welcome from the UAE and other international markets. Message us on
-              WhatsApp at{" "}
+              We mainly supply buyers in Punjab, Haryana, Rajasthan, Uttar Pradesh and Madhya
+              Pradesh. Export enquiries are also welcome from the UAE and other international
+              markets. Message us on WhatsApp at{" "}
               <a
                 href={whatsAppUrl(CATALOGUE_MESSAGE)}
                 target="_blank"

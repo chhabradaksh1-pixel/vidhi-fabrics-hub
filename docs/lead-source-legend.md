@@ -25,6 +25,7 @@ they first reached the site in that browser session.
 | PBG  | Polyester saree buying guide `/how-to-buy-polyester-sarees-wholesale-surat` |
 | ERR  | "Page not found" (404) page, at any mistyped or old URL                  |
 | OTH  | Any other page                                                           |
+| SUIT | Not a page. Temporary unstitched-suit catalogue buttons only (no source suffix: the message ends `(ref: SUIT)`) |
 
 Hindi pages add **H** to the page code: HOMH, SARH, DRSH, BLGH, BLIH, ABTH, RESH, ORGH,
 FESH, COMH, GUIH, PBGH, ERRH (a 404 under `/hi/...`).

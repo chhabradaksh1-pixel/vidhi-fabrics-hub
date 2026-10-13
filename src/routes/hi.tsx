@@ -7,7 +7,7 @@ import { ReachStrip } from "@/components/reach-map";
 import { ResellerCircleStrip } from "@/components/reseller-circle-cta";
 import { SiteFooter } from "@/components/site-footer";
 import { LeadPopup, useEngagementPopup } from "@/components/lead-popup";
-import { PromoSuitsBanner } from "@/components/promo-suits";
+import { PromoSuitsTicker } from "@/components/promo-suits";
 import { TalkToUs } from "@/components/talk-to-us";
 import { whatsAppUrl } from "@/content/whatsapp";
 import { useLeadContext } from "@/hooks/use-lead-context";
@@ -299,7 +299,7 @@ function HiIndex() {
 
   return (
     <div className="vf-home min-h-screen font-body text-ink antialiased selection:bg-[#7A1A18]/15">
-      <PromoSuitsBanner lang={lang} />
+      <PromoSuitsTicker lang={lang} />
       <header className="sticky top-0 z-50 bg-[#F6F1EA]/90 backdrop-blur">
         <div className="mx-auto flex min-h-16 max-w-6xl flex-wrap items-center justify-between gap-3 px-6 py-3">
           <div className="flex items-center gap-2">

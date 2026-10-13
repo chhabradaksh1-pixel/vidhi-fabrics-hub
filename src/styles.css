@@ -263,6 +263,44 @@
 }
 
 /*
+ * Motion for the suit banner's sentence only. The bar, type and WhatsApp
+ * button are the banner's own classes. Two identical groups; the keyframes
+ * travel exactly one group (-50%). Transform only, so the bar does not shift.
+ */
+.vf-promo-ticker-viewport {
+  overflow: hidden;
+}
+.vf-promo-ticker-track {
+  display: flex;
+  width: max-content;
+  animation: vf-promo-ticker 42s linear infinite;
+}
+.vf-promo-ticker:hover .vf-promo-ticker-track,
+.vf-promo-ticker:focus-within .vf-promo-ticker-track {
+  animation-play-state: paused;
+}
+.vf-promo-ticker-group {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+}
+.vf-promo-ticker-item {
+  white-space: nowrap;
+  padding-right: 0.85rem;
+}
+.vf-promo-ticker-mark {
+  padding-left: 0.85rem;
+}
+@keyframes vf-promo-ticker {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/*
  * Footer surface. The weave is two hairline gradient grids at right angles,
  * a few percent opacity each, which reads as cloth rather than as a pattern.
  * The flowing lines are wide ellipses showing only their top arc, so the curve
@@ -747,5 +785,29 @@
   .vf-js [data-reveal-block] [data-reveal-panel],
   .vf-js [data-reveal-block] [data-reveal-panel] img {
     transform: none !important;
+  }
+
+  /* The global duration collapse would otherwise flicker the loop. The
+     sentence sits still, in the same type as the banner. */
+  .vf-promo-ticker-viewport {
+    overflow: visible;
+  }
+  .vf-promo-ticker-track {
+    animation: none !important;
+    transform: none !important;
+    display: block;
+    width: auto;
+  }
+  .vf-promo-ticker-group + .vf-promo-ticker-group,
+  .vf-promo-ticker-item:not(:first-child),
+  .vf-promo-ticker-mark {
+    display: none !important;
+  }
+  .vf-promo-ticker-group {
+    display: block;
+  }
+  .vf-promo-ticker-item {
+    white-space: normal;
+    padding-right: 0;
   }
 }

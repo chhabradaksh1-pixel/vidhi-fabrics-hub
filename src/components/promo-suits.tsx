@@ -9,11 +9,15 @@ const DISMISS_KEY = "vidhi-promo-suits-banner";
 const suitLink =
   "vf-btn-maroon inline-flex items-center justify-center rounded-sm px-5 py-3 text-center font-mono text-xs uppercase tracking-[0.12em] transition-colors";
 
+/** Copies per half of the track. Both halves match, so a -50% shift is seamless. */
+const TICKER_COPIES = 5;
+
 /**
- * Slim cream-and-maroon strip above the homepage header. Dismissed for the
- * rest of the browser session. Renders nothing when `PROMO_SUITS` is false.
+ * The PR #23 banner, with only the sentence scrolling. Colours, type, padding
+ * and the WhatsApp button are the banner's. Renders nothing when
+ * `PROMO_SUITS` is false, or after dismiss for the rest of the session.
  */
-export function PromoSuitsBanner({ lang }: { lang: Lang }) {
+export function PromoSuitsTicker({ lang }: { lang: Lang }) {
   const [open, setOpen] = useState(true);
 
   useEffect(() => {
@@ -25,11 +29,18 @@ export function PromoSuitsBanner({ lang }: { lang: Lang }) {
   }, []);
 
   if (!PROMO_SUITS || !open) return null;
-
+  const text = PROMO_COPY.banner[lang];
+  const copies = Array.from({ length: TICKER_COPIES }, (_, i) => i);
   return (
-    <div className="border-b border-[#7A1A18]/25 bg-[#F6F1EA] text-ink">
+    <div className="vf-promo-ticker border-b border-[#7A1A18]/25 bg-[#F6F1EA] text-ink">
       <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-4 gap-y-2 px-6 py-2">
-        <p className="min-w-0 flex-1 text-sm leading-snug">{PROMO_COPY.banner[lang]}</p>
+        <p className="vf-promo-ticker-viewport min-w-0 flex-1 text-sm leading-snug">
+          <span className="sr-only">{text}</span>
+          <span className="vf-promo-ticker-track" aria-hidden="true">
+            <TickerGroup copies={copies} text={text} />
+            <TickerGroup copies={copies} text={text} />
+          </span>
+        </p>
         <div className="flex shrink-0 items-center gap-2">
           <a
             href={whatsAppUrl(PROMO_COPY.suitMessage[lang])}
@@ -58,6 +69,21 @@ export function PromoSuitsBanner({ lang }: { lang: Lang }) {
         </div>
       </div>
     </div>
+  );
+}
+
+function TickerGroup({ copies, text }: { copies: number[]; text: string }) {
+  return (
+    <span className="vf-promo-ticker-group">
+      {copies.map((i) => (
+        <span key={i} className="vf-promo-ticker-item">
+          {text}
+          <span className="vf-promo-ticker-mark" aria-hidden="true">
+            ✨
+          </span>
+        </span>
+      ))}
+    </span>
   );
 }
 

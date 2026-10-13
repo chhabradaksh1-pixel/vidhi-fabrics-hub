@@ -2,7 +2,7 @@ import type { Lang } from "@/content/translations";
 
 /**
  * Temporary push for unstitched suits and dress material (about 10–20 days).
- * Set this to false to remove the homepage banner, the catalogue pin, the
+ * Set this to false to remove the site-wide ticker, the catalogue pin, the
  * suit-catalogue button, and the saree-page line. Nothing else on the site
  * depends on it.
  *
@@ -28,8 +28,6 @@ const sareeMessage: Record<Lang, string> = {
 
 export const PROMO_COPY: {
   banner: Record<Lang, string>;
-  bannerButton: Record<Lang, string>;
-  dismiss: Record<Lang, string>;
   suitCta: Record<Lang, string>;
   suitMessage: Record<Lang, string>;
   sareeLine: Record<Lang, string>;
@@ -39,16 +37,6 @@ export const PROMO_COPY: {
     en: "New unstitched suit & dress material designs — ask for the catalogue on WhatsApp",
     hi: "नए अनस्टिच्ड सूट और ड्रेस मटीरियल के डिज़ाइन — कैटलॉग व्हाट्सएप पर माँगिए",
     "hi-en": "Naye unstitched suit aur dress material designs — catalogue WhatsApp par maangiye",
-  },
-  bannerButton: {
-    en: "WhatsApp",
-    hi: "व्हाट्सएप",
-    "hi-en": "WhatsApp",
-  },
-  dismiss: {
-    en: "Dismiss",
-    hi: "बंद करें",
-    "hi-en": "Band karein",
   },
   suitCta: {
     en: "Get the suit catalogue on WhatsApp",

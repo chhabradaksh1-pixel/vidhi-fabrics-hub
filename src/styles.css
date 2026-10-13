@@ -263,6 +263,62 @@
 }
 
 /*
+ * Temporary suit-catalogue ticker. Height is fixed and the motion is a
+ * transform, so the strip does not move anything else on the page. Two
+ * identical groups; the keyframes travel exactly one group (-50%).
+ * Maroon #7A1A18 on cream #F6F1EA is the same pair as .vf-btn-maroon (9.4:1).
+ */
+.vf-promo-ticker {
+  display: block;
+  height: 2.25rem;
+  overflow: hidden;
+  border-bottom: 1px solid rgb(122 26 24 / 25%);
+  background-color: #f6f1ea;
+  color: #7a1a18;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  line-height: 2.25rem;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.vf-promo-ticker:hover {
+  color: #5c1210;
+}
+.vf-promo-ticker:focus-visible {
+  outline: 2px solid #7a1a18;
+  outline-offset: -2px;
+}
+.vf-promo-ticker-track {
+  display: flex;
+  width: max-content;
+  animation: vf-promo-ticker 42s linear infinite;
+}
+.vf-promo-ticker:hover .vf-promo-ticker-track,
+.vf-promo-ticker:focus .vf-promo-ticker-track {
+  animation-play-state: paused;
+}
+.vf-promo-ticker-group {
+  display: flex;
+  flex-shrink: 0;
+}
+.vf-promo-ticker-item {
+  display: inline-flex;
+  align-items: center;
+  padding-right: 0.85rem;
+}
+.vf-promo-ticker-mark {
+  padding-left: 0.85rem;
+}
+@keyframes vf-promo-ticker {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/*
  * Footer surface. The weave is two hairline gradient grids at right angles,
  * a few percent opacity each, which reads as cloth rather than as a pattern.
  * The flowing lines are wide ellipses showing only their top arc, so the curve
@@ -747,5 +803,31 @@
   .vf-js [data-reveal-block] [data-reveal-panel],
   .vf-js [data-reveal-block] [data-reveal-panel] img {
     transform: none !important;
+  }
+
+  /* The global duration collapse would otherwise flicker the loop. One
+     sentence, still, and tall enough to wrap on a narrow screen. */
+  .vf-promo-ticker {
+    height: auto;
+    min-height: 2.25rem;
+    line-height: 1.35;
+    white-space: normal;
+  }
+  .vf-promo-ticker-track {
+    animation: none !important;
+    transform: none !important;
+    display: block;
+    width: auto;
+    text-align: center;
+  }
+  .vf-promo-ticker-group + .vf-promo-ticker-group,
+  .vf-promo-ticker-item:not(:first-child),
+  .vf-promo-ticker-mark {
+    display: none;
+  }
+  .vf-promo-ticker-item {
+    display: block;
+    padding: 0.45rem 1.25rem;
+    white-space: normal;
   }
 }

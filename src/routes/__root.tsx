@@ -13,6 +13,7 @@ import { Analytics } from "@vercel/analytics/react";
 
 import { LeadSourceTracker } from "@/components/lead-source-tracker";
 import { NotFoundPage } from "@/components/not-found-page";
+import { PromoSuitsTicker } from "@/components/promo-suits";
 import { GA4_ID } from "@/lib/analytics";
 import { loadGtagDeferred } from "@/lib/deferred-gtag";
 import { lazy, Suspense, useEffect, useState, type ReactNode } from "react";
@@ -245,6 +246,10 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+      {/* Home routes mount their own ticker so it follows the Hinglish toggle. */}
+      {isHomePath(pathname) ? null : (
+        <PromoSuitsTicker lang={isHindiPath(pathname) ? "hi" : "en"} />
+      )}
       <Outlet />
       <LeadSourceTracker />
       {hydrated && !isHomePath(pathname) ? (

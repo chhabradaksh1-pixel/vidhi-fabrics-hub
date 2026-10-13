@@ -1,6 +1,10 @@
+import { useEffect, useState } from "react";
+
 import { PROMO_COPY, PROMO_SUIT_REF, PROMO_SUITS } from "@/content/promo-suits";
 import type { Lang } from "@/content/translations";
 import { whatsAppUrl } from "@/content/whatsapp";
+
+const DISMISS_KEY = "vidhi-promo-suits-banner";
 
 const suitLink =
   "vf-btn-maroon inline-flex items-center justify-center rounded-sm px-5 py-3 text-center font-mono text-xs uppercase tracking-[0.12em] transition-colors";
@@ -9,28 +13,62 @@ const suitLink =
 const TICKER_COPIES = 5;
 
 /**
- * Cream-and-maroon ticker at the top of every page. The whole strip is the
- * suit-catalogue link. Renders nothing when `PROMO_SUITS` is false.
- * Motion is CSS only; reduced motion shows the sentence once, still.
+ * The PR #23 banner, with only the sentence scrolling. Colours, type, padding
+ * and the WhatsApp button are the banner's. Renders nothing when
+ * `PROMO_SUITS` is false, or after dismiss for the rest of the session.
  */
 export function PromoSuitsTicker({ lang }: { lang: Lang }) {
-  if (!PROMO_SUITS) return null;
+  const [open, setOpen] = useState(true);
+
+  useEffect(() => {
+    try {
+      if (window.sessionStorage.getItem(DISMISS_KEY) === "1") setOpen(false);
+    } catch {
+      /* private mode: the banner simply returns next time */
+    }
+  }, []);
+
+  if (!PROMO_SUITS || !open) return null;
   const text = PROMO_COPY.banner[lang];
   const copies = Array.from({ length: TICKER_COPIES }, (_, i) => i);
   return (
-    <a
-      href={whatsAppUrl(PROMO_COPY.suitMessage[lang])}
-      data-lead-ref={PROMO_SUIT_REF}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="vf-promo-ticker"
-      aria-label={text}
-    >
-      <span className="vf-promo-ticker-track" aria-hidden="true">
-        <TickerGroup copies={copies} text={text} />
-        <TickerGroup copies={copies} text={text} />
-      </span>
-    </a>
+    <div className="vf-promo-ticker border-b border-[#7A1A18]/25 bg-[#F6F1EA] text-ink">
+      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-4 gap-y-2 px-6 py-2">
+        <p className="vf-promo-ticker-viewport min-w-0 flex-1 text-sm leading-snug">
+          <span className="sr-only">{text}</span>
+          <span className="vf-promo-ticker-track" aria-hidden="true">
+            <TickerGroup copies={copies} text={text} />
+            <TickerGroup copies={copies} text={text} />
+          </span>
+        </p>
+        <div className="flex shrink-0 items-center gap-2">
+          <a
+            href={whatsAppUrl(PROMO_COPY.suitMessage[lang])}
+            data-lead-ref={PROMO_SUIT_REF}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="vf-btn-maroon rounded-sm px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.12em] transition-colors"
+          >
+            {PROMO_COPY.bannerButton[lang]}
+          </a>
+          <button
+            type="button"
+            onClick={() => {
+              setOpen(false);
+              try {
+                window.sessionStorage.setItem(DISMISS_KEY, "1");
+              } catch {
+                /* private mode */
+              }
+            }}
+            aria-label={PROMO_COPY.dismiss[lang]}
+            className="grid size-8 place-items-center rounded-sm text-lg leading-none text-ink/70 transition-colors hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7A1A18]"
+          >
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+      </div>
+    </div>
   );
 }
 

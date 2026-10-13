@@ -263,30 +263,12 @@
 }
 
 /*
- * Temporary suit-catalogue ticker. Height is fixed and the motion is a
- * transform, so the strip does not move anything else on the page. Two
- * identical groups; the keyframes travel exactly one group (-50%).
- * Maroon #7A1A18 on cream #F6F1EA is the same pair as .vf-btn-maroon (9.4:1).
+ * Motion for the suit banner's sentence only. The bar, type and WhatsApp
+ * button are the banner's own classes. Two identical groups; the keyframes
+ * travel exactly one group (-50%). Transform only, so the bar does not shift.
  */
-.vf-promo-ticker {
-  display: block;
-  height: 2.25rem;
+.vf-promo-ticker-viewport {
   overflow: hidden;
-  border-bottom: 1px solid rgb(122 26 24 / 25%);
-  background-color: #f6f1ea;
-  color: #7a1a18;
-  font-family: var(--font-body);
-  font-size: 0.875rem;
-  line-height: 2.25rem;
-  text-decoration: none;
-  white-space: nowrap;
-}
-.vf-promo-ticker:hover {
-  color: #5c1210;
-}
-.vf-promo-ticker:focus-visible {
-  outline: 2px solid #7a1a18;
-  outline-offset: -2px;
 }
 .vf-promo-ticker-track {
   display: flex;
@@ -294,16 +276,16 @@
   animation: vf-promo-ticker 42s linear infinite;
 }
 .vf-promo-ticker:hover .vf-promo-ticker-track,
-.vf-promo-ticker:focus .vf-promo-ticker-track {
+.vf-promo-ticker:focus-within .vf-promo-ticker-track {
   animation-play-state: paused;
 }
 .vf-promo-ticker-group {
   display: flex;
   flex-shrink: 0;
+  align-items: center;
 }
 .vf-promo-ticker-item {
-  display: inline-flex;
-  align-items: center;
+  white-space: nowrap;
   padding-right: 0.85rem;
 }
 .vf-promo-ticker-mark {
@@ -805,29 +787,27 @@
     transform: none !important;
   }
 
-  /* The global duration collapse would otherwise flicker the loop. One
-     sentence, still, and tall enough to wrap on a narrow screen. */
-  .vf-promo-ticker {
-    height: auto;
-    min-height: 2.25rem;
-    line-height: 1.35;
-    white-space: normal;
+  /* The global duration collapse would otherwise flicker the loop. The
+     sentence sits still, in the same type as the banner. */
+  .vf-promo-ticker-viewport {
+    overflow: visible;
   }
   .vf-promo-ticker-track {
     animation: none !important;
     transform: none !important;
     display: block;
     width: auto;
-    text-align: center;
   }
   .vf-promo-ticker-group + .vf-promo-ticker-group,
   .vf-promo-ticker-item:not(:first-child),
   .vf-promo-ticker-mark {
-    display: none;
+    display: none !important;
+  }
+  .vf-promo-ticker-group {
+    display: block;
   }
   .vf-promo-ticker-item {
-    display: block;
-    padding: 0.45rem 1.25rem;
     white-space: normal;
+    padding-right: 0;
   }
 }

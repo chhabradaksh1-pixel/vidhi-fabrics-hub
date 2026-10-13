@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { JournalHeader, JournalFooter } from "@/components/fabric-desk";
+import { PromoSareeLine } from "@/components/promo-suits";
 import { ResellerCircleCta } from "@/components/reseller-circle-cta";
 import { ADDRESS_LINES, BUSINESS, BUSINESS_ID } from "@/content/business";
 import { whatsAppUrl } from "@/content/whatsapp";
@@ -146,6 +147,7 @@ function ResellerSareesPageHi() {
           </h1>
 
           <CatalogueButton className="mt-8" />
+          <PromoSareeLine lang="hi" />
 
           <div className="mx-auto max-w-[65ch]">
             <p className="mt-10 text-lg leading-relaxed text-mute">
@@ -161,9 +163,9 @@ function ResellerSareesPageHi() {
             <p className="mt-5 leading-[1.85] text-mute">
               हमारे बहुत-से खरीदार व्हाट्सएप ग्रुप, स्टेटस और इंस्टाग्राम पेज के ज़रिए अपने ग्राहकों
               को बेचते हैं, अक्सर घर से ही। कुछ की छोटी दुकान है या लोकल बाज़ार में काउंटर।
-              ज़्यादातर उत्तर भारत में हैं — पंजाब, हरियाणा, राजस्थान, उत्तर प्रदेश और मध्य प्रदेश में। आपका काम
-              छोटा हो या बड़ा, आपकी बात सीधे निर्माता और थोक विक्रेता से होती है, किसी एजेंट से
-              नहीं।
+              ज़्यादातर उत्तर भारत में हैं — पंजाब, हरियाणा, राजस्थान, उत्तर प्रदेश और मध्य प्रदेश
+              में। आपका काम छोटा हो या बड़ा, आपकी बात सीधे निर्माता और थोक विक्रेता से होती है, किसी
+              एजेंट से नहीं।
             </p>
 
             <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">
@@ -220,8 +222,9 @@ function ResellerSareesPageHi() {
               हम कहाँ माल देते हैं
             </h2>
             <p className="mt-5 leading-[1.85] text-mute">
-              हमारे ज़्यादातर खरीदार पंजाब, हरियाणा, राजस्थान, उत्तर प्रदेश और मध्य प्रदेश में हैं। UAE और अन्य
-              अंतरराष्ट्रीय बाज़ारों से एक्सपोर्ट पूछताछ का भी स्वागत है। हमें व्हाट्सएप पर{" "}
+              हमारे ज़्यादातर खरीदार पंजाब, हरियाणा, राजस्थान, उत्तर प्रदेश और मध्य प्रदेश में हैं।
+              UAE और अन्य अंतरराष्ट्रीय बाज़ारों से एक्सपोर्ट पूछताछ का भी स्वागत है। हमें व्हाट्सएप
+              पर{" "}
               <a
                 href={whatsAppUrl(CATALOGUE_MESSAGE)}
                 target="_blank"

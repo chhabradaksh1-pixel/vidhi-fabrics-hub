@@ -146,7 +146,13 @@ export function currentLeadContext(): LeadContext {
   return { page, source, ref: `${page}-${source}` };
 }
 
-const REF_SUFFIX = /\s*\(ref: [A-Z]{2,5}-[A-Z]{1,2}\)\s*$/;
+/** PAGE-SOURCE, or a bare promo code such as SUIT (no source suffix). */
+const REF_SUFFIX = /\s*\(ref: [A-Z]{2,5}(?:-[A-Z]{1,2})?\)\s*$/;
+
+/** A ref a single link may declare with `data-lead-ref`, instead of the page. */
+export function isLinkRef(value: string): boolean {
+  return /^[A-Z]{2,5}(?:-[A-Z]{1,2})?$/.test(value);
+}
 
 /** Appends " (ref: CODE)" to a message, replacing any ref already there. */
 export function withRefCode(message: string, ref: string): string {

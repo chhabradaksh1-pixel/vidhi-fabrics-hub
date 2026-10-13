@@ -36,9 +36,9 @@ export const PROMO_COPY: {
   sareeMessage: Record<Lang, string>;
 } = {
   banner: {
-    en: "New unstitched suit & dress material designs — ask for the catalogue on WhatsApp",
-    hi: "नए अनस्टिच्ड सूट और ड्रेस मटीरियल के डिज़ाइन — कैटलॉग व्हाट्सएप पर माँगिए",
-    "hi-en": "Naye unstitched suit aur dress material designs — catalogue WhatsApp par maangiye",
+    en: "New unstitched suit and dress material designs ✨ Ask for the catalogue on WhatsApp",
+    hi: "नए अनस्टिच्ड सूट और ड्रेस मटीरियल के डिज़ाइन ✨ कैटलॉग व्हाट्सएप पर माँगिए",
+    "hi-en": "Naye unstitched suit aur dress material designs ✨ catalogue WhatsApp par maangiye",
   },
   bannerButton: {
     en: "WhatsApp",

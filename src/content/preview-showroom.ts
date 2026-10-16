@@ -17,7 +17,10 @@ export const CHAT = "Chat on WhatsApp";
 export const PLACEHOLDER = "Placeholder";
 
 export const HERO_HEADLINE =
-  "Wholesale unstitched suits and sarees for resellers, direct from Surat";
+  "Surat's trusted manufacturer of sarees and dress material, for 60 years";
+
+export const HERO_HEADLINE_HI =
+  "60 साल से सूरत में साड़ियाँ और ड्रेस मटेरियल बनाने वाला भरोसेमंद निर्माता";
 
 export const HERO_BODY =
   "Manufacturer and wholesaler in Surat. Tell us what you want to see.";

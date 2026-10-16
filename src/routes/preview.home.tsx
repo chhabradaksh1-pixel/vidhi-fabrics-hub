@@ -2,10 +2,11 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import { PreviewHome } from "@/components/preview-showroom";
 import cormorant from "@/assets/fonts/cormorant-garamond-latin-500.woff2?url";
+import devanagari from "@/assets/fonts/noto-sans-devanagari-wght.woff2?url";
 
-const TITLE = "Wholesale unstitched suits and sarees, Vidhi Fabrics";
+const TITLE = "Surat's trusted manufacturer of sarees and dress material, Vidhi Fabrics";
 const DESCRIPTION =
-  "A preview of wholesale unstitched suits and sarees from Surat. Enquire on WhatsApp.";
+  "Surat's trusted manufacturer of sarees and dress material, for 60 years. Enquire on WhatsApp.";
 
 export const Route = createFileRoute("/preview/home")({
   head: () => ({
@@ -21,6 +22,13 @@ export const Route = createFileRoute("/preview/home")({
       {
         rel: "preload",
         href: cormorant,
+        as: "font",
+        type: "font/woff2",
+        crossOrigin: "anonymous",
+      },
+      {
+        rel: "preload",
+        href: devanagari,
         as: "font",
         type: "font/woff2",
         crossOrigin: "anonymous",

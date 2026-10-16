@@ -9,6 +9,7 @@ import {
   HERO_ALT,
   HERO_BODY,
   HERO_HEADLINE,
+  HERO_HEADLINE_HI,
   HERO_IMAGE,
   HERO_LINK,
   PLACEHOLDER,
@@ -27,7 +28,7 @@ export function PreviewHome() {
   return (
     <PreviewShell>
       <section className="md:relative">
-        <div className="relative aspect-[4/5] w-full overflow-hidden bg-[#e7e0d6] sm:aspect-[5/4] md:absolute md:inset-0 md:aspect-auto md:h-full">
+        <div className="relative aspect-[2/1] w-full overflow-hidden bg-[#e7e0d6] md:absolute md:inset-0 md:aspect-auto md:h-full">
           <img
             src={HERO_IMAGE.src}
             alt={HERO_ALT}
@@ -40,13 +41,16 @@ export function PreviewHome() {
           />
           <PlaceholderMark />
         </div>
-        <div className="relative mx-auto max-w-6xl px-5 py-10 sm:px-8 sm:py-14 md:flex md:min-h-[640px] md:items-center md:py-16">
+        <div className="relative mx-auto max-w-6xl px-5 pb-6 pt-8 sm:px-8 sm:py-14 md:flex md:min-h-[680px] md:items-center md:py-16">
           <div className="max-w-xl md:max-w-[22rem] lg:max-w-[30rem]">
-            <h1 className="vf-preview-serif text-[2.35rem] leading-[1.05] text-balance sm:text-6xl lg:text-7xl">
+            <h1 className="vf-preview-serif text-[2.15rem] leading-[1.08] text-balance sm:text-5xl lg:text-6xl">
               {HERO_HEADLINE}
             </h1>
-            <p className="mt-5 max-w-xl text-base leading-relaxed text-[#121212]/80">{HERO_BODY}</p>
-            <Enquire href={HERO_LINK} className="mt-8 w-full sm:w-auto" />
+            <p lang="hi" className="vf-preview-hindi mt-3 text-lg leading-snug sm:text-2xl">
+              {HERO_HEADLINE_HI}
+            </p>
+            <p className="mt-4 max-w-xl text-base leading-relaxed text-[#121212]/80">{HERO_BODY}</p>
+            <Enquire href={HERO_LINK} className="mt-6 w-auto" />
           </div>
         </div>
       </section>

@@ -1,9 +1,3 @@
-import beadedOrganza from "@/assets/fabric-beaded-organza.webp";
-import denimCanvas from "@/assets/fabric-denim-canvas.webp";
-import performanceTwill from "@/assets/fabric-performance-twill.webp";
-import specSamples from "@/assets/spec-samples.webp";
-import swatchStack from "@/assets/swatch-stack.webp";
-import weavingLoom from "@/assets/weaving-loom-poster.webp";
 import { whatsAppUrl } from "@/content/whatsapp";
 
 /**
@@ -11,8 +5,9 @@ import { whatsAppUrl } from "@/content/whatsapp";
  * a hyphen or a dash. Do not name cotton, silk, linen or jacquard here.
  */
 
-const suitModel = "/images/catalogue/suit-model.webp";
-const suitIvory = "/images/catalogue/suit-ivory-maroon.webp";
+const heroSaree = "/images/preview/hero-saree.webp";
+const suitShot = "/images/preview/collection-suits.webp";
+const dressShot = "/images/preview/collection-dress-material.webp";
 
 export const PREVIEW_HOME = "/preview/home";
 export const PREVIEW_SUITS = "/preview/collection/unstitched-suits";
@@ -27,14 +22,20 @@ export const HERO_HEADLINE =
 export const HERO_BODY =
   "Manufacturer and wholesaler in Surat. Tell us what you want to see.";
 
-export const HERO_ALT = "Placeholder photograph of a model in an unstitched suit";
+export const HERO_ALT = "Placeholder photograph of a model in a saree";
+
+export const HERO_IMAGE = {
+  src: heroSaree,
+  width: 1280,
+  height: 720,
+};
 
 type Shot = {
   src: string;
   width: number;
   height: number;
-  /** Keep the face in frame on portrait photographs. */
-  focus: "top" | "center";
+  /** CSS object-position. Landscape files are cropped into portrait tiles. */
+  focus: string;
 };
 
 export type PreviewDesign = {
@@ -66,36 +67,36 @@ export const TILES: {
     code: "US01",
     note: "A first design from the suit range.",
     href: PREVIEW_SUITS,
-    image: { src: suitModel, width: 720, height: 993, focus: "top" },
-    alt: "Placeholder photograph for design US01",
+    image: { src: suitShot, width: 1280, height: 720, focus: "center" },
+    alt: "Placeholder photograph of a model in an unstitched suit",
   },
   {
     title: "Dress Material",
     code: "DM01",
     note: "Top, bottom and dupatta, shown as a set.",
     href: null,
-    image: { src: suitIvory, width: 720, height: 1018, focus: "center" },
-    alt: "Placeholder photograph for design DM01",
+    image: { src: dressShot, width: 1280, height: 720, focus: "right center" },
+    alt: "Placeholder photograph of a model in dress material",
   },
   {
     title: "Polyester Sarees",
     code: "PS01",
     note: "Daily wear and festive sarees from the Surat range.",
     href: null,
-    image: { src: swatchStack, width: 1024, height: 768, focus: "center" },
-    alt: "Placeholder photograph for design PS01",
+    image: { src: heroSaree, width: 1280, height: 720, focus: "right center" },
+    alt: "Placeholder photograph of a model in a saree",
   },
 ];
 
 const SUIT_SHOTS: Shot[] = [
-  { src: suitModel, width: 720, height: 993, focus: "top" },
-  { src: suitIvory, width: 720, height: 1018, focus: "center" },
-  { src: swatchStack, width: 1024, height: 768, focus: "center" },
-  { src: specSamples, width: 1024, height: 768, focus: "center" },
-  { src: performanceTwill, width: 800, height: 600, focus: "center" },
-  { src: beadedOrganza, width: 800, height: 600, focus: "center" },
-  { src: denimCanvas, width: 800, height: 600, focus: "center" },
-  { src: weavingLoom, width: 1280, height: 676, focus: "center" },
+  { src: suitShot, width: 1280, height: 720, focus: "center" },
+  { src: suitShot, width: 1280, height: 720, focus: "46% center" },
+  { src: suitShot, width: 1280, height: 720, focus: "54% center" },
+  { src: suitShot, width: 1280, height: 720, focus: "center 42%" },
+  { src: suitShot, width: 1280, height: 720, focus: "center 58%" },
+  { src: suitShot, width: 1280, height: 720, focus: "42% 46%" },
+  { src: suitShot, width: 1280, height: 720, focus: "58% 46%" },
+  { src: suitShot, width: 1280, height: 720, focus: "50% 36%" },
 ];
 
 export const SUIT_DESIGNS: PreviewDesign[] = SUIT_SHOTS.map((image, index) => {

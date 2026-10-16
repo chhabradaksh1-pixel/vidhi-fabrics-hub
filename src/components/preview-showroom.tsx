@@ -9,6 +9,7 @@ import {
   HERO_ALT,
   HERO_BODY,
   HERO_HEADLINE,
+  HERO_IMAGE,
   HERO_LINK,
   PLACEHOLDER,
   PREVIEW_HOME,
@@ -22,35 +23,31 @@ import {
 
 import "@/styles/preview.css";
 
-const heroShot = {
-  src: "/images/catalogue/suit-model.webp",
-  width: 720,
-  height: 993,
-};
-
 export function PreviewHome() {
   return (
     <PreviewShell>
-      <section className="pb-8">
-        <div className="relative aspect-[4/5] w-full overflow-hidden bg-[#e7e0d6] sm:aspect-[5/4] lg:aspect-auto lg:h-[640px]">
+      <section className="md:relative">
+        <div className="relative aspect-[4/5] w-full overflow-hidden bg-[#e7e0d6] sm:aspect-[5/4] md:absolute md:inset-0 md:aspect-auto md:h-full">
           <img
-            src={heroShot.src}
+            src={HERO_IMAGE.src}
             alt={HERO_ALT}
-            width={heroShot.width}
-            height={heroShot.height}
+            width={HERO_IMAGE.width}
+            height={HERO_IMAGE.height}
             loading="eager"
             fetchPriority="high"
             decoding="async"
-            className="absolute inset-0 h-full w-full object-cover object-top"
+            className="absolute inset-0 h-full w-full object-cover object-[72%_center] md:object-center"
           />
           <PlaceholderMark />
         </div>
-        <div className="mx-auto max-w-3xl px-5 pt-10 sm:px-8 sm:pt-16">
-          <h1 className="vf-preview-serif text-[2.35rem] leading-[1.05] text-balance sm:text-6xl lg:text-7xl">
-            {HERO_HEADLINE}
-          </h1>
-          <p className="mt-5 max-w-xl text-base leading-relaxed text-[#121212]/80">{HERO_BODY}</p>
-          <Enquire href={HERO_LINK} className="mt-8 w-full sm:w-auto" />
+        <div className="relative mx-auto max-w-6xl px-5 py-10 sm:px-8 sm:py-14 md:flex md:min-h-[640px] md:items-center md:py-16">
+          <div className="max-w-xl md:max-w-[22rem] lg:max-w-[30rem]">
+            <h1 className="vf-preview-serif text-[2.35rem] leading-[1.05] text-balance sm:text-6xl lg:text-7xl">
+              {HERO_HEADLINE}
+            </h1>
+            <p className="mt-5 max-w-xl text-base leading-relaxed text-[#121212]/80">{HERO_BODY}</p>
+            <Enquire href={HERO_LINK} className="mt-8 w-full sm:w-auto" />
+          </div>
         </div>
       </section>
 
@@ -165,7 +162,8 @@ function Shot({
         height={image.height}
         loading="lazy"
         decoding="async"
-        className={`absolute inset-0 h-full w-full object-cover ${image.focus === "top" ? "object-top" : "object-center"}`}
+        className="absolute inset-0 h-full w-full object-cover"
+        style={{ objectPosition: image.focus }}
       />
       <PlaceholderMark />
     </div>

@@ -3,6 +3,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { JournalHeader, JournalFooter } from "@/components/fabric-desk";
 import { PromoSuitCatalogueCta } from "@/components/promo-suits";
+import { ShowroomCollection } from "@/components/showroom-collection";
 import { ADDRESS_LINES, BUSINESS, BUSINESS_ID } from "@/content/business";
 import { whatsAppUrl } from "@/content/whatsapp";
 
@@ -170,10 +171,11 @@ function DressMaterialPageHi() {
             </ol>
           </nav>
 
-          <h1 className="mt-6 text-balance font-display text-4xl font-light leading-[1.12] tracking-tight sm:text-5xl lg:text-6xl">
+          <h1 className="vf-showroom-serif mt-6 text-balance text-4xl leading-[1.08] sm:text-5xl lg:text-6xl">
             ड्रेस मटेरियल और अनस्टिच्ड सूट होलसेल, सीधे सूरत से
           </h1>
 
+          <ShowroomCollection lang="hi" />
           <PromoSuitCatalogueCta lang="hi" />
           <CatalogueButton className="mt-8" />
 

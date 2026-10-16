@@ -8,7 +8,8 @@ import { ResellerCircleStrip } from "@/components/reseller-circle-cta";
 import { SiteFooter } from "@/components/site-footer";
 import { LeadPopup, useEngagementPopup } from "@/components/lead-popup";
 import { PromoSuitsTicker } from "@/components/promo-suits";
-import { TalkToUs } from "@/components/talk-to-us";
+import { ShowroomHero, ShowroomRanges } from "@/components/showroom-home";
+import { WhatsAppPill } from "@/components/whatsapp-pill";
 import { whatsAppUrl } from "@/content/whatsapp";
 import { useLeadContext } from "@/hooks/use-lead-context";
 import { trackLeadEvent } from "@/lib/analytics";
@@ -392,38 +393,10 @@ function Index() {
       </header>
 
       <main id="main">
-        <section className="vf-rise">
-          <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 px-6 py-24 lg:grid-cols-12 lg:py-32">
-            <div className="lg:col-span-7">
-              <p className="font-mono text-xs uppercase tracking-[0.2em] text-[#7A1A18]">
-                {COPY.hero.eyebrow[lang]}
-              </p>
-              <h1 className="mt-5 text-balance font-display text-5xl font-light leading-[1.08] tracking-tight lg:text-6xl">
-                {COPY.hero.heading[lang]}
-              </h1>
-              <p className="mt-6 max-w-[42ch] text-pretty text-lg leading-relaxed text-mute">
-                {COPY.hero.body[lang]} {COPY.hero.regions[lang]}
-              </p>
-              <p className="mt-5">
-                <a
-                  href={
-                    lang === "hi"
-                      ? "/hi/dress-material-wholesale-surat"
-                      : "/dress-material-wholesale-surat"
-                  }
-                  className="vf-link-maroon underline decoration-[#7A1A18]/30 underline-offset-4"
-                >
-                  {COPY.hero.dressLink[lang]}
-                </a>
-              </p>
-              <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3 font-mono text-xs text-mute">
-                {COPY.hero.stats.map((s) => (
-                  <span key={s.en}>{s[lang]}</span>
-                ))}
-              </div>
-            </div>
+        <ShowroomHero lang={lang} enquireHref={getWhatsAppUrl(lang)} />
 
-            <div id="inquiry" className="lg:col-span-5">
+        <section id="inquiry" className="scroll-mt-36">
+          <div className="mx-auto max-w-xl px-6 py-16 lg:py-20">
               <p className="font-mono text-xs uppercase tracking-[0.15em] text-[#7A1A18]">
                 {COPY.inquiry.label[lang]}
               </p>
@@ -526,9 +499,10 @@ function Index() {
                   </p>
                 ) : null}
               </form>
-            </div>
           </div>
         </section>
+
+        <ShowroomRanges lang={lang} />
 
         <FabricCatalogueSection lang={lang} />
 
@@ -630,7 +604,7 @@ function Index() {
 
       <SiteFooter lang={lang} />
 
-      <TalkToUs lang={lang} />
+      <WhatsAppPill lang={lang} />
 
       {leadOpen ? (
         <LeadPopup lang={lang} formName="Website entry pop-up" onClose={() => setLeadOpen(false)} />

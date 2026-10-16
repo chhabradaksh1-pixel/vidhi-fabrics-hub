@@ -11,6 +11,8 @@ import {
 } from "@/content/translations";
 import { whatsAppUrl } from "@/content/whatsapp";
 
+import "@/styles/showroom.css";
+
 function rangeHref(href: string, lang: Lang) {
   return lang === "hi" ? `/hi${href}` : href;
 }
@@ -128,7 +130,7 @@ export function FabricCatalogueSection({ lang }: { lang: Lang }) {
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-[#7A1A18]">
             {COPY.catalogue.marker[lang]}
           </p>
-          <h2 className="mt-4 font-display text-4xl font-light tracking-tight lg:text-5xl">
+          <h2 className="vf-showroom-serif mt-4 text-4xl tracking-tight lg:text-5xl">
             {COPY.catalogue.heading[lang]}
           </h2>
           <p className="mt-5 max-w-[46ch] text-pretty text-lg text-mute">
@@ -344,7 +346,7 @@ function SpecTable({
 const rangeLink =
   "text-sm text-[#7A1A18] underline decoration-[#7A1A18]/30 underline-offset-4 hover:text-[#5C1210]";
 const rangeButton =
-  "vf-btn-maroon inline-flex items-center justify-center rounded-sm px-4 py-3 font-mono text-[11px] uppercase tracking-[0.12em] transition-colors";
+  "vf-showroom-enquire mt-1 w-full sm:w-auto";
 
 /**
  * The four selling ranges, in a fixed order above the cloth examples.
@@ -370,7 +372,7 @@ function RangeGrid({ lang, ranges }: { lang: Lang; ranges: CatalogueRange[] }) {
               <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-[#7A1A18]">
                 {line.tag[lang]}
               </p>
-              <h3 className="mt-3 font-display text-2xl font-light leading-tight tracking-tight">
+              <h3 className="vf-showroom-serif mt-3 text-3xl leading-tight">
                 {line.name[lang]}
               </h3>
               <p className="mt-3 flex-1 text-sm leading-relaxed text-mute">{line.body[lang]}</p>
@@ -420,12 +422,12 @@ function SuitRangeCard({
           loading="lazy"
           width={image.width}
           height={image.height}
-          className="aspect-[4/3] w-full object-cover object-top"
+          className="aspect-[3/4] w-full object-cover object-[center_30%]"
         />
         <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.18em] text-[#7A1A18]">
           {line.tag[lang]}
         </p>
-        <h3 className="mt-3 font-display text-2xl font-light leading-tight tracking-tight">
+        <h3 className="vf-showroom-serif mt-3 text-3xl leading-tight">
           {line.name[lang]}
         </h3>
         <p className="mt-3 flex-1 text-sm leading-relaxed text-mute">{line.body[lang]}</p>
@@ -485,7 +487,7 @@ function FabricGrid({
             <span>{f.sku}</span>
             <span>{f.tag[lang]}</span>
           </div>
-          <h3 className="mt-2 font-display text-xl font-light tracking-tight">{f.name[lang]}</h3>
+          <h3 className="vf-showroom-serif mt-2 text-2xl">{f.name[lang]}</h3>
           <p className="mt-1 text-sm text-mute">{f.spec[lang]}</p>
           <button
             type="button"

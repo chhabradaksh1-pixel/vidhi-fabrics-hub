@@ -14,22 +14,18 @@ import { Analytics } from "@vercel/analytics/react";
 import { LeadSourceTracker } from "@/components/lead-source-tracker";
 import { NotFoundPage } from "@/components/not-found-page";
 import { PromoSuitsTicker } from "@/components/promo-suits";
+import { WhatsAppPill } from "@/components/whatsapp-pill";
 import { GA4_ID } from "@/lib/analytics";
 import { loadGtagDeferred } from "@/lib/deferred-gtag";
-import { lazy, Suspense, useEffect, useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import interLatin from "../assets/fonts/inter-latin-wght.woff2?url";
 import devanagariFont from "../assets/fonts/noto-sans-devanagari-wght.woff2?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
-// The floating Talk-to-us launcher for every page other than the two home
-// routes (which mount their own, because they own the Hinglish toggle).
-// Lazy and client-only: it is interactive chrome, not content, so it stays out
-// of the server HTML and out of the first JavaScript a page needs.
-const TalkToUs = lazy(() =>
-  import("@/components/talk-to-us").then((m) => ({ default: m.TalkToUs })),
-);
+// The floating WhatsApp pill for every page other than the two home routes,
+// which mount their own so it follows the Hinglish toggle.
 
 /** `/hi` and everything under it; not merely any path starting "hi". */
 function isHindiPath(pathname: string) {
@@ -253,9 +249,7 @@ function RootComponent() {
       <Outlet />
       <LeadSourceTracker />
       {hydrated && !isHomePath(pathname) ? (
-        <Suspense fallback={null}>
-          <TalkToUs lang={isHindiPath(pathname) ? "hi" : "en"} />
-        </Suspense>
+        <WhatsAppPill lang={isHindiPath(pathname) ? "hi" : "en"} />
       ) : null}
     </QueryClientProvider>
   );

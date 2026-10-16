@@ -95,9 +95,9 @@ export const COPY = {
         "hi-en": "Export enquiries welcome: UAE & international",
       },
       {
-        en: "60+ years in textiles",
-        hi: "टेक्सटाइल में 60+ वर्ष",
-        "hi-en": "Textiles mein 60+ saal",
+        en: "60 years in the trade",
+        hi: "व्यापार में 60 साल",
+        "hi-en": "Trade mein 60 saal",
       },
     ],
   },

@@ -40,6 +40,11 @@ function isHomePath(pathname: string) {
   return pathname === "/" || pathname === "/hi" || pathname === "/hi/";
 }
 
+/** Design mockups. They draw their own chat control, so the live launcher stays off. */
+function isPreviewPath(pathname: string) {
+  return pathname === "/preview" || pathname.startsWith("/preview/");
+}
+
 /**
  * Noto Sans Devanagari, declared and preloaded only on Hindi routes. English
  * pages used to download it via the shared Google Fonts stylesheet. Same file
@@ -252,7 +257,7 @@ function RootComponent() {
       )}
       <Outlet />
       <LeadSourceTracker />
-      {hydrated && !isHomePath(pathname) ? (
+      {hydrated && !isHomePath(pathname) && !isPreviewPath(pathname) ? (
         <Suspense fallback={null}>
           <TalkToUs lang={isHindiPath(pathname) ? "hi" : "en"} />
         </Suspense>

@@ -13,7 +13,8 @@
 
   2. New routes must be added here by hand. This file does not generate itself,
      so it drifts silently - it is worth checking against the route tree
-     whenever a route is added.
+     whenever a route is added. Routes under /preview are design mockups:
+     they are noindex and are left out of this file on purpose.
 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">

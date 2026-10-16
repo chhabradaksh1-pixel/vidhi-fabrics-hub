@@ -31,8 +31,10 @@ import { Route as HiPolyesterSareesWholesaleSuratRouteImport } from './routes/hi
 import { Route as HiResellerCircleRouteImport } from './routes/hi_.reseller-circle'
 import { Route as HiSareeWholesaleForResellersRouteImport } from './routes/hi_.saree-wholesale-for-resellers'
 import { Route as HiStartSuitSareeBusinessFromHomeRouteImport } from './routes/hi_.start-suit-saree-business-from-home'
+import { Route as PreviewHomeRouteImport } from './routes/preview.home'
 import { Route as HiBlogIndexRouteImport } from './routes/hi_.blog.index'
 import { Route as HiBlogSlugRouteImport } from './routes/hi_.blog.$slug'
+import { Route as PreviewCollectionUnstitchedSuitsRouteImport } from './routes/preview.collection.unstitched-suits'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -158,6 +160,11 @@ const HiStartSuitSareeBusinessFromHomeRoute =
     path: '/hi/start-suit-saree-business-from-home',
     getParentRoute: () => rootRouteImport,
   } as any)
+const PreviewHomeRoute = PreviewHomeRouteImport.update({
+  id: '/preview/home',
+  path: '/preview/home',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const HiBlogIndexRoute = HiBlogIndexRouteImport.update({
   id: '/hi_/blog/',
   path: '/hi/blog/',
@@ -168,6 +175,12 @@ const HiBlogSlugRoute = HiBlogSlugRouteImport.update({
   path: '/hi/blog/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PreviewCollectionUnstitchedSuitsRoute =
+  PreviewCollectionUnstitchedSuitsRouteImport.update({
+    id: '/preview/collection/unstitched-suits',
+    path: '/preview/collection/unstitched-suits',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -191,8 +204,10 @@ export interface FileRoutesByFullPath {
   '/hi/reseller-circle': typeof HiResellerCircleRoute
   '/hi/saree-wholesale-for-resellers': typeof HiSareeWholesaleForResellersRoute
   '/hi/start-suit-saree-business-from-home': typeof HiStartSuitSareeBusinessFromHomeRoute
+  '/preview/home': typeof PreviewHomeRoute
   '/blog/': typeof BlogIndexRoute
   '/hi/blog/$slug': typeof HiBlogSlugRoute
+  '/preview/collection/unstitched-suits': typeof PreviewCollectionUnstitchedSuitsRoute
   '/hi/blog/': typeof HiBlogIndexRoute
 }
 export interface FileRoutesByTo {
@@ -217,8 +232,10 @@ export interface FileRoutesByTo {
   '/hi/reseller-circle': typeof HiResellerCircleRoute
   '/hi/saree-wholesale-for-resellers': typeof HiSareeWholesaleForResellersRoute
   '/hi/start-suit-saree-business-from-home': typeof HiStartSuitSareeBusinessFromHomeRoute
+  '/preview/home': typeof PreviewHomeRoute
   '/blog': typeof BlogIndexRoute
   '/hi/blog/$slug': typeof HiBlogSlugRoute
+  '/preview/collection/unstitched-suits': typeof PreviewCollectionUnstitchedSuitsRoute
   '/hi/blog': typeof HiBlogIndexRoute
 }
 export interface FileRoutesById {
@@ -244,8 +261,10 @@ export interface FileRoutesById {
   '/hi_/reseller-circle': typeof HiResellerCircleRoute
   '/hi_/saree-wholesale-for-resellers': typeof HiSareeWholesaleForResellersRoute
   '/hi_/start-suit-saree-business-from-home': typeof HiStartSuitSareeBusinessFromHomeRoute
+  '/preview/home': typeof PreviewHomeRoute
   '/blog/': typeof BlogIndexRoute
   '/hi_/blog/$slug': typeof HiBlogSlugRoute
+  '/preview/collection/unstitched-suits': typeof PreviewCollectionUnstitchedSuitsRoute
   '/hi_/blog/': typeof HiBlogIndexRoute
 }
 export interface FileRouteTypes {
@@ -272,8 +291,10 @@ export interface FileRouteTypes {
     | '/hi/reseller-circle'
     | '/hi/saree-wholesale-for-resellers'
     | '/hi/start-suit-saree-business-from-home'
+    | '/preview/home'
     | '/blog/'
     | '/hi/blog/$slug'
+    | '/preview/collection/unstitched-suits'
     | '/hi/blog/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -298,8 +319,10 @@ export interface FileRouteTypes {
     | '/hi/reseller-circle'
     | '/hi/saree-wholesale-for-resellers'
     | '/hi/start-suit-saree-business-from-home'
+    | '/preview/home'
     | '/blog'
     | '/hi/blog/$slug'
+    | '/preview/collection/unstitched-suits'
     | '/hi/blog'
   id:
     | '__root__'
@@ -324,8 +347,10 @@ export interface FileRouteTypes {
     | '/hi_/reseller-circle'
     | '/hi_/saree-wholesale-for-resellers'
     | '/hi_/start-suit-saree-business-from-home'
+    | '/preview/home'
     | '/blog/'
     | '/hi_/blog/$slug'
+    | '/preview/collection/unstitched-suits'
     | '/hi_/blog/'
   fileRoutesById: FileRoutesById
 }
@@ -351,8 +376,10 @@ export interface RootRouteChildren {
   HiResellerCircleRoute: typeof HiResellerCircleRoute
   HiSareeWholesaleForResellersRoute: typeof HiSareeWholesaleForResellersRoute
   HiStartSuitSareeBusinessFromHomeRoute: typeof HiStartSuitSareeBusinessFromHomeRoute
+  PreviewHomeRoute: typeof PreviewHomeRoute
   BlogIndexRoute: typeof BlogIndexRoute
   HiBlogSlugRoute: typeof HiBlogSlugRoute
+  PreviewCollectionUnstitchedSuitsRoute: typeof PreviewCollectionUnstitchedSuitsRoute
   HiBlogIndexRoute: typeof HiBlogIndexRoute
 }
 
@@ -512,6 +539,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HiStartSuitSareeBusinessFromHomeRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/preview/home': {
+      id: '/preview/home'
+      path: '/preview/home'
+      fullPath: '/preview/home'
+      preLoaderRoute: typeof PreviewHomeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/hi_/blog/': {
       id: '/hi_/blog/'
       path: '/hi/blog'
@@ -524,6 +558,13 @@ declare module '@tanstack/react-router' {
       path: '/hi/blog/$slug'
       fullPath: '/hi/blog/$slug'
       preLoaderRoute: typeof HiBlogSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/preview/collection/unstitched-suits': {
+      id: '/preview/collection/unstitched-suits'
+      path: '/preview/collection/unstitched-suits'
+      fullPath: '/preview/collection/unstitched-suits'
+      preLoaderRoute: typeof PreviewCollectionUnstitchedSuitsRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -554,8 +595,10 @@ const rootRouteChildren: RootRouteChildren = {
   HiResellerCircleRoute: HiResellerCircleRoute,
   HiSareeWholesaleForResellersRoute: HiSareeWholesaleForResellersRoute,
   HiStartSuitSareeBusinessFromHomeRoute: HiStartSuitSareeBusinessFromHomeRoute,
+  PreviewHomeRoute: PreviewHomeRoute,
   BlogIndexRoute: BlogIndexRoute,
   HiBlogSlugRoute: HiBlogSlugRoute,
+  PreviewCollectionUnstitchedSuitsRoute: PreviewCollectionUnstitchedSuitsRoute,
   HiBlogIndexRoute: HiBlogIndexRoute,
 }
 export const routeTree = rootRouteImport

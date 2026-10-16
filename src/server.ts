@@ -40,6 +40,18 @@ async function normalizeCatastrophicSsrResponse(response: Response): Promise<Res
 
 // Belt and braces for the 404 page's <meta name="robots" content="noindex">:
 // crawlers that skip the HTML still get the header.
+/** Mockup routes stay out of the index even if a crawler skips the meta tag. */
+function markDesignPreview(url: URL, response: Response): Response {
+  if (url.pathname !== "/preview" && !url.pathname.startsWith("/preview/")) return response;
+  const headers = new Headers(response.headers);
+  headers.set("x-robots-tag", "noindex, nofollow");
+  return new Response(response.body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers,
+  });
+}
+
 function markNotFound(response: Response): Response {
   if (response.status !== 404) return response;
   const headers = new Headers(response.headers);
@@ -75,7 +87,10 @@ export default {
       if (redirect) return redirect;
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
-      const page = markNotFound(await normalizeCatastrophicSsrResponse(response));
+      const page = markDesignPreview(
+        url,
+        markNotFound(await normalizeCatastrophicSsrResponse(response)),
+      );
       return applyEdgePolicy(request, url, page);
     } catch (error) {
       console.error(error);

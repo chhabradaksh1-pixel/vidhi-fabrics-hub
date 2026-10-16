@@ -1,0 +1,146 @@
+/*
+ * Preview mockup only. Cormorant Garamond is SIL Open Font License, latin
+ * subset, and this file is imported solely by the preview pages.
+ */
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../assets/fonts/cormorant-garamond-latin-500.woff2") format("woff2");
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+.vf-preview {
+  background: #f6f1ea;
+  color: #121212;
+  font-family: var(--font-body);
+}
+
+.vf-preview-serif {
+  font-family: "Cormorant Garamond", Georgia, "Liberation Serif", "Times New Roman", serif;
+  font-weight: 500;
+}
+
+.vf-preview-enquire {
+  display: inline-flex;
+  min-height: 52px;
+  align-items: center;
+  justify-content: center;
+  background: #7a1a18;
+  color: #f6f1ea;
+  padding: 0.85rem 1.5rem;
+  text-align: center;
+  text-decoration: none;
+  line-height: 1.2;
+}
+
+.vf-preview-enquire:hover {
+  background: #5c1210;
+}
+
+.vf-preview-enquire:focus-visible {
+  outline: 2px solid #7a1a18;
+  outline-offset: 3px;
+}
+
+.vf-preview-chat {
+  position: fixed;
+  z-index: 40;
+  right: 0;
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  left: 0;
+  width: max-content;
+  max-width: calc(100% - 2rem);
+  margin-inline: auto;
+  border-radius: 999px;
+  background-color: #121214;
+  background-image: radial-gradient(
+    7.5rem circle at var(--vf-lx, 78%) var(--vf-ly, 50%),
+    rgb(255 255 255 / 22%),
+    transparent 68%
+  );
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 12px 32px rgb(18 18 20 / 22%);
+  transition: transform 180ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.vf-preview-chat:focus-visible {
+  outline: 2px solid #f6f1ea;
+  outline-offset: 3px;
+}
+
+.vf-preview-chat-face {
+  display: inline-flex;
+  min-height: 52px;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.35rem 0.4rem 0.35rem 1.15rem;
+  border-radius: inherit;
+}
+
+.vf-preview-chat-dot {
+  display: grid;
+  width: 2.5rem;
+  height: 2.5rem;
+  flex: none;
+  place-items: center;
+  border-radius: 999px;
+  background: #7a1a18;
+  color: #25d366;
+}
+
+.vf-preview-chat-icon {
+  display: block;
+  transition: transform 350ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.vf-preview-chat:hover .vf-preview-chat-icon {
+  transform: rotate(45deg);
+}
+
+.vf-preview-chat:active .vf-preview-chat-face {
+  transform: scale(0.97);
+}
+
+@media (min-width: 768px) {
+  .vf-preview-chat {
+    right: 1.5rem;
+    left: auto;
+    margin-inline: 0;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .vf-preview-chat-face {
+    animation: vf-preview-pulse 3.2s ease-in-out infinite;
+  }
+
+  .vf-preview-chat:active .vf-preview-chat-face {
+    animation: none;
+    transform: scale(0.97);
+  }
+}
+
+@keyframes vf-preview-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.025);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vf-preview-chat,
+  .vf-preview-chat-face,
+  .vf-preview-chat-icon {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}

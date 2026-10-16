@@ -58,10 +58,10 @@ export const CATALOGUE_RANGES: CatalogueRange[] = [
       "hi-en": "Dress material wholesale",
     },
     image: {
-      src: "/images/catalogue/suit-model.webp",
-      width: 720,
-      height: 993,
-      alt: "Model wearing an unstitched salwar suit, Vidhi Fabrics Surat",
+      src: "/images/preview/collection-suits.webp",
+      width: 1280,
+      height: 720,
+      alt: "Model wearing an unstitched suit, Vidhi Fabrics Surat",
     },
   },
   {
@@ -88,6 +88,12 @@ export const CATALOGUE_RANGES: CatalogueRange[] = [
       en: "Polyester sarees wholesale",
       hi: "पॉलिएस्टर साड़ी होलसेल",
       "hi-en": "Polyester sarees wholesale",
+    },
+    image: {
+      src: "/images/preview/hero-saree.webp",
+      width: 1280,
+      height: 720,
+      alt: "Model in a polyester saree, Vidhi Fabrics Surat",
     },
   },
   {

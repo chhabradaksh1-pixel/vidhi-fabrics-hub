@@ -90,7 +90,6 @@ export function ShowroomRanges({ lang }: { lang: Lang }) {
                 </div>
                 <h3 className="vf-showroom-serif mt-5 text-3xl">{tile.title[lang]}</h3>
               </a>
-              <p className="vf-showroom-serif mt-2 text-2xl text-[#7A1A18]">{tile.code}</p>
               <p className="mt-2 text-sm leading-relaxed text-[#121212]/75">{tile.note[lang]}</p>
               <a
                 href={designLink(lang, tile.code)}

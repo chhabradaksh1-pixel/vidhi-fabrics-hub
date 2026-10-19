@@ -8,72 +8,42 @@ import { whatsAppUrl } from "@/content/whatsapp";
 const SITE = "https://www.vidhifabrics.com";
 const PATH = "/dress-material-wholesale-surat";
 
-const TITLE = "Dress Material & Unstitched Suits Wholesale Surat | Vidhi";
+const TITLE = "Dress Material in Surat | Unstitched Suits Wholesale";
 const DESCRIPTION =
-  "Dress material and unstitched suits in bulk from a Surat manufacturer and wholesaler, for buyers across North India. Get the catalogue on WhatsApp.";
+  "Dress material in Surat from a manufacturer and wholesaler. Unstitched suits wholesale for resellers, boutiques and retailers in North India.";
 
 const linkClass = "text-clay underline decoration-line underline-offset-4 hover:text-claydeep";
 
+const WHY = [
+  "60 years in the trade",
+  "Surat manufacturer network",
+  "New designs regularly",
+  "Catalogue on WhatsApp",
+];
+
 const FAQS: { question: string; answer: string }[] = [
   {
-    question: "What is included in a dress material set?",
+    question: "Do you sell dress material in Surat?",
     answer:
-      "Usually fabric for the top, the bottom and a dupatta. Sets vary by design, so we confirm the pieces, their fabric and their measurements for each design before you order.",
+      "Yes. Vidhi Fabrics is a Surat manufacturer and wholesaler of dress material and unstitched suits. The current catalogue is shared on WhatsApp.",
   },
   {
-    question: "Do you supply unstitched suits?",
+    question: "Can I buy dress material wholesale from Surat?",
     answer:
-      "Yes. We supply unstitched suits and dress material sets, so retailers and boutiques can offer customers their own fit and style.",
+      "Yes. We sell dress material wholesale from Surat to resellers, boutiques and retailers across North India.",
   },
   {
-    question: "Which regions do you supply?",
-    answer: "Mainly North India: Punjab, Haryana, Rajasthan, Uttar Pradesh and Madhya Pradesh.",
-  },
-  {
-    question: "Do you supply retailers as well as wholesalers?",
-    answer: "Yes. We supply wholesalers, retailers, resellers and boutiques in bulk.",
-  },
-  {
-    // Positioning confirmed by the owner on 1 October 2026: manufacturer and
-    // wholesaler. Deliberately does not name which lines are made in-house;
-    // the owner has not specified them. Same answer as the polyester page.
-    question: "Are you a manufacturer or a wholesaler?",
+    question: "Do you offer unstitched suits wholesale in Surat?",
     answer:
-      "Both. Vidhi Fabrics is a Surat-based manufacturer and wholesaler. We manufacture some lines in-house and also supply from Surat's wider textile market, so you get one accountable point of contact and a wide, current range.",
+      "Yes. Unstitched suits wholesale in Surat is one of our two main ranges, sold as dress material sets so a shop can offer its own fit and style.",
   },
   {
-    question: "How do I get the catalogue?",
-    answer: `Send a message on WhatsApp at ${BUSINESS.phoneDisplay} and we'll share the current dress material catalogue. You're also welcome to visit our shop at Golden Point, Ring Road, Surat.`,
+    question: "Which states do you supply?",
+    answer: "Punjab, Haryana, Rajasthan, Uttar Pradesh and Madhya Pradesh.",
   },
   {
-    question: "Is the dress material polyester?",
-    answer:
-      "The sets we supply are polyester and other synthetic dress material, as everyday sets and as festive sets. Tell us the hand and the occasion and we will share what matches from the current catalogue.",
-  },
-  {
-    question: "What do boutiques in Punjab and Haryana stock?",
-    answer:
-      "In much of Punjab and Haryana, unstitched suits sell alongside sarees, for the festive season and for the regular rail. A typical order mixes both.",
-  },
-  {
-    question: "What do shops in Rajasthan stock?",
-    answer:
-      "Many shops in Rajasthan lean towards sarees, and keep a smaller run of unstitched suits. Set the balance from what your own counter sold.",
-  },
-  {
-    question: "Can one order mix sarees and dress material?",
-    answer:
-      "Yes. You can combine dress material sets with polyester sarees, and mix festive and daily-wear designs, in one order.",
-  },
-  {
-    question: "Can I order on WhatsApp without visiting Surat?",
-    answer:
-      "Yes. Message us with what you stock and the city you sell in. We share the current catalogue on WhatsApp. Visiting the shop at Golden Point, Ring Road is welcome if you would rather see the sets in person.",
-  },
-  {
-    question: "What should my first WhatsApp message say?",
-    answer:
-      "Name the product, whether you want festive, daily wear, or a mix, and the city you sell in. Colours that already sell for you, or a photograph of a set you want matched, make the reply more useful.",
+    question: "How do I get the dress material catalogue?",
+    answer: `Message us on WhatsApp at ${BUSINESS.phoneDisplay} and we will share the current catalogue. You are also welcome at our shop at Golden Point, Ring Road, Surat.`,
   },
 ];
 
@@ -86,7 +56,7 @@ function breadcrumbList() {
       {
         "@type": "ListItem",
         position: 2,
-        name: "Dress Material Wholesale Surat",
+        name: "Dress material wholesale in Surat",
         item: `${SITE}${PATH}`,
       },
     ],
@@ -165,26 +135,42 @@ function DressMaterialPage() {
                 </a>
               </li>
               <li aria-hidden="true">/</li>
-              <li className="text-ink">Dress Material Wholesale Surat</li>
+              <li className="text-ink">Dress material wholesale in Surat</li>
             </ol>
           </nav>
 
           <h1 className="vf-showroom-serif mt-6 text-balance text-4xl leading-[1.08] sm:text-5xl lg:text-6xl">
-            Dress Material &amp; Unstitched Suits Wholesale, Direct from Surat
+            Dress material wholesale in Surat
           </h1>
+          <div className="mx-auto mt-6 max-w-[65ch] space-y-4 text-base leading-relaxed text-mute sm:text-lg">
+            <p>
+              Vidhi Fabrics is a Surat manufacturer and wholesaler of unstitched suits and dress
+              material for resellers, boutiques and retailers across North India.
+            </p>
+            <p>
+              Buyers come from Punjab, Haryana, Rajasthan, Uttar Pradesh and Madhya Pradesh. Dress
+              material in Surat is sold as sets. Unstitched suits wholesale from Surat is one of our
+              two main ranges, beside polyester sarees.
+            </p>
+            <p>
+              Some lines are made by us and the rest come from Surat's wider textile market, so one
+              business answers for the order. Ask on WhatsApp for the current catalogue.
+            </p>
+          </div>
 
           <ShowroomCollection lang="en" />
           <PromoSuitCatalogueCta lang="en" />
           <CatalogueButton className="mt-8" />
 
           <div className="mx-auto max-w-[65ch]">
-            <p className="mt-10 text-lg leading-relaxed text-mute">
-              Vidhi Fabrics is a Surat-based manufacturer and wholesaler, supplying dress material
-              and unstitched suits in bulk to wholesalers, retailers, resellers and boutiques. We
-              manufacture some lines in-house and also supply from Surat's wider textile market.
-              Most of our buyers are in North India, in Punjab, Haryana, Rajasthan and Madhya
-              Pradesh. The sets are polyester and other synthetic dress material.
-            </p>
+            <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">
+              Why buy from Vidhi Fabrics
+            </h2>
+            <ul className="mt-5 list-disc space-y-2 pl-5 text-base leading-relaxed text-ink">
+              {WHY.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
 
             <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">
               Unstitched suits and dress material sets
@@ -321,7 +307,7 @@ function DressMaterialPage() {
               .
             </p>
 
-            <section className="mt-12 border-t border-line pt-8">
+            <section id="faq" className="mt-12 scroll-mt-8 border-t border-line pt-8">
               <h2 className="font-display text-2xl font-light sm:text-3xl">FAQs</h2>
               {/* Each question is an <h3> with its answer directly after it,
                   matching the polyester page (valid heading-and-paragraph

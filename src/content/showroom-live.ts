@@ -51,6 +51,8 @@ export type ShowroomTile = {
   title: Record<Lang, string>;
   code: string;
   note: Record<Lang, string>;
+  /** Visible link on the card. The design code stays in the WhatsApp message. */
+  pageLink?: Record<Lang, string>;
   href: string;
   image: { src: string; width: number; height: number; focus: string; alt: string };
 };
@@ -84,6 +86,11 @@ export const SHOWROOM_TILES: ShowroomTile[] = [
       en: "Top, bottom and dupatta, shown as a set.",
       hi: "टॉप, बॉटम और दुपट्टा, एक सेट में।",
       "hi-en": "Top, bottom aur dupatta, ek set mein.",
+    },
+    pageLink: {
+      en: "dress material wholesale in Surat",
+      hi: "सूरत में ड्रेस मटेरियल होलसेल",
+      "hi-en": "dress material wholesale in Surat",
     },
     href: "/dress-material-wholesale-surat",
     image: {

@@ -91,6 +91,14 @@ export function ShowroomRanges({ lang }: { lang: Lang }) {
                 <h3 className="vf-showroom-serif mt-5 text-3xl">{tile.title[lang]}</h3>
               </a>
               <p className="mt-2 text-sm leading-relaxed text-[#121212]/75">{tile.note[lang]}</p>
+              {tile.pageLink ? (
+                <a
+                  href={href}
+                  className="mt-3 inline-block text-sm text-[#7A1A18] underline decoration-[#7A1A18]/30 underline-offset-4"
+                >
+                  {tile.pageLink[lang]}
+                </a>
+              ) : null}
               <a
                 href={designLink(lang, tile.code)}
                 target="_blank"

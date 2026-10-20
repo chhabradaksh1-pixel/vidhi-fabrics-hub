@@ -17,7 +17,8 @@ export function TradeStory({ lang }: { lang: Lang }) {
     <>
       <section aria-hidden="true" className="mt-16">
         <LazyLoopVideo
-          src="/weaving-loom.mp4?v=a787f8f"
+          mp4Src="/weaving-loom.mp4?v=20261020"
+          webmSrc="/weaving-loom-av1.webm?v=20261020"
           poster={loomPoster}
           className="h-48 w-full object-cover sm:h-64 lg:h-80"
         />

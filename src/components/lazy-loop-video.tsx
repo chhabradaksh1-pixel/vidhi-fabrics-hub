@@ -1,24 +1,23 @@
 import { useEffect, useRef } from "react";
 
 /**
- * A muted, looping background video that downloads nothing until it is near
- * the viewport.
+ * A muted, looping background video that waits until it is near the viewport
+ * before the browser selects and downloads one of its source formats.
  *
- * The homepage loom clip is ~6 MB and sits well below the fold. As a plain
- * `autoPlay` video every first visit paid for it up front, and `preload`
- * alone cannot stop that: browsers ignore `preload="none"` on an autoplaying
- * element. So the element is not `autoPlay`; it ships with `preload="none"`
- * and a still poster frame, and starts playing only once it scrolls within
- * reach. It pauses again when it leaves the viewport.
+ * Keep this decorative About page clip off the initial request list: it has no
+ * autoplay attribute, starts only when it scrolls within 200px, and pauses
+ * when it leaves the viewport. The poster remains visible while it is idle.
  *
  * Without IntersectionObserver it simply plays, as it did before.
  */
 export function LazyLoopVideo({
-  src,
+  mp4Src,
+  webmSrc,
   poster,
   className,
 }: {
-  src: string;
+  mp4Src: string;
+  webmSrc: string;
   poster: string;
   className?: string;
 }) {
@@ -51,13 +50,15 @@ export function LazyLoopVideo({
   return (
     <video
       ref={ref}
-      src={src}
       poster={poster}
       muted
       loop
       playsInline
       preload="none"
       className={className}
-    />
+    >
+      <source src={mp4Src} type="video/mp4" />
+      <source src={webmSrc} type="video/webm" />
+    </video>
   );
 }

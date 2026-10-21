@@ -227,9 +227,11 @@ text rather than merely poor text.
 
 ## Performance and request handling (3 October 2026)
 
-- Fonts are self-hosted in `src/assets/fonts/` (Inter in `styles.css`; Noto
-  Sans Devanagari declared and preloaded from `__root.tsx` on `/hi` routes
-  only). Don't reintroduce the Google Fonts stylesheet: it was render-blocking.
+- Fonts are self-hosted in `src/assets/fonts/` (Fraunces for headings and
+  Hanken Grotesk for body and labels, in `styles.css`; Noto Sans Devanagari
+  for Hindi body and Noto Serif Devanagari for Hindi headings, declared and
+  preloaded from `__root.tsx` on `/hi` routes only). Don't reintroduce the
+  Google Fonts stylesheet: it was render-blocking.
 - gtag.js is loaded by `src/lib/deferred-gtag.ts` (first interaction or 3.5 s
   after load). The inline `dataLayer`/`gtag()` stub in `__root.tsx` queues
   every event until then; keep it.

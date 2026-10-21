@@ -192,41 +192,35 @@ A mean that passes hides a worst case that doesn't.
 
 ## Type
 
-**One grotesque, four weights, no serif and no mono.** This is the Inditex
-model: a single family carries display, body and labels, and the difference
-between them is weight, size and letter-spacing rather than typeface.
+Headings are a soft serif. Body and labels are one grotesque. The pairing
+follows Flooring Xtra's split (21 October 2026): their headings are **Canela**
+(Commercial Type, paid) at a thin weight, and their body, navigation and
+buttons are **Banana Grotesk** (MNKY Type, paid, served as "MNKY Banana
+Grotesk") at medium. Neither file can be copied onto this site.
 
-| Role    | Stack                                              | Weight  |
-| ------- | -------------------------------------------------- | ------- |
-| Display | Inter, Noto Sans Devanagari, system-ui, sans-serif | 200–300 |
-| Body    | Inter, Noto Sans Devanagari, system-ui, sans-serif | 400     |
-| Label   | Inter, Noto Sans Devanagari, system-ui, sans-serif | 400     |
+| Role    | Family we ship                         | Free match for      | Weight |
+| ------- | -------------------------------------- | ------------------- | ------ |
+| Display | Fraunces, then Noto Serif Devanagari   | Canela              | 300–400 |
+| Body    | Hanken Grotesk, then Noto Sans Devanagari | Banana Grotesk   | 400    |
+| Label   | Hanken Grotesk, then Noto Sans Devanagari | Banana Grotesk   | 400    |
 
-The hero runs at 200, every other heading at 300, body at 400. Labels, section
-markers and stat captions stay uppercase and letterspaced (`0.12em`–`0.2em`) —
-that treatment is what still distinguishes them now that they are no longer
-monospaced.
+Fraunces and Hanken Grotesk are SIL Open Font License 1.1, self-hosted, latin
+only, `font-display: swap`. Fraunces is the closest open serif to Canela.
+Hanken Grotesk is the closest open grotesque to Banana Grotesk. Canela's
+hairline weight (100) is not used: it thins Devanagari conjuncts, and small
+headings would fail as text. Showroom titles sit at 400. Other headings stay
+at the existing light weight (300).
 
-The three tokens in `styles.css` are kept — `--font-display`, `--font-body`,
-`--font-mono` — but all three resolve to the same family, so no component had
-to change. **`--font-mono` is now a misnomer**: it marks the letterspaced
-labels and is not monospaced. Renaming it would touch every component that
-reads it; the name is historical, the value is not. One consequence worth
-knowing: the stat figures are no longer tabular, so columns of numbers will not
-align on the decimal the way they did.
+Labels, section markers and stat captions stay uppercase and letterspaced
+(`0.12em`–`0.2em`). **`--font-mono` is still a misnomer**: it marks those
+labels and now resolves to Hanken Grotesk, not a monospace.
 
-Previously Playfair Display carried headings and the wordmark and JetBrains
-Mono carried labels. Four families are now two, which is less to load, not
-more, despite adding two weights.
-
-The Devanagari fallback sits in every stack because the Hindi route uses the
-same styles. **Noto Sans Devanagari is loaded at the same four weights**, so
-Hindi gets genuine light cuts instead of a synthesised one — this was verified
-against the Google Fonts API before the light display weights were committed
-to, because a missing light cut would have left the Hindi headings faking a
-weight the font does not have. Check Hindi rendering when touching type:
-Devanagari needs more line height than Latin at the same size, headline wraps
-differ, and light weights thin its conjuncts faster than they thin Latin.
+Hindi in a heading uses **Noto Serif Devanagari** so it belongs with Fraunces.
+Hindi in body copy uses **Noto Sans Devanagari** so it belongs with Hanken
+Grotesk. Both are loaded only on `/hi`. The English homepage's one Hindi line
+uses a small serif subset of that sentence instead. Check Hindi rendering when
+touching type: Devanagari needs more line height than Latin at the same size,
+and headline wraps differ.
 
 ## Logo and icons
 

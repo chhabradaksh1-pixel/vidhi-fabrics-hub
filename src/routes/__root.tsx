@@ -20,8 +20,10 @@ import { loadGtagDeferred } from "@/lib/deferred-gtag";
 import { useEffect, useState, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import interLatin from "../assets/fonts/inter-latin-wght.woff2?url";
+import hankenLatin from "../assets/fonts/hanken-grotesk-latin.woff2?url";
+import frauncesLatin from "../assets/fonts/fraunces-latin.woff2?url";
 import devanagariFont from "../assets/fonts/noto-sans-devanagari-wght.woff2?url";
+import devanagariSerif from "../assets/fonts/noto-serif-devanagari-wght.woff2?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
 // The floating WhatsApp pill for every page other than the two home routes,
@@ -37,9 +39,10 @@ function isHomePath(pathname: string) {
 }
 
 /**
- * Noto Sans Devanagari, declared and preloaded only on Hindi routes. English
- * pages used to download it via the shared Google Fonts stylesheet. Same file
- * Google Fonts served (v30, devanagari subset), self-hosted.
+ * Devanagari, declared and preloaded only on Hindi routes. Body copy uses
+ * Noto Sans so it matches Hanken Grotesk. Headings use Noto Serif so they
+ * match Fraunces. English pages do not download either file. The homepage's
+ * single Hindi line uses a smaller serif subset instead (showroom.css).
  */
 function DevanagariFont() {
   return (
@@ -51,7 +54,14 @@ function DevanagariFont() {
         type="font/woff2"
         crossOrigin="anonymous"
       />
-      <style>{`@font-face{font-family:"Noto Sans Devanagari";font-style:normal;font-weight:200 500;font-display:swap;src:url(${devanagariFont}) format("woff2");unicode-range:U+0900-097F,U+1CD0-1CF9,U+200C-200D,U+20A8,U+20B9,U+20F0,U+25CC,U+A830-A839,U+A8E0-A8FF,U+11B00-11B09}`}</style>
+      <link
+        rel="preload"
+        href={devanagariSerif}
+        as="font"
+        type="font/woff2"
+        crossOrigin="anonymous"
+      />
+      <style>{`@font-face{font-family:"Noto Sans Devanagari";font-style:normal;font-weight:200 500;font-display:swap;src:url(${devanagariFont}) format("woff2");unicode-range:U+0900-097F,U+1CD0-1CF9,U+200C-200D,U+20A8,U+20B9,U+20F0,U+25CC,U+A830-A839,U+A8E0-A8FF,U+11B00-11B09}@font-face{font-family:"Noto Serif Devanagari";font-style:normal;font-weight:300 500;font-display:swap;src:url(${devanagariSerif}) format("woff2");unicode-range:U+0900-097F,U+1CD0-1CF9,U+200C-200D,U+20A8,U+20B9,U+20F0,U+25CC,U+A830-A839,U+A8E0-A8FF,U+11B00-11B09}`}</style>
     </>
   );
 }
@@ -125,12 +135,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:image", content: "https://www.vidhifabrics.com/og-image.jpg" },
     ],
     links: [
-      // Inter is self-hosted (see the @font-face rules in styles.css). The
-      // latin file carries every weight the site uses, so preloading it lets
-      // text paint in Inter without waiting for the CSS to be parsed first.
+      // Body and headings are self-hosted (styles.css). Preload the two latin
+      // files so the first paint is not a fallback face.
       {
         rel: "preload",
-        href: interLatin,
+        href: frauncesLatin,
+        as: "font",
+        type: "font/woff2",
+        crossOrigin: "anonymous",
+      },
+      {
+        rel: "preload",
+        href: hankenLatin,
         as: "font",
         type: "font/woff2",
         crossOrigin: "anonymous",

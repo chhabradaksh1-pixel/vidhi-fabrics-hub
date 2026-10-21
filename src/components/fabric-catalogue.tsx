@@ -179,7 +179,7 @@ export function FabricCatalogueSection({ lang }: { lang: Lang }) {
             <div
               role="group"
               aria-label={COPY.catalogue.viewLabel[lang]}
-              className="flex gap-1 font-mono text-[11px] uppercase tracking-[0.14em]"
+              className="flex gap-2 font-mono text-[11px] uppercase tracking-[0.14em]"
             >
               {(["grid", "table"] as View[]).map((v) => (
                 <button

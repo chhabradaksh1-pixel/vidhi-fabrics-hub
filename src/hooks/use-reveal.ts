@@ -33,6 +33,18 @@ const MAX_STAGGER_STEPS = 8;
 
 export function useReveal(): void {
   useEffect(() => {
+    const started = installReveal();
+    return () => {
+      started.observer?.disconnect();
+      started.watcher.disconnect();
+    };
+  }, []);
+}
+
+function installReveal(): {
+  observer?: IntersectionObserver;
+  watcher: MutationObserver;
+} {
     const show = (el: HTMLElement) => el.classList.add("is-in");
 
     /** Reveal without playing the transition — for content that appears in
@@ -47,7 +59,11 @@ export function useReveal(): void {
     };
 
     const query = (root: ParentNode) =>
-      Array.from(root.querySelectorAll<HTMLElement>("[data-reveal]:not(.is-in)"));
+      Array.from(
+        root.querySelectorAll<HTMLElement>(
+          "[data-reveal]:not(.is-in), [data-reveal-block]:not(.is-in)",
+        ),
+      );
 
     // Honour the OS setting, and degrade cleanly on anything without an
     // observer: reveal everything immediately rather than leaving it staged.
@@ -61,7 +77,7 @@ export function useReveal(): void {
       // Still watched, because content that mounts later must not stay staged.
       const watcher = new MutationObserver(revealEverything);
       watcher.observe(document.body, { childList: true, subtree: true });
-      return () => watcher.disconnect();
+      return { watcher };
     }
 
     const observer = new IntersectionObserver(
@@ -143,16 +159,12 @@ export function useReveal(): void {
       for (const record of records) {
         for (const added of record.addedNodes) {
           if (!(added instanceof HTMLElement)) continue;
-          if (added.matches("[data-reveal]")) take(added, true);
+          if (added.matches("[data-reveal], [data-reveal-block]")) take(added, true);
           scan(added, true);
         }
       }
     });
     watcher.observe(document.body, { childList: true, subtree: true });
 
-    return () => {
-      observer.disconnect();
-      watcher.disconnect();
-    };
-  }, []);
+    return { observer, watcher };
 }

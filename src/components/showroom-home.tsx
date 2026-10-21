@@ -19,7 +19,7 @@ export function ShowroomHero({ lang, enquireHref }: { lang: Lang; enquireHref: s
 
   return (
       <section className="md:relative">
-        <div className="relative h-40 w-full overflow-hidden bg-sand sm:h-52 md:absolute md:inset-0 md:h-full">
+        <div className="relative h-40 w-full overflow-hidden bg-sand max-md:-mr-[4.5rem] max-md:w-[calc(100%+4.5rem)] sm:h-52 md:absolute md:inset-0 md:mr-0 md:h-full md:w-full">
           <img
             src={HERO_IMAGE.src}
             alt={HERO_IMAGE.alt}
@@ -125,22 +125,24 @@ export function ShowroomRanges({ lang }: { lang: Lang }) {
                     {isOpen ? "×" : "+"}
                   </span>
                 </button>
-                <div className={isOpen ? "pb-6" : "hidden"}>
+                <div className={isOpen ? "vf-range-panel pb-8" : "hidden"}>
                   <p className="max-w-md text-sm leading-relaxed text-foreground">{item.note[lang]}</p>
-                  <a
-                    href={href}
-                    className="mt-3 inline-block text-sm text-clay underline decoration-clay/30 underline-offset-4"
-                  >
-                    {item.pageLink ? item.pageLink[lang] : VIEW_RANGE[lang]}
-                  </a>
-                  <a
-                    href={designLink(lang, item.code)}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="vf-showroom-enquire mt-5 w-full sm:w-auto"
-                  >
-                    {ENQUIRE[lang]}
-                  </a>
+                  <div className="vf-range-actions">
+                    <a
+                      href={designLink(lang, item.code)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="vf-showroom-enquire shrink-0"
+                    >
+                      {ENQUIRE[lang]}
+                    </a>
+                    <a
+                      href={href}
+                      className="inline-flex shrink-0 items-center text-sm text-clay underline decoration-clay/30 underline-offset-4"
+                    >
+                      {item.pageLink ? item.pageLink[lang] : VIEW_RANGE[lang]}
+                    </a>
+                  </div>
                 </div>
               </li>
             );

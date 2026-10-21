@@ -16,6 +16,7 @@ import type { Lang } from "@/content/translations";
 import { blogPaths } from "@/content/blog-paths";
 import { hasHindiVersion } from "@/content/landing-pages";
 import { formatIsoDate } from "@/lib/dates";
+import { useReveal } from "@/hooks/use-reveal";
 
 /** How many other guides the "Keep reading" list shows. */
 const RELATED_COUNT = 3;
@@ -106,6 +107,7 @@ function journalGroups(lang: Lang) {
 }
 
 export function JournalIndexPage({ initialLang }: { initialLang: Lang }) {
+  useReveal();
   const { lang, setLang } = useJournalLang(initialLang);
   const copy = SECTION_COPY[lang];
   const paths = blogPaths();
@@ -160,6 +162,7 @@ export function JournalArticlePage({
   article: JournalArticle;
   initialLang: Lang;
 }) {
+  useReveal();
   const { lang, setLang } = useJournalLang(initialLang);
   const copy = SECTION_COPY[lang];
   const desk = lang === "hi" ? "/hi/blog" : "/blog";
@@ -301,29 +304,31 @@ export function JournalArticlePage({
               <p className="font-mono text-xs uppercase tracking-widest">
                 {article.cta?.kicker[lang] ?? copy.ctaKicker}
               </p>
-              <h2 className="mt-4 font-display text-3xl font-light">
+              <h2 className="mt-4 font-display text-3xl font-light text-paper">
                 {article.cta?.heading[lang] ?? copy.ctaHeading}
               </h2>
-              <p className="mt-4 leading-relaxed text-paper/80">
+              <p className="mt-5 leading-relaxed text-paper/80">
                 {article.cta?.body[lang] ?? copy.ctaBody}
               </p>
-              <a
-                href={articleWhatsAppUrl(article, lang)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-7 inline-flex items-center gap-3 bg-paper px-5 py-3 text-sm font-medium text-ink"
-              >
-                {article.cta?.label[lang] ?? copy.talk}
-                <ArrowUpRight className="shrink-0" size={18} aria-hidden="true" />
-              </a>
-              {article.cta?.secondary && (
+              <div className="mt-7 flex flex-col items-start gap-4 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-6 sm:gap-y-3">
                 <a
-                  href={localiseHref(article.cta.secondary.href, lang)}
-                  className="mt-4 inline-block text-sm text-paper underline underline-offset-4"
+                  href={articleWhatsAppUrl(article, lang)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 bg-paper px-5 py-3 text-sm font-medium text-ink"
                 >
-                  {article.cta.secondary.label[lang]}
+                  {article.cta?.label[lang] ?? copy.talk}
+                  <ArrowUpRight className="shrink-0" size={18} aria-hidden="true" />
                 </a>
-              )}
+                {article.cta?.secondary ? (
+                  <a
+                    href={localiseHref(article.cta.secondary.href, lang)}
+                    className="inline-flex min-h-11 items-center text-sm text-paper underline underline-offset-4"
+                  >
+                    {article.cta.secondary.label[lang]}
+                  </a>
+                ) : null}
+              </div>
             </aside>
             <div className="border-t border-line pt-8">
               <h2 className="font-display text-2xl font-light">{copy.related}</h2>

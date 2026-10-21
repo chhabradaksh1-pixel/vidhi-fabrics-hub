@@ -319,7 +319,7 @@ function HiIndex() {
 
         <AboutSection lang={lang} whatsappUrl={getWhatsAppUrl(lang)} />
 
-        <ResellerCircleStrip lang={lang} href="/hi/reseller-circle" />
+        <ResellerCircleStrip lang={lang} />
 
         <section id="contact" data-reveal className="scroll-mt-36">
           <div className="mx-auto w-full max-w-3xl px-5 py-16 sm:px-8 sm:py-24 lg:px-[50px] lg:py-28">

@@ -44,7 +44,7 @@ export function WhatsAppPill({ lang = "en" }: { lang?: Lang }) {
       onMouseLeave={onLeave}
     >
       <span className="vf-showroom-chat-face">
-        <span className="text-sm">{CHAT[lang]}</span>
+        <span className="vf-showroom-chat-label text-sm">{CHAT[lang]}</span>
         <span className="vf-showroom-chat-dot">
           <WhatsAppGlyph />
         </span>

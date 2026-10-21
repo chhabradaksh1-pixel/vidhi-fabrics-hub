@@ -13,10 +13,9 @@ import { ShowroomHero, ShowroomRanges, ShowroomTrust } from "@/components/showro
 import { WhatsAppPill } from "@/components/whatsapp-pill";
 import { whatsAppUrl } from "@/content/whatsapp";
 import { useLeadContext } from "@/hooks/use-lead-context";
+import { useReveal } from "@/hooks/use-reveal";
 import { trackLeadEvent } from "@/lib/analytics";
 import { currentLeadContext } from "@/lib/lead-source";
-import { useReveal } from "@/hooks/use-reveal";
-
 import {
   Accordion,
   AccordionItem,
@@ -56,9 +55,9 @@ export const Route = createFileRoute("/hi")({
     ],
     links: [
       { rel: "canonical", href: HI_URL },
-      { rel: "alternate", hreflang: "en", href: EN_URL },
-      { rel: "alternate", hreflang: "hi", href: HI_URL },
-      { rel: "alternate", hreflang: "x-default", href: EN_URL },
+      { rel: "alternate", hrefLang: "en", href: EN_URL },
+      { rel: "alternate", hrefLang: "hi", href: HI_URL },
+      { rel: "alternate", hrefLang: "x-default", href: EN_URL },
     ],
   }),
   component: HiIndex,

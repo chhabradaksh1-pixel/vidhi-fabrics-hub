@@ -145,6 +145,37 @@
   }
 }
 
+/* On a phone the labelled pill is about 180px wide and sits on top of
+   whatever is at the bottom of the screen. Keep the control as the icon,
+   and inset the page column so headings, links and accordion controls
+   end before it. */
+@media (max-width: 767px) {
+  .vf-showroom-chat-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .vf-showroom-chat-face {
+    gap: 0;
+    min-height: 3.25rem;
+    padding: 0.3rem;
+  }
+
+  /* Shift the whole page column, including headings, links and the accordion
+     controls, clear of the icon. Footer text already clears via its own
+     bottom padding. */
+  main {
+    padding-inline-end: 4.5rem;
+  }
+}
+
 @media (hover: none) and (pointer: coarse) {
   .vf-showroom-chat-face {
     animation: vf-showroom-pulse 3.2s ease-in-out infinite;

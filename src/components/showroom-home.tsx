@@ -19,7 +19,7 @@ export function ShowroomHero({ lang, enquireHref }: { lang: Lang; enquireHref: s
 
   return (
       <section className="md:relative">
-        <div className="relative h-40 w-full overflow-hidden bg-sand sm:h-52 md:absolute md:inset-0 md:h-full">
+        <div className="relative h-40 w-full overflow-hidden bg-sand max-md:-mr-[4.5rem] max-md:w-[calc(100%+4.5rem)] sm:h-52 md:absolute md:inset-0 md:mr-0 md:h-full md:w-full">
           <img
             src={HERO_IMAGE.src}
             alt={HERO_IMAGE.alt}

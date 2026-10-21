@@ -66,7 +66,7 @@ export function SiteFooter({ lang = "en" }: { lang?: Lang }) {
           decoding="async"
         />
       </div>
-      <footer className="vf-weave relative overflow-hidden border-t border-gold/45 text-ivory">
+      <footer className="vf-weave relative overflow-hidden border-t border-gold/45 pb-24 text-ivory">
         {/* Two arcs of a very wide ellipse: the flowing line, drawn by CSS. */}
         <div
           aria-hidden="true"

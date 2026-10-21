@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { AboutSection, StoryLinks } from "@/components/fabric-desk";
+import { AboutSection } from "@/components/fabric-desk";
+import { HomeHeader } from "@/components/home-header";
 import { ADDRESS_LINES, BUSINESS } from "@/content/business";
 import { FabricCatalogueSection } from "@/components/fabric-catalogue";
 import { ReachStrip } from "@/components/reach-map";
@@ -8,7 +9,7 @@ import { ResellerCircleStrip } from "@/components/reseller-circle-cta";
 import { SiteFooter } from "@/components/site-footer";
 import { LeadPopup, useEngagementPopup } from "@/components/lead-popup";
 import { PromoSuitsTicker } from "@/components/promo-suits";
-import { ShowroomHero, ShowroomRanges } from "@/components/showroom-home";
+import { ShowroomHero, ShowroomRanges, ShowroomTrust } from "@/components/showroom-home";
 import { WhatsAppPill } from "@/components/whatsapp-pill";
 import { whatsAppUrl } from "@/content/whatsapp";
 import { useLeadContext } from "@/hooks/use-lead-context";
@@ -16,14 +17,13 @@ import { trackLeadEvent } from "@/lib/analytics";
 import { currentLeadContext } from "@/lib/lead-source";
 import { useReveal } from "@/hooks/use-reveal";
 
-import logoMark from "@/assets/vidhi-logo-mark.webp";
 import {
   Accordion,
   AccordionItem,
   AccordionPanel,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { COPY, LANGUAGES, type Lang } from "@/content/translations";
+import { COPY, type Lang } from "@/content/translations";
 
 const EN_URL = "https://www.vidhifabrics.com/";
 const HI_URL = "https://www.vidhifabrics.com/hi";
@@ -302,102 +302,63 @@ function Index() {
   const [leadOpen, setLeadOpen] = useEngagementPopup();
 
   return (
-    <div className="vf-home min-h-screen font-body text-ink antialiased selection:bg-[#7A1A18]/15">
+    <div className="vf-home min-h-screen font-body text-foreground antialiased selection:bg-clay/15">
       <PromoSuitsTicker lang={lang} />
-      <header className="sticky top-0 z-50 bg-[#F6F1EA]/90 backdrop-blur">
-        <div className="mx-auto flex min-h-16 max-w-6xl flex-wrap items-center justify-between gap-3 px-6 py-3">
-          <div className="flex items-center gap-2">
-            <a
-              href="/"
-              aria-label="Vidhi Fabrics — go to the homepage"
-              className="shrink-0 transition-opacity hover:opacity-80"
-            >
-              <img
-                src={logoMark}
-                alt="Vidhi Fabrics"
-                width={210}
-                height={200}
-                loading="eager"
-                fetchPriority="high"
-                decoding="async"
-                className="h-14 w-auto sm:h-16"
-              />
-            </a>
-            <span className="hidden font-mono text-[10px] uppercase tracking-[0.15em] text-mute sm:block">
-              {COPY.established[lang]}
-            </span>
-          </div>
-
-          <nav className="hidden items-center gap-4 font-mono text-[11px] uppercase tracking-[0.08em] text-mute xl:flex">
-            <a href="#catalogue" className="transition-colors hover:text-ink">
-              {COPY.nav.catalogue[lang]}
-            </a>
-            <a href="/about#scale" className="transition-colors hover:text-ink">
-              {COPY.nav.scale[lang]}
-            </a>
-            <a href="#contact" className="transition-colors hover:text-ink">
-              {COPY.nav.contact[lang]}
-            </a>
-            <StoryLinks lang={lang} />
-          </nav>
-
-          <div className="flex max-w-full flex-wrap items-center gap-3">
-            <div
-              className="flex overflow-hidden rounded-sm ring-1 ring-line"
-              role="group"
-              aria-label="Language"
-            >
-              <a
-                href="/"
-                aria-current="page"
-                className="bg-[#7A1A18] px-3 py-2 font-mono text-sm text-[#F6F1EA] transition-colors"
-              >
-                EN
-              </a>
-              <a
-                href="/hi"
-                className="px-3 py-2 font-mono text-sm transition-colors text-mute hover:text-ink"
-              >
-                हिंदी
-              </a>
-              <button
-                type="button"
-                onClick={() => setLang("hi-en")}
-                aria-pressed={lang === "hi-en"}
-                title="Hinglish"
-                className={`px-3 py-2 font-mono text-sm transition-colors ${
-                  lang === "hi-en" ? "bg-[#7A1A18] text-[#F6F1EA]" : "text-mute hover:text-ink"
-                }`}
-              >
-                Hinglish
-              </button>
-            </div>
-            <a
-              href={getWhatsAppUrl(lang)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="vf-btn-maroon rounded-sm px-4 py-2 font-mono text-xs uppercase tracking-[0.12em] transition-colors"
-            >
-              {COPY.nav.cta[lang]}
-            </a>
-          </div>
-        </div>
-        <nav
-          aria-label="Section navigation"
-          className="flex flex-wrap justify-center gap-x-6 gap-y-3 px-6 py-3 text-xs xl:hidden"
-        >
-          <a href="#catalogue">{COPY.nav.catalogue[lang]}</a>
-          <StoryLinks lang={lang} />
-          <a href="#contact">{COPY.nav.contact[lang]}</a>
-        </nav>
-      </header>
+      <HomeHeader
+        lang={lang}
+        setLang={setLang}
+        whatsAppHref={getWhatsAppUrl(lang)}
+        route="en"
+      />
 
       <main id="main">
         <ShowroomHero lang={lang} enquireHref={getWhatsAppUrl(lang)} />
 
-        <section id="inquiry" className="scroll-mt-36">
-          <div className="mx-auto max-w-xl px-6 py-16 lg:py-20">
-              <p className="font-mono text-xs uppercase tracking-[0.15em] text-[#7A1A18]">
+        <ShowroomRanges lang={lang} />
+
+        <ShowroomTrust lang={lang} />
+
+        <FabricCatalogueSection lang={lang} />
+
+        <AboutSection lang={lang} whatsappUrl={getWhatsAppUrl(lang)} />
+
+        <ResellerCircleStrip lang={lang} />
+
+        <section id="contact" data-reveal className="scroll-mt-36">
+          <div className="mx-auto w-full max-w-3xl px-5 py-16 sm:px-8 sm:py-24 lg:px-[50px] lg:py-28">
+            <h2 className="text-balance font-display text-4xl font-light tracking-tight lg:text-5xl">
+              {COPY.homeCta.heading[lang]}
+            </h2>
+            <p className="mt-5 max-w-[42ch] text-pretty text-lg leading-relaxed text-mute">
+              {COPY.homeCta.support[lang]}
+            </p>
+            <div className="mt-8 grid gap-3 sm:grid-cols-2">
+              <a
+                href={getWhatsAppUrl(lang)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex min-h-[88px] items-center justify-center rounded-sm bg-clay px-5 py-4 text-center font-mono text-xs uppercase tracking-[0.12em] text-paper transition-colors hover:bg-claydeep"
+              >
+                {COPY.nav.cta[lang]}
+              </a>
+              <a
+                href="#inquiry"
+                className="flex min-h-[88px] items-center justify-center rounded-sm border border-clay px-5 py-4 text-center text-sm text-clay transition-colors hover:bg-clay/5"
+              >
+                {COPY.contact.cta[lang]}
+              </a>
+            </div>
+            <p className="mt-8 font-mono text-sm text-mute">
+              <a href={`tel:${BUSINESS.phone}`} className="vf-link-maroon">
+                {BUSINESS.phoneDisplay}
+              </a>
+              <span className="mx-2">·</span>
+              <a href={`mailto:${BUSINESS.email}`} className="vf-link-maroon break-all">
+                {BUSINESS.email}
+              </a>
+            </p>
+        <div id="inquiry" className="mx-auto mt-14 max-w-xl scroll-mt-36">
+              <p className="font-mono text-xs uppercase tracking-[0.15em] text-clay">
                 {COPY.inquiry.label[lang]}
               </p>
               <p className="mt-1 text-sm text-mute">{COPY.inquiry.sub[lang]}</p>
@@ -499,56 +460,13 @@ function Index() {
                   </p>
                 ) : null}
               </form>
-          </div>
-        </section>
-
-        <ShowroomRanges lang={lang} />
-
-        <FabricCatalogueSection lang={lang} />
-
-        <AboutSection lang={lang} whatsappUrl={getWhatsAppUrl(lang)} />
-
-        <ResellerCircleStrip lang={lang} href="/reseller-circle" />
-
-        <section id="contact" data-reveal className="scroll-mt-36">
-          <div className="mx-auto max-w-3xl px-6 py-24 lg:py-32">
-            <h2 className="text-balance font-display text-4xl font-light tracking-tight lg:text-5xl">
-              {COPY.homeCta.heading[lang]}
-            </h2>
-            <p className="mt-5 max-w-[42ch] text-pretty text-lg leading-relaxed text-mute">
-              {COPY.homeCta.support[lang]}
-            </p>
-            <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
-              <a
-                href={getWhatsAppUrl(lang)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="vf-btn-maroon rounded-sm px-6 py-3.5 font-mono text-xs uppercase tracking-[0.15em] transition-colors"
-              >
-                {COPY.nav.cta[lang]}
-              </a>
-              <a
-                href="#inquiry"
-                className="vf-link-maroon text-sm underline decoration-[#7A1A18]/30 underline-offset-4"
-              >
-                {COPY.contact.cta[lang]}
-              </a>
             </div>
-            <p className="mt-8 font-mono text-sm text-mute">
-              <a href={`tel:${BUSINESS.phone}`} className="vf-link-maroon">
-                {BUSINESS.phoneDisplay}
-              </a>
-              <span className="mx-2">·</span>
-              <a href={`mailto:${BUSINESS.email}`} className="vf-link-maroon break-all">
-                {BUSINESS.email}
-              </a>
-            </p>
           </div>
         </section>
 
         <section data-reveal id="faq" className="scroll-mt-36">
-          <div className="mx-auto max-w-3xl px-6 py-20 lg:py-24">
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-[#7A1A18]">
+          <div className="mx-auto w-full max-w-3xl px-5 py-16 sm:px-8 sm:py-20 lg:px-[50px] lg:py-24">
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-clay">
               {FAQ_SECTION_COPY[lang].marker}
             </p>
             <h2 className="mt-4 font-display text-4xl font-light tracking-tight lg:text-5xl">

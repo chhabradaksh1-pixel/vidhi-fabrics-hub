@@ -121,112 +121,93 @@ now." A trader talking to a trader about cloth.
 
 ## Colour
 
-Tokens live in `src/styles.css`. **The palette is monochrome.** Every token is
-a true neutral — chroma 0 in oklch — so the fabric photography is the only
-colour anywhere on the page.
+Tokens live in `src/styles.css`. **The palette is warm blush and rust brown**,
+set by the owner on 21 October 2026. It replaces the monochrome ramp. Token
+names are historical (`clay`, `navy`, `gold` are no longer those hues).
+Renaming them would touch every component that references them.
 
-That is the whole argument for it. The product is cloth, and the swatches are
-vivid: coral, sage, teal, cream. The previous warm palette put clay and sand
-next to them and the two competed, which is why the catalogue images were
-being held back at `saturate(0.94)` to stop them shouting. With a neutral UI
-there is nothing to compete with, so the images now run at full saturation and
-the cloth carries the hue on its own.
+Body copy uses `--foreground` (`#4A3B35`), a dark warm grey. Headings use
+`ink`. Buttons, links, the suit ticker and the header call to action use
+`clay`. WhatsApp green (`#25D366`) is only the glyph on the WhatsApp icon.
+It is 1.73:1 on `paper` and 3.12:1 on `clay`, so the icon disc is `ink`
+(`#25D366` on `ink` is 7.41:1) and the button around it stays rust.
 
-The reference is the Inditex corporate site — pure white ground, near-black
-text, greys in between — rather than a tinted grey system like Medusa's zinc,
-whose cool cast fights the warm swatch photography.
+| Token        | Hex       | Role                                                |
+| ------------ | --------- | --------------------------------------------------- |
+| `paper`      | `#F8EDE8` | page ground, blush / off white                      |
+| `foreground` | `#4A3B35` | body text                                           |
+| `ink`        | `#3B2219` | headings                                            |
+| `mute`       | `#5C4A42` | secondary text                                      |
+| `clay`       | `#9A4A2B` | rust accent — **light grounds only**               |
+| `claydeep`   | `#7A3A22` | rust hover and pressed                              |
+| `claylight`  | `#F1DDD4` | the light step for **dark** grounds                 |
+| `sand`       | `#F1DDD4` | secondary panels                                    |
+| `line`       | `#E5CFC5` | hairlines and dividers                              |
+| `navy`       | `#3B2219` | footer ground                                       |
+| `gold`       | `#F1DDD4` | footer accent                                       |
+| `ivory`      | `#F8EDE8` | footer text                                         |
 
-| Token       | Hex       | Role                                           |
-| ----------- | --------- | ---------------------------------------------- |
-| `paper`     | `#FFFFFF` | page ground                                    |
-| `ink`       | `#121212` | body text; dark section grounds                |
-| `mute`      | `#6B6B6B` | secondary text                                 |
-| `clay`      | `#1A1A1A` | accent, labels, links — **light grounds only** |
-| `claydeep`  | `#000000` | deeper accent, hover and pressed               |
-| `claylight` | `#D4D4D4` | the clay step for **dark** grounds             |
-| `sand`      | `#F5F5F5` | alternate section ground                       |
-| `line`      | `#E5E5E5` | hairlines and dividers                         |
-| `navy`      | `#000000` | footer ground                                  |
-| `gold`      | `#9E9E9E` | footer accent, the single wave line            |
-| `ivory`     | `#F5F5F5` | footer text                                    |
-
-`navy` and `gold` keep their names but are no longer a hue — they are the
-darkest and a mid step of the same single ramp, so the foot of the page reads
-as weight rather than as a second colour scheme. Renaming them would touch
-every component that references them; the names are historical, the values are
-not.
-
-**The one rule that matters, and it survived the change.** `clay` still fails
-WCAG AA on dark grounds — worse than before, because both ends moved toward
-each other. Measured:
+**`clay` still fails WCAG AA on the deep-brown footer.** Measured 21 October 2026:
 
 | Pair                  | Ratio   | Body 4.5:1 | Large 3:1 |
 | --------------------- | ------- | ---------- | --------- |
-| `ink` on `paper`      | 18.73:1 | yes        | yes       |
-| `ink` on `sand`       | 17.18:1 | yes        | yes       |
-| `mute` on `paper`     | 5.33:1  | yes        | yes       |
-| `mute` on `sand`      | 4.89:1  | yes        | yes       |
-| `clay` on `paper`     | 17.40:1 | yes        | yes       |
-| `clay` on `sand`      | 15.96:1 | yes        | yes       |
-| `claydeep` on `paper` | 21.00:1 | yes        | yes       |
-| `paper` on `ink`      | 18.73:1 | yes        | yes       |
-| `clay` on `ink`       | 1.08:1  | **no**     | **no**    |
-| `claylight` on `ink`  | 12.64:1 | yes        | yes       |
-| `ivory` on `navy`     | 19.26:1 | yes        | yes       |
-| `gold` on `navy`      | 7.84:1  | yes        | yes       |
-| `claylight` on `navy` | 14.17:1 | yes        | yes       |
+| `ink` on `paper`      | 12.79:1 | yes        | yes       |
+| `ink` on `sand`       | 11.22:1 | yes        | yes       |
+| `foreground` on `paper` | 9.28:1 | yes      | yes       |
+| `foreground` on `sand`  | 8.15:1 | yes      | yes       |
+| `mute` on `paper`     | 7.27:1  | yes        | yes       |
+| `mute` on `sand`      | 6.38:1  | yes        | yes       |
+| `clay` on `paper`     | 5.39:1  | yes        | yes       |
+| `clay` on `sand`      | 4.73:1  | yes        | yes       |
+| `claydeep` on `paper` | 7.44:1  | yes        | yes       |
+| `paper` on `clay`     | 5.39:1  | yes        | yes       |
+| `paper` on `claydeep` | 7.44:1  | yes        | yes       |
+| `clay` on `ink`       | 2.37:1  | **no**     | **no**    |
+| `claylight` on `ink`  | 11.22:1 | yes        | yes       |
+| `ivory` on `navy`     | 12.79:1 | yes        | yes       |
+| `gold` on `navy`      | 11.22:1 | yes        | yes       |
+| `ivory` at 55% on `navy` | 4.93:1 | yes     | yes       |
 
-So the rule is unchanged: `clay` on paper and sand, `claylight` on ink and
-navy. It previously shipped as a live accessibility bug in the Scale section,
-where the stat figures and the section label were `clay` on `ink` at 2.29:1.
-In the monochrome palette that same mistake would render at 1.08:1 — text
-effectively invisible rather than merely hard to read, so the rule matters more
-now, not less.
+`clay` on paper and sand. `claylight` (or `ivory` / `gold`) on ink and navy.
+Rust text on the footer is the same class of bug as the old clay-on-ink pair.
 
-`mute` is the tightest pair in the set at 4.89:1 on `sand`. It was chosen by
-searching down the neutral ramp for the lightest grey clearing 4.5:1 on _both_
-grounds; a step lighter fails on `sand`. Do not lighten it.
+`mute` on `sand` is 6.38:1. Do not lighten it. `clay` on `sand` is 4.73:1,
+which clears body text and has little room to spare.
 
 Over a texture or photograph, check the **brightest pixel**, not the average.
 A mean that passes hides a worst case that doesn't.
 
 ## Type
 
-**One grotesque, four weights, no serif and no mono.** This is the Inditex
-model: a single family carries display, body and labels, and the difference
-between them is weight, size and letter-spacing rather than typeface.
+Headings are a soft serif. Body and labels are one grotesque. The pairing
+follows Flooring Xtra's split (21 October 2026): their headings are **Canela**
+(Commercial Type, paid) at a thin weight, and their body, navigation and
+buttons are **Banana Grotesk** (MNKY Type, paid, served as "MNKY Banana
+Grotesk") at medium. Neither file can be copied onto this site.
 
-| Role    | Stack                                              | Weight  |
-| ------- | -------------------------------------------------- | ------- |
-| Display | Inter, Noto Sans Devanagari, system-ui, sans-serif | 200–300 |
-| Body    | Inter, Noto Sans Devanagari, system-ui, sans-serif | 400     |
-| Label   | Inter, Noto Sans Devanagari, system-ui, sans-serif | 400     |
+| Role    | Family we ship                         | Free match for      | Weight |
+| ------- | -------------------------------------- | ------------------- | ------ |
+| Display | Fraunces, then Noto Serif Devanagari   | Canela              | 300–400 |
+| Body    | Hanken Grotesk, then Noto Sans Devanagari | Banana Grotesk   | 400    |
+| Label   | Hanken Grotesk, then Noto Sans Devanagari | Banana Grotesk   | 400    |
 
-The hero runs at 200, every other heading at 300, body at 400. Labels, section
-markers and stat captions stay uppercase and letterspaced (`0.12em`–`0.2em`) —
-that treatment is what still distinguishes them now that they are no longer
-monospaced.
+Fraunces and Hanken Grotesk are SIL Open Font License 1.1, self-hosted, latin
+only, `font-display: swap`. Fraunces is the closest open serif to Canela.
+Hanken Grotesk is the closest open grotesque to Banana Grotesk. Canela's
+hairline weight (100) is not used: it thins Devanagari conjuncts, and small
+headings would fail as text. Showroom titles sit at 400. Other headings stay
+at the existing light weight (300).
 
-The three tokens in `styles.css` are kept — `--font-display`, `--font-body`,
-`--font-mono` — but all three resolve to the same family, so no component had
-to change. **`--font-mono` is now a misnomer**: it marks the letterspaced
-labels and is not monospaced. Renaming it would touch every component that
-reads it; the name is historical, the value is not. One consequence worth
-knowing: the stat figures are no longer tabular, so columns of numbers will not
-align on the decimal the way they did.
+Labels, section markers and stat captions stay uppercase and letterspaced
+(`0.12em`–`0.2em`). **`--font-mono` is still a misnomer**: it marks those
+labels and now resolves to Hanken Grotesk, not a monospace.
 
-Previously Playfair Display carried headings and the wordmark and JetBrains
-Mono carried labels. Four families are now two, which is less to load, not
-more, despite adding two weights.
-
-The Devanagari fallback sits in every stack because the Hindi route uses the
-same styles. **Noto Sans Devanagari is loaded at the same four weights**, so
-Hindi gets genuine light cuts instead of a synthesised one — this was verified
-against the Google Fonts API before the light display weights were committed
-to, because a missing light cut would have left the Hindi headings faking a
-weight the font does not have. Check Hindi rendering when touching type:
-Devanagari needs more line height than Latin at the same size, headline wraps
-differ, and light weights thin its conjuncts faster than they thin Latin.
+Hindi in a heading uses **Noto Serif Devanagari** so it belongs with Fraunces.
+Hindi in body copy uses **Noto Sans Devanagari** so it belongs with Hanken
+Grotesk. Both are loaded only on `/hi`. The English homepage's one Hindi line
+uses a small serif subset of that sentence instead. Check Hindi rendering when
+touching type: Devanagari needs more line height than Latin at the same size,
+and headline wraps differ.
 
 ## Logo and icons
 
@@ -256,18 +237,19 @@ resized to 1600×893, used once, in the footer.
   behind it; placing it directly on the footer's black ground would leave
   that area reading as a hole.
 
-**The logo mark does not go on a dark ground.** Measured before deciding:
-the mark's ink is `#7A1A18`, which is 1.99:1 against the footer's black —
-under the 3:1 a graphical mark needs, the same class of failure as `clay` at
-1.08:1 on `ink`. The footer's own internal "Brand" column keeps the plain
-ivory text for this reason; it is the one place on the site the new logotype
-does not appear, and that is deliberate, not an oversight to fix later. A
-version recoloured for dark grounds would need its own pass; nothing here
-approximates one.
+**The logo mark does not go on a dark ground.** Measured again on 21 October
+2026 against the deep-brown footer: the mark's ink is `#7A1A18`, which is
+1.39:1 on `navy` (`#3B2219`) — under the 3:1 a graphical mark needs, the same
+class of failure as `clay` at 2.37:1 on `ink`. On `paper` the same mark is
+9.19:1. The footer's own internal "Brand" column keeps the plain ivory text
+for this reason; it is the one place on the site the new logotype does not
+appear, and that is deliberate, not an oversight to fix later. A version
+recoloured for dark grounds would need its own pass; nothing here approximates
+one.
 
-The favicon is unchanged and still a clay tile with a paper **V**
-(`public/favicon.svg`): a `#8A412E` square, the V drawn as a path in
-`#FBFBF8`. It exists because it is the only thing that survived 16px — a
+The favicon is still a clay tile with a paper **V**
+(`public/favicon.svg`): a `#9A4A2B` square, the V drawn as a path in
+`#F8EDE8` (5.39:1). It exists because it is the only thing that survived 16px — a
 weave pattern went muddy, a needle read as a checkmark, a two-band weave read
 as a plus sign, and a light-ground V dissolved into grey. The new logotype
 has not been tested at that size, and a script mark with fine strokes is

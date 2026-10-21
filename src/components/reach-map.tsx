@@ -20,7 +20,7 @@ export function ReachStrip({ lang = "en", mapHref }: { lang?: Lang; mapHref: str
 
   return (
     <section id="reach" aria-labelledby="reach-heading" className="scroll-mt-36">
-      <div className="mx-auto max-w-6xl px-6 py-20 lg:py-24">
+      <div className="mx-auto w-full max-w-[1440px] px-5 py-16 sm:px-8 sm:py-20 lg:px-[50px] lg:py-24">
         <h2
           id="reach-heading"
           className="font-display text-3xl font-light tracking-tight lg:text-4xl"

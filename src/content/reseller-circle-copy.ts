@@ -37,6 +37,63 @@ export const CIRCLE_CTA: Record<Lang, { heading: string; body: string; button: s
   },
 };
 
+/** Whole ref, not PAGE-SOURCE. The lead tracker copies this onto the link. */
+export const CIRCLE_REF = "CIRCLE";
+
+/**
+ * Homepage split for the Reseller Circle. Hindi and Hinglish here have not
+ * been reviewed by a native speaker. Group names stay in the words the
+ * business uses, including on /hi, so the WhatsApp thread names the group.
+ */
+export const HOME_CIRCLE: Record<
+  Lang,
+  {
+    headline: string;
+    subheading: string;
+    body: string;
+    cta: string;
+    join: string;
+    boutique: string;
+    boutiqueMessage: string;
+    home: string;
+    homeMessage: string;
+  }
+> = {
+  en: {
+    headline: "Grow your business with Vidhi Reseller Circle",
+    subheading: "For boutique owners and home resellers",
+    body: "Get new suit and dress material designs every week, a starter pack for new resellers and direct help from our Surat team.",
+    cta: "JOIN OUR WHATSAPP COMMUNITY",
+    join: "Hi Vidhi Fabrics, I would like to join Vidhi Reseller Circle.",
+    boutique: "Boutique Owners Circle",
+    boutiqueMessage: "Hi Vidhi Fabrics, I would like to join Boutique Owners Circle.",
+    home: "Ghar Se Business Circle",
+    homeMessage: "Hi Vidhi Fabrics, I would like to join Ghar Se Business Circle.",
+  },
+  hi: {
+    headline: "विधि रीसेलर सर्कल से अपना व्यापार बढ़ाइए",
+    subheading: "बुटीक मालिकों और घर से बेचने वालों के लिए",
+    body: "हर हफ्ते नए सूट और ड्रेस मटीरियल के डिज़ाइन, नए रीसेलर के लिए एक स्टार्टर पैक, और सूरत की टीम से सीधी मदद।",
+    cta: "हमारी व्हाट्सएप कम्युनिटी से जुड़िए",
+    join: "नमस्ते विधि फैब्रिक्स, कृपया मुझे विधि रीसेलर सर्कल में जोड़िए।",
+    boutique: "Boutique Owners Circle",
+    boutiqueMessage: "नमस्ते विधि फैब्रिक्स, कृपया मुझे Boutique Owners Circle में जोड़िए।",
+    home: "Ghar Se Business Circle",
+    homeMessage: "नमस्ते विधि फैब्रिक्स, कृपया मुझे Ghar Se Business Circle में जोड़िए।",
+  },
+  "hi-en": {
+    headline: "Vidhi Reseller Circle ke saath apna business badhaiye",
+    subheading: "Boutique owners aur ghar se bechne walon ke liye",
+    body: "Har hafte naye suit aur dress material ke designs, naye resellers ke liye ek starter pack, aur Surat team se seedhi madad.",
+    cta: "JOIN OUR WHATSAPP COMMUNITY",
+    join: "Hi Vidhi Fabrics, kripya mujhe Vidhi Reseller Circle mein jodiye.",
+    boutique: "Boutique Owners Circle",
+    boutiqueMessage: "Hi Vidhi Fabrics, kripya mujhe Boutique Owners Circle mein jodiye.",
+    home: "Ghar Se Business Circle",
+    homeMessage: "Hi Vidhi Fabrics, kripya mujhe Ghar Se Business Circle mein jodiye.",
+  },
+};
+
 /** One-line strip above the homepage footer. */
 export const CIRCLE_STRIP: Record<Lang, { heading: string; text: string; button: string }> = {
   en: {

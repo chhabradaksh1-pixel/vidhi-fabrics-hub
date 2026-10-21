@@ -16,6 +16,12 @@ export const HERO_IMAGE = {
   alt: "Model in a saree from Vidhi Fabrics, Surat",
 };
 
+export const VIEW_RANGE: Record<Lang, string> = {
+  en: "View the range",
+  hi: "रेंज देखें",
+  "hi-en": "Range dekhiye",
+};
+
 export const ENQUIRE: Record<Lang, string> = {
   en: "Enquire on WhatsApp",
   hi: "व्हाट्सएप पर पूछें",

@@ -128,12 +128,13 @@ worth carrying here because it has already shipped as a live bug: `clay` fails
 AA on any dark ground — use `claylight` there. `BRAND.md` has the full measured
 table.
 
-**The palette is monochrome.** Every colour token is a true neutral so the
-fabric photography is the only colour on the page. The token names are
-historical — `clay`, `navy`, `gold` are steps on one grey ramp, not hues. The
-clay-on-ink rule above got _more_ dangerous in the process: that pair now
-measures 1.08:1 rather than 2.29:1, so the same mistake renders as invisible
-text rather than merely poor text.
+**The palette is warm blush and rust brown** (owner, 21 October 2026). Page
+ground `#F8EDE8`, secondary panels `#F1DDD4`, accent `#9A4A2B`, headings
+`#3B2219`, body `#4A3B35`, borders `#E5CFC5`. Token names are historical —
+`clay`, `navy`, `gold` are no longer those hues. `clay` on the deep-brown
+footer (`navy` / `ink`, both `#3B2219`) measures 2.37:1, so rust text there
+fails AA. Use `claylight`, `ivory` or `gold` on that ground. WhatsApp green
+stays on the WhatsApp glyph only.
 
 ## Conventions
 
@@ -227,9 +228,11 @@ text rather than merely poor text.
 
 ## Performance and request handling (3 October 2026)
 
-- Fonts are self-hosted in `src/assets/fonts/` (Inter in `styles.css`; Noto
-  Sans Devanagari declared and preloaded from `__root.tsx` on `/hi` routes
-  only). Don't reintroduce the Google Fonts stylesheet: it was render-blocking.
+- Fonts are self-hosted in `src/assets/fonts/` (Fraunces for headings and
+  Hanken Grotesk for body and labels, in `styles.css`; Noto Sans Devanagari
+  for Hindi body and Noto Serif Devanagari for Hindi headings, declared and
+  preloaded from `__root.tsx` on `/hi` routes only). Don't reintroduce the
+  Google Fonts stylesheet: it was render-blocking.
 - gtag.js is loaded by `src/lib/deferred-gtag.ts` (first interaction or 3.5 s
   after load). The inline `dataLayer`/`gtag()` stub in `__root.tsx` queues
   every event until then; keep it.

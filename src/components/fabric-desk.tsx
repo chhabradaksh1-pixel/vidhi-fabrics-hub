@@ -26,7 +26,7 @@ export function AboutSection({ lang, whatsappUrl }: { lang: Lang; whatsappUrl: s
   const copy = SECTION_COPY[lang];
   return (
     <section id="about" data-reveal aria-labelledby="about-heading" className="scroll-mt-36">
-      <div className="mx-auto grid max-w-6xl items-center gap-16 px-6 py-24 lg:grid-cols-2 lg:gap-24 lg:py-32">
+      <div className="mx-auto grid w-full max-w-[1440px] items-center gap-16 px-5 py-16 sm:px-8 sm:py-24 lg:grid-cols-2 lg:gap-24 lg:px-[50px] lg:py-32">
         <div className="grid grid-cols-2 gap-4">
           <img
             src={jacquard}
@@ -48,7 +48,7 @@ export function AboutSection({ lang, whatsappUrl }: { lang: Lang; whatsappUrl: s
           />
         </div>
         <div>
-          <p className="font-mono text-xs uppercase tracking-[0.18em] text-[#7A1A18]">
+          <p className="font-mono text-xs uppercase tracking-[0.18em] text-clay">
             {copy.marker}
           </p>
           <h2

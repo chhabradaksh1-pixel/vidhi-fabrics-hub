@@ -78,10 +78,11 @@ export function SiteFooter({ lang = "en" }: { lang?: Lang }) {
         />
 
         {/* Extra bottom space on phones so the last row can scroll clear of
-            the floating Talk-to-us button. */}
-        <div className="relative mx-auto max-w-6xl px-6 pb-28 pt-16 sm:pb-16 lg:py-20">
-          <div className="grid gap-12 lg:grid-cols-4 lg:gap-10">
-            {/* Brand */}
+            the floating WhatsApp pill. Gutters follow the reference footer:
+            35px on a phone, 50px from lg, with the mark in a narrow left
+            column and the menus in the wide right column. */}
+        <div className="relative mx-auto w-full max-w-[1600px] px-[35px] pb-28 pt-[50px] sm:pb-16 lg:px-[50px] lg:pb-[29px] lg:pt-[70px]">
+          <div className="grid gap-10 lg:grid-cols-[minmax(160px,1fr)_minmax(0,794px)] lg:items-start lg:gap-16 min-[1400px]:grid-cols-[minmax(180px,1fr)_minmax(0,1084px)]">
             <div>
               <a
                 href={home}
@@ -89,24 +90,26 @@ export function SiteFooter({ lang = "en" }: { lang?: Lang }) {
               >
                 Vidhi Fabrics
               </a>
-              <p className="mt-5 max-w-[34ch] text-sm leading-relaxed text-ivory/75">
+              <p className="mt-5 max-w-[28ch] text-sm leading-relaxed text-ivory/75">
                 {FOOTER_TAGLINE[lang]}
               </p>
+            </div>
+
+            <div>
               <a
                 href={whatsAppUrl(FOOTER_CTA_MESSAGE[lang])}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-7 inline-flex items-center gap-2.5 whitespace-nowrap border border-gold/70 px-5 py-3 font-mono text-[11px] uppercase tracking-[0.1em] text-gold transition-colors hover:bg-gold hover:text-navy"
+                className="inline-flex items-center gap-2.5 whitespace-nowrap border border-gold/70 px-5 py-3 font-mono text-[11px] uppercase tracking-[0.1em] text-gold transition-colors hover:bg-gold hover:text-navy"
               >
                 {FOOTER_CTA[lang]}
                 <ArrowUpRight size={15} aria-hidden="true" />
               </a>
-            </div>
 
-            {/* Three navigation columns, spanning the two middle columns */}
+              <div className="mt-10 grid grid-cols-1 gap-10 lg:grid-cols-4">
             <nav
               aria-label={lang === "hi" ? "फुटर नेविगेशन" : "Footer navigation"}
-              className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:col-span-2"
+              className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:col-span-3 lg:grid-cols-3"
             >
               {FOOTER_COLUMNS.map((column) => (
                 <div key={column.heading.en}>
@@ -197,6 +200,8 @@ export function SiteFooter({ lang = "en" }: { lang?: Lang }) {
                 </p>
               </address>
             </div>
+              </div>
+            </div>
           </div>
 
           {/* Bottom row */}
@@ -219,7 +224,7 @@ export function SiteFooter({ lang = "en" }: { lang?: Lang }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={lang === "hi" ? "व्हाट्सएप पर बात करें" : "Message us on WhatsApp"}
-                className="grid size-10 place-items-center rounded-full border border-ivory/20 text-ivory/70 transition-colors hover:border-gold hover:text-gold"
+                className="grid size-10 place-items-center rounded-full border border-ivory/20 text-[#25D366] transition-colors hover:border-gold"
               >
                 <MessageCircle size={17} aria-hidden="true" />
               </a>

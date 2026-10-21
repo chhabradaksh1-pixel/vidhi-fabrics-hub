@@ -32,20 +32,21 @@ const circleLink =
 /**
  * Homepage split modelled on a half image, half cream help panel.
  * The photo is an existing swatch stack. Links open the business WhatsApp
- * number, not a community invite.
+ * number, not a community invite. This block is not staged with data-reveal:
+ * a full-bleed photograph that starts at opacity 0 reads as a blank panel.
  */
 export function ResellerCircleStrip({ lang }: { lang: Lang }) {
   const copy = HOME_CIRCLE[lang];
   return (
-    <section data-reveal aria-labelledby="reseller-circle-heading" className="scroll-mt-36 bg-[#F6F1EA]">
+    <section aria-labelledby="reseller-circle-heading" className="scroll-mt-36 bg-[#F6F1EA]">
       <div className="grid md:grid-cols-2">
-        <div className="relative aspect-[4/5] bg-[#e7e0d6] md:aspect-auto md:min-h-[680px]">
+        <div className="relative aspect-[4/5] bg-[#c4b5a4] md:aspect-auto md:min-h-[680px]">
           <img
             src={swatchStack}
             alt="Folded fabric swatches stacked for a reseller to look through"
             width={1024}
             height={768}
-            loading="lazy"
+            loading="eager"
             decoding="async"
             className="absolute inset-0 h-full w-full object-cover object-center"
           />
@@ -54,12 +55,12 @@ export function ResellerCircleStrip({ lang }: { lang: Lang }) {
           <div className="max-w-[26rem]">
             <h2
               id="reseller-circle-heading"
-              className="vf-showroom-serif text-balance text-[2.15rem] leading-[1.12] sm:text-5xl sm:leading-[1.08]"
+              className="vf-showroom-serif text-balance text-[2.15rem] font-normal leading-[1.12] text-[#121212] sm:text-5xl sm:leading-[1.08]"
             >
               {copy.headline}
             </h2>
-            <p className="mt-6 text-xl font-light leading-snug text-[#121212] sm:text-2xl">{copy.subheading}</p>
-            <p className="mt-4 max-w-[34ch] text-base leading-relaxed text-[#121212]/80">{copy.body}</p>
+            <p className="mt-6 text-xl font-normal leading-snug text-[#121212] sm:text-2xl">{copy.subheading}</p>
+            <p className="mt-4 max-w-[34ch] text-base font-normal leading-relaxed text-[#2B2B2B]">{copy.body}</p>
             <a
               href={whatsAppUrl(copy.join)}
               target="_blank"
@@ -76,7 +77,7 @@ export function ResellerCircleStrip({ lang }: { lang: Lang }) {
                   target="_blank"
                   rel="noopener noreferrer"
                   data-lead-ref={CIRCLE_REF}
-                  className="inline-flex min-h-11 items-center text-lg font-light text-[#6B6B6B] hover:text-[#121212]"
+                  className="inline-flex min-h-11 items-center text-lg font-normal text-[#3D3D3D] hover:text-[#121212]"
                 >
                   {copy.boutique}
                 </a>
@@ -87,7 +88,7 @@ export function ResellerCircleStrip({ lang }: { lang: Lang }) {
                   target="_blank"
                   rel="noopener noreferrer"
                   data-lead-ref={CIRCLE_REF}
-                  className="inline-flex min-h-11 items-center text-lg font-light text-[#6B6B6B] hover:text-[#121212]"
+                  className="inline-flex min-h-11 items-center text-lg font-normal text-[#3D3D3D] hover:text-[#121212]"
                 >
                   {copy.home}
                 </a>

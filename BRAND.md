@@ -340,7 +340,7 @@ native review is the single highest-value brand task outstanding.
   code problem.
 - **No founding year**, only "since the 1960s." If an exact year exists it would
   strengthen the structured data.
-- **No privacy or terms pages** — they need the business's actual data
-  practices.
+- **Privacy policy** is the English page at `/privacy-policy`, from the
+  practices supplied on 21 October 2026. Terms are still unwritten.
 - **No video.** The "export champions" testimonial rail idea is specced in
   `CLAUDE.md`, blocked on filmed buyers with written consent.

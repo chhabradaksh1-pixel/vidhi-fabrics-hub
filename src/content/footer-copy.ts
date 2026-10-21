@@ -3,10 +3,10 @@ import type { Lang } from "@/content/translations";
 /**
  * Footer content.
  *
- * Every href points at a destination that exists today. Three items from the
- * original brief are deliberately absent because the site has no page for
- * them: "Collections" (which the catalogue already covers), a privacy policy
- * and terms. Linking those to a 404 would cost more than leaving them out.
+ * Every href points at a destination that exists today. Two items from the
+ * original brief stay absent: "Collections" (which the catalogue already
+ * covers) and terms. The privacy policy is English only, at /privacy-policy,
+ * and is not rewritten to a Hindi path.
  *
  * "Dress materials" and "Sarees" resolve to the buyer guides on those
  * subjects, not to product pages, since the catalogue is organised by fibre.
@@ -49,6 +49,10 @@ export const FOOTER_COLUMNS: FooterColumn[] = [
       {
         label: { en: "About us", hi: "हमारे बारे में", "hi-en": "About us" },
         href: "/about",
+      },
+      {
+        label: { en: "Privacy policy", hi: "गोपनीयता नीति", "hi-en": "Privacy policy" },
+        href: "/privacy-policy",
       },
       {
         label: {

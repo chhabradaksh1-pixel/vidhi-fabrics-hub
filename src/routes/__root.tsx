@@ -182,10 +182,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
        *
        * Two things this brings with it, recorded because they are easy to
        * forget. Google Ads requires advertisers to disclose cookie and data
-       * collection in a privacy policy, and this site has none. And it is the
-       * second analytics provider on the page alongside Vercel Analytics, so
-       * `CLAUDE.md`'s rule about not adding one has been amended rather than
-       * quietly broken.
+       * collection. That notice is the English page at /privacy-policy. And
+       * this tag is the second analytics provider on the page alongside Vercel
+       * Analytics, so `CLAUDE.md`'s rule about not adding one has been amended
+       * rather than quietly broken.
        */
       // gtag.js itself is no longer loaded here: loadGtagDeferred() (see
       // src/lib/deferred-gtag.ts) adds it after load or on first interaction.

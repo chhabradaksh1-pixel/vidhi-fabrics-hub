@@ -123,57 +123,47 @@
 :root {
   --radius: 0.2rem;
 
-  /* Vidhi Fabrics: monochrome palette.
+  /* Vidhi Fabrics: warm blush and rust brown.
    *
-   * Every token is a true neutral (chroma 0) so the fabric photography is the
-   * only colour on the page. A warm UI competed with the swatches; the mill
-   * cloth should be the thing that has hue.
-   *
-   * The ramp follows Inditex's monochrome system — pure white ground, near
-   * black text, secondary greys — rather than a tinted grey like Medusa's
-   * zinc, which carries a cool cast that fights the warm swatch photography.
-   *
-   * Ratios below are measured, not estimated. All 13 foreground/background
-   * pairs the site actually uses clear WCAG AA. See BRAND.md for the table. */
-  --paper: oklch(1 0 0); /* #FFFFFF  page ground */
-  --ink: oklch(0.1822 0 0); /* #121212  body text; dark section grounds */
-  --mute: oklch(0.5278 0 0); /* #6B6B6B  secondary text, 5.33:1 on paper */
-  --clay: oklch(0.2178 0 0); /* #1A1A1A  accent, labels, links — light grounds */
-  --claydeep: oklch(0 0 0); /* #000000  deeper accent, hover/pressed */
-  /* `clay` is 1.08:1 on `ink` — invisible. The rule that shipped as a live
-     bug in the warm palette still applies verbatim in the monochrome one:
-     clay on light grounds, claylight on dark. */
-  --claylight: oklch(0.8699 0 0); /* #D4D4D4  the clay step for dark grounds */
-  --sand: oklch(0.9702 0 0); /* #F5F5F5  alternate section ground */
-  --sage: oklch(0.5278 0 0); /* #6B6B6B  retired hue, folded into mute */
-  --line: oklch(0.9219 0 0); /* #E5E5E5  hairlines and dividers */
+   * Set by the owner on 21 October 2026, replacing the monochrome ramp.
+   * Hex values are the ones specified. Ratios are measured in BRAND.md.
+   * `clay` is the rust accent on light grounds only. On the deep-brown
+   * footer it is 2.37:1, so dark grounds use `claylight`. */
+  --paper: #f8ede8; /* page ground */
+  --ink: #3b2219; /* headings */
+  --mute: #5c4a42; /* secondary text, 7.27:1 on paper, 6.38:1 on sand */
+  --clay: #9a4a2b; /* rust accent: buttons, links, ticker, header CTA */
+  --claydeep: #7a3a22; /* rust hover and pressed */
+  --claylight: #f1ddd4; /* the rust step for dark grounds */
+  --sand: #f1ddd4; /* secondary panels */
+  --sage: #3b2219; /* confirmation text; not a green */
+  --line: #e5cfc5; /* hairlines and dividers */
 
-  /* Footer. Previously navy and gold; now the darkest step in the same single
-     ramp, so the foot of the page reads as weight rather than as a hue. */
-  --navy: oklch(0 0 0); /* #000000  footer ground */
-  --gold: oklch(0.6993 0 0); /* #9E9E9E  footer accent, the single wave line */
-  --ivory: oklch(0.9702 0 0); /* #F5F5F5  footer text, 19.26:1 on navy */
+  /* Footer. Deep brown ground, blush text. Rust on this ground fails AA. */
+  --navy: #3b2219; /* footer ground */
+  --gold: #f1ddd4; /* footer accent, 11.22:1 on navy */
+  --ivory: #f8ede8; /* footer text, 12.79:1 on navy */
 
   --background: var(--paper);
-  --foreground: var(--ink);
+  --foreground: #4a3b35; /* body text, 9.28:1 on paper, 8.15:1 on sand */
 
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
+  --card: #f1ddd4;
+  --card-foreground: #4a3b35;
+  --popover: #f8ede8;
+  --popover-foreground: #4a3b35;
+  --primary: #9a4a2b;
+  --primary-foreground: #f8ede8;
+  --secondary: #f1ddd4;
+  --secondary-foreground: #3b2219;
+  --muted: #f1ddd4;
+  --muted-foreground: #5c4a42;
+  --accent: #f1ddd4;
+  --accent-foreground: #3b2219;
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
+  --border: #e5cfc5;
+  --input: #e5cfc5;
+  --ring: #9a4a2b;
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -233,6 +223,15 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
   }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--ink);
+  }
 }
 
 @layer base {
@@ -242,43 +241,41 @@
   }
 }
 
-/* Homepage ground and accents. Scoped here so catalogue filters and the
-   rest of the site keep their existing tokens. Maroon is the logotype
-   #7A1A18 (9.4:1 on this cream). */
+/* Homepage ground and accents, from the theme tokens. */
 .vf-home {
-  background-color: #f6f1ea;
+  background-color: var(--paper);
 }
 .vf-btn-maroon {
-  background-color: #7a1a18;
-  color: #f6f1ea;
+  background-color: var(--clay);
+  color: var(--paper);
 }
 .vf-btn-maroon:hover {
-  background-color: #5c1210;
+  background-color: var(--claydeep);
 }
 .vf-link-maroon {
-  color: #7a1a18;
+  color: var(--clay);
 }
 .vf-link-maroon:hover {
-  color: #5c1210;
+  color: var(--claydeep);
 }
 
 /*
- * Motion for the suit banner's sentence only. Size, type and the loop are
- * unchanged. The ground is the button maroon (#7A1A18); the control is
- * inverted so it stays readable. Two identical groups; the keyframes travel
- * exactly one group (-50%). Transform only, so the bar does not shift.
+ * Motion for the suit banner's sentence only. The ground is the rust accent;
+ * the control is inverted blush so it stays readable (5.39:1). Two identical
+ * groups; the keyframes travel exactly one group (-50%). Transform only, so
+ * the bar does not shift.
  */
 .vf-promo-ticker {
-  background-color: #7a1a18;
-  color: #fff;
+  background-color: var(--clay);
+  color: var(--paper);
 }
 .vf-promo-ticker-btn {
-  background-color: #fff;
-  color: #7a1a18;
+  background-color: var(--paper);
+  color: var(--clay);
 }
 .vf-promo-ticker-btn:hover {
-  background-color: #f6f1ea;
-  color: #7a1a18;
+  background-color: var(--sand);
+  color: var(--claydeep);
 }
 .vf-promo-ticker-spark {
   display: inline-block;
@@ -326,9 +323,9 @@
 @utility vf-weave {
   background-color: var(--navy);
   background-image:
-    repeating-linear-gradient(90deg, rgb(247 241 232 / 3.5%) 0 1px, transparent 1px 7px),
-    repeating-linear-gradient(0deg, rgb(247 241 232 / 2.5%) 0 1px, transparent 1px 7px),
-    radial-gradient(120% 80% at 50% 0%, rgb(198 161 91 / 7%) 0%, transparent 60%);
+    repeating-linear-gradient(90deg, rgb(248 237 232 / 5%) 0 1px, transparent 1px 7px),
+    repeating-linear-gradient(0deg, rgb(248 237 232 / 3.5%) 0 1px, transparent 1px 7px),
+    radial-gradient(120% 80% at 50% 0%, rgb(241 221 212 / 14%) 0%, transparent 60%);
 }
 
 @utility vf-wave {
@@ -446,29 +443,29 @@
   animation: vf-launcher-hop 7.2s cubic-bezier(0.22, 1, 0.36, 1) infinite;
 }
 
-/* Soft WhatsApp-green halo behind the launcher. Sits under the clay button. */
+/* Soft rust halo behind the launcher. WhatsApp green stays on the glyph. */
 @keyframes vf-wa-glow {
   0%,
   100% {
     opacity: 0.55;
     transform: scale(1);
-    box-shadow: 0 0 10px 2px rgb(37 211 102 / 0.45);
+    box-shadow: 0 0 10px 2px rgb(154 74 43 / 0.45);
   }
   50% {
     opacity: 0.2;
     transform: scale(1.14);
-    box-shadow: 0 0 18px 8px rgb(37 211 102 / 0.28);
+    box-shadow: 0 0 18px 8px rgb(154 74 43 / 0.28);
   }
 }
 
 @utility vf-wa-glow {
-  background-color: #25d366;
+  background-color: var(--clay);
   animation: vf-wa-glow 2.8s ease-in-out infinite;
 }
 
 @layer base {
   ::selection {
-    background: oklch(0.2178 0 0 / 16%);
+    background: color-mix(in srgb, var(--clay) 18%, transparent);
   }
 
   button,
@@ -572,13 +569,11 @@
   #inquiry select:focus,
   #inquiry textarea:focus {
     border-color: var(--color-clay);
-    box-shadow: 0 0 0 3px oklch(0.2178 0 0 / 14%);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--clay) 28%, transparent);
   }
 
-  /* The UI is monochrome, so the cloth is the only colour on the page. The
-     swatches used to be pulled back to saturate(0.94) to stop them fighting
-     the warm ground; there is nothing left to fight, so they run at full
-     strength and carry the hue on their own. */
+  /* Photographs keep their own colour on the blush ground. They run at full
+     strength. */
   #catalogue article img,
   #scale img {
     filter: contrast(1.02);

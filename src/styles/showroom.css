@@ -28,8 +28,8 @@
   min-height: 52px;
   align-items: center;
   justify-content: center;
-  background: #7a1a18;
-  color: #f6f1ea;
+  background: var(--clay);
+  color: var(--paper);
   padding: 0.85rem 1.5rem;
   text-align: center;
   text-decoration: none;
@@ -37,11 +37,11 @@
 }
 
 .vf-showroom-enquire:hover {
-  background: #5c1210;
+  background: var(--claydeep);
 }
 
 .vf-showroom-enquire:focus-visible {
-  outline: 2px solid #7a1a18;
+  outline: 2px solid var(--clay);
   outline-offset: 3px;
 }
 
@@ -55,20 +55,20 @@
   max-width: calc(100% - 2rem - env(safe-area-inset-right, 0px));
   margin: 0;
   border-radius: 999px;
-  background-color: #121214;
+  background-color: var(--clay);
   background-image: radial-gradient(
     7.5rem circle at var(--vf-lx, 78%) var(--vf-ly, 50%),
-    rgb(255 255 255 / 22%),
+    rgb(255 255 255 / 18%),
     transparent 68%
   );
-  color: #fff;
+  color: var(--paper);
   text-decoration: none;
   box-shadow: 0 12px 32px rgb(18 18 20 / 22%);
   transition: transform 180ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .vf-showroom-chat:focus-visible {
-  outline: 2px solid #f6f1ea;
+  outline: 2px solid var(--paper);
   outline-offset: 3px;
 }
 
@@ -88,7 +88,7 @@
   flex: none;
   place-items: center;
   border-radius: 999px;
-  background: #7a1a18;
+  background: var(--ink);
   color: #25d366;
 }
 

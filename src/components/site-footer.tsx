@@ -224,7 +224,7 @@ export function SiteFooter({ lang = "en" }: { lang?: Lang }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={lang === "hi" ? "व्हाट्सएप पर बात करें" : "Message us on WhatsApp"}
-                className="grid size-10 place-items-center rounded-full border border-ivory/20 text-ivory/70 transition-colors hover:border-gold hover:text-gold"
+                className="grid size-10 place-items-center rounded-full border border-ivory/20 text-[#25D366] transition-colors hover:border-gold"
               >
                 <MessageCircle size={17} aria-hidden="true" />
               </a>

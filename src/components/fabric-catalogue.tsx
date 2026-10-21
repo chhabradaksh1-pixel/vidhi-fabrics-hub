@@ -127,7 +127,7 @@ export function FabricCatalogueSection({ lang }: { lang: Lang }) {
     <section id="catalogue" className="scroll-mt-36">
       <div className="mx-auto w-full max-w-[1440px] px-5 py-16 sm:px-8 sm:py-24 lg:px-[50px] lg:py-32">
         <div className="max-w-2xl">
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-[#7A1A18]">
+          <p className="font-mono text-xs uppercase tracking-[0.2em] text-clay">
             {COPY.catalogue.marker[lang]}
           </p>
           <h2 className="vf-showroom-serif mt-4 text-4xl tracking-tight lg:text-5xl">
@@ -344,7 +344,7 @@ function SpecTable({
 }
 
 const rangeLink =
-  "text-sm text-[#7A1A18] underline decoration-[#7A1A18]/30 underline-offset-4 hover:text-[#5C1210]";
+  "text-sm text-clay underline decoration-clay/30 underline-offset-4 hover:text-claydeep";
 const rangeButton =
   "vf-showroom-enquire mt-1 w-full sm:w-auto";
 
@@ -367,9 +367,9 @@ function RangeGrid({ lang, ranges }: { lang: Lang; ranges: CatalogueRange[] }) {
           <SuitRangeCard key={line.id} lang={lang} line={line} image={line.image} />
         ) : (
           <article key={line.id} data-reveal className="flex flex-col">
-            <div className="h-1 bg-[#7A1A18]" aria-hidden="true" />
+            <div className="h-1 bg-clay" aria-hidden="true" />
             <div className="flex flex-1 flex-col pt-6">
-              <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-[#7A1A18]">
+              <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-clay">
                 {line.tag[lang]}
               </p>
               <h3 className="vf-showroom-serif mt-3 text-3xl leading-tight">
@@ -414,7 +414,7 @@ function SuitRangeCard({
 }) {
   return (
     <article data-reveal className="flex min-w-0 flex-col">
-      <div className="h-1 bg-[#7A1A18]" aria-hidden="true" />
+      <div className="h-1 bg-clay" aria-hidden="true" />
       <div className="flex flex-1 flex-col pt-6">
         <img
           src={image.src}
@@ -424,7 +424,7 @@ function SuitRangeCard({
           height={image.height}
           className="aspect-[3/4] w-full object-cover object-[center_30%]"
         />
-        <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.18em] text-[#7A1A18]">
+        <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.18em] text-clay">
           {line.tag[lang]}
         </p>
         <h3 className="vf-showroom-serif mt-3 text-3xl leading-tight">
@@ -498,7 +498,7 @@ function FabricGrid({
             )}
             target="_blank"
             rel="noopener noreferrer"
-            className="relative z-10 mt-3 inline-block text-sm text-[#7A1A18] underline decoration-[#7A1A18]/30 underline-offset-4"
+            className="relative z-10 mt-3 inline-block text-sm text-clay underline decoration-clay/30 underline-offset-4"
           >
             {COPY.catalogue.askOnWhatsApp[lang]}
           </a>

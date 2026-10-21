@@ -48,7 +48,7 @@ export function AboutSection({ lang, whatsappUrl }: { lang: Lang; whatsappUrl: s
           />
         </div>
         <div>
-          <p className="font-mono text-xs uppercase tracking-[0.18em] text-[#7A1A18]">
+          <p className="font-mono text-xs uppercase tracking-[0.18em] text-clay">
             {copy.marker}
           </p>
           <h2

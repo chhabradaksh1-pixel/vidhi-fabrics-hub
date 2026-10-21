@@ -38,11 +38,11 @@ export function HomeHeader({
   const linkClass = "transition-colors hover:text-ink";
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[#121212]/10 bg-[#F6F1EA]/95 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-line bg-paper/95 backdrop-blur">
       <div className="mx-auto flex min-h-[72px] w-full max-w-[1440px] items-center gap-3 px-5 py-3 sm:px-8 lg:px-[50px]">
         <button
           type="button"
-          className="grid size-11 shrink-0 place-items-center text-[#121212] xl:hidden"
+          className="grid size-11 shrink-0 place-items-center text-ink xl:hidden"
           aria-expanded={open}
           aria-controls="home-menu"
           aria-label={lang === "hi" ? "मेनू" : "Menu"}
@@ -95,7 +95,7 @@ export function HomeHeader({
             href={whatsAppHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex min-h-[52px] shrink-0 items-center justify-center rounded-full bg-[#7A1A18] px-4 py-2 text-center font-mono text-[11px] uppercase leading-tight tracking-[0.12em] text-[#F6F1EA] transition-colors hover:bg-[#5C1210] sm:px-5 sm:text-xs"
+            className="inline-flex min-h-[52px] shrink-0 items-center justify-center rounded-full bg-clay px-4 py-2 text-center font-mono text-[11px] uppercase leading-tight tracking-[0.12em] text-paper transition-colors hover:bg-claydeep sm:px-5 sm:text-xs"
           >
             {COPY.nav.cta[lang]}
           </a>
@@ -106,12 +106,12 @@ export function HomeHeader({
         id="home-menu"
         hidden={!open}
         aria-label={lang === "hi" ? "अनुभाग" : "Sections"}
-        className="border-t border-[#121212]/10 xl:hidden"
+        className="border-t border-line xl:hidden"
         onClick={(event) => {
           if (event.target instanceof HTMLAnchorElement) setOpen(false);
         }}
       >
-        <div className="mx-auto flex w-full max-w-[1440px] flex-col px-5 py-2 font-mono text-xs uppercase tracking-[0.08em] text-mute sm:px-8 [&>a]:border-b [&>a]:border-[#121212]/10 [&>a]:py-3.5">
+        <div className="mx-auto flex w-full max-w-[1440px] flex-col px-5 py-2 font-mono text-xs uppercase tracking-[0.08em] text-mute sm:px-8 [&>a]:border-b [&>a]:border-line [&>a]:py-3.5">
           <a href="#catalogue" className={linkClass}>
             {COPY.nav.catalogue[lang]}
           </a>
@@ -149,7 +149,7 @@ function LanguageSwitch({
         href="/"
         {...(enOn ? { "aria-current": "page" as const } : {})}
         className={`px-3 py-2 font-mono text-sm transition-colors ${
-          enOn ? "bg-[#7A1A18] text-[#F6F1EA]" : "text-mute hover:text-ink"
+          enOn ? "bg-clay text-paper" : "text-mute hover:text-ink"
         }`}
       >
         EN
@@ -158,7 +158,7 @@ function LanguageSwitch({
         href="/hi"
         {...(hiOn ? { "aria-current": "page" as const } : {})}
         className={`px-3 py-2 font-mono text-sm transition-colors ${
-          hiOn ? "bg-[#7A1A18] text-[#F6F1EA]" : "text-mute hover:text-ink"
+          hiOn ? "bg-clay text-paper" : "text-mute hover:text-ink"
         }`}
       >
         हिंदी
@@ -169,7 +169,7 @@ function LanguageSwitch({
         aria-pressed={lang === "hi-en"}
         title="Hinglish"
         className={`px-3 py-2 font-mono text-sm transition-colors ${
-          lang === "hi-en" ? "bg-[#7A1A18] text-[#F6F1EA]" : "text-mute hover:text-ink"
+          lang === "hi-en" ? "bg-clay text-paper" : "text-mute hover:text-ink"
         }`}
       >
         Hinglish

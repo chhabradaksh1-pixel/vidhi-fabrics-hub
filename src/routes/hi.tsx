@@ -299,7 +299,7 @@ function HiIndex() {
   const [leadOpen, setLeadOpen] = useEngagementPopup();
 
   return (
-    <div className="vf-home min-h-screen font-body text-ink antialiased selection:bg-[#7A1A18]/15">
+    <div className="vf-home min-h-screen font-body text-foreground antialiased selection:bg-clay/15">
       <PromoSuitsTicker lang={lang} />
       <HomeHeader
         lang={lang}
@@ -334,13 +334,13 @@ function HiIndex() {
                 href={getWhatsAppUrl(lang)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex min-h-[88px] items-center justify-center rounded-sm bg-[#7A1A18] px-5 py-4 text-center font-mono text-xs uppercase tracking-[0.12em] text-[#F6F1EA] transition-colors hover:bg-[#5C1210]"
+                className="flex min-h-[88px] items-center justify-center rounded-sm bg-clay px-5 py-4 text-center font-mono text-xs uppercase tracking-[0.12em] text-paper transition-colors hover:bg-claydeep"
               >
                 {COPY.nav.cta[lang]}
               </a>
               <a
                 href="#inquiry"
-                className="flex min-h-[88px] items-center justify-center rounded-sm border border-[#7A1A18] px-5 py-4 text-center text-sm text-[#7A1A18] transition-colors hover:bg-[#7A1A18]/5"
+                className="flex min-h-[88px] items-center justify-center rounded-sm border border-clay px-5 py-4 text-center text-sm text-clay transition-colors hover:bg-clay/5"
               >
                 {COPY.contact.cta[lang]}
               </a>
@@ -355,7 +355,7 @@ function HiIndex() {
               </a>
             </p>
         <div id="inquiry" className="mx-auto mt-14 max-w-xl scroll-mt-36">
-              <p className="font-mono text-xs uppercase tracking-[0.15em] text-[#7A1A18]">
+              <p className="font-mono text-xs uppercase tracking-[0.15em] text-clay">
                 {COPY.inquiry.label[lang]}
               </p>
               <p className="mt-1 text-sm text-mute">{COPY.inquiry.sub[lang]}</p>
@@ -462,7 +462,7 @@ function HiIndex() {
 
         <section data-reveal id="faq" className="scroll-mt-36">
           <div className="mx-auto w-full max-w-3xl px-5 py-16 sm:px-8 sm:py-20 lg:px-[50px] lg:py-24">
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-[#7A1A18]">
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-clay">
               {FAQ_SECTION_COPY[lang].marker}
             </p>
             <h2 className="mt-4 font-display text-4xl font-light tracking-tight lg:text-5xl">

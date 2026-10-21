@@ -460,7 +460,7 @@ export function TalkToUs({ lang = "en" }: { lang?: Lang }) {
 
         <FloatingLauncher>
           <div className={hop && attention ? "vf-launcher-hop relative" : "relative"}>
-            {/* Green halo — decorative, sits behind the button. Stops once they engage. */}
+            {/* Rust halo — decorative, sits behind the button. Stops once they engage. */}
             {attention ? (
               <span
                 aria-hidden="true"

@@ -27,7 +27,7 @@ export function ResellerCircleCta({ lang, className = "" }: { lang: Lang; classN
 }
 
 const circleLink =
-  "underline decoration-[#7A1A18]/40 underline-offset-[6px] transition-colors hover:decoration-[#7A1A18] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#7A1A18]";
+  "underline decoration-clay/40 underline-offset-[6px] transition-colors hover:decoration-clay focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay";
 
 /**
  * Homepage split modelled on a half image, half cream help panel.
@@ -38,9 +38,9 @@ const circleLink =
 export function ResellerCircleStrip({ lang }: { lang: Lang }) {
   const copy = HOME_CIRCLE[lang];
   return (
-    <section aria-labelledby="reseller-circle-heading" className="scroll-mt-36 bg-[#F6F1EA]">
+    <section aria-labelledby="reseller-circle-heading" className="scroll-mt-36 bg-sand">
       <div className="grid md:grid-cols-2">
-        <div className="relative aspect-[4/5] bg-[#c4b5a4] md:aspect-auto md:min-h-[680px]">
+        <div className="relative aspect-[4/5] bg-sand md:aspect-auto md:min-h-[680px]">
           <img
             src={swatchStack}
             alt="Folded fabric swatches stacked for a reseller to look through"
@@ -55,29 +55,29 @@ export function ResellerCircleStrip({ lang }: { lang: Lang }) {
           <div className="max-w-[26rem]">
             <h2
               id="reseller-circle-heading"
-              className="vf-showroom-serif text-balance text-[2.15rem] font-normal leading-[1.12] text-[#121212] sm:text-5xl sm:leading-[1.08]"
+              className="vf-showroom-serif text-balance text-[2.15rem] font-normal leading-[1.12] text-ink sm:text-5xl sm:leading-[1.08]"
             >
               {copy.headline}
             </h2>
-            <p className="mt-6 text-xl font-normal leading-snug text-[#121212] sm:text-2xl">{copy.subheading}</p>
-            <p className="mt-4 max-w-[34ch] text-base font-normal leading-relaxed text-[#2B2B2B]">{copy.body}</p>
+            <p className="mt-6 text-xl font-normal leading-snug text-ink sm:text-2xl">{copy.subheading}</p>
+            <p className="mt-4 max-w-[34ch] text-base font-normal leading-relaxed text-foreground">{copy.body}</p>
             <a
               href={whatsAppUrl(copy.join)}
               target="_blank"
               rel="noopener noreferrer"
               data-lead-ref={CIRCLE_REF}
-              className={`mt-8 inline-flex min-h-11 items-center font-mono text-[11px] uppercase tracking-[0.16em] text-[#7A1A18] ${circleLink}`}
+              className={`mt-8 inline-flex min-h-11 items-center font-mono text-[11px] uppercase tracking-[0.16em] text-clay ${circleLink}`}
             >
               {copy.cta}
             </a>
-            <ul className="mt-10 space-y-1 border-t border-[#121212]/10 pt-6">
+            <ul className="mt-10 space-y-1 border-t border-line pt-6">
               <li>
                 <a
                   href={whatsAppUrl(copy.boutiqueMessage)}
                   target="_blank"
                   rel="noopener noreferrer"
                   data-lead-ref={CIRCLE_REF}
-                  className="inline-flex min-h-11 items-center text-lg font-normal text-[#3D3D3D] hover:text-[#121212]"
+                  className="inline-flex min-h-11 items-center text-lg font-normal text-mute hover:text-ink"
                 >
                   {copy.boutique}
                 </a>
@@ -88,7 +88,7 @@ export function ResellerCircleStrip({ lang }: { lang: Lang }) {
                   target="_blank"
                   rel="noopener noreferrer"
                   data-lead-ref={CIRCLE_REF}
-                  className="inline-flex min-h-11 items-center text-lg font-normal text-[#3D3D3D] hover:text-[#121212]"
+                  className="inline-flex min-h-11 items-center text-lg font-normal text-mute hover:text-ink"
                 >
                   {copy.home}
                 </a>

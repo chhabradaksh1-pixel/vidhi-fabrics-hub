@@ -28,7 +28,7 @@ export function ResellerCircleStrip({ lang, href }: { lang: Lang; href: string }
   const copy = CIRCLE_STRIP[lang];
   return (
     <section data-reveal aria-labelledby="reseller-circle-heading" className="scroll-mt-36">
-      <div className="mx-auto max-w-6xl px-6 py-24 lg:py-32">
+      <div className="mx-auto w-full max-w-[1440px] px-5 py-16 sm:px-8 sm:py-24 lg:px-[50px] lg:py-32">
         <h2
           id="reseller-circle-heading"
           className="text-balance font-display text-4xl font-light tracking-tight lg:text-5xl"

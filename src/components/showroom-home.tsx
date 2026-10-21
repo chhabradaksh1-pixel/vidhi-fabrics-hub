@@ -18,7 +18,6 @@ export function ShowroomHero({ lang, enquireHref }: { lang: Lang; enquireHref: s
     lang === "hi" ? "/hi/dress-material-wholesale-surat" : "/dress-material-wholesale-surat";
 
   return (
-    <>
       <section className="md:relative">
         <div className="relative h-40 w-full overflow-hidden bg-[#e7e0d6] sm:h-52 md:absolute md:inset-0 md:h-full">
           <img
@@ -36,7 +35,7 @@ export function ShowroomHero({ lang, enquireHref }: { lang: Lang; enquireHref: s
             aria-hidden="true"
           />
         </div>
-        <div className="relative mx-auto max-w-6xl px-5 pb-6 pt-8 sm:px-8 sm:py-14 md:flex md:min-h-[680px] md:items-center md:py-16">
+        <div className="relative mx-auto w-full max-w-[1440px] px-5 pb-6 pt-8 sm:px-8 sm:py-14 md:flex md:min-h-[680px] md:items-center md:py-16 lg:px-[50px]">
           <div className="max-w-xl md:max-w-[22rem] lg:max-w-[30rem]">
             <h1 className="vf-showroom-serif text-[2.15rem] leading-[1.08] text-balance sm:text-5xl lg:text-6xl">
               {SHOWROOM_HEADLINE}
@@ -64,19 +63,24 @@ export function ShowroomHero({ lang, enquireHref }: { lang: Lang; enquireHref: s
           </div>
         </div>
       </section>
-      <section
-        aria-label={COPY.hero.stats.map((stat) => stat[lang]).join(", ")}
-        className="border-y border-line bg-[#F6F1EA]"
-      >
-        <ul className="mx-auto grid max-w-6xl gap-3 px-5 py-5 sm:grid-cols-3 sm:gap-8 sm:px-8 sm:py-7">
-          {COPY.hero.stats.map((stat) => (
-            <li key={stat.en} className="text-sm leading-snug text-[#121212]">
-              {stat[lang]}
-            </li>
-          ))}
-        </ul>
-      </section>
-    </>
+  );
+}
+
+/** Three kept stats, placed after the range accordion the way their trust banner sits after flooring types. */
+export function ShowroomTrust({ lang }: { lang: Lang }) {
+  return (
+    <section
+      aria-label={COPY.hero.stats.map((stat) => stat[lang]).join(", ")}
+      className="border-y border-line bg-[#F6F1EA]"
+    >
+      <ul className="mx-auto grid w-full max-w-[1440px] gap-3 px-5 py-6 sm:grid-cols-3 sm:gap-10 sm:px-8 sm:py-8 lg:px-[50px]">
+        {COPY.hero.stats.map((stat) => (
+          <li key={stat.en} className="text-sm leading-snug text-[#121212]">
+            {stat[lang]}
+          </li>
+        ))}
+      </ul>
+    </section>
   );
 }
 
@@ -85,7 +89,7 @@ export function ShowroomRanges({ lang }: { lang: Lang }) {
   const tile = SHOWROOM_TILES[open] ?? SHOWROOM_TILES[0];
 
   return (
-    <section className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24" aria-labelledby="showroom-ranges">
+    <section className="mx-auto w-full max-w-[1440px] px-5 py-16 sm:px-8 sm:py-24 lg:px-[50px]" aria-labelledby="showroom-ranges">
       <h2 id="showroom-ranges" className="vf-showroom-serif text-4xl sm:text-5xl">
         {lang === "hi" ? "रेंज" : "Collections"}
       </h2>

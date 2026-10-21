@@ -125,7 +125,7 @@ export function FabricCatalogueSection({ lang }: { lang: Lang }) {
 
   return (
     <section id="catalogue" className="scroll-mt-36">
-      <div className="mx-auto max-w-6xl px-6 py-24 lg:py-32">
+      <div className="mx-auto w-full max-w-[1440px] px-5 py-16 sm:px-8 sm:py-24 lg:px-[50px] lg:py-32">
         <div className="max-w-2xl">
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-[#7A1A18]">
             {COPY.catalogue.marker[lang]}

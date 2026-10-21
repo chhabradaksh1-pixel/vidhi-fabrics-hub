@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { AboutSection, StoryLinks } from "@/components/fabric-desk";
+import { AboutSection } from "@/components/fabric-desk";
+import { HomeHeader } from "@/components/home-header";
 import { ADDRESS_LINES, BUSINESS } from "@/content/business";
 import { FabricCatalogueSection } from "@/components/fabric-catalogue";
 import { ReachStrip } from "@/components/reach-map";
@@ -8,7 +9,7 @@ import { ResellerCircleStrip } from "@/components/reseller-circle-cta";
 import { SiteFooter } from "@/components/site-footer";
 import { LeadPopup, useEngagementPopup } from "@/components/lead-popup";
 import { PromoSuitsTicker } from "@/components/promo-suits";
-import { ShowroomHero, ShowroomRanges } from "@/components/showroom-home";
+import { ShowroomHero, ShowroomRanges, ShowroomTrust } from "@/components/showroom-home";
 import { WhatsAppPill } from "@/components/whatsapp-pill";
 import { whatsAppUrl } from "@/content/whatsapp";
 import { useLeadContext } from "@/hooks/use-lead-context";
@@ -16,7 +17,6 @@ import { trackLeadEvent } from "@/lib/analytics";
 import { currentLeadContext } from "@/lib/lead-source";
 import { useReveal } from "@/hooks/use-reveal";
 
-import logoMark from "@/assets/vidhi-logo-mark.webp";
 import {
   Accordion,
   AccordionItem,
@@ -301,99 +301,60 @@ function HiIndex() {
   return (
     <div className="vf-home min-h-screen font-body text-ink antialiased selection:bg-[#7A1A18]/15">
       <PromoSuitsTicker lang={lang} />
-      <header className="sticky top-0 z-50 bg-[#F6F1EA]/90 backdrop-blur">
-        <div className="mx-auto flex min-h-16 max-w-6xl flex-wrap items-center justify-between gap-3 px-6 py-3">
-          <div className="flex items-center gap-2">
-            <a
-              href="/hi"
-              aria-label="Vidhi Fabrics — go to the homepage"
-              className="shrink-0 transition-opacity hover:opacity-80"
-            >
-              <img
-                src={logoMark}
-                alt="Vidhi Fabrics"
-                width={210}
-                height={200}
-                loading="eager"
-                fetchPriority="high"
-                decoding="async"
-                className="h-14 w-auto sm:h-16"
-              />
-            </a>
-            <span className="hidden font-mono text-[10px] uppercase tracking-[0.15em] text-mute sm:block">
-              {COPY.established[lang]}
-            </span>
-          </div>
-
-          <nav className="hidden items-center gap-4 font-mono text-[11px] uppercase tracking-[0.08em] text-mute xl:flex">
-            <a href="#catalogue" className="transition-colors hover:text-ink">
-              {COPY.nav.catalogue[lang]}
-            </a>
-            <a href="/hi/about#scale" className="transition-colors hover:text-ink">
-              {COPY.nav.scale[lang]}
-            </a>
-            <a href="#contact" className="transition-colors hover:text-ink">
-              {COPY.nav.contact[lang]}
-            </a>
-            <StoryLinks lang={lang} />
-          </nav>
-
-          <div className="flex max-w-full flex-wrap items-center gap-3">
-            <div
-              className="flex overflow-hidden rounded-sm ring-1 ring-line"
-              role="group"
-              aria-label="Language"
-            >
-              <a
-                href="/"
-                className="px-3 py-2 font-mono text-sm transition-colors text-mute hover:text-ink"
-              >
-                EN
-              </a>
-              <a
-                href="/hi"
-                aria-current="page"
-                className="bg-[#7A1A18] px-3 py-2 font-mono text-sm text-[#F6F1EA] transition-colors"
-              >
-                हिंदी
-              </a>
-              <button
-                type="button"
-                onClick={() => setLang(lang === "hi-en" ? "hi" : "hi-en")}
-                aria-pressed={lang === "hi-en"}
-                title="Hinglish"
-                className={`px-3 py-2 font-mono text-sm transition-colors ${
-                  lang === "hi-en" ? "bg-[#7A1A18] text-[#F6F1EA]" : "text-mute hover:text-ink"
-                }`}
-              >
-                Hinglish
-              </button>
-            </div>
-            <a
-              href={getWhatsAppUrl(lang)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex min-h-[52px] shrink-0 items-center justify-center rounded-full bg-[#7A1A18] px-4 py-2 text-center font-mono text-[11px] uppercase leading-tight tracking-[0.12em] text-[#F6F1EA] transition-colors hover:bg-[#5C1210] sm:px-5 sm:text-xs"
-            >
-              {COPY.nav.cta[lang]}
-            </a>
-          </div>
-        </div>
-        <nav
-          aria-label="Section navigation"
-          className="flex flex-wrap justify-center gap-x-6 gap-y-3 px-6 py-3 text-xs xl:hidden"
-        >
-          <a href="#catalogue">{COPY.nav.catalogue[lang]}</a>
-          <StoryLinks lang={lang} />
-          <a href="#contact">{COPY.nav.contact[lang]}</a>
-        </nav>
-      </header>
+      <HomeHeader
+        lang={lang}
+        setLang={setLang}
+        whatsAppHref={getWhatsAppUrl(lang)}
+        route="hi"
+      />
 
       <main id="main">
         <ShowroomHero lang={lang} enquireHref={getWhatsAppUrl(lang)} />
 
-        <section id="inquiry" className="scroll-mt-36">
-          <div className="mx-auto max-w-xl px-6 py-16 lg:py-20">
+        <ShowroomRanges lang={lang} />
+
+        <ShowroomTrust lang={lang} />
+
+        <FabricCatalogueSection lang={lang} />
+
+        <AboutSection lang={lang} whatsappUrl={getWhatsAppUrl(lang)} />
+
+        <ResellerCircleStrip lang={lang} href="/hi/reseller-circle" />
+
+        <section id="contact" data-reveal className="scroll-mt-36">
+          <div className="mx-auto w-full max-w-3xl px-5 py-16 sm:px-8 sm:py-24 lg:px-[50px] lg:py-28">
+            <h2 className="text-balance font-display text-4xl font-light tracking-tight lg:text-5xl">
+              {COPY.homeCta.heading[lang]}
+            </h2>
+            <p className="mt-5 max-w-[42ch] text-pretty text-lg leading-relaxed text-mute">
+              {COPY.homeCta.support[lang]}
+            </p>
+            <div className="mt-8 grid gap-3 sm:grid-cols-2">
+              <a
+                href={getWhatsAppUrl(lang)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex min-h-[88px] items-center justify-center rounded-sm bg-[#7A1A18] px-5 py-4 text-center font-mono text-xs uppercase tracking-[0.12em] text-[#F6F1EA] transition-colors hover:bg-[#5C1210]"
+              >
+                {COPY.nav.cta[lang]}
+              </a>
+              <a
+                href="#inquiry"
+                className="flex min-h-[88px] items-center justify-center rounded-sm border border-[#7A1A18] px-5 py-4 text-center text-sm text-[#7A1A18] transition-colors hover:bg-[#7A1A18]/5"
+              >
+                {COPY.contact.cta[lang]}
+              </a>
+            </div>
+            <p className="mt-8 font-mono text-sm text-mute">
+              <a href={`tel:${BUSINESS.phone}`} className="vf-link-maroon">
+                {BUSINESS.phoneDisplay}
+              </a>
+              <span className="mx-2">·</span>
+              <a href={`mailto:${BUSINESS.email}`} className="vf-link-maroon break-all">
+                {BUSINESS.email}
+              </a>
+            </p>
+        <div id="inquiry" className="mx-auto mt-14 max-w-xl scroll-mt-36">
               <p className="font-mono text-xs uppercase tracking-[0.15em] text-[#7A1A18]">
                 {COPY.inquiry.label[lang]}
               </p>
@@ -495,55 +456,12 @@ function HiIndex() {
                   </p>
                 ) : null}
               </form>
-          </div>
-        </section>
-
-        <ShowroomRanges lang={lang} />
-
-        <FabricCatalogueSection lang={lang} />
-
-        <AboutSection lang={lang} whatsappUrl={getWhatsAppUrl(lang)} />
-
-        <ResellerCircleStrip lang={lang} href="/hi/reseller-circle" />
-
-        <section id="contact" data-reveal className="scroll-mt-36">
-          <div className="mx-auto max-w-3xl px-6 py-24 lg:py-32">
-            <h2 className="text-balance font-display text-4xl font-light tracking-tight lg:text-5xl">
-              {COPY.homeCta.heading[lang]}
-            </h2>
-            <p className="mt-5 max-w-[42ch] text-pretty text-lg leading-relaxed text-mute">
-              {COPY.homeCta.support[lang]}
-            </p>
-            <div className="mt-8 grid gap-3 sm:grid-cols-2">
-              <a
-                href={getWhatsAppUrl(lang)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex min-h-[88px] items-center justify-center rounded-sm bg-[#7A1A18] px-5 py-4 text-center font-mono text-xs uppercase tracking-[0.12em] text-[#F6F1EA] transition-colors hover:bg-[#5C1210]"
-              >
-                {COPY.nav.cta[lang]}
-              </a>
-              <a
-                href="#inquiry"
-                className="flex min-h-[88px] items-center justify-center rounded-sm border border-[#7A1A18] px-5 py-4 text-center text-sm text-[#7A1A18] transition-colors hover:bg-[#7A1A18]/5"
-              >
-                {COPY.contact.cta[lang]}
-              </a>
             </div>
-            <p className="mt-8 font-mono text-sm text-mute">
-              <a href={`tel:${BUSINESS.phone}`} className="vf-link-maroon">
-                {BUSINESS.phoneDisplay}
-              </a>
-              <span className="mx-2">·</span>
-              <a href={`mailto:${BUSINESS.email}`} className="vf-link-maroon break-all">
-                {BUSINESS.email}
-              </a>
-            </p>
           </div>
         </section>
 
         <section data-reveal id="faq" className="scroll-mt-36">
-          <div className="mx-auto max-w-3xl px-6 py-20 lg:py-24">
+          <div className="mx-auto w-full max-w-3xl px-5 py-16 sm:px-8 sm:py-20 lg:px-[50px] lg:py-24">
             <p className="font-mono text-xs uppercase tracking-[0.2em] text-[#7A1A18]">
               {FAQ_SECTION_COPY[lang].marker}
             </p>

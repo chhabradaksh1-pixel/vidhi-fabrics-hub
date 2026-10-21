@@ -193,12 +193,10 @@ stays on the WhatsApp glyph only.
   request, for conversion tracking and remarketing). This rule previously read
   "no new analytics provider"; it was amended rather than broken. Anything
   further needs the owner's explicit decision, not an inference from this line.
-- **The Google Ads tag needs a privacy policy that does not exist.** Google
-  requires advertisers to disclose cookie and data collection, and the site has
-  no privacy page — `footer-copy.ts` records that one was deliberately left out
-  rather than linked to a 404. Writing it needs the business's actual data
-  practices, so it is an owner-side task, but it is now a compliance gap rather
-  than a nice-to-have.
+- **Privacy policy is `/privacy-policy`, English only.** The owner supplied the
+  practices on 21 October 2026 (name, phone, city, business type, messages,
+  Google Analytics, no sale of data, access or deletion on WhatsApp, DPDP Act
+  2023). Terms are still unwritten. Do not invent a Hindi version of the policy.
 - Images: always ship a sized derivative, never an original. Card thumbnails
   render around 342×257; a 1600px file there is waste.
 

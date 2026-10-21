@@ -17,6 +17,7 @@ import { Route as HiRouteImport } from './routes/hi'
 import { Route as HowToBuyPolyesterSareesWholesaleSuratRouteImport } from './routes/how-to-buy-polyester-sarees-wholesale-surat'
 import { Route as OrganzaNetFabricForBoutiquesRouteImport } from './routes/organza-net-fabric-for-boutiques'
 import { Route as PolyesterSareesWholesaleSuratRouteImport } from './routes/polyester-sarees-wholesale-surat'
+import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as ResellerCircleRouteImport } from './routes/reseller-circle'
 import { Route as SareeWholesaleForResellersRouteImport } from './routes/saree-wholesale-for-resellers'
 import { Route as StartSuitSareeBusinessFromHomeRouteImport } from './routes/start-suit-saree-business-from-home'
@@ -79,6 +80,11 @@ const PolyesterSareesWholesaleSuratRoute =
     path: '/polyester-sarees-wholesale-surat',
     getParentRoute: () => rootRouteImport,
   } as any)
+const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
+  id: '/privacy-policy',
+  path: '/privacy-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ResellerCircleRoute = ResellerCircleRouteImport.update({
   id: '/reseller-circle',
   path: '/reseller-circle',
@@ -178,6 +184,7 @@ export interface FileRoutesByFullPath {
   '/how-to-buy-polyester-sarees-wholesale-surat': typeof HowToBuyPolyesterSareesWholesaleSuratRoute
   '/organza-net-fabric-for-boutiques': typeof OrganzaNetFabricForBoutiquesRoute
   '/polyester-sarees-wholesale-surat': typeof PolyesterSareesWholesaleSuratRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/reseller-circle': typeof ResellerCircleRoute
   '/saree-wholesale-for-resellers': typeof SareeWholesaleForResellersRoute
   '/start-suit-saree-business-from-home': typeof StartSuitSareeBusinessFromHomeRoute
@@ -204,6 +211,7 @@ export interface FileRoutesByTo {
   '/how-to-buy-polyester-sarees-wholesale-surat': typeof HowToBuyPolyesterSareesWholesaleSuratRoute
   '/organza-net-fabric-for-boutiques': typeof OrganzaNetFabricForBoutiquesRoute
   '/polyester-sarees-wholesale-surat': typeof PolyesterSareesWholesaleSuratRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/reseller-circle': typeof ResellerCircleRoute
   '/saree-wholesale-for-resellers': typeof SareeWholesaleForResellersRoute
   '/start-suit-saree-business-from-home': typeof StartSuitSareeBusinessFromHomeRoute
@@ -231,6 +239,7 @@ export interface FileRoutesById {
   '/how-to-buy-polyester-sarees-wholesale-surat': typeof HowToBuyPolyesterSareesWholesaleSuratRoute
   '/organza-net-fabric-for-boutiques': typeof OrganzaNetFabricForBoutiquesRoute
   '/polyester-sarees-wholesale-surat': typeof PolyesterSareesWholesaleSuratRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/reseller-circle': typeof ResellerCircleRoute
   '/saree-wholesale-for-resellers': typeof SareeWholesaleForResellersRoute
   '/start-suit-saree-business-from-home': typeof StartSuitSareeBusinessFromHomeRoute
@@ -259,6 +268,7 @@ export interface FileRouteTypes {
     | '/how-to-buy-polyester-sarees-wholesale-surat'
     | '/organza-net-fabric-for-boutiques'
     | '/polyester-sarees-wholesale-surat'
+    | '/privacy-policy'
     | '/reseller-circle'
     | '/saree-wholesale-for-resellers'
     | '/start-suit-saree-business-from-home'
@@ -285,6 +295,7 @@ export interface FileRouteTypes {
     | '/how-to-buy-polyester-sarees-wholesale-surat'
     | '/organza-net-fabric-for-boutiques'
     | '/polyester-sarees-wholesale-surat'
+    | '/privacy-policy'
     | '/reseller-circle'
     | '/saree-wholesale-for-resellers'
     | '/start-suit-saree-business-from-home'
@@ -311,6 +322,7 @@ export interface FileRouteTypes {
     | '/how-to-buy-polyester-sarees-wholesale-surat'
     | '/organza-net-fabric-for-boutiques'
     | '/polyester-sarees-wholesale-surat'
+    | '/privacy-policy'
     | '/reseller-circle'
     | '/saree-wholesale-for-resellers'
     | '/start-suit-saree-business-from-home'
@@ -338,6 +350,7 @@ export interface RootRouteChildren {
   HowToBuyPolyesterSareesWholesaleSuratRoute: typeof HowToBuyPolyesterSareesWholesaleSuratRoute
   OrganzaNetFabricForBoutiquesRoute: typeof OrganzaNetFabricForBoutiquesRoute
   PolyesterSareesWholesaleSuratRoute: typeof PolyesterSareesWholesaleSuratRoute
+  PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   ResellerCircleRoute: typeof ResellerCircleRoute
   SareeWholesaleForResellersRoute: typeof SareeWholesaleForResellersRoute
   StartSuitSareeBusinessFromHomeRoute: typeof StartSuitSareeBusinessFromHomeRoute
@@ -412,6 +425,13 @@ declare module '@tanstack/react-router' {
       path: '/polyester-sarees-wholesale-surat'
       fullPath: '/polyester-sarees-wholesale-surat'
       preLoaderRoute: typeof PolyesterSareesWholesaleSuratRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy-policy': {
+      id: '/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof PrivacyPolicyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/reseller-circle': {
@@ -539,6 +559,7 @@ const rootRouteChildren: RootRouteChildren = {
     HowToBuyPolyesterSareesWholesaleSuratRoute,
   OrganzaNetFabricForBoutiquesRoute: OrganzaNetFabricForBoutiquesRoute,
   PolyesterSareesWholesaleSuratRoute: PolyesterSareesWholesaleSuratRoute,
+  PrivacyPolicyRoute: PrivacyPolicyRoute,
   ResellerCircleRoute: ResellerCircleRoute,
   SareeWholesaleForResellersRoute: SareeWholesaleForResellersRoute,
   StartSuitSareeBusinessFromHomeRoute: StartSuitSareeBusinessFromHomeRoute,

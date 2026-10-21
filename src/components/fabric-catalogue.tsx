@@ -489,6 +489,19 @@ function FabricGrid({
           </div>
           <h3 className="vf-showroom-serif mt-2 text-2xl">{f.name[lang]}</h3>
           <p className="mt-1 text-sm text-mute">{f.spec[lang]}</p>
+          <a
+            href={whatsAppUrl(
+              fill(COPY.catalogue.enquiryMessage[lang], {
+                name: f.name[lang],
+                sku: f.sku,
+              }),
+            )}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative z-10 mt-3 inline-block text-sm text-[#7A1A18] underline decoration-[#7A1A18]/30 underline-offset-4"
+          >
+            {COPY.catalogue.askOnWhatsApp[lang]}
+          </a>
           <button
             type="button"
             onClick={() => onOpen(f.sku)}

@@ -376,7 +376,7 @@ function Index() {
               href={getWhatsAppUrl(lang)}
               target="_blank"
               rel="noopener noreferrer"
-              className="vf-btn-maroon rounded-sm px-4 py-2 font-mono text-xs uppercase tracking-[0.12em] transition-colors"
+              className="inline-flex min-h-[52px] shrink-0 items-center justify-center rounded-full bg-[#7A1A18] px-4 py-2 text-center font-mono text-[11px] uppercase leading-tight tracking-[0.12em] text-[#F6F1EA] transition-colors hover:bg-[#5C1210] sm:px-5 sm:text-xs"
             >
               {COPY.nav.cta[lang]}
             </a>
@@ -518,18 +518,18 @@ function Index() {
             <p className="mt-5 max-w-[42ch] text-pretty text-lg leading-relaxed text-mute">
               {COPY.homeCta.support[lang]}
             </p>
-            <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+            <div className="mt-8 grid gap-3 sm:grid-cols-2">
               <a
                 href={getWhatsAppUrl(lang)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="vf-btn-maroon rounded-sm px-6 py-3.5 font-mono text-xs uppercase tracking-[0.15em] transition-colors"
+                className="flex min-h-[88px] items-center justify-center rounded-sm bg-[#7A1A18] px-5 py-4 text-center font-mono text-xs uppercase tracking-[0.12em] text-[#F6F1EA] transition-colors hover:bg-[#5C1210]"
               >
                 {COPY.nav.cta[lang]}
               </a>
               <a
                 href="#inquiry"
-                className="vf-link-maroon text-sm underline decoration-[#7A1A18]/30 underline-offset-4"
+                className="flex min-h-[88px] items-center justify-center rounded-sm border border-[#7A1A18] px-5 py-4 text-center text-sm text-[#7A1A18] transition-colors hover:bg-[#7A1A18]/5"
               >
                 {COPY.contact.cta[lang]}
               </a>

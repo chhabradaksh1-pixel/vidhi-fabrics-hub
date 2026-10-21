@@ -125,22 +125,24 @@ export function ShowroomRanges({ lang }: { lang: Lang }) {
                     {isOpen ? "×" : "+"}
                   </span>
                 </button>
-                <div className={isOpen ? "pb-6" : "hidden"}>
+                <div className={isOpen ? "vf-range-panel pb-8" : "hidden"}>
                   <p className="max-w-md text-sm leading-relaxed text-foreground">{item.note[lang]}</p>
-                  <a
-                    href={href}
-                    className="mt-3 inline-block text-sm text-clay underline decoration-clay/30 underline-offset-4"
-                  >
-                    {item.pageLink ? item.pageLink[lang] : VIEW_RANGE[lang]}
-                  </a>
-                  <a
-                    href={designLink(lang, item.code)}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="vf-showroom-enquire mt-5 w-full sm:w-auto"
-                  >
-                    {ENQUIRE[lang]}
-                  </a>
+                  <div className="vf-range-actions">
+                    <a
+                      href={designLink(lang, item.code)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="vf-showroom-enquire shrink-0"
+                    >
+                      {ENQUIRE[lang]}
+                    </a>
+                    <a
+                      href={href}
+                      className="inline-flex shrink-0 items-center text-sm text-clay underline decoration-clay/30 underline-offset-4"
+                    >
+                      {item.pageLink ? item.pageLink[lang] : VIEW_RANGE[lang]}
+                    </a>
+                  </div>
                 </div>
               </li>
             );

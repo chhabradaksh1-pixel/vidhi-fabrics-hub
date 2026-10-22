@@ -15,7 +15,7 @@ const TITLE = "सूरत में ड्रेस मटेरियल ह�
 const DESCRIPTION =
   "सूरत में ड्रेस मटेरियल, सूरत के निर्माता और थोक विक्रेता से। रीसेलर, बुटीक और रिटेलर के लिए अनस्टिच्ड सूट होलसेल। कैटलॉग व्हाट्सएप पर।";
 
-const linkClass = "text-clay underline decoration-line underline-offset-4 hover:text-claydeep";
+const linkClass = "text-clay underline decoration-clay/70 underline-offset-4 hover:text-claydeep";
 
 const WHY = [
   "व्यापार में 60 साल",

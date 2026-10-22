@@ -11,7 +11,7 @@ import { hasHindiVersion } from "@/content/landing-pages";
 import type { Lang } from "@/content/translations";
 import { whatsAppUrl } from "@/content/whatsapp";
 
-const linkClass = "text-clay underline decoration-line underline-offset-4 hover:text-claydeep";
+const linkClass = "text-clay underline decoration-clay/70 underline-offset-4 hover:text-claydeep";
 
 /** Keeps a Hindi reader on Hindi pages, as the footer and journal links do. */
 function localise(href: string, lang: Lang) {

@@ -449,7 +449,7 @@ function Index() {
                   </p>
                 ) : null}
                 {inquiryStatus === "error" ? (
-                  <p role="alert" aria-live="assertive" className="pt-1 text-sm text-claydeep">
+                  <p role="alert" aria-live="assertive" className="pt-1 text-sm text-error">
                     Something went wrong. Please try again or contact us directly.
                   </p>
                 ) : null}

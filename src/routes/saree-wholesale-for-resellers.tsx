@@ -12,7 +12,7 @@ const TITLE = "Saree Wholesale for Resellers, Surat | Vidhi Fabrics";
 const DESCRIPTION =
   "Polyester sarees wholesale for online and WhatsApp resellers, small shops and home sellers, from a Surat manufacturer and wholesaler. Catalogue on WhatsApp.";
 
-const linkClass = "text-clay underline decoration-line underline-offset-4 hover:text-claydeep";
+const linkClass = "text-clay underline decoration-clay/70 underline-offset-4 hover:text-claydeep";
 
 // No MOQ, delivery timeline, transport or best/lowest-price wording on this
 // page (BRAND.md). Quantities and timing are "ask us for your order".

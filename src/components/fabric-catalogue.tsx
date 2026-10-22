@@ -344,7 +344,7 @@ function SpecTable({
 }
 
 const rangeLink =
-  "text-sm text-clay underline decoration-clay/30 underline-offset-4 hover:text-claydeep";
+  "text-sm text-clay underline decoration-clay/70 underline-offset-4 hover:text-claydeep";
 const rangeButton = "vf-showroom-enquire mt-1 w-full sm:w-auto";
 
 /**
@@ -493,7 +493,7 @@ function FabricGrid({
             )}
             target="_blank"
             rel="noopener noreferrer"
-            className="relative z-10 mt-3 inline-block text-sm text-clay underline decoration-clay/30 underline-offset-4"
+            className="relative z-10 mt-3 inline-block text-sm text-clay underline decoration-clay/70 underline-offset-4"
           >
             {COPY.catalogue.askOnWhatsApp[lang]}
           </a>

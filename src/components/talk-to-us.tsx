@@ -544,7 +544,7 @@ export function TalkToUs({ lang = "en" }: { lang?: Lang }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => track("talk_to_us_direct_whatsapp_clicked")}
-                className="mb-3 block text-center text-xs text-claydeep underline decoration-line underline-offset-4 hover:text-ink"
+                className="mb-3 block text-center text-xs text-claydeep underline decoration-clay/70 underline-offset-4 hover:text-ink"
               >
                 {copy.direct}
               </a>

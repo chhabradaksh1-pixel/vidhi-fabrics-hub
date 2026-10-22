@@ -11,7 +11,7 @@ const TITLE = "Diwali Wholesale Sarees & Karva Chauth Suits, Surat | Vidhi";
 const DESCRIPTION =
   "Diwali wholesale sarees and Karva Chauth unstitched suits for boutiques and resellers, from a Surat manufacturer and wholesaler. Festive catalogue on WhatsApp.";
 
-const linkClass = "text-clay underline decoration-line underline-offset-4 hover:text-claydeep";
+const linkClass = "text-clay underline decoration-clay/70 underline-offset-4 hover:text-claydeep";
 
 // Seasonal wholesale page for boutiques and resellers. The stocking guide
 // (colours, feel, mix) stays on the Fabric Desk article; this page is the

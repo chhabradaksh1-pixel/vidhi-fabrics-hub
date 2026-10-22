@@ -163,7 +163,7 @@ function PolyesterSareesPage() {
                 href={whatsAppUrl(CATALOGUE_MESSAGE)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-clay underline decoration-line underline-offset-4 hover:text-claydeep"
+                className="text-clay underline decoration-clay/70 underline-offset-4 hover:text-claydeep"
               >
                 {BUSINESS.phoneDisplay}
               </a>{" "}
@@ -179,35 +179,35 @@ function PolyesterSareesPage() {
               Four guides from our Surat Fabric Desk cover the questions buyers ask most:{" "}
               <a
                 href="/blog/why-similar-sarees-have-different-prices"
-                className="text-clay underline decoration-line underline-offset-4 hover:text-claydeep"
+                className="text-clay underline decoration-clay/70 underline-offset-4 hover:text-claydeep"
               >
                 why two similar-looking sarees can have different prices
               </a>
               ,{" "}
               <a
                 href="/blog/fabric-gsm-bulk-orders"
-                className="text-clay underline decoration-line underline-offset-4 hover:text-claydeep"
+                className="text-clay underline decoration-clay/70 underline-offset-4 hover:text-claydeep"
               >
                 what GSM means when you order in bulk
               </a>
               ,{" "}
               <a
                 href="/blog/sample-to-bulk-order-checklist"
-                className="text-clay underline decoration-line underline-offset-4 hover:text-claydeep"
+                className="text-clay underline decoration-clay/70 underline-offset-4 hover:text-claydeep"
               >
                 a checklist from sample to bulk order
               </a>{" "}
               and{" "}
               <a
                 href="/blog/karva-chauth-diwali-festive-stock"
-                className="text-clay underline decoration-line underline-offset-4 hover:text-claydeep"
+                className="text-clay underline decoration-clay/70 underline-offset-4 hover:text-claydeep"
               >
                 what to stock for Karva Chauth and Diwali
               </a>
               . For the catalogue, see{" "}
               <a
                 href="/diwali-karva-chauth-wholesale-surat"
-                className="text-clay underline decoration-line underline-offset-4 hover:text-claydeep"
+                className="text-clay underline decoration-clay/70 underline-offset-4 hover:text-claydeep"
               >
                 Diwali wholesale sarees and Karva Chauth suits for boutiques
               </a>
@@ -218,7 +218,7 @@ function PolyesterSareesPage() {
               We also supply{" "}
               <a
                 href="/dress-material-wholesale-surat"
-                className="text-clay underline decoration-line underline-offset-4 hover:text-claydeep"
+                className="text-clay underline decoration-clay/70 underline-offset-4 hover:text-claydeep"
               >
                 dress material wholesale
               </a>{" "}
@@ -228,14 +228,14 @@ function PolyesterSareesPage() {
               Selling on WhatsApp or Instagram, or from home? See
               <a
                 href="/saree-wholesale-for-resellers"
-                className="text-clay underline decoration-line underline-offset-4 hover:text-claydeep"
+                className="text-clay underline decoration-clay/70 underline-offset-4 hover:text-claydeep"
               >
                 saree wholesale for resellers
               </a>
               . Boutiques can also ask us for
               <a
                 href="/organza-net-fabric-for-boutiques"
-                className="text-clay underline decoration-line underline-offset-4 hover:text-claydeep"
+                className="text-clay underline decoration-clay/70 underline-offset-4 hover:text-claydeep"
               >
                 organza and net fabric
               </a>

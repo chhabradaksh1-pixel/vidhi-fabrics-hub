@@ -218,7 +218,7 @@ export function LeadPopup({ lang, onClose, formName }: LeadPopupProps) {
     <div
       role="dialog"
       aria-labelledby="lead-popup-heading"
-      className="vf-rise fixed bottom-4 left-4 right-4 z-[60] max-h-[calc(100dvh-2rem)] overflow-y-auto bg-sand px-6 pb-5 pt-6 shadow-[0_10px_30px_rgb(59_34_25_/_0.12)] sm:bottom-6 sm:left-auto sm:right-6 sm:w-[477px] sm:px-8 sm:pb-[26px] sm:pt-8"
+      className="vf-rise fixed bottom-4 left-4 right-4 z-[60] max-h-[calc(100dvh-2rem)] overflow-y-auto bg-sand px-6 pb-5 pt-6 shadow-[0_10px_30px_rgb(21_25_29_/_0.12)] sm:bottom-6 sm:left-auto sm:right-6 sm:w-[477px] sm:px-8 sm:pb-[26px] sm:pt-8"
     >
       <div className="flex items-start justify-between gap-4">
         <h2
@@ -326,7 +326,7 @@ export function LeadPopup({ lang, onClose, formName }: LeadPopupProps) {
           </LeadField>
           <p className="pt-1 text-xs leading-[1.35] tracking-ui text-mute">{copy.notice[lang]}</p>
           {status === "failure" ? (
-            <p role="alert" className="text-[13px] tracking-ui text-claydeep">
+            <p role="alert" className="text-[13px] tracking-ui text-error">
               {copy.failure[lang]}
             </p>
           ) : null}
@@ -364,7 +364,7 @@ function LeadField({
     <label className="block">
       <span className="block text-[13px] leading-[1.35] tracking-ui text-mute">{label}</span>
       {children}
-      {error ? <span className="mt-1 block text-xs tracking-ui text-claydeep">{error}</span> : null}
+      {error ? <span className="mt-1 block text-xs tracking-ui text-error">{error}</span> : null}
     </label>
   );
 }

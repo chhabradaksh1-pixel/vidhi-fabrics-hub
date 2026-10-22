@@ -55,7 +55,7 @@ export function ShowroomHero({ lang, enquireHref }: { lang: Lang; enquireHref: s
             <p className="mt-4">
               <a
                 href={dressHref}
-                className="text-sm text-clay underline decoration-clay/30 underline-offset-4"
+                className="text-sm text-clay underline decoration-clay/70 underline-offset-4"
               >
                 {COPY.hero.dressLink[lang]}
               </a>
@@ -138,7 +138,7 @@ export function ShowroomRanges({ lang }: { lang: Lang }) {
                     </a>
                     <a
                       href={href}
-                      className="inline-flex shrink-0 items-center text-sm text-clay underline decoration-clay/30 underline-offset-4"
+                      className="inline-flex shrink-0 items-center text-sm text-clay underline decoration-clay/70 underline-offset-4"
                     >
                       {item.pageLink ? item.pageLink[lang] : VIEW_RANGE[lang]}
                     </a>

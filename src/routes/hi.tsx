@@ -445,7 +445,7 @@ function HiIndex() {
                   </p>
                 ) : null}
                 {inquiryStatus === "error" ? (
-                  <p role="alert" aria-live="assertive" className="pt-1 text-sm text-claydeep">
+                  <p role="alert" aria-live="assertive" className="pt-1 text-sm text-error">
                     कुछ गलत हो गया। कृपया दोबारा कोशिश करें या सीधे संपर्क करें।
                   </p>
                 ) : null}

@@ -13,7 +13,7 @@ const TITLE = "रीसेलर के लिए साड़ी होलस�
 const DESCRIPTION =
   "ऑनलाइन और व्हाट्सएप रीसेलर, छोटी दुकानों और घर से बेचने वालों के लिए — सूरत के निर्माता और थोक विक्रेता से पॉलिएस्टर साड़ियाँ होलसेल में। कैटलॉग व्हाट्सएप पर।";
 
-const linkClass = "text-clay underline decoration-line underline-offset-4 hover:text-claydeep";
+const linkClass = "text-clay underline decoration-clay/70 underline-offset-4 hover:text-claydeep";
 
 // Same rules as the English page: no MOQ, delivery timeline, transport or
 // best/lowest-price wording (BRAND.md).

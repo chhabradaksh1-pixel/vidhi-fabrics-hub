@@ -28,7 +28,7 @@ export function ResellerCircleCta({ lang, className = "" }: { lang: Lang; classN
 }
 
 const circleLink =
-  "underline decoration-clay/40 underline-offset-[6px] transition-colors hover:decoration-clay focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay";
+  "underline decoration-clay/70 underline-offset-[6px] transition-colors hover:decoration-clay focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-clay";
 
 /**
  * Homepage split modelled on a half image, half cream help panel.

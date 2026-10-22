@@ -121,58 +121,95 @@ now." A trader talking to a trader about cloth.
 
 ## Colour
 
-Tokens live in `src/styles.css`. **The palette is warm blush and rust brown**,
-set by the owner on 21 October 2026. It replaces the monochrome ramp. Token
-names are historical (`clay`, `navy`, `gold` are no longer those hues).
-Renaming them would touch every component that references them.
+Tokens live in `src/styles.css`. **The palette is white and black slate**,
+chosen by the owner on 22 October 2026 from options shown on localhost. It
+replaces blush and rust, which was set the day before. The page is white and a
+cool light grey; type, buttons and the footer are a black slate. Token names
+are historical (`clay`, `navy`, `gold` are no longer those hues). Renaming
+them would touch every component that references them.
 
-Body copy uses `--foreground` (`#4A3B35`), a dark warm grey. Headings use
+This is the first time the live components have rendered without a warm
+colour. Before 21 October the tokens were a greyscale ramp, but components
+hardcoded a maroon accent (`#7A1A18`) and cream surfaces (`#F6F1EA`), so
+that site was never grey and white. The blush switch moved those hardcoded
+values onto tokens, which is what made this change a token swap.
+
+Body copy uses `--foreground` (`#343A40`), a dark slate grey. Headings use
 `ink`. Buttons, links, the suit ticker and the header call to action use
-`clay`. WhatsApp green (`#25D366`) is only the glyph on the WhatsApp icon.
-It is 1.73:1 on `paper` and 3.12:1 on `clay`, so the icon disc is `ink`
-(`#25D366` on `ink` is 7.41:1) and the button around it stays rust.
+`clay`, now black slate. WhatsApp green (`#25D366`) is only the glyph on the
+WhatsApp icon. It is 1.98:1 on `paper` and 1.78:1 on `sand`, so the icon disc
+is `ink` (`#25D366` on `ink` is 8.91:1) and the pill around it is `clay`
+(6.63:1). On the footer it is 8.36:1 on `navy`.
 
-| Token        | Hex       | Role                                                |
-| ------------ | --------- | --------------------------------------------------- |
-| `paper`      | `#F8EDE8` | page ground, blush / off white                      |
-| `foreground` | `#4A3B35` | body text                                           |
-| `ink`        | `#3B2219` | headings                                            |
-| `mute`       | `#5C4A42` | secondary text                                      |
-| `clay`       | `#9A4A2B` | rust accent — **light grounds only**               |
-| `claydeep`   | `#7A3A22` | rust hover and pressed                              |
-| `claylight`  | `#F1DDD4` | the light step for **dark** grounds                 |
-| `sand`       | `#F1DDD4` | secondary panels                                    |
-| `line`       | `#E5CFC5` | hairlines and dividers                              |
-| `navy`       | `#3B2219` | footer ground                                       |
-| `gold`       | `#F1DDD4` | footer accent                                       |
-| `ivory`      | `#F8EDE8` | footer text                                         |
+**`error` is the one hue.** `#B3261E` marks form errors and the invalid state
+of a field (`text-error`, `.vf-lead-field[aria-invalid]`). With a grey accent
+an error would otherwise be the same dark grey as body text. It is 6.54:1 on
+`paper` and 5.87:1 on `sand`.
 
-**`clay` still fails WCAG AA on the deep-brown footer.** Measured 21 October 2026:
+| Token        | Hex       | Role                                                       |
+| ------------ | --------- | ---------------------------------------------------------- |
+| `paper`      | `#FFFFFF` | page ground                                                |
+| `foreground` | `#343A40` | body text                                                  |
+| `ink`        | `#15191D` | headings                                                   |
+| `mute`       | `#5B646C` | secondary text                                             |
+| `clay`       | `#2B3137` | black slate accent: buttons, links, ticker. **Light grounds only** |
+| `claydeep`   | `#14181C` | accent hover and pressed                                   |
+| `claylight`  | `#E4E8EB` | the light step for **dark** grounds                        |
+| `sand`       | `#F1F3F4` | secondary panels                                           |
+| `line`       | `#DEE2E5` | hairlines and dividers                                     |
+| `error`      | `#B3261E` | form errors and invalid fields                             |
+| `navy`       | `#1B1F23` | footer ground                                              |
+| `gold`       | `#B4BDC4` | footer accent                                              |
+| `ivory`      | `#F4F6F7` | footer text                                                |
 
-| Pair                  | Ratio   | Body 4.5:1 | Large 3:1 |
-| --------------------- | ------- | ---------- | --------- |
-| `ink` on `paper`      | 12.79:1 | yes        | yes       |
-| `ink` on `sand`       | 11.22:1 | yes        | yes       |
-| `foreground` on `paper` | 9.28:1 | yes      | yes       |
-| `foreground` on `sand`  | 8.15:1 | yes      | yes       |
-| `mute` on `paper`     | 7.27:1  | yes        | yes       |
-| `mute` on `sand`      | 6.38:1  | yes        | yes       |
-| `clay` on `paper`     | 5.39:1  | yes        | yes       |
-| `clay` on `sand`      | 4.73:1  | yes        | yes       |
-| `claydeep` on `paper` | 7.44:1  | yes        | yes       |
-| `paper` on `clay`     | 5.39:1  | yes        | yes       |
-| `paper` on `claydeep` | 7.44:1  | yes        | yes       |
-| `clay` on `ink`       | 2.37:1  | **no**     | **no**    |
-| `claylight` on `ink`  | 11.22:1 | yes        | yes       |
-| `ivory` on `navy`     | 12.79:1 | yes        | yes       |
-| `gold` on `navy`      | 11.22:1 | yes        | yes       |
-| `ivory` at 55% on `navy` | 4.93:1 | yes     | yes       |
+**`clay` fails WCAG AA on the footer** (1.26:1 on `navy`), so dark grounds
+use `claylight`, `ivory` or `gold`. Measured 22 October 2026:
 
-`clay` on paper and sand. `claylight` (or `ivory` / `gold`) on ink and navy.
-Rust text on the footer is the same class of bug as the old clay-on-ink pair.
+| Pair                     | Ratio   | Body 4.5:1 | Large 3:1 |
+| ------------------------ | ------- | ---------- | --------- |
+| `ink` on `paper`         | 17.67:1 | yes        | yes       |
+| `ink` on `sand`          | 15.87:1 | yes        | yes       |
+| `foreground` on `paper`  | 11.51:1 | yes        | yes       |
+| `foreground` on `sand`   | 10.34:1 | yes        | yes       |
+| `mute` on `paper`        | 6.03:1  | yes        | yes       |
+| `mute` on `sand`         | 5.41:1  | yes        | yes       |
+| `clay` on `paper`        | 13.15:1 | yes        | yes       |
+| `clay` on `sand`         | 11.81:1 | yes        | yes       |
+| `claydeep` on `paper`    | 17.84:1 | yes        | yes       |
+| `paper` on `clay`        | 13.15:1 | yes        | yes       |
+| `paper` on `claydeep`    | 17.84:1 | yes        | yes       |
+| `error` on `paper`       | 6.54:1  | yes        | yes       |
+| `error` on `sand`        | 5.87:1  | yes        | yes       |
+| `clay` on `navy`         | 1.26:1  | **no**     | **no**    |
+| `claylight` on `navy`    | 13.45:1 | yes        | yes       |
+| `ivory` on `navy`        | 15.29:1 | yes        | yes       |
+| `gold` on `navy`         | 8.70:1  | yes        | yes       |
 
-`mute` on `sand` is 6.38:1. Do not lighten it. `clay` on `sand` is 4.73:1,
-which clears body text and has little room to spare.
+`mute` on `sand` is 5.41:1, the tightest text pair on the site. Do not
+lighten it.
+
+**The footer is textured**, so its text is measured on the worst pixel, not the
+flat ground. The weave in `styles.css` is two 1px line grids (5% and 3.5%
+`ivory`) and a radial highlight at the top. At the bottom, where the copyright
+line (`ivory` at 55%) sits and only the grids reach, the worst pixel gives
+4.81:1 (5.51:1 on the flat ground). At the top, with all three layers stacked,
+which no single pixel reaches, `ivory` at 70%, 75% and 80% give 5.00, 5.48 and
+6.00:1 and `gold` gives 4.69:1. `ivory` at 55% would fail there (3.78:1), so
+keep that opacity to the bottom line.
+
+**A link carries an underline, because colour no longer marks one.** The accent
+is 1.14:1 against body text and 2.18:1 against `mute`. Links in running text
+are underlined in `clay` at 70% (`decoration-clay/70`): 5.06:1 on `paper`,
+4.84:1 on `sand`. The `decoration-line` and `decoration-clay/30` underlines
+they replaced were 1.30:1 and 1.81:1, which on a grey page is close to none.
+`vf-link-maroon` carries the same underline in CSS.
+
+**Audited in the browser on 22 October 2026.** Every visible text node on ten
+pages at desktop width, in both languages (`/`, `/hi`, `/about`, the polyester
+landing page in English and Hindi, a blog article, `/blog`, `/hi/blog`,
+`/reseller-circle` and `/privacy-policy`), on `/` and `/hi` again on a phone
+with the menu open, and in the open pop-up and its error state, was checked
+against its composited background: no failures, tightest pair 5.41:1.
 
 Over a texture or photograph, check the **brightest pixel**, not the average.
 A mean that passes hides a worst case that doesn't.
@@ -248,9 +285,9 @@ Taken from Woodwrights (22 October 2026) and measured on the live site.
 - **The enquiry pop-up is a quiet corner card**, after Woodwrights' newsletter
   card. Bottom-right (24px from the edge, full width with 16px margins on a
   phone), 477px wide, square corners, `sand` ground, and a soft shadow because
-  `sand` on `paper` is only 1.14:1 (Woodwrights uses none). The title is the
+  `sand` on `paper` is only 1.11:1 (Woodwrights uses none). The title is the
   serif at 24px, helper text is 13px at +0.02em, fields are a single 1px `ink`
-  underline that thickens to 2px rust on focus, and there is one outlined
+  underline that thickens to 2px on focus, and there is one outlined
   full-width action that fills `ink` on hover. No backdrop, no scroll lock, no
   focus trap, nothing takes focus on open, and Escape closes it. The floating
   WhatsApp pill steps aside while it is open, since it sits in the same corner.
@@ -258,9 +295,9 @@ Taken from Woodwrights (22 October 2026) and measured on the live site.
   theirs after 13 s; the engagement trigger was set for Lighthouse reasons and
   is kept. Closing it hides it for 7 days and sending an enquiry for 365, as on
   Woodwrights.
-  Measured pairs on `sand`: `ink` 11.22:1, `foreground` 8.15:1, `mute`
-  6.38:1, `claydeep` 6.53:1 (error text), `clay` 4.73:1 (close button hover);
-  `paper` on `ink` is 12.79:1 (action hover). On a phone the card covers about
+  Measured pairs on `sand`: `ink` 15.87:1, `foreground` 10.34:1, `mute`
+  5.41:1, `error` 5.87:1 (error text and the invalid underline), `clay` 11.81:1
+  (close button hover); `paper` on `ink` is 17.67:1 (action hover). On a phone the card covers about
   56% of the screen, down from 71% for a single column of four fields, because
   name and business sit side by side and the "continue browsing" link is
   dropped there (the close button remains).
@@ -293,19 +330,24 @@ resized to 1600×893, used once, in the footer.
   behind it; placing it directly on the footer's black ground would leave
   that area reading as a hole.
 
-**The logo mark does not go on a dark ground.** Measured again on 21 October
-2026 against the deep-brown footer: the mark's ink is `#7A1A18`, which is
-1.39:1 on `navy` (`#3B2219`) — under the 3:1 a graphical mark needs, the same
-class of failure as `clay` at 2.37:1 on `ink`. On `paper` the same mark is
-9.19:1. The footer's own internal "Brand" column keeps the plain ivory text
-for this reason; it is the one place on the site the new logotype does not
-appear, and that is deliberate, not an oversight to fix later. A version
-recoloured for dark grounds would need its own pass; nothing here approximates
-one.
+**The logo mark does not go on a dark ground.** Measured again on 22 October
+2026 against the footer: the mark's ink is `#7A1A18`, which is 1.57:1 on
+`navy` (`#1B1F23`), under the 3:1 a graphical mark needs. On `paper` the same
+mark is 10.56:1 and on `sand` 9.49:1. The footer's own internal "Brand" column
+keeps the plain ivory text for this reason; it is the one place on the site the
+new logotype does not appear, and that is deliberate, not an oversight to fix
+later. A version recoloured for dark grounds would need its own pass; nothing
+here approximates one.
 
-The favicon is still a clay tile with a paper **V**
-(`public/favicon.svg`): a `#9A4A2B` square, the V drawn as a path in
-`#F8EDE8` (5.39:1). It exists because it is the only thing that survived 16px — a
+**The mark is dark maroon, so on the grey palette it is the one warm colour in
+the header.** That is left as it is: the artwork is the owner's, and a charcoal
+version would need to be supplied or approved.
+
+The favicon is a clay tile with a paper **V**
+(`public/favicon.svg`): a `#2B3137` square, the V drawn as a path in
+`#FFFFFF` (13.15:1). The PNG and ICO versions were recoloured from the previous
+set by re-mixing each pixel between the old and new pair, so their geometry and
+the 16px frame are unchanged. It exists because it is the only thing that survived 16px — a
 weave pattern went muddy, a needle read as a checkmark, a two-band weave read
 as a plus sign, and a light-ground V dissolved into grey. The new logotype
 has not been tested at that size, and a script mark with fine strokes is
@@ -332,17 +374,17 @@ Current set and where each earns its place:
 | `reseller-circle-portrait.webp` | Reseller Circle strip, beside the join link |
 | `about-weaving-loom.webp`       | About section, the only image, full frame at 1000px and 640px |
 
-**Photographs must be warm, and must agree with each other.** This rule used
-to be about matching the UI: the tokens were warm (`clay` 12°, `ink` 30°,
-`gold` 39°, `sand` 45°) and a cool photo fought them. The tokens are now
-neutral and have no hue to match, so nothing in the interface pulls against a
-photograph any more.
-
-The rule stands anyway, for a different reason. The images are the only colour
-left on the page, so they are now read as a set rather than one at a time. One
-cool photograph among warm ones is more conspicuous on a neutral ground than it
-ever was on a warm one — there is no surrounding hue to absorb it. Measured,
-median hue and warm share across the coloured pixels of each:
+**Photographs must be warm, and must agree with each other.** The tokens are
+near-neutral: white and greys with a faint cool cast (CIELAB hue 236° to 258°,
+chroma 0 to 5.9, measured 22 October 2026). They have no warm hue to match, so
+nothing in the interface pulls against a photograph. The rule stands for the
+opposite reason. The images are the only colour on the page, so they are read
+as a set rather than one at a time, and one cool photograph among warm ones is
+more conspicuous on a neutral ground than it would be on a warm one, because
+there is no surrounding hue to absorb it. (This section described the earlier
+neutral palette and was not updated when blush and rust replaced it on
+21 October.) Measured, median hue and warm share across the coloured pixels of
+each:
 
 | Asset                   | Median hue | Warm pixels |
 | ----------------------- | ---------- | ----------- |

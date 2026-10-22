@@ -91,6 +91,7 @@
   --color-navy: var(--navy);
   --color-gold: var(--gold);
   --color-ivory: var(--ivory);
+  --color-error: var(--error);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -137,47 +138,51 @@
 :root {
   --radius: 0.2rem;
 
-  /* Vidhi Fabrics: warm blush and rust brown.
+  /* Vidhi Fabrics: white and black slate.
    *
-   * Set by the owner on 21 October 2026, replacing the monochrome ramp.
-   * Hex values are the ones specified. Ratios are measured in BRAND.md.
-   * `clay` is the rust accent on light grounds only. On the deep-brown
-   * footer it is 2.37:1, so dark grounds use `claylight`. */
-  --paper: #f8ede8; /* page ground */
-  --ink: #3b2219; /* headings */
-  --mute: #5c4a42; /* secondary text, 7.27:1 on paper, 6.38:1 on sand */
-  --clay: #9a4a2b; /* rust accent: buttons, links, ticker, header CTA */
-  --claydeep: #7a3a22; /* rust hover and pressed */
-  --claylight: #f1ddd4; /* the rust step for dark grounds */
-  --sand: #f1ddd4; /* secondary panels */
-  --sage: #3b2219; /* confirmation text; not a green */
-  --line: #e5cfc5; /* hairlines and dividers */
+   * Chosen by the owner on 22 October 2026, replacing blush and rust (set the
+   * day before). Token names are historical: `clay` is now black slate, and
+   * `navy` and `gold` are no longer those hues. Ratios are measured in
+   * BRAND.md. `clay` is the accent on light grounds only: on the footer it is
+   * 1.26:1, so dark grounds use `claylight`, `ivory` or `gold`. `error` is the
+   * one deliberate hue, so a form error does not read as body text now that
+   * the accent is grey. */
+  --paper: #ffffff; /* page ground */
+  --ink: #15191d; /* headings */
+  --mute: #5b646c; /* secondary text, 6.03:1 on paper, 5.41:1 on sand */
+  --clay: #2b3137; /* black slate accent: buttons, links, ticker, header CTA */
+  --claydeep: #14181c; /* accent hover and pressed */
+  --claylight: #e4e8eb; /* the accent's light step for dark grounds */
+  --sand: #f1f3f4; /* secondary panels */
+  --sage: #15191d; /* confirmation text; not a green */
+  --line: #dee2e5; /* hairlines and dividers */
+  --error: #b3261e; /* form errors, 6.54:1 on paper, 5.87:1 on sand */
 
-  /* Footer. Deep brown ground, blush text. Rust on this ground fails AA. */
-  --navy: #3b2219; /* footer ground */
-  --gold: #f1ddd4; /* footer accent, 11.22:1 on navy */
-  --ivory: #f8ede8; /* footer text, 12.79:1 on navy */
+  /* Footer. Black slate ground, near-white text. The accent fails AA here. */
+  --navy: #1b1f23; /* footer ground */
+  --gold: #b4bdc4; /* footer accent, 8.70:1 on navy */
+  --ivory: #f4f6f7; /* footer text, 15.29:1 on navy */
 
   --background: var(--paper);
-  --foreground: #4a3b35; /* body text, 9.28:1 on paper, 8.15:1 on sand */
+  --foreground: #343a40; /* body text, 11.51:1 on paper, 10.34:1 on sand */
 
-  --card: #f1ddd4;
-  --card-foreground: #4a3b35;
-  --popover: #f8ede8;
-  --popover-foreground: #4a3b35;
-  --primary: #9a4a2b;
-  --primary-foreground: #f8ede8;
-  --secondary: #f1ddd4;
-  --secondary-foreground: #3b2219;
-  --muted: #f1ddd4;
-  --muted-foreground: #5c4a42;
-  --accent: #f1ddd4;
-  --accent-foreground: #3b2219;
+  --card: #f1f3f4;
+  --card-foreground: #343a40;
+  --popover: #ffffff;
+  --popover-foreground: #343a40;
+  --primary: #2b3137;
+  --primary-foreground: #ffffff;
+  --secondary: #f1f3f4;
+  --secondary-foreground: #15191d;
+  --muted: #f1f3f4;
+  --muted-foreground: #5b646c;
+  --accent: #f1f3f4;
+  --accent-foreground: #15191d;
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: #e5cfc5;
-  --input: #e5cfc5;
-  --ring: #9a4a2b;
+  --border: #dee2e5;
+  --input: #dee2e5;
+  --ring: #2b3137;
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -266,16 +271,22 @@
 .vf-btn-maroon:hover {
   background-color: var(--claydeep);
 }
+/* The accent is grey, so colour no longer marks a link on its own: a link in
+   running text carries an underline at 5:1 against the ground. */
 .vf-link-maroon {
   color: var(--clay);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--clay) 70%, transparent);
+  text-underline-offset: 4px;
 }
 .vf-link-maroon:hover {
   color: var(--claydeep);
+  text-decoration-color: currentColor;
 }
 
 /*
- * Motion for the suit banner's sentence only. The ground is the rust accent;
- * the control is inverted blush so it stays readable (5.39:1). Two identical
+ * Motion for the suit banner's sentence only. The ground is the accent; the
+ * control is inverted paper so it stays readable (13.15:1). Two identical
  * groups; the keyframes travel exactly one group (-50%). Transform only, so
  * the bar does not shift.
  */
@@ -337,9 +348,9 @@
 @utility vf-weave {
   background-color: var(--navy);
   background-image:
-    repeating-linear-gradient(90deg, rgb(248 237 232 / 5%) 0 1px, transparent 1px 7px),
-    repeating-linear-gradient(0deg, rgb(248 237 232 / 3.5%) 0 1px, transparent 1px 7px),
-    radial-gradient(120% 80% at 50% 0%, rgb(241 221 212 / 14%) 0%, transparent 60%);
+    repeating-linear-gradient(90deg, rgb(244 246 247 / 5%) 0 1px, transparent 1px 7px),
+    repeating-linear-gradient(0deg, rgb(244 246 247 / 3.5%) 0 1px, transparent 1px 7px),
+    radial-gradient(120% 80% at 50% 0%, rgb(228 232 235 / 14%) 0%, transparent 60%);
 }
 
 @utility vf-wave {
@@ -457,18 +468,18 @@
   animation: vf-launcher-hop 7.2s cubic-bezier(0.22, 1, 0.36, 1) infinite;
 }
 
-/* Soft rust halo behind the launcher. WhatsApp green stays on the glyph. */
+/* Soft accent halo behind the launcher. WhatsApp green stays on the glyph. */
 @keyframes vf-wa-glow {
   0%,
   100% {
     opacity: 0.55;
     transform: scale(1);
-    box-shadow: 0 0 10px 2px rgb(154 74 43 / 0.45);
+    box-shadow: 0 0 10px 2px rgb(43 49 55 / 0.45);
   }
   50% {
     opacity: 0.2;
     transform: scale(1.14);
-    box-shadow: 0 0 18px 8px rgb(154 74 43 / 0.28);
+    box-shadow: 0 0 18px 8px rgb(43 49 55 / 0.28);
   }
 }
 
@@ -597,7 +608,7 @@
     box-shadow: 0 0 0 3px color-mix(in srgb, var(--clay) 28%, transparent);
   }
 
-  /* Photographs keep their own colour on the blush ground. They run at full
+  /* Photographs keep their own colour on the page ground. They run at full
      strength. */
   #catalogue article img,
   #scale img {
@@ -658,7 +669,7 @@
   }
 
   .vf-lead-input[aria-invalid="true"] {
-    border-color: var(--color-claydeep);
+    border-color: var(--color-error);
   }
 
   @media (max-width: 480px) {
@@ -669,8 +680,8 @@
 
   /* The pop-up's fields: a single underline on a transparent ground, the way
      Woodwrights' newsletter card sets them. 16px keeps iOS from zooming in on
-     focus. Focus thickens the line and turns it rust, so the change is not
-     colour alone. */
+     focus. Focus thickens the line to 2px, so the change does not depend on
+     colour. */
   .vf-lead-field {
     display: block;
     width: 100%;
@@ -694,12 +705,12 @@
   }
 
   .vf-lead-field[aria-invalid="true"] {
-    border-bottom-color: var(--claydeep);
-    box-shadow: 0 1px 0 0 var(--claydeep);
+    border-bottom-color: var(--error);
+    box-shadow: 0 1px 0 0 var(--error);
   }
 
   /* The pop-up's outlined action. The shared `form button[type="submit"]` rule
-     above gives every submit a rust drop shadow and a heavier weight; this
+     above gives every submit a 2px drop shadow and a heavier weight; this
      beats it on specificity because the pop-up's button is meant to be flat. */
   form .vf-lead-submit[type="submit"],
   .vf-lead-submit {

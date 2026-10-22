@@ -12,7 +12,7 @@ const TITLE = "Dress Material in Surat | Unstitched Suits Wholesale";
 const DESCRIPTION =
   "Dress material in Surat from a manufacturer and wholesaler. Unstitched suits wholesale for resellers, boutiques and retailers in North India.";
 
-const linkClass = "text-clay underline decoration-line underline-offset-4 hover:text-claydeep";
+const linkClass = "text-clay underline decoration-clay/70 underline-offset-4 hover:text-claydeep";
 
 const WHY = [
   "60 years in the trade",

@@ -70,7 +70,7 @@ function PrivacyPolicyPage() {
                 href={PRIVACY.whatsAppHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-clay underline decoration-clay/30 underline-offset-4"
+                className="text-clay underline decoration-clay/70 underline-offset-4"
               >
                 {PRIVACY.phone}
               </a>

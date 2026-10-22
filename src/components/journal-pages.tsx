@@ -193,7 +193,7 @@ export function JournalArticlePage({
             <a
               href={lang === "hi" ? "/hi/about" : "/about"}
               rel="author"
-              className="underline decoration-line underline-offset-4 hover:text-clay"
+              className="underline decoration-clay/70 underline-offset-4 hover:text-clay"
             >
               {copy.bylineName}
             </a>
@@ -243,7 +243,7 @@ export function JournalArticlePage({
                   <li key={section.heading.en}>
                     <a
                       href={`#step-${i + 1}`}
-                      className="underline decoration-line underline-offset-4 hover:text-clay"
+                      className="underline decoration-clay/70 underline-offset-4 hover:text-clay"
                     >
                       {section.heading[lang]}
                     </a>

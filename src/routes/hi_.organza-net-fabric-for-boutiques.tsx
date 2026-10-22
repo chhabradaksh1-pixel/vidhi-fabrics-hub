@@ -12,7 +12,7 @@ const TITLE = "बुटीक के लिए ऑर्गेंज़ा औ�
 const DESCRIPTION =
   "बुटीक के लिए ऑर्गेंज़ा और नेट कपड़ा होलसेल में, सूरत की मिलों के हमारे नेटवर्क से ऑर्डर पर सोर्स किया हुआ। शेड कार्ड, सैंपल या चौड़ाई व्हाट्सएप पर भेजिए।";
 
-const linkClass = "text-clay underline decoration-line underline-offset-4 hover:text-claydeep";
+const linkClass = "text-clay underline decoration-clay/70 underline-offset-4 hover:text-claydeep";
 
 // Same positioning and rules as the English page (see its comment).
 const FAQS: { question: string; answer: string }[] = [

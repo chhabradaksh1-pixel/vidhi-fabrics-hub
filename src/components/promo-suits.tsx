@@ -129,7 +129,7 @@ export function PromoSareeLine({ lang }: { lang: Lang }) {
         href={whatsAppUrl(PROMO_COPY.sareeMessage[lang])}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-clay underline decoration-clay/30 underline-offset-4 hover:text-claydeep"
+        className="text-clay underline decoration-clay/70 underline-offset-4 hover:text-claydeep"
       >
         {PROMO_COPY.sareeLine[lang]}
       </a>

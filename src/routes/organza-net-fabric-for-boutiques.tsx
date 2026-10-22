@@ -11,7 +11,7 @@ const TITLE = "Organza & Net Fabric Wholesale for Boutiques, Surat";
 const DESCRIPTION =
   "Organza and net fabric wholesale for boutiques, sourced to order through our network of Surat mills and units. Share a shade card, sample or width on WhatsApp.";
 
-const linkClass = "text-clay underline decoration-line underline-offset-4 hover:text-claydeep";
+const linkClass = "text-clay underline decoration-clay/70 underline-offset-4 hover:text-claydeep";
 
 // Positioning (owner, 2 October 2026): manufacturer and wholesaler of
 // polyester sarees and dress material; organza, net and other fabrics are

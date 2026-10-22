@@ -12,7 +12,7 @@ const TITLE = "दिवाली साड़ी होलसेल और क�
 const DESCRIPTION =
   "बुटीक और रीसेलर के लिए दिवाली साड़ी होलसेल और करवा चौथ के अनस्टिच्ड सूट, सूरत के निर्माता और होलसेलर से। त्योहारी कैटलॉग व्हाट्सएप पर।";
 
-const linkClass = "text-clay underline decoration-line underline-offset-4 hover:text-claydeep";
+const linkClass = "text-clay underline decoration-clay/70 underline-offset-4 hover:text-claydeep";
 
 // Hindi for this page has not been reviewed by a native speaker. Same claim
 // rules as the English page: no prices, MOQ, delivery timelines, transport

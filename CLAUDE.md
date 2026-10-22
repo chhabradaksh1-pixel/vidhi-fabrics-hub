@@ -128,13 +128,15 @@ worth carrying here because it has already shipped as a live bug: `clay` fails
 AA on any dark ground — use `claylight` there. `BRAND.md` has the full measured
 table.
 
-**The palette is warm blush and rust brown** (owner, 21 October 2026). Page
-ground `#F8EDE8`, secondary panels `#F1DDD4`, accent `#9A4A2B`, headings
-`#3B2219`, body `#4A3B35`, borders `#E5CFC5`. Token names are historical —
-`clay`, `navy`, `gold` are no longer those hues. `clay` on the deep-brown
-footer (`navy` / `ink`, both `#3B2219`) measures 2.37:1, so rust text there
-fails AA. Use `claylight`, `ivory` or `gold` on that ground. WhatsApp green
-stays on the WhatsApp glyph only.
+**The palette is white and black slate** (owner, 22 October 2026). Page ground
+`#FFFFFF`, secondary panels `#F1F3F4`, accent and buttons `#2B3137`, headings
+`#15191D`, body `#343A40`, borders `#DEE2E5`, footer ground `#1B1F23`. Token
+names are historical: `clay`, `navy`, `gold` are no longer those hues. `clay`
+on the footer measures 1.26:1, so accent text there fails AA. Use `claylight`,
+`ivory` or `gold` on that ground. WhatsApp green stays on the WhatsApp glyph
+only. The accent is grey, so colour alone marks neither a link nor an error:
+links carry an underline (`decoration-clay/70`) and form errors use
+`text-error` (`#B3261E`), the one hue.
 
 ## Conventions
 

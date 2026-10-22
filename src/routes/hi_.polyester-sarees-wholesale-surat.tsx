@@ -165,7 +165,7 @@ function PolyesterSareesPageHi() {
                 href={whatsAppUrl(CATALOGUE_MESSAGE)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-clay underline decoration-line underline-offset-4 hover:text-claydeep"
+                className="text-clay underline decoration-clay/70 underline-offset-4 hover:text-claydeep"
               >
                 {BUSINESS.phoneDisplay}
               </a>{" "}
@@ -182,35 +182,35 @@ function PolyesterSareesPageHi() {
               ज़्यादा पूछते हैं:{" "}
               <a
                 href="/hi/blog/why-similar-sarees-have-different-prices"
-                className="text-clay underline decoration-line underline-offset-4 hover:text-claydeep"
+                className="text-clay underline decoration-clay/70 underline-offset-4 hover:text-claydeep"
               >
                 एक जैसी दिखने वाली दो साड़ियों के दाम अलग क्यों होते हैं
               </a>
               ,{" "}
               <a
                 href="/hi/blog/fabric-gsm-bulk-orders"
-                className="text-clay underline decoration-line underline-offset-4 hover:text-claydeep"
+                className="text-clay underline decoration-clay/70 underline-offset-4 hover:text-claydeep"
               >
                 बल्क ऑर्डर में GSM का असली मतलब
               </a>
               ,{" "}
               <a
                 href="/hi/blog/sample-to-bulk-order-checklist"
-                className="text-clay underline decoration-line underline-offset-4 hover:text-claydeep"
+                className="text-clay underline decoration-clay/70 underline-offset-4 hover:text-claydeep"
               >
                 सैंपल से बल्क ऑर्डर तक की चेकलिस्ट
               </a>{" "}
               और{" "}
               <a
                 href="/hi/blog/karva-chauth-diwali-festive-stock"
-                className="text-clay underline decoration-line underline-offset-4 hover:text-claydeep"
+                className="text-clay underline decoration-clay/70 underline-offset-4 hover:text-claydeep"
               >
                 करवा चौथ और दिवाली के लिए क्या स्टॉक करें
               </a>
               । कैटलॉग के लिए देखिए —{" "}
               <a
                 href="/hi/diwali-karva-chauth-wholesale-surat"
-                className="text-clay underline decoration-line underline-offset-4 hover:text-claydeep"
+                className="text-clay underline decoration-clay/70 underline-offset-4 hover:text-claydeep"
               >
                 बुटीक के लिए दिवाली साड़ी होलसेल और करवा चौथ के सूट
               </a>
@@ -221,7 +221,7 @@ function PolyesterSareesPageHi() {
               हम सूरत से{" "}
               <a
                 href="/hi/dress-material-wholesale-surat"
-                className="text-clay underline decoration-line underline-offset-4 hover:text-claydeep"
+                className="text-clay underline decoration-clay/70 underline-offset-4 hover:text-claydeep"
               >
                 थोक में ड्रेस मटेरियल
               </a>{" "}
@@ -231,14 +231,14 @@ function PolyesterSareesPageHi() {
               व्हाट्सएप, इंस्टाग्राम या घर से बेचते हैं? देखिए
               <a
                 href="/hi/saree-wholesale-for-resellers"
-                className="text-clay underline decoration-line underline-offset-4 hover:text-claydeep"
+                className="text-clay underline decoration-clay/70 underline-offset-4 hover:text-claydeep"
               >
                 रीसेलर के लिए साड़ी होलसेल
               </a>
               । बुटीक हमसे
               <a
                 href="/hi/organza-net-fabric-for-boutiques"
-                className="text-clay underline decoration-line underline-offset-4 hover:text-claydeep"
+                className="text-clay underline decoration-clay/70 underline-offset-4 hover:text-claydeep"
               >
                 ऑर्गेंज़ा और नेट कपड़ा
               </a>

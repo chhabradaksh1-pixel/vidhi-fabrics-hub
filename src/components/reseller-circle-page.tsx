@@ -163,7 +163,7 @@ export function ResellerCirclePage({ lang }: { lang: "en" | "hi" }) {
                       className={inputClass}
                     />
                     {errors.name ? (
-                      <span className="mt-1 block text-claydeep">{errors.name}</span>
+                      <span className="mt-1 block text-error">{errors.name}</span>
                     ) : null}
                   </label>
 
@@ -178,7 +178,7 @@ export function ResellerCirclePage({ lang }: { lang: "en" | "hi" }) {
                       className={inputClass}
                     />
                     {errors.city ? (
-                      <span className="mt-1 block text-claydeep">{errors.city}</span>
+                      <span className="mt-1 block text-error">{errors.city}</span>
                     ) : null}
                   </label>
 
@@ -199,7 +199,7 @@ export function ResellerCirclePage({ lang }: { lang: "en" | "hi" }) {
                       ))}
                     </select>
                     {errors.businessType ? (
-                      <span className="mt-1 block text-claydeep">{errors.businessType}</span>
+                      <span className="mt-1 block text-error">{errors.businessType}</span>
                     ) : null}
                   </label>
 
@@ -217,12 +217,12 @@ export function ResellerCirclePage({ lang }: { lang: "en" | "hi" }) {
                     />
                     <span className="mt-1 block text-xs text-mute">{copy.whatsappHint}</span>
                     {errors.whatsapp ? (
-                      <span className="mt-1 block text-claydeep">{errors.whatsapp}</span>
+                      <span className="mt-1 block text-error">{errors.whatsapp}</span>
                     ) : null}
                   </label>
 
                   {status === "error" ? (
-                    <p role="alert" className="text-sm text-claydeep">
+                    <p role="alert" className="text-sm text-error">
                       {copy.error}
                     </p>
                   ) : null}
@@ -243,14 +243,14 @@ export function ResellerCirclePage({ lang }: { lang: "en" | "hi" }) {
               {copy.related}{" "}
               <a
                 href={`${p}/saree-wholesale-for-resellers`}
-                className="text-clay underline decoration-line underline-offset-4 hover:text-claydeep"
+                className="text-clay underline decoration-clay/70 underline-offset-4 hover:text-claydeep"
               >
                 {lang === "hi" ? "रीसेलर के लिए साड़ी होलसेल" : "saree wholesale for resellers"}
               </a>
               ,{" "}
               <a
                 href={`${p}/organza-net-fabric-for-boutiques`}
-                className="text-clay underline decoration-line underline-offset-4 hover:text-claydeep"
+                className="text-clay underline decoration-clay/70 underline-offset-4 hover:text-claydeep"
               >
                 {lang === "hi"
                   ? "बुटीक के लिए ऑर्गेंज़ा और नेट"
@@ -259,14 +259,14 @@ export function ResellerCirclePage({ lang }: { lang: "en" | "hi" }) {
               ,{" "}
               <a
                 href={`${p}/polyester-sarees-wholesale-surat`}
-                className="text-clay underline decoration-line underline-offset-4 hover:text-claydeep"
+                className="text-clay underline decoration-clay/70 underline-offset-4 hover:text-claydeep"
               >
                 {lang === "hi" ? "पॉलिएस्टर साड़ी होलसेल" : "polyester sarees wholesale"}
               </a>{" "}
               {lang === "hi" ? "और" : "and"}{" "}
               <a
                 href={`${p}/dress-material-wholesale-surat`}
-                className="text-clay underline decoration-line underline-offset-4 hover:text-claydeep"
+                className="text-clay underline decoration-clay/70 underline-offset-4 hover:text-claydeep"
               >
                 {lang === "hi" ? "ड्रेस मटेरियल होलसेल" : "dress material wholesale"}
               </a>

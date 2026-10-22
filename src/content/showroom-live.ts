@@ -64,7 +64,7 @@ export type ShowroomTile = {
 };
 
 const suits = "/images/preview/collection-suits.webp";
-const dress = "/images/preview/collection-dress-material.webp";
+const dress = "/images/preview/collection-dress-material-mobile.webp";
 const saree = "/images/preview/hero-saree.webp";
 
 export const SHOWROOM_TILES: ShowroomTile[] = [
@@ -101,7 +101,7 @@ export const SHOWROOM_TILES: ShowroomTile[] = [
     href: "/dress-material-wholesale-surat",
     image: {
       src: dress,
-      width: 1280,
+      width: 540,
       height: 720,
       focus: "right center",
       alt: "Model in dress material from Vidhi Fabrics",

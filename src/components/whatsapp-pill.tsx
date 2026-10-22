@@ -1,17 +1,29 @@
-import { useEffect, useRef, type MouseEvent } from "react";
+import { useEffect, useRef, useState, type MouseEvent } from "react";
 
 import { CHAT, chatLink } from "@/content/showroom-live";
 import type { Lang } from "@/content/translations";
+import { LEAD_POPUP_EVENT, type LeadPopupEventDetail } from "@/lib/ui-events";
 
 import "@/styles/showroom.css";
 
 export function WhatsAppPill({ lang = "en" }: { lang?: Lang }) {
   const still = useRef(true);
+  const [aside, setAside] = useState(false);
 
   useEffect(() => {
     const fine = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     still.current = !fine || reduce;
+  }, []);
+
+  // The enquiry pop-up opens in this same corner, so the pill steps aside while
+  // it is showing instead of peeking out from under it.
+  useEffect(() => {
+    const onPopup = (event: Event) => {
+      setAside(Boolean((event as CustomEvent<LeadPopupEventDetail>).detail?.open));
+    };
+    window.addEventListener(LEAD_POPUP_EVENT, onPopup);
+    return () => window.removeEventListener(LEAD_POPUP_EVENT, onPopup);
   }, []);
 
   function onMove(event: MouseEvent<HTMLAnchorElement>) {
@@ -40,6 +52,7 @@ export function WhatsAppPill({ lang = "en" }: { lang?: Lang }) {
       target="_blank"
       rel="noopener noreferrer"
       className="vf-showroom-chat"
+      data-aside={aside}
       onMouseMove={onMove}
       onMouseLeave={onLeave}
     >

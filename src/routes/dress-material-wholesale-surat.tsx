@@ -114,7 +114,7 @@ function CatalogueButton({ className = "" }: { className?: string }) {
       href={whatsAppUrl(CATALOGUE_MESSAGE)}
       target="_blank"
       rel="noopener noreferrer"
-      className={`inline-flex items-center justify-center rounded-sm bg-clay px-6 py-3 font-mono text-xs uppercase tracking-[0.12em] text-paper transition-colors hover:bg-claydeep ${className}`}
+      className={`inline-flex items-center justify-center rounded-sm bg-clay px-6 py-3 font-mono text-xs uppercase tracking-label text-paper transition-colors hover:bg-claydeep ${className}`}
     >
       Get Catalogue on WhatsApp
     </a>

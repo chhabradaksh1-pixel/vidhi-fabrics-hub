@@ -127,10 +127,10 @@ export function FabricCatalogueSection({ lang }: { lang: Lang }) {
     <section id="catalogue" className="scroll-mt-36">
       <div className="mx-auto w-full max-w-[1440px] px-5 py-16 sm:px-8 sm:py-24 lg:px-[50px] lg:py-32">
         <div className="max-w-2xl">
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-clay">
+          <p className="font-mono text-xs uppercase tracking-label text-clay">
             {COPY.catalogue.marker[lang]}
           </p>
-          <h2 className="vf-showroom-serif mt-4 text-4xl tracking-tight lg:text-5xl">
+          <h2 className="vf-showroom-serif mt-4 text-4xl tracking-normal lg:text-5xl">
             {COPY.catalogue.heading[lang]}
           </h2>
           <p className="mt-5 max-w-[46ch] text-pretty text-lg text-mute">
@@ -158,7 +158,7 @@ export function FabricCatalogueSection({ lang }: { lang: Lang }) {
             <div className="flex items-center gap-2">
               <label
                 htmlFor="fabric-sort"
-                className="font-mono text-[11px] uppercase tracking-[0.18em] text-mute"
+                className="font-mono text-xs uppercase tracking-label text-mute"
               >
                 {COPY.catalogue.sortLabel[lang]}
               </label>
@@ -179,7 +179,7 @@ export function FabricCatalogueSection({ lang }: { lang: Lang }) {
             <div
               role="group"
               aria-label={COPY.catalogue.viewLabel[lang]}
-              className="flex gap-2 font-mono text-[11px] uppercase tracking-[0.14em]"
+              className="flex gap-2 font-mono text-xs uppercase tracking-label"
             >
               {(["grid", "table"] as View[]).map((v) => (
                 <button
@@ -223,7 +223,7 @@ export function FabricCatalogueSection({ lang }: { lang: Lang }) {
           </div>
 
           <div className="flex items-center gap-4">
-            <p aria-live="polite" className="font-mono text-[11px] tracking-[0.14em] text-mute">
+            <p aria-live="polite" className="font-mono text-xs tracking-label text-mute">
               {fill(COPY.catalogue.count[lang], {
                 shown: String(shown.length + ranges.length),
                 total: String(FABRICS.length + CATALOGUE_RANGES.length),
@@ -233,7 +233,7 @@ export function FabricCatalogueSection({ lang }: { lang: Lang }) {
               <button
                 type="button"
                 onClick={clear}
-                className="font-mono text-[11px] uppercase tracking-[0.14em] text-clay underline underline-offset-4 hover:text-claydeep"
+                className="font-mono text-xs uppercase tracking-label text-clay underline underline-offset-4 hover:text-claydeep"
               >
                 {COPY.catalogue.clear[lang]}
               </button>
@@ -302,7 +302,7 @@ function SpecTable({
               <th
                 key={h.key}
                 scope="col"
-                className={`py-3 pr-6 font-mono text-[11px] font-normal uppercase tracking-[0.18em] text-clay ${h.className}`}
+                className={`py-3 pr-6 font-mono text-xs font-normal uppercase tracking-label text-clay ${h.className}`}
               >
                 {COPY.catalogue[h.key][lang]}
               </th>
@@ -322,7 +322,7 @@ function SpecTable({
                 <button
                   type="button"
                   onClick={() => onOpen(f.sku)}
-                  className="text-left font-display text-lg font-light tracking-tight underline-offset-4 hover:underline"
+                  className="text-left font-display text-lg font-light tracking-normal underline-offset-4 hover:underline"
                 >
                   {f.name[lang]}
                   <span className="sr-only"> — {COPY.catalogue.detailOpen[lang]}</span>
@@ -345,8 +345,7 @@ function SpecTable({
 
 const rangeLink =
   "text-sm text-clay underline decoration-clay/30 underline-offset-4 hover:text-claydeep";
-const rangeButton =
-  "vf-showroom-enquire mt-1 w-full sm:w-auto";
+const rangeButton = "vf-showroom-enquire mt-1 w-full sm:w-auto";
 
 /**
  * The four selling ranges, in a fixed order above the cloth examples.
@@ -369,12 +368,10 @@ function RangeGrid({ lang, ranges }: { lang: Lang; ranges: CatalogueRange[] }) {
           <article key={line.id} data-reveal className="flex flex-col">
             <div className="h-1 bg-clay" aria-hidden="true" />
             <div className="flex flex-1 flex-col pt-6">
-              <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-clay">
+              <p className="font-mono text-xs uppercase tracking-label text-clay">
                 {line.tag[lang]}
               </p>
-              <h3 className="vf-showroom-serif mt-3 text-3xl leading-tight">
-                {line.name[lang]}
-              </h3>
+              <h3 className="vf-showroom-serif mt-3 text-3xl leading-tight">{line.name[lang]}</h3>
               <p className="mt-3 flex-1 text-sm leading-relaxed text-mute">{line.body[lang]}</p>
               <div className="mt-6 flex flex-col items-start gap-3">
                 {line.whatsAppMessage ? (
@@ -424,12 +421,10 @@ function SuitRangeCard({
           height={image.height}
           className="aspect-[3/4] w-full object-cover object-[center_30%]"
         />
-        <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.18em] text-clay">
+        <p className="mt-6 font-mono text-xs uppercase tracking-label text-clay">
           {line.tag[lang]}
         </p>
-        <h3 className="vf-showroom-serif mt-3 text-3xl leading-tight">
-          {line.name[lang]}
-        </h3>
+        <h3 className="vf-showroom-serif mt-3 text-3xl leading-tight">{line.name[lang]}</h3>
         <p className="mt-3 flex-1 text-sm leading-relaxed text-mute">{line.body[lang]}</p>
         <div className="mt-6 flex flex-col items-start gap-3">
           {line.whatsAppMessage ? (
@@ -483,7 +478,7 @@ function FabricGrid({
               />
             </div>
           </div>
-          <div className="mt-4 flex items-baseline justify-between gap-3 font-mono text-[11px] text-mute">
+          <div className="mt-4 flex items-baseline justify-between gap-3 font-mono text-xs text-mute">
             <span>{f.sku}</span>
             <span>{f.tag[lang]}</span>
           </div>
@@ -598,12 +593,10 @@ function FabricDetail({
       >
         <div className="flex items-start justify-between gap-4 border-b border-line p-6">
           <div>
-            <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-clay">
-              {fabric.sku}
-            </p>
+            <p className="font-mono text-xs uppercase tracking-label text-clay">{fabric.sku}</p>
             <h3
               id="fabric-detail-heading"
-              className="mt-2 font-display text-2xl font-light tracking-tight"
+              className="mt-2 font-display text-2xl font-light tracking-normal"
             >
               {fabric.name[lang]}
             </h3>
@@ -630,7 +623,7 @@ function FabricDetail({
         <dl className="px-6 py-2">
           {rows.map((row) => (
             <div key={row.label} className="flex gap-4 border-b border-line/70 py-3 last:border-0">
-              <dt className="w-28 shrink-0 font-mono text-[11px] uppercase tracking-[0.14em] text-mute">
+              <dt className="w-28 shrink-0 font-mono text-xs uppercase tracking-label text-mute">
                 {row.label}
               </dt>
               <dd className="text-sm text-ink">{row.value}</dd>

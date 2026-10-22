@@ -179,35 +179,91 @@ A mean that passes hides a worst case that doesn't.
 
 ## Type
 
-Headings are a soft serif. Body and labels are one grotesque. The pairing
-follows Flooring Xtra's split (21 October 2026): their headings are **Canela**
-(Commercial Type, paid) at a thin weight, and their body, navigation and
-buttons are **Banana Grotesk** (MNKY Type, paid, served as "MNKY Banana
-Grotesk") at medium. Neither file can be copied onto this site.
+Headings are a sturdy serif. Body and labels are one grotesque. The pairing and
+the spacing follow Woodwrights (22 October 2026), measured from the rendered
+site. Their headings and paragraphs are **Plantin Infant MT Std** (Monotype,
+paid) at one regular weight, and their navigation, labels, links, buttons and
+inputs are **Monument Grotesk** (Dinamo, paid). Neither file can be copied onto
+this site. This replaced the Fraunces and Hanken Grotesk pairing of 21 October,
+which followed Flooring Xtra's Canela and Banana Grotesk.
 
-| Role    | Family we ship                         | Free match for      | Weight |
-| ------- | -------------------------------------- | ------------------- | ------ |
-| Display | Fraunces, then Noto Serif Devanagari   | Canela              | 300–400 |
-| Body    | Hanken Grotesk, then Noto Sans Devanagari | Banana Grotesk   | 400    |
-| Label   | Hanken Grotesk, then Noto Sans Devanagari | Banana Grotesk   | 400    |
+| Role    | Family we ship                            | Free match for        | Weight |
+| ------- | ----------------------------------------- | --------------------- | ------ |
+| Display | Newsreader, then Noto Serif Devanagari    | Plantin Infant MT Std | 400    |
+| Body    | Hanken Grotesk, then Noto Sans Devanagari | Monument Grotesk      | 400    |
+| Label   | Hanken Grotesk, then Noto Sans Devanagari | Monument Grotesk      | 400    |
 
-Fraunces and Hanken Grotesk are SIL Open Font License 1.1, self-hosted, latin
-only, `font-display: swap`. Fraunces is the closest open serif to Canela.
-Hanken Grotesk is the closest open grotesque to Banana Grotesk. Canela's
-hairline weight (100) is not used: it thins Devanagari conjuncts, and small
-headings would fail as text. Showroom titles sit at 400. Other headings stay
-at the existing light weight (300).
+Newsreader and Hanken Grotesk are SIL Open Font License 1.1, self-hosted, latin
+only, `font-display: swap`. Newsreader is one static regular file (22 KB),
+declared across weights 300 to 500, so every `font-light` heading renders that
+same regular and nothing is ever faux-bolded. There is no bold or light serif,
+as on Woodwrights. Dropping the 67 KB Fraunces file made the page 45 KB
+lighter. Newsreader was chosen as a free serif close to Plantin in build:
+sturdy, moderate contrast, and a large x-height that holds up at text sizes.
+That is a judgement by eye, not a measurement.
 
-Labels, section markers and stat captions stay uppercase and letterspaced
-(`0.12em`–`0.2em`). **`--font-mono` is still a misnomer**: it marks those
-labels and now resolves to Hanken Grotesk, not a monospace.
+### Size and spacing
 
-Hindi in a heading uses **Noto Serif Devanagari** so it belongs with Fraunces.
-Hindi in body copy uses **Noto Sans Devanagari** so it belongs with Hanken
-Grotesk. Both are loaded only on `/hi`. The English homepage's one Hindi line
-uses a small serif subset of that sentence instead. Check Hindi rendering when
-touching type: Devanagari needs more line height than Latin at the same size,
-and headline wraps differ.
+Measured on Woodwrights, then applied here as tokens in `styles.css`:
+
+| Role                                    | Woodwrights                | Here                                         |
+| --------------------------------------- | -------------------------- | -------------------------------------------- |
+| Headings (serif)                        | 22–28px, line-height 1.2   | existing sizes, `tracking-normal`            |
+| Navigation, labels, lists (uppercase)   | 12px, 1.5, +0.04em         | 12px, `tracking-label` (+0.04em)             |
+| Links, buttons, helper text (sentence)  | 13px, 1.35, +0.02em        | `tracking-ui` (+0.02em), used in the pop-up  |
+| Form inputs                             | 16px                       | 16px                                         |
+| Paragraphs                              | serif, 16px, 1.35          | **not taken**: body stays on the grotesque   |
+
+Labels used to sit at 10–11px with eight different arbitrary letter-spacings
+from +0.08em to +0.2em, which reads as a spec sheet. They are now 12px at
++0.04em through one token, and headings use normal tracking instead of
+`tracking-tight`. Two things were deliberately not copied: Woodwrights' largest
+heading (28px), because the hero and section headlines here stay larger, and
+serif body paragraphs.
+
+Hindi in a heading uses **Noto Serif Devanagari** so it belongs with
+Newsreader. Hindi in body copy uses **Noto Sans Devanagari** so it belongs with
+Hanken Grotesk. Both are loaded only on `/hi`. The English homepage's one Hindi
+line uses a small serif subset of that sentence instead. Check Hindi rendering
+when touching type: Devanagari needs more line height than Latin at the same
+size, headline wraps differ, and wide letter-spacing breaks conjuncts, which is
+one more reason the label tracking came down.
+
+`--font-mono` is still a misnomer: it marks the uppercase labels and resolves
+to Hanken Grotesk, not a monospace.
+
+## Interaction
+
+Taken from Woodwrights (22 October 2026) and measured on the live site.
+
+- **Transitions are 0.3s.** Tailwind's default transition duration is set to
+  300ms (`--default-transition-duration` in `styles.css`), and the hand-written
+  header, button and field transitions match. Scroll reveals and the WhatsApp
+  launcher keep their own timings.
+- **The header hides while the reader scrolls down and returns on any scroll
+  up** (`useHideOnScroll`, home routes only). It stays visible within 96px of
+  the top, while the mobile menu is open, and while focus is inside it.
+  Woodwrights also makes its navigation transparent over the hero; this site
+  does not, because the bar sits on paper.
+- **The enquiry pop-up is a quiet corner card**, after Woodwrights' newsletter
+  card. Bottom-right (24px from the edge, full width with 16px margins on a
+  phone), 477px wide, square corners, `sand` ground, and a soft shadow because
+  `sand` on `paper` is only 1.14:1 (Woodwrights uses none). The title is the
+  serif at 24px, helper text is 13px at +0.02em, fields are a single 1px `ink`
+  underline that thickens to 2px rust on focus, and there is one outlined
+  full-width action that fills `ink` on hover. No backdrop, no scroll lock, no
+  focus trap, nothing takes focus on open, and Escape closes it. The floating
+  WhatsApp pill steps aside while it is open, since it sits in the same corner.
+  It still opens after 35 s or 50% scroll, once per session. Woodwrights opens
+  theirs after 13 s; the engagement trigger was set for Lighthouse reasons and
+  is kept. Closing it hides it for 7 days and sending an enquiry for 365, as on
+  Woodwrights.
+  Measured pairs on `sand`: `ink` 11.22:1, `foreground` 8.15:1, `mute`
+  6.38:1, `claydeep` 6.53:1 (error text), `clay` 4.73:1 (close button hover);
+  `paper` on `ink` is 12.79:1 (action hover). On a phone the card covers about
+  56% of the screen, down from 71% for a single column of four fields, because
+  name and business sit side by side and the "continue browsing" link is
+  dropped there (the close button remains).
 
 ## Logo and icons
 
@@ -273,6 +329,8 @@ Current set and where each earns its place:
 | `swatch-on-card.jpg` | the sample-to-bulk checklist                                 |
 | `weave-ground.jpg`   | Scale section background texture, greyscale at 10%           |
 | `woven-detail.jpg`   | the sarees-prices guide, where thread detail is the argument |
+| `reseller-circle-portrait.webp` | Reseller Circle strip, beside the join link |
+| `about-weaving-loom.webp`       | About section, the only image, full frame at 1000px and 640px |
 
 **Photographs must be warm, and must agree with each other.** This rule used
 to be about matching the UI: the tokens were warm (`clay` 12°, `ink` 30°,
@@ -294,8 +352,21 @@ median hue and warm share across the coloured pixels of each:
 | `fabric-cotton-linen`   | 37.5°      | 100%        |
 | `swatch-book`           | 42.9°      | 90%         |
 | `woven-detail`          | **63.0°**  | **48%**     |
+| `reseller-circle-portrait` (source photo) | 40.9° | 85% |
+| `about-weaving-loom` (source image)       | 31.1° | 87% |
 
 (Measured over pixels with saturation ≥ 0.15; warm = hue ≤ 60° or ≥ 330°.)
+
+**Provenance of the two newest images (22 October 2026).**
+`reseller-circle-portrait` is a stock photograph from the owner's downloads
+(an Envato-style filename); no licence record is kept in this repo.
+`about-weaving-loom` was supplied by the owner and has the marks of an
+AI-generated image: a UUID filename, and a patchwork quilt emerging from a warp,
+which no loom produces. Treat it as an illustration. It is not evidence of the
+trade, and nothing may caption it as Vidhi Fabrics' own loom. Replace it with a
+real photograph when one exists. Neither original is committed: only the sized
+WebP derivatives are, because originals in history cannot be removed
+(`AGENTS.md` forbids the rewrite).
 
 `woven-detail` is the outlier — teal and mustard threads — which is why it read
 as cheap jute in colour and had to be desaturated to serve as a background.

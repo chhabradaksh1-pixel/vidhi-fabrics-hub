@@ -1,3 +1,4 @@
+import circlePortrait from "@/assets/reseller-circle-portrait.webp";
 import swatchStack from "@/assets/swatch-stack.webp";
 import "@/styles/showroom.css";
 import { CIRCLE_CTA, CIRCLE_REF, HOME_CIRCLE, circleHref } from "@/content/reseller-circle-copy";
@@ -5,7 +6,7 @@ import type { Lang } from "@/content/translations";
 import { whatsAppUrl } from "@/content/whatsapp";
 
 const buttonClass =
-  "inline-flex shrink-0 items-center justify-center rounded-sm bg-clay px-6 py-3 font-mono text-xs uppercase tracking-[0.12em] text-paper transition-colors hover:bg-claydeep";
+  "inline-flex shrink-0 items-center justify-center rounded-sm bg-clay px-6 py-3 font-mono text-xs uppercase tracking-label text-paper transition-colors hover:bg-claydeep";
 
 /** CTA card for the reseller and organza/net landing pages. */
 export function ResellerCircleCta({ lang, className = "" }: { lang: Lang; className?: string }) {
@@ -59,41 +60,58 @@ export function ResellerCircleStrip({ lang }: { lang: Lang }) {
             >
               {copy.headline}
             </h2>
-            <p className="mt-6 text-xl font-normal leading-snug text-ink sm:text-2xl">{copy.subheading}</p>
-            <p className="mt-4 max-w-[34ch] text-base font-normal leading-relaxed text-foreground">{copy.body}</p>
-            <a
-              href={whatsAppUrl(copy.join)}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-lead-ref={CIRCLE_REF}
-              className={`mt-8 inline-flex min-h-11 items-center font-mono text-[11px] uppercase tracking-[0.16em] text-clay ${circleLink}`}
-            >
-              {copy.cta}
-            </a>
-            <ul className="mt-10 space-y-1 border-t border-line pt-6">
-              <li>
+            <p className="mt-6 text-xl font-normal leading-snug text-ink sm:text-2xl">
+              {copy.subheading}
+            </p>
+            <p className="mt-4 max-w-[34ch] text-base font-normal leading-relaxed text-foreground">
+              {copy.body}
+            </p>
+            <div className="mt-8 flex items-start gap-5 sm:gap-6">
+              <div className="min-w-0 flex-1">
                 <a
-                  href={whatsAppUrl(copy.boutiqueMessage)}
+                  href={whatsAppUrl(copy.join)}
                   target="_blank"
                   rel="noopener noreferrer"
                   data-lead-ref={CIRCLE_REF}
-                  className="inline-flex min-h-11 items-center text-lg font-normal text-mute hover:text-ink"
+                  className={`inline-flex min-h-11 items-center font-mono text-xs uppercase tracking-label text-clay ${circleLink}`}
                 >
-                  {copy.boutique}
+                  {copy.cta}
                 </a>
-              </li>
-              <li>
-                <a
-                  href={whatsAppUrl(copy.homeMessage)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  data-lead-ref={CIRCLE_REF}
-                  className="inline-flex min-h-11 items-center text-lg font-normal text-mute hover:text-ink"
-                >
-                  {copy.home}
-                </a>
-              </li>
-            </ul>
+                <ul className="mt-5 space-y-1 border-t border-line pt-5">
+                  <li>
+                    <a
+                      href={whatsAppUrl(copy.boutiqueMessage)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-lead-ref={CIRCLE_REF}
+                      className="inline-flex min-h-11 items-center text-base font-normal text-mute hover:text-ink sm:text-lg"
+                    >
+                      {copy.boutique}
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href={whatsAppUrl(copy.homeMessage)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-lead-ref={CIRCLE_REF}
+                      className="inline-flex min-h-11 items-center text-base font-normal text-mute hover:text-ink sm:text-lg"
+                    >
+                      {copy.home}
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <img
+                src={circlePortrait}
+                alt={copy.portraitAlt}
+                width={360}
+                height={450}
+                loading="lazy"
+                decoding="async"
+                className="aspect-[4/5] w-28 shrink-0 rounded-sm object-cover sm:w-36"
+              />
+            </div>
           </div>
         </div>
       </div>

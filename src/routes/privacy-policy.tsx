@@ -42,8 +42,8 @@ function PrivacyPolicyPage() {
     <div className="min-h-screen bg-paper text-ink">
       <JournalHeader lang="en" />
       <main className="mx-auto max-w-3xl px-6 py-12 sm:py-16">
-        <p className="font-mono text-xs uppercase tracking-[0.15em] text-clay">{PRIVACY.kicker}</p>
-        <h1 className="mt-4 font-display text-4xl font-light tracking-tight sm:text-5xl">
+        <p className="font-mono text-xs uppercase tracking-label text-clay">{PRIVACY.kicker}</p>
+        <h1 className="mt-4 font-display text-4xl font-light tracking-normal sm:text-5xl">
           {PRIVACY.title}
         </h1>
         <p className="mt-4 text-sm text-mute">{PRIVACY.updated}</p>

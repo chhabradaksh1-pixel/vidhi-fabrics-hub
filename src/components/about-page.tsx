@@ -47,10 +47,10 @@ export function AboutPage({ initialLang }: { initialLang: Lang }) {
             </ol>
           </nav>
 
-          <p className="mt-10 font-mono text-xs uppercase tracking-[0.15em] text-clay">
+          <p className="mt-10 font-mono text-xs uppercase tracking-label text-clay">
             {copy.kicker}
           </p>
-          <h1 className="mt-5 text-balance font-display text-4xl font-light leading-[1.12] tracking-tight sm:text-5xl lg:text-6xl">
+          <h1 className="mt-5 text-balance font-display text-4xl font-light leading-[1.12] tracking-normal sm:text-5xl lg:text-6xl">
             {copy.title}
           </h1>
 
@@ -109,7 +109,7 @@ export function AboutPage({ initialLang }: { initialLang: Lang }) {
               </h2>
               <dl className="mt-6 space-y-5 leading-relaxed">
                 <div>
-                  <dt className="font-mono text-xs uppercase tracking-widest text-clay">
+                  <dt className="font-mono text-xs uppercase tracking-label text-clay">
                     {copy.addressLabel}
                   </dt>
                   <dd className="mt-1 text-mute">
@@ -123,7 +123,7 @@ export function AboutPage({ initialLang }: { initialLang: Lang }) {
                   </dd>
                 </div>
                 <div>
-                  <dt className="font-mono text-xs uppercase tracking-widest text-clay">
+                  <dt className="font-mono text-xs uppercase tracking-label text-clay">
                     {copy.whatsAppLabel}
                   </dt>
                   <dd className="mt-1">
@@ -138,7 +138,7 @@ export function AboutPage({ initialLang }: { initialLang: Lang }) {
                   </dd>
                 </div>
                 <div>
-                  <dt className="font-mono text-xs uppercase tracking-widest text-clay">
+                  <dt className="font-mono text-xs uppercase tracking-label text-clay">
                     {copy.emailLabel}
                   </dt>
                   <dd className="mt-1">
@@ -148,13 +148,13 @@ export function AboutPage({ initialLang }: { initialLang: Lang }) {
                   </dd>
                 </div>
                 <div>
-                  <dt className="font-mono text-xs uppercase tracking-widest text-clay">
+                  <dt className="font-mono text-xs uppercase tracking-label text-clay">
                     {copy.hoursLabel}
                   </dt>
                   <dd className="mt-1 text-mute">{FOOTER_CONTACT[lang].hours}</dd>
                 </div>
                 <div>
-                  <dt className="font-mono text-xs uppercase tracking-widest text-clay">
+                  <dt className="font-mono text-xs uppercase tracking-label text-clay">
                     {GSTIN_LABEL}
                   </dt>
                   <dd className="mt-1">{BUSINESS.gstin}</dd>

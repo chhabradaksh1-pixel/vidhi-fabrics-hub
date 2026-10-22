@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 
 import { StoryLinks } from "@/components/fabric-desk";
 import { COPY, type Lang } from "@/content/translations";
+import { useHideOnScroll } from "@/hooks/use-hide-on-scroll";
 import logoMark from "@/assets/vidhi-logo-mark.webp";
 
 /**
@@ -23,6 +24,7 @@ export function HomeHeader({
   route: "en" | "hi";
 }) {
   const [open, setOpen] = useState(false);
+  const hidden = useHideOnScroll(open);
   const home = route === "hi" ? "/hi" : "/";
   const scaleHref = route === "hi" ? "/hi/about#scale" : "/about#scale";
 
@@ -38,7 +40,11 @@ export function HomeHeader({
   const linkClass = "transition-colors hover:text-ink";
 
   return (
-    <header className="sticky top-0 z-50 border-b border-line bg-paper/95 backdrop-blur">
+    <header
+      data-hide-on-scroll
+      data-hidden={hidden}
+      className="sticky top-0 z-50 border-b border-line bg-paper/95 backdrop-blur"
+    >
       <div className="mx-auto flex min-h-[72px] w-full max-w-[1440px] items-center gap-3 px-5 py-3 sm:px-8 lg:px-[50px]">
         <button
           type="button"
@@ -66,14 +72,14 @@ export function HomeHeader({
             decoding="async"
             className="h-12 w-auto sm:h-14"
           />
-          <span className="hidden font-mono text-[10px] uppercase tracking-[0.15em] text-mute 2xl:block">
+          <span className="hidden font-mono text-xs uppercase tracking-label text-mute 2xl:block">
             {COPY.established[lang]}
           </span>
         </a>
 
         <nav
           aria-label={lang === "hi" ? "मुख्य नेविगेशन" : "Primary"}
-          className="hidden flex-1 items-center justify-center gap-6 font-mono text-[11px] uppercase tracking-[0.08em] text-mute xl:flex"
+          className="hidden flex-1 items-center justify-center gap-6 font-mono text-xs uppercase tracking-label text-mute xl:flex"
         >
           <a href="#catalogue" className={linkClass}>
             {COPY.nav.catalogue[lang]}
@@ -95,7 +101,7 @@ export function HomeHeader({
             href={whatsAppHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex min-h-[52px] shrink-0 items-center justify-center rounded-full bg-clay px-4 py-2 text-center font-mono text-[11px] uppercase leading-tight tracking-[0.12em] text-paper transition-colors hover:bg-claydeep sm:px-5 sm:text-xs"
+            className="inline-flex min-h-[52px] shrink-0 items-center justify-center rounded-full bg-clay px-4 py-2 text-center font-mono text-xs uppercase leading-tight tracking-label text-paper transition-colors hover:bg-claydeep sm:px-5 sm:text-xs"
           >
             {COPY.nav.cta[lang]}
           </a>
@@ -111,7 +117,7 @@ export function HomeHeader({
           if (event.target instanceof HTMLAnchorElement) setOpen(false);
         }}
       >
-        <div className="mx-auto flex w-full max-w-[1440px] flex-col px-5 py-2 font-mono text-xs uppercase tracking-[0.08em] text-mute sm:px-8 [&>a]:border-b [&>a]:border-line [&>a]:py-3.5">
+        <div className="mx-auto flex w-full max-w-[1440px] flex-col px-5 py-2 font-mono text-xs uppercase tracking-label text-mute sm:px-8 [&>a]:border-b [&>a]:border-line [&>a]:py-3.5">
           <a href="#catalogue" className={linkClass}>
             {COPY.nav.catalogue[lang]}
           </a>
@@ -144,7 +150,11 @@ function LanguageSwitch({
   const hiOn = route === "hi";
 
   return (
-    <div className="flex overflow-hidden rounded-sm ring-1 ring-line" role="group" aria-label="Language">
+    <div
+      className="flex overflow-hidden rounded-sm ring-1 ring-line"
+      role="group"
+      aria-label="Language"
+    >
       <a
         href="/"
         {...(enOn ? { "aria-current": "page" as const } : {})}

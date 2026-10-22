@@ -23,7 +23,7 @@ export function ReachStrip({ lang = "en", mapHref }: { lang?: Lang; mapHref: str
       <div className="mx-auto w-full max-w-[1440px] px-5 py-16 sm:px-8 sm:py-20 lg:px-[50px] lg:py-24">
         <h2
           id="reach-heading"
-          className="font-display text-3xl font-light tracking-tight lg:text-4xl"
+          className="font-display text-3xl font-light tracking-normal lg:text-4xl"
         >
           {copy.heading}
         </h2>
@@ -52,10 +52,10 @@ export function ReachMapSection({ lang = "en", id = "reach" }: { lang?: Lang; id
   return (
     <section id={id} aria-labelledby="reach-map-heading" className="scroll-mt-36">
       <div className="mx-auto max-w-6xl px-6 py-20 lg:py-24">
-        <p className="font-mono text-xs uppercase tracking-[0.18em] text-clay">{copy.marker}</p>
+        <p className="font-mono text-xs uppercase tracking-label text-clay">{copy.marker}</p>
         <h2
           id="reach-map-heading"
-          className="mt-4 font-display text-4xl font-light tracking-tight lg:text-5xl"
+          className="mt-4 font-display text-4xl font-light tracking-normal lg:text-5xl"
         >
           {copy.heading}
         </h2>
@@ -98,14 +98,12 @@ export function ReachMapSection({ lang = "en", id = "reach" }: { lang?: Lang; id
         </div>
 
         <div className="mt-10 border-t border-line pt-8">
-          <h3 className="font-mono text-[11px] uppercase tracking-[0.15em] text-clay">
-            {copy.listLabel}
-          </h3>
+          <h3 className="font-mono text-xs uppercase tracking-label text-clay">{copy.listLabel}</h3>
           <ul className="mt-5 flex flex-wrap gap-x-8 gap-y-3 text-sm">
             <li className="flex items-center gap-2 font-medium">
               <span aria-hidden="true" className="inline-block h-2 w-2 rounded-full bg-claydeep" />
               {ORIGIN.name[lang]}
-              <span className="font-mono text-[11px] uppercase tracking-[0.12em] text-mute">
+              <span className="font-mono text-xs uppercase tracking-label text-mute">
                 {copy.originLabel}
               </span>
             </li>

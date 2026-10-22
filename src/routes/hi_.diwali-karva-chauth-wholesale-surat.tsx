@@ -118,7 +118,7 @@ function CatalogueButton({ className = "" }: { className?: string }) {
       href={whatsAppUrl(CATALOGUE_MESSAGE)}
       target="_blank"
       rel="noopener noreferrer"
-      className={`inline-flex items-center justify-center rounded-sm bg-clay px-6 py-3 font-mono text-xs uppercase tracking-[0.12em] text-paper transition-colors hover:bg-claydeep ${className}`}
+      className={`inline-flex items-center justify-center rounded-sm bg-clay px-6 py-3 font-mono text-xs uppercase tracking-label text-paper transition-colors hover:bg-claydeep ${className}`}
     >
       व्हाट्सएप पर त्योहारी कैटलॉग माँगिए
     </a>
@@ -143,7 +143,7 @@ function FestivalWholesalePageHi() {
             </ol>
           </nav>
 
-          <h1 className="mt-6 text-balance font-display text-4xl font-light leading-[1.12] tracking-tight sm:text-5xl lg:text-6xl">
+          <h1 className="mt-6 text-balance font-display text-4xl font-light leading-[1.12] tracking-normal sm:text-5xl lg:text-6xl">
             बुटीक के लिए दिवाली साड़ी होलसेल और करवा चौथ के अनस्टिच्ड सूट
           </h1>
 
@@ -242,9 +242,9 @@ function FestivalWholesalePageHi() {
               हम कहाँ माल देते हैं
             </h2>
             <p className="mt-5 leading-[1.85] text-mute">
-              हमारे ज़्यादातर खरीदार पंजाब, हरियाणा, राजस्थान, उत्तर प्रदेश और मध्य प्रदेश के बुटीक, रिटेलर और
-              रीसेलर हैं। विधि फैब्रिक्स 1960 के दशक से इस कारोबार में है। UAE और अन्य अंतरराष्ट्रीय
-              बाज़ारों से एक्सपोर्ट पूछताछ का भी स्वागत है। हमें व्हाट्सएप पर{" "}
+              हमारे ज़्यादातर खरीदार पंजाब, हरियाणा, राजस्थान, उत्तर प्रदेश और मध्य प्रदेश के बुटीक,
+              रिटेलर और रीसेलर हैं। विधि फैब्रिक्स 1960 के दशक से इस कारोबार में है। UAE और अन्य
+              अंतरराष्ट्रीय बाज़ारों से एक्सपोर्ट पूछताछ का भी स्वागत है। हमें व्हाट्सएप पर{" "}
               <a
                 href={whatsAppUrl(CATALOGUE_MESSAGE)}
                 target="_blank"

@@ -300,12 +300,7 @@ function HiIndex() {
   return (
     <div className="vf-home min-h-screen font-body text-foreground antialiased selection:bg-clay/15">
       <PromoSuitsTicker lang={lang} />
-      <HomeHeader
-        lang={lang}
-        setLang={setLang}
-        whatsAppHref={getWhatsAppUrl(lang)}
-        route="hi"
-      />
+      <HomeHeader lang={lang} setLang={setLang} whatsAppHref={getWhatsAppUrl(lang)} route="hi" />
 
       <main id="main">
         <ShowroomHero lang={lang} enquireHref={getWhatsAppUrl(lang)} />
@@ -322,7 +317,7 @@ function HiIndex() {
 
         <section id="contact" data-reveal className="scroll-mt-36">
           <div className="mx-auto w-full max-w-3xl px-5 py-16 sm:px-8 sm:py-24 lg:px-[50px] lg:py-28">
-            <h2 className="text-balance font-display text-4xl font-light tracking-tight lg:text-5xl">
+            <h2 className="text-balance font-display text-4xl font-light tracking-normal lg:text-5xl">
               {COPY.homeCta.heading[lang]}
             </h2>
             <p className="mt-5 max-w-[42ch] text-pretty text-lg leading-relaxed text-mute">
@@ -333,7 +328,7 @@ function HiIndex() {
                 href={getWhatsAppUrl(lang)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex min-h-[88px] items-center justify-center rounded-sm bg-clay px-5 py-4 text-center font-mono text-xs uppercase tracking-[0.12em] text-paper transition-colors hover:bg-claydeep"
+                className="flex min-h-[88px] items-center justify-center rounded-sm bg-clay px-5 py-4 text-center font-mono text-xs uppercase tracking-label text-paper transition-colors hover:bg-claydeep"
               >
                 {COPY.nav.cta[lang]}
               </a>
@@ -353,8 +348,8 @@ function HiIndex() {
                 {BUSINESS.email}
               </a>
             </p>
-        <div id="inquiry" className="mx-auto mt-14 max-w-xl scroll-mt-36">
-              <p className="font-mono text-xs uppercase tracking-[0.15em] text-clay">
+            <div id="inquiry" className="mx-auto mt-14 max-w-xl scroll-mt-36">
+              <p className="font-mono text-xs uppercase tracking-label text-clay">
                 {COPY.inquiry.label[lang]}
               </p>
               <p className="mt-1 text-sm text-mute">{COPY.inquiry.sub[lang]}</p>
@@ -440,7 +435,7 @@ function HiIndex() {
                 <button
                   type="submit"
                   disabled={inquiryStatus === "sending"}
-                  className="vf-btn-maroon w-full rounded-sm py-3 font-mono text-xs uppercase tracking-[0.15em] transition-colors"
+                  className="vf-btn-maroon w-full rounded-sm py-3 font-mono text-xs uppercase tracking-label transition-colors"
                 >
                   {inquiryStatus === "sending" ? "भेजा जा रहा है..." : COPY.inquiry.submit[lang]}
                 </button>
@@ -461,10 +456,10 @@ function HiIndex() {
 
         <section data-reveal id="faq" className="scroll-mt-36">
           <div className="mx-auto w-full max-w-3xl px-5 py-16 sm:px-8 sm:py-20 lg:px-[50px] lg:py-24">
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-clay">
+            <p className="font-mono text-xs uppercase tracking-label text-clay">
               {FAQ_SECTION_COPY[lang].marker}
             </p>
-            <h2 className="mt-4 font-display text-4xl font-light tracking-tight lg:text-5xl">
+            <h2 className="mt-4 font-display text-4xl font-light tracking-normal lg:text-5xl">
               {FAQ_SECTION_COPY[lang].heading}
             </h2>
             <p className="mt-4 text-lg text-mute">{FAQ_SECTION_COPY[lang].support}</p>

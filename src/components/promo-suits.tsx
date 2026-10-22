@@ -7,7 +7,7 @@ import { whatsAppUrl } from "@/content/whatsapp";
 const DISMISS_KEY = "vidhi-promo-suits-banner";
 
 const suitLink =
-  "vf-btn-maroon inline-flex items-center justify-center rounded-sm px-5 py-3 text-center font-mono text-xs uppercase tracking-[0.12em] transition-colors";
+  "vf-btn-maroon inline-flex items-center justify-center rounded-sm px-5 py-3 text-center font-mono text-xs uppercase tracking-label transition-colors";
 
 /** Copies per half of the track. Both halves match, so a -50% shift is seamless. */
 const TICKER_COPIES = 5;
@@ -47,7 +47,7 @@ export function PromoSuitsTicker({ lang }: { lang: Lang }) {
             data-lead-ref={PROMO_SUIT_REF}
             target="_blank"
             rel="noopener noreferrer"
-            className="vf-promo-ticker-btn rounded-sm px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.12em] transition-colors"
+            className="vf-promo-ticker-btn rounded-sm px-3 py-1.5 font-mono text-xs uppercase tracking-label transition-colors"
           >
             {PROMO_COPY.bannerButton[lang]}
           </a>

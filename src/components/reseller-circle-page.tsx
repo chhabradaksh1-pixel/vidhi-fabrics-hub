@@ -95,7 +95,7 @@ export function ResellerCirclePage({ lang }: { lang: "en" | "hi" }) {
             </ol>
           </nav>
 
-          <h1 className="mt-6 text-balance font-display text-4xl font-light leading-[1.12] tracking-tight sm:text-5xl lg:text-6xl">
+          <h1 className="mt-6 text-balance font-display text-4xl font-light leading-[1.12] tracking-normal sm:text-5xl lg:text-6xl">
             {copy.title}
           </h1>
 
@@ -230,7 +230,7 @@ export function ResellerCirclePage({ lang }: { lang: "en" | "hi" }) {
                   <button
                     type="submit"
                     disabled={status === "sending"}
-                    className="inline-flex items-center justify-center rounded-sm bg-clay px-6 py-3 font-mono text-xs uppercase tracking-[0.12em] text-paper transition-colors hover:bg-claydeep disabled:opacity-60"
+                    className="inline-flex items-center justify-center rounded-sm bg-clay px-6 py-3 font-mono text-xs uppercase tracking-label text-paper transition-colors hover:bg-claydeep disabled:opacity-60"
                   >
                     {status === "sending" ? copy.sending : copy.submit}
                   </button>

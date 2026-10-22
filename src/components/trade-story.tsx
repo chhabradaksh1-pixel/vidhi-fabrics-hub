@@ -25,10 +25,10 @@ export function TradeStory({ lang }: { lang: Lang }) {
 
       <section id="scale" className="scroll-mt-36">
         <div className="mx-auto max-w-6xl px-6 py-20 lg:py-24">
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-clay">
+          <p className="font-mono text-xs uppercase tracking-label text-clay">
             {COPY.scale.marker[lang]}
           </p>
-          <h2 className="mt-3 max-w-[20ch] text-balance font-display text-4xl font-light tracking-tight lg:text-5xl">
+          <h2 className="mt-3 max-w-[20ch] text-balance font-display text-4xl font-light tracking-normal lg:text-5xl">
             {COPY.scale.heading[lang]}
           </h2>
 
@@ -36,7 +36,7 @@ export function TradeStory({ lang }: { lang: Lang }) {
             {COPY.scale.stats.map((s) => (
               <div key={s.value}>
                 <dt className="font-display text-4xl font-light text-ink sm:text-5xl">{s.value}</dt>
-                <dd className="mt-2 font-mono text-xs uppercase tracking-[0.12em] text-mute">
+                <dd className="mt-2 font-mono text-xs uppercase tracking-label text-mute">
                   {s.label[lang]}
                 </dd>
               </div>
@@ -67,10 +67,10 @@ export function TradeStory({ lang }: { lang: Lang }) {
 
       <section>
         <div className="mx-auto max-w-6xl px-6 py-20 lg:py-24">
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-clay">
+          <p className="font-mono text-xs uppercase tracking-label text-clay">
             {COPY.testimonials.marker[lang]}
           </p>
-          <h2 className="mt-3 max-w-[18ch] text-balance font-display text-4xl font-light tracking-tight lg:text-5xl">
+          <h2 className="mt-3 max-w-[18ch] text-balance font-display text-4xl font-light tracking-normal lg:text-5xl">
             {COPY.testimonials.heading[lang]}
           </h2>
           <p className="mt-5 max-w-[60ch] text-pretty text-mute">{COPY.testimonials.body[lang]}</p>
@@ -78,7 +78,7 @@ export function TradeStory({ lang }: { lang: Lang }) {
           <dl className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-3">
             {COPY.testimonials.proof.map((stat) => (
               <div key={stat.label.en}>
-                <dd className="font-display text-4xl font-light tracking-tight text-ink sm:text-5xl">
+                <dd className="font-display text-4xl font-light tracking-normal text-ink sm:text-5xl">
                   {stat.value[lang]}
                 </dd>
                 <dt className="mt-3 max-w-[22ch] text-sm leading-relaxed text-mute">
@@ -90,10 +90,10 @@ export function TradeStory({ lang }: { lang: Lang }) {
 
           {leadVoice && (
             <figure className="mt-14 max-w-4xl">
-              <blockquote className="text-balance font-display text-2xl font-light leading-snug tracking-tight text-ink sm:text-3xl">
+              <blockquote className="text-balance font-display text-2xl font-light leading-snug tracking-normal text-ink sm:text-3xl">
                 {leadVoice.quote[lang]}
               </blockquote>
-              <figcaption className="mt-7 font-mono text-xs uppercase tracking-[0.16em] text-mute">
+              <figcaption className="mt-7 font-mono text-xs uppercase tracking-label text-mute">
                 {leadVoice.customerLabel[lang]} · {leadVoice.location}
               </figcaption>
             </figure>
@@ -107,7 +107,7 @@ export function TradeStory({ lang }: { lang: Lang }) {
                   <blockquote className="leading-relaxed text-mute">
                     {testimonial.quote[lang]}
                   </blockquote>
-                  <figcaption className="mt-5 font-mono text-[11px] uppercase tracking-[0.16em] text-mute">
+                  <figcaption className="mt-5 font-mono text-xs uppercase tracking-label text-mute">
                     {testimonial.customerLabel[lang]} · {testimonial.location}
                   </figcaption>
                 </figure>

@@ -75,10 +75,10 @@ export function NotFoundPage({ pathname }: { pathname: string }) {
   // Letter-spacing and the mono face break up Devanagari, so Hindi labels
   // keep normal spacing.
   const label =
-    lang === "hi" ? "text-sm text-mute" : "font-mono text-xs uppercase tracking-[0.18em] text-mute";
+    lang === "hi" ? "text-sm text-mute" : "font-mono text-xs uppercase tracking-label text-mute";
   const button =
     "mt-4 inline-flex items-center justify-center rounded-sm bg-clay px-6 py-3 text-paper transition-colors hover:bg-claydeep " +
-    (lang === "hi" ? "text-sm" : "font-mono text-xs uppercase tracking-[0.12em]");
+    (lang === "hi" ? "text-sm" : "font-mono text-xs uppercase tracking-label");
   return (
     <main
       data-lead-page={lang === "hi" ? "ERRH" : "ERR"}
@@ -97,7 +97,7 @@ export function NotFoundPage({ pathname }: { pathname: string }) {
             className="h-14 w-auto"
           />
         </a>
-        <p className="mt-10 font-mono text-xs uppercase tracking-[0.18em] text-mute">404</p>
+        <p className="mt-10 font-mono text-xs uppercase tracking-label text-mute">404</p>
         <h1 className="mt-3 font-display text-3xl font-light sm:text-4xl">{copy.heading}</h1>
         <p className="mt-4 leading-[1.8] text-mute">{copy.body}</p>
 

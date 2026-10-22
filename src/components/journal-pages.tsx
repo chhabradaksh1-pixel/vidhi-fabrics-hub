@@ -116,8 +116,8 @@ export function JournalIndexPage({ initialLang }: { initialLang: Lang }) {
     <div className="min-h-screen bg-paper text-ink">
       <JournalHeader lang={lang} setLang={setLang} paths={paths} />
       <main className="mx-auto max-w-6xl px-6 py-16 lg:py-24" lang={lang === "hi" ? "hi" : "en"}>
-        <p className="font-mono text-xs uppercase tracking-[0.18em] text-clay">{copy.journal}</p>
-        <h1 className="mt-5 font-display text-5xl font-light tracking-tight sm:text-6xl">
+        <p className="font-mono text-xs uppercase tracking-label text-clay">{copy.journal}</p>
+        <h1 className="mt-5 font-display text-5xl font-light tracking-normal sm:text-6xl">
           {copy.journalTitle}
         </h1>
         <p className="mt-6 max-w-xl text-lg leading-relaxed text-mute">{copy.journalLede}</p>
@@ -130,7 +130,7 @@ export function JournalIndexPage({ initialLang }: { initialLang: Lang }) {
           <section key={group.key} className="mt-14" aria-labelledby={`desk-${group.key}`}>
             <h2
               id={`desk-${group.key}`}
-              className="border-b border-line pb-4 font-mono text-xs uppercase tracking-[0.18em] text-clay"
+              className="border-b border-line pb-4 font-mono text-xs uppercase tracking-label text-clay"
             >
               {group.label}
             </h2>
@@ -182,10 +182,10 @@ export function JournalArticlePage({
             <ArrowLeft size={16} aria-hidden="true" />
             {copy.journalTitle}
           </a>
-          <p className="mt-10 font-mono text-xs uppercase tracking-[0.15em] text-clay">
+          <p className="mt-10 font-mono text-xs uppercase tracking-label text-clay">
             {article.category[lang]} · {readingMinutes(article, lang)} {copy.minutes}
           </p>
-          <h1 className="mt-5 text-balance font-display text-4xl font-light leading-[1.12] tracking-tight sm:text-5xl lg:text-6xl">
+          <h1 className="mt-5 text-balance font-display text-4xl font-light leading-[1.12] tracking-normal sm:text-5xl lg:text-6xl">
             {article.title[lang]}
           </h1>
           <p className="mt-6 text-sm text-mute">
@@ -235,7 +235,7 @@ export function JournalArticlePage({
             )}
             <p className="mt-10 text-lg leading-relaxed text-mute">{article.introduction[lang]}</p>
             <nav aria-label={copy.toc} className="my-10 border-y border-line py-6">
-              <p className="mb-4 font-mono text-xs uppercase tracking-widest text-clay">
+              <p className="mb-4 font-mono text-xs uppercase tracking-label text-clay">
                 {copy.toc}
               </p>
               <ol className="list-inside list-decimal space-y-3 text-sm">
@@ -301,7 +301,7 @@ export function JournalArticlePage({
               </section>
             )}
             <aside className="my-12 bg-ink p-7 text-paper sm:p-10">
-              <p className="font-mono text-xs uppercase tracking-widest">
+              <p className="font-mono text-xs uppercase tracking-label">
                 {article.cta?.kicker[lang] ?? copy.ctaKicker}
               </p>
               <h2 className="mt-4 font-display text-3xl font-light text-paper">

@@ -7,12 +7,14 @@
 /*
  * Self-hosted, font-display: swap. No Google Fonts stylesheet.
  *
- * Headings are Fraunces (OFL-1.1), the free match for Canela, which Flooring
- * Xtra uses for headings and which is a paid Commercial Type family. Body and
- * the letterspaced labels are Hanken Grotesk (OFL-1.1), the free match for
- * Banana Grotesk (MNKY Type), which that site uses for body, navigation and
- * buttons. Both files are the latin variable cuts Google Fonts serves, weights
- * 300 to 500. Latin-ext is omitted: the copy does not use those characters.
+ * Headings are Newsreader (OFL-1.1), the free match for Plantin Infant, which
+ * Woodwrights uses for headings and paragraphs and which is a paid Monotype
+ * family. Body and the small uppercase labels are Hanken Grotesk (OFL-1.1),
+ * standing in for Monument Grotesk (Dinamo, paid), which that site uses for
+ * navigation, labels, links and buttons. Hanken is the latin variable cut
+ * Google Fonts serves, weights 300 to 500. Newsreader is one static regular
+ * file: Woodwrights sets everything in a single weight and so does this site.
+ * Latin-ext is omitted: the copy does not use those characters.
  *
  * Hindi in a heading uses Noto Serif Devanagari so it sits with the serif.
  * That face is declared on /hi (see DevanagariFont). The English homepage's
@@ -31,12 +33,15 @@
     U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
+/* One regular file, declared across 300 to 500 so every `font-light` or
+   `font-medium` heading renders the same sturdy regular instead of the browser
+   faking a weight it does not have. */
 @font-face {
-  font-family: "Fraunces";
+  font-family: "Newsreader";
   font-style: normal;
   font-weight: 300 500;
   font-display: swap;
-  src: url("./assets/fonts/fraunces-latin.woff2") format("woff2");
+  src: url("./assets/fonts/newsreader-latin-400.woff2") format("woff2");
   unicode-range:
     U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
     U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
@@ -57,14 +62,23 @@
  */
 
 @theme inline {
-  /* Headings are Fraunces. Body and the letterspaced labels are Hanken
+  /* Headings are Newsreader. Body and the small uppercase labels are Hanken
      Grotesk. Hindi in a heading falls through to Noto Serif Devanagari;
      Hindi in body copy falls through to Noto Sans Devanagari.
      `font-mono` is still a misnomer: it marks those labels and is not a
      monospace. */
-  --font-display: "Fraunces", "Noto Serif Devanagari", Georgia, "Times New Roman", serif;
+  --font-display: "Newsreader", "Noto Serif Devanagari", Georgia, "Times New Roman", serif;
   --font-body: "Hanken Grotesk", "Noto Sans Devanagari", system-ui, sans-serif;
   --font-mono: "Hanken Grotesk", "Noto Sans Devanagari", system-ui, sans-serif;
+
+  /* Spacing and motion, measured on Woodwrights (22 October 2026): 12px
+     uppercase labels and navigation sit at +0.04em, 13px sentence-case UI
+     text at +0.02em, and every interactive transition runs 0.3s. The old
+     labels sat at +0.08em to +0.2em, which reads as a spec sheet. */
+  --tracking-label: 0.04em;
+  --tracking-ui: 0.02em;
+  --default-transition-duration: 300ms;
+
   --color-paper: var(--paper);
   --color-ink: var(--ink);
   --color-mute: var(--mute);
@@ -485,9 +499,20 @@
     box-shadow: 0 1px 0 oklch(0 0 0 / 7%);
   }
 
+  /* The bar tucks away while the reader scrolls down and returns on any
+     scroll up (use-hide-on-scroll.ts). Focus inside it keeps it shown, so a
+     keyboard user never tabs into a control they cannot see. */
+  header[data-hide-on-scroll] {
+    transition: transform 300ms ease;
+  }
+
+  header[data-hide-on-scroll][data-hidden="true"]:not(:focus-within) {
+    transform: translateY(-100%);
+  }
+
   header.sticky nav a {
     position: relative;
-    transition: color 180ms ease;
+    transition: color 300ms ease;
   }
 
   header.sticky nav a::after {
@@ -500,7 +525,7 @@
     content: "";
     transform: scaleX(0);
     transform-origin: right;
-    transition: transform 180ms ease;
+    transition: transform 300ms ease;
   }
 
   header.sticky nav a:hover::after,
@@ -518,8 +543,8 @@
   header.sticky [role="group"] button {
     min-height: 36px;
     transition:
-      background-color 160ms ease,
-      color 160ms ease;
+      background-color 300ms ease,
+      color 300ms ease;
   }
 
   header.sticky [role="group"] button[aria-pressed="true"] {
@@ -534,9 +559,9 @@
     box-shadow: 0 2px 0 var(--color-claydeep);
     font-weight: 600;
     transition:
-      background-color 160ms ease,
-      box-shadow 160ms ease,
-      transform 160ms ease;
+      background-color 300ms ease,
+      box-shadow 300ms ease,
+      transform 300ms ease;
   }
 
   header.sticky a[href="#inquiry"]:hover,
@@ -561,8 +586,8 @@
     border: 1px solid var(--color-line);
     border-radius: var(--radius-sm);
     transition:
-      border-color 160ms ease,
-      box-shadow 160ms ease;
+      border-color 300ms ease,
+      box-shadow 300ms ease;
   }
 
   #inquiry input:focus,
@@ -640,6 +665,61 @@
     .vf-lead-input {
       font-size: 1rem;
     }
+  }
+
+  /* The pop-up's fields: a single underline on a transparent ground, the way
+     Woodwrights' newsletter card sets them. 16px keeps iOS from zooming in on
+     focus. Focus thickens the line and turns it rust, so the change is not
+     colour alone. */
+  .vf-lead-field {
+    display: block;
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid var(--ink);
+    border-radius: 0;
+    background: transparent;
+    padding: 0.4rem 0 0.6rem;
+    color: var(--ink);
+    font-size: 1rem;
+    line-height: 1.4;
+    outline: none;
+    transition:
+      border-color 300ms ease,
+      box-shadow 300ms ease;
+  }
+
+  .vf-lead-field:focus {
+    border-bottom-color: var(--clay);
+    box-shadow: 0 1px 0 0 var(--clay);
+  }
+
+  .vf-lead-field[aria-invalid="true"] {
+    border-bottom-color: var(--claydeep);
+    box-shadow: 0 1px 0 0 var(--claydeep);
+  }
+
+  /* The pop-up's outlined action. The shared `form button[type="submit"]` rule
+     above gives every submit a rust drop shadow and a heavier weight; this
+     beats it on specificity because the pop-up's button is meant to be flat. */
+  form .vf-lead-submit[type="submit"],
+  .vf-lead-submit {
+    border: 1px solid var(--ink);
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    color: var(--ink);
+    font-weight: 400;
+    transition:
+      background-color 300ms ease,
+      color 300ms ease;
+  }
+
+  form .vf-lead-submit[type="submit"]:hover:not(:disabled),
+  .vf-lead-submit:hover:not(:disabled) {
+    background: var(--ink);
+    box-shadow: none;
+    color: var(--paper);
+    transform: none;
   }
 }
 

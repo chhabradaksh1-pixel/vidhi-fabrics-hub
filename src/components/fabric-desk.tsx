@@ -1,7 +1,7 @@
 import { ArrowDown, ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
-import cotton from "@/assets/fabric-cotton-linen.webp";
-import jacquard from "@/assets/fabric-katan-jacquard.webp";
+import loom from "@/assets/about-weaving-loom.webp";
+import loom640 from "@/assets/about-weaving-loom-640.webp";
 import logoMark from "@/assets/vidhi-logo-mark.webp";
 import { JOURNAL, articleHref, readingMinutes, type JournalArticle } from "@/content/journal";
 import { SiteFooter } from "@/components/site-footer";
@@ -27,40 +27,29 @@ export function AboutSection({ lang, whatsappUrl }: { lang: Lang; whatsappUrl: s
   return (
     <section id="about" data-reveal aria-labelledby="about-heading" className="scroll-mt-36">
       <div className="mx-auto grid w-full max-w-[1440px] items-center gap-16 px-5 py-16 sm:px-8 sm:py-24 lg:grid-cols-2 lg:gap-24 lg:px-[50px] lg:py-32">
-        <div className="grid grid-cols-2 gap-4">
-          <img
-            src={jacquard}
-            alt="Rust-red fabric with intricate woven motifs"
-            width={1024}
-            height={768}
-            loading="lazy"
-            decoding="async"
-            className="aspect-[4/5] w-full object-cover"
-          />
-          <img
-            src={cotton}
-            alt="Soft cream fabric with a visible weave"
-            width={1024}
-            height={768}
-            loading="lazy"
-            decoding="async"
-            className="mt-10 aspect-[4/5] w-full object-cover"
-          />
-        </div>
+        <img
+          src={loom}
+          srcSet={`${loom640} 640w, ${loom} 1000w`}
+          sizes="(min-width: 1024px) 620px, calc(100vw - 40px)"
+          alt={copy.loomAlt}
+          width={1000}
+          height={667}
+          loading="lazy"
+          decoding="async"
+          className="aspect-[3/2] w-full object-cover"
+        />
         <div>
-          <p className="font-mono text-xs uppercase tracking-[0.18em] text-clay">
-            {copy.marker}
-          </p>
+          <p className="font-mono text-xs uppercase tracking-label text-clay">{copy.marker}</p>
           <h2
             id="about-heading"
-            className="mt-5 text-balance font-display text-4xl font-light leading-[1.12] tracking-tight lg:text-5xl"
+            className="mt-5 text-balance font-display text-4xl font-light leading-[1.12] tracking-normal lg:text-5xl"
           >
             {copy.title}
           </h2>
           <p className="mt-6 max-w-[42ch] text-pretty text-lg leading-relaxed text-mute">
             {copy.support}
           </p>
-          <p className="mt-4 font-mono text-[10px] uppercase leading-relaxed tracking-widest text-mute">
+          <p className="mt-4 font-mono text-xs uppercase leading-relaxed tracking-label text-mute">
             {copy.detail}
           </p>
           <a
@@ -123,10 +112,10 @@ export function JournalCard({
           </span>
         </div>
         <div className="flex flex-1 flex-col pt-5">
-          <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-clay">
+          <p className="font-mono text-xs uppercase tracking-label text-clay">
             {article.category[lang]} · {readingMinutes(article, lang)} {MINUTES_LABEL[lang]}
           </p>
-          <Heading className="mt-4 font-display text-2xl font-light leading-snug tracking-tight">
+          <Heading className="mt-4 font-display text-2xl font-light leading-snug tracking-normal">
             {article.title[lang]}
           </Heading>
           <p className="mb-7 mt-3 text-sm leading-relaxed text-mute">{article.excerpt[lang]}</p>
@@ -237,12 +226,10 @@ export function FabricDeskSection({ lang = "en" }: { lang?: Lang }) {
       <div className="mx-auto max-w-6xl px-6 py-20 lg:py-24">
         <div className="mb-10 flex flex-wrap items-end justify-between gap-6">
           <div>
-            <p className="font-mono text-xs uppercase tracking-[0.18em] text-clay">
-              {copy.journal}
-            </p>
+            <p className="font-mono text-xs uppercase tracking-label text-clay">{copy.journal}</p>
             <h2
               id="fabric-desk-heading"
-              className="mt-4 font-display text-4xl font-light tracking-tight lg:text-5xl"
+              className="mt-4 font-display text-4xl font-light tracking-normal lg:text-5xl"
             >
               Surat Fabric Desk
             </h2>

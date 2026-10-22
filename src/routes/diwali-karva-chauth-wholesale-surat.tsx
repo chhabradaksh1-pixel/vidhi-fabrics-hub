@@ -118,7 +118,7 @@ function CatalogueButton({ className = "" }: { className?: string }) {
       href={whatsAppUrl(CATALOGUE_MESSAGE)}
       target="_blank"
       rel="noopener noreferrer"
-      className={`inline-flex items-center justify-center rounded-sm bg-clay px-6 py-3 font-mono text-xs uppercase tracking-[0.12em] text-paper transition-colors hover:bg-claydeep ${className}`}
+      className={`inline-flex items-center justify-center rounded-sm bg-clay px-6 py-3 font-mono text-xs uppercase tracking-label text-paper transition-colors hover:bg-claydeep ${className}`}
     >
       Get the Festive Catalogue on WhatsApp
     </a>
@@ -143,7 +143,7 @@ function FestivalWholesalePage() {
             </ol>
           </nav>
 
-          <h1 className="mt-6 text-balance font-display text-4xl font-light leading-[1.12] tracking-tight sm:text-5xl lg:text-6xl">
+          <h1 className="mt-6 text-balance font-display text-4xl font-light leading-[1.12] tracking-normal sm:text-5xl lg:text-6xl">
             Diwali Wholesale Sarees and Karva Chauth Unstitched Suits for Boutiques
           </h1>
 
@@ -244,9 +244,9 @@ function FestivalWholesalePage() {
             <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">Where we supply</h2>
             <p className="mt-5 leading-[1.85] text-mute">
               Most of our buyers are boutiques, retailers and resellers in Punjab, Haryana,
-              Rajasthan, Uttar Pradesh and Madhya Pradesh. Vidhi Fabrics has been in the trade since the 1960s.
-              Export enquiries are also welcome from the UAE and other international markets.
-              Message us on WhatsApp at{" "}
+              Rajasthan, Uttar Pradesh and Madhya Pradesh. Vidhi Fabrics has been in the trade since
+              the 1960s. Export enquiries are also welcome from the UAE and other international
+              markets. Message us on WhatsApp at{" "}
               <a
                 href={whatsAppUrl(CATALOGUE_MESSAGE)}
                 target="_blank"

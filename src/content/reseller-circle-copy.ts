@@ -57,6 +57,8 @@ export const HOME_CIRCLE: Record<
     boutiqueMessage: string;
     home: string;
     homeMessage: string;
+    /** Alt text for the portrait beside the join link. */
+    portraitAlt: string;
   }
 > = {
   en: {
@@ -69,6 +71,8 @@ export const HOME_CIRCLE: Record<
     boutiqueMessage: "Hi Vidhi Fabrics, I would like to join Boutique Owners Circle.",
     home: "Ghar Se Business Circle",
     homeMessage: "Hi Vidhi Fabrics, I would like to join Ghar Se Business Circle.",
+    portraitAlt:
+      "A smiling woman in a red sequinned saree standing in front of shelves of folded sarees",
   },
   hi: {
     headline: "विधि रीसेलर सर्कल से अपना व्यापार बढ़ाइए",
@@ -80,6 +84,8 @@ export const HOME_CIRCLE: Record<
     boutiqueMessage: "नमस्ते विधि फैब्रिक्स, कृपया मुझे Boutique Owners Circle में जोड़िए।",
     home: "Ghar Se Business Circle",
     homeMessage: "नमस्ते विधि फैब्रिक्स, कृपया मुझे Ghar Se Business Circle में जोड़िए।",
+    portraitAlt:
+      "सीक्वेंस वाली लाल साड़ी पहने मुस्कुराती महिला, पीछे तह की हुई साड़ियों की अलमारियाँ",
   },
   "hi-en": {
     headline: "Vidhi Reseller Circle ke saath apna business badhaiye",
@@ -91,6 +97,8 @@ export const HOME_CIRCLE: Record<
     boutiqueMessage: "Hi Vidhi Fabrics, kripya mujhe Boutique Owners Circle mein jodiye.",
     home: "Ghar Se Business Circle",
     homeMessage: "Hi Vidhi Fabrics, kripya mujhe Ghar Se Business Circle mein jodiye.",
+    portraitAlt:
+      "Sequin wali laal saree pehne muskurati mahila, peeche tah ki hui sarees ki shelves",
   },
 };
 

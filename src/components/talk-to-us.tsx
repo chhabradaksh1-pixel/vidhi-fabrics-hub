@@ -474,7 +474,7 @@ export function TalkToUs({ lang = "en" }: { lang?: Lang }) {
               aria-haspopup="dialog"
               aria-expanded={open}
               tabIndex={open || popupOpen || overCta ? -1 : undefined}
-              className={`relative inline-flex size-14 items-center justify-center gap-2.5 rounded-full bg-clay font-mono text-sm uppercase tracking-[0.12em] text-paper shadow-xl ring-2 ring-paper transition-colors hover:bg-claydeep focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink sm:size-auto sm:px-6 sm:py-4 ${
+              className={`relative inline-flex size-14 items-center justify-center gap-2.5 rounded-full bg-clay font-mono text-sm uppercase tracking-label text-paper shadow-xl ring-2 ring-paper transition-colors hover:bg-claydeep focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink sm:size-auto sm:px-6 sm:py-4 ${
                 nudge ? "vf-nudge" : ""
               }`}
             >
@@ -496,7 +496,7 @@ export function TalkToUs({ lang = "en" }: { lang?: Lang }) {
           <header className="flex shrink-0 items-center justify-between gap-3 border-b border-line bg-ink px-5 py-4 text-paper">
             <div className="min-w-0">
               <p className="font-display text-lg font-light leading-tight">{copy.title}</p>
-              <p className="truncate font-mono text-[10px] uppercase tracking-[0.14em] text-paper/60">
+              <p className="truncate font-mono text-xs uppercase tracking-label text-paper/60">
                 {copy.subtitle}
               </p>
             </div>
@@ -591,7 +591,7 @@ export function TalkToUs({ lang = "en" }: { lang?: Lang }) {
               <form onSubmit={submitLocation} className="space-y-3">
                 <div className="grid grid-cols-2 gap-2">
                   <label className="block">
-                    <span className="mb-1 block font-mono text-[10px] uppercase tracking-[0.12em] text-mute">
+                    <span className="mb-1 block font-mono text-xs uppercase tracking-label text-mute">
                       {copy.city}
                     </span>
                     <input
@@ -604,7 +604,7 @@ export function TalkToUs({ lang = "en" }: { lang?: Lang }) {
                     />
                   </label>
                   <label className="block">
-                    <span className="mb-1 block font-mono text-[10px] uppercase tracking-[0.12em] text-mute">
+                    <span className="mb-1 block font-mono text-xs uppercase tracking-label text-mute">
                       {copy.country}
                     </span>
                     <input
@@ -619,7 +619,7 @@ export function TalkToUs({ lang = "en" }: { lang?: Lang }) {
                 <button
                   type="submit"
                   disabled={!city.trim() || !country.trim()}
-                  className="w-full rounded-sm bg-ink px-4 py-3 font-mono text-xs uppercase tracking-[0.12em] text-paper transition-colors hover:bg-ink/90 disabled:cursor-not-allowed disabled:opacity-40"
+                  className="w-full rounded-sm bg-ink px-4 py-3 font-mono text-xs uppercase tracking-label text-paper transition-colors hover:bg-ink/90 disabled:cursor-not-allowed disabled:opacity-40"
                 >
                   {copy.send}
                 </button>
@@ -634,14 +634,14 @@ export function TalkToUs({ lang = "en" }: { lang?: Lang }) {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => track("talk_to_us_whatsapp_clicked")}
-                  className="block w-full rounded-sm bg-clay px-4 py-3.5 text-center font-mono text-xs uppercase tracking-[0.12em] text-paper transition-colors hover:bg-claydeep"
+                  className="block w-full rounded-sm bg-clay px-4 py-3.5 text-center font-mono text-xs uppercase tracking-label text-paper transition-colors hover:bg-claydeep"
                 >
                   {copy.cta}
                 </a>
                 <button
                   type="button"
                   onClick={restart}
-                  className="w-full text-center font-mono text-[10px] uppercase tracking-[0.12em] text-mute underline-offset-4 hover:text-ink hover:underline"
+                  className="w-full text-center font-mono text-xs uppercase tracking-label text-mute underline-offset-4 hover:text-ink hover:underline"
                 >
                   {copy.restart}
                 </button>
@@ -720,7 +720,7 @@ function Choices({
         <button
           type="submit"
           disabled={!value.trim()}
-          className="shrink-0 rounded-sm bg-ink px-4 py-2.5 font-mono text-xs uppercase tracking-[0.12em] text-paper transition-colors hover:bg-ink/90 disabled:cursor-not-allowed disabled:opacity-40"
+          className="shrink-0 rounded-sm bg-ink px-4 py-2.5 font-mono text-xs uppercase tracking-label text-paper transition-colors hover:bg-ink/90 disabled:cursor-not-allowed disabled:opacity-40"
         >
           {send}
         </button>
@@ -765,7 +765,7 @@ function FreeText({
       <button
         type="submit"
         disabled={!value.trim()}
-        className="shrink-0 rounded-sm bg-ink px-4 py-2.5 font-mono text-xs uppercase tracking-[0.12em] text-paper transition-colors hover:bg-ink/90 disabled:cursor-not-allowed disabled:opacity-40"
+        className="shrink-0 rounded-sm bg-ink px-4 py-2.5 font-mono text-xs uppercase tracking-label text-paper transition-colors hover:bg-ink/90 disabled:cursor-not-allowed disabled:opacity-40"
       >
         {send}
       </button>

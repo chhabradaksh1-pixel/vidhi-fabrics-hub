@@ -21,7 +21,7 @@ import { useEffect, useState, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import hankenLatin from "../assets/fonts/hanken-grotesk-latin.woff2?url";
-import frauncesLatin from "../assets/fonts/fraunces-latin.woff2?url";
+import newsreaderLatin from "../assets/fonts/newsreader-latin-400.woff2?url";
 import devanagariFont from "../assets/fonts/noto-sans-devanagari-wght.woff2?url";
 import devanagariSerif from "../assets/fonts/noto-serif-devanagari-wght.woff2?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -41,7 +41,7 @@ function isHomePath(pathname: string) {
 /**
  * Devanagari, declared and preloaded only on Hindi routes. Body copy uses
  * Noto Sans so it matches Hanken Grotesk. Headings use Noto Serif so they
- * match Fraunces. English pages do not download either file. The homepage's
+ * match Newsreader. English pages do not download either file. The homepage's
  * single Hindi line uses a smaller serif subset instead (showroom.css).
  */
 function DevanagariFont() {
@@ -139,7 +139,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       // files so the first paint is not a fallback face.
       {
         rel: "preload",
-        href: frauncesLatin,
+        href: newsreaderLatin,
         as: "font",
         type: "font/woff2",
         crossOrigin: "anonymous",

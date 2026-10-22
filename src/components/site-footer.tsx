@@ -86,7 +86,7 @@ export function SiteFooter({ lang = "en" }: { lang?: Lang }) {
             <div>
               <a
                 href={home}
-                className="font-display text-2xl font-light tracking-tight text-ivory transition-colors hover:text-gold"
+                className="font-display text-2xl font-light tracking-normal text-ivory transition-colors hover:text-gold"
               >
                 Vidhi Fabrics
               </a>
@@ -100,7 +100,7 @@ export function SiteFooter({ lang = "en" }: { lang?: Lang }) {
                 href={whatsAppUrl(FOOTER_CTA_MESSAGE[lang])}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 whitespace-nowrap border border-gold/70 px-5 py-3 font-mono text-[11px] uppercase tracking-[0.1em] text-gold transition-colors hover:bg-gold hover:text-navy"
+                className="inline-flex items-center gap-2.5 whitespace-nowrap border border-gold/70 px-5 py-3 font-mono text-xs uppercase tracking-label text-gold transition-colors hover:bg-gold hover:text-navy"
               >
                 {FOOTER_CTA[lang]}
                 <ArrowUpRight size={15} aria-hidden="true" />
@@ -122,7 +122,7 @@ export function SiteFooter({ lang = "en" }: { lang?: Lang }) {
                 */}
                   <p
                     id={`footer-${column.heading.en.toLowerCase()}`}
-                    className="font-mono text-[11px] uppercase tracking-[0.16em] text-gold"
+                    className="font-mono text-xs uppercase tracking-label text-gold"
                   >
                     {column.heading[lang]}
                   </p>
@@ -152,7 +152,7 @@ export function SiteFooter({ lang = "en" }: { lang?: Lang }) {
             <div>
               <p
                 id="footer-contact"
-                className="font-mono text-[11px] uppercase tracking-[0.16em] text-gold"
+                className="font-mono text-xs uppercase tracking-label text-gold"
               >
                 {contact.heading}
               </p>
@@ -195,7 +195,7 @@ export function SiteFooter({ lang = "en" }: { lang?: Lang }) {
                     {lang === "hi" ? "व्हाट्सएप" : "WhatsApp"}
                   </a>
                 </p>
-                <p className="font-mono text-xs tracking-wide text-ivory/75">
+                <p className="font-mono text-xs tracking-ui text-ivory/75">
                   {GSTIN_LABEL}: {BUSINESS.gstin}
                 </p>
               </address>
@@ -206,7 +206,7 @@ export function SiteFooter({ lang = "en" }: { lang?: Lang }) {
 
           {/* Bottom row */}
           <div className="mt-14 flex flex-wrap items-center justify-between gap-5 border-t border-ivory/12 pt-7">
-            <p className="font-mono text-[11px] uppercase tracking-[0.12em] text-ivory/55">
+            <p className="font-mono text-xs uppercase tracking-label text-ivory/55">
               {FOOTER_RIGHTS[lang]}
             </p>
             <div className="flex items-center gap-3">

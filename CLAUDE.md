@@ -206,6 +206,14 @@ stays on the WhatsApp glyph only.
   bind `127.0.0.1` explicitly, not `localhost`.
 - `npm run preview` is broken — it looks for `dist/server/` while the build
   writes `.output/`. Use `npm run build` and inspect `.output/public/`.
+- A dev server can keep serving pre-edit code. On 22 October one started with
+  `&` inside a sandboxed Bash command kept the old class names and the old font
+  after the files had changed, so every measurement taken from it was of the
+  old site. A fresh one started with `run_in_background` picked edits up. When
+  a reading disagrees with the source, `curl` the module
+  (`http://127.0.0.1:PORT/src/<file>`) before trusting it. The stale process
+  could not be killed from a later sandboxed command and kept its port, so
+  start the new one on another port.
 - Playwright is at `/opt/node22/lib/node_modules/playwright` (CommonJS — import
   the default export, not named). Chromium at
   `/opt/pw-browsers/chromium-1194/chrome-linux/chrome`.
@@ -226,16 +234,25 @@ stays on the WhatsApp glyph only.
 
 ## Performance and request handling (3 October 2026)
 
-- Fonts are self-hosted in `src/assets/fonts/` (Fraunces for headings and
-  Hanken Grotesk for body and labels, in `styles.css`; Noto Sans Devanagari
-  for Hindi body and Noto Serif Devanagari for Hindi headings, declared and
-  preloaded from `__root.tsx` on `/hi` routes only). Don't reintroduce the
-  Google Fonts stylesheet: it was render-blocking.
+- Fonts are self-hosted in `src/assets/fonts/` (Newsreader for headings, as one
+  static regular file, and Hanken Grotesk for body and labels, in `styles.css`;
+  Noto Sans Devanagari for Hindi body and Noto Serif Devanagari for Hindi
+  headings, declared and preloaded from `__root.tsx` on `/hi` routes only).
+  Don't reintroduce the Google Fonts stylesheet: it was render-blocking.
 - gtag.js is loaded by `src/lib/deferred-gtag.ts` (first interaction or 3.5 s
   after load). The inline `dataLayer`/`gtag()` stub in `__root.tsx` queues
   every event until then; keep it.
-- The homepage pop-up (`src/components/lead-popup.tsx`) opens after 35 s or 50%
-  scroll, once per session. It never opens on load.
+- The homepage pop-up (`src/components/lead-popup.tsx`) is a non-modal card in
+  the bottom corner: no backdrop, no scroll lock, no focus trap, and nothing
+  takes focus when it opens. It opens after 35 s or 50% scroll, once per
+  session, and never on load. Closing it hides it for 7 days and sending an
+  enquiry for 365, remembered in `localStorage` as `vidhi-lead-popup`; the
+  session key `vidhi-lead-popup-seen` is unchanged.
+- The homepage header hides while the reader scrolls down and returns on any
+  scroll up (`src/hooks/use-hide-on-scroll.ts`, styled by
+  `header[data-hide-on-scroll]` in `styles.css`). A Playwright screenshot taken
+  after scrolling down has no header over it; one taken after scrolling up
+  does.
 - `src/lib/edge-policy.ts` (called from `src/server.ts`): 200 HTML responses get
   `s-maxage=3600, stale-while-revalidate=86400`; 404s, redirects, errors and
   `/api` are untouched. `vidhi-fabrics-hub.lovable.app` 301s to www;

@@ -32,6 +32,7 @@ export function pageCode(pathname: string): string {
   let code = "OTH";
   if (rest === "/") code = "HOM";
   else if (rest === "/polyester-sarees-wholesale-surat") code = "SAR";
+  else if (rest === "/unstitched-suits-wholesale-surat") code = "USU";
   else if (rest === "/dress-material-wholesale-surat") code = "DRS";
   else if (rest === "/about") code = "ABT";
   else if (rest === "/blog") code = "BLI";

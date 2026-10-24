@@ -292,6 +292,13 @@ function DressMaterialPage() {
               from Surat.
             </p>
             <p className="mt-5 leading-[1.85] text-mute">
+              For boutiques and for people starting a suit business from home, see{" "}
+              <a href="/unstitched-suits-wholesale-surat" className={linkClass}>
+                unstitched suits wholesale from Surat
+              </a>
+              .
+            </p>
+            <p className="mt-5 leading-[1.85] text-mute">
               For dupattas, lehenga layers, sleeves and overlays, boutiques can ask us for{" "}
               <a href="/organza-net-fabric-for-boutiques" className={linkClass}>
                 organza and net fabric

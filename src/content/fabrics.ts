@@ -21,6 +21,9 @@ export type CatalogueRange = {
   body: Record<Lang, string>;
   pageHref: string;
   linkLabel: Record<Lang, string>;
+  /** A second in-site link, used when one card covers two pages. */
+  alsoHref?: string;
+  alsoLabel?: Record<Lang, string>;
   whatsAppMessage?: Record<Lang, string>;
   /** Product photograph shown at the top of this range card. */
   image?: {
@@ -56,6 +59,12 @@ export const CATALOGUE_RANGES: CatalogueRange[] = [
       en: "Dress material wholesale",
       hi: "ड्रेस मटीरियल होलसेल",
       "hi-en": "Dress material wholesale",
+    },
+    alsoHref: "/unstitched-suits-wholesale-surat",
+    alsoLabel: {
+      en: "Unstitched suits wholesale",
+      hi: "अनस्टिच्ड सूट होलसेल",
+      "hi-en": "Unstitched suits wholesale",
     },
     image: {
       src: "/images/preview/collection-suits.webp",

@@ -292,6 +292,13 @@ function DressMaterialPageHi() {
               भी सप्लाई करते हैं।
             </p>
             <p className="mt-5 leading-[1.85] text-mute">
+              बुटीक के लिए, और घर से सूट का कारोबार शुरू करने वालों के लिए, देखिए{" "}
+              <a href="/hi/unstitched-suits-wholesale-surat" className={linkClass}>
+                सूरत से अनस्टिच्ड सूट होलसेल
+              </a>
+              ।
+            </p>
+            <p className="mt-5 leading-[1.85] text-mute">
               दुपट्टों, लहंगे की परतों, स्लीव्स और ओवरले के लिए बुटीक हमसे{" "}
               <a href="/hi/organza-net-fabric-for-boutiques" className={linkClass}>
                 ऑर्गेंज़ा और नेट कपड़ा

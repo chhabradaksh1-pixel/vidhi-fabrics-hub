@@ -6,6 +6,7 @@
  */
 export const LANDING_PAGES_WITH_HINDI: readonly string[] = [
   "/polyester-sarees-wholesale-surat",
+  "/unstitched-suits-wholesale-surat",
   "/dress-material-wholesale-surat",
   "/about",
   "/saree-wholesale-for-resellers",

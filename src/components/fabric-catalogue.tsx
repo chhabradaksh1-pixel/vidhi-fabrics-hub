@@ -387,6 +387,11 @@ function RangeGrid({ lang, ranges }: { lang: Lang; ranges: CatalogueRange[] }) {
                 <a href={rangeHref(line.pageHref, lang)} className={rangeLink}>
                   {line.linkLabel[lang]}
                 </a>
+                {line.alsoHref && line.alsoLabel ? (
+                  <a href={rangeHref(line.alsoHref, lang)} className={rangeLink}>
+                    {line.alsoLabel[lang]}
+                  </a>
+                ) : null}
               </div>
             </div>
           </article>
@@ -440,6 +445,11 @@ function SuitRangeCard({
           <a href={rangeHref(line.pageHref, lang)} className={rangeLink}>
             {line.linkLabel[lang]}
           </a>
+          {line.alsoHref && line.alsoLabel ? (
+            <a href={rangeHref(line.alsoHref, lang)} className={rangeLink}>
+              {line.alsoLabel[lang]}
+            </a>
+          ) : null}
         </div>
       </div>
     </article>

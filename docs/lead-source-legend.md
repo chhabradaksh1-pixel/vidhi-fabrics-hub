@@ -13,6 +13,7 @@ they first reached the site in that browser session.
 | ---- | ------------------------------------------------------------------------ |
 | HOM  | Homepage `/`                                                             |
 | SAR  | Polyester sarees page `/polyester-sarees-wholesale-surat`                |
+| USU  | Unstitched suits page `/unstitched-suits-wholesale-surat`                |
 | DRS  | Dress material page `/dress-material-wholesale-surat`                    |
 | BLG  | A Fabric Desk article `/blog/...`                                        |
 | BLI  | Fabric Desk index `/blog`                                                |
@@ -26,10 +27,12 @@ they first reached the site in that browser session.
 | ERR  | "Page not found" (404) page, at any mistyped or old URL                  |
 | OTH  | Any other page                                                           |
 | SUIT | Not a page. Temporary unstitched-suit catalogue buttons only (no source suffix: the message ends `(ref: SUIT)`) |
+| PSAREE | Not a page code. Polyester saree catalogue buttons on `/polyester-sarees-wholesale-surat` only (no source suffix: the message ends `(ref: PSAREE)`) |
+| USUIT | Not a page code. Unstitched suit catalogue buttons on `/unstitched-suits-wholesale-surat` only (no source suffix: the message ends `(ref: USUIT)`) |
 | CIRCLE | Not a page. Homepage Reseller Circle WhatsApp links only (no source suffix: the message ends `(ref: CIRCLE)`) |
 
-Hindi pages add **H** to the page code: HOMH, SARH, DRSH, BLGH, BLIH, ABTH, RESH, ORGH,
-FESH, COMH, GUIH, PBGH, ERRH (a 404 under `/hi/...`).
+Hindi pages add **H** to the page code: HOMH, SARH, USUH, DRSH, BLGH, BLIH, ABTH, RESH, ORGH,
+FESH, COMH, GUIH, PBGH, ERRH (a 404 under `/hi/...`). PSAREE and USUIT stay the same on the Hindi pages, because those buttons name the catalogue, not the language.
 
 The Reseller Circle join form sends `form=reseller-circle` with `ref_code` such
 as `COM-IG`. This means the person _asked to join_ from the website. It is not

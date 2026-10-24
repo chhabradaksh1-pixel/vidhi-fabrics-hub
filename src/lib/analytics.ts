@@ -15,7 +15,13 @@ export const GA4_ID: string | undefined = /^G-[A-Z0-9]{4,20}$/.test(RAW_GA4_ID)
   ? RAW_GA4_ID
   : undefined;
 
-export type LeadEventParams = { page: string; source: string; ref_code: string };
+export type LeadEventParams = {
+  page: string;
+  source: string;
+  ref_code: string;
+  /** Set on form_submit when the enquiry form includes "How did you find us?". */
+  found_via?: string;
+};
 
 declare global {
   interface Window {

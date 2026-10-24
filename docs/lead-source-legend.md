@@ -2,7 +2,8 @@
 
 Every WhatsApp message sent from the website ends with a short code such as
 **`(ref: SAR-IG)`**. Website enquiry forms carry the same code in the hidden
-`source`, `page` and `ref_code` fields in Formspree.
+`source`, `page`, `ref_code` and, on the homepage enquiry form, `found_via` fields in Formspree.
+`found_via` is optional. When chosen it is one of: Google, ChatGPT or other AI, Instagram, Friend or reseller, Other.
 
 The format is **PAGE-SOURCE**: which page the visitor clicked from, and how
 they first reached the site in that browser session.

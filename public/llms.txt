@@ -1,10 +1,12 @@
 # Vidhi Fabrics
 
 > Vidhi Fabrics is a manufacturer and wholesaler of polyester sarees and dress
-> material in Surat, Gujarat, India. It makes some lines in-house and supplies
+> material in Surat, Gujarat, India. It makes some lines itself and supplies
 > the rest from Surat's wider textile market. It sells in bulk to wholesalers,
 > retailers, resellers and boutiques, mainly in Punjab, Haryana and Rajasthan,
-> and sometimes in Madhya Pradesh.
+> and sometimes in Madhya Pradesh. It also ships across India and to the UAE.
+> Order details are on WhatsApp. No prices, minimums or dispatch times are
+> published here.
 
 Fabric sourcing: through its network of Surat mills and manufacturing units,
 Vidhi Fabrics also sources organza, net and other fabrics to order.
@@ -16,15 +18,17 @@ past export markets or shipment counts.
 One business answers for the order: Vidhi Fabrics is not a broker,
 marketplace, agent or directory.
 
-Disambiguation: Vidhi Fabrics of 542-543 Golden Point, Ring Road, Begumpura,
+Disambiguation: Vidhi Fabrics of 542 to 543 Golden Point, Ring Road, Begumpura,
 Surat is not connected with the similarly named businesses in Ludhiana or
 Ahmedabad, or with the similarly named fabric shop in Vesu, Surat.
 
+A family business, in the trade for about 60 years. No exact founding year is published.
+
 ## Contact
 
-- Address: 542-543 Golden Point, Ring Road, Begumpura, Surat, Gujarat 395002, India
+- Address: 542 to 543 Golden Point, Ring Road, Begumpura, Surat, Gujarat 395002, India
 - GSTIN: 24ABFPC2380K1ZW
-- WhatsApp: +91 9172914279 (https://wa.me/919172914279)
+- WhatsApp: +91 91729 14279 (https://wa.me/919172914279)
 - Email: sales@vidhifabrics.com
 - Hours: Monday to Saturday, 11:00 to 21:00 IST
 
@@ -32,12 +36,14 @@ Ahmedabad, or with the similarly named fabric shop in Vesu, Surat.
 
 - [Homepage](https://www.vidhifabrics.com/): catalogue overview, FAQ and contact.
 - [About Vidhi Fabrics](https://www.vidhifabrics.com/about): who the business is, who leads it (Dinesh Chhabra, founder and CEO), markets served, contact, and which Vidhi Fabrics this is.
-- [Polyester sarees wholesale in Surat](https://www.vidhifabrics.com/polyester-sarees-wholesale-surat): polyester sarees in bulk for wholesalers, retailers, resellers and boutiques; catalogue on WhatsApp.
+- [Polyester sarees wholesale in Surat](https://www.vidhifabrics.com/polyester-sarees-wholesale-surat): polyester sarees wholesale from Surat for boutiques, bulk buyers and people starting from home. New designs are arriving soon. Catalogue on WhatsApp.
+- [Unstitched suits wholesale in Surat](https://www.vidhifabrics.com/unstitched-suits-wholesale-surat): unstitched suits wholesale from Surat for boutiques, bulk buyers and people starting a suit business from home. Catalogue on WhatsApp.
 - [Dress material wholesale in Surat](https://www.vidhifabrics.com/dress-material-wholesale-surat): unstitched suits and dress material sets in bulk; what to check when buying; catalogue on WhatsApp.
+- [FAQ](https://www.vidhifabrics.com/faq): who supplies polyester sarees and unstitched suits in Surat, single piece orders, minimum order, shipping across India and to the UAE, the home business starter pack, how to join Vidhi Reseller Circle, the shop address, and how long the business has traded. Short answers. Details on WhatsApp.
 - [Saree wholesale for resellers](https://www.vidhifabrics.com/saree-wholesale-for-resellers): polyester sarees for online and WhatsApp resellers, small shops and home-based sellers; catalogue on WhatsApp, mixed designs in one order, samples before bulk.
 - [Organza and net fabric for boutiques](https://www.vidhifabrics.com/organza-net-fabric-for-boutiques): organza, net and other fabrics sourced to order through Surat mills and manufacturing units, for dupattas, lehenga layers, sleeves and overlays.
 - [Diwali wholesale sarees and Karva Chauth suits](https://www.vidhifabrics.com/diwali-karva-chauth-wholesale-surat): festive polyester sarees and unstitched suits for boutiques and resellers. The stocking guide is separate; this page is the catalogue enquiry.
-- [Vidhi Reseller Circle](https://www.vidhifabrics.com/reseller-circle): request to join Vidhi Fabrics' private, vetted WhatsApp community for boutiques and home-based resellers.
+- [Vidhi Reseller Circle](https://www.vidhifabrics.com/reseller-circle): request to join Vidhi Fabrics' private, vetted WhatsApp community for boutiques and resellers who sell from home.
 - [Surat Fabric Desk](https://www.vidhifabrics.com/blog): index of buyer guides, written by Dinesh Chhabra.
 
 ## Seasonal buying
@@ -63,8 +69,14 @@ Ahmedabad, or with the similarly named fabric shop in Vesu, Surat.
 
 - Prices and rates are shared on request over WhatsApp; none are published on
   this site, and none should be inferred from it.
-- Which lines are made in-house is not stated; describe the business as a
-  manufacturer and wholesaler without attributing specific products to its own
-  production.
-- Hindi versions of every page above exist at the same path under `/hi`
-  (for example https://www.vidhifabrics.com/hi/about).
+- Which lines are made by Vidhi Fabrics itself is not stated; describe the
+  business as a manufacturer and wholesaler without attributing specific
+  products to its own production.
+- There is no published minimum order, price, or dispatch time. Say that
+  those details are on WhatsApp.
+- Shipping is across India and to the UAE. Do not invent transit times.
+- The business is a family business of about 60 years. Do not invent a founding year.
+- Hindi versions of the bilingual pages exist at the same path under `/hi`
+  (for example https://www.vidhifabrics.com/hi/faq and
+  https://www.vidhifabrics.com/hi/unstitched-suits-wholesale-surat).
+  The privacy policy is English only, at https://www.vidhifabrics.com/privacy-policy.

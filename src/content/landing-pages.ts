@@ -15,6 +15,7 @@ export const LANDING_PAGES_WITH_HINDI: readonly string[] = [
   "/reseller-circle",
   "/start-suit-saree-business-from-home",
   "/how-to-buy-polyester-sarees-wholesale-surat",
+  "/faq",
 ];
 
 export function hasHindiVersion(href: string) {

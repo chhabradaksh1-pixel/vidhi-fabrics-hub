@@ -124,6 +124,43 @@ export const COPY = {
       hi: "फ़ोन / व्हाट्सएप",
       "hi-en": "Phone / WhatsApp",
     },
+    foundVia: {
+      label: {
+        en: "How did you find us?",
+        hi: "आपने हमें कैसे पाया?",
+        "hi-en": "Hume kaise paya?",
+      },
+      options: [
+        {
+          value: "Google",
+          label: { en: "Google", hi: "Google", "hi-en": "Google" },
+        },
+        {
+          value: "ChatGPT or other AI",
+          label: {
+            en: "ChatGPT or other AI",
+            hi: "ChatGPT या कोई और AI",
+            "hi-en": "ChatGPT ya koi aur AI",
+          },
+        },
+        {
+          value: "Instagram",
+          label: { en: "Instagram", hi: "Instagram", "hi-en": "Instagram" },
+        },
+        {
+          value: "Friend or reseller",
+          label: {
+            en: "Friend or reseller",
+            hi: "दोस्त या रीसेलर",
+            "hi-en": "Friend ya reseller",
+          },
+        },
+        {
+          value: "Other",
+          label: { en: "Other", hi: "अन्य", "hi-en": "Other" },
+        },
+      ],
+    },
     buyerTypes: {
       retail: {
         en: "Buyer type: Retail",

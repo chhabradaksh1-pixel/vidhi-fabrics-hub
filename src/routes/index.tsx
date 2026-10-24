@@ -385,6 +385,7 @@ function Index() {
                       page: ctx.page,
                       source: ctx.source,
                       ref_code: ctx.ref,
+                      found_via: String(body.get("found_via") ?? ""),
                     });
                     setInquiryStatus("success");
                     setSent(true);
@@ -418,6 +419,19 @@ function Index() {
                   placeholder={COPY.inquiry.phone[lang]}
                   aria-label={COPY.inquiry.phone[lang]}
                 />
+                <select
+                  name="found_via"
+                  defaultValue=""
+                  className="w-full rounded-sm bg-paper px-3 py-2.5 text-sm text-mute outline-none ring-1 ring-line focus:ring-clay"
+                  aria-label={COPY.inquiry.foundVia.label[lang]}
+                >
+                  <option value="">{COPY.inquiry.foundVia.label[lang]}</option>
+                  {COPY.inquiry.foundVia.options.map((option) => (
+                    <option key={option.value} value={option.value}>
+                      {option.label[lang]}
+                    </option>
+                  ))}
+                </select>
                 <select
                   name="buyer_type"
                   className="w-full rounded-sm bg-paper px-3 py-2.5 text-sm text-mute outline-none ring-1 ring-line focus:ring-clay"

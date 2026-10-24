@@ -51,6 +51,10 @@ export const FOOTER_COLUMNS: FooterColumn[] = [
         href: "/about",
       },
       {
+        label: { en: "FAQ", hi: "सामान्य प्रश्न", "hi-en": "FAQ" },
+        href: "/faq",
+      },
+      {
         label: { en: "Privacy policy", hi: "गोपनीयता नीति", "hi-en": "Privacy policy" },
         href: "/privacy-policy",
       },

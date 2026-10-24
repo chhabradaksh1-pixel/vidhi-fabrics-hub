@@ -15,7 +15,7 @@ export const BUSINESS = {
      Justdial listing has a third wording again. Postal lookups put
      Ring Road / Golden Point in 395002, served by Surat Textile Market —
      so the postcode here was already right and the street was not. */
-  streetAddress: "542-543 Golden Point, Ring Road, Begumpura",
+  streetAddress: "542 to 543 Golden Point, Ring Road, Begumpura",
   locality: "Surat",
   region: "Gujarat",
   postalCode: "395002",
@@ -79,10 +79,10 @@ export function authorSchema() {
  * and in llms.txt, so every surface says the same thing.
  */
 export const DISAMBIGUATION: Record<Lang, string> = {
-  en: "Vidhi Fabrics of 542-543 Golden Point, Ring Road, Begumpura, Surat: a manufacturer and wholesaler of polyester sarees and dress material. Not connected with the similarly named businesses in Ludhiana or Ahmedabad, or with the similarly named fabric shop in Vesu, Surat.",
-  hi: "विधि फैब्रिक्स, 542-543 गोल्डन पॉइंट, रिंग रोड, बेगमपुरा, सूरत — पॉलिएस्टर साड़ियों और ड्रेस मटेरियल के निर्माता और थोक विक्रेता। लुधियाना या अहमदाबाद में इससे मिलते-जुलते नाम वाले कारोबारों से, और सूरत के वेसू में मिलते-जुलते नाम वाली कपड़े की दुकान से, हमारा कोई संबंध नहीं है।",
+  en: "Vidhi Fabrics of 542 to 543 Golden Point, Ring Road, Begumpura, Surat: a manufacturer and wholesaler of polyester sarees and dress material. Not connected with the similarly named businesses in Ludhiana or Ahmedabad, or with the similarly named fabric shop in Vesu, Surat.",
+  hi: "विधि फैब्रिक्स, 542 से 543 गोल्डन पॉइंट, रिंग रोड, बेगमपुरा, सूरत. पॉलिएस्टर साड़ियों और ड्रेस मटेरियल के निर्माता और थोक विक्रेता। लुधियाना या अहमदाबाद में इससे मिलते जुलते नाम वाले कारोबारों से, और सूरत के वेसू में मिलते जुलते नाम वाली कपड़े की दुकान से, हमारा कोई संबंध नहीं है।",
   "hi-en":
-    "Vidhi Fabrics, 542-543 Golden Point, Ring Road, Begumpura, Surat — polyester sarees aur dress material ke manufacturer aur wholesaler. Ludhiana ya Ahmedabad mein isse milte-julte naam wale businesses se, aur Surat ke Vesu mein milte-julte naam wali fabric shop se, hamara koi sambandh nahin hai.",
+    "Vidhi Fabrics, 542 to 543 Golden Point, Ring Road, Begumpura, Surat. Polyester sarees aur dress material ke manufacturer aur wholesaler. Ludhiana ya Ahmedabad mein isse milte julte naam wale businesses se, aur Surat ke Vesu mein milte julte naam wali fabric shop se, hamara koi sambandh nahin hai.",
 };
 
 /**
@@ -98,6 +98,7 @@ export const AREA_SERVED = [
   { "@type": "State", name: "Uttar Pradesh" },
   { "@type": "State", name: "Madhya Pradesh" },
   { "@type": "Country", name: "India" },
+  { "@type": "Country", name: "United Arab Emirates" },
 ] as const;
 
 /** The address as shown on the page, one line per row. */
@@ -106,7 +107,7 @@ export const ADDRESS_LINES: Record<Lang, string[]> = {
     BUSINESS.streetAddress,
     `${BUSINESS.locality}, ${BUSINESS.region} ${BUSINESS.postalCode}, India`,
   ],
-  hi: ["542-543 गोल्डन पॉइंट, रिंग रोड, बेगमपुरा", `सूरत, गुजरात ${BUSINESS.postalCode}, भारत`],
+  hi: ["542 से 543 गोल्डन पॉइंट, रिंग रोड, बेगमपुरा", `सूरत, गुजरात ${BUSINESS.postalCode}, भारत`],
   "hi-en": [
     BUSINESS.streetAddress,
     `${BUSINESS.locality}, ${BUSINESS.region} ${BUSINESS.postalCode}, India`,
@@ -120,13 +121,15 @@ export const ADDRESS_LINES: Record<Lang, string[]> = {
 export function localBusinessSchema(site: string) {
   return {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    // One node is both. LocalBusiness covers the shop; Organization covers
+    // the business entity answer engines look up. No foundingDate: none was supplied.
+    "@type": ["LocalBusiness", "Organization"],
     "@id": BUSINESS_ID,
     name: BUSINESS.name,
     alternateName: "विधि फैब्रिक्स",
     // Positioning confirmed by the owner on 1 October 2026.
     description:
-      "Surat-based manufacturer and wholesaler of polyester sarees and dress material. Through a network of Surat mills and manufacturing units it also sources organza, net and other fabrics to order. Sells in bulk to wholesalers, retailers, resellers and boutiques, mainly across North India.",
+      "Manufacturer and wholesaler in Surat of polyester sarees and dress material. Through a network of Surat mills and manufacturing units it also sources organza, net and other fabrics to order. Sells in bulk to wholesalers, retailers, resellers and boutiques across India, and takes enquiries from the UAE.",
     makesOffer: [
       ...["Polyester sarees", "Dress material", "Organza fabric", "Net fabric"].map((name) => ({
         "@type": "Offer",

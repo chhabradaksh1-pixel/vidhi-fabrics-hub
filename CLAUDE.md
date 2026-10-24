@@ -27,7 +27,7 @@ Not a broker, marketplace, agent or directory. What may and
 may not be claimed on the site is set out in `BRAND.md`; some claims the owner
 has ruled out explicitly, so check there before writing copy.
 
-Confirmed contact details (owner, 2 October 2026): 542-543 Golden Point, Ring
+Confirmed contact details (owner, 2 October 2026): 542 to 543 Golden Point, Ring
 Road, Begumpura, Surat 395002; WhatsApp +91 9825208413; **`sales@vidhifabrics.com`
 is confirmed to exist**. The Justdial listing's address is the owner's to fix;
 leave its `sameAs` URL alone.

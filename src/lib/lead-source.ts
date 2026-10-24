@@ -43,6 +43,7 @@ export function pageCode(pathname: string): string {
   else if (rest === "/reseller-circle") code = "COM";
   else if (rest === "/start-suit-saree-business-from-home") code = "GUI";
   else if (rest === "/how-to-buy-polyester-sarees-wholesale-surat") code = "PBG";
+  else if (rest === "/faq") code = "FAQ";
 
   return hindi ? `${code}H` : code;
 }

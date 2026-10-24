@@ -24,6 +24,7 @@ they first reached the site in that browser session.
 | COM  | Vidhi Reseller Circle join page `/reseller-circle` (form only)           |
 | GUI  | Home business guide `/start-suit-saree-business-from-home`               |
 | PBG  | Polyester saree buying guide `/how-to-buy-polyester-sarees-wholesale-surat` |
+| FAQ  | FAQ page `/faq`. The WhatsApp button on that page sends `(ref: FAQ)` with no source suffix. |
 | ERR  | "Page not found" (404) page, at any mistyped or old URL                  |
 | OTH  | Any other page                                                           |
 | SUIT | Not a page. Temporary unstitched-suit catalogue buttons only (no source suffix: the message ends `(ref: SUIT)`) |
@@ -32,7 +33,7 @@ they first reached the site in that browser session.
 | CIRCLE | Not a page. Homepage Reseller Circle WhatsApp links only (no source suffix: the message ends `(ref: CIRCLE)`) |
 
 Hindi pages add **H** to the page code: HOMH, SARH, USUH, DRSH, BLGH, BLIH, ABTH, RESH, ORGH,
-FESH, COMH, GUIH, PBGH, ERRH (a 404 under `/hi/...`). PSAREE and USUIT stay the same on the Hindi pages, because those buttons name the catalogue, not the language.
+FESH, COMH, GUIH, PBGH, FAQH, ERRH (a 404 under `/hi/...`). PSAREE, USUIT and the FAQ button ref stay the same on the Hindi pages.
 
 The Reseller Circle join form sends `form=reseller-circle` with `ref_code` such
 as `COM-IG`. This means the person _asked to join_ from the website. It is not

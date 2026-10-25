@@ -29,6 +29,17 @@ declare global {
   }
 }
 
+/** Homepage smart search. Queued on the existing gtag stub until the tag loads. */
+export function trackSearchSubmit(query: string) {
+  try {
+    if (typeof window !== "undefined" && typeof window.gtag === "function") {
+      window.gtag("event", "search_submit", { query, search_term: query });
+    }
+  } catch {
+    /* analytics must never break a search */
+  }
+}
+
 export function trackLeadEvent(name: "whatsapp_click" | "form_submit", params: LeadEventParams) {
   try {
     if (GA4_ID && typeof window !== "undefined" && typeof window.gtag === "function") {

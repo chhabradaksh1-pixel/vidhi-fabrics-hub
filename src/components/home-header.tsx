@@ -1,7 +1,8 @@
-import { Menu, X } from "lucide-react";
+import { Menu, Search, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
 import { StoryLinks } from "@/components/fabric-desk";
+import { SEARCH_OPEN } from "@/content/home-search";
 import { COPY, type Lang } from "@/content/translations";
 import { useHideOnScroll } from "@/hooks/use-hide-on-scroll";
 import logoMark from "@/assets/vidhi-logo-mark.webp";
@@ -97,6 +98,19 @@ export function HomeHeader({
           <div className="hidden md:block">
             <LanguageSwitch lang={lang} setLang={setLang} route={route} />
           </div>
+          <button
+            type="button"
+            className="grid size-11 shrink-0 place-items-center text-ink"
+            aria-label={SEARCH_OPEN[lang]}
+            onClick={() => {
+              const field = document.getElementById("home-search");
+              if (!(field instanceof HTMLInputElement)) return;
+              field.scrollIntoView({ block: "center", behavior: "auto" });
+              field.focus();
+            }}
+          >
+            <Search size={18} aria-hidden="true" />
+          </button>
           <a
             href={whatsAppHref}
             target="_blank"

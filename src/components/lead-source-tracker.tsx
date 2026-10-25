@@ -20,8 +20,8 @@ import {
  * no ref; a visitor without JavaScript sends an untagged message, which the
  * legend treats as source D.
  *
- * A link may set `data-lead-ref="SUIT"` or `data-lead-ref="CIRCLE"` to send
- * that code instead of the page's PAGE-SOURCE ref.
+ * A link may set `data-lead-ref="SUIT"`, `data-lead-ref="CIRCLE"` or
+ * `data-lead-ref="SEARCH"` to send that code instead of the page's PAGE-SOURCE ref.
  */
 function refForAnchor(a: HTMLAnchorElement): string {
   const override = a.dataset.leadRef ?? "";

@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+import { HomeSearch } from "@/components/home-search";
 import { COPY, type Lang } from "@/content/translations";
 import {
   ENQUIRE,
@@ -46,6 +47,7 @@ export function ShowroomHero({ lang, enquireHref }: { lang: Lang; enquireHref: s
                   ? SHOWROOM_HEADLINE_HI_EN
                   : SHOWROOM_HEADLINE}
             </h1>
+            <HomeSearch lang={lang} />
             <p
               lang={lang === "en" ? "hi" : lang}
               className="vf-showroom-hindi mt-3 text-lg leading-snug sm:text-2xl"

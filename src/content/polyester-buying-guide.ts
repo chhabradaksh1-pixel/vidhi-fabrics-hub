@@ -7,7 +7,8 @@ const phone = BUSINESS.phoneDisplay;
 /**
  * Buying guide for polyester sarees. Canonical URLs are the root paths.
  * Design rates, quantities and timings are not stated. The only figure is
- * 5% off as a thank you for advance or cash payment. Hindi and Hinglish
+ * 5% off as a thank you on bulk orders above 100 pieces paid in advance
+ * or in cash. Hindi and Hinglish
  * have not been reviewed by a native speaker.
  */
 export const POLYESTER_BUYING_GUIDE: JournalArticle = {
@@ -158,19 +159,19 @@ export const POLYESTER_BUYING_GUIDE: JournalArticle = {
         en: [
           "A price belongs to one design, not to polyester sarees as a class. Two sarees can look alike in a photograph and still be different offers, because the cloth, the weight, the print and the finish are not the same. Read why similar sarees are quoted differently before you put two quotations side by side. Compare like with like.",
           "Ask the quotation to name the design, what the set includes, and what the figure covers. A figure with no description cannot be checked later. Vidhi shares the current rate on WhatsApp when you ask. This page does not print design rates.",
-          "We give 5% off as a thank you when you pay in advance or in cash. Message us on WhatsApp for order details.",
+          "On bulk orders above 100 pieces, we give 5% off as a thank you when you pay in advance or in cash. Message us on WhatsApp for order details.",
           "What you charge in Meerut, Muzaffarnagar, Saharanpur or Bareilly is a decision you make for your own customers. A quotation from Surat does not set the price on your shelf. Keep the quotation you accepted separate from the price you tell your customer.",
         ],
         hi: [
           "दाम एक डिज़ाइन का होता है, पॉलिएस्टर साड़ियों की पूरी जमात का नहीं। दो साड़ियाँ तस्वीर में एक जैसी लग सकती हैं और फिर भी अलग ऑफ़र हो सकती हैं, क्योंकि कपड़ा, वज़न, प्रिंट और फ़िनिश एक नहीं होते। दो कोटेशन अगल-बगल रखने से पहले पढ़िए कि मिलती-जुलती साड़ियों के कोटेशन अलग क्यों होते हैं। समान की तुलना समान से कीजिए।",
           "कोटेशन से कहिए कि उसमें डिज़ाइन का नाम हो, सेट में क्या है, और आँकड़ा किस बात को कवर करता है। बिना ब्यौरे का आँकड़ा बाद में जाँचा नहीं जा सकता। पूछने पर विधि ताज़ा दर व्हाट्सएप पर बताता है। यह पेज किसी डिज़ाइन की दर नहीं छापता।",
-          "अग्रिम या नकद भुगतान पर हम धन्यवाद के रूप में 5% की छूट देते हैं। ऑर्डर का विवरण व्हाट्सएप पर मैसेज कीजिए।",
+          "100 पीस से अधिक के बल्क ऑर्डर पर, अग्रिम या नकद में भुगतान करने पर हम धन्यवाद के रूप में 5% की छूट देते हैं। ऑर्डर का विवरण व्हाट्सएप पर मैसेज कीजिए।",
           "मेरठ, मुज़फ़्फ़रनगर, सहारनपुर या बरेली में आप क्या दाम रखते हैं, यह आपके अपने ग्राहकों के लिए आपका फ़ैसला है। सूरत का कोटेशन आपकी शेल्फ़ का दाम तय नहीं करता। जो कोटेशन आपने मंज़ूर किया उसे उस दाम से अलग रखिए जो आप ग्राहक को बताते हैं।",
         ],
         "hi-en": [
           "Daam ek design ka hota hai, polyester sarees ki poori jamaat ka nahin. Do sarees tasveer mein ek jaisi lag sakti hain aur phir bhi alag offer ho sakti hain, kyunki kapda, weight, print aur finish ek nahin hote. Do quotation agal-bagal rakhne se pehle padhiye ki similar sarees ke quotation alag kyun hote hain. Samaan ki tulna samaan se kijiye.",
           "Quotation se kahiye ki usme design ka naam ho, set mein kya hai, aur aankda kis baat ko cover karta hai. Bina byore ka aankda baad mein check nahin ho sakta. Poochne par Vidhi latest rate WhatsApp par batata hai. Yeh page kisi design ki rate nahin chhaapta.",
-          "Advance ya cash payment par hum thank you ke roop mein 5% off dete hain. Order details ke liye WhatsApp par message kijiye.",
+          "100 piece se zyada ke bulk order par, advance ya cash mein payment karne par hum thank you ke roop mein 5% off dete hain. Order details ke liye WhatsApp par message kijiye.",
           "Meerut, Muzaffarnagar, Saharanpur ya Bareilly mein aap kya daam rakhte hain, yeh aapke apne customers ke liye aapka faisla hai. Surat ka quotation aapki shelf ka daam tay nahin karta. Jo quotation aapne approve kiya use us daam se alag rakhiye jo aap customer ko batate hain.",
         ],
       },

@@ -75,7 +75,7 @@ export const FAQ_EN: FaqCopy = {
     {
       question: "Do you give any benefit for advance payment?",
       answer: [
-        "We give 5% off as a thank you when you pay in advance or in cash. Message us on WhatsApp for order details.",
+        "On bulk orders above 100 pieces, we give 5% off as a thank you when you pay in advance or in cash. Message us on WhatsApp for order details.",
       ],
     },
     {
@@ -162,7 +162,7 @@ export const FAQ_HI: FaqCopy = {
     {
       question: "क्या आप अग्रिम भुगतान पर कोई लाभ देते हैं?",
       answer: [
-        "अग्रिम या नकद भुगतान पर हम धन्यवाद के रूप में 5% की छूट देते हैं। ऑर्डर का विवरण व्हाट्सएप पर मैसेज कीजिए।",
+        "100 पीस से अधिक के बल्क ऑर्डर पर, अग्रिम या नकद में भुगतान करने पर हम धन्यवाद के रूप में 5% की छूट देते हैं। ऑर्डर का विवरण व्हाट्सएप पर मैसेज कीजिए।",
       ],
     },
     {

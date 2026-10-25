@@ -3,11 +3,23 @@ import { whatsAppUrl } from "@/content/whatsapp";
 
 /** Visible strings added for the showroom. No hyphen or dash in these lines. */
 
-export const SHOWROOM_HEADLINE =
-  "Surat's trusted manufacturer of sarees and dress material, for 60 years";
+export const SHOWROOM_HEADLINE = "Surat's trusted saree and suit maker";
 
-export const SHOWROOM_HEADLINE_HI =
-  "60 साल से सूरत में साड़ियाँ और ड्रेस मटेरियल बनाने वाला भरोसेमंद निर्माता";
+/** Hindi page H1. Same meaning as the English line. Not reviewed by a native speaker. */
+export const SHOWROOM_HEADLINE_HI = "सूरत की भरोसेमंद साड़ी और सूट बनाने वाली";
+
+export const SHOWROOM_HEADLINE_HI_EN = "Surat ki trusted saree aur suit maker";
+
+/**
+ * The English homepage keeps a Hindi line under the H1, and that line carries
+ * the 60 years. The Hindi and Hinglish pages use the short years line, because
+ * their H1 is already in that language.
+ */
+export const SHOWROOM_SUBLINE: Record<Lang, string> = {
+  en: "60 साल से सूरत की भरोसेमंद साड़ी और सूट बनाने वाली",
+  hi: "व्यापार में 60 साल",
+  "hi-en": "Vyapar mein 60 saal",
+};
 
 export const HERO_IMAGE = {
   src: "/images/preview/hero-saree.webp",

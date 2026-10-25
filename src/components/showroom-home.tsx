@@ -6,6 +6,8 @@ import {
   HERO_IMAGE,
   SHOWROOM_HEADLINE,
   SHOWROOM_HEADLINE_HI,
+  SHOWROOM_HEADLINE_HI_EN,
+  SHOWROOM_SUBLINE,
   SHOWROOM_TILES,
   VIEW_RANGE,
   designLink,
@@ -38,10 +40,17 @@ export function ShowroomHero({ lang, enquireHref }: { lang: Lang; enquireHref: s
         <div className="relative mx-auto w-full max-w-[1440px] px-5 pb-6 pt-8 sm:px-8 sm:py-14 md:flex md:min-h-[680px] md:items-center md:py-16 lg:px-[50px]">
           <div className="max-w-xl md:max-w-[22rem] lg:max-w-[30rem]">
             <h1 className="vf-showroom-serif text-[2.15rem] leading-[1.08] text-balance sm:text-5xl lg:text-6xl">
-              {SHOWROOM_HEADLINE}
+              {lang === "hi"
+                ? SHOWROOM_HEADLINE_HI
+                : lang === "hi-en"
+                  ? SHOWROOM_HEADLINE_HI_EN
+                  : SHOWROOM_HEADLINE}
             </h1>
-            <p lang="hi" className="vf-showroom-hindi mt-3 text-lg leading-snug sm:text-2xl">
-              {SHOWROOM_HEADLINE_HI}
+            <p
+              lang={lang === "en" ? "hi" : lang}
+              className="vf-showroom-hindi mt-3 text-lg leading-snug sm:text-2xl"
+            >
+              {SHOWROOM_SUBLINE[lang]}
             </p>
             <a href={enquireHref} target="_blank" rel="noopener noreferrer" className="vf-showroom-enquire mt-6 w-auto">
               {ENQUIRE[lang]}

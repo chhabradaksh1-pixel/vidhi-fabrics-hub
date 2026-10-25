@@ -15,6 +15,8 @@ export const SECTION_COPY = {
     titleEnd: "All of it from Surat.",
     support:
       "Trading cloth in Surat since the 1960s, we make and wholesale polyester sarees and dress material, and source other fabrics to order. Export enquiries are welcome from the UAE.",
+    reach:
+      "Through our network of Surat mills and manufacturing units, we also source organza, net and other fabrics to order. We supply buyers in Punjab, Haryana, Rajasthan, Uttar Pradesh and Madhya Pradesh.",
     body: "Vidhi Fabrics has been trading cloth in Surat since the 1960s — more than sixty years in the same city and the same industry. The mills, dyers and finishers we work with are ones we have known for decades, not names off a list.",
     bodyEnd:
       "That network is what you get access to. Send a swatch, a photograph or a rough idea, and we will tell you what it is, what it costs and whether we can supply it — and say so plainly when a fabric will not work for you. We make and wholesale polyester sarees and dress material, and source organza, net and other fabrics to order through our Surat network. Export enquiries are welcome too, from the UAE and other international markets.",
@@ -59,6 +61,8 @@ export const SECTION_COPY = {
     titleEnd: "और यह सब सूरत से।",
     support:
       "1960 के दशक से सूरत में कपड़े का व्यापार — पॉलिएस्टर साड़ियाँ और ड्रेस मटीरियल यहीं से बनते और होलसेल होते हैं, और दूसरे कपड़े ऑर्डर पर सोर्स होते हैं। UAE से एक्सपोर्ट पूछताछ का स्वागत है।",
+    reach:
+      "सूरत की मिलों और मैन्युफैक्चरिंग यूनिट्स के नेटवर्क से हम ऑर्गेंज़ा, नेट और दूसरे कपड़े भी ऑर्डर पर सोर्स करते हैं। हम पंजाब, हरियाणा, राजस्थान, उत्तर प्रदेश और मध्य प्रदेश के खरीदारों को सप्लाई करते हैं।",
     body: "विधि फैब्रिक्स 1960 के दशक से सूरत में कपड़े का व्यापार कर रहा है — उसी शहर और उसी उद्योग में साठ साल से ज़्यादा। जिन मिलों, रंगाई और फ़िनिशिंग वालों के साथ हम काम करते हैं, उन्हें हम दशकों से जानते हैं, किसी सूची से चुने नाम नहीं।",
     bodyEnd:
       "यही नेटवर्क आपके लिए खुलता है। एक स्वैच, एक तस्वीर या मोटा-मोटा ख़याल भेजिए — हम बताएँगे कि वह क्या है, कीमत क्या होगी और क्या हम इसे दे पाएँगे। और अगर कोई कपड़ा आपके काम का नहीं, तो साफ़ कह देंगे। हम पॉलिएस्टर साड़ियाँ और ड्रेस मटेरियल बनाते और थोक में बेचते हैं, और सूरत के अपने नेटवर्क से ऑर्गेंज़ा, नेट और दूसरे कपड़े ऑर्डर पर सोर्स करते हैं। UAE और अन्य अंतरराष्ट्रीय बाज़ारों से एक्सपोर्ट पूछताछ का भी स्वागत है।",
@@ -104,6 +108,8 @@ export const SECTION_COPY = {
     titleEnd: "Aur yeh sab Surat se.",
     support:
       "1960s se Surat mein kapde ka vyapar — polyester sarees aur dress material yahin se bante aur wholesale hote hain, aur dusre fabrics order par source hote hain. UAE se export enquiries ka swagat hai.",
+    reach:
+      "Surat ki mills aur manufacturing units ke network se hum organza, net aur dusre fabrics bhi order par source karte hain. Hum Punjab, Haryana, Rajasthan, Uttar Pradesh aur Madhya Pradesh ke buyers ko supply karte hain.",
     body: "Vidhi Fabrics 1960s se Surat mein kapde ka vyapar kar raha hai — usi sheher aur usi industry mein saath saal se zyada. Jin mills, dyers aur finishers ke saath hum kaam karte hain, unhe hum decades se jaante hain, kisi list se chune naam nahi.",
     bodyEnd:
       "Yahi network aapke liye khulta hai. Ek swatch, ek photo ya mota-mota idea bhejiye — hum batayenge ki wo kya hai, price kya hogi aur kya hum ise de payenge. Aur agar koi fabric aapke kaam ka nahi, to saaf keh denge. Hum polyester sarees aur dress material banate aur wholesale karte hain, aur Surat ke apne network se organza, net aur dusre fabrics order par source karte hain. UAE aur dusre international markets se export enquiries ka bhi swagat hai.",

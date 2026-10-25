@@ -49,6 +49,9 @@ export function AboutSection({ lang, whatsappUrl }: { lang: Lang; whatsappUrl: s
           <p className="mt-6 max-w-[42ch] text-pretty text-lg leading-relaxed text-mute">
             {copy.support}
           </p>
+          <p className="mt-4 max-w-[42ch] text-pretty text-base leading-relaxed text-mute">
+            {copy.reach}
+          </p>
           <p className="mt-4 font-mono text-xs uppercase leading-relaxed tracking-label text-mute">
             {copy.detail}
           </p>

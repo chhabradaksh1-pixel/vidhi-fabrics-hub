@@ -61,13 +61,10 @@ export const COPY = {
       "hi-en": "Surat se aapki dukaan tak.",
     },
     body: {
-      en: "Vidhi Fabrics is a Surat manufacturer and wholesaler of polyester sarees and dress material. Through our network of Surat mills and manufacturing units, we also source organza, net and other fabrics to order, for wholesalers, retailers, resellers and boutiques.",
-      // Same meaning as the English sentence. Uses होलसेल, सूरत, ड्रेस मटीरियल
-      // and साड़ी in the trade register. No native speaker has reviewed this
-      // wording — see BRAND.md.
-      hi: "विधि फैब्रिक्स सूरत का पॉलिएस्टर साड़ी और ड्रेस मटीरियल निर्माता और होलसेलर है। सूरत की मिलों और मैन्युफैक्चरिंग यूनिट्स के नेटवर्क से हम ऑर्गेंज़ा, नेट और दूसरे कपड़े भी ऑर्डर पर सोर्स करते हैं — होलसेलर, रिटेलर, रीसेलर और बुटीक के लिए।",
-      "hi-en":
-        "Vidhi Fabrics Surat ka polyester saree aur dress material manufacturer aur wholesaler hai. Surat ki mills aur manufacturing units ke apne network se hum organza, net aur dusre fabrics bhi order par source karte hain — wholesalers, retailers, resellers aur boutiques ke liye.",
+      en: "Polyester sarees and dress material, made in Surat for 60 years.",
+      // Same meaning as the English sentence. No native speaker has reviewed this wording.
+      hi: "पॉलिएस्टर साड़ियाँ और ड्रेस मटेरियल, 60 साल से सूरत में बन रहे हैं।",
+      "hi-en": "Polyester sarees aur dress material, Surat mein 60 saal se.",
     },
     dressLink: {
       en: "Dress material and unstitched suits wholesale",
@@ -77,10 +74,10 @@ export const COPY = {
     // Where the buyers are, as stated by the owner. Mirrors `areaServed` in
     // content/business.ts and the polyester page's regions answer.
     regions: {
-      en: "We currently supply buyers across North India: Punjab, Haryana, Rajasthan, Uttar Pradesh and Madhya Pradesh, and we're expanding to buyers across India.",
-      hi: "हम मुख्य रूप से उत्तर भारत के खरीदारों को सप्लाई करते हैं: पंजाब, हरियाणा, राजस्थान, उत्तर प्रदेश और मध्य प्रदेश।",
+      en: "Supplying wholesalers, retailers, resellers, boutiques and home businesses across India, and importers in the UAE, Bangladesh, Sri Lanka and beyond.",
+      hi: "हम भारत भर के थोक विक्रेताओं, रिटेलरों, रीसेलरों, बुटीक और घर से कारोबार करने वालों को सप्लाई करते हैं, और यूएई, बांग्लादेश, श्रीलंका तथा उससे आगे के आयातकों को भी।",
       "hi-en":
-        "Hum abhi North India ke buyers ko supply karte hain: Punjab, Haryana, Rajasthan, Uttar Pradesh aur Madhya Pradesh, aur ab hum poore India ke buyers tak pahunch rahe hain.",
+        "Wholesalers, retailers, resellers, boutiques aur home businesses ko poore India mein supply, aur UAE, Bangladesh, Sri Lanka aur aage ke importers ko bhi.",
     },
     stats: [
       {

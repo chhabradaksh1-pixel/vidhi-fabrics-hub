@@ -6,14 +6,17 @@ const phone = BUSINESS.phoneDisplay;
 
 /**
  * Buying guide for polyester sarees. Canonical URLs are the root paths.
- * No rates, quantities or timings are stated. Hindi and Hinglish have not
- * been reviewed by a native speaker.
+ * Design rates, quantities and timings are not stated. The only figure is
+ * 5% off as a thank you on bulk orders above 100 pieces paid in advance
+ * or in cash. Hindi and Hinglish
+ * have not been reviewed by a native speaker.
  */
 export const POLYESTER_BUYING_GUIDE: JournalArticle = {
   slug: "how-to-buy-polyester-sarees-wholesale-surat",
   href: "/how-to-buy-polyester-sarees-wholesale-surat",
   image: specSamples,
   published: "2026-10-11",
+  modified: "2026-10-25",
   imageAlt: {
     en: "Textile samples laid out for checking at Vidhi Fabrics in Surat",
     hi: "सूरत में विधि फैब्रिक्स पर जाँच के लिए रखे कपड़े के नमूने",
@@ -42,10 +45,10 @@ export const POLYESTER_BUYING_GUIDE: JournalArticle = {
       "Surat se polyester sarees wholesale mein kharidne se pehle kapda khud check kijiye: fabric, weight, print, finish aur packing. Daam inhi farqon par chalta hai. Vidhi Fabrics rate chhaapta nahin, latest catalogue WhatsApp par bhejta hai. Yeh Surat ka manufacturer aur wholesaler hai, trade mein 60 saal ke saath.",
   },
   introduction: {
-    en: "This guide is for boutiques and resellers in North India, and especially for shops in western Uttar Pradesh: Meerut, Muzaffarnagar, Saharanpur and Bareilly. What follows is what to check before the order is agreed, how to read a quotation, and how Karva Chauth and Diwali change the next buy. Vidhi Fabrics is a manufacturer and wholesaler in Surat, with 60 years in the trade. Some lines are made in-house and the rest come from Surat's wider textile market. One business answers for the order. No rate is printed on this page.",
-    hi: "यह गाइड उत्तर भारत के बुटीक और रीसेलर के लिए है, और ख़ासकर पश्चिमी उत्तर प्रदेश की दुकानों के लिए: मेरठ, मुज़फ़्फ़रनगर, सहारनपुर और बरेली। आगे यह है कि ऑर्डर तय होने से पहले क्या जाँचें, कोटेशन कैसे पढ़ें, और करवा चौथ व दिवाली अगली खरीद को कैसे बदलते हैं। विधि फैब्रिक्स सूरत में निर्माता और थोक विक्रेता है, व्यापार में 60 साल के साथ। कुछ लाइनें घर में बनती हैं और बाक़ी सूरत के बड़े कपड़ा बाज़ार से आती हैं। ऑर्डर की ज़िम्मेदारी एक ही कारोबार की है। इस पेज पर कोई दर नहीं छपी।",
+    en: "This guide is for boutiques and resellers in North India, and especially for shops in western Uttar Pradesh: Meerut, Muzaffarnagar, Saharanpur and Bareilly. What follows is what to check before the order is agreed, how to read a quotation, and how Karva Chauth and Diwali change the next buy. Vidhi Fabrics is a manufacturer and wholesaler in Surat, with 60 years in the trade. Some lines are made in-house and the rest come from Surat's wider textile market. One business answers for the order. Design rates are not printed on this page.",
+    hi: "यह गाइड उत्तर भारत के बुटीक और रीसेलर के लिए है, और ख़ासकर पश्चिमी उत्तर प्रदेश की दुकानों के लिए: मेरठ, मुज़फ़्फ़रनगर, सहारनपुर और बरेली। आगे यह है कि ऑर्डर तय होने से पहले क्या जाँचें, कोटेशन कैसे पढ़ें, और करवा चौथ व दिवाली अगली खरीद को कैसे बदलते हैं। विधि फैब्रिक्स सूरत में निर्माता और थोक विक्रेता है, व्यापार में 60 साल के साथ। कुछ लाइनें घर में बनती हैं और बाक़ी सूरत के बड़े कपड़ा बाज़ार से आती हैं। ऑर्डर की ज़िम्मेदारी एक ही कारोबार की है। इस पेज पर डिज़ाइन की दर नहीं छपी।",
     "hi-en":
-      "Yeh guide North India ke boutiques aur resellers ke liye hai, aur khaaskar western Uttar Pradesh ki dukaanon ke liye: Meerut, Muzaffarnagar, Saharanpur aur Bareilly. Aage yeh hai ki order tay hone se pehle kya check karein, quotation kaise padhein, aur Karva Chauth va Diwali agli khareed ko kaise badalte hain. Vidhi Fabrics Surat mein manufacturer aur wholesaler hai, trade mein 60 saal ke saath. Kuch lines ghar mein banti hain aur baaki Surat ke bade kapda bazaar se aati hain. Order ki zimmedari ek hi business ki hai. Is page par koi rate nahin chhapi.",
+      "Yeh guide North India ke boutiques aur resellers ke liye hai, aur khaaskar western Uttar Pradesh ki dukaanon ke liye: Meerut, Muzaffarnagar, Saharanpur aur Bareilly. Aage yeh hai ki order tay hone se pehle kya check karein, quotation kaise padhein, aur Karva Chauth va Diwali agli khareed ko kaise badalte hain. Vidhi Fabrics Surat mein manufacturer aur wholesaler hai, trade mein 60 saal ke saath. Kuch lines ghar mein banti hain aur baaki Surat ke bade kapda bazaar se aati hain. Order ki zimmedari ek hi business ki hai. Is page par design ki rate nahin chhapi.",
   },
   inlineLinks: [
     {
@@ -155,17 +158,20 @@ export const POLYESTER_BUYING_GUIDE: JournalArticle = {
       paragraphs: {
         en: [
           "A price belongs to one design, not to polyester sarees as a class. Two sarees can look alike in a photograph and still be different offers, because the cloth, the weight, the print and the finish are not the same. Read why similar sarees are quoted differently before you put two quotations side by side. Compare like with like.",
-          "Ask the quotation to name the design, what the set includes, and what the figure covers. A figure with no description cannot be checked later. Vidhi shares the current rate on WhatsApp when you ask. This page does not print a rate, and it should not be read as if it had.",
+          "Ask the quotation to name the design, what the set includes, and what the figure covers. A figure with no description cannot be checked later. Vidhi shares the current rate on WhatsApp when you ask. This page does not print design rates.",
+          "On bulk orders above 100 pieces, we give 5% off as a thank you when you pay in advance or in cash. Message us on WhatsApp for order details.",
           "What you charge in Meerut, Muzaffarnagar, Saharanpur or Bareilly is a decision you make for your own customers. A quotation from Surat does not set the price on your shelf. Keep the quotation you accepted separate from the price you tell your customer.",
         ],
         hi: [
           "दाम एक डिज़ाइन का होता है, पॉलिएस्टर साड़ियों की पूरी जमात का नहीं। दो साड़ियाँ तस्वीर में एक जैसी लग सकती हैं और फिर भी अलग ऑफ़र हो सकती हैं, क्योंकि कपड़ा, वज़न, प्रिंट और फ़िनिश एक नहीं होते। दो कोटेशन अगल-बगल रखने से पहले पढ़िए कि मिलती-जुलती साड़ियों के कोटेशन अलग क्यों होते हैं। समान की तुलना समान से कीजिए।",
-          "कोटेशन से कहिए कि उसमें डिज़ाइन का नाम हो, सेट में क्या है, और आँकड़ा किस बात को कवर करता है। बिना ब्यौरे का आँकड़ा बाद में जाँचा नहीं जा सकता। पूछने पर विधि ताज़ा दर व्हाट्सएप पर बताता है। यह पेज कोई दर नहीं छापता, और इसे ऐसा पढ़ना नहीं चाहिए जैसे छापता हो।",
+          "कोटेशन से कहिए कि उसमें डिज़ाइन का नाम हो, सेट में क्या है, और आँकड़ा किस बात को कवर करता है। बिना ब्यौरे का आँकड़ा बाद में जाँचा नहीं जा सकता। पूछने पर विधि ताज़ा दर व्हाट्सएप पर बताता है। यह पेज किसी डिज़ाइन की दर नहीं छापता।",
+          "100 पीस से अधिक के बल्क ऑर्डर पर, अग्रिम या नकद में भुगतान करने पर हम धन्यवाद के रूप में 5% की छूट देते हैं। ऑर्डर का विवरण व्हाट्सएप पर मैसेज कीजिए।",
           "मेरठ, मुज़फ़्फ़रनगर, सहारनपुर या बरेली में आप क्या दाम रखते हैं, यह आपके अपने ग्राहकों के लिए आपका फ़ैसला है। सूरत का कोटेशन आपकी शेल्फ़ का दाम तय नहीं करता। जो कोटेशन आपने मंज़ूर किया उसे उस दाम से अलग रखिए जो आप ग्राहक को बताते हैं।",
         ],
         "hi-en": [
           "Daam ek design ka hota hai, polyester sarees ki poori jamaat ka nahin. Do sarees tasveer mein ek jaisi lag sakti hain aur phir bhi alag offer ho sakti hain, kyunki kapda, weight, print aur finish ek nahin hote. Do quotation agal-bagal rakhne se pehle padhiye ki similar sarees ke quotation alag kyun hote hain. Samaan ki tulna samaan se kijiye.",
-          "Quotation se kahiye ki usme design ka naam ho, set mein kya hai, aur aankda kis baat ko cover karta hai. Bina byore ka aankda baad mein check nahin ho sakta. Poochne par Vidhi latest rate WhatsApp par batata hai. Yeh page koi rate nahin chhaapta, aur ise aisa padhna nahin chahiye jaise chhaapta ho.",
+          "Quotation se kahiye ki usme design ka naam ho, set mein kya hai, aur aankda kis baat ko cover karta hai. Bina byore ka aankda baad mein check nahin ho sakta. Poochne par Vidhi latest rate WhatsApp par batata hai. Yeh page kisi design ki rate nahin chhaapta.",
+          "100 piece se zyada ke bulk order par, advance ya cash mein payment karne par hum thank you ke roop mein 5% off dete hain. Order details ke liye WhatsApp par message kijiye.",
           "Meerut, Muzaffarnagar, Saharanpur ya Bareilly mein aap kya daam rakhte hain, yeh aapke apne customers ke liye aapka faisla hai. Surat ka quotation aapki shelf ka daam tay nahin karta. Jo quotation aapne approve kiya use us daam se alag rakhiye jo aap customer ko batate hain.",
         ],
       },
@@ -268,10 +274,10 @@ export const POLYESTER_BUYING_GUIDE: JournalArticle = {
         "hi-en": "Jab is page par rate nahin hai to daam kaise samjhoon?",
       },
       answer: {
-        en: "Ask for a quotation that names the design, what is included, and what the figure covers. Two similar sarees can be different offers. The current rate is shared on WhatsApp. Nothing on this page is a price.",
-        hi: "ऐसा कोटेशन माँगिए जिसमें डिज़ाइन का नाम हो, क्या शामिल है, और आँकड़ा क्या कवर करता है। दो मिलती-जुलती साड़ियाँ अलग ऑफ़र हो सकती हैं। ताज़ा दर व्हाट्सएप पर मिलती है। इस पेज पर कुछ भी दाम नहीं है।",
+        en: "Ask for a quotation that names the design, what is included, and what the figure covers. Two similar sarees can be different offers. The current rate is shared on WhatsApp. This page does not list design rates.",
+        hi: "ऐसा कोटेशन माँगिए जिसमें डिज़ाइन का नाम हो, क्या शामिल है, और आँकड़ा क्या कवर करता है। दो मिलती-जुलती साड़ियाँ अलग ऑफ़र हो सकती हैं। ताज़ा दर व्हाट्सएप पर मिलती है। इस पेज पर किसी डिज़ाइन का दाम नहीं है।",
         "hi-en":
-          "Aisa quotation maangiye jisme design ka naam ho, kya shaamil hai, aur aankda kya cover karta hai. Do milti-julti sarees alag offer ho sakti hain. Latest rate WhatsApp par milti hai. Is page par kuch bhi daam nahin hai.",
+          "Aisa quotation maangiye jisme design ka naam ho, kya shaamil hai, aur aankda kya cover karta hai. Do milti-julti sarees alag offer ho sakti hain. Latest rate WhatsApp par milti hai. Is page par kisi design ka daam nahin hai.",
       },
     },
     {

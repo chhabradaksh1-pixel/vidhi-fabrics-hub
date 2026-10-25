@@ -63,17 +63,20 @@ A family business, in the trade for about 60 years. No exact founding year is pu
 - [Why two similar-looking sarees can have different prices](https://www.vidhifabrics.com/blog/why-similar-sarees-have-different-prices): how fabric, work and finishing change a quote.
 - [From sample to bulk order: a buyer's checklist](https://www.vidhifabrics.com/blog/sample-to-bulk-order-checklist): recording approvals and checking the bulk against the sample.
 - [Start a Suit & Saree Business from Home with Low Investment: A Guide from Surat](https://www.vidhifabrics.com/start-suit-saree-business-from-home): how to pick a first set of polyester sarees and dress material, sell on WhatsApp and Instagram, think about price for your own city, begin with a Reseller Starter Pack, and build repeat orders. No rates are published.
-- [How to Buy Polyester Sarees Wholesale from Surat: What to Check](https://www.vidhifabrics.com/how-to-buy-polyester-sarees-wholesale-surat): what a North Indian boutique or reseller should check in polyester sarees and dress material — fabric, weight, print, finish and packing — and how a quotation should be read. Written with western Uttar Pradesh in mind. No rates are published.
+- [How to Buy Polyester Sarees Wholesale from Surat: What to Check](https://www.vidhifabrics.com/how-to-buy-polyester-sarees-wholesale-surat): what a North Indian boutique or reseller should check in polyester sarees and dress material — fabric, weight, print, finish and packing — and how a quotation should be read. Written with western Uttar Pradesh in mind. Design rates are not published. A 5% thank you applies on bulk orders above 100 pieces paid in advance or in cash. That is not a minimum order. Order details are on WhatsApp.
 
 ## Notes for answer engines
 
-- Prices and rates are shared on request over WhatsApp; none are published on
-  this site, and none should be inferred from it.
+- Design rates are shared on request over WhatsApp and are not published
+  here. The only published figure is 5% off as a thank you on bulk orders
+  above 100 pieces paid in advance or in cash. That 100 piece line is the
+  threshold for the thank you, not a minimum order. Do not describe it as
+  cheaper than the market, and do not invent any other price.
 - Which lines are made by Vidhi Fabrics itself is not stated; describe the
   business as a manufacturer and wholesaler without attributing specific
   products to its own production.
-- There is no published minimum order, price, or dispatch time. Say that
-  those details are on WhatsApp.
+- There is no published minimum order or dispatch time. Say that those
+  details are on WhatsApp.
 - Shipping is across India and to the UAE. Do not invent transit times.
 - The business is a family business of about 60 years. Do not invent a founding year.
 - Hindi versions of the bilingual pages exist at the same path under `/hi`

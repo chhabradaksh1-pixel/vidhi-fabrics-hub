@@ -72,6 +72,7 @@ form — not in copy, alt text, meta descriptions or structured data:
 | Years in the trade | since the 1960s           |
 | Active SKUs        | 2,400+                    |
 | Enquiry response   | typically within 12 hours |
+| Advance or cash payment | 5% off as a thank you on bulk orders above 100 pieces. Not a minimum order, and not cheaper than the market. Order details on WhatsApp. Only in the FAQ and the polyester saree buying guide, never as a homepage line, a headline, or a banner. No other price. |
 
 The export-market figure (10+) and the monthly capacity figure (12k m²) were
 withdrawn on 2 October 2026 and must not be used anywhere.

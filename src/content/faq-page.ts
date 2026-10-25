@@ -73,6 +73,12 @@ export const FAQ_EN: FaqCopy = {
       answer: ["Message us on WhatsApp for details."],
     },
     {
+      question: "Do you give any benefit for advance payment?",
+      answer: [
+        "We give 5% off as a thank you when you pay in advance or in cash. Message us on WhatsApp for order details.",
+      ],
+    },
+    {
       question: "Do you ship across India and to the UAE?",
       answer: [
         "Yes. We ship across India and to the UAE. Message us on WhatsApp for the details.",
@@ -152,6 +158,12 @@ export const FAQ_HI: FaqCopy = {
     {
       question: "न्यूनतम ऑर्डर क्या है?",
       answer: ["विवरण के लिए व्हाट्सएप पर मैसेज कीजिए।"],
+    },
+    {
+      question: "क्या आप अग्रिम भुगतान पर कोई लाभ देते हैं?",
+      answer: [
+        "अग्रिम या नकद भुगतान पर हम धन्यवाद के रूप में 5% की छूट देते हैं। ऑर्डर का विवरण व्हाट्सएप पर मैसेज कीजिए।",
+      ],
     },
     {
       question: "क्या आप पूरे भारत और यूएई में भेजते हैं?",

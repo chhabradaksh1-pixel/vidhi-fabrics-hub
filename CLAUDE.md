@@ -28,9 +28,11 @@ may not be claimed on the site is set out in `BRAND.md`; some claims the owner
 has ruled out explicitly, so check there before writing copy.
 
 Confirmed contact details (owner, 2 October 2026): 542 to 543 Golden Point, Ring
-Road, Begumpura, Surat 395002; WhatsApp +91 9825208413; **`sales@vidhifabrics.com`
-is confirmed to exist**. The Justdial listing's address is the owner's to fix;
-leave its `sameAs` URL alone.
+Road, Begumpura, Surat 395002; **`sales@vidhifabrics.com` is confirmed to
+exist**. The phone, WhatsApp and enquiry number is **+91 91729 14279**: the site
+switched to it on 11 October 2026 and the owner confirmed it is the number in
+use on 28 October 2026. The old +91 98252 08413 is no longer used. The Justdial
+listing's address is the owner's to fix; leave its `sameAs` URL alone.
 
 Contact details live in one place: `src/content/business.ts`. The WhatsApp
 number lives in `src/content/whatsapp.ts`. Never hardcode a second copy of

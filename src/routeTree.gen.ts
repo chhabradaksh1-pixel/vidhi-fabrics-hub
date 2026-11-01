@@ -15,6 +15,7 @@ import { Route as DiwaliKarvaChauthWholesaleSuratRouteImport } from './routes/di
 import { Route as DressMaterialWholesaleSuratRouteImport } from './routes/dress-material-wholesale-surat'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as HiRouteImport } from './routes/hi'
+import { Route as HowToBuyDressMaterialUnstitchedSuitsWholesaleSuratOnlineRouteImport } from './routes/how-to-buy-dress-material-unstitched-suits-wholesale-surat-online'
 import { Route as HowToBuyPolyesterSareesWholesaleSuratRouteImport } from './routes/how-to-buy-polyester-sarees-wholesale-surat'
 import { Route as OrganzaNetFabricForBoutiquesRouteImport } from './routes/organza-net-fabric-for-boutiques'
 import { Route as PolyesterSareesWholesaleSuratRouteImport } from './routes/polyester-sarees-wholesale-surat'
@@ -29,6 +30,7 @@ import { Route as HiAboutRouteImport } from './routes/hi_.about'
 import { Route as HiDiwaliKarvaChauthWholesaleSuratRouteImport } from './routes/hi_.diwali-karva-chauth-wholesale-surat'
 import { Route as HiDressMaterialWholesaleSuratRouteImport } from './routes/hi_.dress-material-wholesale-surat'
 import { Route as HiFaqRouteImport } from './routes/hi_.faq'
+import { Route as HiHowToBuyDressMaterialUnstitchedSuitsWholesaleSuratOnlineRouteImport } from './routes/hi_.how-to-buy-dress-material-unstitched-suits-wholesale-surat-online'
 import { Route as HiHowToBuyPolyesterSareesWholesaleSuratRouteImport } from './routes/hi_.how-to-buy-polyester-sarees-wholesale-surat'
 import { Route as HiOrganzaNetFabricForBoutiquesRouteImport } from './routes/hi_.organza-net-fabric-for-boutiques'
 import { Route as HiPolyesterSareesWholesaleSuratRouteImport } from './routes/hi_.polyester-sarees-wholesale-surat'
@@ -71,6 +73,12 @@ const HiRoute = HiRouteImport.update({
   path: '/hi',
   getParentRoute: () => rootRouteImport,
 } as any)
+const HowToBuyDressMaterialUnstitchedSuitsWholesaleSuratOnlineRoute =
+  HowToBuyDressMaterialUnstitchedSuitsWholesaleSuratOnlineRouteImport.update({
+    id: '/how-to-buy-dress-material-unstitched-suits-wholesale-surat-online',
+    path: '/how-to-buy-dress-material-unstitched-suits-wholesale-surat-online',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const HowToBuyPolyesterSareesWholesaleSuratRoute =
   HowToBuyPolyesterSareesWholesaleSuratRouteImport.update({
     id: '/how-to-buy-polyester-sarees-wholesale-surat',
@@ -149,6 +157,12 @@ const HiFaqRoute = HiFaqRouteImport.update({
   path: '/hi/faq',
   getParentRoute: () => rootRouteImport,
 } as any)
+const HiHowToBuyDressMaterialUnstitchedSuitsWholesaleSuratOnlineRoute =
+  HiHowToBuyDressMaterialUnstitchedSuitsWholesaleSuratOnlineRouteImport.update({
+    id: '/hi_/how-to-buy-dress-material-unstitched-suits-wholesale-surat-online',
+    path: '/hi/how-to-buy-dress-material-unstitched-suits-wholesale-surat-online',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const HiHowToBuyPolyesterSareesWholesaleSuratRoute =
   HiHowToBuyPolyesterSareesWholesaleSuratRouteImport.update({
     id: '/hi_/how-to-buy-polyester-sarees-wholesale-surat',
@@ -208,6 +222,7 @@ export interface FileRoutesByFullPath {
   '/dress-material-wholesale-surat': typeof DressMaterialWholesaleSuratRoute
   '/faq': typeof FaqRoute
   '/hi': typeof HiRoute
+  '/how-to-buy-dress-material-unstitched-suits-wholesale-surat-online': typeof HowToBuyDressMaterialUnstitchedSuitsWholesaleSuratOnlineRoute
   '/how-to-buy-polyester-sarees-wholesale-surat': typeof HowToBuyPolyesterSareesWholesaleSuratRoute
   '/organza-net-fabric-for-boutiques': typeof OrganzaNetFabricForBoutiquesRoute
   '/polyester-sarees-wholesale-surat': typeof PolyesterSareesWholesaleSuratRoute
@@ -221,6 +236,7 @@ export interface FileRoutesByFullPath {
   '/hi/diwali-karva-chauth-wholesale-surat': typeof HiDiwaliKarvaChauthWholesaleSuratRoute
   '/hi/dress-material-wholesale-surat': typeof HiDressMaterialWholesaleSuratRoute
   '/hi/faq': typeof HiFaqRoute
+  '/hi/how-to-buy-dress-material-unstitched-suits-wholesale-surat-online': typeof HiHowToBuyDressMaterialUnstitchedSuitsWholesaleSuratOnlineRoute
   '/hi/how-to-buy-polyester-sarees-wholesale-surat': typeof HiHowToBuyPolyesterSareesWholesaleSuratRoute
   '/hi/organza-net-fabric-for-boutiques': typeof HiOrganzaNetFabricForBoutiquesRoute
   '/hi/polyester-sarees-wholesale-surat': typeof HiPolyesterSareesWholesaleSuratRoute
@@ -239,6 +255,7 @@ export interface FileRoutesByTo {
   '/dress-material-wholesale-surat': typeof DressMaterialWholesaleSuratRoute
   '/faq': typeof FaqRoute
   '/hi': typeof HiRoute
+  '/how-to-buy-dress-material-unstitched-suits-wholesale-surat-online': typeof HowToBuyDressMaterialUnstitchedSuitsWholesaleSuratOnlineRoute
   '/how-to-buy-polyester-sarees-wholesale-surat': typeof HowToBuyPolyesterSareesWholesaleSuratRoute
   '/organza-net-fabric-for-boutiques': typeof OrganzaNetFabricForBoutiquesRoute
   '/polyester-sarees-wholesale-surat': typeof PolyesterSareesWholesaleSuratRoute
@@ -252,6 +269,7 @@ export interface FileRoutesByTo {
   '/hi/diwali-karva-chauth-wholesale-surat': typeof HiDiwaliKarvaChauthWholesaleSuratRoute
   '/hi/dress-material-wholesale-surat': typeof HiDressMaterialWholesaleSuratRoute
   '/hi/faq': typeof HiFaqRoute
+  '/hi/how-to-buy-dress-material-unstitched-suits-wholesale-surat-online': typeof HiHowToBuyDressMaterialUnstitchedSuitsWholesaleSuratOnlineRoute
   '/hi/how-to-buy-polyester-sarees-wholesale-surat': typeof HiHowToBuyPolyesterSareesWholesaleSuratRoute
   '/hi/organza-net-fabric-for-boutiques': typeof HiOrganzaNetFabricForBoutiquesRoute
   '/hi/polyester-sarees-wholesale-surat': typeof HiPolyesterSareesWholesaleSuratRoute
@@ -271,6 +289,7 @@ export interface FileRoutesById {
   '/dress-material-wholesale-surat': typeof DressMaterialWholesaleSuratRoute
   '/faq': typeof FaqRoute
   '/hi': typeof HiRoute
+  '/how-to-buy-dress-material-unstitched-suits-wholesale-surat-online': typeof HowToBuyDressMaterialUnstitchedSuitsWholesaleSuratOnlineRoute
   '/how-to-buy-polyester-sarees-wholesale-surat': typeof HowToBuyPolyesterSareesWholesaleSuratRoute
   '/organza-net-fabric-for-boutiques': typeof OrganzaNetFabricForBoutiquesRoute
   '/polyester-sarees-wholesale-surat': typeof PolyesterSareesWholesaleSuratRoute
@@ -284,6 +303,7 @@ export interface FileRoutesById {
   '/hi_/diwali-karva-chauth-wholesale-surat': typeof HiDiwaliKarvaChauthWholesaleSuratRoute
   '/hi_/dress-material-wholesale-surat': typeof HiDressMaterialWholesaleSuratRoute
   '/hi_/faq': typeof HiFaqRoute
+  '/hi_/how-to-buy-dress-material-unstitched-suits-wholesale-surat-online': typeof HiHowToBuyDressMaterialUnstitchedSuitsWholesaleSuratOnlineRoute
   '/hi_/how-to-buy-polyester-sarees-wholesale-surat': typeof HiHowToBuyPolyesterSareesWholesaleSuratRoute
   '/hi_/organza-net-fabric-for-boutiques': typeof HiOrganzaNetFabricForBoutiquesRoute
   '/hi_/polyester-sarees-wholesale-surat': typeof HiPolyesterSareesWholesaleSuratRoute
@@ -304,6 +324,7 @@ export interface FileRouteTypes {
     | '/dress-material-wholesale-surat'
     | '/faq'
     | '/hi'
+    | '/how-to-buy-dress-material-unstitched-suits-wholesale-surat-online'
     | '/how-to-buy-polyester-sarees-wholesale-surat'
     | '/organza-net-fabric-for-boutiques'
     | '/polyester-sarees-wholesale-surat'
@@ -317,6 +338,7 @@ export interface FileRouteTypes {
     | '/hi/diwali-karva-chauth-wholesale-surat'
     | '/hi/dress-material-wholesale-surat'
     | '/hi/faq'
+    | '/hi/how-to-buy-dress-material-unstitched-suits-wholesale-surat-online'
     | '/hi/how-to-buy-polyester-sarees-wholesale-surat'
     | '/hi/organza-net-fabric-for-boutiques'
     | '/hi/polyester-sarees-wholesale-surat'
@@ -335,6 +357,7 @@ export interface FileRouteTypes {
     | '/dress-material-wholesale-surat'
     | '/faq'
     | '/hi'
+    | '/how-to-buy-dress-material-unstitched-suits-wholesale-surat-online'
     | '/how-to-buy-polyester-sarees-wholesale-surat'
     | '/organza-net-fabric-for-boutiques'
     | '/polyester-sarees-wholesale-surat'
@@ -348,6 +371,7 @@ export interface FileRouteTypes {
     | '/hi/diwali-karva-chauth-wholesale-surat'
     | '/hi/dress-material-wholesale-surat'
     | '/hi/faq'
+    | '/hi/how-to-buy-dress-material-unstitched-suits-wholesale-surat-online'
     | '/hi/how-to-buy-polyester-sarees-wholesale-surat'
     | '/hi/organza-net-fabric-for-boutiques'
     | '/hi/polyester-sarees-wholesale-surat'
@@ -366,6 +390,7 @@ export interface FileRouteTypes {
     | '/dress-material-wholesale-surat'
     | '/faq'
     | '/hi'
+    | '/how-to-buy-dress-material-unstitched-suits-wholesale-surat-online'
     | '/how-to-buy-polyester-sarees-wholesale-surat'
     | '/organza-net-fabric-for-boutiques'
     | '/polyester-sarees-wholesale-surat'
@@ -379,6 +404,7 @@ export interface FileRouteTypes {
     | '/hi_/diwali-karva-chauth-wholesale-surat'
     | '/hi_/dress-material-wholesale-surat'
     | '/hi_/faq'
+    | '/hi_/how-to-buy-dress-material-unstitched-suits-wholesale-surat-online'
     | '/hi_/how-to-buy-polyester-sarees-wholesale-surat'
     | '/hi_/organza-net-fabric-for-boutiques'
     | '/hi_/polyester-sarees-wholesale-surat'
@@ -398,6 +424,7 @@ export interface RootRouteChildren {
   DressMaterialWholesaleSuratRoute: typeof DressMaterialWholesaleSuratRoute
   FaqRoute: typeof FaqRoute
   HiRoute: typeof HiRoute
+  HowToBuyDressMaterialUnstitchedSuitsWholesaleSuratOnlineRoute: typeof HowToBuyDressMaterialUnstitchedSuitsWholesaleSuratOnlineRoute
   HowToBuyPolyesterSareesWholesaleSuratRoute: typeof HowToBuyPolyesterSareesWholesaleSuratRoute
   OrganzaNetFabricForBoutiquesRoute: typeof OrganzaNetFabricForBoutiquesRoute
   PolyesterSareesWholesaleSuratRoute: typeof PolyesterSareesWholesaleSuratRoute
@@ -411,6 +438,7 @@ export interface RootRouteChildren {
   HiDiwaliKarvaChauthWholesaleSuratRoute: typeof HiDiwaliKarvaChauthWholesaleSuratRoute
   HiDressMaterialWholesaleSuratRoute: typeof HiDressMaterialWholesaleSuratRoute
   HiFaqRoute: typeof HiFaqRoute
+  HiHowToBuyDressMaterialUnstitchedSuitsWholesaleSuratOnlineRoute: typeof HiHowToBuyDressMaterialUnstitchedSuitsWholesaleSuratOnlineRoute
   HiHowToBuyPolyesterSareesWholesaleSuratRoute: typeof HiHowToBuyPolyesterSareesWholesaleSuratRoute
   HiOrganzaNetFabricForBoutiquesRoute: typeof HiOrganzaNetFabricForBoutiquesRoute
   HiPolyesterSareesWholesaleSuratRoute: typeof HiPolyesterSareesWholesaleSuratRoute
@@ -465,6 +493,13 @@ declare module '@tanstack/react-router' {
       path: '/hi'
       fullPath: '/hi'
       preLoaderRoute: typeof HiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/how-to-buy-dress-material-unstitched-suits-wholesale-surat-online': {
+      id: '/how-to-buy-dress-material-unstitched-suits-wholesale-surat-online'
+      path: '/how-to-buy-dress-material-unstitched-suits-wholesale-surat-online'
+      fullPath: '/how-to-buy-dress-material-unstitched-suits-wholesale-surat-online'
+      preLoaderRoute: typeof HowToBuyDressMaterialUnstitchedSuitsWholesaleSuratOnlineRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/how-to-buy-polyester-sarees-wholesale-surat': {
@@ -565,6 +600,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HiFaqRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/hi_/how-to-buy-dress-material-unstitched-suits-wholesale-surat-online': {
+      id: '/hi_/how-to-buy-dress-material-unstitched-suits-wholesale-surat-online'
+      path: '/hi/how-to-buy-dress-material-unstitched-suits-wholesale-surat-online'
+      fullPath: '/hi/how-to-buy-dress-material-unstitched-suits-wholesale-surat-online'
+      preLoaderRoute: typeof HiHowToBuyDressMaterialUnstitchedSuitsWholesaleSuratOnlineRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/hi_/how-to-buy-polyester-sarees-wholesale-surat': {
       id: '/hi_/how-to-buy-polyester-sarees-wholesale-surat'
       path: '/hi/how-to-buy-polyester-sarees-wholesale-surat'
@@ -638,6 +680,8 @@ const rootRouteChildren: RootRouteChildren = {
   DressMaterialWholesaleSuratRoute: DressMaterialWholesaleSuratRoute,
   FaqRoute: FaqRoute,
   HiRoute: HiRoute,
+  HowToBuyDressMaterialUnstitchedSuitsWholesaleSuratOnlineRoute:
+    HowToBuyDressMaterialUnstitchedSuitsWholesaleSuratOnlineRoute,
   HowToBuyPolyesterSareesWholesaleSuratRoute:
     HowToBuyPolyesterSareesWholesaleSuratRoute,
   OrganzaNetFabricForBoutiquesRoute: OrganzaNetFabricForBoutiquesRoute,
@@ -653,6 +697,8 @@ const rootRouteChildren: RootRouteChildren = {
     HiDiwaliKarvaChauthWholesaleSuratRoute,
   HiDressMaterialWholesaleSuratRoute: HiDressMaterialWholesaleSuratRoute,
   HiFaqRoute: HiFaqRoute,
+  HiHowToBuyDressMaterialUnstitchedSuitsWholesaleSuratOnlineRoute:
+    HiHowToBuyDressMaterialUnstitchedSuitsWholesaleSuratOnlineRoute,
   HiHowToBuyPolyesterSareesWholesaleSuratRoute:
     HiHowToBuyPolyesterSareesWholesaleSuratRoute,
   HiOrganzaNetFabricForBoutiquesRoute: HiOrganzaNetFabricForBoutiquesRoute,

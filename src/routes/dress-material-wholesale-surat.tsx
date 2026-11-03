@@ -257,6 +257,16 @@ function DressMaterialPage() {
               </a>{" "}
               covers each step.
             </p>
+            <p className="mt-5 leading-[1.85] text-mute">
+              Buying from Surat without visiting the market is set out in{" "}
+              <a
+                href="/how-to-buy-dress-material-unstitched-suits-wholesale-surat-online"
+                className={linkClass}
+              >
+                how to buy dress material and unstitched suits wholesale from Surat online
+              </a>
+              .
+            </p>
 
             <h2 className="vf-heading-strong type-h4 text-ink">How to order on WhatsApp</h2>
             <p className="mt-5 type-body text-mute">

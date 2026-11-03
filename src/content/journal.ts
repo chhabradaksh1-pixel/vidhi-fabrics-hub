@@ -7,6 +7,7 @@ import swatchStack from "@/assets/swatch-stack.webp";
 import warehouse from "@/assets/warehouse-surat.webp";
 import specSamples from "@/assets/spec-samples.webp";
 import organza from "@/assets/fabric-beaded-organza.jpg";
+import { DRESS_MATERIAL_ONLINE_GUIDE } from "@/content/dress-material-online-guide";
 import { HOME_BUSINESS_GUIDE } from "@/content/home-business-guide";
 import { POLYESTER_BUYING_GUIDE } from "@/content/polyester-buying-guide";
 import type { Lang } from "@/content/translations";
@@ -1989,7 +1990,11 @@ export const JOURNAL: JournalArticle[] = [
   },
   {
     slug: "buying-dress-material-wholesale",
-    related: ["how-to-read-a-fabric-spec", "why-similar-sarees-have-different-prices"],
+    related: [
+      "how-to-buy-dress-material-unstitched-suits-wholesale-surat-online",
+      "how-to-read-a-fabric-spec",
+      "why-similar-sarees-have-different-prices",
+    ],
     inlineLinks: [
       {
         phrase: {
@@ -2734,6 +2739,7 @@ export const JOURNAL: JournalArticle[] = [
   },
   HOME_BUSINESS_GUIDE,
   POLYESTER_BUYING_GUIDE,
+  DRESS_MATERIAL_ONLINE_GUIDE,
 ];
 
 const WHATSAPP_INTRO: Record<Lang, (title: string) => string> = {

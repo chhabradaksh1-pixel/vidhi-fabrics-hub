@@ -257,6 +257,16 @@ function DressMaterialPageHi() {
               </a>{" "}
               में हर कदम है।
             </p>
+            <p className="mt-5 leading-[1.85] text-mute">
+              बाज़ार जाए बिना सूरत से खरीदने का तरीका{" "}
+              <a
+                href="/hi/how-to-buy-dress-material-unstitched-suits-wholesale-surat-online"
+                className={linkClass}
+              >
+                सूरत से ड्रेस मटेरियल और अनस्टिच्ड सूट होलसेल में ऑनलाइन कैसे खरीदें
+              </a>{" "}
+              में है।
+            </p>
 
             <h2 className="vf-heading-strong type-h4 text-ink">व्हाट्सएप पर ऑर्डर कैसे करें</h2>
             <p className="mt-5 type-body text-mute">

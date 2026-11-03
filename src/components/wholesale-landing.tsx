@@ -4,7 +4,7 @@ import type { TextPart, WholesaleCopy } from "@/content/wholesale-pages";
 import { whatsAppUrl } from "@/content/whatsapp";
 import { BUSINESS } from "@/content/business";
 
-const linkClass = "text-clay underline decoration-clay/70 underline-offset-4 hover:text-claydeep";
+const linkClass = "link";
 
 function pageHref(path: string, lang: WholesaleCopy["lang"]) {
   return lang === "hi" ? `/hi${path}` : path;
@@ -42,21 +42,30 @@ function CatalogueButton({ copy, className = "" }: { copy: WholesaleCopy; classN
       data-lead-ref={copy.leadRef}
       target="_blank"
       rel="noopener noreferrer"
-      className={`inline-flex items-center justify-center rounded-sm bg-clay px-6 py-3 font-mono text-xs uppercase tracking-label text-paper transition-colors hover:bg-claydeep ${className}`}
+      className={`btn btn-primary ${className}`}
     >
       {copy.catalogueLabel}
     </a>
   );
 }
 
+/**
+ * A range page (polyester sarees, unstitched suits) on the long-form rail: the
+ * title across, the intro and catalogue button in the content column, then the
+ * body as .vf-flow (styles.css): each h2 in the rail beside its text, the text
+ * running to the right edge. Layout only; every word and link is in place.
+ */
 export function WholesaleLanding({ copy }: { copy: WholesaleCopy }) {
   const home = copy.lang === "hi" ? "/hi" : "/";
   return (
-    <div className="min-h-screen bg-paper text-ink">
+    <div className="min-h-screen bg-linen text-ink">
       <JournalHeader lang={copy.lang} />
       <main>
-        <article className="mx-auto max-w-4xl px-6 py-12 sm:py-16" lang={copy.lang}>
-          <nav aria-label="Breadcrumb" className="text-xs text-mute">
+        <article
+          className="mx-auto w-full max-w-[1440px] px-5 pb-16 pt-8 sm:px-8 sm:pt-11 lg:px-[50px] lg:pb-24 lg:pt-14"
+          lang={copy.lang}
+        >
+          <nav aria-label="Breadcrumb" className="type-small text-mute">
             <ol className="flex flex-wrap items-center gap-2">
               <li>
                 <a href={home} className="hover:text-clay">
@@ -68,10 +77,8 @@ export function WholesaleLanding({ copy }: { copy: WholesaleCopy }) {
             </ol>
           </nav>
 
-          <h1 className="vf-showroom-serif mt-6 text-balance text-4xl leading-[1.08] sm:text-5xl lg:text-6xl">
-            {copy.h1}
-          </h1>
-          <div className="mx-auto mt-6 max-w-[65ch] space-y-4 text-base leading-relaxed text-mute sm:text-lg">
+          <h1 className="mt-6 max-w-[28ch] type-h1">{copy.h1}</h1>
+          <div className="vf-indent mt-8 space-y-4 type-lead text-mute">
             {copy.intro.map((paragraph, index) => (
               <p key={index}>
                 <Parts parts={paragraph} copy={copy} />
@@ -79,12 +86,16 @@ export function WholesaleLanding({ copy }: { copy: WholesaleCopy }) {
             ))}
           </div>
 
-          <CatalogueButton copy={copy} className="mt-8" />
-          {copy.sareePromo ? <PromoSareeLine lang={copy.lang} /> : null}
+          <CatalogueButton copy={copy} className="vf-indent mt-8" />
+          {copy.sareePromo ? (
+            <div className="vf-indent">
+              <PromoSareeLine lang={copy.lang} />
+            </div>
+          ) : null}
 
-          <div className="mx-auto max-w-[65ch]">
-            <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">{copy.whyHeading}</h2>
-            <ul className="mt-5 list-disc space-y-2 pl-5 text-base leading-relaxed text-ink">
+          <div className="vf-flow">
+            <h2 className="vf-heading-strong type-h4 text-ink">{copy.whyHeading}</h2>
+            <ul className="mt-5 list-disc space-y-2 pl-5 type-body text-ink">
               {copy.why.map((item) => (
                 <li key={item}>{item}</li>
               ))}
@@ -92,28 +103,26 @@ export function WholesaleLanding({ copy }: { copy: WholesaleCopy }) {
 
             {copy.sections.map((section) => (
               <section key={section.heading}>
-                <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">
-                  {section.heading}
-                </h2>
+                <h2 className="vf-heading-strong type-h4 text-ink">{section.heading}</h2>
                 {section.paragraphs.map((paragraph, index) => (
-                  <p key={index} className="mt-5 leading-[1.85] text-mute">
+                  <p key={index} className="mt-5 type-body text-mute">
                     <Parts parts={paragraph} copy={copy} />
                   </p>
                 ))}
               </section>
             ))}
 
-            <section id="faq" className="mt-12 scroll-mt-8 border-t border-line pt-8">
-              <h2 className="font-display text-2xl font-light sm:text-3xl">{copy.faqHeading}</h2>
+            <section id="faq" className="scroll-mt-28">
+              <h2 className="vf-heading-strong type-h4 text-ink">{copy.faqHeading}</h2>
               {copy.faqs.map((entry) => (
                 <div key={entry.question} className="mt-7">
-                  <h3 className="font-display text-lg font-light leading-snug">{entry.question}</h3>
-                  <p className="mt-3 leading-[1.85] text-mute">{entry.answer}</p>
+                  <h3 className="type-h4">{entry.question}</h3>
+                  <p className="mt-3 type-body text-mute">{entry.answer}</p>
                 </div>
               ))}
             </section>
 
-            <div className="my-12 flex justify-center border-t border-line pt-10">
+            <div className="vf-flow-end">
               <CatalogueButton copy={copy} />
             </div>
           </div>

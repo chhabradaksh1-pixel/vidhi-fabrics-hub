@@ -3,14 +3,19 @@ import type { Lang } from "@/content/translations";
 
 import "@/styles/showroom.css";
 
+/**
+ * The live designs on the dress material page, on the home catalogue's range
+ * card (white card, photo inset in a rounded frame): four across on a wide
+ * screen, two on a phone, so the full-width page never blows a photo up.
+ */
 export function ShowroomCollection({ lang }: { lang: Lang }) {
   return (
-    <section className="mt-10" aria-label={COLLECTION_INTRO[lang]}>
-      <p className="max-w-xl text-base leading-relaxed text-foreground">{COLLECTION_INTRO[lang]}</p>
-      <div className="mt-8 grid gap-12 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-14">
+    <section className="mt-12" aria-label={COLLECTION_INTRO[lang]}>
+      <p className="type-body text-foreground">{COLLECTION_INTRO[lang]}</p>
+      <div className="mt-6 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
         {SHOWROOM_DESIGNS.map((design) => (
-          <article key={design.code}>
-            <div className="relative aspect-[3/4] overflow-hidden bg-sand">
+          <article key={design.code} className="card flex flex-col p-2.5">
+            <div className="card-media relative aspect-[3/4] bg-sand">
               <img
                 src={design.image.src}
                 alt={design.alt}
@@ -22,12 +27,12 @@ export function ShowroomCollection({ lang }: { lang: Lang }) {
                 style={{ objectPosition: design.image.focus }}
               />
             </div>
-            <p className="vf-showroom-serif mt-4 text-3xl text-clay">{design.code}</p>
+            <p className="px-2 pt-4 type-h4 text-ink">{design.code}</p>
             <a
               href={designLink(lang, design.code)}
               target="_blank"
               rel="noopener noreferrer"
-              className="vf-showroom-enquire mt-4 w-full"
+              className="btn btn-primary btn-sm mt-3 w-full"
             >
               {ENQUIRE[lang]}
             </a>

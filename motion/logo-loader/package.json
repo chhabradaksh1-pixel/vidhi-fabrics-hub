@@ -1,0 +1,23 @@
+{
+  "name": "vidhi-logo-motion",
+  "private": true,
+  "description": "Design source for the Vidhi Fabrics logo loader: built and previewed in Remotion, exported as an animated SVG for the website.",
+  "type": "module",
+  "scripts": {
+    "studio": "remotion studio --no-open",
+    "still": "remotion still",
+    "render": "remotion render",
+    "export-web": "node scripts/export-web.mjs"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.539",
+    "@remotion/paths": "4.0.539",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "remotion": "4.0.539"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.2",
+    "typescript": "5.9.3"
+  }
+}

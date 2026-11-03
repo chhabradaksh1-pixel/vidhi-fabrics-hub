@@ -1,7 +1,10 @@
 import { useState } from "react";
 
+import loomPoster from "@/assets/weaving-loom-poster.webp";
 import { JournalHeader, JournalFooter } from "@/components/fabric-desk";
+import { LazyLoopVideo } from "@/components/lazy-loop-video";
 import { TradeStory } from "@/components/trade-story";
+import { useReveal } from "@/hooks/use-reveal";
 import { ABOUT_COPY } from "@/content/about-copy";
 import { SECTION_COPY } from "@/content/section-copy";
 import { ADDRESS_LINES, BUSINESS, DISAMBIGUATION, GSTIN_LABEL } from "@/content/business";
@@ -10,8 +13,9 @@ import { FOOTER_CONTACT } from "@/content/footer-copy";
 import { hasHindiVersion } from "@/content/landing-pages";
 import type { Lang } from "@/content/translations";
 import { whatsAppUrl } from "@/content/whatsapp";
+import { RAIL_GRID } from "@/lib/layout-classes";
 
-const linkClass = "text-clay underline decoration-clay/70 underline-offset-4 hover:text-claydeep";
+const linkClass = "link";
 
 /** Keeps a Hindi reader on Hindi pages, as the footer and journal links do. */
 function localise(href: string, lang: Lang) {
@@ -20,25 +24,48 @@ function localise(href: string, lang: Lang) {
   return href;
 }
 
+/* A labelled row: a hairline, the heading on the left, the content on the
+   right. Below lg the two stack. */
+const row = "grid gap-y-5 border-t border-line py-8 sm:py-10 lg:grid-cols-12 lg:gap-x-12";
+/* A chapter of the story (styles.css, .vf-chapter): a hairline that draws
+   across as the chapter scrolls in, a large light number and the heading on
+   the left, the text open on the page to the right as one column that runs
+   to the right edge (RAIL_GRID, shared with the blog articles). The numbers
+   are CSS counters, so they add no text to the page. The note row below
+   shares the same two columns. */
+const chapter = `vf-chapter ${RAIL_GRID}`;
+const chapterNumber = <span aria-hidden="true" className="vf-chapter-num" />;
+/* The left-column headings are set a touch heavier than type-h4 (styles.css,
+   .vf-heading-strong) so they hold their own beside the text. */
+const chapterHeading = "vf-heading-strong mt-3 type-h4 text-ink";
+
+/* A contact detail: label and value side by side on a hairline. */
+const detail = "grid gap-1 border-b border-line py-4 sm:grid-cols-[9rem_1fr] sm:gap-6";
+
 export function AboutPage({ initialLang }: { initialLang: Lang }) {
   // English and Hindi are separate URLs; Hinglish is a reading preference on
   // top of them, the same arrangement as the journal routes.
   const [lang, setLang] = useState<Lang>(initialLang);
   const copy = ABOUT_COPY[lang];
   const home = lang === "hi" ? "/hi" : "/";
+  useReveal();
 
+  // Left-aligned on the home page's grid, after the Armonia reference: the
+  // title, the loom as a wide banner, the lede as a statement, the story as
+  // numbered chapters, then the note and contact as labelled rows. Layout only; the
+  // text keeps its order.
   return (
-    <div className="min-h-screen bg-paper text-ink">
+    <div className="min-h-screen bg-linen text-ink">
       <JournalHeader lang={lang} setLang={setLang} paths={{ en: "/about", hi: "/hi/about" }} />
       <main>
         <article
-          className="mx-auto max-w-4xl px-6 py-12 sm:py-16"
+          className="vf-longform mx-auto w-full max-w-[1440px] px-5 pt-8 sm:px-8 sm:pt-11 lg:px-[50px] lg:pt-14"
           lang={lang === "hi" ? "hi" : "en"}
         >
-          <nav aria-label="Breadcrumb" className="text-xs text-mute">
+          <nav aria-label="Breadcrumb" className="type-small text-mute">
             <ol className="flex flex-wrap items-center gap-2">
               <li>
-                <a href={home} className="hover:text-clay">
+                <a href={home} className="hover:text-plum">
                   {copy.breadcrumbHome}
                 </a>
               </li>
@@ -47,72 +74,89 @@ export function AboutPage({ initialLang }: { initialLang: Lang }) {
             </ol>
           </nav>
 
-          <p className="mt-10 font-mono text-xs uppercase tracking-label text-clay">
-            {copy.kicker}
-          </p>
-          <h1 className="mt-5 text-balance font-display text-4xl font-light leading-[1.12] tracking-normal sm:text-5xl lg:text-6xl">
-            {copy.title}
-          </h1>
+          <p className="eyebrow mt-10 type-label text-clay">{copy.kicker}</p>
+          <h1 className="mt-5 max-w-[18ch] type-display">{copy.title}</h1>
 
-          {/*
-            TODO(owner): real photographs go here — the shop at Golden Point,
-            the team, Dinesh Chhabra. Use the business's own photos only (no
-            stock imagery on this page), shipped as sized derivatives per
-            CLAUDE.md, with alt text describing what is actually shown.
-          */}
+          {/* The loom, as a wide banner under the title. Decorative; it plays
+              only near the viewport (LazyLoopVideo).
+              TODO(owner): real photographs of the shop at Golden Point, the
+              team and Dinesh Chhabra can replace it later, shipped as sized
+              derivatives with alt text describing what is shown. */}
+          <div
+            aria-hidden="true"
+            className="mt-10 overflow-hidden rounded-[var(--radius-card)] bg-sand sm:mt-12"
+          >
+            <LazyLoopVideo
+              src="/weaving-loom.mp4?v=a787f8f"
+              poster={loomPoster}
+              className="aspect-[4/3] w-full object-cover sm:aspect-[21/9]"
+            />
+          </div>
 
-          <div className="mx-auto max-w-[65ch]">
-            <p className="mt-10 text-lg leading-relaxed text-mute">{copy.lede}</p>
+          <p className="py-8 type-h3 text-ink sm:py-10 lg:py-12">{copy.lede}</p>
 
+          {/* The story as numbered chapters: who we are, who leads it, what we
+              supply, sixty years in the trade. */}
+          <div className="vf-chapters">
             {copy.sections.map((section) => (
-              <section key={section.heading} className="mt-12">
-                <h2 className="font-display text-2xl font-light sm:text-3xl">{section.heading}</h2>
-                {section.paragraphs.map((paragraph) => (
-                  <p key={paragraph} className="mt-5 leading-[1.85] text-mute">
-                    {paragraph}
-                  </p>
-                ))}
-                {section.links && (
-                  <ul className="mt-5 space-y-2">
-                    {section.links.map((link) => (
-                      <li key={link.href}>
-                        <a href={localise(link.href, lang)} className={linkClass}>
-                          {link.label}
-                        </a>
-                      </li>
+              <section key={section.heading} data-reveal className={chapter}>
+                <div>
+                  {chapterNumber}
+                  <h2 className={chapterHeading}>{section.heading}</h2>
+                </div>
+                <div>
+                  <div>
+                    {section.paragraphs.map((paragraph) => (
+                      <p key={paragraph} className="mb-5 type-body text-mute last:mb-0">
+                        {paragraph}
+                      </p>
                     ))}
-                  </ul>
-                )}
+                  </div>
+                  {section.links && (
+                    <ul className="mt-7 flex flex-col items-start gap-4">
+                      {section.links.map((link) => (
+                        <li key={link.href}>
+                          <a href={localise(link.href, lang)} className="link-arrow">
+                            {link.label}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
               </section>
             ))}
 
-            <section className="mt-12">
-              <h2 className="font-display text-2xl font-light sm:text-3xl">
-                {SECTION_COPY[lang].title}
-              </h2>
-              <p className="mt-5 leading-[1.85] text-ink">{SECTION_COPY[lang].titleEnd}</p>
-              <p className="mt-5 leading-[1.85] text-mute">{SECTION_COPY[lang].body}</p>
-              <p className="mt-5 leading-[1.85] text-mute">{SECTION_COPY[lang].bodyEnd}</p>
+            <section data-reveal className={chapter}>
+              <div>
+                {chapterNumber}
+                <h2 className={chapterHeading}>{SECTION_COPY[lang].title}</h2>
+              </div>
+              <div>
+                <p className="type-h2 text-ink">{SECTION_COPY[lang].titleEnd}</p>
+                <div className="mt-6">
+                  <p className="mb-5 type-body text-mute">{SECTION_COPY[lang].body}</p>
+                  <p className="type-body text-mute">{SECTION_COPY[lang].bodyEnd}</p>
+                </div>
+              </div>
             </section>
+          </div>
 
-            <section className="mt-12 border-l-2 border-clay bg-sand px-6 py-6">
-              <h2 className="font-display text-2xl font-light sm:text-3xl">
-                {copy.disambiguationHeading}
-              </h2>
-              <p className="mt-4 leading-[1.85] text-ink">{DISAMBIGUATION[lang]}</p>
-              <p className="mt-4 leading-[1.85] text-mute">{copy.disambiguationNote}</p>
-            </section>
+          <section className={`border-t border-line ${RAIL_GRID}`}>
+            <h2 className="vf-heading-strong type-h4 text-ink">{copy.disambiguationHeading}</h2>
+            <div>
+              <p className="type-body text-ink">{DISAMBIGUATION[lang]}</p>
+              <p className="mt-4 type-body text-mute">{copy.disambiguationNote}</p>
+            </div>
+          </section>
 
-            <section className="mt-12 border-t border-line pt-8">
-              <h2 className="font-display text-2xl font-light sm:text-3xl">
-                {copy.contactHeading}
-              </h2>
-              <dl className="mt-6 space-y-5 leading-relaxed">
-                <div>
-                  <dt className="font-mono text-xs uppercase tracking-label text-clay">
-                    {copy.addressLabel}
-                  </dt>
-                  <dd className="mt-1 text-mute">
+          <section className={`${row} items-start`}>
+            <div className="lg:col-span-5">
+              <h2 className="vf-heading-strong type-h4 text-ink">{copy.contactHeading}</h2>
+              <dl className="mt-6 border-t border-line type-body">
+                <div className={detail}>
+                  <dt className="type-label text-clay">{copy.addressLabel}</dt>
+                  <dd className="text-mute">
                     <address className="not-italic">
                       {ADDRESS_LINES[lang].map((line) => (
                         <span key={line} className="block">
@@ -122,11 +166,9 @@ export function AboutPage({ initialLang }: { initialLang: Lang }) {
                     </address>
                   </dd>
                 </div>
-                <div>
-                  <dt className="font-mono text-xs uppercase tracking-label text-clay">
-                    {copy.whatsAppLabel}
-                  </dt>
-                  <dd className="mt-1">
+                <div className={detail}>
+                  <dt className="type-label text-clay">{copy.whatsAppLabel}</dt>
+                  <dd>
                     <a
                       href={whatsAppUrl(copy.whatsAppMessage)}
                       target="_blank"
@@ -137,32 +179,29 @@ export function AboutPage({ initialLang }: { initialLang: Lang }) {
                     </a>
                   </dd>
                 </div>
-                <div>
-                  <dt className="font-mono text-xs uppercase tracking-label text-clay">
-                    {copy.emailLabel}
-                  </dt>
-                  <dd className="mt-1">
+                <div className={detail}>
+                  <dt className="type-label text-clay">{copy.emailLabel}</dt>
+                  <dd>
                     <a href={`mailto:${BUSINESS.email}`} className={linkClass}>
                       {BUSINESS.email}
                     </a>
                   </dd>
                 </div>
-                <div>
-                  <dt className="font-mono text-xs uppercase tracking-label text-clay">
-                    {copy.hoursLabel}
-                  </dt>
-                  <dd className="mt-1 text-mute">{FOOTER_CONTACT[lang].hours}</dd>
+                <div className={detail}>
+                  <dt className="type-label text-clay">{copy.hoursLabel}</dt>
+                  <dd className="text-mute">{FOOTER_CONTACT[lang].hours}</dd>
                 </div>
-                <div>
-                  <dt className="font-mono text-xs uppercase tracking-label text-clay">
-                    {GSTIN_LABEL}
-                  </dt>
-                  <dd className="mt-1">{BUSINESS.gstin}</dd>
+                <div className={detail}>
+                  <dt className="type-label text-clay">{GSTIN_LABEL}</dt>
+                  <dd>{BUSINESS.gstin}</dd>
                 </div>
               </dl>
-              <MapEmbed lang={lang} className="mt-8" />
-            </section>
-          </div>
+            </div>
+            <MapEmbed
+              lang={lang}
+              className="lg:col-span-7 [&>div:first-child]:rounded-[var(--radius-card)] [&_iframe]:h-72 sm:[&_iframe]:h-96 lg:[&_iframe]:h-[460px]"
+            />
+          </section>
         </article>
         <TradeStory lang={lang} />
       </main>

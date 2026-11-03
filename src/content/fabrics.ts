@@ -24,14 +24,27 @@ export type CatalogueRange = {
   /** A second in-site link, used when one card covers two pages. */
   alsoHref?: string;
   alsoLabel?: Record<Lang, string>;
-  whatsAppMessage?: Record<Lang, string>;
   /** Product photograph shown at the top of this range card. */
   image?: {
     src: string;
     width: number;
     height: number;
     alt: string;
+    /** object-position for the crop; the card frame is portrait or landscape by width. */
+    position?: string;
+    /** Smaller files for the card's ~300px slot, as an `srcset` value. */
+    srcSet?: string;
   };
+  /** Optional short muted loop (in `public/`) shown over `standIn`, decorative. */
+  video?: string;
+  /** Where to crop `standIn` and `video` (CSS position); defaults to the centre. */
+  mediaPosition?: string;
+  /**
+   * Fills the photo space of a card that has no product photograph yet. It is
+   * a decorative CSS background, so it adds no image or alt text to the page;
+   * replace it with `image` once the owner supplies a real photograph.
+   */
+  standIn?: string;
 };
 
 export const CATALOGUE_RANGES: CatalogueRange[] = [
@@ -67,10 +80,13 @@ export const CATALOGUE_RANGES: CatalogueRange[] = [
       "hi-en": "Unstitched suits wholesale",
     },
     image: {
-      src: "/images/preview/collection-suits.webp",
-      width: 1280,
-      height: 720,
-      alt: "Model wearing an unstitched suit, Vidhi Fabrics Surat",
+      src: "/images/preview/range-suit-set.webp",
+      srcSet:
+        "/images/preview/range-suit-set-640.webp 640w, /images/preview/range-suit-set.webp 1440w",
+      width: 1440,
+      height: 804,
+      alt: "Unstitched suit set folded on a table: dupatta, printed top and plain bottom, Vidhi Fabrics Surat",
+      position: "56% 55%",
     },
   },
   {
@@ -99,10 +115,13 @@ export const CATALOGUE_RANGES: CatalogueRange[] = [
       "hi-en": "Polyester sarees wholesale",
     },
     image: {
-      src: "/images/preview/hero-saree.webp",
-      width: 1280,
-      height: 720,
-      alt: "Model in a polyester saree, Vidhi Fabrics Surat",
+      src: "/images/preview/range-saree-folded.webp",
+      srcSet:
+        "/images/preview/range-saree-folded-640.webp 640w, /images/preview/range-saree-folded.webp 1440w",
+      width: 1440,
+      height: 804,
+      alt: "Maroon polyester saree folded with its gold border, the pallu fanned open, Vidhi Fabrics Surat",
+      position: "52% 55%",
     },
   },
   {
@@ -129,10 +148,14 @@ export const CATALOGUE_RANGES: CatalogueRange[] = [
       hi: "रीसेलर के लिए साड़ी होलसेल",
       "hi-en": "Saree wholesale for resellers",
     },
-    whatsAppMessage: {
-      en: "Hi Vidhi Fabrics, I would like to know about the Reseller Starter Pack.",
-      hi: "नमस्ते विधि फैब्रिक्स, मुझे रीसेलर स्टार्टर पैक के बारे में जानना है।",
-      "hi-en": "Hi Vidhi Fabrics, mujhe Reseller Starter Pack ke baare mein jaanna hai.",
+    image: {
+      src: "/images/preview/range-reseller-pack.webp",
+      srcSet:
+        "/images/preview/range-reseller-pack-640.webp 640w, /images/preview/range-reseller-pack.webp 1440w",
+      width: 1440,
+      height: 804,
+      alt: "Reseller starter mix: rolled suit and saree fabrics tied with a ribbon in an open wooden box",
+      position: "50% 55%",
     },
   },
   {
@@ -158,6 +181,13 @@ export const CATALOGUE_RANGES: CatalogueRange[] = [
       en: "Organza and net for boutiques",
       hi: "बुटीक के लिए ऑर्गेंज़ा और नेट",
       "hi-en": "Organza aur net for boutiques",
+    },
+    image: {
+      src: "/images/preview/range-organza-net.webp",
+      width: 760,
+      height: 760,
+      alt: "Woman in a white saree on a stone staircase, a pink and ivory organza veil flowing behind her",
+      position: "50% 100%",
     },
   },
 ];

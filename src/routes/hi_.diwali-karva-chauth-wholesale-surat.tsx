@@ -12,7 +12,7 @@ const TITLE = "दिवाली साड़ी होलसेल और क�
 const DESCRIPTION =
   "बुटीक और रीसेलर के लिए दिवाली साड़ी होलसेल और करवा चौथ के अनस्टिच्ड सूट, सूरत के निर्माता और होलसेलर से। त्योहारी कैटलॉग व्हाट्सएप पर।";
 
-const linkClass = "text-clay underline decoration-clay/70 underline-offset-4 hover:text-claydeep";
+const linkClass = "link";
 
 // Hindi for this page has not been reviewed by a native speaker. Same claim
 // rules as the English page: no prices, MOQ, delivery timelines, transport
@@ -118,7 +118,7 @@ function CatalogueButton({ className = "" }: { className?: string }) {
       href={whatsAppUrl(CATALOGUE_MESSAGE)}
       target="_blank"
       rel="noopener noreferrer"
-      className={`inline-flex items-center justify-center rounded-sm bg-clay px-6 py-3 font-mono text-xs uppercase tracking-label text-paper transition-colors hover:bg-claydeep ${className}`}
+      className={`btn btn-primary ${className}`}
     >
       व्हाट्सएप पर त्योहारी कैटलॉग माँगिए
     </a>
@@ -127,11 +127,14 @@ function CatalogueButton({ className = "" }: { className?: string }) {
 
 function FestivalWholesalePageHi() {
   return (
-    <div className="min-h-screen bg-paper text-ink">
+    <div className="min-h-screen bg-linen text-ink">
       <JournalHeader lang="hi" />
       <main>
-        <article className="mx-auto max-w-4xl px-6 py-12 sm:py-16" lang="hi">
-          <nav aria-label="ब्रेडक्रंब" className="text-xs text-mute">
+        <article
+          className="mx-auto w-full max-w-[1440px] px-5 pb-16 pt-8 sm:px-8 sm:pt-11 lg:px-[50px] lg:pb-24 lg:pt-14"
+          lang="hi"
+        >
+          <nav aria-label="ब्रेडक्रंब" className="type-small text-mute">
             <ol className="flex flex-wrap items-center gap-2">
               <li>
                 <a href="/hi" className="hover:text-clay">
@@ -143,14 +146,14 @@ function FestivalWholesalePageHi() {
             </ol>
           </nav>
 
-          <h1 className="mt-6 text-balance font-display text-4xl font-light leading-[1.12] tracking-normal sm:text-5xl lg:text-6xl">
+          <h1 className="mt-6 max-w-[28ch] type-h1">
             बुटीक के लिए दिवाली साड़ी होलसेल और करवा चौथ के अनस्टिच्ड सूट
           </h1>
 
-          <CatalogueButton className="mt-8" />
+          <CatalogueButton className="vf-indent mt-8" />
 
-          <div className="mx-auto max-w-[65ch]">
-            <p className="mt-10 text-lg leading-relaxed text-mute">
+          <div className="vf-flow">
+            <p className="mt-10 type-lead text-mute">
               विधि फैब्रिक्स सूरत की पॉलिएस्टर साड़ी और ड्रेस मटेरियल की निर्माता और थोक विक्रेता
               है। करवा चौथ और दिवाली के लिए हम उत्तर भारत के बुटीक और रीसेलर को त्योहारी पॉलिएस्टर
               साड़ियाँ और अनस्टिच्ड सूट होलसेल में देते हैं। दुपट्टे या ओवरले के लिए ऑर्गेंज़ा और
@@ -158,10 +161,8 @@ function FestivalWholesalePageHi() {
               हैं। आपके काउंटर पर क्या बिकता है, बताइए — ताज़ा कैटलॉग व्हाट्सएप पर भेज देंगे।
             </p>
 
-            <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">
-              एक सीज़न, दो त्योहार
-            </h2>
-            <p className="mt-5 leading-[1.85] text-mute">
+            <h2 className="vf-heading-strong type-h4 text-ink">एक सीज़न, दो त्योहार</h2>
+            <p className="mt-5 type-body text-mute">
               करवा चौथ और दिवाली के बीच आम तौर पर कुछ ही हफ़्ते होते हैं, और पंजाब, हरियाणा और
               राजस्थान की कई दुकानों के लिए दोनों मिलकर एक त्योहारी सीज़न बन जाते हैं। माल एक जैसा
               नहीं होता। करवा चौथ का दायरा छोटा है: पारंपरिक त्योहारी रंगों की साड़ियाँ और अनस्टिच्ड
@@ -169,7 +170,7 @@ function FestivalWholesalePageHi() {
               रिश्तेदारों के यहाँ जाना, पूजा, तोहफ़े और कई दिनों का आना-जाना। पहले करवा चौथ की चुनी
               हुई रेंज सोचिए, और उसके पीछे दिवाली की बड़ी रेंज।
             </p>
-            <p className="mt-5 leading-[1.85] text-mute">
+            <p className="mt-5 type-body text-mute">
               रंग, कपड़े का फ़ील और साड़ी-सूट का मेल हमारी स्टॉक गाइड में है —{" "}
               <a href="/hi/blog/karva-chauth-diwali-festive-stock" className={linkClass}>
                 करवा चौथ और दिवाली के लिए क्या स्टॉक करें
@@ -177,10 +178,8 @@ function FestivalWholesalePageHi() {
               । कैटलॉग माँगने के लिए यह पेज है।
             </p>
 
-            <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">
-              बुटीक और रीसेलर क्या मँगाते हैं
-            </h2>
-            <ul className="mt-5 list-disc space-y-2 pl-6 leading-[1.85] text-mute">
+            <h2 className="vf-heading-strong type-h4 text-ink">बुटीक और रीसेलर क्या मँगाते हैं</h2>
+            <ul className="mt-5 list-disc space-y-2 pl-6 type-body text-mute">
               <li>
                 त्योहारी रैक के लिए पॉलिएस्टर साड़ियाँ: जॉर्जेट या शिफ़ॉन जैसा ड्रेप, सैटिन या सिल्क
                 जैसी चमक, या कढ़ाई वाली और सीक्वेंस वाली बॉडी।
@@ -195,7 +194,7 @@ function FestivalWholesalePageHi() {
                 पूरी ज़रूरत के लिए आपकी बात एक ही कारोबार से होती है।
               </li>
             </ul>
-            <p className="mt-5 leading-[1.85] text-mute">
+            <p className="mt-5 type-body text-mute">
               मुख्य रेंज{" "}
               <a href="/hi/polyester-sarees-wholesale-surat" className={linkClass}>
                 पॉलिएस्टर साड़ी होलसेल
@@ -211,13 +210,11 @@ function FestivalWholesalePageHi() {
               पर हैं।
             </p>
 
-            <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">
-              अपनी ज़रूरत कैसे बताएँ
-            </h2>
-            <p className="mt-5 leading-[1.85] text-mute">
+            <h2 className="vf-heading-strong type-h4 text-ink">अपनी ज़रूरत कैसे बताएँ</h2>
+            <p className="mt-5 type-body text-mute">
               जितनी साफ़ जानकारी, उतना सटीक कैटलॉग। व्हाट्सएप पर बताइए:
             </p>
-            <ul className="mt-4 list-disc space-y-2 pl-6 leading-[1.85] text-mute">
+            <ul className="mt-4 list-disc space-y-2 pl-6 type-body text-mute">
               <li>आप बुटीक चलाते हैं, दुकान है, या रीसेलर के रूप में बेचते हैं</li>
               <li>खरीद करवा चौथ के लिए है, दिवाली के लिए, या दोनों के लिए</li>
               <li>आपके ग्राहक कौन-से रंग माँगते हैं</li>
@@ -226,7 +223,7 @@ function FestivalWholesalePageHi() {
                 अगर कपड़ा मिलाना है तो शेड कार्ड, कपड़े का टुकड़ा, या दिन की रोशनी में ली फ़ोटो
               </li>
             </ul>
-            <p className="mt-5 leading-[1.85] text-mute">
+            <p className="mt-5 type-body text-mute">
               बल्क ऑर्डर से पहले सैंपल पास कीजिए, और उस मंज़ूरी के साथ डिज़ाइन कोड लिखकर रखिए। हमारी{" "}
               <a href="/hi/blog/sample-to-bulk-order-checklist" className={linkClass}>
                 सैंपल से बल्क ऑर्डर तक की चेकलिस्ट
@@ -238,10 +235,8 @@ function FestivalWholesalePageHi() {
               ।
             </p>
 
-            <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">
-              हम कहाँ माल देते हैं
-            </h2>
-            <p className="mt-5 leading-[1.85] text-mute">
+            <h2 className="vf-heading-strong type-h4 text-ink">हम कहाँ माल देते हैं</h2>
+            <p className="mt-5 type-body text-mute">
               हमारे ज़्यादातर खरीदार पंजाब, हरियाणा, राजस्थान, उत्तर प्रदेश और मध्य प्रदेश के बुटीक,
               रिटेलर और रीसेलर हैं। विधि फैब्रिक्स 1960 के दशक से इस कारोबार में है। UAE और अन्य
               अंतरराष्ट्रीय बाज़ारों से एक्सपोर्ट पूछताछ का भी स्वागत है। हमें व्हाट्सएप पर{" "}
@@ -255,7 +250,7 @@ function FestivalWholesalePageHi() {
               </a>{" "}
               पर मैसेज कीजिए, या {ADDRESS_LINES.hi.join(", ")} पर आकर मिलिए।
             </p>
-            <p className="mt-5 leading-[1.85] text-mute">
+            <p className="mt-5 type-body text-mute">
               जो रीसेलर व्हाट्सएप पर या घर से बेचते हैं, वे{" "}
               <a href="/hi/saree-wholesale-for-resellers" className={linkClass}>
                 रीसेलर के लिए साड़ी होलसेल
@@ -265,17 +260,17 @@ function FestivalWholesalePageHi() {
 
             <ResellerCircleCta lang="hi" className="mt-12" />
 
-            <section className="mt-12 border-t border-line pt-8">
-              <h2 className="font-display text-2xl font-light sm:text-3xl">सामान्य प्रश्न</h2>
+            <section>
+              <h2 className="vf-heading-strong type-h4 text-ink">सामान्य प्रश्न</h2>
               {FAQS.map((entry) => (
                 <div key={entry.question} className="mt-7">
-                  <h3 className="font-display text-lg font-light leading-snug">{entry.question}</h3>
-                  <p className="mt-3 leading-[1.85] text-mute">{entry.answer}</p>
+                  <h3 className="type-h4">{entry.question}</h3>
+                  <p className="mt-3 type-body text-mute">{entry.answer}</p>
                 </div>
               ))}
             </section>
 
-            <div className="my-12 flex justify-center border-t border-line pt-10">
+            <div className="vf-flow-end">
               <CatalogueButton />
             </div>
           </div>

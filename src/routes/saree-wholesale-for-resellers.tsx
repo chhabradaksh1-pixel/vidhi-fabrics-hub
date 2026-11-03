@@ -12,7 +12,7 @@ const TITLE = "Saree Wholesale for Resellers, Surat | Vidhi Fabrics";
 const DESCRIPTION =
   "Polyester sarees wholesale for online and WhatsApp resellers, small shops and home sellers, from a Surat manufacturer and wholesaler. Catalogue on WhatsApp.";
 
-const linkClass = "text-clay underline decoration-clay/70 underline-offset-4 hover:text-claydeep";
+const linkClass = "link";
 
 // No MOQ, delivery timeline, transport or best/lowest-price wording on this
 // page (BRAND.md). Quantities and timing are "ask us for your order".
@@ -115,7 +115,7 @@ function CatalogueButton({ className = "" }: { className?: string }) {
       href={whatsAppUrl(CATALOGUE_MESSAGE)}
       target="_blank"
       rel="noopener noreferrer"
-      className={`inline-flex items-center justify-center rounded-sm bg-clay px-6 py-3 font-mono text-xs uppercase tracking-label text-paper transition-colors hover:bg-claydeep ${className}`}
+      className={`btn btn-primary ${className}`}
     >
       Get the Saree Catalogue on WhatsApp
     </a>
@@ -124,11 +124,14 @@ function CatalogueButton({ className = "" }: { className?: string }) {
 
 function ResellerSareesPage() {
   return (
-    <div className="min-h-screen bg-paper text-ink">
+    <div className="min-h-screen bg-linen text-ink">
       <JournalHeader lang="en" />
       <main>
-        <article className="mx-auto max-w-4xl px-6 py-12 sm:py-16" lang="en">
-          <nav aria-label="Breadcrumb" className="text-xs text-mute">
+        <article
+          className="mx-auto w-full max-w-[1440px] px-5 pb-16 pt-8 sm:px-8 sm:pt-11 lg:px-[50px] lg:pb-24 lg:pt-14"
+          lang="en"
+        >
+          <nav aria-label="Breadcrumb" className="type-small text-mute">
             <ol className="flex flex-wrap items-center gap-2">
               <li>
                 <a href="/" className="hover:text-clay">
@@ -140,15 +143,17 @@ function ResellerSareesPage() {
             </ol>
           </nav>
 
-          <h1 className="mt-6 text-balance font-display text-4xl font-light leading-[1.12] tracking-normal sm:text-5xl lg:text-6xl">
+          <h1 className="mt-6 max-w-[28ch] type-h1">
             Saree Wholesale for Resellers, Direct from Surat
           </h1>
 
-          <CatalogueButton className="mt-8" />
-          <PromoSareeLine lang="en" />
+          <CatalogueButton className="vf-indent mt-8" />
+          <div className="vf-indent">
+            <PromoSareeLine lang="en" />
+          </div>
 
-          <div className="mx-auto max-w-[65ch]">
-            <p className="mt-10 text-lg leading-relaxed text-mute">
+          <div className="vf-flow">
+            <p className="mt-10 type-lead text-mute">
               Vidhi Fabrics is a Surat manufacturer and wholesaler of polyester sarees, and we
               supply resellers: people who sell on WhatsApp and Instagram, home-based sellers and
               small shops. Get the current catalogue on WhatsApp, mix designs in one order, approve
@@ -156,8 +161,8 @@ function ResellerSareesPage() {
               approved.
             </p>
 
-            <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">Who we supply</h2>
-            <p className="mt-5 leading-[1.85] text-mute">
+            <h2 className="vf-heading-strong type-h4 text-ink">Who we supply</h2>
+            <p className="mt-5 type-body text-mute">
               Many of our buyers sell to their own customers through WhatsApp groups, Status updates
               and Instagram pages, often from home. Others run a small shop or a counter in a local
               market. Most are in North India, in Punjab, Haryana, Rajasthan, Uttar Pradesh and
@@ -165,30 +170,24 @@ function ResellerSareesPage() {
               manufacturer and wholesaler, not through an agent.
             </p>
 
-            <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">
-              The catalogue, on WhatsApp
-            </h2>
-            <p className="mt-5 leading-[1.85] text-mute">
+            <h2 className="vf-heading-strong type-h4 text-ink">The catalogue, on WhatsApp</h2>
+            <p className="mt-5 type-body text-mute">
               Our catalogue comes to you as photos on WhatsApp, so you can look through it on your
               phone and show your customers what is available. Tell us what sells for you, such as
               daily wear or festive, the colours your customers ask for and the kind of buyers you
               serve, and we'll send the designs that fit, not the whole range.
             </p>
 
-            <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">
-              Mix designs in one order
-            </h2>
-            <p className="mt-5 leading-[1.85] text-mute">
+            <h2 className="vf-heading-strong type-h4 text-ink">Mix designs in one order</h2>
+            <p className="mt-5 type-body text-mute">
               A reseller needs variety more than volume in one design. You can combine designs and
               colours from the catalogue in a single order, for example a few festive reds and
               maroons alongside lighter daily-wear prints, so your customers see a real choice. Ask
               us how quantities and timing work for the mix you have in mind.
             </p>
 
-            <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">
-              Consistent shades and quality
-            </h2>
-            <p className="mt-5 leading-[1.85] text-mute">
+            <h2 className="vf-heading-strong type-h4 text-ink">Consistent shades and quality</h2>
+            <p className="mt-5 type-body text-mute">
               Your customers order from the photo you sent them, so the saree that arrives has to
               match it. We work to the design code and the sample you approved, and you can check
               the goods against that sample when they arrive. If two sarees look alike but are
@@ -203,10 +202,8 @@ function ResellerSareesPage() {
               helps you judge the fabric itself.
             </p>
 
-            <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">
-              Samples before bulk
-            </h2>
-            <p className="mt-5 leading-[1.85] text-mute">
+            <h2 className="vf-heading-strong type-h4 text-ink">Samples before bulk</h2>
+            <p className="mt-5 type-body text-mute">
               Approve a sample before you order in bulk. Look at it in daylight, check the feel and
               the fall, and keep the design code with your approval. Our{" "}
               <a href="/blog/sample-to-bulk-order-checklist" className={linkClass}>
@@ -215,8 +212,8 @@ function ResellerSareesPage() {
               walks through each step.
             </p>
 
-            <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">Where we supply</h2>
-            <p className="mt-5 leading-[1.85] text-mute">
+            <h2 className="vf-heading-strong type-h4 text-ink">Where we supply</h2>
+            <p className="mt-5 type-body text-mute">
               We mainly supply buyers in Punjab, Haryana, Rajasthan, Uttar Pradesh and Madhya
               Pradesh. Export enquiries are also welcome from the UAE and other international
               markets. Message us on WhatsApp at{" "}
@@ -230,7 +227,7 @@ function ResellerSareesPage() {
               </a>{" "}
               or visit us at {ADDRESS_LINES.en.join(", ")}.
             </p>
-            <p className="mt-5 leading-[1.85] text-mute">
+            <p className="mt-5 type-body text-mute">
               See our full range of{" "}
               <a href="/polyester-sarees-wholesale-surat" className={linkClass}>
                 polyester sarees wholesale
@@ -252,17 +249,17 @@ function ResellerSareesPage() {
 
             <ResellerCircleCta lang="en" className="mt-12" />
 
-            <section className="mt-12 border-t border-line pt-8">
-              <h2 className="font-display text-2xl font-light sm:text-3xl">FAQs</h2>
+            <section>
+              <h2 className="vf-heading-strong type-h4 text-ink">FAQs</h2>
               {FAQS.map((entry) => (
                 <div key={entry.question} className="mt-7">
-                  <h3 className="font-display text-lg font-light leading-snug">{entry.question}</h3>
-                  <p className="mt-3 leading-[1.85] text-mute">{entry.answer}</p>
+                  <h3 className="type-h4">{entry.question}</h3>
+                  <p className="mt-3 type-body text-mute">{entry.answer}</p>
                 </div>
               ))}
             </section>
 
-            <div className="my-12 flex justify-center border-t border-line pt-10">
+            <div className="vf-flow-end">
               <CatalogueButton />
             </div>
           </div>

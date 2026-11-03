@@ -52,8 +52,16 @@ export function SiteFooter({ lang = "en" }: { lang?: Lang }) {
        * footer's dark vf-weave ground would leave a hollow black gap across
        * the top third of the image. A dedicated band above the footer lets
        * it render on the ground it was designed for.
+       *
+       * The art is an opaque image on white. At the owner's request
+       * (1 November 2026) it has no background of its own: the band paints
+       * nothing and the image multiplies onto whatever ground the page has,
+       * so its white becomes that page's white or linen and no box or seam
+       * shows. (Cutting the white out of the file itself was tried; the alpha
+       * channel carried the JPEG grain and made the art three to four times
+       * heavier.) The footer below is unchanged.
        */}
-      <div className="bg-paper">
+      <div>
         <img
           src={heritage1200}
           srcSet={`${heritage800} 800w, ${heritage1200} 1200w, ${heritage1600} 1600w`}
@@ -61,7 +69,7 @@ export function SiteFooter({ lang = "en" }: { lang?: Lang }) {
           alt="Vidhi Fabrics — from raw yarn to the finished weave, Surat"
           width={1600}
           height={893}
-          className="block h-auto w-full"
+          className="block h-auto w-full mix-blend-multiply"
           loading="lazy"
           decoding="async"
         />

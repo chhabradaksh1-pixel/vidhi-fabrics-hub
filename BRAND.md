@@ -122,153 +122,185 @@ now." A trader talking to a trader about cloth.
 
 ## Colour
 
-Tokens live in `src/styles.css`. **The palette is white and black slate**,
-chosen by the owner on 22 October 2026 from options shown on localhost. It
-replaces blush and rust, which was set the day before. The page is white and a
-cool light grey; type, buttons and the footer are a black slate. Token names
-are historical (`clay`, `navy`, `gold` are no longer those hues). Renaming
-them would touch every component that references them.
-
-This is the first time the live components have rendered without a warm
-colour. Before 21 October the tokens were a greyscale ramp, but components
-hardcoded a maroon accent (`#7A1A18`) and cream surfaces (`#F6F1EA`), so
-that site was never grey and white. The blush switch moved those hardcoded
-values onto tokens, which is what made this change a token swap.
-
-Body copy uses `--foreground` (`#343A40`), a dark slate grey. Headings use
-`ink`. Buttons, links, the suit ticker and the header call to action use
-`clay`, now black slate. WhatsApp green (`#25D366`) is only the glyph on the
-WhatsApp icon. It is 1.98:1 on `paper` and 1.78:1 on `sand`, so the icon disc
-is `ink` (`#25D366` on `ink` is 8.91:1) and the pill around it is `clay`
-(6.63:1). On the footer it is 8.36:1 on `navy`.
-
-**`error` is the one hue.** `#B3261E` marks form errors and the invalid state
-of a field (`text-error`, `.vf-lead-field[aria-invalid]`). With a grey accent
-an error would otherwise be the same dark grey as body text. It is 6.54:1 on
-`paper` and 5.87:1 on `sand`.
+Tokens live in `src/styles.css`. **The page palette is linen and plum** (31
+October 2026), taken from the owner's Atelier / Thread reference: a warm linen
+page, white cards, a deep plum for buttons, links and the one dark band, and a
+pale cream for text on plum. It replaces the white-and-slate palette of 22
+October on every page outside the footer. The footer keeps its own colours
+(below), because it is frozen.
 
 | Token        | Hex       | Role                                                       |
 | ------------ | --------- | ---------------------------------------------------------- |
-| `paper`      | `#FFFFFF` | page ground                                                |
-| `foreground` | `#343A40` | body text                                                  |
-| `ink`        | `#15191D` | headings                                                   |
-| `mute`       | `#5B646C` | secondary text                                             |
-| `clay`       | `#2B3137` | black slate accent: buttons, links, ticker. **Light grounds only** |
-| `claydeep`   | `#14181C` | accent hover and pressed                                   |
-| `claylight`  | `#E4E8EB` | the light step for **dark** grounds                        |
-| `sand`       | `#F1F3F4` | secondary panels                                           |
-| `line`       | `#DEE2E5` | hairlines and dividers                                     |
+| `linen`      | `#F4EFE9` | page ground (`--background`)                               |
+| `surface`    | `#FFFDFA` | cards, the facts band, the cloth band, the enquiry form    |
+| `sand`       | `#EBE3D9` | image placeholders, card hover, the current header link    |
+| `foreground` | `#3A322E` | body text                                                  |
+| `ink`        | `#1E1719` | headings                                                   |
+| `mute`       | `#675D57` | secondary text                                             |
+| `plum`       | `#3A1F2B` | buttons, links, the promo ticker, the hero and Reseller Circle grounds |
+| `plumdeep`   | `#27141D` | plum hover and pressed; the About photo's wash             |
+| `plumlight`  | `#EFE4DC` | text and inverse buttons on plum                           |
+| `line`       | `#E2D8CD` | hairlines and dividers                                     |
 | `error`      | `#B3261E` | form errors and invalid fields                             |
-| `navy`       | `#1B1F23` | footer ground                                              |
-| `gold`       | `#B4BDC4` | footer accent                                              |
-| `ivory`      | `#F4F6F7` | footer text                                                |
 
-**`clay` fails WCAG AA on the footer** (1.26:1 on `navy`), so dark grounds
-use `claylight`, `ivory` or `gold`. Measured 22 October 2026:
+Measured 31 October 2026:
 
-| Pair                     | Ratio   | Body 4.5:1 | Large 3:1 |
-| ------------------------ | ------- | ---------- | --------- |
-| `ink` on `paper`         | 17.67:1 | yes        | yes       |
-| `ink` on `sand`          | 15.87:1 | yes        | yes       |
-| `foreground` on `paper`  | 11.51:1 | yes        | yes       |
-| `foreground` on `sand`   | 10.34:1 | yes        | yes       |
-| `mute` on `paper`        | 6.03:1  | yes        | yes       |
-| `mute` on `sand`         | 5.41:1  | yes        | yes       |
-| `clay` on `paper`        | 13.15:1 | yes        | yes       |
-| `clay` on `sand`         | 11.81:1 | yes        | yes       |
-| `claydeep` on `paper`    | 17.84:1 | yes        | yes       |
-| `paper` on `clay`        | 13.15:1 | yes        | yes       |
-| `paper` on `claydeep`    | 17.84:1 | yes        | yes       |
-| `error` on `paper`       | 6.54:1  | yes        | yes       |
-| `error` on `sand`        | 5.87:1  | yes        | yes       |
-| `clay` on `navy`         | 1.26:1  | **no**     | **no**    |
-| `claylight` on `navy`    | 13.45:1 | yes        | yes       |
-| `ivory` on `navy`        | 15.29:1 | yes        | yes       |
-| `gold` on `navy`         | 8.70:1  | yes        | yes       |
+| Pair                       | Ratio   | Body 4.5:1 | Large 3:1 |
+| -------------------------- | ------- | ---------- | --------- |
+| `ink` on `linen`           | 15.41:1 | yes        | yes       |
+| `ink` on `surface`         | 17.35:1 | yes        | yes       |
+| `foreground` on `linen`    | 10.96:1 | yes        | yes       |
+| `foreground` on `surface`  | 12.34:1 | yes        | yes       |
+| `foreground` on `sand`     | 9.86:1  | yes        | yes       |
+| `mute` on `linen`          | 5.60:1  | yes        | yes       |
+| `mute` on `surface`        | 6.31:1  | yes        | yes       |
+| `mute` on `sand`           | 5.04:1  | yes        | yes       |
+| `plum` on `linen`          | 13.02:1 | yes        | yes       |
+| `plum` on `surface`        | 14.66:1 | yes        | yes       |
+| `plumlight` on `plum`      | 11.91:1 | yes        | yes       |
+| `plumlight` on `plumdeep`  | 13.95:1 | yes        | yes       |
+| `error` on `linen`         | 5.72:1  | yes        | yes       |
+| `error` on `surface`       | 6.44:1  | yes        | yes       |
 
-`mute` on `sand` is 5.41:1, the tightest text pair on the site. Do not
-lighten it.
+`mute` on `sand` (5.04:1) is the tightest text pair. Do not lighten either.
 
-**The footer is textured**, so its text is measured on the worst pixel, not the
-flat ground. The weave in `styles.css` is two 1px line grids (5% and 3.5%
-`ivory`) and a radial highlight at the top. At the bottom, where the copyright
-line (`ivory` at 55%) sits and only the grids reach, the worst pixel gives
-4.81:1 (5.51:1 on the flat ground). At the top, with all three layers stacked,
-which no single pixel reaches, `ivory` at 70%, 75% and 80% give 5.00, 5.48 and
-6.00:1 and `gold` gives 4.69:1. `ivory` at 55% would fail there (3.78:1), so
+**Text over photographs** is measured on the brightest pixel behind each line,
+with the text hidden. The hero's plum wash (`.vf-hero-shade` in
+`showroom.css`) stays dense up to the end of the text column, set in rem rather
+than as a share of the width, so the cream text holds 4.5:1 at every width;
+the photograph opens up to the right of it. The About photo's wash rises from
+the bottom (`plumdeep` 95%, then 80% at 65%). Both were measured at 390, 768,
+900, 1024, 1280 and 1440px in English and Hindi on 31 October 2026, with no
+failures. Re-measure whenever a photo, a wash or the hero text changes.
+
+**A link carries an underline.** `link` is plum with a plum underline at 55%.
+WhatsApp green (`#25D366`) is only the glyph on the WhatsApp icon.
+
+### Footer colours (frozen)
+
+The footer still reads the legacy tokens, which must not change: `navy`
+(`#1B1F23`, ground), `ivory` (`#F4F6F7`, text), `gold` (`#B4BDC4`, accent),
+`claylight` (`#E4E8EB`) and `clay` (`#2B3137`). `clay` fails on the footer
+(1.26:1 on `navy`); `claylight` (13.45:1), `ivory` (15.29:1) and `gold`
+(8.70:1) pass. The footer is textured, so its text was measured on the worst
+pixel: the copyright line (`ivory` at 55%) gives 4.81:1 at the bottom, where
+only the line grids reach. `ivory` at 55% would fail at the top (3.78:1), so
 keep that opacity to the bottom line.
-
-**A link carries an underline, because colour no longer marks one.** The accent
-is 1.14:1 against body text and 2.18:1 against `mute`. Links in running text
-are underlined in `clay` at 70% (`decoration-clay/70`): 5.06:1 on `paper`,
-4.84:1 on `sand`. The `decoration-line` and `decoration-clay/30` underlines
-they replaced were 1.30:1 and 1.81:1, which on a grey page is close to none.
-`vf-link-maroon` carries the same underline in CSS.
-
-**Audited in the browser on 22 October 2026.** Every visible text node on ten
-pages at desktop width, in both languages (`/`, `/hi`, `/about`, the polyester
-landing page in English and Hindi, a blog article, `/blog`, `/hi/blog`,
-`/reseller-circle` and `/privacy-policy`), on `/` and `/hi` again on a phone
-with the menu open, and in the open pop-up and its error state, was checked
-against its composited background: no failures, tightest pair 5.41:1.
 
 Over a texture or photograph, check the **brightest pixel**, not the average.
 A mean that passes hides a worst case that doesn't.
 
 ## Type
 
-Headings are a sturdy serif. Body and labels are one grotesque. The pairing and
-the spacing follow Woodwrights (22 October 2026), measured from the rendered
-site. Their headings and paragraphs are **Plantin Infant MT Std** (Monotype,
-paid) at one regular weight, and their navigation, labels, links, buttons and
-inputs are **Monument Grotesk** (Dinamo, paid). Neither file can be copied onto
-this site. This replaced the Fraunces and Hanken Grotesk pairing of 21 October,
-which followed Flooring Xtra's Canela and Banana Grotesk.
+Fixed roles (31 October 2026). Headings are a serif, **Newsreader**, and
+everything else is **Anek** by Ek Type, an Indian foundry. Newsreader Display
+at its light 300 weight sets the hero, page titles and section headings, the
+way Atelier sets its headlines; Newsreader 400 sets smaller panel titles. Hindi
+headings use **Noto Serif Devanagari**; Hindi text uses Anek Devanagari, drawn
+as one design with Anek Latin so the two scripts match. Card titles, FAQ
+questions and all running text stay in the sans.
 
-| Role    | Family we ship                            | Free match for        | Weight |
-| ------- | ----------------------------------------- | --------------------- | ------ |
-| Display | Newsreader, then Noto Serif Devanagari    | Plantin Infant MT Std | 400    |
-| Body    | Hanken Grotesk, then Noto Sans Devanagari | Monument Grotesk      | 400    |
-| Label   | Hanken Grotesk, then Noto Sans Devanagari | Monument Grotesk      | 400    |
+All are SIL Open Font License 1.1, self-hosted, `font-display: swap`, one
+static file per cut so nothing is faked:
 
-Newsreader and Hanken Grotesk are SIL Open Font License 1.1, self-hosted, latin
-only, `font-display: swap`. Newsreader is one static regular file (22 KB),
-declared across weights 300 to 500, so every `font-light` heading renders that
-same regular and nothing is ever faux-bolded. There is no bold or light serif,
-as on Woodwrights. Dropping the 67 KB Fraunces file made the page 45 KB
-lighter. Newsreader was chosen as a free serif close to Plantin in build:
-sturdy, moderate contrast, and a large x-height that holds up at text sizes.
-That is a judgement by eye, not a measurement.
+| Cut                         | Used for                                  | File  | Loaded                |
+| --------------------------- | ----------------------------------------- | ----- | --------------------- |
+| Newsreader Display 300      | `type-display`, `type-h1`, `type-h2`      | 23 KB | every page, preloaded |
+| Newsreader 400              | `type-h3`; the frozen footer's wordmark   | 22 KB | every page, on demand |
+| Anek Latin 400              | body, lead, small text                    | 20 KB | every page, preloaded |
+| Anek Latin 500              | `type-h4`, labels, navigation, buttons    | 20 KB | every page, preloaded |
+| Noto Serif Devanagari 400   | Hindi headings                            | 51 KB | `/hi` only, preloaded |
+| Anek Devanagari 400         | Hindi text, labels and buttons            | 94 KB | `/hi` only, preloaded |
+| Anek Devanagari subset      | the few Hindi words on English pages (हिंदी switch, the home page's Hindi line) | 6 KB | English pages |
 
-### Size and spacing
+### Roles
 
-Measured on Woodwrights, then applied here as tokens in `styles.css`:
+Every heading, paragraph, label, link and button takes exactly one role
+utility from `styles.css`. Nothing else sets font size, line height, weight,
+width or tracking, so a page redesign changes layout, never type. The heading
+sizes grow fluidly between a 390px phone and a 1440px desktop.
 
-| Role                                    | Woodwrights                | Here                                         |
-| --------------------------------------- | -------------------------- | -------------------------------------------- |
-| Headings (serif)                        | 22–28px, line-height 1.2   | existing sizes, `tracking-normal`            |
-| Navigation, labels, lists (uppercase)   | 12px, 1.5, +0.04em         | 12px, `tracking-label` (+0.04em)             |
-| Links, buttons, helper text (sentence)  | 13px, 1.35, +0.02em        | `tracking-ui` (+0.02em), used in the pop-up  |
-| Form inputs                             | 16px                       | 16px                                         |
-| Paragraphs                              | serif, 16px, 1.35          | **not taken**: body stays on the grotesque   |
+| Role           | English size / line height | Face · weight · tracking            | Use for                                  |
+| -------------- | -------------------------- | ----------------------------------- | ---------------------------------------- |
+| `type-display` | 44→88px / 1.0              | Newsreader Display · 300 · −0.02em  | the home hero only                       |
+| `type-h1`      | 36→60px / 1.04             | Newsreader Display · 300 · −0.015em | page titles; large headings on dark grounds |
+| `type-h2`      | 30→48px / 1.08             | Newsreader Display · 300 · −0.01em  | section headings                         |
+| `type-h3`      | 22→30px / 1.15             | Newsreader · 400                    | panel titles, the Collections list       |
+| `type-h4`      | 18→22px / 1.3              | Anek · 500                          | card titles, FAQ questions               |
+| `type-lead`    | 20px / 1.5                 | Anek · 400                          | intro paragraphs                         |
+| `type-body`    | 17px / 1.6                 | Anek · 400                          | running text, form fields, the facts band |
+| `type-small`   | 15px / 1.5                 | Anek · 400                          | captions, card text, breadcrumbs, dates  |
+| `type-label`   | 13px / 1.3, uppercase      | Anek · 500 · +0.06em                | eyebrows, table heads                    |
+| `type-nav`     | 15px / 1.2                 | Anek · 500                          | header links                             |
+| `type-button`  | 15px / 1.2                 | Anek · 500 · +0.01em                | button and call-to-action labels         |
 
-Labels used to sit at 10–11px with eight different arbitrary letter-spacings
-from +0.08em to +0.2em, which reads as a spec sheet. They are now 12px at
-+0.04em through one token, and headings use normal tracking instead of
-`tracking-tight`. Two things were deliberately not copied: Woodwrights' largest
-heading (28px), because the hero and section headlines here stay larger, and
-serif body paragraphs.
+Also: `measure` caps running text at 65 characters. A shadcn component that
+sets its own size (the FAQ trigger's `text-sm`) needs the role's size passed
+as a class too (`text-[length:var(--type-h4)]`), or its utility wins.
 
-Hindi in a heading uses **Noto Serif Devanagari** so it belongs with
-Newsreader. Hindi in body copy uses **Noto Sans Devanagari** so it belongs with
-Hanken Grotesk. Both are loaded only on `/hi`. The English homepage's one Hindi
-line uses a small serif subset of that sentence instead. Check Hindi rendering
-when touching type: Devanagari needs more line height than Latin at the same
-size, headline wraps differ, and wide letter-spacing breaks conjuncts, which is
-one more reason the label tracking came down.
+**Hindi.** Each role carries its own `:lang(hi)` settings. Hindi keeps the
+English size, takes more line height (body 1.75, lead and small 1.7, headings
+1.3–1.45), and never takes letter-spacing, uppercase or italics, which break
+conjuncts. `type-label` is 14px in Hindi because it loses the capitals.
+Numbers such as GSM and widths stay in Latin digits. Check Hindi wraps
+whenever a heading changes.
 
-`--font-mono` is still a misnomer: it marks the uppercase labels and resolves
-to Hanken Grotesk, not a monospace.
+### Buttons and links
+
+Every link belongs to one of four kinds, and each kind has one look:
+
+| Kind                           | Utility                                      | Example                                     |
+| ------------------------------ | -------------------------------------------- | ------------------------------------------- |
+| Talk to us (WhatsApp, enquiry) | `btn btn-primary`; `btn btn-inverse` on plum | Enquire on WhatsApp, Request a quotation    |
+| A second way to talk           | `btn btn-secondary`                          | Start a wholesale inquiry                   |
+| Go to a page or section        | `link-arrow`                                 | View the range →, See the full map →        |
+| Small asks and details         | `link`                                       | Ask on WhatsApp under a cloth, phone, email |
+
+Buttons are pills: `btn` is 48px tall, `btn-lg` 56px for the hero and closing
+calls to action, `btn-sm` 36px for the promo bar, the header and narrow cards.
+At most one filled button per block. WhatsApp never takes an arrow link, and
+an arrow link never opens WhatsApp. `link-arrow` sets its label in spaced
+capitals from CSS (Hindi drops them), so the page text is unchanged. Labels
+are sentence case in the source; never add `uppercase` to a button.
+
+Other utilities: `eyebrow` (a section marker with a short rule after it),
+`card` (white, 28px radius, soft shadow), `card-media` (an image inset in a
+card) and `segmented` (the language switch and the catalogue's view toggle,
+36px; 44px tall on touch screens).
+
+**Touch targets.** On a phone anything tappable is at least 44px tall, even
+where it looks smaller: the pills, the header search, the article back link.
+
+**Motion on a phone.** One thing moving at a time. Loops rest off screen, the
+floating WhatsApp button pulses three times and stops, and it stays out of
+the way while the hero's own WhatsApp button is showing.
+
+**Header.** Links sit beside the logo, each a 36px pill that fills with `sand`
+on hover and on the current page, the way shadcn's navigation menu sets them.
+The language switch, search and WhatsApp button on the right are all 36px.
+
+### Footer is frozen
+
+The owner wants the footer exactly as it was on 31 October 2026: layout,
+colours, copy and type. It keeps its own fonts (Newsreader for the wordmark,
+Hanken Grotesk for everything else, and a 25 KB footer-only cut of Noto Sans
+Devanagari for its Hindi) through a `footer { font-family }` rule in
+`styles.css`. These must not change, because the footer reads them:
+
+- `--font-display`, `--font-body`, `--font-mono`, `--tracking-label`,
+  `--tracking-ui`, `--default-transition-duration` and `--radius`
+- the colour tokens, `vf-weave`, `vf-wave` and the global `:focus-visible` rule
+- Tailwind's default text sizes and breakpoints
+- `site-footer.tsx`, `footer-copy.ts` and `DirectionsLink` in `map-embed.tsx`
+  (one exception, at the owner's request on 1 November 2026: the illustration
+  band above the footer paints no ground of its own and the art multiplies
+  onto the page behind it, so its white becomes that page's white or linen
+  and no box or seam shows; the `<footer>` itself is unchanged)
+
+New work never uses `font-display`, `font-mono`, `tracking-label` or
+`tracking-ui`; they exist only for the footer. Checked by comparing the footer's
+computed styles and pixels against the original on English and Hindi pages at
+1440px and 390px.
 
 ## Interaction
 

@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 
+import { LoopVideo } from "@/components/loop-video";
 import { CATALOGUE_RANGES, FABRICS, type CatalogueRange } from "@/content/fabrics";
 import { PROMO_SUITS } from "@/content/promo-suits";
 import {
@@ -123,24 +124,28 @@ export function FabricCatalogueSection({ lang }: { lang: Lang }) {
     setMaterials([]);
   }
 
+  // Two parts on two grounds: the four selling ranges as white cards on the
+  // page, then the cloth itself as a swatch library in its own white band, so
+  // a collection is never mistaken for a cloth. One toolbar filters both, so
+  // it stays at the top; the DOM order is unchanged.
   return (
-    <section id="catalogue" className="scroll-mt-36">
-      <div className="mx-auto w-full max-w-[1440px] px-5 py-16 sm:px-8 sm:py-24 lg:px-[50px] lg:py-32">
-        <div className="max-w-2xl">
-          <p className="font-mono text-xs uppercase tracking-label text-clay">
+    <section id="catalogue" className="scroll-mt-36 pb-8 sm:pb-11 lg:pb-14">
+      <div className="mx-auto w-full max-w-[1440px] px-5 pb-12 pt-8 sm:px-8 sm:pb-16 sm:pt-11 lg:px-[50px] lg:pb-20 lg:pt-14">
+        {/* Heading on the left, introduction on the right (Atelier). */}
+        <div className="grid gap-y-5 lg:grid-cols-12 lg:items-end lg:gap-x-16">
+          <p className="eyebrow type-label text-clay lg:col-span-12">
             {COPY.catalogue.marker[lang]}
           </p>
-          <h2 className="vf-showroom-serif mt-4 text-4xl tracking-normal lg:text-5xl">
-            {COPY.catalogue.heading[lang]}
-          </h2>
-          <p className="mt-5 max-w-[46ch] text-pretty text-lg text-mute">
+          <h2 className="type-h2 lg:col-span-7">{COPY.catalogue.heading[lang]}</h2>
+          <p className="max-w-[46ch] type-lead text-mute lg:col-span-5 lg:justify-self-end">
             {COPY.catalogue.body[lang]}
           </p>
         </div>
 
         {/* Toolbar: search, sort, view. Stacks on narrow screens. */}
-        <div className="mt-12 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-          <div className="lg:max-w-xs lg:flex-1">
+        {/* An Apple-style control bar: one white card holding search, sort and view. */}
+        <div className="card mt-14 flex flex-col gap-4 p-3 sm:p-4 lg:flex-row lg:items-center lg:justify-between">
+          <div className="lg:max-w-md lg:flex-1">
             <label htmlFor="fabric-search" className="sr-only">
               {COPY.catalogue.searchLabel[lang]}
             </label>
@@ -150,23 +155,20 @@ export function FabricCatalogueSection({ lang }: { lang: Lang }) {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder={COPY.catalogue.searchPlaceholder[lang]}
-              className="w-full rounded-sm border border-line bg-paper px-3 py-2 text-sm text-ink placeholder:text-mute focus:border-clay focus:outline-none"
+              className="w-full rounded-full border border-transparent bg-linen px-5 py-2.5 type-body text-ink placeholder:text-mute focus:border-plum focus:bg-surface focus:outline-none"
             />
           </div>
 
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
-            <div className="flex items-center gap-2">
-              <label
-                htmlFor="fabric-sort"
-                className="font-mono text-xs uppercase tracking-label text-mute"
-              >
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-3 px-2 lg:px-0">
+            <div className="flex items-center gap-3">
+              <label htmlFor="fabric-sort" className="type-label text-mute">
                 {COPY.catalogue.sortLabel[lang]}
               </label>
               <select
                 id="fabric-sort"
                 value={sort}
                 onChange={(e) => setSort(e.target.value as SortKey)}
-                className="rounded-sm border border-line bg-paper px-2 py-1.5 text-sm text-ink focus:border-clay focus:outline-none"
+                className="rounded-full border border-transparent bg-linen px-4 py-2 type-small text-ink focus:border-plum focus:outline-none"
               >
                 {SORTS.map((s) => (
                   <option key={s} value={s}>
@@ -176,21 +178,9 @@ export function FabricCatalogueSection({ lang }: { lang: Lang }) {
               </select>
             </div>
 
-            <div
-              role="group"
-              aria-label={COPY.catalogue.viewLabel[lang]}
-              className="flex gap-2 font-mono text-xs uppercase tracking-label"
-            >
+            <div role="group" aria-label={COPY.catalogue.viewLabel[lang]} className="segmented">
               {(["grid", "table"] as View[]).map((v) => (
-                <button
-                  key={v}
-                  type="button"
-                  onClick={() => setView(v)}
-                  aria-pressed={view === v}
-                  className={`rounded-sm px-3 py-2 transition-colors ${
-                    view === v ? "bg-ink text-paper" : "text-mute ring-1 ring-line hover:text-ink"
-                  }`}
-                >
+                <button key={v} type="button" onClick={() => setView(v)} aria-pressed={view === v}>
                   {v === "grid" ? COPY.catalogue.viewGrid[lang] : COPY.catalogue.viewTable[lang]}
                 </button>
               ))}
@@ -199,11 +189,11 @@ export function FabricCatalogueSection({ lang }: { lang: Lang }) {
         </div>
 
         {/* Material facets. Multi-select: no selection means everything. */}
-        <div className="mt-4 flex flex-wrap items-center justify-between gap-4">
+        <div className="mt-5 flex flex-wrap items-center justify-between gap-4 px-1">
           <div
             role="group"
             aria-label={COPY.catalogue.filterLabel[lang]}
-            className="flex flex-wrap gap-2 font-mono text-xs"
+            className="flex flex-wrap gap-2 type-small"
           >
             {MATERIALS.map((m) => (
               <button
@@ -211,10 +201,10 @@ export function FabricCatalogueSection({ lang }: { lang: Lang }) {
                 type="button"
                 onClick={() => toggleMaterial(m)}
                 aria-pressed={materials.includes(m)}
-                className={`rounded-sm px-3 py-2 transition-colors ${
+                className={`rounded-full px-4 py-1.5 transition-colors ${
                   materials.includes(m)
-                    ? "bg-ink text-paper"
-                    : "text-mute ring-1 ring-line hover:text-ink"
+                    ? "bg-plum text-plumlight"
+                    : "bg-surface text-mute shadow-[0_0_0_1px_var(--line)] hover:text-ink"
                 }`}
               >
                 {CATEGORY_LABELS[m][lang]}
@@ -223,18 +213,14 @@ export function FabricCatalogueSection({ lang }: { lang: Lang }) {
           </div>
 
           <div className="flex items-center gap-4">
-            <p aria-live="polite" className="font-mono text-xs tracking-label text-mute">
+            <p aria-live="polite" className="type-small text-mute">
               {fill(COPY.catalogue.count[lang], {
                 shown: String(shown.length + ranges.length),
                 total: String(FABRICS.length + CATALOGUE_RANGES.length),
               })}
             </p>
             {filtered && (
-              <button
-                type="button"
-                onClick={clear}
-                className="font-mono text-xs uppercase tracking-label text-clay underline underline-offset-4 hover:text-claydeep"
-              >
+              <button type="button" onClick={clear} className="link type-small">
                 {COPY.catalogue.clear[lang]}
               </button>
             )}
@@ -242,21 +228,26 @@ export function FabricCatalogueSection({ lang }: { lang: Lang }) {
         </div>
 
         {shown.length + ranges.length === 0 ? (
-          <p className="mt-10 text-sm text-mute">
+          <p className="mt-10 type-small text-mute">
             {query.trim() === "" ? COPY.catalogue.empty[lang] : COPY.catalogue.noResults[lang]}
           </p>
         ) : (
-          <>
-            {ranges.length > 0 && <RangeGrid lang={lang} ranges={ranges} />}
-            {shown.length > 0 &&
-              (view === "table" ? (
-                <SpecTable lang={lang} fabrics={shown} onOpen={setOpenSku} />
-              ) : (
-                <FabricGrid lang={lang} fabrics={shown} onOpen={setOpenSku} />
-              ))}
-          </>
+          ranges.length > 0 && <RangeGrid lang={lang} ranges={ranges} />
         )}
       </div>
+
+      {shown.length > 0 && (
+        <div className="border-y border-line bg-surface">
+          <div className="mx-auto w-full max-w-[1440px] px-5 py-12 sm:px-8 sm:py-16 lg:px-[50px] lg:py-20">
+            <h3 className="mb-8 type-h2 sm:mb-10">{COPY.catalogue.materialsTitle[lang]}</h3>
+            {view === "table" ? (
+              <SpecTable lang={lang} fabrics={shown} onOpen={setOpenSku} />
+            ) : (
+              <FabricGrid lang={lang} fabrics={shown} onOpen={setOpenSku} />
+            )}
+          </div>
+        </div>
+      )}
 
       {open && <FabricDetail lang={lang} fabric={open} onClose={() => setOpenSku(null)} />}
     </section>
@@ -293,7 +284,7 @@ function SpecTable({
   ] as const;
 
   return (
-    <div className="mt-10 overflow-x-auto">
+    <div className="overflow-x-auto">
       <table className="w-full border-collapse text-left md:min-w-[46rem]">
         <caption className="sr-only">{COPY.catalogue.heading[lang]}</caption>
         <thead>
@@ -302,7 +293,7 @@ function SpecTable({
               <th
                 key={h.key}
                 scope="col"
-                className={`py-3 pr-6 font-mono text-xs font-normal uppercase tracking-label text-clay ${h.className}`}
+                className={`py-3 pr-6 type-label text-clay ${h.className}`}
               >
                 {COPY.catalogue[h.key][lang]}
               </th>
@@ -314,7 +305,7 @@ function SpecTable({
             <tr key={f.sku} className="border-b border-line/70 odd:bg-sand/40">
               <th
                 scope="row"
-                className="whitespace-nowrap py-4 pr-6 align-top font-mono text-xs font-normal text-mute"
+                className="whitespace-nowrap py-4 pr-6 align-top type-small tabular-nums text-mute"
               >
                 {f.sku}
               </th>
@@ -322,19 +313,19 @@ function SpecTable({
                 <button
                   type="button"
                   onClick={() => onOpen(f.sku)}
-                  className="text-left font-display text-lg font-light tracking-normal underline-offset-4 hover:underline"
+                  className="text-left type-h4 underline-offset-4 hover:underline"
                 >
                   {f.name[lang]}
                   <span className="sr-only"> — {COPY.catalogue.detailOpen[lang]}</span>
                 </button>
               </td>
-              <td className="hidden py-4 pr-6 align-top text-sm text-mute md:table-cell">
+              <td className="hidden py-4 pr-6 align-top type-small text-mute md:table-cell">
                 {f.tag[lang]}
               </td>
-              <td className="hidden py-4 pr-6 align-top font-mono text-xs text-mute md:table-cell">
+              <td className="hidden py-4 pr-6 align-top type-small tabular-nums text-mute md:table-cell">
                 {f.widthIn}&quot;
               </td>
-              <td className="py-4 align-top text-sm text-mute">{f.spec[lang]}</td>
+              <td className="py-4 align-top type-small text-mute">{f.spec[lang]}</td>
             </tr>
           ))}
         </tbody>
@@ -343,105 +334,78 @@ function SpecTable({
   );
 }
 
-const rangeLink =
-  "text-sm text-clay underline decoration-clay/70 underline-offset-4 hover:text-claydeep";
-const rangeButton = "vf-showroom-enquire mt-1 w-full sm:w-auto";
+const rangeLink = "link-arrow";
 
 /**
- * The four selling ranges, in a fixed order above the cloth examples.
- * Text cards stay text — a stock photograph would claim a cloth the card
- * does not show. The dress-material card shows the suit, cropped to the
- * same 4:3 frame as the cloth cards below. Cards share a column width.
- * They align to the start of the row so a photograph does not stretch the
- * text card beside it into an empty box.
+ * The four selling ranges, in a fixed order above the cloth examples, sized
+ * like a shop's category cards: four across on a wide screen, two on a
+ * tablet, and a swipeable row on a phone (native scroll-snap, the next card
+ * peeking in). Every card has a photo space; a range with no product
+ * photograph yet fills it with a decorative stand-in (`standIn`), so the row
+ * reads as one set.
  */
 function RangeGrid({ lang, ranges }: { lang: Lang; ranges: CatalogueRange[] }) {
   return (
     <div
       data-reveal-stagger
-      className="mt-16 grid grid-cols-1 items-start gap-x-10 gap-y-16 sm:grid-cols-2"
+      className="vf-rail-fade-sm -mx-5 mt-10 flex snap-x snap-mandatory scroll-px-5 gap-4 overflow-x-auto px-5 pb-2 [scrollbar-width:none] sm:mx-0 sm:grid sm:grid-cols-2 sm:gap-5 sm:overflow-visible sm:px-0 sm:pb-0 xl:grid-cols-4 [&::-webkit-scrollbar]:hidden"
     >
-      {ranges.map((line) =>
-        line.image ? (
-          <SuitRangeCard key={line.id} lang={lang} line={line} image={line.image} />
-        ) : (
-          <article key={line.id} data-reveal className="flex flex-col">
-            <div className="h-1 bg-clay" aria-hidden="true" />
-            <div className="flex flex-1 flex-col pt-6">
-              <p className="font-mono text-xs uppercase tracking-label text-clay">
-                {line.tag[lang]}
-              </p>
-              <h3 className="vf-showroom-serif mt-3 text-3xl leading-tight">{line.name[lang]}</h3>
-              <p className="mt-3 flex-1 text-sm leading-relaxed text-mute">{line.body[lang]}</p>
-              <div className="mt-6 flex flex-col items-start gap-3">
-                {line.whatsAppMessage ? (
-                  <a
-                    href={whatsAppUrl(line.whatsAppMessage[lang])}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={rangeButton}
-                  >
-                    {COPY.catalogue.askOnWhatsApp[lang]}
-                  </a>
-                ) : null}
-                <a href={rangeHref(line.pageHref, lang)} className={rangeLink}>
-                  {line.linkLabel[lang]}
-                </a>
-                {line.alsoHref && line.alsoLabel ? (
-                  <a href={rangeHref(line.alsoHref, lang)} className={rangeLink}>
-                    {line.alsoLabel[lang]}
-                  </a>
-                ) : null}
-              </div>
-            </div>
-          </article>
-        ),
-      )}
+      {ranges.map((line) => (
+        <RangeCard key={line.id} lang={lang} line={line} />
+      ))}
     </div>
   );
 }
 
-/**
- * The unstitched-suit card. Same column, type and top rule as the text
- * cards. The photograph is cropped to 4:3, the ratio used on the cloth cards.
- */
-function SuitRangeCard({
-  lang,
-  line,
-  image,
-}: {
-  lang: Lang;
-  line: CatalogueRange;
-  image: NonNullable<CatalogueRange["image"]>;
-}) {
+/** One range: photo, tag, name, a line of description, then its links. */
+function RangeCard({ lang, line }: { lang: Lang; line: CatalogueRange }) {
+  const frame = "card-media aspect-[3/4] w-full bg-sand sm:aspect-[4/3] xl:aspect-[3/4]";
   return (
-    <article data-reveal className="flex min-w-0 flex-col">
-      <div className="h-1 bg-clay" aria-hidden="true" />
-      <div className="flex flex-1 flex-col pt-6">
+    <article
+      data-reveal
+      className="card flex w-[78%] shrink-0 snap-start flex-col p-2.5 sm:w-auto sm:min-w-0"
+    >
+      {line.image ? (
         <img
-          src={image.src}
-          alt={image.alt}
+          src={line.image.src}
+          srcSet={line.image.srcSet}
+          sizes="(min-width: 1280px) 300px, (min-width: 640px) 45vw, 78vw"
+          alt={line.image.alt}
           loading="lazy"
-          width={image.width}
-          height={image.height}
-          className="aspect-[3/4] w-full object-cover object-[center_30%]"
+          width={line.image.width}
+          height={line.image.height}
+          className={`${frame} object-cover`}
+          style={{ objectPosition: line.image.position ?? "center 25%" }}
         />
-        <p className="mt-6 font-mono text-xs uppercase tracking-label text-clay">
-          {line.tag[lang]}
-        </p>
-        <h3 className="vf-showroom-serif mt-3 text-3xl leading-tight">{line.name[lang]}</h3>
-        <p className="mt-3 flex-1 text-sm leading-relaxed text-mute">{line.body[lang]}</p>
-        <div className="mt-6 flex flex-col items-start gap-3">
-          {line.whatsAppMessage ? (
-            <a
-              href={whatsAppUrl(line.whatsAppMessage[lang])}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={rangeButton}
-            >
-              {COPY.catalogue.askOnWhatsApp[lang]}
-            </a>
+      ) : (
+        // No photograph: the stand-in still, with an optional short loop over
+        // it. Both are decorative; reduced motion hides the loop (showroom.css).
+        <div
+          aria-hidden="true"
+          className={`${frame} relative bg-cover bg-center`}
+          style={
+            line.standIn
+              ? {
+                  backgroundImage: `url(${line.standIn})`,
+                  backgroundPosition: line.mediaPosition ?? "center",
+                }
+              : undefined
+          }
+        >
+          {line.video ? (
+            <LoopVideo
+              src={line.video}
+              className="vf-range-video absolute inset-0 h-full w-full object-cover"
+              style={{ objectPosition: line.mediaPosition ?? "center" }}
+            />
           ) : null}
+        </div>
+      )}
+      <div className="flex flex-1 flex-col px-3 pb-4 pt-5">
+        <p className="type-label text-plum">{line.tag[lang]}</p>
+        <h3 className="mt-2 type-h4">{line.name[lang]}</h3>
+        <p className="mt-2 flex-1 type-small text-mute">{line.body[lang]}</p>
+        <div className="mt-5 flex flex-col items-start gap-3">
           <a href={rangeHref(line.pageHref, lang)} className={rangeLink}>
             {line.linkLabel[lang]}
           </a>
@@ -457,8 +421,9 @@ function SuitRangeCard({
 }
 
 /**
- * Every cloth card is the same size and the same 4:3 photograph, including
- * when a filter leaves a single result.
+ * Every cloth card is the same size and the same square photograph, including
+ * when a filter leaves a single result: an Apple-style white card with the
+ * swatch inset and Atelier's caption under it.
  */
 function FabricGrid({
   lang,
@@ -469,31 +434,41 @@ function FabricGrid({
   fabrics: Fabric[];
   onOpen: (sku: string) => void;
 }) {
+  // The cloth, three across (two on a phone): linen cards on the white band,
+  // the reverse of the white range cards on the linen page above, so the two
+  // sets never read as one. Landscape photos keep the cards short; Atelier's
+  // caption sits under each.
   return (
-    <div
-      data-reveal-stagger
-      className="mt-16 grid grid-cols-1 gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3"
-    >
+    <div data-reveal-stagger className="grid grid-cols-2 gap-3 sm:gap-5 md:grid-cols-3">
       {fabrics.map((f) => (
-        <article key={f.sku} data-reveal className="group relative flex h-full flex-col">
-          <div data-reveal-block>
-            <div data-reveal-panel>
-              <img
-                src={f.image}
-                alt={f.name[lang]}
-                loading="lazy"
-                width={1024}
-                height={768}
-                className="aspect-[4/3] w-full object-cover"
-              />
-            </div>
+        <article
+          key={f.sku}
+          data-reveal
+          className="group relative flex h-full flex-col rounded-[var(--radius-card)] bg-linen p-2.5 pb-5 transition-colors duration-300 hover:bg-sand sm:p-3 sm:pb-6"
+        >
+          {/* The photo settles from a slight zoom as the card fades up: calmer
+              than the block reveal, and with the loader warming the cache it
+              never arrives part-way through the motion. */}
+          <div data-reveal-img className="card-media vf-sheen">
+            <img
+              src={f.image}
+              alt={f.name[lang]}
+              loading="lazy"
+              decoding="async"
+              width={1024}
+              height={768}
+              className="aspect-[4/3] w-full bg-sand object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+            />
           </div>
-          <div className="mt-4 flex items-baseline justify-between gap-3 font-mono text-xs text-mute">
+          <div className="mt-4 flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1 px-2 type-label tabular-nums text-mute sm:px-3">
             <span>{f.sku}</span>
             <span>{f.tag[lang]}</span>
           </div>
-          <h3 className="vf-showroom-serif mt-2 text-2xl">{f.name[lang]}</h3>
-          <p className="mt-1 text-sm text-mute">{f.spec[lang]}</p>
+          {/* The short rule under the name is Atelier's swatch caption. */}
+          <h3 className="mt-2 px-2 type-h4 after:mt-3 after:block after:h-px after:w-10 after:bg-plum/30 sm:px-3">
+            {f.name[lang]}
+          </h3>
+          <p className="mt-3 px-2 type-small text-mute sm:px-3">{f.spec[lang]}</p>
           <a
             href={whatsAppUrl(
               fill(COPY.catalogue.enquiryMessage[lang], {
@@ -503,14 +478,14 @@ function FabricGrid({
             )}
             target="_blank"
             rel="noopener noreferrer"
-            className="relative z-10 mt-3 inline-block text-sm text-clay underline decoration-clay/70 underline-offset-4"
+            className="relative z-10 mx-2 mt-3 inline-block self-start link type-small sm:mx-3"
           >
             {COPY.catalogue.askOnWhatsApp[lang]}
           </a>
           <button
             type="button"
             onClick={() => onOpen(f.sku)}
-            className="absolute inset-0 rounded-sm"
+            className="absolute inset-0 rounded-[var(--radius-card)]"
           >
             <span className="sr-only">
               {COPY.catalogue.detailOpen[lang]} — {f.name[lang]}
@@ -603,11 +578,8 @@ function FabricDetail({
       >
         <div className="flex items-start justify-between gap-4 border-b border-line p-6">
           <div>
-            <p className="font-mono text-xs uppercase tracking-label text-clay">{fabric.sku}</p>
-            <h3
-              id="fabric-detail-heading"
-              className="mt-2 font-display text-2xl font-light tracking-normal"
-            >
+            <p className="type-label text-clay">{fabric.sku}</p>
+            <h3 id="fabric-detail-heading" className="mt-2 type-h3">
               {fabric.name[lang]}
             </h3>
           </div>
@@ -633,10 +605,8 @@ function FabricDetail({
         <dl className="px-6 py-2">
           {rows.map((row) => (
             <div key={row.label} className="flex gap-4 border-b border-line/70 py-3 last:border-0">
-              <dt className="w-28 shrink-0 font-mono text-xs uppercase tracking-label text-mute">
-                {row.label}
-              </dt>
-              <dd className="text-sm text-ink">{row.value}</dd>
+              <dt className="w-28 shrink-0 type-label text-mute">{row.label}</dt>
+              <dd className="type-small text-ink">{row.value}</dd>
             </div>
           ))}
         </dl>
@@ -651,7 +621,7 @@ function FabricDetail({
             )}
             target="_blank"
             rel="noreferrer"
-            className="block rounded-sm bg-clay px-4 py-3 text-center text-sm font-semibold text-paper hover:bg-claydeep"
+            className="btn btn-primary w-full"
           >
             {COPY.catalogue.detailEnquire[lang]}
           </a>

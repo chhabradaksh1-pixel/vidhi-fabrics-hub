@@ -11,7 +11,7 @@ type Fields = { name: string; city: string; businessType: string; whatsapp: stri
 const EMPTY: Fields = { name: "", city: "", businessType: "", whatsapp: "" };
 
 const inputClass =
-  "mt-1 w-full rounded-sm border border-line bg-paper px-3 py-2.5 text-ink outline-none focus:border-clay focus:ring-1 focus:ring-clay";
+  "mt-1 w-full rounded-sm border border-line bg-surface px-3 py-2.5 text-ink outline-none focus:border-plum focus:ring-1 focus:ring-plum";
 
 /** 10 to 15 digits, with an optional leading "+" and spaces or dashes. */
 function validPhone(value: string) {
@@ -78,15 +78,21 @@ export function ResellerCirclePage({ lang }: { lang: "en" | "hi" }) {
     }
   }
 
+  // On the long-form rail, like the range pages: each heading in the rail
+  // beside its content (.vf-flow), the join form as the white card in the
+  // content column. Layout only; every word is in place.
   return (
-    <div className="min-h-screen bg-paper text-ink">
+    <div className="min-h-screen bg-linen text-ink">
       <JournalHeader lang={lang} />
       <main>
-        <article className="mx-auto max-w-4xl px-6 py-12 sm:py-16" lang={lang}>
-          <nav aria-label={copy.breadcrumbLabel} className="text-xs text-mute">
+        <article
+          className="mx-auto w-full max-w-[1440px] px-5 pb-16 pt-8 sm:px-8 sm:pt-11 lg:px-[50px] lg:pb-24 lg:pt-14"
+          lang={lang}
+        >
+          <nav aria-label={copy.breadcrumbLabel} className="type-small text-mute">
             <ol className="flex flex-wrap items-center gap-2">
               <li>
-                <a href={home} className="hover:text-clay">
+                <a href={home} className="hover:text-plum">
                   {copy.breadcrumbHome}
                 </a>
               </li>
@@ -95,56 +101,44 @@ export function ResellerCirclePage({ lang }: { lang: "en" | "hi" }) {
             </ol>
           </nav>
 
-          <h1 className="mt-6 text-balance font-display text-4xl font-light leading-[1.12] tracking-normal sm:text-5xl lg:text-6xl">
-            {copy.title}
-          </h1>
+          <h1 className="mt-6 max-w-[28ch] type-h1">{copy.title}</h1>
 
-          <div className="mx-auto max-w-[65ch]">
-            <p className="mt-10 text-lg leading-relaxed text-mute">{copy.lede}</p>
+          <div className="vf-flow">
+            <p className="mt-8 type-lead text-mute">{copy.lede}</p>
 
-            <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">
-              {copy.benefitsHeading}
-            </h2>
-            <ul className="mt-6 space-y-5">
+            <h2 className="vf-heading-strong type-h4 text-ink">{copy.benefitsHeading}</h2>
+            <ul className="divide-y divide-line">
               {copy.benefits.map((b) => (
-                <li key={b.title} className="border-l-2 border-clay/60 pl-4">
-                  <h3 className="font-display text-lg font-light">{b.title}</h3>
-                  <p className="mt-1 leading-[1.8] text-mute">{b.body}</p>
+                <li key={b.title} className="py-4 first:pt-0 last:pb-0">
+                  <h3 className="type-h4">{b.title}</h3>
+                  <p className="mt-1 type-body text-mute">{b.body}</p>
                 </li>
               ))}
             </ul>
 
-            <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">
-              {copy.whoHeading}
-            </h2>
-            <p className="mt-5 leading-[1.85] text-mute">{copy.who}</p>
+            <h2 className="vf-heading-strong type-h4 text-ink">{copy.whoHeading}</h2>
+            <p className="mt-5 type-body text-mute">{copy.who}</p>
 
-            <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">
-              {copy.howHeading}
-            </h2>
-            <ol className="mt-5 list-decimal space-y-2 pl-6 leading-[1.85] text-mute">
+            <h2 className="vf-heading-strong type-h4 text-ink">{copy.howHeading}</h2>
+            <ol className="mt-5 list-decimal space-y-2 pl-6 type-body text-mute">
               {copy.steps.map((s) => (
                 <li key={s}>{s}</li>
               ))}
             </ol>
 
-            <section
-              id="join"
-              aria-labelledby="join-heading"
-              className="mt-12 scroll-mt-24 rounded-md bg-sand/60 p-6 ring-1 ring-black/5 sm:p-8"
-            >
-              <h2 id="join-heading" className="font-display text-2xl font-light sm:text-3xl">
+            <section id="join" aria-labelledby="join-heading" className="scroll-mt-28">
+              <h2 id="join-heading" className="vf-heading-strong type-h4 text-ink">
                 {copy.formHeading}
               </h2>
 
               {status === "success" ? (
-                <div role="status" className="mt-5">
-                  <p className="font-display text-xl text-sage">{copy.thanksHeading}</p>
-                  <p className="mt-2 leading-[1.8] text-ink">{copy.thanks}</p>
+                <div role="status" className="card p-6 sm:p-8">
+                  <p className="type-h4 text-sage">{copy.thanksHeading}</p>
+                  <p className="mt-2 type-body text-ink">{copy.thanks}</p>
                 </div>
               ) : (
-                <form className="mt-5 space-y-4" onSubmit={handleSubmit} noValidate>
-                  <p className="text-sm text-mute">{copy.formIntro}</p>
+                <form className="card space-y-4 p-6 sm:p-8" onSubmit={handleSubmit} noValidate>
+                  <p className="type-small text-mute">{copy.formIntro}</p>
                   {/* Lead-source codes; see docs/lead-source-legend.md. The
                       submit handler re-reads them, so these are a fallback. */}
                   <input type="hidden" name="form" value="reseller-circle" />
@@ -152,7 +146,7 @@ export function ResellerCirclePage({ lang }: { lang: "en" | "hi" }) {
                   <input type="hidden" name="source" value={lead.source} />
                   <input type="hidden" name="ref_code" value={lead.ref} />
 
-                  <label className="block text-sm">
+                  <label className="block type-small">
                     {copy.name}
                     <input
                       name="name"
@@ -167,7 +161,7 @@ export function ResellerCirclePage({ lang }: { lang: "en" | "hi" }) {
                     ) : null}
                   </label>
 
-                  <label className="block text-sm">
+                  <label className="block type-small">
                     {copy.city}
                     <input
                       name="city"
@@ -182,7 +176,7 @@ export function ResellerCirclePage({ lang }: { lang: "en" | "hi" }) {
                     ) : null}
                   </label>
 
-                  <label className="block text-sm">
+                  <label className="block type-small">
                     {copy.businessType}
                     <select
                       name="business_type"
@@ -203,7 +197,7 @@ export function ResellerCirclePage({ lang }: { lang: "en" | "hi" }) {
                     ) : null}
                   </label>
 
-                  <label className="block text-sm">
+                  <label className="block type-small">
                     {copy.whatsapp}
                     <input
                       name="whatsapp"
@@ -215,59 +209,43 @@ export function ResellerCirclePage({ lang }: { lang: "en" | "hi" }) {
                       aria-invalid={Boolean(errors.whatsapp)}
                       className={inputClass}
                     />
-                    <span className="mt-1 block text-xs text-mute">{copy.whatsappHint}</span>
+                    <span className="mt-1 block type-small text-mute">{copy.whatsappHint}</span>
                     {errors.whatsapp ? (
                       <span className="mt-1 block text-error">{errors.whatsapp}</span>
                     ) : null}
                   </label>
 
                   {status === "error" ? (
-                    <p role="alert" className="text-sm text-error">
+                    <p role="alert" className="type-small text-error">
                       {copy.error}
                     </p>
                   ) : null}
 
-                  <button
-                    type="submit"
-                    disabled={status === "sending"}
-                    className="inline-flex items-center justify-center rounded-sm bg-clay px-6 py-3 font-mono text-xs uppercase tracking-label text-paper transition-colors hover:bg-claydeep disabled:opacity-60"
-                  >
+                  <button type="submit" disabled={status === "sending"} className="btn btn-primary">
                     {status === "sending" ? copy.sending : copy.submit}
                   </button>
-                  <p className="text-xs text-mute">{copy.privacy}</p>
+                  <p className="type-small text-mute">{copy.privacy}</p>
                 </form>
               )}
             </section>
 
-            <p className="mt-12 leading-[1.85] text-mute">
+            <p className="mt-10 type-body text-mute">
               {copy.related}{" "}
-              <a
-                href={`${p}/saree-wholesale-for-resellers`}
-                className="text-clay underline decoration-clay/70 underline-offset-4 hover:text-claydeep"
-              >
+              <a href={`${p}/saree-wholesale-for-resellers`} className="link">
                 {lang === "hi" ? "रीसेलर के लिए साड़ी होलसेल" : "saree wholesale for resellers"}
               </a>
               ,{" "}
-              <a
-                href={`${p}/organza-net-fabric-for-boutiques`}
-                className="text-clay underline decoration-clay/70 underline-offset-4 hover:text-claydeep"
-              >
+              <a href={`${p}/organza-net-fabric-for-boutiques`} className="link">
                 {lang === "hi"
                   ? "बुटीक के लिए ऑर्गेंज़ा और नेट"
                   : "organza and net fabric for boutiques"}
               </a>
               ,{" "}
-              <a
-                href={`${p}/polyester-sarees-wholesale-surat`}
-                className="text-clay underline decoration-clay/70 underline-offset-4 hover:text-claydeep"
-              >
+              <a href={`${p}/polyester-sarees-wholesale-surat`} className="link">
                 {lang === "hi" ? "पॉलिएस्टर साड़ी होलसेल" : "polyester sarees wholesale"}
               </a>{" "}
               {lang === "hi" ? "और" : "and"}{" "}
-              <a
-                href={`${p}/dress-material-wholesale-surat`}
-                className="text-clay underline decoration-clay/70 underline-offset-4 hover:text-claydeep"
-              >
+              <a href={`${p}/dress-material-wholesale-surat`} className="link">
                 {lang === "hi" ? "ड्रेस मटेरियल होलसेल" : "dress material wholesale"}
               </a>
               {lang === "hi" ? "।" : "."}

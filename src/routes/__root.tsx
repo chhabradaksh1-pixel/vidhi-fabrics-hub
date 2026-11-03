@@ -13,17 +13,21 @@ import { Analytics } from "@vercel/analytics/react";
 
 import { LeadSourceTracker } from "@/components/lead-source-tracker";
 import { NotFoundPage } from "@/components/not-found-page";
+import { PageLoader } from "@/components/page-loader";
 import { PromoSuitsTicker } from "@/components/promo-suits";
 import { WhatsAppPill } from "@/components/whatsapp-pill";
+import { useMagnet } from "@/hooks/use-magnet";
 import { GA4_ID } from "@/lib/analytics";
 import { loadGtagDeferred } from "@/lib/deferred-gtag";
 import { useEffect, useState, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import hankenLatin from "../assets/fonts/hanken-grotesk-latin.woff2?url";
-import newsreaderLatin from "../assets/fonts/newsreader-latin-400.woff2?url";
-import devanagariFont from "../assets/fonts/noto-sans-devanagari-wght.woff2?url";
-import devanagariSerif from "../assets/fonts/noto-serif-devanagari-wght.woff2?url";
+import anekLatin400 from "../assets/fonts/anek-latin-400.woff2?url";
+import anekLatin500 from "../assets/fonts/anek-latin-500.woff2?url";
+import newsreaderDisplay from "../assets/fonts/newsreader-display-300.woff2?url";
+import anekDevanagari400 from "../assets/fonts/anek-devanagari-400.woff2?url";
+import serifDevanagari from "../assets/fonts/noto-serif-devanagari-400.woff2?url";
+import footerDevanagari from "../assets/fonts/noto-sans-devanagari-footer.woff2?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
 // The floating WhatsApp pill for every page other than the two home routes,
@@ -38,30 +42,40 @@ function isHomePath(pathname: string) {
   return pathname === "/" || pathname === "/hi" || pathname === "/hi/";
 }
 
+const DEVANAGARI_RANGE =
+  "U+0900-097F,U+1CD0-1CF9,U+200C-200D,U+20A8,U+20B9,U+20F0,U+25CC,U+A830-A839,U+A8E0-A8FF,U+11B00-11B09";
+
 /**
- * Devanagari, declared and preloaded only on Hindi routes. Body copy uses
- * Noto Sans so it matches Hanken Grotesk. Headings use Noto Serif so they
- * match Newsreader. English pages do not download either file. The homepage's
- * single Hindi line uses a smaller serif subset instead (showroom.css).
+ * Devanagari, declared only on Hindi routes; English pages do not download it.
+ *
+ * Hindi headlines (display to h3) are Noto Serif Devanagari 400, to sit with
+ * Newsreader. Every other Hindi word outside the footer is Anek Devanagari
+ * 400 (its weight range covers 500 so nothing is faked). Both are preloaded.
+ *
+ * Noto Sans Devanagari is LEGACY: the frozen footer's Hindi still renders in it
+ * (BRAND.md, "Footer is frozen"). The file is cut down to the footer's own
+ * characters at its one weight, 400 (25 KB instead of 121 KB), and is not
+ * preloaded. The footer has no Hindi in its serif, so the headline serif
+ * declared here never reaches it.
  */
 function DevanagariFont() {
   return (
     <>
       <link
         rel="preload"
-        href={devanagariFont}
+        href={anekDevanagari400}
         as="font"
         type="font/woff2"
         crossOrigin="anonymous"
       />
       <link
         rel="preload"
-        href={devanagariSerif}
+        href={serifDevanagari}
         as="font"
         type="font/woff2"
         crossOrigin="anonymous"
       />
-      <style>{`@font-face{font-family:"Noto Sans Devanagari";font-style:normal;font-weight:200 500;font-display:swap;src:url(${devanagariFont}) format("woff2");unicode-range:U+0900-097F,U+1CD0-1CF9,U+200C-200D,U+20A8,U+20B9,U+20F0,U+25CC,U+A830-A839,U+A8E0-A8FF,U+11B00-11B09}@font-face{font-family:"Noto Serif Devanagari";font-style:normal;font-weight:300 500;font-display:swap;src:url(${devanagariSerif}) format("woff2");unicode-range:U+0900-097F,U+1CD0-1CF9,U+200C-200D,U+20A8,U+20B9,U+20F0,U+25CC,U+A830-A839,U+A8E0-A8FF,U+11B00-11B09}`}</style>
+      <style>{`@font-face{font-family:"Anek Devanagari";font-style:normal;font-weight:300 700;font-stretch:100%;font-display:swap;src:url(${anekDevanagari400}) format("woff2");unicode-range:${DEVANAGARI_RANGE}}@font-face{font-family:"Noto Serif Devanagari";font-style:normal;font-weight:300 700;font-display:swap;src:url(${serifDevanagari}) format("woff2");unicode-range:${DEVANAGARI_RANGE}}@font-face{font-family:"Noto Sans Devanagari";font-style:normal;font-weight:200 500;font-display:swap;src:url(${footerDevanagari}) format("woff2");unicode-range:${DEVANAGARI_RANGE}}`}</style>
     </>
   );
 }
@@ -81,10 +95,8 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
-        <h1 className="text-xl font-semibold tracking-tight text-foreground">
-          This page didn't load
-        </h1>
-        <p className="mt-2 text-sm text-muted-foreground">
+        <h1 className="type-h3 text-foreground">This page didn't load</h1>
+        <p className="mt-2 type-small text-muted-foreground">
           Something went wrong on our end. You can try refreshing or head back home.
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
@@ -93,14 +105,11 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
               router.invalidate();
               reset();
             }}
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            className="btn btn-primary"
           >
             Try again
           </button>
-          <a
-            href="/"
-            className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
-          >
+          <a href="/" className="btn btn-secondary">
             Go home
           </a>
         </div>
@@ -135,18 +144,29 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:image", content: "https://www.vidhifabrics.com/og-image.jpg" },
     ],
     links: [
-      // Body and headings are self-hosted (styles.css). Preload the two latin
-      // files so the first paint is not a fallback face.
+      // Newsreader Display (the hero headline and section headings) and the
+      // two Anek Latin cuts (text; labels and buttons) are self-hosted
+      // (styles.css) and all appear above the fold. Preload them so the first
+      // paint is not a fallback face. Newsreader 400 (card and panel titles,
+      // below the fold) and Hanken, kept only for the frozen footer, load on
+      // demand.
       {
         rel: "preload",
-        href: newsreaderLatin,
+        href: newsreaderDisplay,
         as: "font",
         type: "font/woff2",
         crossOrigin: "anonymous",
       },
       {
         rel: "preload",
-        href: hankenLatin,
+        href: anekLatin400,
+        as: "font",
+        type: "font/woff2",
+        crossOrigin: "anonymous",
+      },
+      {
+        rel: "preload",
+        href: anekLatin500,
         as: "font",
         type: "font/woff2",
         crossOrigin: "anonymous",
@@ -237,6 +257,7 @@ function RootShell({ children }: { children: ReactNode }) {
         </noscript>
       </head>
       <body>
+        <PageLoader />
         {children}
         <Analytics />
         <Scripts />
@@ -249,6 +270,9 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   const pathname = useRouterState({ select: (state) => state.location.pathname });
   const [hydrated, setHydrated] = useState(false);
+  // The gentle pull on [data-magnet] buttons (mouse only, not under reduced
+  // motion), for every page.
+  useMagnet();
 
   useEffect(() => {
     setHydrated(true);

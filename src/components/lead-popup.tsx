@@ -1,5 +1,5 @@
 import { X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import { FORMSPREE_ENDPOINT } from "@/content/forms";
 import { COPY, type Lang } from "@/content/translations";
@@ -16,12 +16,13 @@ import { LEAD_POPUP_EVENT, type LeadPopupEventDetail } from "@/lib/ui-events";
  * card: no dimmed backdrop, no scroll lock, no focus trap, and nothing takes
  * focus when it opens, so a reader who ignores it can keep reading. It does
  * not open on page load. On mobile that covered the hero on first view, and
- * Lighthouse timed its heading as the page's largest paint. It opens once per
- * session after real engagement: half the page scrolled, or 35 seconds on the
- * page, whichever comes first. See `useEngagementPopup`.
+ * Lighthouse timed its heading as the page's largest paint. It opens 5 seconds
+ * after every arrival on the home page, whether or not the visitor scrolls,
+ * and again on the next home page view after being closed (owner, 3 November
+ * 2026). See `useEngagementPopup`.
  *
- * Once closed it stays away for 7 days, and once an enquiry is sent for a
- * year, so a visitor is not asked again on every visit.
+ * Once an enquiry is sent it stays away for a year, so a buyer who has already
+ * asked is not asked again.
  */
 
 function announce(open: boolean) {
@@ -29,90 +30,64 @@ function announce(open: boolean) {
   window.dispatchEvent(new CustomEvent(LEAD_POPUP_EVENT, { detail }));
 }
 
-const SESSION_KEY = "vidhi-lead-popup-seen";
+/** Nothing on the site sets this any more. Automated tests set it in session
+ *  storage so the card does not cover the page they are clicking through. */
+const TEST_SWITCH_KEY = "vidhi-lead-popup-seen";
 const MEMORY_KEY = "vidhi-lead-popup";
-const DISMISSED_DAYS = 7;
 const SUBMITTED_DAYS = 365;
 const DAY_MS = 86_400_000;
-const ENGAGED_MS = 35_000;
-const ENGAGED_SCROLL = 0.5;
+const ENGAGED_MS = 5_000;
+/** The card's exit (styles.css, vf-leave): half its 0.4 s entrance. */
+const LEAVE_MS = 200;
 
-type PopupMemory = { state: "dismissed" | "submitted"; at: number };
-
-function readMemory(): PopupMemory | null {
+/** True when this browser sent an enquiry through the pop-up within the last
+ *  year. Older closes were stored as "dismissed"; those no longer count. */
+function enquirySent(): boolean {
   try {
     const raw = window.localStorage.getItem(MEMORY_KEY);
-    if (!raw) return null;
-    const parsed = JSON.parse(raw) as Partial<PopupMemory>;
-    if (
-      (parsed.state === "dismissed" || parsed.state === "submitted") &&
-      typeof parsed.at === "number"
-    ) {
-      return { state: parsed.state, at: parsed.at };
-    }
+    if (!raw) return false;
+    const parsed = JSON.parse(raw) as { state?: unknown; at?: unknown };
+    return (
+      parsed.state === "submitted" &&
+      typeof parsed.at === "number" &&
+      Date.now() - parsed.at < SUBMITTED_DAYS * DAY_MS
+    );
   } catch {
-    /* unreadable: behave as if nothing was remembered */
+    return false; // unreadable or blocked: behave as if nothing was sent
   }
-  return null;
 }
 
-function stillRemembered(memory: PopupMemory | null): boolean {
-  if (!memory) return false;
-  const days = memory.state === "submitted" ? SUBMITTED_DAYS : DISMISSED_DAYS;
-  return Date.now() - memory.at < days * DAY_MS;
-}
-
-function remember(state: PopupMemory["state"]) {
+function rememberSent() {
   try {
-    window.localStorage.setItem(MEMORY_KEY, JSON.stringify({ state, at: Date.now() }));
+    window.localStorage.setItem(MEMORY_KEY, JSON.stringify({ state: "submitted", at: Date.now() }));
   } catch {
     /* private mode */
   }
 }
 
 /**
- * Opens the pop-up once per session after half the page is scrolled or
- * ENGAGED_MS on the page. Never on load, and not within 7 days of a dismissal
- * or a year of an enquiry. The session key is written when the pop-up actually
- * opens, so a visitor who leaves early sees it on a later page view in the
- * same session instead of never.
+ * Opens the pop-up ENGAGED_MS after the home page mounts, on every home page
+ * view; scrolling neither hastens nor delays it. Never on load, never once an
+ * enquiry has been sent from it in the last year, and never on top of another
+ * dialog. Closing it hides it for this page view only.
  */
 export function useEngagementPopup(): [boolean, (open: boolean) => void] {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
     try {
-      if (window.sessionStorage.getItem(SESSION_KEY) === "1") return;
+      if (window.sessionStorage.getItem(TEST_SWITCH_KEY) === "1") return;
     } catch {
-      return; // no storage, no way to keep it to once a session: skip it
+      /* storage blocked: show it as normal */
     }
-    if (stillRemembered(readMemory())) return;
+    if (enquirySent()) return;
 
-    let done = false;
-    const fire = () => {
-      if (done) return;
-      done = true;
-      cleanup();
+    const timer = window.setTimeout(() => {
       // Never stack on top of the Talk-to-us panel or another dialog.
       if (document.querySelector("[role=dialog]")) return;
-      try {
-        window.sessionStorage.setItem(SESSION_KEY, "1");
-      } catch {
-        /* private mode */
-      }
       setOpen(true);
-    };
-    const onScroll = () => {
-      const max = document.documentElement.scrollHeight - window.innerHeight;
-      if (max > 0 && window.scrollY / max >= ENGAGED_SCROLL) fire();
-    };
-    const timer = window.setTimeout(fire, ENGAGED_MS);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    function cleanup() {
-      window.clearTimeout(timer);
-      window.removeEventListener("scroll", onScroll);
-    }
-    return cleanup;
+    }, ENGAGED_MS);
+    return () => window.clearTimeout(timer);
   }, []);
 
   useEffect(() => {
@@ -147,21 +122,33 @@ export function LeadPopup({ lang, onClose, formName }: LeadPopupProps) {
   const [dial, setDial] = useState<string>("+91");
   const [errors, setErrors] = useState<Partial<Record<keyof LeadForm, string>>>({});
   const [status, setStatus] = useState<"idle" | "saving" | "success" | "failure">("idle");
+  const [leaving, setLeaving] = useState(false);
+
+  // The card rises in over 0.4 s; it leaves faster (0.2 s, styles.css
+  // vf-leave) rather than vanishing, then unmounts. Reduced motion closes at
+  // once.
+  const leave = useCallback(() => {
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduced) {
+      onClose();
+      return;
+    }
+    setLeaving(true);
+    window.setTimeout(onClose, LEAVE_MS);
+  }, [onClose]);
 
   function close() {
-    if (status !== "success") remember("dismissed");
-    onClose();
+    leave();
   }
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key !== "Escape" || status === "saving") return;
-      if (status !== "success") remember("dismissed");
-      onClose();
+      leave();
     };
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [onClose, status]);
+  }, [leave, status]);
 
   function updateField(field: keyof LeadForm, value: string) {
     setForm((current) => ({ ...current, [field]: value }));
@@ -207,7 +194,7 @@ export function LeadPopup({ lang, onClose, formName }: LeadPopupProps) {
       });
       if (!response.ok) throw new Error("Lead submission failed");
       trackLeadEvent("form_submit", { page: ctx.page, source: ctx.source, ref_code: ctx.ref });
-      remember("submitted");
+      rememberSent();
       setStatus("success");
     } catch {
       setStatus("failure");
@@ -218,13 +205,10 @@ export function LeadPopup({ lang, onClose, formName }: LeadPopupProps) {
     <div
       role="dialog"
       aria-labelledby="lead-popup-heading"
-      className="vf-rise fixed bottom-4 left-4 right-4 z-[60] max-h-[calc(100dvh-2rem)] overflow-y-auto bg-sand px-6 pb-5 pt-6 shadow-[0_10px_30px_rgb(21_25_29_/_0.12)] sm:bottom-6 sm:left-auto sm:right-6 sm:w-[477px] sm:px-8 sm:pb-[26px] sm:pt-8"
+      className={`${leaving ? "vf-leave" : "vf-rise"} fixed bottom-4 left-4 right-4 z-[60] max-h-[calc(100dvh-2rem)] overflow-y-auto bg-sand px-6 pb-5 pt-6 shadow-[0_10px_30px_rgb(21_25_29_/_0.12)] sm:bottom-6 sm:left-auto sm:right-6 sm:w-[477px] sm:px-8 sm:pb-[26px] sm:pt-8`}
     >
       <div className="flex items-start justify-between gap-4">
-        <h2
-          id="lead-popup-heading"
-          className="font-display text-2xl font-light leading-[1.2] tracking-normal"
-        >
+        <h2 id="lead-popup-heading" className="type-h3">
           {copy.heading[lang]}
         </h2>
         <button
@@ -238,21 +222,13 @@ export function LeadPopup({ lang, onClose, formName }: LeadPopupProps) {
         </button>
       </div>
       {status === "success" ? null : (
-        <p className="mt-3 text-[13px] leading-[1.35] tracking-ui text-foreground">
-          {copy.body[lang]}
-        </p>
+        <p className="mt-3 type-small text-foreground">{copy.body[lang]}</p>
       )}
 
       {status === "success" ? (
         <div className="mt-6 space-y-5">
-          <p className="font-display text-lg font-light leading-[1.3] tracking-normal text-sage">
-            {copy.success[lang]}
-          </p>
-          <button
-            type="button"
-            onClick={close}
-            className="vf-lead-submit flex min-h-11 w-full items-center justify-center px-4 py-3 text-[13px] tracking-ui"
-          >
+          <p className="type-h4 text-sage">{copy.success[lang]}</p>
+          <button type="button" onClick={close} className="btn btn-secondary w-full">
             {copy.continue[lang]}
           </button>
         </div>
@@ -324,16 +300,16 @@ export function LeadPopup({ lang, onClose, formName }: LeadPopupProps) {
               className="vf-lead-field resize-none"
             />
           </LeadField>
-          <p className="pt-1 text-xs leading-[1.35] tracking-ui text-mute">{copy.notice[lang]}</p>
+          <p className="pt-1 type-small text-mute">{copy.notice[lang]}</p>
           {status === "failure" ? (
-            <p role="alert" className="text-[13px] tracking-ui text-error">
+            <p role="alert" className="type-small text-error">
               {copy.failure[lang]}
             </p>
           ) : null}
           <button
             type="submit"
             disabled={status === "saving"}
-            className="vf-lead-submit mt-2 flex min-h-11 w-full items-center justify-center px-4 py-3 text-[13px] tracking-ui disabled:cursor-wait disabled:opacity-60"
+            className="btn btn-secondary mt-2 w-full disabled:cursor-wait"
           >
             {status === "saving" ? copy.saving[lang] : copy.submit[lang]}
           </button>
@@ -341,7 +317,7 @@ export function LeadPopup({ lang, onClose, formName }: LeadPopupProps) {
             type="button"
             onClick={close}
             disabled={status === "saving"}
-            className="mx-auto hidden min-h-11 px-2 text-[13px] tracking-ui text-mute underline underline-offset-4 hover:text-ink disabled:opacity-50 sm:block"
+            className="mx-auto hidden min-h-11 px-2 type-small text-mute underline underline-offset-4 hover:text-ink disabled:opacity-50 sm:block"
           >
             {copy.continue[lang]}
           </button>
@@ -362,9 +338,9 @@ function LeadField({
 }) {
   return (
     <label className="block">
-      <span className="block text-[13px] leading-[1.35] tracking-ui text-mute">{label}</span>
+      <span className="block type-small text-mute">{label}</span>
       {children}
-      {error ? <span className="mt-1 block text-xs tracking-ui text-error">{error}</span> : null}
+      {error ? <span className="mt-1 block type-small text-error">{error}</span> : null}
     </label>
   );
 }

@@ -68,7 +68,7 @@ export const Route = createFileRoute("/how-to-buy-polyester-sarees-wholesale-sur
     <div className="min-h-screen bg-paper">
       <JournalHeader />
       <main className="mx-auto max-w-3xl px-6 py-24">
-        <h1 className="font-display text-4xl font-light">Article not found</h1>
+        <h1 className="type-h1">Article not found</h1>
         <a href="/blog" className="mt-8 inline-block text-clay underline">
           Return to Surat Fabric Desk
         </a>

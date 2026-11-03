@@ -1,3 +1,5 @@
+import { ArrowRight } from "lucide-react";
+
 import logoMark from "@/assets/vidhi-logo-mark.webp";
 import { whatsAppUrl } from "@/content/whatsapp";
 
@@ -74,59 +76,68 @@ export function NotFoundPage({ pathname }: { pathname: string }) {
   const copy = COPY[lang];
   // Letter-spacing and the mono face break up Devanagari, so Hindi labels
   // keep normal spacing.
-  const label =
-    lang === "hi" ? "text-sm text-mute" : "font-mono text-xs uppercase tracking-label text-mute";
-  const button =
-    "mt-4 inline-flex items-center justify-center rounded-sm bg-clay px-6 py-3 text-paper transition-colors hover:bg-claydeep " +
-    (lang === "hi" ? "text-sm" : "font-mono text-xs uppercase tracking-label");
+  const label = lang === "hi" ? "type-small text-mute" : "type-label text-mute";
+  // On the linen ground and the home grid: the message on the left, the
+  // ways onward on the right (stacked on a phone), with the site's plum
+  // button and white card. No header is added, so the page's text and links
+  // are unchanged.
   return (
     <main
       data-lead-page={lang === "hi" ? "ERRH" : "ERR"}
       lang={lang}
-      className="flex min-h-screen items-center justify-center bg-paper px-6 py-16 text-ink"
+      className="flex min-h-screen items-center bg-linen py-16 text-ink"
     >
       {/* React 19 hoists this into <head>. */}
       <meta name="robots" content="noindex, follow" />
-      <div className="w-full max-w-xl">
-        <a href={lang === "hi" ? "/hi" : "/"} aria-label="Vidhi Fabrics">
-          <img
-            src={logoMark}
-            alt="Vidhi Fabrics"
-            width={210}
-            height={200}
-            className="h-14 w-auto"
-          />
-        </a>
-        <p className="mt-10 font-mono text-xs uppercase tracking-label text-mute">404</p>
-        <h1 className="mt-3 font-display text-3xl font-light sm:text-4xl">{copy.heading}</h1>
-        <p className="mt-4 leading-[1.8] text-mute">{copy.body}</p>
-
-        <nav aria-label={copy.linksLabel} className="mt-8">
-          <h2 className={label}>{copy.linksLabel}</h2>
-          <ul className="mt-3 divide-y divide-line border-y border-line">
-            {copy.links.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  className="block py-3 text-ink transition-colors hover:text-clay"
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-
-        <div className="mt-8 rounded-md bg-sand/60 p-6 ring-1 ring-black/5">
-          <p className="text-ink">{copy.whatsappPrompt}</p>
-          <a
-            href={whatsAppUrl(copy.whatsappMessage)}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={button}
-          >
-            {copy.whatsappButton}
+      <div className="mx-auto grid w-full max-w-[1440px] gap-y-10 px-5 sm:px-8 lg:grid-cols-12 lg:gap-x-16 lg:px-[50px]">
+        <div className="lg:col-span-5">
+          <a href={lang === "hi" ? "/hi" : "/"} aria-label="Vidhi Fabrics">
+            <img
+              src={logoMark}
+              alt="Vidhi Fabrics"
+              width={210}
+              height={200}
+              className="h-14 w-auto"
+            />
           </a>
+          <p className="mt-10 eyebrow type-label text-clay">404</p>
+          <h1 className="mt-3 type-h1">{copy.heading}</h1>
+          <p className="mt-5 type-lead text-mute">{copy.body}</p>
+        </div>
+
+        <div className="lg:col-span-7 lg:pt-24">
+          <nav aria-label={copy.linksLabel}>
+            <h2 className={label}>{copy.linksLabel}</h2>
+            <ul className="mt-3 divide-y divide-line border-y border-line">
+              {copy.links.map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    className="group flex min-h-12 items-center justify-between gap-4 py-3 type-body text-ink transition-colors hover:text-plum"
+                  >
+                    {link.label}
+                    <ArrowRight
+                      size={18}
+                      aria-hidden="true"
+                      className="shrink-0 text-plum transition-transform group-hover:translate-x-1 motion-reduce:transform-none"
+                    />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <div className="card mt-8 p-6 sm:p-8">
+            <p className="type-body text-ink">{copy.whatsappPrompt}</p>
+            <a
+              href={whatsAppUrl(copy.whatsappMessage)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-primary mt-4"
+            >
+              {copy.whatsappButton}
+            </a>
+          </div>
         </div>
       </div>
     </main>

@@ -12,7 +12,7 @@ const TITLE = "Dress Material in Surat | Unstitched Suits Wholesale";
 const DESCRIPTION =
   "Dress material in Surat from a manufacturer and wholesaler. Unstitched suits wholesale for resellers, boutiques and retailers in North India.";
 
-const linkClass = "text-clay underline decoration-clay/70 underline-offset-4 hover:text-claydeep";
+const linkClass = "link";
 
 const WHY = [
   "60 years in the trade",
@@ -114,7 +114,7 @@ function CatalogueButton({ className = "" }: { className?: string }) {
       href={whatsAppUrl(CATALOGUE_MESSAGE)}
       target="_blank"
       rel="noopener noreferrer"
-      className={`inline-flex items-center justify-center rounded-sm bg-clay px-6 py-3 font-mono text-xs uppercase tracking-label text-paper transition-colors hover:bg-claydeep ${className}`}
+      className={`btn btn-primary ${className}`}
     >
       Get Catalogue on WhatsApp
     </a>
@@ -123,11 +123,14 @@ function CatalogueButton({ className = "" }: { className?: string }) {
 
 function DressMaterialPage() {
   return (
-    <div className="min-h-screen bg-paper text-ink">
+    <div className="min-h-screen bg-linen text-ink">
       <JournalHeader lang="en" />
       <main>
-        <article className="mx-auto max-w-4xl px-6 py-12 sm:py-16" lang="en">
-          <nav aria-label="Breadcrumb" className="text-xs text-mute">
+        <article
+          className="mx-auto w-full max-w-[1440px] px-5 pb-16 pt-8 sm:px-8 sm:pt-11 lg:px-[50px] lg:pb-24 lg:pt-14"
+          lang="en"
+        >
+          <nav aria-label="Breadcrumb" className="type-small text-mute">
             <ol className="flex flex-wrap items-center gap-2">
               <li>
                 <a href="/" className="hover:text-clay">
@@ -139,10 +142,8 @@ function DressMaterialPage() {
             </ol>
           </nav>
 
-          <h1 className="vf-showroom-serif mt-6 text-balance text-4xl leading-[1.08] sm:text-5xl lg:text-6xl">
-            Dress material wholesale in Surat
-          </h1>
-          <div className="mx-auto mt-6 max-w-[65ch] space-y-4 text-base leading-relaxed text-mute sm:text-lg">
+          <h1 className="mt-6 max-w-[28ch] type-h1">Dress material wholesale in Surat</h1>
+          <div className="vf-indent mt-8 space-y-4 type-lead text-mute">
             <p>
               Vidhi Fabrics is a Surat manufacturer and wholesaler of unstitched suits and dress
               material for resellers, boutiques and retailers across North India.
@@ -159,45 +160,43 @@ function DressMaterialPage() {
           </div>
 
           <ShowroomCollection lang="en" />
-          <PromoSuitCatalogueCta lang="en" />
-          <CatalogueButton className="mt-8" />
+          <div className="vf-indent">
+            <PromoSuitCatalogueCta lang="en" />
+          </div>
+          <CatalogueButton className="vf-indent mt-8" />
 
-          <div className="mx-auto max-w-[65ch]">
-            <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">
-              Why buy from Vidhi Fabrics
-            </h2>
-            <ul className="mt-5 list-disc space-y-2 pl-5 text-base leading-relaxed text-ink">
+          <div className="vf-flow">
+            <h2 className="vf-heading-strong type-h4 text-ink">Why buy from Vidhi Fabrics</h2>
+            <ul className="mt-5 list-disc space-y-2 pl-5 type-body text-ink">
               {WHY.map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ul>
 
-            <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">
+            <h2 className="vf-heading-strong type-h4 text-ink">
               Unstitched suits and dress material sets
             </h2>
-            <p className="mt-5 leading-[1.85] text-mute">
+            <p className="mt-5 type-body text-mute">
               Dress material is sold as a set, not by the metre. A typical unstitched suit combines
               fabric for the top, the bottom and a dupatta, in lengths a tailor can work with.
               Retailers stock it because customers choose their own fit and style, and one set can
               be stitched in many ways. We supply everyday and festive sets, arranged by design and
               colour, so you can build a selection that suits your counter.
             </p>
-            <p className="mt-5 leading-[1.85] text-mute">
+            <p className="mt-5 type-body text-mute">
               The set is the unit you are buying. Confirm which pieces are included, whether any
               piece is optional, and whether the set is unstitched or semi-stitched. The top, the
               bottom and the dupatta are often different fabrics. In festive sets the dupatta
               frequently carries most of the work, so ask what each piece is made of.
             </p>
 
-            <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">
-              Festive sets and daily-wear sets
-            </h2>
-            <p className="mt-5 leading-[1.85] text-mute">
+            <h2 className="vf-heading-strong type-h4 text-ink">Festive sets and daily-wear sets</h2>
+            <p className="mt-5 type-body text-mute">
               Daily-wear sets are the ones a shop reorders through the year: printed and plain
               polyester and other synthetic dress material, in colours that sell outside the
               festival weeks. Boutiques use them for the regular rail, beside the festive edit.
             </p>
-            <p className="mt-5 leading-[1.85] text-mute">
+            <p className="mt-5 type-body text-mute">
               Festive sets are the tighter edit. For Karva Chauth and Diwali, boutiques and
               resellers stock sarees and unstitched suits together. Karva Chauth is the smaller
               brief: traditional festive colours, often bought to wear on the day or to give within
@@ -208,17 +207,17 @@ function DressMaterialPage() {
               network, and is not part of the standing dress material sets.
             </p>
 
-            <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">
+            <h2 className="vf-heading-strong type-h4 text-ink">
               What Punjab, Haryana and Rajasthan boutiques stock
             </h2>
-            <p className="mt-5 leading-[1.85] text-mute">
+            <p className="mt-5 type-body text-mute">
               In much of Punjab and Haryana, the unstitched suit is as much a festive purchase as
               the saree. A boutique there usually wants both on the same order: polyester sarees for
               customers who want a drape, and dress material sets for customers who will have the
               suit stitched to their own measurements. Daily-wear sets sit beside that festive edit,
               because the same counter sells through the rest of the year.
             </p>
-            <p className="mt-5 leading-[1.85] text-mute">
+            <p className="mt-5 type-body text-mute">
               Many shops in Rajasthan lean towards sarees, and still keep a smaller run of
               unstitched suits for customers who ask for them. A shop there can lead with polyester
               sarees and add dress material where the counter asks for it. Buyers in Madhya Pradesh
@@ -226,7 +225,7 @@ function DressMaterialPage() {
               balance of sarees and suits is not the same in every market. One order can mix festive
               and daily-wear designs, and can add polyester sarees beside the suits.
             </p>
-            <p className="mt-5 leading-[1.85] text-mute">
+            <p className="mt-5 type-body text-mute">
               A boutique stocking for the season usually writes the order as a mix, not as one
               design repeated. Festive sets cover Karva Chauth and Diwali. Daily-wear sets cover the
               weeks between. Polyester sarees cover customers who want a finished drape rather than
@@ -234,10 +233,10 @@ function DressMaterialPage() {
               the current catalogue.
             </p>
 
-            <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">
+            <h2 className="vf-heading-strong type-h4 text-ink">
               Why buy dress material from Surat
             </h2>
-            <p className="mt-5 leading-[1.85] text-mute">
+            <p className="mt-5 type-body text-mute">
               Surat is one of India's main centres for synthetic and blended fabrics. Its markets
               carry dress material from weaving, printing and embroidery units across the city, so
               you see a wide choice of designs in one place, with a shorter chain between the cloth
@@ -245,10 +244,10 @@ function DressMaterialPage() {
               arrive and can tell you what each set is made of. One business answers for the order.
             </p>
 
-            <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">
+            <h2 className="vf-heading-strong type-h4 text-ink">
               What to check when buying wholesale
             </h2>
-            <p className="mt-5 leading-[1.85] text-mute">
+            <p className="mt-5 type-body text-mute">
               Ask for the composition and measurements of each piece. Confirm whether the set is
               unstitched or semi-stitched, and which pieces are included. Check the sample in
               ordinary daylight for feel, drape and colour, and keep the design code with your
@@ -259,10 +258,8 @@ function DressMaterialPage() {
               covers each step.
             </p>
 
-            <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">
-              How to order on WhatsApp
-            </h2>
-            <p className="mt-5 leading-[1.85] text-mute">
+            <h2 className="vf-heading-strong type-h4 text-ink">How to order on WhatsApp</h2>
+            <p className="mt-5 type-body text-mute">
               Ordering is a WhatsApp conversation. Message us at{" "}
               <a
                 href={whatsAppUrl(CATALOGUE_MESSAGE)}
@@ -278,27 +275,27 @@ function DressMaterialPage() {
               set you want matched, send it and say which part matters: the print, the dupatta work,
               or the way the cloth falls.
             </p>
-            <p className="mt-5 leading-[1.85] text-mute">
+            <p className="mt-5 type-body text-mute">
               We reply with the current catalogue on WhatsApp, and we typically respond within 12
               hours. Approve a sample before a larger order if you want to check the hand and the
               colour, and keep the design code with that approval. You are also welcome to visit us
               at {ADDRESS_LINES.en.join(", ")} and look through the sets in person.
             </p>
-            <p className="mt-5 leading-[1.85] text-mute">
+            <p className="mt-5 type-body text-mute">
               We also supply{" "}
               <a href="/polyester-sarees-wholesale-surat" className={linkClass}>
                 polyester sarees wholesale
               </a>{" "}
               from Surat.
             </p>
-            <p className="mt-5 leading-[1.85] text-mute">
+            <p className="mt-5 type-body text-mute">
               For boutiques and for people starting a suit business from home, see{" "}
               <a href="/unstitched-suits-wholesale-surat" className={linkClass}>
                 unstitched suits wholesale from Surat
               </a>
               .
             </p>
-            <p className="mt-5 leading-[1.85] text-mute">
+            <p className="mt-5 type-body text-mute">
               For dupattas, lehenga layers, sleeves and overlays, boutiques can ask us for{" "}
               <a href="/organza-net-fabric-for-boutiques" className={linkClass}>
                 organza and net fabric
@@ -314,20 +311,20 @@ function DressMaterialPage() {
               .
             </p>
 
-            <section id="faq" className="mt-12 scroll-mt-8 border-t border-line pt-8">
-              <h2 className="font-display text-2xl font-light sm:text-3xl">FAQs</h2>
+            <section id="faq" className="scroll-mt-28">
+              <h2 className="vf-heading-strong type-h4 text-ink">FAQs</h2>
               {/* Each question is an <h3> with its answer directly after it,
                   matching the polyester page (valid heading-and-paragraph
                   pairs rather than a <dl>). */}
               {FAQS.map((entry) => (
                 <div key={entry.question} className="mt-7">
-                  <h3 className="font-display text-lg font-light leading-snug">{entry.question}</h3>
-                  <p className="mt-3 leading-[1.85] text-mute">{entry.answer}</p>
+                  <h3 className="type-h4">{entry.question}</h3>
+                  <p className="mt-3 type-body text-mute">{entry.answer}</p>
                 </div>
               ))}
             </section>
 
-            <div className="my-12 flex justify-center border-t border-line pt-10">
+            <div className="vf-flow-end">
               <CatalogueButton />
             </div>
           </div>

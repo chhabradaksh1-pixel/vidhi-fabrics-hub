@@ -22,9 +22,13 @@ export const SHOWROOM_SUBLINE: Record<Lang, string> = {
 };
 
 export const HERO_IMAGE = {
-  src: "/images/preview/hero-saree.webp",
-  width: 1280,
-  height: 720,
+  src: "/images/preview/hero-saree-chair.webp",
+  /** On a phone the 4:5 frame shows the photo at about 2.25x the screen width. */
+  srcSet:
+    "/images/preview/hero-saree-chair-1280.webp 1280w, /images/preview/hero-saree-chair.webp 2000w",
+  sizes: "(max-width: 767px) 225vw, 100vw",
+  width: 2000,
+  height: 1116,
   alt: "Model in a saree from Vidhi Fabrics, Surat",
 };
 
@@ -72,12 +76,23 @@ export type ShowroomTile = {
   /** Visible link on the card. The design code stays in the WhatsApp message. */
   pageLink?: Record<Lang, string>;
   href: string;
-  image: { src: string; width: number; height: number; focus: string; alt: string };
+  image: {
+    src: string;
+    width: number;
+    height: number;
+    focus: string;
+    alt: string;
+    /** A smaller file for phones, as an `srcset` value. */
+    srcSet?: string;
+  };
+  /** Optional short clip of the cloth (6–8 s, muted, under about 1.5 MB, in
+      `public/`). It plays over the photo in the Collections panel; the photo
+      is its poster and what reduced-motion readers see. */
+  video?: string;
 };
 
 const suits = "/images/preview/collection-suits.webp";
 const dress = "/images/preview/collection-dress-material.webp";
-const saree = "/images/preview/hero-saree.webp";
 
 export const SHOWROOM_TILES: ShowroomTile[] = [
   {
@@ -90,12 +105,15 @@ export const SHOWROOM_TILES: ShowroomTile[] = [
     },
     href: "/dress-material-wholesale-surat",
     image: {
-      src: suits,
-      width: 1280,
-      height: 720,
-      focus: "center",
+      src: "/images/preview/collection-suits-courtyard.webp",
+      srcSet:
+        "/images/preview/collection-suits-courtyard-960.webp 960w, /images/preview/collection-suits-courtyard.webp 1600w",
+      width: 1600,
+      height: 893,
+      focus: "52% center",
       alt: "Model in an unstitched suit from Vidhi Fabrics",
     },
+    video: "/videos/collection-suits-loop.mp4",
   },
   {
     title: { en: "Dress Material", hi: "ड्रेस मटेरियल", "hi-en": "Dress material" },
@@ -129,12 +147,18 @@ export const SHOWROOM_TILES: ShowroomTile[] = [
     },
     href: "/polyester-sarees-wholesale-surat",
     image: {
-      src: saree,
-      width: 1280,
-      height: 720,
-      focus: "right center",
+      src: "/images/preview/collection-sarees.webp",
+      srcSet:
+        "/images/preview/collection-sarees-960.webp 960w, /images/preview/collection-sarees.webp 1600w",
+      width: 1600,
+      height: 893,
+      focus: "50% center",
       alt: "Model in a polyester saree from Vidhi Fabrics",
     },
+    // A 2 s boomerang of the clip's clean closing second (owner, 2 November
+    // 2026: the earlier cut ran through an AI billow in the pallu). The query
+    // is the file's hash, so a browser that cached the old loop fetches this.
+    video: "/videos/collection-sarees-loop.mp4?v=8079cb9",
   },
 ];
 
@@ -145,12 +169,36 @@ export type ShowroomDesign = {
 };
 
 export const SHOWROOM_DESIGNS: ShowroomDesign[] = [
-  { code: "US01", image: { src: suits, width: 1280, height: 720, focus: "center" }, alt: "Unstitched suit design US01" },
-  { code: "US02", image: { src: suits, width: 1280, height: 720, focus: "46% center" }, alt: "Unstitched suit design US02" },
-  { code: "US03", image: { src: suits, width: 1280, height: 720, focus: "54% center" }, alt: "Unstitched suit design US03" },
-  { code: "US04", image: { src: suits, width: 1280, height: 720, focus: "center" }, alt: "Unstitched suit design US04" },
-  { code: "DM01", image: { src: dress, width: 1280, height: 720, focus: "right center" }, alt: "Dress material design DM01" },
-  { code: "DM02", image: { src: dress, width: 1280, height: 720, focus: "72% center" }, alt: "Dress material design DM02" },
+  {
+    code: "US01",
+    image: { src: suits, width: 1280, height: 720, focus: "center" },
+    alt: "Unstitched suit design US01",
+  },
+  {
+    code: "US02",
+    image: { src: suits, width: 1280, height: 720, focus: "46% center" },
+    alt: "Unstitched suit design US02",
+  },
+  {
+    code: "US03",
+    image: { src: suits, width: 1280, height: 720, focus: "54% center" },
+    alt: "Unstitched suit design US03",
+  },
+  {
+    code: "US04",
+    image: { src: suits, width: 1280, height: 720, focus: "center" },
+    alt: "Unstitched suit design US04",
+  },
+  {
+    code: "DM01",
+    image: { src: dress, width: 1280, height: 720, focus: "right center" },
+    alt: "Dress material design DM01",
+  },
+  {
+    code: "DM02",
+    image: { src: dress, width: 1280, height: 720, focus: "72% center" },
+    alt: "Dress material design DM02",
+  },
 ];
 
 export const COLLECTION_INTRO: Record<Lang, string> = {

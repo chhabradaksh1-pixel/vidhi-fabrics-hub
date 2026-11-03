@@ -11,7 +11,7 @@ const TITLE = "Organza & Net Fabric Wholesale for Boutiques, Surat";
 const DESCRIPTION =
   "Organza and net fabric wholesale for boutiques, sourced to order through our network of Surat mills and units. Share a shade card, sample or width on WhatsApp.";
 
-const linkClass = "text-clay underline decoration-clay/70 underline-offset-4 hover:text-claydeep";
+const linkClass = "link";
 
 // Positioning (owner, 2 October 2026): manufacturer and wholesaler of
 // polyester sarees and dress material; organza, net and other fabrics are
@@ -117,7 +117,7 @@ function RequirementButton({ className = "" }: { className?: string }) {
       href={whatsAppUrl(REQUIREMENT_MESSAGE)}
       target="_blank"
       rel="noopener noreferrer"
-      className={`inline-flex items-center justify-center rounded-sm bg-clay px-6 py-3 font-mono text-xs uppercase tracking-label text-paper transition-colors hover:bg-claydeep ${className}`}
+      className={`btn btn-primary ${className}`}
     >
       Share Your Requirement on WhatsApp
     </a>
@@ -126,11 +126,14 @@ function RequirementButton({ className = "" }: { className?: string }) {
 
 function OrganzaNetPage() {
   return (
-    <div className="min-h-screen bg-paper text-ink">
+    <div className="min-h-screen bg-linen text-ink">
       <JournalHeader lang="en" />
       <main>
-        <article className="mx-auto max-w-4xl px-6 py-12 sm:py-16" lang="en">
-          <nav aria-label="Breadcrumb" className="text-xs text-mute">
+        <article
+          className="mx-auto w-full max-w-[1440px] px-5 pb-16 pt-8 sm:px-8 sm:pt-11 lg:px-[50px] lg:pb-24 lg:pt-14"
+          lang="en"
+        >
+          <nav aria-label="Breadcrumb" className="type-small text-mute">
             <ol className="flex flex-wrap items-center gap-2">
               <li>
                 <a href="/" className="hover:text-clay">
@@ -142,24 +145,24 @@ function OrganzaNetPage() {
             </ol>
           </nav>
 
-          <h1 className="mt-6 text-balance font-display text-4xl font-light leading-[1.12] tracking-normal sm:text-5xl lg:text-6xl">
+          <h1 className="mt-6 max-w-[28ch] type-h1">
             Organza and Net Fabric for Boutiques, Sourced in Surat
           </h1>
 
-          <RequirementButton className="mt-8" />
+          <RequirementButton className="vf-indent mt-8" />
 
-          <div className="mx-auto max-w-[65ch]">
-            <p className="mt-10 text-lg leading-relaxed text-mute">
+          <div className="vf-flow">
+            <p className="mt-10 type-lead text-mute">
               Vidhi Fabrics is a Surat manufacturer and wholesaler of polyester sarees and dress
               material. For boutiques, we also supply organza and net fabric wholesale, sourced to
               order through our network of Surat mills and manufacturing units. Share a shade card,
               a sample or the width you need on WhatsApp, approve a sample, and then order in bulk.
             </p>
 
-            <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">
+            <h2 className="vf-heading-strong type-h4 text-ink">
               What boutiques use organza and net for
             </h2>
-            <p className="mt-5 leading-[1.85] text-mute">
+            <p className="mt-5 type-body text-mute">
               Organza is crisp and sheer and holds its shape, which is why boutiques choose it for
               dupattas, structured sleeves and overlays on kurtas, blouses and gowns. Net is lighter
               and softer in the hand, and works well for lehenga layers, flared dupattas, sleeves
@@ -167,10 +170,10 @@ function OrganzaNetPage() {
               sequinned, in a wide range of shades.
             </p>
 
-            <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">
+            <h2 className="vf-heading-strong type-h4 text-ink">
               Sourced to order through our Surat network
             </h2>
-            <p className="mt-5 leading-[1.85] text-mute">
+            <p className="mt-5 type-body text-mute">
               Surat is one of India's main centres for synthetic fabrics, and its mills and
               manufacturing units make organza and net in many weights and finishes. We have worked
               in this market for generations, so when you tell us what you need, we look across our
@@ -178,20 +181,18 @@ function OrganzaNetPage() {
               options and samples. You deal with one business for the whole requirement.
             </p>
 
-            <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">
-              How to share your requirement
-            </h2>
-            <p className="mt-5 leading-[1.85] text-mute">
+            <h2 className="vf-heading-strong type-h4 text-ink">How to share your requirement</h2>
+            <p className="mt-5 type-body text-mute">
               The more precise the brief, the closer the match. Send us:
             </p>
-            <ul className="mt-4 list-disc space-y-2 pl-6 leading-[1.85] text-mute">
+            <ul className="mt-4 list-disc space-y-2 pl-6 type-body text-mute">
               <li>a shade card number, or a colour photo taken in daylight</li>
               <li>a physical sample or swatch, if you have one</li>
               <li>the width you need, in inches</li>
               <li>the finish: plain, printed, embroidered or sequinned</li>
               <li>what you plan to make, such as dupattas, lehenga layers, sleeves or overlays</li>
             </ul>
-            <p className="mt-5 leading-[1.85] text-mute">
+            <p className="mt-5 type-body text-mute">
               Width changes how many pieces you can cut from a metre, so it matters for your
               costing. Our guides on{" "}
               <a href="/blog/fabric-width-and-costing" className={linkClass}>
@@ -204,10 +205,8 @@ function OrganzaNetPage() {
               explain what to ask for.
             </p>
 
-            <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">
-              Samples before bulk
-            </h2>
-            <p className="mt-5 leading-[1.85] text-mute">
+            <h2 className="vf-heading-strong type-h4 text-ink">Samples before bulk</h2>
+            <p className="mt-5 type-body text-mute">
               Sheer fabrics look different on a screen, so approve a physical sample before you
               order in bulk. Hold it to the light, check the feel and the drape, and keep its
               reference with your approval. Our{" "}
@@ -217,8 +216,8 @@ function OrganzaNetPage() {
               covers each step.
             </p>
 
-            <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">Where we supply</h2>
-            <p className="mt-5 leading-[1.85] text-mute">
+            <h2 className="vf-heading-strong type-h4 text-ink">Where we supply</h2>
+            <p className="mt-5 type-body text-mute">
               Most of our buyers are boutiques, retailers and wholesalers in Punjab, Haryana,
               Rajasthan, Uttar Pradesh and Madhya Pradesh. Export enquiries are also welcome from
               the UAE and other international markets. Message us on WhatsApp at{" "}
@@ -232,7 +231,7 @@ function OrganzaNetPage() {
               </a>{" "}
               or visit us at {ADDRESS_LINES.en.join(", ")}.
             </p>
-            <p className="mt-5 leading-[1.85] text-mute">
+            <p className="mt-5 type-body text-mute">
               Boutiques often pair organza and net with our{" "}
               <a href="/dress-material-wholesale-surat" className={linkClass}>
                 dress material and unstitched suits
@@ -250,17 +249,17 @@ function OrganzaNetPage() {
 
             <ResellerCircleCta lang="en" className="mt-12" />
 
-            <section className="mt-12 border-t border-line pt-8">
-              <h2 className="font-display text-2xl font-light sm:text-3xl">FAQs</h2>
+            <section>
+              <h2 className="vf-heading-strong type-h4 text-ink">FAQs</h2>
               {FAQS.map((entry) => (
                 <div key={entry.question} className="mt-7">
-                  <h3 className="font-display text-lg font-light leading-snug">{entry.question}</h3>
-                  <p className="mt-3 leading-[1.85] text-mute">{entry.answer}</p>
+                  <h3 className="type-h4">{entry.question}</h3>
+                  <p className="mt-3 type-body text-mute">{entry.answer}</p>
                 </div>
               ))}
             </section>
 
-            <div className="my-12 flex justify-center border-t border-line pt-10">
+            <div className="vf-flow-end">
               <RequirementButton />
             </div>
           </div>

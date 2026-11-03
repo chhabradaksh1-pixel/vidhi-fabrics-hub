@@ -1,5 +1,5 @@
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { JournalCard, JournalHeader, JournalFooter } from "@/components/fabric-desk";
 import { SECTION_COPY } from "@/content/section-copy";
@@ -17,9 +17,17 @@ import { blogPaths } from "@/content/blog-paths";
 import { hasHindiVersion } from "@/content/landing-pages";
 import { formatIsoDate } from "@/lib/dates";
 import { useReveal } from "@/hooks/use-reveal";
+import { RAIL_COLS, RAIL_CONTENT, RAIL_GRID } from "@/lib/layout-classes";
 
 /** How many other guides the "Keep reading" list shows. */
 const RELATED_COUNT = 3;
+
+/* An article's rail headings, set like the About chapters: a touch heavier
+   than type-h4 (styles.css, .vf-heading-strong). */
+const railHeading = "vf-heading-strong mt-3 type-h4 text-ink";
+/* A checklist: a white card, plum bullets. */
+const checklist =
+  "card mt-7 list-disc space-y-3 py-6 pl-11 pr-6 type-small text-ink marker:text-plum sm:py-8 sm:pr-8";
 
 /**
  * Rewrites an in-site href for the Hindi URL tree, so a Hindi reader stays on
@@ -62,15 +70,51 @@ function withInlineLinks(text: string, links: JournalInlineLink[], lang: Lang) {
     typeof part === "string" ? (
       part
     ) : (
-      <a
-        key={`${part.href}-${i}`}
-        href={part.href}
-        className="text-clay underline underline-offset-4"
-      >
+      <a key={`${part.href}-${i}`} href={part.href} className="link">
         {part.label}
       </a>
     ),
   );
+}
+
+/**
+ * Which numbered section of an article is being read: the last `step-N`
+ * section whose top has passed a line a third of the way down the window.
+ * Drives the live contents list (aria-current, styled in styles.css .vf-toc).
+ * Returns 0 before the first section. Attributes only; no text changes.
+ */
+function useActiveStep(count: number) {
+  const [active, setActive] = useState(0);
+  useEffect(() => {
+    const sections = Array.from({ length: count }, (_, i) =>
+      document.getElementById(`step-${i + 1}`),
+    );
+    const update = () => {
+      const line = window.innerHeight / 3;
+      let current = 0;
+      sections.forEach((section, i) => {
+        if (section && section.getBoundingClientRect().top <= line) current = i + 1;
+      });
+      setActive(current);
+    };
+    let frame = 0;
+    const onScroll = () => {
+      if (!frame)
+        frame = requestAnimationFrame(() => {
+          frame = 0;
+          update();
+        });
+    };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (frame) cancelAnimationFrame(frame);
+    };
+  }, [count]);
+  return active;
 }
 
 function useJournalLang(initial: Lang) {
@@ -112,15 +156,18 @@ export function JournalIndexPage({ initialLang }: { initialLang: Lang }) {
   const copy = SECTION_COPY[lang];
   const paths = blogPaths();
 
+  // On the linen ground and the home page's grid, its guides on the home
+  // catalogue's range card (JournalCard).
   return (
-    <div className="min-h-screen bg-paper text-ink">
+    <div className="min-h-screen bg-linen text-ink">
       <JournalHeader lang={lang} setLang={setLang} paths={paths} />
-      <main className="mx-auto max-w-6xl px-6 py-16 lg:py-24" lang={lang === "hi" ? "hi" : "en"}>
-        <p className="font-mono text-xs uppercase tracking-label text-clay">{copy.journal}</p>
-        <h1 className="mt-5 font-display text-5xl font-light tracking-normal sm:text-6xl">
-          {copy.journalTitle}
-        </h1>
-        <p className="mt-6 max-w-xl text-lg leading-relaxed text-mute">{copy.journalLede}</p>
+      <main
+        className="mx-auto w-full max-w-[1440px] px-5 pb-16 pt-8 sm:px-8 sm:pt-11 lg:px-[50px] lg:pb-24 lg:pt-14"
+        lang={lang === "hi" ? "hi" : "en"}
+      >
+        <p className="eyebrow type-label text-clay">{copy.journal}</p>
+        <h1 className="mt-5 type-h1">{copy.journalTitle}</h1>
+        <p className="mt-6 max-w-xl type-lead text-mute">{copy.journalLede}</p>
         {/*
           Grouped by the category each article already carries, in the order
           the categories first appear in JOURNAL. The group heading takes h2,
@@ -128,13 +175,10 @@ export function JournalIndexPage({ initialLang }: { initialLang: Lang }) {
         */}
         {journalGroups(lang).map((group) => (
           <section key={group.key} className="mt-14" aria-labelledby={`desk-${group.key}`}>
-            <h2
-              id={`desk-${group.key}`}
-              className="border-b border-line pb-4 font-mono text-xs uppercase tracking-label text-clay"
-            >
+            <h2 id={`desk-${group.key}`} className="border-b border-line pb-4 type-label text-clay">
               {group.label}
             </h2>
-            <div className="mt-8 grid gap-6 md:grid-cols-3">
+            <div data-reveal-stagger className="mt-8 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
               {group.articles.map(({ article, number }) => (
                 <JournalCard
                   key={article.slug}
@@ -164,158 +208,182 @@ export function JournalArticlePage({
 }) {
   useReveal();
   const { lang, setLang } = useJournalLang(initialLang);
+  const activeStep = useActiveStep(article.sections.length);
   const copy = SECTION_COPY[lang];
   const desk = lang === "hi" ? "/hi/blog" : "/blog";
   const paths = article.href
     ? { en: article.href, hi: `/hi${article.href}` }
     : blogPaths(article.slug);
 
+  // Every block is a row on the shared rail (RAIL_GRID, as on /about): a
+  // label, number or heading on the left, the content in one column running
+  // to the right edge, so the whole article hangs on two vertical lines.
+  // Layout only: the text, headings, ids and links are in the same order.
   return (
-    <div className="min-h-screen bg-paper text-ink">
+    <div className="min-h-screen bg-linen text-ink">
       <JournalHeader lang={lang} setLang={setLang} paths={paths} />
       <main>
         <article
-          className="mx-auto max-w-4xl px-6 py-12 sm:py-16"
+          className="vf-longform mx-auto w-full max-w-[1440px] px-5 pb-16 pt-8 sm:px-8 sm:pt-11 lg:px-[50px] lg:pb-24 lg:pt-14"
           lang={lang === "hi" ? "hi" : "en"}
         >
-          <a href={desk} className="inline-flex items-center gap-2 text-sm text-clay">
-            <ArrowLeft size={16} aria-hidden="true" />
-            {copy.journalTitle}
-          </a>
-          <p className="mt-10 font-mono text-xs uppercase tracking-label text-clay">
-            {article.category[lang]} · {readingMinutes(article, lang)} {copy.minutes}
-          </p>
-          <h1 className="mt-5 text-balance font-display text-4xl font-light leading-[1.12] tracking-normal sm:text-5xl lg:text-6xl">
-            {article.title[lang]}
-          </h1>
-          <p className="mt-6 text-sm text-mute">
-            {copy.bylineBy}{" "}
+          <header className={`${RAIL_COLS} gap-y-6`}>
             <a
-              href={lang === "hi" ? "/hi/about" : "/about"}
-              rel="author"
-              className="underline decoration-clay/70 underline-offset-4 hover:text-clay"
+              href={desk}
+              className="col-span-full inline-flex min-h-11 items-center gap-2 justify-self-start type-small text-plum hover:text-plumdeep"
             >
-              {copy.bylineName}
+              <ArrowLeft size={16} aria-hidden="true" />
+              {copy.journalTitle}
             </a>
-            {article.published && (
-              <>
-                {" · "}
-                {copy.published}{" "}
-                <time dateTime={article.published}>{formatIsoDate(article.published, lang)}</time>
-              </>
-            )}
-            {article.modified && article.modified !== article.published && (
-              <>
-                {" · "}
-                {copy.updated}{" "}
-                <time dateTime={article.modified}>{formatIsoDate(article.modified, lang)}</time>
-              </>
-            )}
-          </p>
-          <div data-reveal data-reveal-block className="mt-10">
-            <div data-reveal-panel>
-              <img
-                src={article.image}
-                alt={article.imageAlt[lang]}
-                width={1024}
-                height={768}
-                fetchPriority="high"
-                className="aspect-[16/9] w-full object-cover"
-              />
-            </div>
-          </div>
-          <div className="mx-auto max-w-[65ch]">
-            {article.directAnswer && (
-              <p
-                data-reveal
-                className="mt-10 border-l-2 border-clay bg-sand px-5 py-4 text-base leading-relaxed text-ink"
-              >
-                {article.directAnswer[lang]}
-              </p>
-            )}
-            <p className="mt-10 text-lg leading-relaxed text-mute">{article.introduction[lang]}</p>
-            <nav aria-label={copy.toc} className="my-10 border-y border-line py-6">
-              <p className="mb-4 font-mono text-xs uppercase tracking-label text-clay">
-                {copy.toc}
-              </p>
-              <ol className="list-inside list-decimal space-y-3 text-sm">
-                {article.sections.map((section, i) => (
-                  <li key={section.heading.en}>
-                    <a
-                      href={`#step-${i + 1}`}
-                      className="underline decoration-clay/70 underline-offset-4 hover:text-clay"
-                    >
-                      {section.heading[lang]}
-                    </a>
-                  </li>
-                ))}
-              </ol>
-            </nav>
-            {article.sections.map((section, i) => (
-              <section key={section.heading.en} id={`step-${i + 1}`} className="mt-10 scroll-mt-8">
-                <h2 className="font-display text-2xl font-light sm:text-3xl">
-                  {section.heading[lang]}
-                </h2>
-                {section.paragraphs[lang].map((paragraph) => (
-                  <p key={paragraph} className="mt-5 leading-[1.85] text-mute">
-                    {article.inlineLinks
-                      ? withInlineLinks(paragraph, article.inlineLinks, lang)
-                      : paragraph}
-                  </p>
-                ))}
-                {section.checklist && (
-                  <ul className="mt-6 list-disc space-y-3 border-l-2 border-clay bg-sand py-5 pl-9 pr-5 text-sm leading-relaxed">
-                    {section.checklist[lang].map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
+            <p className="eyebrow type-label text-clay md:mt-3 md:self-start">
+              {article.category[lang]} · {readingMinutes(article, lang)} {copy.minutes}
+            </p>
+            <div>
+              <h1 className="max-w-[30ch] type-h1">{article.title[lang]}</h1>
+              <p className="mt-6 type-small text-mute">
+                {copy.bylineBy}{" "}
+                <a href={lang === "hi" ? "/hi/about" : "/about"} rel="author" className="link">
+                  {copy.bylineName}
+                </a>
+                {article.published && (
+                  <>
+                    {" · "}
+                    {copy.published}{" "}
+                    <time dateTime={article.published}>
+                      {formatIsoDate(article.published, lang)}
+                    </time>
+                  </>
                 )}
+                {article.modified && article.modified !== article.published && (
+                  <>
+                    {" · "}
+                    {copy.updated}{" "}
+                    <time dateTime={article.modified}>{formatIsoDate(article.modified, lang)}</time>
+                  </>
+                )}
+              </p>
+            </div>
+          </header>
+
+          {/* The page's main image: no reveal, it is the first thing seen. */}
+          <div className="card-media mt-10 bg-sand sm:mt-12">
+            <img
+              src={article.image}
+              alt={article.imageAlt[lang]}
+              width={1024}
+              height={768}
+              fetchPriority="high"
+              className="aspect-[16/9] w-full object-cover lg:aspect-[21/9]"
+            />
+          </div>
+
+          {article.directAnswer && (
+            <p data-reveal className="pt-10 type-h3 text-ink sm:pt-12 lg:pt-14">
+              {article.directAnswer[lang]}
+            </p>
+          )}
+          <div className={RAIL_GRID}>
+            <p className={`${RAIL_CONTENT} type-lead text-mute`}>{article.introduction[lang]}</p>
+          </div>
+
+          <nav aria-label={copy.toc} className={`border-t border-line ${RAIL_GRID}`}>
+            <p className="type-label text-clay">{copy.toc}</p>
+            <ol className="vf-toc gap-x-10 type-body lg:columns-2">
+              {article.sections.map((section, i) => (
+                <li key={section.heading.en} className="break-inside-avoid pb-3">
+                  <a
+                    href={`#step-${i + 1}`}
+                    className="link"
+                    aria-current={activeStep === i + 1 ? "location" : undefined}
+                  >
+                    {section.heading[lang]}
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </nav>
+
+          <div className="vf-chapters">
+            {article.sections.map((section, i) => (
+              <section
+                key={section.heading.en}
+                id={`step-${i + 1}`}
+                data-reveal
+                className={`vf-chapter scroll-mt-28 ${RAIL_GRID}`}
+              >
+                <div>
+                  <span aria-hidden="true" className="vf-chapter-num" />
+                  <h2 className={railHeading}>{section.heading[lang]}</h2>
+                </div>
+                <div>
+                  {section.paragraphs[lang].map((paragraph) => (
+                    <p key={paragraph} className="mb-5 type-body text-mute last:mb-0">
+                      {article.inlineLinks
+                        ? withInlineLinks(paragraph, article.inlineLinks, lang)
+                        : paragraph}
+                    </p>
+                  ))}
+                  {section.checklist && (
+                    <ul className={checklist}>
+                      {section.checklist[lang].map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
               </section>
             ))}
-            {article.closing && (
-              <section className="mt-12 border-t border-line pt-8">
-                <h2 className="font-display text-2xl font-light sm:text-3xl">
-                  {article.closing.heading[lang]}
-                </h2>
-                <p className="mt-5 leading-[1.85] text-mute">{article.closing.intro[lang]}</p>
-                <ul className="mt-6 list-disc space-y-3 border-l-2 border-clay bg-sand py-5 pl-9 pr-5 text-sm leading-relaxed">
+          </div>
+
+          {article.closing && (
+            <section className={`border-t border-line ${RAIL_GRID}`}>
+              <h2 className={railHeading}>{article.closing.heading[lang]}</h2>
+              <div>
+                <p className="type-body text-mute">{article.closing.intro[lang]}</p>
+                <ul className={checklist}>
                   {article.closing.checklist[lang].map((item) => (
                     <li key={item}>{item}</li>
                   ))}
                 </ul>
-              </section>
-            )}
-            {article.faq && (
-              <section className="mt-12 border-t border-line pt-8">
-                <h2 className="font-display text-2xl font-light sm:text-3xl">{copy.faq}</h2>
-                <dl>
-                  {article.faq.map((entry) => (
-                    <div key={entry.question.en} className="mt-7">
-                      <dt className="font-display text-lg font-light leading-snug">
-                        {entry.question[lang]}
-                      </dt>
-                      <dd className="mt-3 leading-[1.85] text-mute">{entry.answer[lang]}</dd>
-                    </div>
-                  ))}
-                </dl>
-              </section>
-            )}
-            <aside className="my-12 bg-ink p-7 text-paper sm:p-10">
-              <p className="font-mono text-xs uppercase tracking-label">
-                {article.cta?.kicker[lang] ?? copy.ctaKicker}
-              </p>
-              <h2 className="mt-4 font-display text-3xl font-light text-paper">
+              </div>
+            </section>
+          )}
+
+          {article.faq && (
+            <section className={`border-t border-line ${RAIL_GRID}`}>
+              <h2 className={railHeading}>{copy.faq}</h2>
+              <dl>
+                {article.faq.map((entry) => (
+                  <div
+                    key={entry.question.en}
+                    className="border-t border-line py-6 first:border-t-0 first:pt-0 last:pb-0"
+                  >
+                    <dt className="type-h4">{entry.question[lang]}</dt>
+                    <dd className="mt-3 type-body text-mute">{entry.answer[lang]}</dd>
+                  </div>
+                ))}
+              </dl>
+            </section>
+          )}
+
+          <aside
+            className={`${RAIL_COLS} mt-4 rounded-[var(--radius-card)] bg-plum p-8 text-plumlight sm:p-12`}
+          >
+            <div>
+              <p className="type-label">{article.cta?.kicker[lang] ?? copy.ctaKicker}</p>
+              <h2 className="mt-4 type-h3 text-plumlight">
                 {article.cta?.heading[lang] ?? copy.ctaHeading}
               </h2>
-              <p className="mt-5 leading-relaxed text-paper/80">
-                {article.cta?.body[lang] ?? copy.ctaBody}
-              </p>
+            </div>
+            <div>
+              <p className="type-body">{article.cta?.body[lang] ?? copy.ctaBody}</p>
               <div className="mt-7 flex flex-col items-start gap-4 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-6 sm:gap-y-3">
                 <a
                   href={articleWhatsAppUrl(article, lang)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 bg-paper px-5 py-3 text-sm font-medium text-ink"
+                  data-magnet
+                  className="btn btn-inverse"
                 >
                   {article.cta?.label[lang] ?? copy.talk}
                   <ArrowUpRight className="shrink-0" size={18} aria-hidden="true" />
@@ -323,28 +391,26 @@ export function JournalArticlePage({
                 {article.cta?.secondary ? (
                   <a
                     href={localiseHref(article.cta.secondary.href, lang)}
-                    className="inline-flex min-h-11 items-center text-sm text-paper underline underline-offset-4"
+                    className="inline-flex min-h-11 items-center type-small text-plumlight underline underline-offset-4"
                   >
                     {article.cta.secondary.label[lang]}
                   </a>
                 ) : null}
               </div>
-            </aside>
-            <div className="border-t border-line pt-8">
-              <h2 className="font-display text-2xl font-light">{copy.related}</h2>
-              <ul className="mt-5 space-y-4">
-                {relatedArticles(article, RELATED_COUNT).map((item) => (
-                  <li key={item.slug}>
-                    <a
-                      href={articleHref(item, lang)}
-                      className="text-clay underline underline-offset-4"
-                    >
-                      {item.title[lang]}
-                    </a>
-                  </li>
-                ))}
-              </ul>
             </div>
+          </aside>
+
+          <div className={`mt-10 border-t border-line ${RAIL_GRID} lg:mt-14`}>
+            <h2 className={railHeading}>{copy.related}</h2>
+            <ul className="grid gap-x-10 gap-y-6 lg:grid-cols-3">
+              {relatedArticles(article, RELATED_COUNT).map((item) => (
+                <li key={item.slug}>
+                  <a href={articleHref(item, lang)} className="link-arrow">
+                    {item.title[lang]}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
         </article>
       </main>

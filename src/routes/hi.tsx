@@ -15,6 +15,7 @@ import { whatsAppUrl } from "@/content/whatsapp";
 import { useLeadContext } from "@/hooks/use-lead-context";
 import { useReveal } from "@/hooks/use-reveal";
 import { trackLeadEvent } from "@/lib/analytics";
+import { SendTick } from "@/components/send-tick";
 import { currentLeadContext } from "@/lib/lead-source";
 import {
   Accordion,
@@ -298,7 +299,7 @@ function HiIndex() {
   const [leadOpen, setLeadOpen] = useEngagementPopup();
 
   return (
-    <div className="vf-home min-h-screen font-body text-foreground antialiased selection:bg-clay/15">
+    <div className="vf-home min-h-screen text-foreground antialiased selection:bg-clay/15">
       <PromoSuitsTicker lang={lang} />
       <HomeHeader lang={lang} setLang={setLang} whatsAppHref={getWhatsAppUrl(lang)} route="hi" />
 
@@ -316,43 +317,42 @@ function HiIndex() {
         <ResellerCircleStrip lang={lang} />
 
         <section id="contact" data-reveal className="scroll-mt-36">
-          <div className="mx-auto w-full max-w-3xl px-5 py-16 sm:px-8 sm:py-24 lg:px-[50px] lg:py-28">
-            <h2 className="text-balance font-display text-4xl font-light tracking-normal lg:text-5xl">
-              {COPY.homeCta.heading[lang]}
-            </h2>
-            <p className="mt-5 max-w-[42ch] text-pretty text-lg leading-relaxed text-mute">
-              {COPY.homeCta.support[lang]}
-            </p>
-            <div className="mt-8 grid gap-3 sm:grid-cols-2">
-              <a
-                href={getWhatsAppUrl(lang)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex min-h-[88px] items-center justify-center rounded-sm bg-clay px-5 py-4 text-center font-mono text-xs uppercase tracking-label text-paper transition-colors hover:bg-claydeep"
-              >
-                {COPY.nav.cta[lang]}
-              </a>
-              <a
-                href="#inquiry"
-                className="flex min-h-[88px] items-center justify-center rounded-sm border border-clay px-5 py-4 text-center text-sm text-clay transition-colors hover:bg-clay/5"
-              >
-                {COPY.contact.cta[lang]}
-              </a>
-            </div>
-            <p className="mt-8 font-mono text-sm text-mute">
-              <a href={`tel:${BUSINESS.phone}`} className="vf-link-maroon">
-                {BUSINESS.phoneDisplay}
-              </a>
-              <span className="mx-2">·</span>
-              <a href={`mailto:${BUSINESS.email}`} className="vf-link-maroon break-all">
-                {BUSINESS.email}
-              </a>
-            </p>
-            <div id="inquiry" className="mx-auto mt-14 max-w-xl scroll-mt-36">
-              <p className="font-mono text-xs uppercase tracking-label text-clay">
-                {COPY.inquiry.label[lang]}
+          {/* Headline and ways to talk on the left, the enquiry card on the
+              right (Bombay Shirt Company's corporate orders page). */}
+          <div className="mx-auto grid w-full max-w-[1440px] gap-y-14 px-5 py-8 sm:px-8 sm:py-11 lg:grid-cols-12 lg:gap-x-16 lg:px-[50px] lg:py-14">
+            <div className="lg:col-span-5">
+              <h2 className="type-h1">{COPY.homeCta.heading[lang]}</h2>
+              <p className="mt-5 max-w-[42ch] type-lead text-mute">{COPY.homeCta.support[lang]}</p>
+              <div className="mt-8 flex flex-col items-start gap-3">
+                <a
+                  href={getWhatsAppUrl(lang)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-magnet
+                  className="btn btn-primary btn-lg"
+                >
+                  {COPY.nav.cta[lang]}
+                </a>
+                <a href="#inquiry" className="btn btn-secondary btn-lg">
+                  {COPY.contact.cta[lang]}
+                </a>
+              </div>
+              <p className="mt-10 border-t border-line pt-6 type-small text-mute">
+                <a href={`tel:${BUSINESS.phone}`} className="link">
+                  {BUSINESS.phoneDisplay}
+                </a>
+                <span className="mx-2">·</span>
+                <a href={`mailto:${BUSINESS.email}`} className="link break-all">
+                  {BUSINESS.email}
+                </a>
               </p>
-              <p className="mt-1 text-sm text-mute">{COPY.inquiry.sub[lang]}</p>
+            </div>
+            <div
+              id="inquiry"
+              className="w-full max-w-2xl scroll-mt-36 p-6 sm:p-10 lg:col-span-7 lg:justify-self-end"
+            >
+              <p className="type-label text-clay">{COPY.inquiry.label[lang]}</p>
+              <p className="mt-1 type-small text-mute">{COPY.inquiry.sub[lang]}</p>
               <form
                 className="mt-5 space-y-3"
                 onSubmit={async (e) => {
@@ -398,7 +398,7 @@ function HiIndex() {
                 <input
                   required
                   name="company"
-                  className="w-full rounded-sm bg-paper px-3 py-2.5 text-sm outline-none ring-1 ring-line focus:ring-clay"
+                  className="w-full rounded-[14px] bg-linen px-4 py-3.5 type-body outline-none ring-1 ring-transparent transition focus:bg-surface focus:ring-2 focus:ring-plum/70"
                   placeholder={COPY.inquiry.company[lang]}
                   aria-label={COPY.inquiry.company[lang]}
                 />
@@ -406,20 +406,20 @@ function HiIndex() {
                   required
                   type="email"
                   name="email"
-                  className="w-full rounded-sm bg-paper px-3 py-2.5 text-sm outline-none ring-1 ring-line focus:ring-clay"
+                  className="w-full rounded-[14px] bg-linen px-4 py-3.5 type-body outline-none ring-1 ring-transparent transition focus:bg-surface focus:ring-2 focus:ring-plum/70"
                   placeholder={COPY.inquiry.email[lang]}
                   aria-label={COPY.inquiry.email[lang]}
                 />
                 <input
                   name="phone"
-                  className="w-full rounded-sm bg-paper px-3 py-2.5 text-sm outline-none ring-1 ring-line focus:ring-clay"
+                  className="w-full rounded-[14px] bg-linen px-4 py-3.5 type-body outline-none ring-1 ring-transparent transition focus:bg-surface focus:ring-2 focus:ring-plum/70"
                   placeholder={COPY.inquiry.phone[lang]}
                   aria-label={COPY.inquiry.phone[lang]}
                 />
                 <select
                   name="found_via"
                   defaultValue=""
-                  className="w-full rounded-sm bg-paper px-3 py-2.5 text-sm text-mute outline-none ring-1 ring-line focus:ring-clay"
+                  className="w-full rounded-[14px] bg-linen px-4 py-3.5 type-body text-mute outline-none ring-1 ring-transparent transition focus:bg-surface focus:ring-2 focus:ring-plum/70"
                   aria-label={COPY.inquiry.foundVia.label[lang]}
                 >
                   <option value="">{COPY.inquiry.foundVia.label[lang]}</option>
@@ -431,7 +431,7 @@ function HiIndex() {
                 </select>
                 <select
                   name="buyer_type"
-                  className="w-full rounded-sm bg-paper px-3 py-2.5 text-sm text-mute outline-none ring-1 ring-line focus:ring-clay"
+                  className="w-full rounded-[14px] bg-linen px-4 py-3.5 type-body text-mute outline-none ring-1 ring-transparent transition focus:bg-surface focus:ring-2 focus:ring-plum/70"
                   aria-label={COPY.inquiry.buyerTypes.retail[lang]}
                 >
                   <option>{COPY.inquiry.buyerTypes.retail[lang]}</option>
@@ -442,24 +442,25 @@ function HiIndex() {
                 <textarea
                   name="message"
                   rows={3}
-                  className="w-full resize-none rounded-sm bg-paper px-3 py-2.5 text-sm outline-none ring-1 ring-line focus:ring-clay"
+                  className="w-full resize-none rounded-[14px] bg-linen px-4 py-3.5 type-body outline-none ring-1 ring-transparent transition focus:bg-surface focus:ring-2 focus:ring-plum/70"
                   placeholder={COPY.inquiry.message[lang]}
                   aria-label={COPY.inquiry.message[lang]}
                 />
                 <button
                   type="submit"
                   disabled={inquiryStatus === "sending"}
-                  className="vf-btn-maroon w-full rounded-sm py-3 font-mono text-xs uppercase tracking-label transition-colors"
+                  className="btn btn-primary w-full"
                 >
+                  <SendTick on={inquiryStatus === "success" && sent} />
                   {inquiryStatus === "sending" ? "भेजा जा रहा है..." : COPY.inquiry.submit[lang]}
                 </button>
                 {inquiryStatus === "success" && sent ? (
-                  <p role="status" aria-live="polite" className="pt-1 text-sm text-sage">
+                  <p role="status" aria-live="polite" className="pt-1 type-small text-sage">
                     {COPY.inquiry.sent[lang]}
                   </p>
                 ) : null}
                 {inquiryStatus === "error" ? (
-                  <p role="alert" aria-live="assertive" className="pt-1 text-sm text-error">
+                  <p role="alert" aria-live="assertive" className="pt-1 type-small text-error">
                     कुछ गलत हो गया। कृपया दोबारा कोशिश करें या सीधे संपर्क करें।
                   </p>
                 ) : null}
@@ -469,16 +470,17 @@ function HiIndex() {
         </section>
 
         <section data-reveal id="faq" className="scroll-mt-36">
-          <div className="mx-auto w-full max-w-3xl px-5 py-16 sm:px-8 sm:py-20 lg:px-[50px] lg:py-24">
-            <p className="font-mono text-xs uppercase tracking-label text-clay">
-              {FAQ_SECTION_COPY[lang].marker}
-            </p>
-            <h2 className="mt-4 font-display text-4xl font-light tracking-normal lg:text-5xl">
-              {FAQ_SECTION_COPY[lang].heading}
-            </h2>
-            <p className="mt-4 text-lg text-mute">{FAQ_SECTION_COPY[lang].support}</p>
+          {/* Heading held on the left while the questions scroll on the right. */}
+          <div className="mx-auto grid w-full max-w-[1440px] gap-y-10 px-5 py-8 sm:px-8 sm:py-11 lg:grid-cols-12 lg:gap-x-16 lg:px-[50px] lg:py-14">
+            <div className="lg:sticky lg:top-28 lg:col-span-5 lg:self-start">
+              <p className="eyebrow type-label text-clay">{FAQ_SECTION_COPY[lang].marker}</p>
+              <h2 className="mt-4 type-h2">{FAQ_SECTION_COPY[lang].heading}</h2>
+              <p className="mt-4 max-w-[36ch] type-lead text-mute">
+                {FAQ_SECTION_COPY[lang].support}
+              </p>
+            </div>
 
-            <Accordion type="single" collapsible className="mt-10">
+            <Accordion type="single" collapsible className="border-t border-line lg:col-span-7">
               {FAQS.map((faq, index) => (
                 <AccordionItem
                   key={faq.question.en}
@@ -487,13 +489,13 @@ function HiIndex() {
                 >
                   <AccordionTrigger
                     aria-controls={`faq-panel-${index}`}
-                    className="font-display text-lg font-light text-ink hover:no-underline"
+                    className="py-5 type-h4 text-[length:var(--type-h4)] text-ink hover:no-underline"
                   >
                     {faq.question[lang]}
                   </AccordionTrigger>
                   <AccordionPanel
                     id={`faq-panel-${index}`}
-                    className="max-w-2xl text-base leading-relaxed text-mute"
+                    className="max-w-2xl type-body text-mute"
                   >
                     {faq.answer[lang]}
                   </AccordionPanel>

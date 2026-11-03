@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 
+import { useOffscreen } from "@/hooks/use-offscreen";
 import { PROMO_COPY, PROMO_SUIT_REF, PROMO_SUITS } from "@/content/promo-suits";
 import type { Lang } from "@/content/translations";
 import { whatsAppUrl } from "@/content/whatsapp";
 
 const DISMISS_KEY = "vidhi-promo-suits-banner";
 
-const suitLink =
-  "vf-btn-maroon inline-flex items-center justify-center rounded-sm px-5 py-3 text-center font-mono text-xs uppercase tracking-label transition-colors";
+const suitLink = "btn btn-primary";
 
 /** Copies per half of the track. Both halves match, so a -50% shift is seamless. */
 const TICKER_COPIES = 5;
@@ -19,6 +19,8 @@ const TICKER_COPIES = 5;
  */
 export function PromoSuitsTicker({ lang }: { lang: Lang }) {
   const [open, setOpen] = useState(true);
+  // The sentence stops travelling once the bar has scrolled out of view.
+  const [tickerRef, offscreen] = useOffscreen<HTMLDivElement>();
 
   useEffect(() => {
     try {
@@ -31,43 +33,45 @@ export function PromoSuitsTicker({ lang }: { lang: Lang }) {
   if (!PROMO_SUITS || !open) return null;
   const text = PROMO_COPY.banner[lang];
   const copies = Array.from({ length: TICKER_COPIES }, (_, i) => i);
+  // The sentence runs from edge to edge of the screen and fades out at both
+  // ends. There is no separate button (owner, 31 October 2026): the whole
+  // strip is the link to the catalogue on WhatsApp, which is what its sentence
+  // asks for, and it keeps the promo's lead ref. The close control floats over
+  // the right-hand fade.
   return (
-    <div className="vf-promo-ticker border-b border-white/20">
-      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-4 gap-y-2 px-6 py-2">
-        <p className="vf-promo-ticker-viewport min-w-0 flex-1 text-sm leading-snug">
-          <span className="sr-only">{text}</span>
-          <span className="vf-promo-ticker-track" aria-hidden="true">
-            <TickerGroup copies={copies} text={text} />
-            <TickerGroup copies={copies} text={text} />
-          </span>
-        </p>
-        <div className="flex shrink-0 items-center gap-2">
-          <a
-            href={whatsAppUrl(PROMO_COPY.suitMessage[lang])}
-            data-lead-ref={PROMO_SUIT_REF}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="vf-promo-ticker-btn rounded-sm px-3 py-1.5 font-mono text-xs uppercase tracking-label transition-colors"
-          >
-            {PROMO_COPY.bannerButton[lang]}
-          </a>
-          <button
-            type="button"
-            onClick={() => {
-              setOpen(false);
-              try {
-                window.sessionStorage.setItem(DISMISS_KEY, "1");
-              } catch {
-                /* private mode */
-              }
-            }}
-            aria-label={PROMO_COPY.dismiss[lang]}
-            className="grid size-8 place-items-center rounded-sm text-lg leading-none text-white transition-colors hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-          >
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-      </div>
+    <div
+      ref={tickerRef}
+      data-offscreen={offscreen || undefined}
+      className="vf-promo-ticker relative border-b border-white/20"
+    >
+      <a
+        href={whatsAppUrl(PROMO_COPY.suitMessage[lang])}
+        data-lead-ref={PROMO_SUIT_REF}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="vf-promo-ticker-viewport block py-2.5 type-small focus-visible:outline-2 focus-visible:-outline-offset-4 focus-visible:outline-plumlight"
+      >
+        <span className="sr-only">{text}</span>
+        <span className="vf-promo-ticker-track" aria-hidden="true">
+          <TickerGroup copies={copies} text={text} />
+          <TickerGroup copies={copies} text={text} />
+        </span>
+      </a>
+      <button
+        type="button"
+        onClick={() => {
+          setOpen(false);
+          try {
+            window.sessionStorage.setItem(DISMISS_KEY, "1");
+          } catch {
+            /* private mode */
+          }
+        }}
+        aria-label={PROMO_COPY.dismiss[lang]}
+        className="absolute right-2 top-1/2 grid size-8 -translate-y-1/2 place-items-center rounded-full text-lg leading-none text-plumlight transition-colors hover:bg-plumlight/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-plumlight sm:right-4 lg:right-[42px]"
+      >
+        <span aria-hidden="true">×</span>
+      </button>
     </div>
   );
 }
@@ -124,12 +128,12 @@ export function PromoSuitCatalogueCta({ lang }: { lang: Lang }) {
 export function PromoSareeLine({ lang }: { lang: Lang }) {
   if (!PROMO_SUITS) return null;
   return (
-    <p className="mt-4 text-sm leading-snug">
+    <p className="mt-4 type-small">
       <a
         href={whatsAppUrl(PROMO_COPY.sareeMessage[lang])}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-clay underline decoration-clay/70 underline-offset-4 hover:text-claydeep"
+        className="link"
       >
         {PROMO_COPY.sareeLine[lang]}
       </a>

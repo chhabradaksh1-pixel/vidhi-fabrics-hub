@@ -16,6 +16,8 @@ export type Market = {
   id: string;
   lat: number;
   lon: number;
+  /** ISO 3166 numeric code of the country, which the globe fills. */
+  iso: string;
   /** The origin point rather than a destination. */
   origin?: boolean;
   confirmed: boolean;
@@ -27,6 +29,7 @@ export const MARKETS: Market[] = [
     id: "surat",
     lat: 21.17,
     lon: 72.83,
+    iso: "356",
     origin: true,
     confirmed: true,
     name: { en: "Surat, India", hi: "सूरत, भारत", "hi-en": "Surat, India" },
@@ -35,6 +38,7 @@ export const MARKETS: Market[] = [
     id: "uae",
     lat: 25.2,
     lon: 55.27,
+    iso: "784",
     confirmed: true,
     name: { en: "United Arab Emirates", hi: "संयुक्त अरब अमीरात", "hi-en": "UAE" },
   },
@@ -42,6 +46,7 @@ export const MARKETS: Market[] = [
     id: "saudi",
     lat: 24.71,
     lon: 46.68,
+    iso: "682",
     confirmed: true,
     name: { en: "Saudi Arabia", hi: "सऊदी अरब", "hi-en": "Saudi Arabia" },
   },
@@ -49,6 +54,7 @@ export const MARKETS: Market[] = [
     id: "kenya",
     lat: -1.29,
     lon: 36.82,
+    iso: "404",
     confirmed: true,
     name: { en: "Kenya", hi: "केन्या", "hi-en": "Kenya" },
   },
@@ -56,6 +62,7 @@ export const MARKETS: Market[] = [
     id: "nigeria",
     lat: 6.52,
     lon: 3.38,
+    iso: "566",
     confirmed: true,
     name: { en: "Nigeria", hi: "नाइजीरिया", "hi-en": "Nigeria" },
   },
@@ -63,6 +70,7 @@ export const MARKETS: Market[] = [
     id: "bangladesh",
     lat: 23.81,
     lon: 90.41,
+    iso: "050",
     confirmed: true,
     name: { en: "Bangladesh", hi: "बांग्लादेश", "hi-en": "Bangladesh" },
   },
@@ -70,6 +78,7 @@ export const MARKETS: Market[] = [
     id: "srilanka",
     lat: 6.93,
     lon: 79.86,
+    iso: "144",
     confirmed: true,
     name: { en: "Sri Lanka", hi: "श्रीलंका", "hi-en": "Sri Lanka" },
   },
@@ -77,6 +86,7 @@ export const MARKETS: Market[] = [
     id: "nepal",
     lat: 27.72,
     lon: 85.32,
+    iso: "524",
     confirmed: true,
     name: { en: "Nepal", hi: "नेपाल", "hi-en": "Nepal" },
   },
@@ -84,6 +94,7 @@ export const MARKETS: Market[] = [
     id: "malaysia",
     lat: 3.14,
     lon: 101.69,
+    iso: "458",
     confirmed: true,
     name: { en: "Malaysia", hi: "मलेशिया", "hi-en": "Malaysia" },
   },

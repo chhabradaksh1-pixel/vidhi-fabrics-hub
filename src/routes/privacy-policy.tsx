@@ -39,38 +39,38 @@ export const Route = createFileRoute("/privacy-policy")({
 
 function PrivacyPolicyPage() {
   return (
-    <div className="min-h-screen bg-paper text-ink">
+    // On the long-form rail (styles.css, .vf-flow): each heading in the rail
+    // beside its paragraphs. Layout only; every word is in place.
+    <div className="min-h-screen bg-linen text-ink">
       <JournalHeader lang="en" />
-      <main className="mx-auto max-w-3xl px-6 py-12 sm:py-16">
-        <p className="font-mono text-xs uppercase tracking-label text-clay">{PRIVACY.kicker}</p>
-        <h1 className="mt-4 font-display text-4xl font-light tracking-normal sm:text-5xl">
-          {PRIVACY.title}
-        </h1>
-        <p className="mt-4 text-sm text-mute">{PRIVACY.updated}</p>
-        <div className="mt-8 space-y-8 text-base leading-relaxed">
-          <p>{PRIVACY.intro}</p>
+      <main className="mx-auto w-full max-w-[1440px] px-5 pb-16 pt-8 sm:px-8 sm:pt-11 lg:px-[50px] lg:pb-24 lg:pt-14">
+        <p className="eyebrow type-label text-clay">{PRIVACY.kicker}</p>
+        <h1 className="mt-4 max-w-[28ch] type-h1">{PRIVACY.title}</h1>
+        <p className="mt-4 type-small text-mute">{PRIVACY.updated}</p>
+        <div className="vf-flow type-body">
+          <p className="mt-8 type-lead text-mute">{PRIVACY.intro}</p>
           <section>
-            <h2 className="font-display text-2xl font-light">{PRIVACY.collectHeading}</h2>
+            <h2 className="vf-heading-strong type-h4 text-ink">{PRIVACY.collectHeading}</h2>
             <p className="mt-3">{PRIVACY.collectBody}</p>
             <p className="mt-3">{PRIVACY.analyticsBody}</p>
           </section>
           <section>
-            <h2 className="font-display text-2xl font-light">{PRIVACY.whyHeading}</h2>
+            <h2 className="vf-heading-strong type-h4 text-ink">{PRIVACY.whyHeading}</h2>
             <p className="mt-3">{PRIVACY.whyBody}</p>
           </section>
           <section>
-            <h2 className="font-display text-2xl font-light">{PRIVACY.shareHeading}</h2>
+            <h2 className="vf-heading-strong type-h4 text-ink">{PRIVACY.shareHeading}</h2>
             <p className="mt-3">{PRIVACY.shareBody}</p>
           </section>
           <section>
-            <h2 className="font-display text-2xl font-light">{PRIVACY.rightsHeading}</h2>
+            <h2 className="vf-heading-strong type-h4 text-ink">{PRIVACY.rightsHeading}</h2>
             <p className="mt-3">
               {PRIVACY.rightsBefore}{" "}
               <a
                 href={PRIVACY.whatsAppHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-clay underline decoration-clay/70 underline-offset-4"
+                className="link"
               >
                 {PRIVACY.phone}
               </a>
@@ -78,7 +78,7 @@ function PrivacyPolicyPage() {
             </p>
           </section>
           <section>
-            <h2 className="font-display text-2xl font-light">{PRIVACY.lawHeading}</h2>
+            <h2 className="vf-heading-strong type-h4 text-ink">{PRIVACY.lawHeading}</h2>
             <p className="mt-3">{PRIVACY.lawBody}</p>
           </section>
         </div>

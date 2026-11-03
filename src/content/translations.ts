@@ -313,6 +313,13 @@ export const COPY = {
     viewLabel: { en: "View", hi: "दृश्य", "hi-en": "View" },
     viewGrid: { en: "Grid", hi: "ग्रिड", "hi-en": "Grid" },
     viewTable: { en: "Specifications", hi: "स्पेसिफिकेशन", "hi-en": "Specifications" },
+    /** Title of the cloth band under the range cards (owner, 31 October 2026;
+     *  renamed from "Material collection" by the owner, 3 November 2026). */
+    materialsTitle: {
+      en: "Fabric collection",
+      hi: "फैब्रिक कलेक्शन",
+      "hi-en": "Fabric collection",
+    },
     clear: { en: "Clear", hi: "हटाएँ", "hi-en": "Hataayein" },
     /* {shown} and {total} are replaced at render time. */
     count: {

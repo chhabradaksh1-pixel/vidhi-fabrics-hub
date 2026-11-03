@@ -2,64 +2,49 @@ import { ArrowDown, ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import loom from "@/assets/about-weaving-loom.webp";
 import loom640 from "@/assets/about-weaving-loom-640.webp";
-import logoMark from "@/assets/vidhi-logo-mark.webp";
 import { JOURNAL, articleHref, readingMinutes, type JournalArticle } from "@/content/journal";
 import { SiteFooter } from "@/components/site-footer";
+import { SiteHeader } from "@/components/site-header";
+import { SiteNavLinks } from "@/components/site-nav-links";
+import { inlineNavClass } from "@/lib/header-classes";
 import type { Lang } from "@/content/translations";
 import { MINUTES_LABEL, SECTION_COPY } from "@/content/section-copy";
-
-export function StoryLinks({ lang = "en" }: { lang?: Lang }) {
-  const copy = SECTION_COPY[lang];
-  return (
-    <>
-      <a href="#about" className="transition-colors hover:text-clay">
-        {copy.about}
-      </a>
-      <a href={lang === "hi" ? "/hi/blog" : "/blog"} className="transition-colors hover:text-clay">
-        {copy.desk}
-      </a>
-    </>
-  );
-}
 
 export function AboutSection({ lang, whatsappUrl }: { lang: Lang; whatsappUrl: string }) {
   const copy = SECTION_COPY[lang];
   return (
     <section id="about" data-reveal aria-labelledby="about-heading" className="scroll-mt-36">
-      <div className="mx-auto grid w-full max-w-[1440px] items-center gap-16 px-5 py-16 sm:px-8 sm:py-24 lg:grid-cols-2 lg:gap-24 lg:px-[50px] lg:py-32">
+      {/* "the PROCESS": the marker and heading sit on the loom photograph over
+          a dark wash; the story and the call to action sit beside it. The
+          photo and the overlay share one grid cell, so the DOM order (marker,
+          heading, story) is unchanged. */}
+      <div className="mx-auto grid w-full max-w-[1440px] gap-y-10 px-5 py-8 sm:px-8 sm:py-11 lg:grid-cols-12 lg:items-center lg:gap-x-16 lg:px-[50px] lg:py-14">
         <img
           src={loom}
           srcSet={`${loom640} 640w, ${loom} 1000w`}
-          sizes="(min-width: 1024px) 620px, calc(100vw - 40px)"
+          sizes="(min-width: 1024px) 760px, calc(100vw - 40px)"
           alt={copy.loomAlt}
           width={1000}
           height={667}
           loading="lazy"
           decoding="async"
-          className="aspect-[3/2] w-full object-cover"
+          className="col-[1/-1] row-[1] aspect-[4/3] h-full w-full rounded-[var(--radius-card)] object-cover lg:col-[1/8]"
         />
-        <div>
-          <p className="font-mono text-xs uppercase tracking-label text-clay">{copy.marker}</p>
-          <h2
-            id="about-heading"
-            className="mt-5 text-balance font-display text-4xl font-light leading-[1.12] tracking-normal lg:text-5xl"
-          >
+        <div className="relative col-[1/-1] row-[1] self-end rounded-b-[var(--radius-card)] bg-gradient-to-t from-plumdeep/95 via-plumdeep/80 via-65% to-transparent px-6 pb-8 pt-24 sm:px-10 sm:pt-32 sm:pb-11 lg:col-[1/8]">
+          <p className="eyebrow type-label text-plumlight">{copy.marker}</p>
+          <h2 id="about-heading" className="mt-4 type-h1 text-plumlight">
             {copy.title}
           </h2>
-          <p className="mt-6 max-w-[42ch] text-pretty text-lg leading-relaxed text-mute">
-            {copy.support}
-          </p>
-          <p className="mt-4 max-w-[42ch] text-pretty text-base leading-relaxed text-mute">
-            {copy.reach}
-          </p>
-          <p className="mt-4 font-mono text-xs uppercase leading-relaxed tracking-label text-mute">
-            {copy.detail}
-          </p>
+        </div>
+        <div className="lg:col-[9/13] lg:row-[1]">
+          <p className="max-w-[42ch] type-lead text-mute">{copy.support}</p>
+          <p className="mt-4 max-w-[42ch] type-body text-mute">{copy.reach}</p>
+          <p className="mt-6 border-t border-line pt-5 type-label text-mute">{copy.detail}</p>
           <a
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="vf-btn-maroon mt-8 inline-flex items-center gap-4 px-6 py-4 text-sm font-medium transition-colors"
+            className="btn btn-primary btn-lg mt-8"
           >
             {copy.cta}
             <ArrowUpRight size={18} aria-hidden="true" />
@@ -91,38 +76,38 @@ export function JournalCard({
   headingLevel?: 2 | 3;
 }) {
   const Heading = `h${headingLevel}` as "h2" | "h3";
+  // The home catalogue's range card (RangeCard in fabric-catalogue.tsx): a
+  // white card with the photo inset in a rounded frame, then the tag, title
+  // and line on the card itself. It reveals as the range card does: the whole
+  // card fades up, staggered by its grid (data-reveal-stagger).
   return (
-    <article className="group flex h-full flex-col overflow-hidden">
+    <article data-reveal className="card group flex h-full flex-col p-2.5">
       <a
         href={href ?? articleHref(article, lang)}
-        className="flex h-full flex-col"
+        className="flex h-full flex-col rounded-[var(--radius-card)]"
         aria-label={`${readLabel}: ${article.title[lang]}`}
       >
-        <div data-reveal-block className="relative overflow-hidden bg-sand">
-          <div data-reveal-panel>
-            <img
-              src={article.image}
-              alt={article.imageAlt[lang]}
-              width={1024}
-              height={768}
-              loading="lazy"
-              decoding="async"
-              className="aspect-[4/3] w-full object-cover transition-transform duration-300 group-hover:scale-[1.03] motion-reduce:transform-none"
-            />
-          </div>
-          <span className="absolute left-4 top-4 bg-paper px-3 py-2 font-mono text-xs text-clay">
+        <div className="card-media relative bg-sand">
+          <img
+            src={article.image}
+            alt={article.imageAlt[lang]}
+            width={1024}
+            height={768}
+            loading="lazy"
+            decoding="async"
+            className="aspect-[4/3] w-full object-cover transition-transform duration-300 group-hover:scale-[1.03] motion-reduce:transform-none"
+          />
+          <span className="absolute left-3 top-3 rounded-full bg-surface/90 px-3 py-1.5 type-label text-plum">
             {String(number).padStart(2, "0")}
           </span>
         </div>
-        <div className="flex flex-1 flex-col pt-5">
-          <p className="font-mono text-xs uppercase tracking-label text-clay">
+        <div className="flex flex-1 flex-col px-3 pb-4 pt-5">
+          <p className="type-label text-plum">
             {article.category[lang]} · {readingMinutes(article, lang)} {MINUTES_LABEL[lang]}
           </p>
-          <Heading className="mt-4 font-display text-2xl font-light leading-snug tracking-normal">
-            {article.title[lang]}
-          </Heading>
-          <p className="mb-7 mt-3 text-sm leading-relaxed text-mute">{article.excerpt[lang]}</p>
-          <span className="mt-auto flex items-center justify-between border-t border-line pt-5 text-sm font-medium text-clay">
+          <Heading className="mt-2 type-h4">{article.title[lang]}</Heading>
+          <p className="mb-6 mt-2 type-small text-mute">{article.excerpt[lang]}</p>
+          <span className="mt-auto flex items-center justify-between border-t border-line pt-4 type-button text-plum">
             {readLabel}
             <ArrowUpRight size={18} aria-hidden="true" />
           </span>
@@ -229,18 +214,15 @@ export function FabricDeskSection({ lang = "en" }: { lang?: Lang }) {
       <div className="mx-auto max-w-6xl px-6 py-20 lg:py-24">
         <div className="mb-10 flex flex-wrap items-end justify-between gap-6">
           <div>
-            <p className="font-mono text-xs uppercase tracking-label text-clay">{copy.journal}</p>
-            <h2
-              id="fabric-desk-heading"
-              className="mt-4 font-display text-4xl font-light tracking-normal lg:text-5xl"
-            >
+            <p className="type-label text-clay">{copy.journal}</p>
+            <h2 id="fabric-desk-heading" className="mt-4 type-h2">
               Surat Fabric Desk
             </h2>
             <p className="mt-4 text-mute">{copy.subtitle}</p>
           </div>
           <a
             href={lang === "hi" ? "/hi/blog" : "/blog"}
-            className="inline-flex items-center gap-3 border-b border-clay pb-2 text-sm font-medium text-clay"
+            className="inline-flex items-center gap-3 border-b border-clay pb-2 type-button text-clay"
           >
             {copy.browse}
             <ArrowRight size={17} aria-hidden="true" />
@@ -261,67 +243,35 @@ export function JournalLangSwitch({
   setLang: (l: Lang) => void;
   paths?: { en: string; hi: string };
 }) {
-  const base =
-    "px-2 py-2 font-mono text-xs transition-colors sm:px-3 " +
-    "aria-[current=page]:bg-ink aria-[current=page]:text-paper";
-  const active = "bg-ink text-paper";
-  const idle = "text-mute hover:text-ink";
-
   return (
-    <div
-      className="flex overflow-hidden rounded-sm ring-1 ring-line"
-      role="group"
-      aria-label="Language"
-    >
+    <div className="segmented" role="group" aria-label="Language">
       {paths ? (
         <>
-          <a
-            href={paths.en}
-            {...(lang === "en" ? { "aria-current": "page" as const } : {})}
-            className={`${base} ${lang === "en" ? active : idle}`}
-          >
+          <a href={paths.en} {...(lang === "en" ? { "aria-current": "page" as const } : {})}>
             EN
           </a>
-          <a
-            href={paths.hi}
-            {...(lang === "hi" ? { "aria-current": "page" as const } : {})}
-            className={`${base} ${lang === "hi" ? active : idle}`}
-          >
+          <a href={paths.hi} {...(lang === "hi" ? { "aria-current": "page" as const } : {})}>
             हिंदी
           </a>
         </>
       ) : (
         <>
-          <button
-            type="button"
-            onClick={() => setLang("en")}
-            aria-pressed={lang === "en"}
-            className={`${base} ${lang === "en" ? active : idle}`}
-          >
+          <button type="button" onClick={() => setLang("en")} aria-pressed={lang === "en"}>
             EN
           </button>
-          <button
-            type="button"
-            onClick={() => setLang("hi")}
-            aria-pressed={lang === "hi"}
-            className={`${base} ${lang === "hi" ? active : idle}`}
-          >
+          <button type="button" onClick={() => setLang("hi")} aria-pressed={lang === "hi"}>
             हिंदी
           </button>
         </>
       )}
-      <button
-        type="button"
-        onClick={() => setLang("hi-en")}
-        aria-pressed={lang === "hi-en"}
-        className={`${base} ${lang === "hi-en" ? active : idle}`}
-      >
+      <button type="button" onClick={() => setLang("hi-en")} aria-pressed={lang === "hi-en"}>
         Hinglish
       </button>
     </div>
   );
 }
 
+/** The bar on every page other than the two home routes. */
 export function JournalHeader({
   lang = "en",
   setLang,
@@ -331,52 +281,24 @@ export function JournalHeader({
   setLang?: (l: Lang) => void;
   paths?: { en: string; hi: string };
 }) {
-  const copy = SECTION_COPY[lang];
   const home = lang === "hi" ? "/hi" : "/";
+
   return (
-    <header className="border-b border-line bg-paper">
-      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-3 gap-y-3 px-6 py-5">
-        <a
-          href={home}
-          aria-label="Vidhi Fabrics — go to the homepage"
-          className="shrink-0 transition-opacity hover:opacity-80"
-        >
-          <img
-            src={logoMark}
-            alt="Vidhi Fabrics"
-            width={210}
-            height={200}
-            className="h-14 w-auto sm:h-16"
-          />
-        </a>
-        <nav
-          aria-label="Main navigation"
-          className="flex flex-wrap items-center gap-4 text-sm sm:gap-5"
-        >
-          <a href={`${home}#catalogue`} className="hover:text-clay">
-            {copy.navCatalogue}
-          </a>
-          <a href={lang === "hi" ? "/hi/about" : "/about"} className="hover:text-clay">
-            {copy.navAbout}
-          </a>
-          <a href={lang === "hi" ? "/hi/blog" : "/blog"} className="text-clay">
-            {copy.navDesk}
-          </a>
-          <a
-            href={lang === "hi" ? "/hi/reseller-circle" : "/reseller-circle"}
-            className="hover:text-clay"
-          >
-            {copy.navCircle}
-          </a>
-          <a href={`${home}#contact`} className="hover:text-clay">
-            {copy.navContact}
-          </a>
+    <SiteHeader
+      homeHref={home}
+      menuLabel={lang === "hi" ? "मेनू" : "Menu"}
+      menuId="site-menu"
+      nav={(open) => (
+        <nav id="site-menu" aria-label="Main navigation" className={inlineNavClass(open)}>
+          <SiteNavLinks lang={lang} />
         </nav>
-        {setLang ? (
+      )}
+      actions={
+        setLang ? (
           <JournalLangSwitch lang={lang} setLang={setLang} {...(paths ? { paths } : {})} />
-        ) : null}
-      </div>
-    </header>
+        ) : null
+      }
+    />
   );
 }
 

@@ -6,7 +6,9 @@ import reactRefresh from "eslint-plugin-react-refresh";
 import tseslint from "typescript-eslint";
 
 export default tseslint.config(
-  { ignores: ["dist", ".output", ".vinxi"] },
+  // motion/ holds the Remotion design source for the logo loader, with its own
+  // toolchain; the site only imports its generated output.
+  { ignores: ["dist", ".output", ".vinxi", "motion"] },
   {
     extends: [js.configs.recommended, ...tseslint.configs.recommended],
     files: ["**/*.{ts,tsx}"],

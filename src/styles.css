@@ -7,21 +7,81 @@
 /*
  * Self-hosted, font-display: swap. No Google Fonts stylesheet.
  *
- * Headings are Newsreader (OFL-1.1), the free match for Plantin Infant, which
- * Woodwrights uses for headings and paragraphs and which is a paid Monotype
- * family. Body and the small uppercase labels are Hanken Grotesk (OFL-1.1),
- * standing in for Monument Grotesk (Dinamo, paid), which that site uses for
- * navigation, labels, links and buttons. Hanken is the latin variable cut
- * Google Fonts serves, weights 300 to 500. Newsreader is one static regular
- * file: Woodwrights sets everything in a single weight and so does this site.
+ * Two families (31 October 2026). Headlines are Newsreader (OFL-1.1), with
+ * Noto Serif Devanagari for Hindi headlines. Everything else is Anek (Ek
+ * Type, OFL-1.1): Anek Latin for English and Anek Devanagari for Hindi. Each
+ * cut is one static file, so nothing is faked and nothing loads twice:
+ *
+ *   Newsreader 400            display, h1, h2, h3 (the same file the frozen
+ *                             footer uses for its wordmark)
+ *   Anek Latin 400            body, lead, small text
+ *   Anek Latin 500            card titles, labels, navigation, buttons
+ *   Anek Devanagari 400 and Noto Serif Devanagari 400, declared on /hi only
+ *   (DevanagariFont in __root.tsx). Hindi labels and buttons use the Anek
+ *   400 file: its weight range covers 500 so nothing is faked.
+ *   "Anek Devanagari Subset": the handful of Hindi words on English pages
+ *   (the हिंदी switch, the home page's Hindi line), 6 KB, so English pages
+ *   never download the full Devanagari file.
+ *
  * Latin-ext is omitted: the copy does not use those characters.
  *
- * Hindi in a heading uses Noto Serif Devanagari so it sits with the serif.
- * That face is declared on /hi (see DevanagariFont). The English homepage's
- * one Hindi line uses a smaller serif subset in showroom.css. Hindi body copy
- * stays on Noto Sans Devanagari, declared only on /hi, so it matches the
- * grotesque rather than the serif.
+ * Hanken Grotesk below is LEGACY, kept only for the footer, which the owner
+ * has frozen exactly as it was on 31 October 2026 (BRAND.md, "Footer is
+ * frozen"); it is not preloaded. Newsreader serves both the footer wordmark
+ * and the headlines, so it is preloaded.
  */
+@font-face {
+  font-family: "Anek Latin";
+  font-style: normal;
+  font-weight: 300 400;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("./assets/fonts/anek-latin-400.woff2") format("woff2");
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Declared up to 700 so a bold request at normal width uses this real cut
+   instead of a synthesised one. */
+@font-face {
+  font-family: "Anek Latin";
+  font-style: normal;
+  font-weight: 500 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("./assets/fonts/anek-latin-500.woff2") format("woff2");
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Newsreader's display optical size at 300: the light, high-contrast cut used
+   for display, h1 and h2 (Atelier / Thread's headlines). A separate family
+   name, so the frozen footer's Newsreader file is untouched. */
+@font-face {
+  font-family: "Newsreader Display";
+  font-style: normal;
+  font-weight: 200 400;
+  font-display: swap;
+  src: url("./assets/fonts/newsreader-display-300.woff2") format("woff2");
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Anek Devanagari Subset";
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url("./assets/fonts/anek-devanagari-400-en-subset.woff2") format("woff2");
+  unicode-range: U+0900-097F, U+200C-200D, U+25CC;
+}
+
+/* LEGACY, used only by the frozen footer. These stay the full files: cutting
+   them down to the footer's characters changed how the footer's text renders
+   (checked pixel by pixel on 31 October 2026), so they were left whole. */
 @font-face {
   font-family: "Hanken Grotesk";
   font-style: normal;
@@ -62,24 +122,28 @@
  */
 
 @theme inline {
-  /* Headings are Newsreader. Body and the small uppercase labels are Hanken
-     Grotesk. Hindi in a heading falls through to Noto Serif Devanagari;
-     Hindi in body copy falls through to Noto Sans Devanagari.
-     `font-mono` is still a misnomer: it marks those labels and is not a
-     monospace. */
+  /* The site's one family. Everything outside the footer is set in it through
+     the type-* roles below; `font-sans` is the same stack. */
+  --font-sans: var(--vf-font);
+
+  /* LEGACY, used only by the frozen footer: do not change these values. The
+     footer reads font-display (Newsreader), font-mono (Hanken Grotesk, not a
+     monospace), tracking-label and tracking-ui. @theme inline writes the
+     literal values into those utilities, so editing them here would change
+     the footer. New work uses the type-* roles instead. */
   --font-display: "Newsreader", "Noto Serif Devanagari", Georgia, "Times New Roman", serif;
   --font-body: "Hanken Grotesk", "Noto Sans Devanagari", system-ui, sans-serif;
   --font-mono: "Hanken Grotesk", "Noto Sans Devanagari", system-ui, sans-serif;
-
-  /* Spacing and motion, measured on Woodwrights (22 October 2026): 12px
-     uppercase labels and navigation sit at +0.04em, 13px sentence-case UI
-     text at +0.02em, and every interactive transition runs 0.3s. The old
-     labels sat at +0.08em to +0.2em, which reads as a spec sheet. */
   --tracking-label: 0.04em;
   --tracking-ui: 0.02em;
   --default-transition-duration: 300ms;
 
   --color-paper: var(--paper);
+  --color-linen: var(--linen);
+  --color-surface: var(--surface);
+  --color-plum: var(--plum);
+  --color-plumdeep: var(--plumdeep);
+  --color-plumlight: var(--plumlight);
   --color-ink: var(--ink);
   --color-mute: var(--mute);
   --color-clay: var(--clay);
@@ -138,6 +202,46 @@
 :root {
   --radius: 0.2rem;
 
+  /* Type system (31 October 2026). Two families, fixed roles: see the type-*
+     utilities below and BRAND.md, "Type". Sizes run on a ~1.25 ratio from a
+     17px body. Display, h1, h2 and h3 grow fluidly between a 390px phone and
+     a 1440px desktop; everything else is fixed. Headlines (display to h3)
+     are the serif; everything else is Anek. */
+  --vf-font: "Anek Latin", "Anek Devanagari", "Anek Devanagari Subset", system-ui, sans-serif;
+  --vf-serif: "Newsreader", "Noto Serif Devanagari", Georgia, "Times New Roman", serif;
+  --vf-serif-display:
+    "Newsreader Display", "Newsreader", "Noto Serif Devanagari", Georgia, "Times New Roman", serif;
+
+  /* Linen and plum (31 October 2026), after the owner's Atelier / Thread
+     reference: a warm linen page, white cards, and one deep plum for
+     buttons, links and the dark band. The frozen footer keeps its own
+     navy, gold, ivory, paper and clay, which are not changed here. */
+  --linen: #f4efe9; /* page ground */
+  --surface: #fffdfa; /* cards */
+  --plum: #3a1f2b; /* buttons, links, the dark band; 13.0:1 on linen */
+  --plumdeep: #27141d; /* plum hover and pressed */
+  --plumlight: #efe4dc; /* text on plum, 11.9:1 */
+  --radius-card: 28px;
+  --shadow-card: 0 1px 2px rgb(58 31 43 / 0.05), 0 12px 32px -8px rgb(58 31 43 / 0.12);
+  --type-display: clamp(2.75rem, 1.729rem + 4.19vw, 5.5rem); /* 44 → 88px */
+  --type-h1: clamp(2.25rem, 1.693rem + 2.286vw, 3.75rem); /* 36 → 60px */
+  --type-h2: clamp(1.875rem, 1.457rem + 1.714vw, 3rem); /* 30 → 48px */
+  --type-h3: clamp(1.375rem, 1.189rem + 0.762vw, 1.875rem); /* 22 → 30px */
+  --type-h4: clamp(1.125rem, 1.032rem + 0.381vw, 1.375rem); /* 18 → 22px */
+  --type-lead: 1.25rem; /* 20px */
+  --type-body: 1.0625rem; /* 17px */
+  --type-small: 0.9375rem; /* 15px */
+  --type-label: 0.8125rem; /* 13px */
+  --type-nav: 0.9375rem; /* 15px */
+  --type-button: 0.9375rem; /* 15px */
+
+  /* Reading width and vertical rhythm (4px grid). */
+  --measure: 65ch;
+  --space-section: clamp(4rem, 3rem + 4vw, 8rem);
+
+  /* The arrow drawn after a link-arrow, used as a mask. */
+  --vf-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12h15M13 6l6 6-6 6'/%3E%3C/svg%3E");
+
   /* Vidhi Fabrics: white and black slate.
    *
    * Chosen by the owner on 22 October 2026, replacing blush and rust (set the
@@ -148,14 +252,14 @@
    * one deliberate hue, so a form error does not read as body text now that
    * the accent is grey. */
   --paper: #ffffff; /* page ground */
-  --ink: #15191d; /* headings */
-  --mute: #5b646c; /* secondary text, 6.03:1 on paper, 5.41:1 on sand */
+  --ink: #1e1719; /* headings, warm near-black */
+  --mute: #675d57; /* secondary text, 5.6:1 on linen, 5.0:1 on sand */
   --clay: #2b3137; /* black slate accent: buttons, links, ticker, header CTA */
   --claydeep: #14181c; /* accent hover and pressed */
   --claylight: #e4e8eb; /* the accent's light step for dark grounds */
-  --sand: #f1f3f4; /* secondary panels */
+  --sand: #ebe3d9; /* secondary panels, a step darker than linen */
   --sage: #15191d; /* confirmation text; not a green */
-  --line: #dee2e5; /* hairlines and dividers */
+  --line: #e2d8cd; /* hairlines and dividers */
   --error: #b3261e; /* form errors, 6.54:1 on paper, 5.87:1 on sand */
 
   /* Footer. Black slate ground, near-white text. The accent fails AA here. */
@@ -163,8 +267,8 @@
   --gold: #b4bdc4; /* footer accent, 8.70:1 on navy */
   --ivory: #f4f6f7; /* footer text, 15.29:1 on navy */
 
-  --background: var(--paper);
-  --foreground: #343a40; /* body text, 11.51:1 on paper, 10.34:1 on sand */
+  --background: var(--linen);
+  --foreground: #3a322e; /* body text, 11:1 on linen */
 
   --card: #f1f3f4;
   --card-foreground: #343a40;
@@ -255,33 +359,398 @@
 
 @layer base {
   body {
-    font-family: var(--font-body);
+    font-family: var(--vf-font);
     -webkit-font-smoothing: antialiased;
+  }
+
+  /* The footer is frozen (BRAND.md): it keeps the body stack it had before
+     the Anek change. `<footer>` is only rendered by site-footer.tsx. */
+  footer {
+    font-family: "Hanken Grotesk", "Noto Sans Devanagari", system-ui, sans-serif;
+  }
+}
+
+/*
+ * Type roles. Every heading, paragraph, label, nav link and button outside the
+ * footer takes exactly one of these; nothing else sets font size, line height,
+ * weight, width or tracking. Each role carries its Hindi settings: Devanagari
+ * needs a little more size and more line height than Latin, and never takes
+ * letter-spacing or uppercase (they break conjuncts). Colour stays with the
+ * element.
+ */
+@utility type-display {
+  font-family: var(--vf-serif-display);
+  font-size: var(--type-display);
+  line-height: 1;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  &:lang(hi) {
+    line-height: 1.3;
+    letter-spacing: 0;
+  }
+}
+
+@utility type-h1 {
+  font-family: var(--vf-serif-display);
+  font-size: var(--type-h1);
+  line-height: 1.04;
+  font-weight: 300;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+  &:lang(hi) {
+    line-height: 1.3;
+    letter-spacing: 0;
+  }
+}
+
+@utility type-h2 {
+  font-family: var(--vf-serif-display);
+  font-size: var(--type-h2);
+  line-height: 1.08;
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+  &:lang(hi) {
+    line-height: 1.35;
+    letter-spacing: 0;
+  }
+}
+
+@utility type-h3 {
+  font-family: var(--vf-serif);
+  font-size: var(--type-h3);
+  line-height: 1.15;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-wrap: balance;
+  &:lang(hi) {
+    line-height: 1.4;
+  }
+}
+
+/* Card titles and FAQ questions stay in the sans: small titles read better
+   in it, the way Atelier captions its swatches. */
+@utility type-h4 {
+  font-family: var(--vf-font);
+  font-size: var(--type-h4);
+  line-height: 1.3;
+  font-weight: 500;
+  font-stretch: 100%;
+  letter-spacing: 0;
+  text-wrap: balance;
+  &:lang(hi) {
+    line-height: 1.45;
+  }
+}
+
+@utility type-lead {
+  font-family: var(--vf-font);
+  font-size: var(--type-lead);
+  line-height: 1.5;
+  font-weight: 400;
+  font-stretch: 100%;
+  letter-spacing: 0;
+  text-wrap: pretty;
+  &:lang(hi) {
+    line-height: 1.7;
+  }
+}
+
+@utility type-body {
+  font-family: var(--vf-font);
+  font-size: var(--type-body);
+  line-height: 1.6;
+  font-weight: 400;
+  font-stretch: 100%;
+  letter-spacing: 0;
+  text-wrap: pretty;
+  &:lang(hi) {
+    line-height: 1.75;
+  }
+}
+
+@utility type-small {
+  font-family: var(--vf-font);
+  font-size: var(--type-small);
+  line-height: 1.5;
+  font-weight: 400;
+  font-stretch: 100%;
+  letter-spacing: 0;
+  &:lang(hi) {
+    line-height: 1.7;
+  }
+}
+
+@utility type-label {
+  font-family: var(--vf-font);
+  font-size: var(--type-label);
+  line-height: 1.3;
+  font-weight: 500;
+  font-stretch: 100%;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  &:lang(hi) {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+}
+
+@utility type-nav {
+  font-family: var(--vf-font);
+  font-size: var(--type-nav);
+  line-height: 1.2;
+  font-weight: 500;
+  font-stretch: 100%;
+  letter-spacing: 0;
+}
+
+@utility type-button {
+  font-family: var(--vf-font);
+  font-size: var(--type-button);
+  line-height: 1.2;
+  font-weight: 500;
+  font-stretch: 100%;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  &:lang(hi) {
+    letter-spacing: 0;
+  }
+}
+
+/* Prose width: keep running text near 65 characters. */
+@utility measure {
+  max-width: var(--measure);
+}
+
+/*
+ * Buttons and links. Three shapes only: a filled primary, an outlined
+ * secondary, and an underlined text link. Buttons are pills (Apple style);
+ * their radius is literal, not --radius, because the frozen footer reads
+ * --radius.
+ */
+@utility btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 3rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  font-family: var(--vf-font);
+  font-size: var(--type-button);
+  line-height: 1.2;
+  font-weight: 500;
+  font-stretch: 100%;
+  letter-spacing: 0.01em;
+  text-align: center;
+  text-transform: none;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color 200ms ease,
+    color 200ms ease,
+    box-shadow 200ms ease,
+    transform 200ms ease;
+  &:active:not(:disabled) {
+    transform: scale(0.98);
+  }
+  &:focus-visible {
+    outline: 2px solid var(--plum);
+    outline-offset: 3px;
+  }
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+  &:lang(hi) {
+    letter-spacing: 0;
+  }
+}
+
+@utility btn-primary {
+  background-color: var(--plum);
+  color: var(--plumlight);
+  &:hover:not(:disabled) {
+    background-color: var(--plumdeep);
+  }
+}
+
+/* The border is an inset shadow so the box is the same size as a primary. */
+@utility btn-secondary {
+  background-color: transparent;
+  color: var(--plum);
+  box-shadow: inset 0 0 0 1px var(--plum);
+  &:hover:not(:disabled) {
+    background-color: var(--plum);
+    color: var(--plumlight);
+  }
+}
+
+@utility btn-lg {
+  min-height: 3.5rem;
+  padding-inline: 2rem;
+}
+
+@utility btn-sm {
+  min-height: 2.25rem;
+  padding: 0.375rem 0.875rem;
+}
+
+/* A link in running text. Plum on linen is 13.0:1; the underline marks it. */
+@utility link {
+  color: var(--plum);
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: color-mix(in srgb, var(--plum) 55%, transparent);
+  text-underline-offset: 4px;
+  transition: color 200ms ease;
+  &:hover {
+    color: var(--plumdeep);
+    text-decoration-color: currentColor;
+  }
+}
+
+/* "Go to a page", set the way Atelier sets "EXPLORE TEXTILES →": small spaced
+   capitals, a hairline underneath, an arrow after. Only for links that open
+   another page or section, never WhatsApp. The arrow is a mask, not text, and
+   capitals come from CSS, so the page text is unchanged. Hindi drops the
+   capitals and spacing. Takes its colour from the element. */
+@utility link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid color-mix(in srgb, currentColor 45%, transparent);
+  color: var(--plum);
+  font-family: var(--vf-font);
+  font-size: var(--type-label);
+  line-height: 1.3;
+  font-weight: 500;
+  font-stretch: 100%;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition:
+    color 200ms ease,
+    border-color 200ms ease;
+  &::after {
+    content: "";
+    flex: none;
+    width: 1.15em;
+    height: 1.15em;
+    background-color: currentColor;
+    -webkit-mask: var(--vf-arrow) center / contain no-repeat;
+    mask: var(--vf-arrow) center / contain no-repeat;
+    transition: transform 200ms ease;
+  }
+  &:hover {
+    color: var(--plumdeep);
+    border-color: currentColor;
+  }
+  &:hover::after {
+    transform: translateX(4px);
+  }
+  &:lang(hi) {
+    font-size: var(--type-small);
+    letter-spacing: 0;
+    text-transform: none;
+  }
+}
+
+/* "Talk to us" on a dark ground: linen fill, plum text. */
+@utility btn-inverse {
+  background-color: var(--plumlight);
+  color: var(--plum);
+  &:hover:not(:disabled) {
+    background-color: var(--paper);
+  }
+  &:focus-visible {
+    outline-color: var(--plumlight);
+  }
+}
+
+/* A section marker in spaced capitals followed by a short rule, as Atelier
+   sets "THE COLLECTION ——". Use with type-label and a text colour. */
+@utility eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  letter-spacing: 0.18em;
+  &::after {
+    content: "";
+    flex: none;
+    width: 3rem;
+    height: 1px;
+    background-color: currentColor;
+    opacity: 0.5;
+  }
+  &:lang(hi) {
+    letter-spacing: 0;
+  }
+}
+
+/* Apple-style card: a white panel with large rounded corners and a soft
+   shadow on the linen page. `card-media` rounds and clips a photograph. */
+@utility card {
+  background-color: var(--surface);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+}
+
+@utility card-media {
+  overflow: hidden;
+  border-radius: calc(var(--radius-card) - 8px);
+  isolation: isolate;
+}
+
+/* The language switches and the catalogue's grid/table toggle: one pill of
+   joined text buttons. The current item is filled plum. */
+@utility segmented {
+  display: inline-flex;
+  overflow: hidden;
+  border-radius: 999px;
+  padding: 3px;
+  gap: 2px;
+  background-color: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
+  & > a,
+  & > button {
+    display: inline-flex;
+    align-items: center;
+    min-height: 1.875rem;
+    padding-inline: 0.875rem;
+    border-radius: 999px;
+    font-family: var(--vf-font);
+    font-size: var(--type-small);
+    line-height: 1;
+    font-weight: 500;
+    font-stretch: 100%;
+    color: var(--mute);
+    transition:
+      background-color 200ms ease,
+      color 200ms ease;
+  }
+  & > a:hover,
+  & > button:hover {
+    color: var(--ink);
+  }
+  & > [aria-current="page"],
+  & > [aria-pressed="true"] {
+    background-color: var(--plum);
+    color: var(--plumlight);
+  }
+  & > [aria-current="page"]:hover,
+  & > [aria-pressed="true"]:hover {
+    color: var(--plumlight);
   }
 }
 
 /* Homepage ground and accents, from the theme tokens. */
 .vf-home {
-  background-color: var(--paper);
-}
-.vf-btn-maroon {
-  background-color: var(--clay);
-  color: var(--paper);
-}
-.vf-btn-maroon:hover {
-  background-color: var(--claydeep);
-}
-/* The accent is grey, so colour no longer marks a link on its own: a link in
-   running text carries an underline at 5:1 against the ground. */
-.vf-link-maroon {
-  color: var(--clay);
-  text-decoration: underline;
-  text-decoration-color: color-mix(in srgb, var(--clay) 70%, transparent);
-  text-underline-offset: 4px;
-}
-.vf-link-maroon:hover {
-  color: var(--claydeep);
-  text-decoration-color: currentColor;
+  background-color: var(--linen);
 }
 
 /*
@@ -291,23 +760,24 @@
  * the bar does not shift.
  */
 .vf-promo-ticker {
-  background-color: var(--clay);
-  color: var(--paper);
-}
-.vf-promo-ticker-btn {
-  background-color: var(--paper);
-  color: var(--clay);
-}
-.vf-promo-ticker-btn:hover {
-  background-color: var(--sand);
-  color: var(--claydeep);
+  background-color: var(--plum);
+  color: var(--plumlight);
 }
 .vf-promo-ticker-spark {
   display: inline-block;
   filter: brightness(0) invert(1);
 }
+/* Edge to edge, fading in at the left edge of the screen and out just before
+   the close control, which floats over the right-hand fade. */
 .vf-promo-ticker-viewport {
   overflow: hidden;
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0,
+    #000 3rem,
+    #000 calc(100% - 8rem),
+    transparent calc(100% - 4.5rem)
+  );
 }
 .vf-promo-ticker-track {
   display: flex;
@@ -315,7 +785,8 @@
   animation: vf-promo-ticker 42s linear infinite;
 }
 .vf-promo-ticker:hover .vf-promo-ticker-track,
-.vf-promo-ticker:focus-within .vf-promo-ticker-track {
+.vf-promo-ticker:focus-within .vf-promo-ticker-track,
+.vf-promo-ticker[data-offscreen] .vf-promo-ticker-track {
   animation-play-state: paused;
 }
 .vf-promo-ticker-group {
@@ -377,6 +848,19 @@
 
 @utility vf-rise {
   animation: vf-rise 0.4s ease-out both;
+}
+
+/* The way out of vf-rise: shorter, and easing in, so a dismissed card goes
+   quickly rather than vanishing (lead-popup.tsx waits for it). */
+@keyframes vf-leave {
+  to {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+@utility vf-leave {
+  animation: vf-leave 0.2s ease-in both;
 }
 
 /* Talk-to-us launcher: a soft pulsing ring so the button is noticed. */
@@ -506,8 +990,8 @@
 
 @layer components {
   header.sticky {
-    background-color: color-mix(in oklch, var(--paper) 94%, transparent);
-    box-shadow: 0 1px 0 oklch(0 0 0 / 7%);
+    background-color: color-mix(in oklch, var(--linen) 86%, transparent);
+    box-shadow: 0 1px 0 rgb(58 31 43 / 0.08);
   }
 
   /* The bar tucks away while the reader scrolls down and returns on any
@@ -522,90 +1006,36 @@
   }
 
   header.sticky nav a {
-    position: relative;
-    transition: color 300ms ease;
-  }
-
-  header.sticky nav a::after {
-    position: absolute;
-    right: 0;
-    bottom: -7px;
-    left: 0;
-    height: 1px;
-    background: var(--color-clay);
-    content: "";
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform 300ms ease;
-  }
-
-  header.sticky nav a:hover::after,
-  header.sticky nav a:focus-visible::after {
-    transform: scaleX(1);
-    transform-origin: left;
-  }
-
-  header.sticky [role="group"] {
-    border-radius: var(--radius-sm);
-    background: var(--paper);
-    box-shadow: 0 1px 2px oklch(0 0 0 / 6%);
-  }
-
-  header.sticky [role="group"] button {
-    min-height: 36px;
     transition:
-      background-color 300ms ease,
-      color 300ms ease;
+      color 200ms ease,
+      background-color 200ms ease;
   }
 
-  header.sticky [role="group"] button[aria-pressed="true"] {
-    background: var(--color-ink);
-    color: var(--paper);
+  /* The wide-screen link row, set the way shadcn's navigation menu sets its
+     triggers: each link a 36px pill that fills softly on hover and on the
+     current page. Below xl the same links are the phone panel's rows. */
+  @media (min-width: 80rem) {
+    header.sticky nav a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 2.25rem;
+      padding-inline: 0.875rem;
+      border-radius: 999px;
+    }
+
+    header.sticky nav a:hover,
+    header.sticky nav a[aria-current="page"] {
+      background-color: var(--sand);
+      color: var(--ink);
+    }
   }
 
-  header.sticky a[href="#inquiry"],
-  #contact a[href="#inquiry"],
-  form button[type="submit"] {
-    border-radius: var(--radius-sm);
-    box-shadow: 0 2px 0 var(--color-claydeep);
-    font-weight: 600;
-    transition:
-      background-color 300ms ease,
-      box-shadow 300ms ease,
-      transform 300ms ease;
-  }
-
-  header.sticky a[href="#inquiry"]:hover,
-  #contact a[href="#inquiry"]:hover,
-  form button[type="submit"]:hover {
-    box-shadow: 0 1px 0 var(--color-claydeep);
-    transform: translateY(1px);
-  }
-
+  /* The enquiry form is an Apple-style card: white, large radius, soft
+     shadow. Its fields are linen wells, styled inline in the route files. */
   #inquiry {
-    border-radius: var(--radius-md);
-  }
-
-  #inquiry {
-    background: color-mix(in oklch, var(--sand) 64%, var(--paper));
-    box-shadow: 0 10px 30px oklch(0 0 0 / 7%);
-  }
-
-  #inquiry input,
-  #inquiry select,
-  #inquiry textarea {
-    border: 1px solid var(--color-line);
-    border-radius: var(--radius-sm);
-    transition:
-      border-color 300ms ease,
-      box-shadow 300ms ease;
-  }
-
-  #inquiry input:focus,
-  #inquiry select:focus,
-  #inquiry textarea:focus {
-    border-color: var(--color-clay);
-    box-shadow: 0 0 0 3px color-mix(in srgb, var(--clay) 28%, transparent);
+    border-radius: var(--radius-card);
+    background: var(--surface);
+    box-shadow: var(--shadow-card);
   }
 
   /* Photographs keep their own colour on the page ground. They run at full
@@ -616,8 +1046,8 @@
   }
 
   #catalogue [aria-pressed="true"] {
-    background: var(--color-ink);
-    color: var(--color-paper);
+    background: var(--plum);
+    color: var(--plumlight);
   }
 }
 
@@ -707,30 +1137,6 @@
   .vf-lead-field[aria-invalid="true"] {
     border-bottom-color: var(--error);
     box-shadow: 0 1px 0 0 var(--error);
-  }
-
-  /* The pop-up's outlined action. The shared `form button[type="submit"]` rule
-     above gives every submit a 2px drop shadow and a heavier weight; this
-     beats it on specificity because the pop-up's button is meant to be flat. */
-  form .vf-lead-submit[type="submit"],
-  .vf-lead-submit {
-    border: 1px solid var(--ink);
-    border-radius: 0;
-    background: transparent;
-    box-shadow: none;
-    color: var(--ink);
-    font-weight: 400;
-    transition:
-      background-color 300ms ease,
-      color 300ms ease;
-  }
-
-  form .vf-lead-submit[type="submit"]:hover:not(:disabled),
-  .vf-lead-submit:hover:not(:disabled) {
-    background: var(--ink);
-    box-shadow: none;
-    color: var(--paper);
-    transform: none;
   }
 }
 
@@ -894,6 +1300,8 @@
      sentence sits still, in the same type as the banner. */
   .vf-promo-ticker-viewport {
     overflow: visible;
+    mask-image: none;
+    padding-inline: 1.25rem 4.5rem;
   }
   .vf-promo-ticker-track {
     animation: none !important;
@@ -912,5 +1320,418 @@
   .vf-promo-ticker-item {
     white-space: normal;
     padding-right: 0;
+  }
+}
+
+/*
+ * About: the journey line. The scale stats sit on a plum thread with a node
+ * each: a vertical stepper on a phone, a horizontal line from lg. When the
+ * list scrolls into view (data-reveal) the thread draws itself and the nodes
+ * pop in, in reading order. Without JS, or under reduced motion, it is simply
+ * drawn.
+ */
+.vf-journey {
+  position: relative;
+}
+
+.vf-journey::before {
+  position: absolute;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  left: 5px;
+  width: 2px;
+  background: var(--plum);
+  content: "";
+  transform-origin: top;
+}
+
+.vf-journey-step {
+  position: relative;
+  padding-left: 2.25rem;
+}
+
+.vf-journey-step::before {
+  position: absolute;
+  top: 0.55em;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 2px var(--plum);
+  content: "";
+}
+
+@media (min-width: 64rem) {
+  .vf-journey::before {
+    top: 5px;
+    right: 0;
+    bottom: auto;
+    left: 0;
+    width: auto;
+    height: 2px;
+    transform-origin: left;
+  }
+
+  .vf-journey-step {
+    padding-top: 2.5rem;
+    padding-left: 0;
+  }
+
+  .vf-journey-step::before {
+    top: 0;
+  }
+}
+
+.vf-js .vf-journey[data-reveal]::before {
+  transform: scaleY(0);
+  transition: transform 1.4s cubic-bezier(0.65, 0, 0.35, 1) 0.2s;
+}
+
+@media (min-width: 64rem) {
+  .vf-js .vf-journey[data-reveal]::before {
+    transform: scaleX(0);
+  }
+}
+
+.vf-js .vf-journey[data-reveal] .vf-journey-step::before {
+  transform: scale(0);
+  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.vf-js .vf-journey[data-reveal] .order-1::before {
+  transition-delay: 0.3s;
+}
+.vf-js .vf-journey[data-reveal] .order-2::before {
+  transition-delay: 0.65s;
+}
+.vf-js .vf-journey[data-reveal] .order-3::before {
+  transition-delay: 1s;
+}
+.vf-js .vf-journey[data-reveal] .order-4::before {
+  transition-delay: 1.35s;
+}
+
+.vf-js .vf-journey[data-reveal].is-in::before,
+.vf-js .vf-journey[data-reveal].is-in .vf-journey-step::before {
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vf-js .vf-journey[data-reveal]::before,
+  .vf-js .vf-journey[data-reveal] .vf-journey-step::before {
+    transform: none;
+    transition: none;
+  }
+}
+
+/*
+ * About: the story as numbered chapters (after the owner's Armonia
+ * reference). Each chapter opens on a hairline and a large light number,
+ * 01 to 04 from a CSS counter so no text is added. As a chapter scrolls in
+ * (data-reveal) its hairline draws across from the left. Without JS, or under
+ * reduced motion, the hairline is simply there.
+ */
+.vf-chapters {
+  counter-reset: vf-chapter;
+}
+
+.vf-chapter {
+  position: relative;
+  counter-increment: vf-chapter;
+}
+
+.vf-chapter::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 1px;
+  background: var(--line);
+  content: "";
+  transform-origin: left;
+}
+
+.vf-chapter-num {
+  display: block;
+  color: var(--plum);
+  font-family: var(--vf-serif-display);
+  font-size: var(--type-h1);
+  font-weight: 300;
+  font-variant-numeric: lining-nums tabular-nums;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.vf-chapter-num::before {
+  content: counter(vf-chapter, decimal-leading-zero);
+}
+
+.vf-js .vf-chapter[data-reveal]::before {
+  transform: scaleX(0);
+  transition: transform 1.1s cubic-bezier(0.65, 0, 0.35, 1) 0.1s;
+}
+
+.vf-js .vf-chapter[data-reveal].is-in::before {
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vf-js .vf-chapter[data-reveal]::before {
+    transform: none;
+  }
+}
+
+/* About's left-column headings, set heavier at the owner's request. type-h4
+   is already the heaviest cut shipped (Anek 500, and Anek Devanagari 400 on
+   /hi), so the extra weight is a hairline stroke rather than a synthesised
+   bold, and it looks the same in both scripts. */
+.vf-heading-strong {
+  -webkit-text-stroke: 0.025em currentColor;
+}
+
+/*
+ * The range pages (/polyester-sarees-wholesale-surat and the rest): their body
+ * is a flat run of h2, paragraphs, lists and a FAQ section. .vf-flow puts it
+ * on the same rail as /about and the blog articles (layout-classes.ts) without
+ * moving a word: each h2 goes in the rail, level with the first block after
+ * it, with a hairline across the row; everything else runs in the content
+ * column to the right edge. A section (the FAQ) and the closing button row
+ * (.vf-flow-end) span both columns on a subgrid. Below md it all stacks.
+ * The rail widths match RAIL_COLS: 13rem, 19rem from lg, 2.5rem gap.
+ */
+.vf-flow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  container-type: inline-size;
+}
+
+.vf-flow > h2,
+.vf-flow > section,
+.vf-flow > .vf-flow-end {
+  position: relative;
+  margin-top: 3rem;
+  padding-top: 2rem;
+}
+
+.vf-flow > h2::before,
+.vf-flow > section::before,
+.vf-flow > .vf-flow-end::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100cqw;
+  height: 1px;
+  background: var(--line);
+  content: "";
+}
+
+.vf-flow > h2 + *,
+.vf-flow > section > h2 + * {
+  margin-top: 1.25rem;
+}
+
+.vf-flow > section > h2 {
+  margin-top: 0;
+}
+
+/* Places a block that sits outside a rail (an intro, a button) in the
+   content column. */
+@media (min-width: 48rem) {
+  .vf-indent {
+    margin-left: calc(13rem + 2.5rem);
+  }
+
+  .vf-flow {
+    grid-template-columns: minmax(0, 13rem) minmax(0, 1fr);
+    column-gap: 2.5rem;
+  }
+
+  .vf-flow > * {
+    grid-column: 2;
+  }
+
+  .vf-flow > h2 {
+    grid-column: 1;
+  }
+
+  /* Level with the h2 beside it: its margin plus its padding. */
+  .vf-flow > h2 + * {
+    margin-top: 5rem;
+  }
+
+  .vf-flow > section,
+  .vf-flow > .vf-flow-end {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: subgrid;
+  }
+
+  .vf-flow > section > *,
+  .vf-flow > .vf-flow-end > * {
+    grid-column: 2;
+  }
+
+  /* A button keeps its own width rather than stretching across the column. */
+  .vf-flow > .vf-flow-end > * {
+    justify-self: start;
+  }
+
+  .vf-flow > section > h2 {
+    grid-column: 1;
+    grid-row: 1 / span 99;
+  }
+
+  .vf-flow > section > h2 + * {
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 64rem) {
+  .vf-indent {
+    margin-left: calc(19rem + 2.5rem);
+  }
+
+  .vf-flow {
+    grid-template-columns: minmax(0, 19rem) minmax(0, 1fr);
+  }
+}
+
+/* Wide screens: the long-form content column runs about 1000px, which at the
+   17px body size is some 117 characters a line. The owner kept the full-width
+   column and chose slightly larger text (2 November 2026): from 1280px body
+   steps up to 20px (about 99 characters) and the lead to 23px, so an intro
+   still reads larger than the paragraphs after it. The type roles read these
+   variables, so every body paragraph inside follows; nothing else changes. */
+@media (min-width: 80rem) {
+  .vf-longform,
+  .vf-flow,
+  .vf-chapters {
+    --type-body: 1.25rem;
+    --type-lead: 1.4375rem;
+  }
+}
+
+/* Touch screens: the pill switches (language, catalogue view) keep their look
+   but get a 44px tall target. */
+@media (pointer: coarse) {
+  .segmented > a,
+  .segmented > button {
+    min-height: 2.75rem;
+  }
+}
+
+/* Swipe rows on a phone (range cards below sm, testimonials below md): the
+   right edge fades out to say there is more, and the fade clears as the row
+   reaches its end, driven by the row's own scroll. Only where scroll-driven
+   animations exist; elsewhere (Safari today) there is no fade at all rather
+   than one stuck over the last card. Off under reduced motion. The fade width
+   is a registered property because gradients themselves do not animate. */
+@property --vf-rail-fade {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 48px;
+}
+
+@keyframes vf-rail-end {
+  0%,
+  85% {
+    --vf-rail-fade: 48px;
+  }
+  100% {
+    --vf-rail-fade: 0px;
+  }
+}
+
+@supports (animation-timeline: scroll()) {
+  @media (max-width: 39.999rem) and (prefers-reduced-motion: no-preference) {
+    .vf-rail-fade-sm {
+      mask-image: linear-gradient(to right, #000 calc(100% - var(--vf-rail-fade)), transparent);
+      animation: vf-rail-end linear both;
+      animation-timeline: scroll(self inline);
+    }
+  }
+
+  @media (max-width: 47.999rem) and (prefers-reduced-motion: no-preference) {
+    .vf-rail-fade-md {
+      mask-image: linear-gradient(to right, #000 calc(100% - var(--vf-rail-fade)), transparent);
+      animation: vf-rail-end linear both;
+      animation-timeline: scroll(self inline);
+    }
+  }
+}
+
+/* The reach globe is zoomed past its frame (reach-globe.tsx): the sphere's
+   cropped top and bottom fade into the page, and on a phone, where it is
+   cropped at the sides as well, so do its sides. */
+.vf-globe {
+  mask-image: linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent);
+}
+
+@media (max-width: 39.999rem) {
+  .vf-globe {
+    mask-image:
+      linear-gradient(to bottom, transparent, #000 10%, #000 90%, transparent),
+      linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
+    mask-composite: intersect;
+  }
+}
+
+/* The gentle pull on the main WhatsApp buttons (use-magnet.ts sets the
+   transform): an exponential ease so the button follows smoothly and settles
+   back without a bounce. */
+[data-magnet] {
+  transition:
+    translate 300ms cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 200ms ease,
+    color 200ms ease,
+    box-shadow 200ms ease,
+    transform 200ms ease;
+}
+
+/* A blog article's contents list: each entry numbered 01, 02… in plum from a
+   CSS counter, matching the chapter numbers below it, so no text is added. */
+.vf-toc {
+  counter-reset: vf-toc;
+  list-style: none;
+}
+
+.vf-toc > li {
+  display: flex;
+  gap: 1rem;
+  counter-increment: vf-toc;
+}
+
+.vf-toc > li::before {
+  flex: none;
+  min-width: 1.75rem;
+  color: var(--plum);
+  font-variant-numeric: lining-nums tabular-nums;
+  content: counter(vf-toc, decimal-leading-zero);
+}
+
+/* Live contents (journal-pages.tsx marks the section being read with
+   aria-current="location"): the other entries sit back in the muted ink, the
+   current one comes forward in plum with a solid underline, and an entry under
+   the pointer or keyboard eases 4px toward its section. Colour only, never
+   weight: a heavier active title re-wrapped on a phone and pushed the article
+   down as you read. The shift is off under reduced motion. */
+.vf-toc > li > a {
+  color: var(--mute);
+  transition:
+    color 200ms ease,
+    translate 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.vf-toc > li > a[aria-current="location"] {
+  color: var(--plum);
+  text-decoration-color: currentColor;
+  text-decoration-thickness: 2px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .vf-toc > li > a:hover,
+  .vf-toc > li > a:focus-visible {
+    translate: 4px 0;
   }
 }

@@ -10,6 +10,7 @@ import {
 } from "@/content/home-search";
 import type { Lang } from "@/content/translations";
 import { trackSearchSubmit } from "@/lib/analytics";
+import { useOffscreen } from "@/hooks/use-offscreen";
 import { whatsAppUrl } from "@/content/whatsapp";
 
 import "./home-search.css";
@@ -86,7 +87,10 @@ function useCyclingPlaceholder(paused: boolean) {
 export function HomeSearch({ lang }: { lang: Lang }) {
   const [value, setValue] = useState("");
   const [submitted, setSubmitted] = useState("");
-  const ghost = useCyclingPlaceholder(value.length > 0);
+  // The typing line and its caret rest while the search box is off screen;
+  // otherwise the line re-rendered every few dozen milliseconds unseen.
+  const [blockRef, offscreen] = useOffscreen<HTMLDivElement>();
+  const ghost = useCyclingPlaceholder(value.length > 0 || offscreen);
 
   function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -97,18 +101,24 @@ export function HomeSearch({ lang }: { lang: Lang }) {
   }
 
   return (
-    <div id="home-search-block" className="mt-4">
+    <div
+      id="home-search-block"
+      ref={blockRef}
+      data-offscreen={offscreen || undefined}
+      className="mt-4"
+    >
       <form role="search" onSubmit={onSubmit}>
-        <div className="relative border border-line bg-paper focus-within:border-clay focus-within:shadow-[0_0_0_3px_rgba(43,49,55,0.28)]">
+        {/* Frosted glass on the hero's plum (Apple style). */}
+        <div className="relative rounded-full border border-plumlight/25 bg-plumlight/10 text-plumlight backdrop-blur-md transition-colors focus-within:border-plumlight/60 focus-within:bg-plumlight/15">
           <button
             type="submit"
-            className="absolute top-0 left-0 z-10 grid h-full w-11 place-items-center text-ink"
+            className="absolute top-0 left-1 z-10 grid h-full w-11 place-items-center text-plumlight"
             aria-label={SEARCH_LABEL[lang]}
           >
             <Search size={18} aria-hidden="true" />
           </button>
           {value.length === 0 ? (
-            <p className="pointer-events-none m-0 min-h-[52px] py-3.5 pr-3 pl-11 text-base leading-snug text-mute">
+            <p className="pointer-events-none m-0 min-h-[52px] py-3.5 pr-5 pl-12 text-base leading-snug text-plumlight/80">
               <span>{ghost}</span>
               <span className="vf-search-caret" />
             </p>
@@ -122,8 +132,8 @@ export function HomeSearch({ lang }: { lang: Lang }) {
             onChange={(event) => setValue(event.target.value)}
             className={
               value.length === 0
-                ? "absolute inset-0 w-full bg-transparent pr-3 pl-11 text-base text-transparent outline-none"
-                : "min-h-[52px] w-full bg-transparent py-3.5 pr-3 pl-11 text-base text-ink outline-none"
+                ? "absolute inset-0 w-full rounded-full bg-transparent pr-5 pl-12 text-base text-transparent outline-none"
+                : "min-h-[52px] w-full rounded-full bg-transparent py-3.5 pr-5 pl-12 text-base text-plumlight outline-none"
             }
             style={value.length === 0 ? { caretColor: "transparent" } : undefined}
           />
@@ -131,13 +141,13 @@ export function HomeSearch({ lang }: { lang: Lang }) {
       </form>
       {submitted ? (
         <div className="mt-4">
-          <p className="text-base leading-relaxed text-foreground">{SEARCH_NOTE[lang]}</p>
+          <p className="type-body text-plumlight">{SEARCH_NOTE[lang]}</p>
           <a
             href={whatsAppUrl(searchMessage(lang, submitted))}
             target="_blank"
             rel="noopener noreferrer"
             data-lead-ref={SEARCH_LEAD_REF}
-            className="vf-showroom-enquire mt-4 w-full sm:w-auto"
+            className="btn btn-inverse mt-4 w-full sm:w-auto"
           >
             {SEARCH_SEND[lang]}
           </a>

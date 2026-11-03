@@ -11,7 +11,7 @@ const TITLE = "Diwali Wholesale Sarees & Karva Chauth Suits, Surat | Vidhi";
 const DESCRIPTION =
   "Diwali wholesale sarees and Karva Chauth unstitched suits for boutiques and resellers, from a Surat manufacturer and wholesaler. Festive catalogue on WhatsApp.";
 
-const linkClass = "text-clay underline decoration-clay/70 underline-offset-4 hover:text-claydeep";
+const linkClass = "link";
 
 // Seasonal wholesale page for boutiques and resellers. The stocking guide
 // (colours, feel, mix) stays on the Fabric Desk article; this page is the
@@ -118,7 +118,7 @@ function CatalogueButton({ className = "" }: { className?: string }) {
       href={whatsAppUrl(CATALOGUE_MESSAGE)}
       target="_blank"
       rel="noopener noreferrer"
-      className={`inline-flex items-center justify-center rounded-sm bg-clay px-6 py-3 font-mono text-xs uppercase tracking-label text-paper transition-colors hover:bg-claydeep ${className}`}
+      className={`btn btn-primary ${className}`}
     >
       Get the Festive Catalogue on WhatsApp
     </a>
@@ -127,11 +127,14 @@ function CatalogueButton({ className = "" }: { className?: string }) {
 
 function FestivalWholesalePage() {
   return (
-    <div className="min-h-screen bg-paper text-ink">
+    <div className="min-h-screen bg-linen text-ink">
       <JournalHeader lang="en" />
       <main>
-        <article className="mx-auto max-w-4xl px-6 py-12 sm:py-16" lang="en">
-          <nav aria-label="Breadcrumb" className="text-xs text-mute">
+        <article
+          className="mx-auto w-full max-w-[1440px] px-5 pb-16 pt-8 sm:px-8 sm:pt-11 lg:px-[50px] lg:pb-24 lg:pt-14"
+          lang="en"
+        >
+          <nav aria-label="Breadcrumb" className="type-small text-mute">
             <ol className="flex flex-wrap items-center gap-2">
               <li>
                 <a href="/" className="hover:text-clay">
@@ -143,14 +146,14 @@ function FestivalWholesalePage() {
             </ol>
           </nav>
 
-          <h1 className="mt-6 text-balance font-display text-4xl font-light leading-[1.12] tracking-normal sm:text-5xl lg:text-6xl">
+          <h1 className="mt-6 max-w-[28ch] type-h1">
             Diwali Wholesale Sarees and Karva Chauth Unstitched Suits for Boutiques
           </h1>
 
-          <CatalogueButton className="mt-8" />
+          <CatalogueButton className="vf-indent mt-8" />
 
-          <div className="mx-auto max-w-[65ch]">
-            <p className="mt-10 text-lg leading-relaxed text-mute">
+          <div className="vf-flow">
+            <p className="mt-10 type-lead text-mute">
               Vidhi Fabrics is a Surat manufacturer and wholesaler of polyester sarees and dress
               material. For Karva Chauth and Diwali we supply boutiques and resellers across North
               India with festive polyester sarees and unstitched suits. When a dupatta or overlay
@@ -159,10 +162,8 @@ function FestivalWholesalePage() {
               catalogue on WhatsApp.
             </p>
 
-            <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">
-              One season, two festivals
-            </h2>
-            <p className="mt-5 leading-[1.85] text-mute">
+            <h2 className="vf-heading-strong type-h4 text-ink">One season, two festivals</h2>
+            <p className="mt-5 type-body text-mute">
               Karva Chauth and Diwali usually fall a few weeks apart, and for many shops in Punjab,
               Haryana and Rajasthan they run as one festive season. The stock is not the same. Karva
               Chauth is a tighter brief: sarees and unstitched suits in traditional festive colours,
@@ -170,7 +171,7 @@ function FestivalWholesalePage() {
               family visits, pujas, gifting and several days of going out. Plan a focused Karva
               Chauth edit first, and a wider Diwali range behind it.
             </p>
-            <p className="mt-5 leading-[1.85] text-mute">
+            <p className="mt-5 type-body text-mute">
               Colours, fabric feel and how to mix sarees with suits are set out in our stocking
               guide,{" "}
               <a href="/blog/karva-chauth-diwali-festive-stock" className={linkClass}>
@@ -179,10 +180,10 @@ function FestivalWholesalePage() {
               . This page is where you ask for the catalogue.
             </p>
 
-            <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">
+            <h2 className="vf-heading-strong type-h4 text-ink">
               What boutiques and resellers order
             </h2>
-            <ul className="mt-5 list-disc space-y-2 pl-6 leading-[1.85] text-mute">
+            <ul className="mt-5 list-disc space-y-2 pl-6 type-body text-mute">
               <li>
                 Polyester sarees for the festive rack: a georgette or chiffon-style drape, a satin
                 or silk-look sheen, or an embroidered or sequinned body.
@@ -197,7 +198,7 @@ function FestivalWholesalePage() {
                 deal with one business for the whole requirement.
               </li>
             </ul>
-            <p className="mt-5 leading-[1.85] text-mute">
+            <p className="mt-5 type-body text-mute">
               The standing ranges are{" "}
               <a href="/polyester-sarees-wholesale-surat" className={linkClass}>
                 polyester sarees wholesale
@@ -213,13 +214,11 @@ function FestivalWholesalePage() {
               .
             </p>
 
-            <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">
-              How to share your requirement
-            </h2>
-            <p className="mt-5 leading-[1.85] text-mute">
+            <h2 className="vf-heading-strong type-h4 text-ink">How to share your requirement</h2>
+            <p className="mt-5 type-body text-mute">
               The clearer the brief, the closer the catalogue we send. On WhatsApp, tell us:
             </p>
-            <ul className="mt-4 list-disc space-y-2 pl-6 leading-[1.85] text-mute">
+            <ul className="mt-4 list-disc space-y-2 pl-6 type-body text-mute">
               <li>whether you run a boutique, a shop or sell as a reseller</li>
               <li>whether you are buying for Karva Chauth, Diwali, or both</li>
               <li>the colours your customers ask for</li>
@@ -228,7 +227,7 @@ function FestivalWholesalePage() {
                 a shade card, a swatch, or a photo taken in daylight, if you are matching cloth
               </li>
             </ul>
-            <p className="mt-5 leading-[1.85] text-mute">
+            <p className="mt-5 type-body text-mute">
               Approve a sample before you order in bulk, and keep the design code with that
               approval. Our{" "}
               <a href="/blog/sample-to-bulk-order-checklist" className={linkClass}>
@@ -241,8 +240,8 @@ function FestivalWholesalePage() {
               is what to compare on the cloth itself.
             </p>
 
-            <h2 className="mt-12 font-display text-2xl font-light sm:text-3xl">Where we supply</h2>
-            <p className="mt-5 leading-[1.85] text-mute">
+            <h2 className="vf-heading-strong type-h4 text-ink">Where we supply</h2>
+            <p className="mt-5 type-body text-mute">
               Most of our buyers are boutiques, retailers and resellers in Punjab, Haryana,
               Rajasthan, Uttar Pradesh and Madhya Pradesh. Vidhi Fabrics has been in the trade since
               the 1960s. Export enquiries are also welcome from the UAE and other international
@@ -257,7 +256,7 @@ function FestivalWholesalePage() {
               </a>{" "}
               or visit us at {ADDRESS_LINES.en.join(", ")}.
             </p>
-            <p className="mt-5 leading-[1.85] text-mute">
+            <p className="mt-5 type-body text-mute">
               Resellers who sell on WhatsApp or from home can also read{" "}
               <a href="/saree-wholesale-for-resellers" className={linkClass}>
                 saree wholesale for resellers
@@ -267,17 +266,17 @@ function FestivalWholesalePage() {
 
             <ResellerCircleCta lang="en" className="mt-12" />
 
-            <section className="mt-12 border-t border-line pt-8">
-              <h2 className="font-display text-2xl font-light sm:text-3xl">FAQs</h2>
+            <section>
+              <h2 className="vf-heading-strong type-h4 text-ink">FAQs</h2>
               {FAQS.map((entry) => (
                 <div key={entry.question} className="mt-7">
-                  <h3 className="font-display text-lg font-light leading-snug">{entry.question}</h3>
-                  <p className="mt-3 leading-[1.85] text-mute">{entry.answer}</p>
+                  <h3 className="type-h4">{entry.question}</h3>
+                  <p className="mt-3 type-body text-mute">{entry.answer}</p>
                 </div>
               ))}
             </section>
 
-            <div className="my-12 flex justify-center border-t border-line pt-10">
+            <div className="vf-flow-end">
               <CatalogueButton />
             </div>
           </div>

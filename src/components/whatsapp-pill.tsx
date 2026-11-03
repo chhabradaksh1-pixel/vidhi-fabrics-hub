@@ -26,6 +26,23 @@ export function WhatsAppPill({ lang = "en" }: { lang?: Lang }) {
     return () => window.removeEventListener(LEAD_POPUP_EVENT, onPopup);
   }, []);
 
+  // On a phone the home hero carries its own WhatsApp button; until the
+  // reader has scrolled past it (it starts just below the first screen) the
+  // pill steps aside too, rather than sitting over the hero's text, and comes
+  // in once the hero button has gone up out of view.
+  const [heroAhead, setHeroAhead] = useState(false);
+  useEffect(() => {
+    const cta = document.querySelector("[data-hero-cta]");
+    if (!cta || typeof IntersectionObserver === "undefined") return;
+    const phone = window.matchMedia("(max-width: 767px)");
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry) return;
+      setHeroAhead(phone.matches && (entry.isIntersecting || entry.boundingClientRect.top > 0));
+    });
+    observer.observe(cta);
+    return () => observer.disconnect();
+  }, []);
+
   function onMove(event: MouseEvent<HTMLAnchorElement>) {
     if (still.current) return;
     const el = event.currentTarget;
@@ -52,7 +69,7 @@ export function WhatsAppPill({ lang = "en" }: { lang?: Lang }) {
       target="_blank"
       rel="noopener noreferrer"
       className="vf-showroom-chat"
-      data-aside={aside}
+      data-aside={aside || heroAhead}
       onMouseMove={onMove}
       onMouseLeave={onLeave}
     >

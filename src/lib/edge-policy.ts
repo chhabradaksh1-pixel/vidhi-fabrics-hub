@@ -10,14 +10,17 @@
  *    noindex` instead.
  *
  * 2. The canonical host. `http://www.vidhifabrics.com`, `http://vidhifabrics.com`
- *    and `https://vidhifabrics.com` 301 straight to `https://www.vidhifabrics.com`
- *    on the same path (query kept). A short alias such as `/sarees` is resolved
- *    in that same response, so the non-canonical host does not add a second hop.
- *    Vercel's CDN still upgrades bare HTTP to HTTPS with its own 308 before any
- *    project rule or this function runs, and that upgrade cannot be turned off.
- *    The edge rules in vercel.json (copied into Nitro's output config on a
- *    Vercel build) are what production actually hits; this function is the same
- *    rule for local preview and for any request that reaches the server.
+ *    and `https://vidhifabrics.com` should land on `https://www.vidhifabrics.com`
+ *    on the same path (query kept). A short alias or a retired path such as
+ *    `/fabrics` is resolved in that same response, so the non-canonical host
+ *    does not add a second hop.
+ *    Measured on 18 November 2026, before this code runs: Vercel answers
+ *    `http://www` with its own 308 to `https://www` on the same host, and the
+ *    apex domain with a 308 (text/plain, Refresh header) to www. Those platform
+ *    redirects fire before vercel.json and cannot be switched to a 301 from
+ *    here. The 301s in vercel.json, copied into Nitro's output on a Vercel
+ *    build, are what a request sees once it reaches the deployment. This
+ *    function is the same rule for local preview.
  *
  * 3. Edge caching for page HTML. Pages are the same for every visitor (the lead
  *    source and the Hinglish toggle are client-side), so a successful HTML
@@ -29,7 +32,7 @@
  *    the /api routes keep their own headers.
  */
 
-import { shortRedirectTarget } from "./short-redirects";
+import { legacyRedirectTarget, shortRedirectTarget } from "./short-redirects";
 
 export const CANONICAL_ORIGIN = "https://www.vidhifabrics.com";
 const CANONICAL_HOST = "www.vidhifabrics.com";
@@ -95,7 +98,8 @@ export function canonicalHostRedirect(request: Request, url: URL): Response | nu
   if (hostname !== APEX_HOST && hostname !== CANONICAL_HOST) return null;
   if (hostname === CANONICAL_HOST && requestProto(request, url) === "https") return null;
 
-  const path = shortRedirectTarget(url.pathname) ?? url.pathname;
+  const path =
+    shortRedirectTarget(url.pathname) ?? legacyRedirectTarget(url.pathname) ?? url.pathname;
   return new Response(null, {
     status: 301,
     headers: {

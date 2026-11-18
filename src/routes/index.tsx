@@ -10,6 +10,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { LeadPopup, useEngagementPopup } from "@/components/lead-popup";
 import { PromoSuitsTicker } from "@/components/promo-suits";
 import { ShowroomHero, ShowroomRanges, ShowroomTrust } from "@/components/showroom-home";
+import { WholesaleBuyerSection } from "@/components/wholesale-buyer";
 import { WhatsAppPill } from "@/components/whatsapp-pill";
 import { whatsAppUrl } from "@/content/whatsapp";
 import { useLeadContext } from "@/hooks/use-lead-context";
@@ -32,27 +33,23 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       {
-        // Leads with the two main categories (owner-approved, 2 October 2026).
-        // 58 characters (audit, 3 October 2026) so Google shows it whole;
-        // "manufacturer" stays in the title, "wholesaler" is in the description.
-        title: "Saree & Dress Material Manufacturer, Surat | Vidhi Fabrics",
+        // Leads with the query we want back: Surat fabric wholesaler.
+        // Brand, polyester sarees and dress material stay in the description.
+        title: "Surat Fabric Wholesaler | Sarees and Dress Material",
       },
       {
         name: "description",
-        // Polyester sarees and dress material, manufacturer and wholesaler,
-        // and the buyers and markets served (owner-approved, 2 October 2026).
-        // No capacity, export-history, MOQ or timing claims. See BRAND.md.
         content:
-          "Surat manufacturer and wholesaler of polyester sarees and dress material, for wholesalers, retailers, resellers and boutiques in Punjab, Haryana and Rajasthan.",
+          "Vidhi Fabrics is a Surat fabric wholesaler of polyester sarees and dress material for wholesalers, retailers, resellers, boutiques, home businesses and importers. Message us on WhatsApp.",
       },
       {
         property: "og:title",
-        content: "Saree & Dress Material Manufacturer, Surat | Vidhi Fabrics",
+        content: "Surat Fabric Wholesaler | Sarees and Dress Material",
       },
       {
         property: "og:description",
         content:
-          "Vidhi Fabrics is a Surat manufacturer and wholesaler of polyester sarees and dress material, supplying wholesalers, retailers, resellers and boutiques in Punjab, Haryana and Rajasthan. Ask on WhatsApp for designs, samples and rates.",
+          "Vidhi Fabrics is a Surat fabric wholesaler of polyester sarees and dress material for wholesalers, retailers, resellers, boutiques, home businesses and importers. Message us on WhatsApp.",
       },
       { property: "og:url", content: EN_URL },
       { property: "og:type", content: "website" },
@@ -308,6 +305,8 @@ function Index() {
 
       <main id="main">
         <ShowroomHero lang={lang} enquireHref={getWhatsAppUrl(lang)} />
+
+        <WholesaleBuyerSection lang={lang} />
 
         <ShowroomRanges lang={lang} />
 

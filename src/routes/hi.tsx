@@ -10,6 +10,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { LeadPopup, useEngagementPopup } from "@/components/lead-popup";
 import { PromoSuitsTicker } from "@/components/promo-suits";
 import { ShowroomHero, ShowroomRanges, ShowroomTrust } from "@/components/showroom-home";
+import { WholesaleBuyerSection } from "@/components/wholesale-buyer";
 import { WhatsAppPill } from "@/components/whatsapp-pill";
 import { whatsAppUrl } from "@/content/whatsapp";
 import { useLeadContext } from "@/hooks/use-lead-context";
@@ -32,21 +33,21 @@ export const Route = createFileRoute("/hi")({
   head: () => ({
     meta: [
       {
-        title: "साड़ी और ड्रेस मटेरियल निर्माता व होलसेलर, सूरत | विधि फैब्रिक्स",
+        title: "सूरत फैब्रिक होलसेलर | साड़ी और ड्रेस मटेरियल",
       },
       {
         name: "description",
         content:
-          "सूरत के पॉलिएस्टर साड़ी और ड्रेस मटेरियल निर्माता व होलसेलर — पंजाब, हरियाणा, राजस्थान के होलसेलर, रिटेलर, रीसेलर और बुटीक के लिए। डिज़ाइन और रेट व्हाट्सएप पर।",
+          "विधि फैब्रिक्स सूरत का फैब्रिक होलसेलर है। पॉलिएस्टर साड़ियाँ और ड्रेस मटेरियल थोक विक्रेताओं, रिटेलरों, रीसेलरों, बुटीक और घर से कारोबार करने वालों के लिए। व्हाट्सएप पर मैसेज कीजिए।",
       },
       {
         property: "og:title",
-        content: "साड़ी और ड्रेस मटेरियल निर्माता व होलसेलर, सूरत | विधि फैब्रिक्स",
+        content: "सूरत फैब्रिक होलसेलर | साड़ी और ड्रेस मटेरियल",
       },
       {
         property: "og:description",
         content:
-          "विधि फैब्रिक्स सूरत की पॉलिएस्टर साड़ी और ड्रेस मटेरियल निर्माता व थोक विक्रेता है, जो पंजाब, हरियाणा और राजस्थान के होलसेलर, रिटेलर, रीसेलर और बुटीक को माल देती है। डिज़ाइन, सैंपल और रेट के लिए व्हाट्सएप करें।",
+          "विधि फैब्रिक्स सूरत का फैब्रिक होलसेलर है। पॉलिएस्टर साड़ियाँ और ड्रेस मटेरियल थोक विक्रेताओं, रिटेलरों, रीसेलरों, बुटीक और घर से कारोबार करने वालों के लिए। व्हाट्सएप पर मैसेज कीजिए।",
       },
       { property: "og:url", content: HI_URL },
       { property: "og:type", content: "website" },
@@ -305,6 +306,8 @@ function HiIndex() {
 
       <main id="main">
         <ShowroomHero lang={lang} enquireHref={getWhatsAppUrl(lang)} />
+
+        <WholesaleBuyerSection lang={lang} />
 
         <ShowroomRanges lang={lang} />
 

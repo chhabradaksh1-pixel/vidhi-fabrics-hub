@@ -23,6 +23,7 @@ import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as ResellerCircleRouteImport } from './routes/reseller-circle'
 import { Route as SareeWholesaleForResellersRouteImport } from './routes/saree-wholesale-for-resellers'
 import { Route as StartSuitSareeBusinessFromHomeRouteImport } from './routes/start-suit-saree-business-from-home'
+import { Route as SuratDressMaterialWholesaleMarketOnlineRouteImport } from './routes/surat-dress-material-wholesale-market-online'
 import { Route as UnstitchedSuitsWholesaleSuratRouteImport } from './routes/unstitched-suits-wholesale-surat'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
@@ -37,6 +38,7 @@ import { Route as HiPolyesterSareesWholesaleSuratRouteImport } from './routes/hi
 import { Route as HiResellerCircleRouteImport } from './routes/hi_.reseller-circle'
 import { Route as HiSareeWholesaleForResellersRouteImport } from './routes/hi_.saree-wholesale-for-resellers'
 import { Route as HiStartSuitSareeBusinessFromHomeRouteImport } from './routes/hi_.start-suit-saree-business-from-home'
+import { Route as HiSuratDressMaterialWholesaleMarketOnlineRouteImport } from './routes/hi_.surat-dress-material-wholesale-market-online'
 import { Route as HiUnstitchedSuitsWholesaleSuratRouteImport } from './routes/hi_.unstitched-suits-wholesale-surat'
 import { Route as HiBlogIndexRouteImport } from './routes/hi_.blog.index'
 import { Route as HiBlogSlugRouteImport } from './routes/hi_.blog.$slug'
@@ -119,6 +121,12 @@ const StartSuitSareeBusinessFromHomeRoute =
     path: '/start-suit-saree-business-from-home',
     getParentRoute: () => rootRouteImport,
   } as any)
+const SuratDressMaterialWholesaleMarketOnlineRoute =
+  SuratDressMaterialWholesaleMarketOnlineRouteImport.update({
+    id: '/surat-dress-material-wholesale-market-online',
+    path: '/surat-dress-material-wholesale-market-online',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const UnstitchedSuitsWholesaleSuratRoute =
   UnstitchedSuitsWholesaleSuratRouteImport.update({
     id: '/unstitched-suits-wholesale-surat',
@@ -198,6 +206,12 @@ const HiStartSuitSareeBusinessFromHomeRoute =
     path: '/hi/start-suit-saree-business-from-home',
     getParentRoute: () => rootRouteImport,
   } as any)
+const HiSuratDressMaterialWholesaleMarketOnlineRoute =
+  HiSuratDressMaterialWholesaleMarketOnlineRouteImport.update({
+    id: '/hi_/surat-dress-material-wholesale-market-online',
+    path: '/hi/surat-dress-material-wholesale-market-online',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const HiUnstitchedSuitsWholesaleSuratRoute =
   HiUnstitchedSuitsWholesaleSuratRouteImport.update({
     id: '/hi_/unstitched-suits-wholesale-surat',
@@ -230,6 +244,7 @@ export interface FileRoutesByFullPath {
   '/reseller-circle': typeof ResellerCircleRoute
   '/saree-wholesale-for-resellers': typeof SareeWholesaleForResellersRoute
   '/start-suit-saree-business-from-home': typeof StartSuitSareeBusinessFromHomeRoute
+  '/surat-dress-material-wholesale-market-online': typeof SuratDressMaterialWholesaleMarketOnlineRoute
   '/unstitched-suits-wholesale-surat': typeof UnstitchedSuitsWholesaleSuratRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/hi/about': typeof HiAboutRoute
@@ -243,6 +258,7 @@ export interface FileRoutesByFullPath {
   '/hi/reseller-circle': typeof HiResellerCircleRoute
   '/hi/saree-wholesale-for-resellers': typeof HiSareeWholesaleForResellersRoute
   '/hi/start-suit-saree-business-from-home': typeof HiStartSuitSareeBusinessFromHomeRoute
+  '/hi/surat-dress-material-wholesale-market-online': typeof HiSuratDressMaterialWholesaleMarketOnlineRoute
   '/hi/unstitched-suits-wholesale-surat': typeof HiUnstitchedSuitsWholesaleSuratRoute
   '/blog/': typeof BlogIndexRoute
   '/hi/blog/$slug': typeof HiBlogSlugRoute
@@ -263,6 +279,7 @@ export interface FileRoutesByTo {
   '/reseller-circle': typeof ResellerCircleRoute
   '/saree-wholesale-for-resellers': typeof SareeWholesaleForResellersRoute
   '/start-suit-saree-business-from-home': typeof StartSuitSareeBusinessFromHomeRoute
+  '/surat-dress-material-wholesale-market-online': typeof SuratDressMaterialWholesaleMarketOnlineRoute
   '/unstitched-suits-wholesale-surat': typeof UnstitchedSuitsWholesaleSuratRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/hi/about': typeof HiAboutRoute
@@ -276,6 +293,7 @@ export interface FileRoutesByTo {
   '/hi/reseller-circle': typeof HiResellerCircleRoute
   '/hi/saree-wholesale-for-resellers': typeof HiSareeWholesaleForResellersRoute
   '/hi/start-suit-saree-business-from-home': typeof HiStartSuitSareeBusinessFromHomeRoute
+  '/hi/surat-dress-material-wholesale-market-online': typeof HiSuratDressMaterialWholesaleMarketOnlineRoute
   '/hi/unstitched-suits-wholesale-surat': typeof HiUnstitchedSuitsWholesaleSuratRoute
   '/blog': typeof BlogIndexRoute
   '/hi/blog/$slug': typeof HiBlogSlugRoute
@@ -297,6 +315,7 @@ export interface FileRoutesById {
   '/reseller-circle': typeof ResellerCircleRoute
   '/saree-wholesale-for-resellers': typeof SareeWholesaleForResellersRoute
   '/start-suit-saree-business-from-home': typeof StartSuitSareeBusinessFromHomeRoute
+  '/surat-dress-material-wholesale-market-online': typeof SuratDressMaterialWholesaleMarketOnlineRoute
   '/unstitched-suits-wholesale-surat': typeof UnstitchedSuitsWholesaleSuratRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/hi_/about': typeof HiAboutRoute
@@ -310,6 +329,7 @@ export interface FileRoutesById {
   '/hi_/reseller-circle': typeof HiResellerCircleRoute
   '/hi_/saree-wholesale-for-resellers': typeof HiSareeWholesaleForResellersRoute
   '/hi_/start-suit-saree-business-from-home': typeof HiStartSuitSareeBusinessFromHomeRoute
+  '/hi_/surat-dress-material-wholesale-market-online': typeof HiSuratDressMaterialWholesaleMarketOnlineRoute
   '/hi_/unstitched-suits-wholesale-surat': typeof HiUnstitchedSuitsWholesaleSuratRoute
   '/blog/': typeof BlogIndexRoute
   '/hi_/blog/$slug': typeof HiBlogSlugRoute
@@ -332,6 +352,7 @@ export interface FileRouteTypes {
     | '/reseller-circle'
     | '/saree-wholesale-for-resellers'
     | '/start-suit-saree-business-from-home'
+    | '/surat-dress-material-wholesale-market-online'
     | '/unstitched-suits-wholesale-surat'
     | '/blog/$slug'
     | '/hi/about'
@@ -345,6 +366,7 @@ export interface FileRouteTypes {
     | '/hi/reseller-circle'
     | '/hi/saree-wholesale-for-resellers'
     | '/hi/start-suit-saree-business-from-home'
+    | '/hi/surat-dress-material-wholesale-market-online'
     | '/hi/unstitched-suits-wholesale-surat'
     | '/blog/'
     | '/hi/blog/$slug'
@@ -365,6 +387,7 @@ export interface FileRouteTypes {
     | '/reseller-circle'
     | '/saree-wholesale-for-resellers'
     | '/start-suit-saree-business-from-home'
+    | '/surat-dress-material-wholesale-market-online'
     | '/unstitched-suits-wholesale-surat'
     | '/blog/$slug'
     | '/hi/about'
@@ -378,6 +401,7 @@ export interface FileRouteTypes {
     | '/hi/reseller-circle'
     | '/hi/saree-wholesale-for-resellers'
     | '/hi/start-suit-saree-business-from-home'
+    | '/hi/surat-dress-material-wholesale-market-online'
     | '/hi/unstitched-suits-wholesale-surat'
     | '/blog'
     | '/hi/blog/$slug'
@@ -398,6 +422,7 @@ export interface FileRouteTypes {
     | '/reseller-circle'
     | '/saree-wholesale-for-resellers'
     | '/start-suit-saree-business-from-home'
+    | '/surat-dress-material-wholesale-market-online'
     | '/unstitched-suits-wholesale-surat'
     | '/blog/$slug'
     | '/hi_/about'
@@ -411,6 +436,7 @@ export interface FileRouteTypes {
     | '/hi_/reseller-circle'
     | '/hi_/saree-wholesale-for-resellers'
     | '/hi_/start-suit-saree-business-from-home'
+    | '/hi_/surat-dress-material-wholesale-market-online'
     | '/hi_/unstitched-suits-wholesale-surat'
     | '/blog/'
     | '/hi_/blog/$slug'
@@ -432,6 +458,7 @@ export interface RootRouteChildren {
   ResellerCircleRoute: typeof ResellerCircleRoute
   SareeWholesaleForResellersRoute: typeof SareeWholesaleForResellersRoute
   StartSuitSareeBusinessFromHomeRoute: typeof StartSuitSareeBusinessFromHomeRoute
+  SuratDressMaterialWholesaleMarketOnlineRoute: typeof SuratDressMaterialWholesaleMarketOnlineRoute
   UnstitchedSuitsWholesaleSuratRoute: typeof UnstitchedSuitsWholesaleSuratRoute
   BlogSlugRoute: typeof BlogSlugRoute
   HiAboutRoute: typeof HiAboutRoute
@@ -445,6 +472,7 @@ export interface RootRouteChildren {
   HiResellerCircleRoute: typeof HiResellerCircleRoute
   HiSareeWholesaleForResellersRoute: typeof HiSareeWholesaleForResellersRoute
   HiStartSuitSareeBusinessFromHomeRoute: typeof HiStartSuitSareeBusinessFromHomeRoute
+  HiSuratDressMaterialWholesaleMarketOnlineRoute: typeof HiSuratDressMaterialWholesaleMarketOnlineRoute
   HiUnstitchedSuitsWholesaleSuratRoute: typeof HiUnstitchedSuitsWholesaleSuratRoute
   BlogIndexRoute: typeof BlogIndexRoute
   HiBlogSlugRoute: typeof HiBlogSlugRoute
@@ -551,6 +579,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof StartSuitSareeBusinessFromHomeRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/surat-dress-material-wholesale-market-online': {
+      id: '/surat-dress-material-wholesale-market-online'
+      path: '/surat-dress-material-wholesale-market-online'
+      fullPath: '/surat-dress-material-wholesale-market-online'
+      preLoaderRoute: typeof SuratDressMaterialWholesaleMarketOnlineRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/unstitched-suits-wholesale-surat': {
       id: '/unstitched-suits-wholesale-surat'
       path: '/unstitched-suits-wholesale-surat'
@@ -649,6 +684,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HiStartSuitSareeBusinessFromHomeRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/hi_/surat-dress-material-wholesale-market-online': {
+      id: '/hi_/surat-dress-material-wholesale-market-online'
+      path: '/hi/surat-dress-material-wholesale-market-online'
+      fullPath: '/hi/surat-dress-material-wholesale-market-online'
+      preLoaderRoute: typeof HiSuratDressMaterialWholesaleMarketOnlineRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/hi_/unstitched-suits-wholesale-surat': {
       id: '/hi_/unstitched-suits-wholesale-surat'
       path: '/hi/unstitched-suits-wholesale-surat'
@@ -690,6 +732,8 @@ const rootRouteChildren: RootRouteChildren = {
   ResellerCircleRoute: ResellerCircleRoute,
   SareeWholesaleForResellersRoute: SareeWholesaleForResellersRoute,
   StartSuitSareeBusinessFromHomeRoute: StartSuitSareeBusinessFromHomeRoute,
+  SuratDressMaterialWholesaleMarketOnlineRoute:
+    SuratDressMaterialWholesaleMarketOnlineRoute,
   UnstitchedSuitsWholesaleSuratRoute: UnstitchedSuitsWholesaleSuratRoute,
   BlogSlugRoute: BlogSlugRoute,
   HiAboutRoute: HiAboutRoute,
@@ -706,6 +750,8 @@ const rootRouteChildren: RootRouteChildren = {
   HiResellerCircleRoute: HiResellerCircleRoute,
   HiSareeWholesaleForResellersRoute: HiSareeWholesaleForResellersRoute,
   HiStartSuitSareeBusinessFromHomeRoute: HiStartSuitSareeBusinessFromHomeRoute,
+  HiSuratDressMaterialWholesaleMarketOnlineRoute:
+    HiSuratDressMaterialWholesaleMarketOnlineRoute,
   HiUnstitchedSuitsWholesaleSuratRoute: HiUnstitchedSuitsWholesaleSuratRoute,
   BlogIndexRoute: BlogIndexRoute,
   HiBlogSlugRoute: HiBlogSlugRoute,

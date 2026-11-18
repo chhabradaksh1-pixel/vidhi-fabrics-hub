@@ -26,6 +26,7 @@ they first reached the site in that browser session.
 | GUI  | Home business guide `/start-suit-saree-business-from-home`               |
 | PBG  | Polyester saree buying guide `/how-to-buy-polyester-sarees-wholesale-surat` |
 | DMG  | Dress material and unstitched suit buying guide `/how-to-buy-dress-material-unstitched-suits-wholesale-surat-online` |
+| SDM  | Surat dress material wholesale market guide `/surat-dress-material-wholesale-market-online` |
 | FAQ  | FAQ page `/faq`. The WhatsApp button on that page sends `(ref: FAQ)` with no source suffix. |
 | ERR  | "Page not found" (404) page, at any mistyped or old URL                  |
 | OTH  | Any other page                                                           |
@@ -36,7 +37,7 @@ they first reached the site in that browser session.
 | SEARCH | Not a page. Homepage smart search WhatsApp button only (no source suffix: the message ends `(ref: SEARCH)`) |
 
 Hindi pages add **H** to the page code: HOMH, SARH, USUH, DRSH, BLGH, BLIH, ABTH, RESH, ORGH,
-FESH, COMH, GUIH, PBGH, DMGH, FAQH, ERRH (a 404 under `/hi/...`). PSAREE, USUIT, SEARCH and the FAQ button ref stay the same on the Hindi pages.
+FESH, COMH, GUIH, PBGH, DMGH, SDMH, FAQH, ERRH (a 404 under `/hi/...`). PSAREE, USUIT, SEARCH and the FAQ button ref stay the same on the Hindi pages.
 
 The Reseller Circle join form sends `form=reseller-circle` with `ref_code` such
 as `COM-IG`. This means the person _asked to join_ from the website. It is not

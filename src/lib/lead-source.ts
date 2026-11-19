@@ -45,6 +45,7 @@ export function pageCode(pathname: string): string {
   else if (rest === "/how-to-buy-polyester-sarees-wholesale-surat") code = "PBG";
   else if (rest === "/how-to-buy-dress-material-unstitched-suits-wholesale-surat-online")
     code = "DMG";
+  else if (rest === "/surat-dress-material-wholesale-market-online") code = "SDM";
   else if (rest === "/faq") code = "FAQ";
 
   return hindi ? `${code}H` : code;

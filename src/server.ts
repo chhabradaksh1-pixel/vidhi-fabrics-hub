@@ -3,7 +3,7 @@ import "./lib/error-capture";
 import { consumeLastCapturedError } from "./lib/error-capture";
 import { renderErrorPage } from "./lib/error-page";
 import { applyEdgePolicy, canonicalHostRedirect, lovableRedirect } from "./lib/edge-policy";
-import { shortRedirectResponse } from "./lib/short-redirects";
+import { legacyRedirectResponse, shortRedirectResponse } from "./lib/short-redirects";
 
 type ServerEntry = {
   fetch: (request: Request, env: unknown, ctx: unknown) => Promise<Response> | Response;
@@ -71,7 +71,7 @@ export default {
       if (lovable) return lovable;
       const canonical = canonicalHostRedirect(request, url);
       if (canonical) return canonical;
-      const redirect = shortRedirectResponse(url);
+      const redirect = shortRedirectResponse(url) ?? legacyRedirectResponse(url);
       if (redirect) return redirect;
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);

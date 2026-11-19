@@ -31,8 +31,54 @@ const SHORT_PATHS: Record<string, string> = {
   "/karva-chauth": "/diwali-karva-chauth-wholesale-surat",
 };
 
+/**
+ * Old addresses that now 404, including paths Google has already crawled.
+ * These are 301s (not the 308 used for the short marketing aliases above).
+ * A Hindi prefix is kept when the target has a Hindi page. Privacy stays on
+ * the English page, because that policy is English only.
+ */
+const LEGACY_PATHS: Record<string, string> = {
+  "/fabrics": "/",
+  "/fabric": "/",
+  "/products": "/",
+  "/product": "/",
+  "/catalogue": "/",
+  "/catalog": "/",
+  "/shop": "/",
+  "/collections": "/",
+  "/collection": "/",
+  "/wholesale": "/",
+  "/suits": "/unstitched-suits-wholesale-surat",
+  "/suit": "/unstitched-suits-wholesale-surat",
+  "/unstitched-suits": "/unstitched-suits-wholesale-surat",
+  "/unstitched-suit": "/unstitched-suits-wholesale-surat",
+  "/about-us": "/about",
+  "/aboutus": "/about",
+  "/contact": "/",
+  "/contact-us": "/",
+  "/privacy": "/privacy-policy",
+};
+
+const LEGACY_ENGLISH_ONLY = new Set(["/privacy"]);
+
 /** 308 is the permanent redirect that keeps the request method. */
 export const SHORT_REDIRECT_STATUS = 308;
+
+/** 301 for retired URLs, so Google can drop the old address. */
+export const LEGACY_REDIRECT_STATUS = 301;
+
+/** Target for a retired URL, or null. Keeps a Hindi prefix when the page exists in Hindi. */
+export function legacyRedirectTarget(pathname: string): string | null {
+  const clean = pathname.toLowerCase().replace(/\/+$/, "") || "/";
+  const hindi = clean.startsWith("/hi/");
+  const key = hindi ? clean.slice(3) : clean;
+  const target = LEGACY_PATHS[key];
+  if (!target) return null;
+  if (hindi && !LEGACY_ENGLISH_ONLY.has(key)) {
+    return target === "/" ? "/hi" : `/hi${target}`;
+  }
+  return target;
+}
 
 /** Target path for a short URL (EN or /hi), or null if it isn't one. */
 export function shortRedirectTarget(pathname: string): string | null {
@@ -53,6 +99,19 @@ export function shortRedirectResponse(url: URL): Response | null {
     headers: {
       location: `${target}${url.search}`,
       "cache-control": "public, max-age=3600",
+    },
+  });
+}
+
+/** 301 for a retired URL, or null. Keeps the query string. */
+export function legacyRedirectResponse(url: URL): Response | null {
+  const target = legacyRedirectTarget(url.pathname);
+  if (!target) return null;
+  return new Response(null, {
+    status: LEGACY_REDIRECT_STATUS,
+    headers: {
+      location: `${target}${url.search}`,
+      "cache-control": "public, max-age=86400",
     },
   });
 }
